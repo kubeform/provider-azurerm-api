@@ -32,7 +32,7 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecBgpSettingsInstance1BGPPeeringAddress{}).Type1()): GatewaySpecBgpSettingsInstance1BGPPeeringAddressCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecIpsecPolicy{}).Type1()):               ServerConfigurationSpecIpsecPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadius{}).Type1()):                    ServerConfigurationSpecRadiusCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadiusServer{}).Type1()):              ServerConfigurationSpecRadiusServerCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadiusServer2{}).Type1()):             ServerConfigurationSpecRadiusServer2Codec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SiteSpecLinkBgp{}).Type1()):                                  SiteSpecLinkBgpCodec{},
 	}
 }
@@ -44,7 +44,7 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecBgpSettingsInstance1BGPPeeringAddress{}).Type1()): GatewaySpecBgpSettingsInstance1BGPPeeringAddressCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecIpsecPolicy{}).Type1()):               ServerConfigurationSpecIpsecPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadius{}).Type1()):                    ServerConfigurationSpecRadiusCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadiusServer{}).Type1()):              ServerConfigurationSpecRadiusServerCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadiusServer2{}).Type1()):             ServerConfigurationSpecRadiusServer2Codec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SiteSpecLinkBgp{}).Type1()):                                  SiteSpecLinkBgpCodec{},
 	}
 }
@@ -457,18 +457,18 @@ func (ServerConfigurationSpecRadiusCodec) Decode(ptr unsafe.Pointer, iter *jsoni
 }
 
 // +k8s:deepcopy-gen=false
-type ServerConfigurationSpecRadiusServerCodec struct {
+type ServerConfigurationSpecRadiusServer2Codec struct {
 }
 
-func (ServerConfigurationSpecRadiusServerCodec) IsEmpty(ptr unsafe.Pointer) bool {
-	return (*ServerConfigurationSpecRadiusServer)(ptr) == nil
+func (ServerConfigurationSpecRadiusServer2Codec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*ServerConfigurationSpecRadiusServer2)(ptr) == nil
 }
 
-func (ServerConfigurationSpecRadiusServerCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-	obj := (*ServerConfigurationSpecRadiusServer)(ptr)
-	var objs []ServerConfigurationSpecRadiusServer
+func (ServerConfigurationSpecRadiusServer2Codec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*ServerConfigurationSpecRadiusServer2)(ptr)
+	var objs []ServerConfigurationSpecRadiusServer2
 	if obj != nil {
-		objs = []ServerConfigurationSpecRadiusServer{*obj}
+		objs = []ServerConfigurationSpecRadiusServer2{*obj}
 	}
 
 	jsonit := jsoniter.Config{
@@ -476,7 +476,7 @@ func (ServerConfigurationSpecRadiusServerCodec) Encode(ptr unsafe.Pointer, strea
 		SortMapKeys:            true,
 		ValidateJsonRawMessage: true,
 		TagKey:                 "tf",
-		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadiusServer{}).Type1())),
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadiusServer2{}).Type1())),
 	}.Froze()
 
 	byt, _ := jsonit.Marshal(objs)
@@ -484,54 +484,54 @@ func (ServerConfigurationSpecRadiusServerCodec) Encode(ptr unsafe.Pointer, strea
 	stream.Write(byt)
 }
 
-func (ServerConfigurationSpecRadiusServerCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+func (ServerConfigurationSpecRadiusServer2Codec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 	switch iter.WhatIsNext() {
 	case jsoniter.NilValue:
 		iter.Skip()
-		*(*ServerConfigurationSpecRadiusServer)(ptr) = ServerConfigurationSpecRadiusServer{}
+		*(*ServerConfigurationSpecRadiusServer2)(ptr) = ServerConfigurationSpecRadiusServer2{}
 		return
 	case jsoniter.ArrayValue:
 		objsByte := iter.SkipAndReturnBytes()
 		if len(objsByte) > 0 {
-			var objs []ServerConfigurationSpecRadiusServer
+			var objs []ServerConfigurationSpecRadiusServer2
 
 			jsonit := jsoniter.Config{
 				EscapeHTML:             true,
 				SortMapKeys:            true,
 				ValidateJsonRawMessage: true,
 				TagKey:                 "tf",
-				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadiusServer{}).Type1())),
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadiusServer2{}).Type1())),
 			}.Froze()
 			jsonit.Unmarshal(objsByte, &objs)
 
 			if len(objs) > 0 {
-				*(*ServerConfigurationSpecRadiusServer)(ptr) = objs[0]
+				*(*ServerConfigurationSpecRadiusServer2)(ptr) = objs[0]
 			} else {
-				*(*ServerConfigurationSpecRadiusServer)(ptr) = ServerConfigurationSpecRadiusServer{}
+				*(*ServerConfigurationSpecRadiusServer2)(ptr) = ServerConfigurationSpecRadiusServer2{}
 			}
 		} else {
-			*(*ServerConfigurationSpecRadiusServer)(ptr) = ServerConfigurationSpecRadiusServer{}
+			*(*ServerConfigurationSpecRadiusServer2)(ptr) = ServerConfigurationSpecRadiusServer2{}
 		}
 	case jsoniter.ObjectValue:
 		objByte := iter.SkipAndReturnBytes()
 		if len(objByte) > 0 {
-			var obj ServerConfigurationSpecRadiusServer
+			var obj ServerConfigurationSpecRadiusServer2
 
 			jsonit := jsoniter.Config{
 				EscapeHTML:             true,
 				SortMapKeys:            true,
 				ValidateJsonRawMessage: true,
 				TagKey:                 "tf",
-				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadiusServer{}).Type1())),
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadiusServer2{}).Type1())),
 			}.Froze()
 			jsonit.Unmarshal(objByte, &obj)
 
-			*(*ServerConfigurationSpecRadiusServer)(ptr) = obj
+			*(*ServerConfigurationSpecRadiusServer2)(ptr) = obj
 		} else {
-			*(*ServerConfigurationSpecRadiusServer)(ptr) = ServerConfigurationSpecRadiusServer{}
+			*(*ServerConfigurationSpecRadiusServer2)(ptr) = ServerConfigurationSpecRadiusServer2{}
 		}
 	default:
-		iter.ReportError("decode ServerConfigurationSpecRadiusServer", "unexpected JSON type")
+		iter.ReportError("decode ServerConfigurationSpecRadiusServer2", "unexpected JSON type")
 	}
 }
 
