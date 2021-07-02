@@ -18,6 +18,11 @@ limitations under the License.
 
 package provider
 
+type AzurermSpecFeaturesCognitiveAccount struct {
+	// +optional
+	PurgeSoftDeleteOnDestroy *bool `json:"purgeSoftDeleteOnDestroy,omitempty" tf:"purge_soft_delete_on_destroy"`
+}
+
 type AzurermSpecFeaturesKeyVault struct {
 	// +optional
 	PurgeSoftDeleteOnDestroy *bool `json:"purgeSoftDeleteOnDestroy,omitempty" tf:"purge_soft_delete_on_destroy"`
@@ -53,6 +58,8 @@ type AzurermSpecFeaturesVirtualMachineScaleSet struct {
 }
 
 type AzurermSpecFeatures struct {
+	// +optional
+	CognitiveAccount *AzurermSpecFeaturesCognitiveAccount `json:"cognitiveAccount,omitempty" tf:"cognitive_account"`
 	// +optional
 	KeyVault *AzurermSpecFeaturesKeyVault `json:"keyVault,omitempty" tf:"key_vault"`
 	// +optional

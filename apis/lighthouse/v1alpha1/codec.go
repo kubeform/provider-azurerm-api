@@ -19,15 +19,22 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"unsafe"
+
 	jsoniter "github.com/json-iterator/go"
+	"github.com/modern-go/reflect2"
 )
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
-	return map[string]jsoniter.ValEncoder{}
+	return map[string]jsoniter.ValEncoder{
+		jsoniter.MustGetKind(reflect2.TypeOf(DefinitionSpecPlan{}).Type1()): DefinitionSpecPlanCodec{},
+	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
-	return map[string]jsoniter.ValDecoder{}
+	return map[string]jsoniter.ValDecoder{
+		jsoniter.MustGetKind(reflect2.TypeOf(DefinitionSpecPlan{}).Type1()): DefinitionSpecPlanCodec{},
+	}
 }
 
 func getEncodersWithout(typ string) map[string]jsoniter.ValEncoder {
@@ -40,4 +47,83 @@ func getDecodersWithout(typ string) map[string]jsoniter.ValDecoder {
 	origMap := GetDecoder()
 	delete(origMap, typ)
 	return origMap
+}
+
+// +k8s:deepcopy-gen=false
+type DefinitionSpecPlanCodec struct {
+}
+
+func (DefinitionSpecPlanCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*DefinitionSpecPlan)(ptr) == nil
+}
+
+func (DefinitionSpecPlanCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*DefinitionSpecPlan)(ptr)
+	var objs []DefinitionSpecPlan
+	if obj != nil {
+		objs = []DefinitionSpecPlan{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DefinitionSpecPlan{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (DefinitionSpecPlanCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*DefinitionSpecPlan)(ptr) = DefinitionSpecPlan{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []DefinitionSpecPlan
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DefinitionSpecPlan{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*DefinitionSpecPlan)(ptr) = objs[0]
+			} else {
+				*(*DefinitionSpecPlan)(ptr) = DefinitionSpecPlan{}
+			}
+		} else {
+			*(*DefinitionSpecPlan)(ptr) = DefinitionSpecPlan{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj DefinitionSpecPlan
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DefinitionSpecPlan{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*DefinitionSpecPlan)(ptr) = obj
+		} else {
+			*(*DefinitionSpecPlan)(ptr) = DefinitionSpecPlan{}
+		}
+	default:
+		iter.ReportError("decode DefinitionSpecPlan", "unexpected JSON type")
+	}
 }

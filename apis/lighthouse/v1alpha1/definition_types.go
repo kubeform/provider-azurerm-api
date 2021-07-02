@@ -50,6 +50,13 @@ type DefinitionSpecAuthorization struct {
 	RoleDefinitionID     *string `json:"roleDefinitionID" tf:"role_definition_id"`
 }
 
+type DefinitionSpecPlan struct {
+	Name      *string `json:"name" tf:"name"`
+	Product   *string `json:"product" tf:"product"`
+	Publisher *string `json:"publisher" tf:"publisher"`
+	Version   *string `json:"version" tf:"version"`
+}
+
 type DefinitionSpec struct {
 	KubeformOutput *DefinitionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
 
@@ -75,7 +82,9 @@ type DefinitionSpecResource struct {
 	LighthouseDefinitionID *string `json:"lighthouseDefinitionID,omitempty" tf:"lighthouse_definition_id"`
 	ManagingTenantID       *string `json:"managingTenantID" tf:"managing_tenant_id"`
 	Name                   *string `json:"name" tf:"name"`
-	Scope                  *string `json:"scope" tf:"scope"`
+	// +optional
+	Plan  *DefinitionSpecPlan `json:"plan,omitempty" tf:"plan"`
+	Scope *string             `json:"scope" tf:"scope"`
 }
 
 type DefinitionStatus struct {

@@ -264,7 +264,11 @@ type KubernetesClusterSpecDefaultNodePool struct {
 	// +optional
 	EnableNodePublicIP *bool `json:"enableNodePublicIP,omitempty" tf:"enable_node_public_ip"`
 	// +optional
+	FipsEnabled *bool `json:"fipsEnabled,omitempty" tf:"fips_enabled"`
+	// +optional
 	KubeletConfig *KubernetesClusterSpecDefaultNodePoolKubeletConfig `json:"kubeletConfig,omitempty" tf:"kubelet_config"`
+	// +optional
+	KubeletDiskType *string `json:"kubeletDiskType,omitempty" tf:"kubelet_disk_type"`
 	// +optional
 	LinuxOsConfig *KubernetesClusterSpecDefaultNodePoolLinuxOsConfig `json:"linuxOsConfig,omitempty" tf:"linux_os_config"`
 	// +optional
@@ -430,6 +434,8 @@ type KubernetesClusterSpecWindowsProfile struct {
 	// +optional
 	AdminPassword *string `json:"-" sensitive:"true" tf:"admin_password"`
 	AdminUsername *string `json:"adminUsername" tf:"admin_username"`
+	// +optional
+	License *string `json:"license,omitempty" tf:"license"`
 }
 
 type KubernetesClusterSpec struct {

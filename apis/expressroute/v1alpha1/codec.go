@@ -27,25 +27,29 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(CircuitSpecSku{}).Type1()):                           CircuitSpecSkuCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(CircuitPeeringSpecIpv6{}).Type1()):                   CircuitPeeringSpecIpv6Codec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(CircuitPeeringSpecIpv6MicrosoftPeering{}).Type1()):   CircuitPeeringSpecIpv6MicrosoftPeeringCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(CircuitPeeringSpecMicrosoftPeeringConfig{}).Type1()): CircuitPeeringSpecMicrosoftPeeringConfigCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(PortSpecIdentity{}).Type1()):                         PortSpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(PortSpecLink1{}).Type1()):                            PortSpecLink1Codec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(PortSpecLink2{}).Type1()):                            PortSpecLink2Codec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CircuitSpecSku{}).Type1()):                            CircuitSpecSkuCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CircuitPeeringSpecIpv6{}).Type1()):                    CircuitPeeringSpecIpv6Codec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CircuitPeeringSpecIpv6MicrosoftPeering{}).Type1()):    CircuitPeeringSpecIpv6MicrosoftPeeringCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CircuitPeeringSpecMicrosoftPeeringConfig{}).Type1()):  CircuitPeeringSpecMicrosoftPeeringConfigCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ConnectionSpecRouting{}).Type1()):                     ConnectionSpecRoutingCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ConnectionSpecRoutingPropagatedRouteTable{}).Type1()): ConnectionSpecRoutingPropagatedRouteTableCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PortSpecIdentity{}).Type1()):                          PortSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PortSpecLink1{}).Type1()):                             PortSpecLink1Codec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PortSpecLink2{}).Type1()):                             PortSpecLink2Codec{},
 	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(CircuitSpecSku{}).Type1()):                           CircuitSpecSkuCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(CircuitPeeringSpecIpv6{}).Type1()):                   CircuitPeeringSpecIpv6Codec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(CircuitPeeringSpecIpv6MicrosoftPeering{}).Type1()):   CircuitPeeringSpecIpv6MicrosoftPeeringCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(CircuitPeeringSpecMicrosoftPeeringConfig{}).Type1()): CircuitPeeringSpecMicrosoftPeeringConfigCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(PortSpecIdentity{}).Type1()):                         PortSpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(PortSpecLink1{}).Type1()):                            PortSpecLink1Codec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(PortSpecLink2{}).Type1()):                            PortSpecLink2Codec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CircuitSpecSku{}).Type1()):                            CircuitSpecSkuCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CircuitPeeringSpecIpv6{}).Type1()):                    CircuitPeeringSpecIpv6Codec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CircuitPeeringSpecIpv6MicrosoftPeering{}).Type1()):    CircuitPeeringSpecIpv6MicrosoftPeeringCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CircuitPeeringSpecMicrosoftPeeringConfig{}).Type1()):  CircuitPeeringSpecMicrosoftPeeringConfigCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ConnectionSpecRouting{}).Type1()):                     ConnectionSpecRoutingCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ConnectionSpecRoutingPropagatedRouteTable{}).Type1()): ConnectionSpecRoutingPropagatedRouteTableCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PortSpecIdentity{}).Type1()):                          PortSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PortSpecLink1{}).Type1()):                             PortSpecLink1Codec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PortSpecLink2{}).Type1()):                             PortSpecLink2Codec{},
 	}
 }
 
@@ -374,6 +378,164 @@ func (CircuitPeeringSpecMicrosoftPeeringConfigCodec) Decode(ptr unsafe.Pointer, 
 		}
 	default:
 		iter.ReportError("decode CircuitPeeringSpecMicrosoftPeeringConfig", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type ConnectionSpecRoutingCodec struct {
+}
+
+func (ConnectionSpecRoutingCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*ConnectionSpecRouting)(ptr) == nil
+}
+
+func (ConnectionSpecRoutingCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*ConnectionSpecRouting)(ptr)
+	var objs []ConnectionSpecRouting
+	if obj != nil {
+		objs = []ConnectionSpecRouting{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ConnectionSpecRouting{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (ConnectionSpecRoutingCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*ConnectionSpecRouting)(ptr) = ConnectionSpecRouting{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []ConnectionSpecRouting
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ConnectionSpecRouting{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*ConnectionSpecRouting)(ptr) = objs[0]
+			} else {
+				*(*ConnectionSpecRouting)(ptr) = ConnectionSpecRouting{}
+			}
+		} else {
+			*(*ConnectionSpecRouting)(ptr) = ConnectionSpecRouting{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj ConnectionSpecRouting
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ConnectionSpecRouting{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*ConnectionSpecRouting)(ptr) = obj
+		} else {
+			*(*ConnectionSpecRouting)(ptr) = ConnectionSpecRouting{}
+		}
+	default:
+		iter.ReportError("decode ConnectionSpecRouting", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type ConnectionSpecRoutingPropagatedRouteTableCodec struct {
+}
+
+func (ConnectionSpecRoutingPropagatedRouteTableCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*ConnectionSpecRoutingPropagatedRouteTable)(ptr) == nil
+}
+
+func (ConnectionSpecRoutingPropagatedRouteTableCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*ConnectionSpecRoutingPropagatedRouteTable)(ptr)
+	var objs []ConnectionSpecRoutingPropagatedRouteTable
+	if obj != nil {
+		objs = []ConnectionSpecRoutingPropagatedRouteTable{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ConnectionSpecRoutingPropagatedRouteTable{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (ConnectionSpecRoutingPropagatedRouteTableCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*ConnectionSpecRoutingPropagatedRouteTable)(ptr) = ConnectionSpecRoutingPropagatedRouteTable{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []ConnectionSpecRoutingPropagatedRouteTable
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ConnectionSpecRoutingPropagatedRouteTable{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*ConnectionSpecRoutingPropagatedRouteTable)(ptr) = objs[0]
+			} else {
+				*(*ConnectionSpecRoutingPropagatedRouteTable)(ptr) = ConnectionSpecRoutingPropagatedRouteTable{}
+			}
+		} else {
+			*(*ConnectionSpecRoutingPropagatedRouteTable)(ptr) = ConnectionSpecRoutingPropagatedRouteTable{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj ConnectionSpecRoutingPropagatedRouteTable
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ConnectionSpecRoutingPropagatedRouteTable{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*ConnectionSpecRoutingPropagatedRouteTable)(ptr) = obj
+		} else {
+			*(*ConnectionSpecRoutingPropagatedRouteTable)(ptr) = ConnectionSpecRoutingPropagatedRouteTable{}
+		}
+	default:
+		iter.ReportError("decode ConnectionSpecRoutingPropagatedRouteTable", "unexpected JSON type")
 	}
 }
 

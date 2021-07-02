@@ -44,9 +44,11 @@ type ReplicatedVm struct {
 type ReplicatedVmSpecManagedDisk struct {
 	DiskID                  *string `json:"diskID" tf:"disk_id"`
 	StagingStorageAccountID *string `json:"stagingStorageAccountID" tf:"staging_storage_account_id"`
-	TargetDiskType          *string `json:"targetDiskType" tf:"target_disk_type"`
-	TargetReplicaDiskType   *string `json:"targetReplicaDiskType" tf:"target_replica_disk_type"`
-	TargetResourceGroupID   *string `json:"targetResourceGroupID" tf:"target_resource_group_id"`
+	// +optional
+	TargetDiskEncryptionSetID *string `json:"targetDiskEncryptionSetID,omitempty" tf:"target_disk_encryption_set_id"`
+	TargetDiskType            *string `json:"targetDiskType" tf:"target_disk_type"`
+	TargetReplicaDiskType     *string `json:"targetReplicaDiskType" tf:"target_replica_disk_type"`
+	TargetResourceGroupID     *string `json:"targetResourceGroupID" tf:"target_resource_group_id"`
 }
 
 type ReplicatedVmSpecNetworkInterface struct {

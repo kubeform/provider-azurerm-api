@@ -82,8 +82,12 @@ type EndpointSpecResource struct {
 	// +optional
 	GeoMappings []string `json:"geoMappings,omitempty" tf:"geo_mappings"`
 	// +optional
-	MinChildEndpoints *int64  `json:"minChildEndpoints,omitempty" tf:"min_child_endpoints"`
-	Name              *string `json:"name" tf:"name"`
+	MinChildEndpoints *int64 `json:"minChildEndpoints,omitempty" tf:"min_child_endpoints"`
+	// +optional
+	MinimumRequiredChildEndpointsIpv4 *int64 `json:"minimumRequiredChildEndpointsIpv4,omitempty" tf:"minimum_required_child_endpoints_ipv4"`
+	// +optional
+	MinimumRequiredChildEndpointsIpv6 *int64  `json:"minimumRequiredChildEndpointsIpv6,omitempty" tf:"minimum_required_child_endpoints_ipv6"`
+	Name                              *string `json:"name" tf:"name"`
 	// +optional
 	Priority          *int64  `json:"priority,omitempty" tf:"priority"`
 	ProfileName       *string `json:"profileName" tf:"profile_name"`
