@@ -92,22 +92,22 @@ type ServerConfigurationSpecRadius struct {
 	ServerRootCertificate []ServerConfigurationSpecRadiusServerRootCertificate `json:"serverRootCertificate" tf:"server_root_certificate"`
 }
 
-type ServerConfigurationSpecRadiusServerClientRootCertificate struct {
+type ServerConfigurationSpecRadiusServer2ClientRootCertificate struct {
 	Name       *string `json:"name" tf:"name"`
 	Thumbprint *string `json:"thumbprint" tf:"thumbprint"`
 }
 
-type ServerConfigurationSpecRadiusServerServerRootCertificate struct {
+type ServerConfigurationSpecRadiusServer2ServerRootCertificate struct {
 	Name           *string `json:"name" tf:"name"`
 	PublicCertData *string `json:"publicCertData" tf:"public_cert_data"`
 }
 
-type ServerConfigurationSpecRadiusServer struct {
+type ServerConfigurationSpecRadiusServer2 struct {
 	Address *string `json:"address" tf:"address"`
 	// +optional
-	ClientRootCertificate []ServerConfigurationSpecRadiusServerClientRootCertificate `json:"clientRootCertificate,omitempty" tf:"client_root_certificate"`
-	Secret                *string                                                    `json:"-" sensitive:"true" tf:"secret"`
-	ServerRootCertificate []ServerConfigurationSpecRadiusServerServerRootCertificate `json:"serverRootCertificate" tf:"server_root_certificate"`
+	ClientRootCertificate []ServerConfigurationSpecRadiusServer2ClientRootCertificate `json:"clientRootCertificate,omitempty" tf:"client_root_certificate"`
+	Secret                *string                                                     `json:"-" sensitive:"true" tf:"secret"`
+	ServerRootCertificate []ServerConfigurationSpecRadiusServer2ServerRootCertificate `json:"serverRootCertificate" tf:"server_root_certificate"`
 }
 
 type ServerConfigurationSpec struct {
@@ -144,8 +144,8 @@ type ServerConfigurationSpecResource struct {
 	Radius *ServerConfigurationSpecRadius `json:"radius,omitempty" tf:"radius"`
 	// +optional
 	// Deprecated
-	RadiusServer      *ServerConfigurationSpecRadiusServer `json:"radiusServer,omitempty" tf:"radius_server"`
-	ResourceGroupName *string                              `json:"resourceGroupName" tf:"resource_group_name"`
+	RadiusServer2     *ServerConfigurationSpecRadiusServer2 `json:"radiusServer,omitempty" tf:"radius_server"`
+	ResourceGroupName *string                               `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	Tags                   *map[string]string `json:"tags,omitempty" tf:"tags"`
 	VpnAuthenticationTypes []string           `json:"vpnAuthenticationTypes" tf:"vpn_authentication_types"`
