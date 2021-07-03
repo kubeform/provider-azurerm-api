@@ -46,6 +46,14 @@ type EventSubscriptionSpecAdvancedFilterBoolEquals struct {
 	Value *bool   `json:"value" tf:"value"`
 }
 
+type EventSubscriptionSpecAdvancedFilterIsNotNull struct {
+	Key *string `json:"key" tf:"key"`
+}
+
+type EventSubscriptionSpecAdvancedFilterIsNullOrUndefined struct {
+	Key *string `json:"key" tf:"key"`
+}
+
 type EventSubscriptionSpecAdvancedFilterNumberGreaterThan struct {
 	Key   *string  `json:"key" tf:"key"`
 	Value *float64 `json:"value" tf:"value"`
@@ -62,6 +70,11 @@ type EventSubscriptionSpecAdvancedFilterNumberIn struct {
 	Values []float64 `json:"values" tf:"values"`
 }
 
+type EventSubscriptionSpecAdvancedFilterNumberInRange struct {
+	Key *string `json:"key" tf:"key"`
+	// +kubebuilder:validation:MaxItems=25
+}
+
 type EventSubscriptionSpecAdvancedFilterNumberLessThan struct {
 	Key   *string  `json:"key" tf:"key"`
 	Value *float64 `json:"value" tf:"value"`
@@ -76,6 +89,11 @@ type EventSubscriptionSpecAdvancedFilterNumberNotIn struct {
 	Key *string `json:"key" tf:"key"`
 	// +kubebuilder:validation:MaxItems=25
 	Values []float64 `json:"values" tf:"values"`
+}
+
+type EventSubscriptionSpecAdvancedFilterNumberNotInRange struct {
+	Key *string `json:"key" tf:"key"`
+	// +kubebuilder:validation:MaxItems=25
 }
 
 type EventSubscriptionSpecAdvancedFilterStringBeginsWith struct {
@@ -102,6 +120,24 @@ type EventSubscriptionSpecAdvancedFilterStringIn struct {
 	Values []string `json:"values" tf:"values"`
 }
 
+type EventSubscriptionSpecAdvancedFilterStringNotBeginsWith struct {
+	Key *string `json:"key" tf:"key"`
+	// +kubebuilder:validation:MaxItems=25
+	Values []string `json:"values" tf:"values"`
+}
+
+type EventSubscriptionSpecAdvancedFilterStringNotContains struct {
+	Key *string `json:"key" tf:"key"`
+	// +kubebuilder:validation:MaxItems=25
+	Values []string `json:"values" tf:"values"`
+}
+
+type EventSubscriptionSpecAdvancedFilterStringNotEndsWith struct {
+	Key *string `json:"key" tf:"key"`
+	// +kubebuilder:validation:MaxItems=25
+	Values []string `json:"values" tf:"values"`
+}
+
 type EventSubscriptionSpecAdvancedFilterStringNotIn struct {
 	Key *string `json:"key" tf:"key"`
 	// +kubebuilder:validation:MaxItems=25
@@ -112,17 +148,25 @@ type EventSubscriptionSpecAdvancedFilter struct {
 	// +optional
 	BoolEquals []EventSubscriptionSpecAdvancedFilterBoolEquals `json:"boolEquals,omitempty" tf:"bool_equals"`
 	// +optional
+	IsNotNull []EventSubscriptionSpecAdvancedFilterIsNotNull `json:"isNotNull,omitempty" tf:"is_not_null"`
+	// +optional
+	IsNullOrUndefined []EventSubscriptionSpecAdvancedFilterIsNullOrUndefined `json:"isNullOrUndefined,omitempty" tf:"is_null_or_undefined"`
+	// +optional
 	NumberGreaterThan []EventSubscriptionSpecAdvancedFilterNumberGreaterThan `json:"numberGreaterThan,omitempty" tf:"number_greater_than"`
 	// +optional
 	NumberGreaterThanOrEquals []EventSubscriptionSpecAdvancedFilterNumberGreaterThanOrEquals `json:"numberGreaterThanOrEquals,omitempty" tf:"number_greater_than_or_equals"`
 	// +optional
 	NumberIn []EventSubscriptionSpecAdvancedFilterNumberIn `json:"numberIn,omitempty" tf:"number_in"`
 	// +optional
+	NumberInRange []EventSubscriptionSpecAdvancedFilterNumberInRange `json:"numberInRange,omitempty" tf:"number_in_range"`
+	// +optional
 	NumberLessThan []EventSubscriptionSpecAdvancedFilterNumberLessThan `json:"numberLessThan,omitempty" tf:"number_less_than"`
 	// +optional
 	NumberLessThanOrEquals []EventSubscriptionSpecAdvancedFilterNumberLessThanOrEquals `json:"numberLessThanOrEquals,omitempty" tf:"number_less_than_or_equals"`
 	// +optional
 	NumberNotIn []EventSubscriptionSpecAdvancedFilterNumberNotIn `json:"numberNotIn,omitempty" tf:"number_not_in"`
+	// +optional
+	NumberNotInRange []EventSubscriptionSpecAdvancedFilterNumberNotInRange `json:"numberNotInRange,omitempty" tf:"number_not_in_range"`
 	// +optional
 	StringBeginsWith []EventSubscriptionSpecAdvancedFilterStringBeginsWith `json:"stringBeginsWith,omitempty" tf:"string_begins_with"`
 	// +optional
@@ -131,6 +175,12 @@ type EventSubscriptionSpecAdvancedFilter struct {
 	StringEndsWith []EventSubscriptionSpecAdvancedFilterStringEndsWith `json:"stringEndsWith,omitempty" tf:"string_ends_with"`
 	// +optional
 	StringIn []EventSubscriptionSpecAdvancedFilterStringIn `json:"stringIn,omitempty" tf:"string_in"`
+	// +optional
+	StringNotBeginsWith []EventSubscriptionSpecAdvancedFilterStringNotBeginsWith `json:"stringNotBeginsWith,omitempty" tf:"string_not_begins_with"`
+	// +optional
+	StringNotContains []EventSubscriptionSpecAdvancedFilterStringNotContains `json:"stringNotContains,omitempty" tf:"string_not_contains"`
+	// +optional
+	StringNotEndsWith []EventSubscriptionSpecAdvancedFilterStringNotEndsWith `json:"stringNotEndsWith,omitempty" tf:"string_not_ends_with"`
 	// +optional
 	StringNotIn []EventSubscriptionSpecAdvancedFilterStringNotIn `json:"stringNotIn,omitempty" tf:"string_not_in"`
 }

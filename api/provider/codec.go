@@ -28,6 +28,7 @@ import (
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeatures{}).Type1()):                       AzurermSpecFeaturesCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesCognitiveAccount{}).Type1()):       AzurermSpecFeaturesCognitiveAccountCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesKeyVault{}).Type1()):               AzurermSpecFeaturesKeyVaultCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesLogAnalyticsWorkspace{}).Type1()):  AzurermSpecFeaturesLogAnalyticsWorkspaceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesNetwork{}).Type1()):                AzurermSpecFeaturesNetworkCodec{},
@@ -40,6 +41,7 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeatures{}).Type1()):                       AzurermSpecFeaturesCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesCognitiveAccount{}).Type1()):       AzurermSpecFeaturesCognitiveAccountCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesKeyVault{}).Type1()):               AzurermSpecFeaturesKeyVaultCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesLogAnalyticsWorkspace{}).Type1()):  AzurermSpecFeaturesLogAnalyticsWorkspaceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesNetwork{}).Type1()):                AzurermSpecFeaturesNetworkCodec{},
@@ -137,6 +139,85 @@ func (AzurermSpecFeaturesCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterat
 		}
 	default:
 		iter.ReportError("decode AzurermSpecFeatures", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type AzurermSpecFeaturesCognitiveAccountCodec struct {
+}
+
+func (AzurermSpecFeaturesCognitiveAccountCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*AzurermSpecFeaturesCognitiveAccount)(ptr) == nil
+}
+
+func (AzurermSpecFeaturesCognitiveAccountCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*AzurermSpecFeaturesCognitiveAccount)(ptr)
+	var objs []AzurermSpecFeaturesCognitiveAccount
+	if obj != nil {
+		objs = []AzurermSpecFeaturesCognitiveAccount{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesCognitiveAccount{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (AzurermSpecFeaturesCognitiveAccountCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*AzurermSpecFeaturesCognitiveAccount)(ptr) = AzurermSpecFeaturesCognitiveAccount{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []AzurermSpecFeaturesCognitiveAccount
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesCognitiveAccount{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*AzurermSpecFeaturesCognitiveAccount)(ptr) = objs[0]
+			} else {
+				*(*AzurermSpecFeaturesCognitiveAccount)(ptr) = AzurermSpecFeaturesCognitiveAccount{}
+			}
+		} else {
+			*(*AzurermSpecFeaturesCognitiveAccount)(ptr) = AzurermSpecFeaturesCognitiveAccount{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj AzurermSpecFeaturesCognitiveAccount
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesCognitiveAccount{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*AzurermSpecFeaturesCognitiveAccount)(ptr) = obj
+		} else {
+			*(*AzurermSpecFeaturesCognitiveAccount)(ptr) = AzurermSpecFeaturesCognitiveAccount{}
+		}
+	default:
+		iter.ReportError("decode AzurermSpecFeaturesCognitiveAccount", "unexpected JSON type")
 	}
 }
 

@@ -74,8 +74,10 @@ type AccountSpecResource struct {
 	// +optional
 	PoolAllocationMode *string `json:"poolAllocationMode,omitempty" tf:"pool_allocation_mode"`
 	// +optional
-	PrimaryAccessKey  *string `json:"-" sensitive:"true" tf:"primary_access_key"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	PrimaryAccessKey *string `json:"-" sensitive:"true" tf:"primary_access_key"`
+	// +optional
+	PublicNetworkAccessEnabled *bool   `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
+	ResourceGroupName          *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	SecondaryAccessKey *string `json:"-" sensitive:"true" tf:"secondary_access_key"`
 	// +optional

@@ -90,7 +90,8 @@ type ApiSpecResource struct {
 	ApiManagementName *string `json:"apiManagementName" tf:"api_management_name"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
-	DisplayName *string `json:"displayName" tf:"display_name"`
+	// +optional
+	DisplayName *string `json:"displayName,omitempty" tf:"display_name"`
 	// +optional
 	Import *ApiSpecImport `json:"import,omitempty" tf:"import"`
 	// +optional
@@ -102,20 +103,28 @@ type ApiSpecResource struct {
 	Oauth2Authorization *ApiSpecOauth2Authorization `json:"oauth2Authorization,omitempty" tf:"oauth2_authorization"`
 	// +optional
 	OpenidAuthentication *ApiSpecOpenidAuthentication `json:"openidAuthentication,omitempty" tf:"openid_authentication"`
-	Path                 *string                      `json:"path" tf:"path"`
-	Protocols            []string                     `json:"protocols" tf:"protocols"`
-	ResourceGroupName    *string                      `json:"resourceGroupName" tf:"resource_group_name"`
-	Revision             *string                      `json:"revision" tf:"revision"`
+	// +optional
+	Path *string `json:"path,omitempty" tf:"path"`
+	// +optional
+	Protocols         []string `json:"protocols,omitempty" tf:"protocols"`
+	ResourceGroupName *string  `json:"resourceGroupName" tf:"resource_group_name"`
+	Revision          *string  `json:"revision" tf:"revision"`
+	// +optional
+	RevisionDescription *string `json:"revisionDescription,omitempty" tf:"revision_description"`
 	// +optional
 	ServiceURL *string `json:"serviceURL,omitempty" tf:"service_url"`
 	// +optional
 	SoapPassThrough *bool `json:"soapPassThrough,omitempty" tf:"soap_pass_through"`
+	// +optional
+	SourceAPIID *string `json:"sourceAPIID,omitempty" tf:"source_api_id"`
 	// +optional
 	SubscriptionKeyParameterNames *ApiSpecSubscriptionKeyParameterNames `json:"subscriptionKeyParameterNames,omitempty" tf:"subscription_key_parameter_names"`
 	// +optional
 	SubscriptionRequired *bool `json:"subscriptionRequired,omitempty" tf:"subscription_required"`
 	// +optional
 	Version *string `json:"version,omitempty" tf:"version"`
+	// +optional
+	VersionDescription *string `json:"versionDescription,omitempty" tf:"version_description"`
 	// +optional
 	VersionSetID *string `json:"versionSetID,omitempty" tf:"version_set_id"`
 }

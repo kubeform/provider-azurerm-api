@@ -168,8 +168,12 @@ type NodePoolSpecResource struct {
 	// +optional
 	EvictionPolicy *string `json:"evictionPolicy,omitempty" tf:"eviction_policy"`
 	// +optional
-	KubeletConfig       *NodePoolSpecKubeletConfig `json:"kubeletConfig,omitempty" tf:"kubelet_config"`
-	KubernetesClusterID *string                    `json:"kubernetesClusterID" tf:"kubernetes_cluster_id"`
+	FipsEnabled *bool `json:"fipsEnabled,omitempty" tf:"fips_enabled"`
+	// +optional
+	KubeletConfig *NodePoolSpecKubeletConfig `json:"kubeletConfig,omitempty" tf:"kubelet_config"`
+	// +optional
+	KubeletDiskType     *string `json:"kubeletDiskType,omitempty" tf:"kubelet_disk_type"`
+	KubernetesClusterID *string `json:"kubernetesClusterID" tf:"kubernetes_cluster_id"`
 	// +optional
 	LinuxOsConfig *NodePoolSpecLinuxOsConfig `json:"linuxOsConfig,omitempty" tf:"linux_os_config"`
 	// +optional

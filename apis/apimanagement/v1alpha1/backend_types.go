@@ -72,7 +72,10 @@ type BackendSpecServiceFabricClusterServerX509Name struct {
 }
 
 type BackendSpecServiceFabricCluster struct {
-	ClientCertificateThumbprint   *string  `json:"clientCertificateThumbprint" tf:"client_certificate_thumbprint"`
+	// +optional
+	ClientCertificateID *string `json:"clientCertificateID,omitempty" tf:"client_certificate_id"`
+	// +optional
+	ClientCertificateThumbprint   *string  `json:"clientCertificateThumbprint,omitempty" tf:"client_certificate_thumbprint"`
 	ManagementEndpoints           []string `json:"managementEndpoints" tf:"management_endpoints"`
 	MaxPartitionResolutionRetries *int64   `json:"maxPartitionResolutionRetries" tf:"max_partition_resolution_retries"`
 	// +optional

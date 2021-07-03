@@ -66,6 +66,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&ApiOperationList{},
 		&ApiOperationPolicy{},
 		&ApiOperationPolicyList{},
+		&ApiOperationTag{},
+		&ApiOperationTagList{},
 		&ApiPolicy{},
 		&ApiPolicyList{},
 		&ApiSchema{},

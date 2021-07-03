@@ -58,6 +58,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
 		&Group{},
 		&GroupList{},
+		&GroupPolicyAssignment{},
+		&GroupPolicyAssignmentList{},
 		&GroupSubscriptionAssociation{},
 		&GroupSubscriptionAssociationList{},
 		&GroupTemplateDeployment{},

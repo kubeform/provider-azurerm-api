@@ -46,6 +46,14 @@ type SystemTopicEventSubscriptionSpecAdvancedFilterBoolEquals struct {
 	Value *bool   `json:"value" tf:"value"`
 }
 
+type SystemTopicEventSubscriptionSpecAdvancedFilterIsNotNull struct {
+	Key *string `json:"key" tf:"key"`
+}
+
+type SystemTopicEventSubscriptionSpecAdvancedFilterIsNullOrUndefined struct {
+	Key *string `json:"key" tf:"key"`
+}
+
 type SystemTopicEventSubscriptionSpecAdvancedFilterNumberGreaterThan struct {
 	Key   *string  `json:"key" tf:"key"`
 	Value *float64 `json:"value" tf:"value"`
@@ -62,6 +70,11 @@ type SystemTopicEventSubscriptionSpecAdvancedFilterNumberIn struct {
 	Values []float64 `json:"values" tf:"values"`
 }
 
+type SystemTopicEventSubscriptionSpecAdvancedFilterNumberInRange struct {
+	Key *string `json:"key" tf:"key"`
+	// +kubebuilder:validation:MaxItems=25
+}
+
 type SystemTopicEventSubscriptionSpecAdvancedFilterNumberLessThan struct {
 	Key   *string  `json:"key" tf:"key"`
 	Value *float64 `json:"value" tf:"value"`
@@ -76,6 +89,11 @@ type SystemTopicEventSubscriptionSpecAdvancedFilterNumberNotIn struct {
 	Key *string `json:"key" tf:"key"`
 	// +kubebuilder:validation:MaxItems=25
 	Values []float64 `json:"values" tf:"values"`
+}
+
+type SystemTopicEventSubscriptionSpecAdvancedFilterNumberNotInRange struct {
+	Key *string `json:"key" tf:"key"`
+	// +kubebuilder:validation:MaxItems=25
 }
 
 type SystemTopicEventSubscriptionSpecAdvancedFilterStringBeginsWith struct {
@@ -102,6 +120,24 @@ type SystemTopicEventSubscriptionSpecAdvancedFilterStringIn struct {
 	Values []string `json:"values" tf:"values"`
 }
 
+type SystemTopicEventSubscriptionSpecAdvancedFilterStringNotBeginsWith struct {
+	Key *string `json:"key" tf:"key"`
+	// +kubebuilder:validation:MaxItems=25
+	Values []string `json:"values" tf:"values"`
+}
+
+type SystemTopicEventSubscriptionSpecAdvancedFilterStringNotContains struct {
+	Key *string `json:"key" tf:"key"`
+	// +kubebuilder:validation:MaxItems=25
+	Values []string `json:"values" tf:"values"`
+}
+
+type SystemTopicEventSubscriptionSpecAdvancedFilterStringNotEndsWith struct {
+	Key *string `json:"key" tf:"key"`
+	// +kubebuilder:validation:MaxItems=25
+	Values []string `json:"values" tf:"values"`
+}
+
 type SystemTopicEventSubscriptionSpecAdvancedFilterStringNotIn struct {
 	Key *string `json:"key" tf:"key"`
 	// +kubebuilder:validation:MaxItems=25
@@ -112,17 +148,25 @@ type SystemTopicEventSubscriptionSpecAdvancedFilter struct {
 	// +optional
 	BoolEquals []SystemTopicEventSubscriptionSpecAdvancedFilterBoolEquals `json:"boolEquals,omitempty" tf:"bool_equals"`
 	// +optional
+	IsNotNull []SystemTopicEventSubscriptionSpecAdvancedFilterIsNotNull `json:"isNotNull,omitempty" tf:"is_not_null"`
+	// +optional
+	IsNullOrUndefined []SystemTopicEventSubscriptionSpecAdvancedFilterIsNullOrUndefined `json:"isNullOrUndefined,omitempty" tf:"is_null_or_undefined"`
+	// +optional
 	NumberGreaterThan []SystemTopicEventSubscriptionSpecAdvancedFilterNumberGreaterThan `json:"numberGreaterThan,omitempty" tf:"number_greater_than"`
 	// +optional
 	NumberGreaterThanOrEquals []SystemTopicEventSubscriptionSpecAdvancedFilterNumberGreaterThanOrEquals `json:"numberGreaterThanOrEquals,omitempty" tf:"number_greater_than_or_equals"`
 	// +optional
 	NumberIn []SystemTopicEventSubscriptionSpecAdvancedFilterNumberIn `json:"numberIn,omitempty" tf:"number_in"`
 	// +optional
+	NumberInRange []SystemTopicEventSubscriptionSpecAdvancedFilterNumberInRange `json:"numberInRange,omitempty" tf:"number_in_range"`
+	// +optional
 	NumberLessThan []SystemTopicEventSubscriptionSpecAdvancedFilterNumberLessThan `json:"numberLessThan,omitempty" tf:"number_less_than"`
 	// +optional
 	NumberLessThanOrEquals []SystemTopicEventSubscriptionSpecAdvancedFilterNumberLessThanOrEquals `json:"numberLessThanOrEquals,omitempty" tf:"number_less_than_or_equals"`
 	// +optional
 	NumberNotIn []SystemTopicEventSubscriptionSpecAdvancedFilterNumberNotIn `json:"numberNotIn,omitempty" tf:"number_not_in"`
+	// +optional
+	NumberNotInRange []SystemTopicEventSubscriptionSpecAdvancedFilterNumberNotInRange `json:"numberNotInRange,omitempty" tf:"number_not_in_range"`
 	// +optional
 	StringBeginsWith []SystemTopicEventSubscriptionSpecAdvancedFilterStringBeginsWith `json:"stringBeginsWith,omitempty" tf:"string_begins_with"`
 	// +optional
@@ -131,6 +175,12 @@ type SystemTopicEventSubscriptionSpecAdvancedFilter struct {
 	StringEndsWith []SystemTopicEventSubscriptionSpecAdvancedFilterStringEndsWith `json:"stringEndsWith,omitempty" tf:"string_ends_with"`
 	// +optional
 	StringIn []SystemTopicEventSubscriptionSpecAdvancedFilterStringIn `json:"stringIn,omitempty" tf:"string_in"`
+	// +optional
+	StringNotBeginsWith []SystemTopicEventSubscriptionSpecAdvancedFilterStringNotBeginsWith `json:"stringNotBeginsWith,omitempty" tf:"string_not_begins_with"`
+	// +optional
+	StringNotContains []SystemTopicEventSubscriptionSpecAdvancedFilterStringNotContains `json:"stringNotContains,omitempty" tf:"string_not_contains"`
+	// +optional
+	StringNotEndsWith []SystemTopicEventSubscriptionSpecAdvancedFilterStringNotEndsWith `json:"stringNotEndsWith,omitempty" tf:"string_not_ends_with"`
 	// +optional
 	StringNotIn []SystemTopicEventSubscriptionSpecAdvancedFilterStringNotIn `json:"stringNotIn,omitempty" tf:"string_not_in"`
 }
