@@ -50,6 +50,14 @@ type EventhubListerExpansion interface{}
 // EventhubNamespaceLister.
 type EventhubNamespaceListerExpansion interface{}
 
+// NamespaceListerExpansion allows custom methods to be added to
+// NamespaceLister.
+type NamespaceListerExpansion interface{}
+
+// NamespaceNamespaceListerExpansion allows custom methods to be added to
+// NamespaceNamespaceLister.
+type NamespaceNamespaceListerExpansion interface{}
+
 // NamespaceAuthorizationRuleListerExpansion allows custom methods to be added to
 // NamespaceAuthorizationRuleLister.
 type NamespaceAuthorizationRuleListerExpansion interface{}
@@ -73,11 +81,3 @@ type NamespaceDisasterRecoveryConfigListerExpansion interface{}
 // NamespaceDisasterRecoveryConfigNamespaceListerExpansion allows custom methods to be added to
 // NamespaceDisasterRecoveryConfigNamespaceLister.
 type NamespaceDisasterRecoveryConfigNamespaceListerExpansion interface{}
-
-// Namespace_ListerExpansion allows custom methods to be added to
-// Namespace_Lister.
-type Namespace_ListerExpansion interface{}
-
-// Namespace_NamespaceListerExpansion allows custom methods to be added to
-// Namespace_NamespaceLister.
-type Namespace_NamespaceListerExpansion interface{}

@@ -31,10 +31,10 @@ type EventhubV1alpha1Interface interface {
 	ClustersGetter
 	ConsumerGroupsGetter
 	EventhubsGetter
+	NamespacesGetter
 	NamespaceAuthorizationRulesGetter
 	NamespaceCustomerManagedKeysGetter
 	NamespaceDisasterRecoveryConfigsGetter
-	Namespace_sGetter
 }
 
 // EventhubV1alpha1Client is used to interact with features provided by the eventhub.azurerm.kubeform.com group.
@@ -58,6 +58,10 @@ func (c *EventhubV1alpha1Client) Eventhubs(namespace string) EventhubInterface {
 	return newEventhubs(c, namespace)
 }
 
+func (c *EventhubV1alpha1Client) Namespaces(namespace string) NamespaceInterface {
+	return newNamespaces(c, namespace)
+}
+
 func (c *EventhubV1alpha1Client) NamespaceAuthorizationRules(namespace string) NamespaceAuthorizationRuleInterface {
 	return newNamespaceAuthorizationRules(c, namespace)
 }
@@ -68,10 +72,6 @@ func (c *EventhubV1alpha1Client) NamespaceCustomerManagedKeys(namespace string) 
 
 func (c *EventhubV1alpha1Client) NamespaceDisasterRecoveryConfigs(namespace string) NamespaceDisasterRecoveryConfigInterface {
 	return newNamespaceDisasterRecoveryConfigs(c, namespace)
-}
-
-func (c *EventhubV1alpha1Client) Namespace_s(namespace string) Namespace_Interface {
-	return newNamespace_s(c, namespace)
 }
 
 // NewForConfig creates a new EventhubV1alpha1Client for the given config.

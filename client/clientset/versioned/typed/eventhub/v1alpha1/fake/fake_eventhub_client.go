@@ -45,6 +45,10 @@ func (c *FakeEventhubV1alpha1) Eventhubs(namespace string) v1alpha1.EventhubInte
 	return &FakeEventhubs{c, namespace}
 }
 
+func (c *FakeEventhubV1alpha1) Namespaces(namespace string) v1alpha1.NamespaceInterface {
+	return &FakeNamespaces{c, namespace}
+}
+
 func (c *FakeEventhubV1alpha1) NamespaceAuthorizationRules(namespace string) v1alpha1.NamespaceAuthorizationRuleInterface {
 	return &FakeNamespaceAuthorizationRules{c, namespace}
 }
@@ -55,10 +59,6 @@ func (c *FakeEventhubV1alpha1) NamespaceCustomerManagedKeys(namespace string) v1
 
 func (c *FakeEventhubV1alpha1) NamespaceDisasterRecoveryConfigs(namespace string) v1alpha1.NamespaceDisasterRecoveryConfigInterface {
 	return &FakeNamespaceDisasterRecoveryConfigs{c, namespace}
-}
-
-func (c *FakeEventhubV1alpha1) Namespace_s(namespace string) v1alpha1.Namespace_Interface {
-	return &FakeNamespace_s{c, namespace}
 }
 
 // RESTClient returns a RESTClient that is used to communicate

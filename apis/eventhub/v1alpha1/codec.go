@@ -29,8 +29,8 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
 		jsoniter.MustGetKind(reflect2.TypeOf(EventhubSpecCaptureDescription{}).Type1()):            EventhubSpecCaptureDescriptionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventhubSpecCaptureDescriptionDestination{}).Type1()): EventhubSpecCaptureDescriptionDestinationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(Namespace_SpecIdentity{}).Type1()):                    Namespace_SpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(Namespace_SpecNetworkRulesets{}).Type1()):             Namespace_SpecNetworkRulesetsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecIdentity{}).Type1()):                     NamespaceSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecNetworkRulesets{}).Type1()):              NamespaceSpecNetworkRulesetsCodec{},
 	}
 }
 
@@ -38,8 +38,8 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
 		jsoniter.MustGetKind(reflect2.TypeOf(EventhubSpecCaptureDescription{}).Type1()):            EventhubSpecCaptureDescriptionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventhubSpecCaptureDescriptionDestination{}).Type1()): EventhubSpecCaptureDescriptionDestinationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(Namespace_SpecIdentity{}).Type1()):                    Namespace_SpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(Namespace_SpecNetworkRulesets{}).Type1()):             Namespace_SpecNetworkRulesetsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecIdentity{}).Type1()):                     NamespaceSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecNetworkRulesets{}).Type1()):              NamespaceSpecNetworkRulesetsCodec{},
 	}
 }
 
@@ -214,18 +214,18 @@ func (EventhubSpecCaptureDescriptionDestinationCodec) Decode(ptr unsafe.Pointer,
 }
 
 // +k8s:deepcopy-gen=false
-type Namespace_SpecIdentityCodec struct {
+type NamespaceSpecIdentityCodec struct {
 }
 
-func (Namespace_SpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
-	return (*Namespace_SpecIdentity)(ptr) == nil
+func (NamespaceSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*NamespaceSpecIdentity)(ptr) == nil
 }
 
-func (Namespace_SpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-	obj := (*Namespace_SpecIdentity)(ptr)
-	var objs []Namespace_SpecIdentity
+func (NamespaceSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*NamespaceSpecIdentity)(ptr)
+	var objs []NamespaceSpecIdentity
 	if obj != nil {
-		objs = []Namespace_SpecIdentity{*obj}
+		objs = []NamespaceSpecIdentity{*obj}
 	}
 
 	jsonit := jsoniter.Config{
@@ -233,7 +233,7 @@ func (Namespace_SpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.S
 		SortMapKeys:            true,
 		ValidateJsonRawMessage: true,
 		TagKey:                 "tf",
-		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(Namespace_SpecIdentity{}).Type1())),
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecIdentity{}).Type1())),
 	}.Froze()
 
 	byt, _ := jsonit.Marshal(objs)
@@ -241,70 +241,70 @@ func (Namespace_SpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.S
 	stream.Write(byt)
 }
 
-func (Namespace_SpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+func (NamespaceSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 	switch iter.WhatIsNext() {
 	case jsoniter.NilValue:
 		iter.Skip()
-		*(*Namespace_SpecIdentity)(ptr) = Namespace_SpecIdentity{}
+		*(*NamespaceSpecIdentity)(ptr) = NamespaceSpecIdentity{}
 		return
 	case jsoniter.ArrayValue:
 		objsByte := iter.SkipAndReturnBytes()
 		if len(objsByte) > 0 {
-			var objs []Namespace_SpecIdentity
+			var objs []NamespaceSpecIdentity
 
 			jsonit := jsoniter.Config{
 				EscapeHTML:             true,
 				SortMapKeys:            true,
 				ValidateJsonRawMessage: true,
 				TagKey:                 "tf",
-				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(Namespace_SpecIdentity{}).Type1())),
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecIdentity{}).Type1())),
 			}.Froze()
 			jsonit.Unmarshal(objsByte, &objs)
 
 			if len(objs) > 0 {
-				*(*Namespace_SpecIdentity)(ptr) = objs[0]
+				*(*NamespaceSpecIdentity)(ptr) = objs[0]
 			} else {
-				*(*Namespace_SpecIdentity)(ptr) = Namespace_SpecIdentity{}
+				*(*NamespaceSpecIdentity)(ptr) = NamespaceSpecIdentity{}
 			}
 		} else {
-			*(*Namespace_SpecIdentity)(ptr) = Namespace_SpecIdentity{}
+			*(*NamespaceSpecIdentity)(ptr) = NamespaceSpecIdentity{}
 		}
 	case jsoniter.ObjectValue:
 		objByte := iter.SkipAndReturnBytes()
 		if len(objByte) > 0 {
-			var obj Namespace_SpecIdentity
+			var obj NamespaceSpecIdentity
 
 			jsonit := jsoniter.Config{
 				EscapeHTML:             true,
 				SortMapKeys:            true,
 				ValidateJsonRawMessage: true,
 				TagKey:                 "tf",
-				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(Namespace_SpecIdentity{}).Type1())),
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecIdentity{}).Type1())),
 			}.Froze()
 			jsonit.Unmarshal(objByte, &obj)
 
-			*(*Namespace_SpecIdentity)(ptr) = obj
+			*(*NamespaceSpecIdentity)(ptr) = obj
 		} else {
-			*(*Namespace_SpecIdentity)(ptr) = Namespace_SpecIdentity{}
+			*(*NamespaceSpecIdentity)(ptr) = NamespaceSpecIdentity{}
 		}
 	default:
-		iter.ReportError("decode Namespace_SpecIdentity", "unexpected JSON type")
+		iter.ReportError("decode NamespaceSpecIdentity", "unexpected JSON type")
 	}
 }
 
 // +k8s:deepcopy-gen=false
-type Namespace_SpecNetworkRulesetsCodec struct {
+type NamespaceSpecNetworkRulesetsCodec struct {
 }
 
-func (Namespace_SpecNetworkRulesetsCodec) IsEmpty(ptr unsafe.Pointer) bool {
-	return (*Namespace_SpecNetworkRulesets)(ptr) == nil
+func (NamespaceSpecNetworkRulesetsCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*NamespaceSpecNetworkRulesets)(ptr) == nil
 }
 
-func (Namespace_SpecNetworkRulesetsCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-	obj := (*Namespace_SpecNetworkRulesets)(ptr)
-	var objs []Namespace_SpecNetworkRulesets
+func (NamespaceSpecNetworkRulesetsCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*NamespaceSpecNetworkRulesets)(ptr)
+	var objs []NamespaceSpecNetworkRulesets
 	if obj != nil {
-		objs = []Namespace_SpecNetworkRulesets{*obj}
+		objs = []NamespaceSpecNetworkRulesets{*obj}
 	}
 
 	jsonit := jsoniter.Config{
@@ -312,7 +312,7 @@ func (Namespace_SpecNetworkRulesetsCodec) Encode(ptr unsafe.Pointer, stream *jso
 		SortMapKeys:            true,
 		ValidateJsonRawMessage: true,
 		TagKey:                 "tf",
-		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(Namespace_SpecNetworkRulesets{}).Type1())),
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecNetworkRulesets{}).Type1())),
 	}.Froze()
 
 	byt, _ := jsonit.Marshal(objs)
@@ -320,53 +320,53 @@ func (Namespace_SpecNetworkRulesetsCodec) Encode(ptr unsafe.Pointer, stream *jso
 	stream.Write(byt)
 }
 
-func (Namespace_SpecNetworkRulesetsCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+func (NamespaceSpecNetworkRulesetsCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 	switch iter.WhatIsNext() {
 	case jsoniter.NilValue:
 		iter.Skip()
-		*(*Namespace_SpecNetworkRulesets)(ptr) = Namespace_SpecNetworkRulesets{}
+		*(*NamespaceSpecNetworkRulesets)(ptr) = NamespaceSpecNetworkRulesets{}
 		return
 	case jsoniter.ArrayValue:
 		objsByte := iter.SkipAndReturnBytes()
 		if len(objsByte) > 0 {
-			var objs []Namespace_SpecNetworkRulesets
+			var objs []NamespaceSpecNetworkRulesets
 
 			jsonit := jsoniter.Config{
 				EscapeHTML:             true,
 				SortMapKeys:            true,
 				ValidateJsonRawMessage: true,
 				TagKey:                 "tf",
-				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(Namespace_SpecNetworkRulesets{}).Type1())),
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecNetworkRulesets{}).Type1())),
 			}.Froze()
 			jsonit.Unmarshal(objsByte, &objs)
 
 			if len(objs) > 0 {
-				*(*Namespace_SpecNetworkRulesets)(ptr) = objs[0]
+				*(*NamespaceSpecNetworkRulesets)(ptr) = objs[0]
 			} else {
-				*(*Namespace_SpecNetworkRulesets)(ptr) = Namespace_SpecNetworkRulesets{}
+				*(*NamespaceSpecNetworkRulesets)(ptr) = NamespaceSpecNetworkRulesets{}
 			}
 		} else {
-			*(*Namespace_SpecNetworkRulesets)(ptr) = Namespace_SpecNetworkRulesets{}
+			*(*NamespaceSpecNetworkRulesets)(ptr) = NamespaceSpecNetworkRulesets{}
 		}
 	case jsoniter.ObjectValue:
 		objByte := iter.SkipAndReturnBytes()
 		if len(objByte) > 0 {
-			var obj Namespace_SpecNetworkRulesets
+			var obj NamespaceSpecNetworkRulesets
 
 			jsonit := jsoniter.Config{
 				EscapeHTML:             true,
 				SortMapKeys:            true,
 				ValidateJsonRawMessage: true,
 				TagKey:                 "tf",
-				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(Namespace_SpecNetworkRulesets{}).Type1())),
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecNetworkRulesets{}).Type1())),
 			}.Froze()
 			jsonit.Unmarshal(objByte, &obj)
 
-			*(*Namespace_SpecNetworkRulesets)(ptr) = obj
+			*(*NamespaceSpecNetworkRulesets)(ptr) = obj
 		} else {
-			*(*Namespace_SpecNetworkRulesets)(ptr) = Namespace_SpecNetworkRulesets{}
+			*(*NamespaceSpecNetworkRulesets)(ptr) = NamespaceSpecNetworkRulesets{}
 		}
 	default:
-		iter.ReportError("decode Namespace_SpecNetworkRulesets", "unexpected JSON type")
+		iter.ReportError("decode NamespaceSpecNetworkRulesets", "unexpected JSON type")
 	}
 }

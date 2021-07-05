@@ -5,14 +5,14 @@ metadata:
   labels:
     app.kubernetes.io/name: azurerm.kubeform.com
     app.kubernetes.io/part-of: kubeform.com
-  name: namespace_s.relay.azurerm.kubeform.com
+  name: namespaces.eventhub.azurerm.kubeform.com
 spec:
-  group: relay.azurerm.kubeform.com
+  group: eventhub.azurerm.kubeform.com
   names:
-    kind: Namespace_
-    listKind: Namespace_List
-    plural: namespace_s
-    singular: namespace_
+    kind: Namespace
+    listKind: NamespaceList
+    plural: namespaces
+    singular: namespace
   scope: Namespaced
   versions:
   - additionalPrinterColumns:
@@ -39,17 +39,69 @@ spec:
             properties:
               kubeformOutput:
                 properties:
+                  autoInflateEnabled:
+                    type: boolean
+                  capacity:
+                    format: int64
+                    type: integer
+                  dedicatedClusterID:
+                    type: string
                   id:
                     type: string
+                  identity:
+                    properties:
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   location:
                     type: string
-                  metricID:
-                    type: string
+                  maximumThroughputUnits:
+                    format: int64
+                    type: integer
                   name:
                     type: string
+                  networkRulesets:
+                    properties:
+                      defaultAction:
+                        type: string
+                      ipRule:
+                        items:
+                          properties:
+                            action:
+                              type: string
+                            ipMask:
+                              type: string
+                          required:
+                          - ipMask
+                          type: object
+                        maxItems: 128
+                        type: array
+                      trustedServiceAccessEnabled:
+                        type: boolean
+                      virtualNetworkRule:
+                        items:
+                          properties:
+                            ignoreMissingVirtualNetworkServiceEndpoint:
+                              type: boolean
+                            subnetID:
+                              type: string
+                          required:
+                          - subnetID
+                          type: object
+                        maxItems: 128
+                        type: array
+                    required:
+                    - defaultAction
+                    type: object
                   resourceGroupName:
                     type: string
-                  skuName:
+                  sku:
                     type: string
                   tags:
                     additionalProperties:
@@ -93,11 +145,13 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  zoneRedundant:
+                    type: boolean
                 required:
                 - location
                 - name
                 - resourceGroupName
-                - skuName
+                - sku
                 type: object
               providerRef:
                 description: LocalObjectReference contains enough information to let
@@ -110,17 +164,69 @@ spec:
                 type: object
               resource:
                 properties:
+                  autoInflateEnabled:
+                    type: boolean
+                  capacity:
+                    format: int64
+                    type: integer
+                  dedicatedClusterID:
+                    type: string
                   id:
                     type: string
+                  identity:
+                    properties:
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   location:
                     type: string
-                  metricID:
-                    type: string
+                  maximumThroughputUnits:
+                    format: int64
+                    type: integer
                   name:
                     type: string
+                  networkRulesets:
+                    properties:
+                      defaultAction:
+                        type: string
+                      ipRule:
+                        items:
+                          properties:
+                            action:
+                              type: string
+                            ipMask:
+                              type: string
+                          required:
+                          - ipMask
+                          type: object
+                        maxItems: 128
+                        type: array
+                      trustedServiceAccessEnabled:
+                        type: boolean
+                      virtualNetworkRule:
+                        items:
+                          properties:
+                            ignoreMissingVirtualNetworkServiceEndpoint:
+                              type: boolean
+                            subnetID:
+                              type: string
+                          required:
+                          - subnetID
+                          type: object
+                        maxItems: 128
+                        type: array
+                    required:
+                    - defaultAction
+                    type: object
                   resourceGroupName:
                     type: string
-                  skuName:
+                  sku:
                     type: string
                   tags:
                     additionalProperties:
@@ -164,11 +270,13 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  zoneRedundant:
+                    type: boolean
                 required:
                 - location
                 - name
                 - resourceGroupName
-                - skuName
+                - sku
                 type: object
               secretRef:
                 description: LocalObjectReference contains enough information to let

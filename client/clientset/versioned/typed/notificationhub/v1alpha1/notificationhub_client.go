@@ -28,7 +28,7 @@ import (
 type NotificationhubV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	AuthorizationRulesGetter
-	Namespace_sGetter
+	NamespacesGetter
 	NotificationHubsGetter
 }
 
@@ -41,8 +41,8 @@ func (c *NotificationhubV1alpha1Client) AuthorizationRules(namespace string) Aut
 	return newAuthorizationRules(c, namespace)
 }
 
-func (c *NotificationhubV1alpha1Client) Namespace_s(namespace string) Namespace_Interface {
-	return newNamespace_s(c, namespace)
+func (c *NotificationhubV1alpha1Client) Namespaces(namespace string) NamespaceInterface {
+	return newNamespaces(c, namespace)
 }
 
 func (c *NotificationhubV1alpha1Client) NotificationHubs(namespace string) NotificationHubInterface {

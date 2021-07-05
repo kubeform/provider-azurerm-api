@@ -20,4 +20,4 @@ package v1alpha1
 
 type HybridConnectionExpansion interface{}
 
-type Namespace_Expansion interface{}
+type NamespaceExpansion interface{}

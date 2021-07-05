@@ -56,14 +56,14 @@ func Resource(resource string) schema.GroupResource {
 // Adds the list of known types to api.Scheme.
 func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
+		&Namespace{},
+		&NamespaceList{},
 		&NamespaceAuthorizationRule{},
 		&NamespaceAuthorizationRuleList{},
 		&NamespaceDisasterRecoveryConfig{},
 		&NamespaceDisasterRecoveryConfigList{},
 		&NamespaceNetworkRuleSet{},
 		&NamespaceNetworkRuleSetList{},
-		&Namespace_{},
-		&Namespace_List{},
 		&Queue{},
 		&QueueList{},
 		&QueueAuthorizationRule{},

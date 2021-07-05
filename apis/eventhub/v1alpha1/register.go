@@ -64,14 +64,14 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&ConsumerGroupList{},
 		&Eventhub{},
 		&EventhubList{},
+		&Namespace{},
+		&NamespaceList{},
 		&NamespaceAuthorizationRule{},
 		&NamespaceAuthorizationRuleList{},
 		&NamespaceCustomerManagedKey{},
 		&NamespaceCustomerManagedKeyList{},
 		&NamespaceDisasterRecoveryConfig{},
 		&NamespaceDisasterRecoveryConfigList{},
-		&Namespace_{},
-		&Namespace_List{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

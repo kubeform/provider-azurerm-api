@@ -26,10 +26,10 @@ type ConsumerGroupExpansion interface{}
 
 type EventhubExpansion interface{}
 
+type NamespaceExpansion interface{}
+
 type NamespaceAuthorizationRuleExpansion interface{}
 
 type NamespaceCustomerManagedKeyExpansion interface{}
 
 type NamespaceDisasterRecoveryConfigExpansion interface{}
-
-type Namespace_Expansion interface{}

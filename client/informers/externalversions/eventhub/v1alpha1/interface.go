@@ -32,14 +32,14 @@ type Interface interface {
 	ConsumerGroups() ConsumerGroupInformer
 	// Eventhubs returns a EventhubInformer.
 	Eventhubs() EventhubInformer
+	// Namespaces returns a NamespaceInformer.
+	Namespaces() NamespaceInformer
 	// NamespaceAuthorizationRules returns a NamespaceAuthorizationRuleInformer.
 	NamespaceAuthorizationRules() NamespaceAuthorizationRuleInformer
 	// NamespaceCustomerManagedKeys returns a NamespaceCustomerManagedKeyInformer.
 	NamespaceCustomerManagedKeys() NamespaceCustomerManagedKeyInformer
 	// NamespaceDisasterRecoveryConfigs returns a NamespaceDisasterRecoveryConfigInformer.
 	NamespaceDisasterRecoveryConfigs() NamespaceDisasterRecoveryConfigInformer
-	// Namespace_s returns a Namespace_Informer.
-	Namespace_s() Namespace_Informer
 }
 
 type version struct {
@@ -73,6 +73,11 @@ func (v *version) Eventhubs() EventhubInformer {
 	return &eventhubInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// Namespaces returns a NamespaceInformer.
+func (v *version) Namespaces() NamespaceInformer {
+	return &namespaceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // NamespaceAuthorizationRules returns a NamespaceAuthorizationRuleInformer.
 func (v *version) NamespaceAuthorizationRules() NamespaceAuthorizationRuleInformer {
 	return &namespaceAuthorizationRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
@@ -86,9 +91,4 @@ func (v *version) NamespaceCustomerManagedKeys() NamespaceCustomerManagedKeyInfo
 // NamespaceDisasterRecoveryConfigs returns a NamespaceDisasterRecoveryConfigInformer.
 func (v *version) NamespaceDisasterRecoveryConfigs() NamespaceDisasterRecoveryConfigInformer {
 	return &namespaceDisasterRecoveryConfigInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
-}
-
-// Namespace_s returns a Namespace_Informer.
-func (v *version) Namespace_s() Namespace_Informer {
-	return &namespace_Informer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

@@ -58,8 +58,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
 		&AuthorizationRule{},
 		&AuthorizationRuleList{},
-		&Namespace_{},
-		&Namespace_List{},
+		&Namespace{},
+		&NamespaceList{},
 		&NotificationHub{},
 		&NotificationHubList{},
 	)

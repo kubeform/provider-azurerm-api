@@ -58,8 +58,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
 		&HybridConnection{},
 		&HybridConnectionList{},
-		&Namespace_{},
-		&Namespace_List{},
+		&Namespace{},
+		&NamespaceList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

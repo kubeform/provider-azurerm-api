@@ -24,14 +24,14 @@ import (
 
 // Interface provides access to all the informers in this group version.
 type Interface interface {
+	// Namespaces returns a NamespaceInformer.
+	Namespaces() NamespaceInformer
 	// NamespaceAuthorizationRules returns a NamespaceAuthorizationRuleInformer.
 	NamespaceAuthorizationRules() NamespaceAuthorizationRuleInformer
 	// NamespaceDisasterRecoveryConfigs returns a NamespaceDisasterRecoveryConfigInformer.
 	NamespaceDisasterRecoveryConfigs() NamespaceDisasterRecoveryConfigInformer
 	// NamespaceNetworkRuleSets returns a NamespaceNetworkRuleSetInformer.
 	NamespaceNetworkRuleSets() NamespaceNetworkRuleSetInformer
-	// Namespace_s returns a Namespace_Informer.
-	Namespace_s() Namespace_Informer
 	// Queues returns a QueueInformer.
 	Queues() QueueInformer
 	// QueueAuthorizationRules returns a QueueAuthorizationRuleInformer.
@@ -57,6 +57,11 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 	return &version{factory: f, namespace: namespace, tweakListOptions: tweakListOptions}
 }
 
+// Namespaces returns a NamespaceInformer.
+func (v *version) Namespaces() NamespaceInformer {
+	return &namespaceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // NamespaceAuthorizationRules returns a NamespaceAuthorizationRuleInformer.
 func (v *version) NamespaceAuthorizationRules() NamespaceAuthorizationRuleInformer {
 	return &namespaceAuthorizationRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
@@ -70,11 +75,6 @@ func (v *version) NamespaceDisasterRecoveryConfigs() NamespaceDisasterRecoveryCo
 // NamespaceNetworkRuleSets returns a NamespaceNetworkRuleSetInformer.
 func (v *version) NamespaceNetworkRuleSets() NamespaceNetworkRuleSetInformer {
 	return &namespaceNetworkRuleSetInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
-}
-
-// Namespace_s returns a Namespace_Informer.
-func (v *version) Namespace_s() Namespace_Informer {
-	return &namespace_Informer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Queues returns a QueueInformer.

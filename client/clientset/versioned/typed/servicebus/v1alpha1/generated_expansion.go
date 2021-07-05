@@ -18,13 +18,13 @@ limitations under the License.
 
 package v1alpha1
 
+type NamespaceExpansion interface{}
+
 type NamespaceAuthorizationRuleExpansion interface{}
 
 type NamespaceDisasterRecoveryConfigExpansion interface{}
 
 type NamespaceNetworkRuleSetExpansion interface{}
-
-type Namespace_Expansion interface{}
 
 type QueueExpansion interface{}
 

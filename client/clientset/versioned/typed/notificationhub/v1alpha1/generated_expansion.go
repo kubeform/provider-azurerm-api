@@ -20,6 +20,6 @@ package v1alpha1
 
 type AuthorizationRuleExpansion interface{}
 
-type Namespace_Expansion interface{}
+type NamespaceExpansion interface{}
 
 type NotificationHubExpansion interface{}

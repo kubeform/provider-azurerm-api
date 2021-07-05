@@ -33,8 +33,8 @@ func (c *FakeNotificationhubV1alpha1) AuthorizationRules(namespace string) v1alp
 	return &FakeAuthorizationRules{c, namespace}
 }
 
-func (c *FakeNotificationhubV1alpha1) Namespace_s(namespace string) v1alpha1.Namespace_Interface {
-	return &FakeNamespace_s{c, namespace}
+func (c *FakeNotificationhubV1alpha1) Namespaces(namespace string) v1alpha1.NamespaceInterface {
+	return &FakeNamespaces{c, namespace}
 }
 
 func (c *FakeNotificationhubV1alpha1) NotificationHubs(namespace string) v1alpha1.NotificationHubInterface {
