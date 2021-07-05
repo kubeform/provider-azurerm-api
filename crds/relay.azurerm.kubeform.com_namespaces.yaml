@@ -5,14 +5,14 @@ metadata:
   labels:
     app.kubernetes.io/name: azurerm.kubeform.com
     app.kubernetes.io/part-of: kubeform.com
-  name: namespace_s.servicebus.azurerm.kubeform.com
+  name: namespaces.relay.azurerm.kubeform.com
 spec:
-  group: servicebus.azurerm.kubeform.com
+  group: relay.azurerm.kubeform.com
   names:
-    kind: Namespace_
-    listKind: Namespace_List
-    plural: namespace_s
-    singular: namespace_
+    kind: Namespace
+    listKind: NamespaceList
+    plural: namespaces
+    singular: namespace
   scope: Namespaced
   versions:
   - additionalPrinterColumns:
@@ -39,18 +39,17 @@ spec:
             properties:
               kubeformOutput:
                 properties:
-                  capacity:
-                    format: int64
-                    type: integer
                   id:
                     type: string
                   location:
+                    type: string
+                  metricID:
                     type: string
                   name:
                     type: string
                   resourceGroupName:
                     type: string
-                  sku:
+                  skuName:
                     type: string
                   tags:
                     additionalProperties:
@@ -94,13 +93,11 @@ spec:
                         format: int64
                         type: integer
                     type: object
-                  zoneRedundant:
-                    type: boolean
                 required:
                 - location
                 - name
                 - resourceGroupName
-                - sku
+                - skuName
                 type: object
               providerRef:
                 description: LocalObjectReference contains enough information to let
@@ -113,18 +110,17 @@ spec:
                 type: object
               resource:
                 properties:
-                  capacity:
-                    format: int64
-                    type: integer
                   id:
                     type: string
                   location:
+                    type: string
+                  metricID:
                     type: string
                   name:
                     type: string
                   resourceGroupName:
                     type: string
-                  sku:
+                  skuName:
                     type: string
                   tags:
                     additionalProperties:
@@ -168,13 +164,11 @@ spec:
                         format: int64
                         type: integer
                     type: object
-                  zoneRedundant:
-                    type: boolean
                 required:
                 - location
                 - name
                 - resourceGroupName
-                - sku
+                - skuName
                 type: object
               secretRef:
                 description: LocalObjectReference contains enough information to let

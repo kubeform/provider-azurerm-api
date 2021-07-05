@@ -18,6 +18,14 @@ limitations under the License.
 
 package v1alpha1
 
+// NamespaceListerExpansion allows custom methods to be added to
+// NamespaceLister.
+type NamespaceListerExpansion interface{}
+
+// NamespaceNamespaceListerExpansion allows custom methods to be added to
+// NamespaceNamespaceLister.
+type NamespaceNamespaceListerExpansion interface{}
+
 // NamespaceAuthorizationRuleListerExpansion allows custom methods to be added to
 // NamespaceAuthorizationRuleLister.
 type NamespaceAuthorizationRuleListerExpansion interface{}
@@ -41,14 +49,6 @@ type NamespaceNetworkRuleSetListerExpansion interface{}
 // NamespaceNetworkRuleSetNamespaceListerExpansion allows custom methods to be added to
 // NamespaceNetworkRuleSetNamespaceLister.
 type NamespaceNetworkRuleSetNamespaceListerExpansion interface{}
-
-// Namespace_ListerExpansion allows custom methods to be added to
-// Namespace_Lister.
-type Namespace_ListerExpansion interface{}
-
-// Namespace_NamespaceListerExpansion allows custom methods to be added to
-// Namespace_NamespaceLister.
-type Namespace_NamespaceListerExpansion interface{}
 
 // QueueListerExpansion allows custom methods to be added to
 // QueueLister.

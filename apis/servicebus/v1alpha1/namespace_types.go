@@ -34,17 +34,17 @@ import (
 // +kubebuilder:subresource:status
 // +kubebuilder:printcolumn:name="Phase",type=string,JSONPath=`.status.phase`
 
-type Namespace_ struct {
+type Namespace struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              Namespace_Spec   `json:"spec,omitempty"`
-	Status            Namespace_Status `json:"status,omitempty"`
+	Spec              NamespaceSpec   `json:"spec,omitempty"`
+	Status            NamespaceStatus `json:"status,omitempty"`
 }
 
-type Namespace_Spec struct {
-	KubeformOutput *Namespace_SpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+type NamespaceSpec struct {
+	KubeformOutput *NamespaceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
 
-	Resource Namespace_SpecResource `json:"resource" tf:"resource"`
+	Resource NamespaceSpecResource `json:"resource" tf:"resource"`
 
 	UpdatePolicy base.UpdatePolicy `json:"updatePolicy,omitempty" tf:"-"`
 
@@ -55,7 +55,7 @@ type Namespace_Spec struct {
 	SecretRef *core.LocalObjectReference `json:"secretRef,omitempty" tf:"-"`
 }
 
-type Namespace_SpecResource struct {
+type NamespaceSpecResource struct {
 	Timeouts *base.ResourceTimeout `json:"timeouts,omitempty" tf:"timeouts"`
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
@@ -80,7 +80,7 @@ type Namespace_SpecResource struct {
 	ZoneRedundant *bool `json:"zoneRedundant,omitempty" tf:"zone_redundant"`
 }
 
-type Namespace_Status struct {
+type NamespaceStatus struct {
 	// Resource generation, which is updated on mutation by the API Server.
 	// +optional
 	ObservedGeneration int64 `json:"observedGeneration,omitempty"`
@@ -93,10 +93,10 @@ type Namespace_Status struct {
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 // +kubebuilder:object:root=true
 
-// Namespace_List is a list of Namespace_s
-type Namespace_List struct {
+// NamespaceList is a list of Namespaces
+type NamespaceList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of Namespace_ CRD objects
-	Items []Namespace_ `json:"items,omitempty"`
+	// Items is a list of Namespace CRD objects
+	Items []Namespace `json:"items,omitempty"`
 }

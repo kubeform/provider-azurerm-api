@@ -34,14 +34,14 @@ import (
 // +kubebuilder:subresource:status
 // +kubebuilder:printcolumn:name="Phase",type=string,JSONPath=`.status.phase`
 
-type Namespace_ struct {
+type Namespace struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              Namespace_Spec   `json:"spec,omitempty"`
-	Status            Namespace_Status `json:"status,omitempty"`
+	Spec              NamespaceSpec   `json:"spec,omitempty"`
+	Status            NamespaceStatus `json:"status,omitempty"`
 }
 
-type Namespace_SpecIdentity struct {
+type NamespaceSpecIdentity struct {
 	// +optional
 	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
 	// +optional
@@ -49,34 +49,34 @@ type Namespace_SpecIdentity struct {
 	Type     *string `json:"type" tf:"type"`
 }
 
-type Namespace_SpecNetworkRulesetsIpRule struct {
+type NamespaceSpecNetworkRulesetsIpRule struct {
 	// +optional
 	Action *string `json:"action,omitempty" tf:"action"`
 	IpMask *string `json:"ipMask" tf:"ip_mask"`
 }
 
-type Namespace_SpecNetworkRulesetsVirtualNetworkRule struct {
+type NamespaceSpecNetworkRulesetsVirtualNetworkRule struct {
 	// +optional
 	IgnoreMissingVirtualNetworkServiceEndpoint *bool   `json:"ignoreMissingVirtualNetworkServiceEndpoint,omitempty" tf:"ignore_missing_virtual_network_service_endpoint"`
 	SubnetID                                   *string `json:"subnetID" tf:"subnet_id"`
 }
 
-type Namespace_SpecNetworkRulesets struct {
+type NamespaceSpecNetworkRulesets struct {
 	DefaultAction *string `json:"defaultAction" tf:"default_action"`
 	// +optional
 	// +kubebuilder:validation:MaxItems=128
-	IpRule []Namespace_SpecNetworkRulesetsIpRule `json:"ipRule,omitempty" tf:"ip_rule"`
+	IpRule []NamespaceSpecNetworkRulesetsIpRule `json:"ipRule,omitempty" tf:"ip_rule"`
 	// +optional
 	TrustedServiceAccessEnabled *bool `json:"trustedServiceAccessEnabled,omitempty" tf:"trusted_service_access_enabled"`
 	// +optional
 	// +kubebuilder:validation:MaxItems=128
-	VirtualNetworkRule []Namespace_SpecNetworkRulesetsVirtualNetworkRule `json:"virtualNetworkRule,omitempty" tf:"virtual_network_rule"`
+	VirtualNetworkRule []NamespaceSpecNetworkRulesetsVirtualNetworkRule `json:"virtualNetworkRule,omitempty" tf:"virtual_network_rule"`
 }
 
-type Namespace_Spec struct {
-	KubeformOutput *Namespace_SpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+type NamespaceSpec struct {
+	KubeformOutput *NamespaceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
 
-	Resource Namespace_SpecResource `json:"resource" tf:"resource"`
+	Resource NamespaceSpecResource `json:"resource" tf:"resource"`
 
 	UpdatePolicy base.UpdatePolicy `json:"updatePolicy,omitempty" tf:"-"`
 
@@ -87,7 +87,7 @@ type Namespace_Spec struct {
 	SecretRef *core.LocalObjectReference `json:"secretRef,omitempty" tf:"-"`
 }
 
-type Namespace_SpecResource struct {
+type NamespaceSpecResource struct {
 	Timeouts *base.ResourceTimeout `json:"timeouts,omitempty" tf:"timeouts"`
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
@@ -111,22 +111,22 @@ type Namespace_SpecResource struct {
 	// +optional
 	DefaultSecondaryKey *string `json:"-" sensitive:"true" tf:"default_secondary_key"`
 	// +optional
-	Identity *Namespace_SpecIdentity `json:"identity,omitempty" tf:"identity"`
-	Location *string                 `json:"location" tf:"location"`
+	Identity *NamespaceSpecIdentity `json:"identity,omitempty" tf:"identity"`
+	Location *string                `json:"location" tf:"location"`
 	// +optional
 	MaximumThroughputUnits *int64  `json:"maximumThroughputUnits,omitempty" tf:"maximum_throughput_units"`
 	Name                   *string `json:"name" tf:"name"`
 	// +optional
-	NetworkRulesets   *Namespace_SpecNetworkRulesets `json:"networkRulesets,omitempty" tf:"network_rulesets"`
-	ResourceGroupName *string                        `json:"resourceGroupName" tf:"resource_group_name"`
-	Sku               *string                        `json:"sku" tf:"sku"`
+	NetworkRulesets   *NamespaceSpecNetworkRulesets `json:"networkRulesets,omitempty" tf:"network_rulesets"`
+	ResourceGroupName *string                       `json:"resourceGroupName" tf:"resource_group_name"`
+	Sku               *string                       `json:"sku" tf:"sku"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 	// +optional
 	ZoneRedundant *bool `json:"zoneRedundant,omitempty" tf:"zone_redundant"`
 }
 
-type Namespace_Status struct {
+type NamespaceStatus struct {
 	// Resource generation, which is updated on mutation by the API Server.
 	// +optional
 	ObservedGeneration int64 `json:"observedGeneration,omitempty"`
@@ -139,10 +139,10 @@ type Namespace_Status struct {
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 // +kubebuilder:object:root=true
 
-// Namespace_List is a list of Namespace_s
-type Namespace_List struct {
+// NamespaceList is a list of Namespaces
+type NamespaceList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of Namespace_ CRD objects
-	Items []Namespace_ `json:"items,omitempty"`
+	// Items is a list of Namespace CRD objects
+	Items []Namespace `json:"items,omitempty"`
 }

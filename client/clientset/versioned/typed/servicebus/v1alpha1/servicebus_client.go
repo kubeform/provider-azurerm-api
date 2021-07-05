@@ -27,10 +27,10 @@ import (
 
 type ServicebusV1alpha1Interface interface {
 	RESTClient() rest.Interface
+	NamespacesGetter
 	NamespaceAuthorizationRulesGetter
 	NamespaceDisasterRecoveryConfigsGetter
 	NamespaceNetworkRuleSetsGetter
-	Namespace_sGetter
 	QueuesGetter
 	QueueAuthorizationRulesGetter
 	SubscriptionsGetter
@@ -44,6 +44,10 @@ type ServicebusV1alpha1Client struct {
 	restClient rest.Interface
 }
 
+func (c *ServicebusV1alpha1Client) Namespaces(namespace string) NamespaceInterface {
+	return newNamespaces(c, namespace)
+}
+
 func (c *ServicebusV1alpha1Client) NamespaceAuthorizationRules(namespace string) NamespaceAuthorizationRuleInterface {
 	return newNamespaceAuthorizationRules(c, namespace)
 }
@@ -54,10 +58,6 @@ func (c *ServicebusV1alpha1Client) NamespaceDisasterRecoveryConfigs(namespace st
 
 func (c *ServicebusV1alpha1Client) NamespaceNetworkRuleSets(namespace string) NamespaceNetworkRuleSetInterface {
 	return newNamespaceNetworkRuleSets(c, namespace)
-}
-
-func (c *ServicebusV1alpha1Client) Namespace_s(namespace string) Namespace_Interface {
-	return newNamespace_s(c, namespace)
 }
 
 func (c *ServicebusV1alpha1Client) Queues(namespace string) QueueInterface {

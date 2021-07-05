@@ -5,14 +5,14 @@ metadata:
   labels:
     app.kubernetes.io/name: azurerm.kubeform.com
     app.kubernetes.io/part-of: kubeform.com
-  name: namespace_s.notificationhub.azurerm.kubeform.com
+  name: namespaces.servicebus.azurerm.kubeform.com
 spec:
-  group: notificationhub.azurerm.kubeform.com
+  group: servicebus.azurerm.kubeform.com
   names:
-    kind: Namespace_
-    listKind: Namespace_List
-    plural: namespace_s
-    singular: namespace_
+    kind: Namespace
+    listKind: NamespaceList
+    plural: namespaces
+    singular: namespace
   scope: Namespaced
   versions:
   - additionalPrinterColumns:
@@ -39,21 +39,18 @@ spec:
             properties:
               kubeformOutput:
                 properties:
-                  enabled:
-                    type: boolean
+                  capacity:
+                    format: int64
+                    type: integer
                   id:
                     type: string
                   location:
                     type: string
                   name:
                     type: string
-                  namespaceType:
-                    type: string
                   resourceGroupName:
                     type: string
-                  servicebusEndpoint:
-                    type: string
-                  skuName:
+                  sku:
                     type: string
                   tags:
                     additionalProperties:
@@ -97,12 +94,13 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  zoneRedundant:
+                    type: boolean
                 required:
                 - location
                 - name
-                - namespaceType
                 - resourceGroupName
-                - skuName
+                - sku
                 type: object
               providerRef:
                 description: LocalObjectReference contains enough information to let
@@ -115,21 +113,18 @@ spec:
                 type: object
               resource:
                 properties:
-                  enabled:
-                    type: boolean
+                  capacity:
+                    format: int64
+                    type: integer
                   id:
                     type: string
                   location:
                     type: string
                   name:
                     type: string
-                  namespaceType:
-                    type: string
                   resourceGroupName:
                     type: string
-                  servicebusEndpoint:
-                    type: string
-                  skuName:
+                  sku:
                     type: string
                   tags:
                     additionalProperties:
@@ -173,12 +168,22 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  zoneRedundant:
+                    type: boolean
                 required:
                 - location
                 - name
-                - namespaceType
                 - resourceGroupName
-                - skuName
+                - sku
+                type: object
+              secretRef:
+                description: LocalObjectReference contains enough information to let
+                  you locate the referenced object inside the same namespace.
+                properties:
+                  name:
+                    description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+                      TODO: Add other useful fields. apiVersion, kind, uid?'
+                    type: string
                 type: object
               terminationPolicy:
                 enum:

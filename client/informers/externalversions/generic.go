@@ -683,14 +683,14 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Eventhub().V1alpha1().ConsumerGroups().Informer()}, nil
 	case eventhubv1alpha1.SchemeGroupVersion.WithResource("eventhubs"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Eventhub().V1alpha1().Eventhubs().Informer()}, nil
+	case eventhubv1alpha1.SchemeGroupVersion.WithResource("namespaces"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Eventhub().V1alpha1().Namespaces().Informer()}, nil
 	case eventhubv1alpha1.SchemeGroupVersion.WithResource("namespaceauthorizationrules"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Eventhub().V1alpha1().NamespaceAuthorizationRules().Informer()}, nil
 	case eventhubv1alpha1.SchemeGroupVersion.WithResource("namespacecustomermanagedkeys"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Eventhub().V1alpha1().NamespaceCustomerManagedKeys().Informer()}, nil
 	case eventhubv1alpha1.SchemeGroupVersion.WithResource("namespacedisasterrecoveryconfigs"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Eventhub().V1alpha1().NamespaceDisasterRecoveryConfigs().Informer()}, nil
-	case eventhubv1alpha1.SchemeGroupVersion.WithResource("namespace_s"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Eventhub().V1alpha1().Namespace_s().Informer()}, nil
 
 		// Group=expressroute.azurerm.kubeform.com, Version=v1alpha1
 	case expressroutev1alpha1.SchemeGroupVersion.WithResource("circuits"):
@@ -1157,8 +1157,8 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 		// Group=notificationhub.azurerm.kubeform.com, Version=v1alpha1
 	case notificationhubv1alpha1.SchemeGroupVersion.WithResource("authorizationrules"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Notificationhub().V1alpha1().AuthorizationRules().Informer()}, nil
-	case notificationhubv1alpha1.SchemeGroupVersion.WithResource("namespace_s"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Notificationhub().V1alpha1().Namespace_s().Informer()}, nil
+	case notificationhubv1alpha1.SchemeGroupVersion.WithResource("namespaces"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Notificationhub().V1alpha1().Namespaces().Informer()}, nil
 	case notificationhubv1alpha1.SchemeGroupVersion.WithResource("notificationhubs"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Notificationhub().V1alpha1().NotificationHubs().Informer()}, nil
 
@@ -1269,8 +1269,8 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 		// Group=relay.azurerm.kubeform.com, Version=v1alpha1
 	case relayv1alpha1.SchemeGroupVersion.WithResource("hybridconnections"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Relay().V1alpha1().HybridConnections().Informer()}, nil
-	case relayv1alpha1.SchemeGroupVersion.WithResource("namespace_s"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Relay().V1alpha1().Namespace_s().Informer()}, nil
+	case relayv1alpha1.SchemeGroupVersion.WithResource("namespaces"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Relay().V1alpha1().Namespaces().Informer()}, nil
 
 		// Group=resource.azurerm.kubeform.com, Version=v1alpha1
 	case resourcev1alpha1.SchemeGroupVersion.WithResource("groups"):
@@ -1363,14 +1363,14 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Service().V1alpha1().FabricMeshSecretValues().Informer()}, nil
 
 		// Group=servicebus.azurerm.kubeform.com, Version=v1alpha1
+	case servicebusv1alpha1.SchemeGroupVersion.WithResource("namespaces"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Servicebus().V1alpha1().Namespaces().Informer()}, nil
 	case servicebusv1alpha1.SchemeGroupVersion.WithResource("namespaceauthorizationrules"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Servicebus().V1alpha1().NamespaceAuthorizationRules().Informer()}, nil
 	case servicebusv1alpha1.SchemeGroupVersion.WithResource("namespacedisasterrecoveryconfigs"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Servicebus().V1alpha1().NamespaceDisasterRecoveryConfigs().Informer()}, nil
 	case servicebusv1alpha1.SchemeGroupVersion.WithResource("namespacenetworkrulesets"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Servicebus().V1alpha1().NamespaceNetworkRuleSets().Informer()}, nil
-	case servicebusv1alpha1.SchemeGroupVersion.WithResource("namespace_s"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Servicebus().V1alpha1().Namespace_s().Informer()}, nil
 	case servicebusv1alpha1.SchemeGroupVersion.WithResource("queues"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Servicebus().V1alpha1().Queues().Informer()}, nil
 	case servicebusv1alpha1.SchemeGroupVersion.WithResource("queueauthorizationrules"):

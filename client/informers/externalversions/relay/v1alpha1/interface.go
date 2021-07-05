@@ -26,8 +26,8 @@ import (
 type Interface interface {
 	// HybridConnections returns a HybridConnectionInformer.
 	HybridConnections() HybridConnectionInformer
-	// Namespace_s returns a Namespace_Informer.
-	Namespace_s() Namespace_Informer
+	// Namespaces returns a NamespaceInformer.
+	Namespaces() NamespaceInformer
 }
 
 type version struct {
@@ -46,7 +46,7 @@ func (v *version) HybridConnections() HybridConnectionInformer {
 	return &hybridConnectionInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
-// Namespace_s returns a Namespace_Informer.
-func (v *version) Namespace_s() Namespace_Informer {
-	return &namespace_Informer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+// Namespaces returns a NamespaceInformer.
+func (v *version) Namespaces() NamespaceInformer {
+	return &namespaceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

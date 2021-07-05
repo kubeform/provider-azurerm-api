@@ -28,30 +28,30 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 )
 
-func (r *Namespace_) SetupWebhookWithManager(mgr ctrl.Manager) error {
+func (r *Namespace) SetupWebhookWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewWebhookManagedBy(mgr).
 		For(r).
 		Complete()
 }
 
-//+kubebuilder:webhook:verbs=create;update;delete,path=/validate-servicebus-azurerm-kubeform-com-v1alpha1-namespace_,mutating=false,failurePolicy=fail,groups=servicebus.azurerm.kubeform.com,resources=namespace_s,versions=v1alpha1,name=namespace_.servicebus.azurerm.kubeform.io,sideEffects=None,admissionReviewVersions=v1
+//+kubebuilder:webhook:verbs=create;update;delete,path=/validate-servicebus-azurerm-kubeform-com-v1alpha1-namespace,mutating=false,failurePolicy=fail,groups=servicebus.azurerm.kubeform.com,resources=namespaces,versions=v1alpha1,name=namespace.servicebus.azurerm.kubeform.io,sideEffects=None,admissionReviewVersions=v1
 
-var _ webhook.Validator = &Namespace_{}
+var _ webhook.Validator = &Namespace{}
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
-func (r *Namespace_) ValidateCreate() error {
+func (r *Namespace) ValidateCreate() error {
 	return nil
 }
 
 // ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
-func (r *Namespace_) ValidateUpdate(old runtime.Object) error {
+func (r *Namespace) ValidateUpdate(old runtime.Object) error {
 	return nil
 }
 
 // ValidateDelete implements webhook.Validator so a webhook will be registered for the type
-func (r *Namespace_) ValidateDelete() error {
+func (r *Namespace) ValidateDelete() error {
 	if r.Spec.TerminationPolicy == base.TerminationPolicyDoNotTerminate {
-		return fmt.Errorf(`namespace_ "%v/%v" can't be terminated. To delete, change spec.terminationPolicy to Delete`, r.Namespace, r.Name)
+		return fmt.Errorf(`namespace "%v/%v" can't be terminated. To delete, change spec.terminationPolicy to Delete`, r.Namespace, r.Name)
 	}
 	return nil
 }

@@ -29,6 +29,10 @@ type FakeServicebusV1alpha1 struct {
 	*testing.Fake
 }
 
+func (c *FakeServicebusV1alpha1) Namespaces(namespace string) v1alpha1.NamespaceInterface {
+	return &FakeNamespaces{c, namespace}
+}
+
 func (c *FakeServicebusV1alpha1) NamespaceAuthorizationRules(namespace string) v1alpha1.NamespaceAuthorizationRuleInterface {
 	return &FakeNamespaceAuthorizationRules{c, namespace}
 }
@@ -39,10 +43,6 @@ func (c *FakeServicebusV1alpha1) NamespaceDisasterRecoveryConfigs(namespace stri
 
 func (c *FakeServicebusV1alpha1) NamespaceNetworkRuleSets(namespace string) v1alpha1.NamespaceNetworkRuleSetInterface {
 	return &FakeNamespaceNetworkRuleSets{c, namespace}
-}
-
-func (c *FakeServicebusV1alpha1) Namespace_s(namespace string) v1alpha1.Namespace_Interface {
-	return &FakeNamespace_s{c, namespace}
 }
 
 func (c *FakeServicebusV1alpha1) Queues(namespace string) v1alpha1.QueueInterface {
