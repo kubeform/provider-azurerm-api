@@ -42,7 +42,7 @@ type DdosProtectionPlan struct {
 }
 
 type DdosProtectionPlanSpec struct {
-	KubeformOutput *DdosProtectionPlanSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DdosProtectionPlanSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DdosProtectionPlanSpecResource `json:"resource" tf:"resource"`
 

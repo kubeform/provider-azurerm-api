@@ -47,7 +47,7 @@ type CassandraKeyspaceSpecAutoscaleSettings struct {
 }
 
 type CassandraKeyspaceSpec struct {
-	KubeformOutput *CassandraKeyspaceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CassandraKeyspaceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CassandraKeyspaceSpecResource `json:"resource" tf:"resource"`
 

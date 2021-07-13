@@ -42,7 +42,7 @@ type ShareFile struct {
 }
 
 type ShareFileSpec struct {
-	KubeformOutput *ShareFileSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ShareFileSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ShareFileSpecResource `json:"resource" tf:"resource"`
 

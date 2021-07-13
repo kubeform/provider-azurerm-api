@@ -70,7 +70,7 @@ type ApiDiagnosticSpecFrontendResponse struct {
 }
 
 type ApiDiagnosticSpec struct {
-	KubeformOutput *ApiDiagnosticSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ApiDiagnosticSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ApiDiagnosticSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type FactoryLinkedServiceCosmosdb struct {
 }
 
 type FactoryLinkedServiceCosmosdbSpec struct {
-	KubeformOutput *FactoryLinkedServiceCosmosdbSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceCosmosdbSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceCosmosdbSpecResource `json:"resource" tf:"resource"`
 

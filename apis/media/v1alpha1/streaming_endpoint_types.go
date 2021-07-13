@@ -74,7 +74,7 @@ type StreamingEndpointSpecCrossSiteAccessPolicy struct {
 }
 
 type StreamingEndpointSpec struct {
-	KubeformOutput *StreamingEndpointSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *StreamingEndpointSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource StreamingEndpointSpecResource `json:"resource" tf:"resource"`
 

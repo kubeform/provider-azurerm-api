@@ -42,7 +42,7 @@ type CacheBlobNfsTarget struct {
 }
 
 type CacheBlobNfsTargetSpec struct {
-	KubeformOutput *CacheBlobNfsTargetSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CacheBlobNfsTargetSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CacheBlobNfsTargetSpecResource `json:"resource" tf:"resource"`
 

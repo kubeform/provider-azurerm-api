@@ -42,7 +42,7 @@ type FactoryTriggerSchedule struct {
 }
 
 type FactoryTriggerScheduleSpec struct {
-	KubeformOutput *FactoryTriggerScheduleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryTriggerScheduleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryTriggerScheduleSpecResource `json:"resource" tf:"resource"`
 

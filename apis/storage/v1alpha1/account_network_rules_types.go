@@ -48,7 +48,7 @@ type AccountNetworkRulesSpecPrivateLinkAccess struct {
 }
 
 type AccountNetworkRulesSpec struct {
-	KubeformOutput *AccountNetworkRulesSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AccountNetworkRulesSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AccountNetworkRulesSpecResource `json:"resource" tf:"resource"`
 

@@ -59,7 +59,7 @@ type CustomHTTPSConfigurationSpecCustomHTTPSConfiguration struct {
 }
 
 type CustomHTTPSConfigurationSpec struct {
-	KubeformOutput *CustomHTTPSConfigurationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CustomHTTPSConfigurationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CustomHTTPSConfigurationSpecResource `json:"resource" tf:"resource"`
 

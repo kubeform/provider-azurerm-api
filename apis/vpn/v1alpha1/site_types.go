@@ -63,7 +63,7 @@ type SiteSpecLink struct {
 }
 
 type SiteSpec struct {
-	KubeformOutput *SiteSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SiteSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SiteSpecResource `json:"resource" tf:"resource"`
 

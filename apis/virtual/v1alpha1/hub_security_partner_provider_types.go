@@ -42,7 +42,7 @@ type HubSecurityPartnerProvider struct {
 }
 
 type HubSecurityPartnerProviderSpec struct {
-	KubeformOutput *HubSecurityPartnerProviderSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *HubSecurityPartnerProviderSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource HubSecurityPartnerProviderSpecResource `json:"resource" tf:"resource"`
 

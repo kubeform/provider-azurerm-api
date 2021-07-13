@@ -42,7 +42,7 @@ type ProtectionContainerMapping struct {
 }
 
 type ProtectionContainerMappingSpec struct {
-	KubeformOutput *ProtectionContainerMappingSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ProtectionContainerMappingSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ProtectionContainerMappingSpecResource `json:"resource" tf:"resource"`
 

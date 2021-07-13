@@ -42,7 +42,7 @@ type DesktopWorkspace struct {
 }
 
 type DesktopWorkspaceSpec struct {
-	KubeformOutput *DesktopWorkspaceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DesktopWorkspaceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DesktopWorkspaceSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type GroupUser struct {
 }
 
 type GroupUserSpec struct {
-	KubeformOutput *GroupUserSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *GroupUserSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource GroupUserSpecResource `json:"resource" tf:"resource"`
 

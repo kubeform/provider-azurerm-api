@@ -48,7 +48,7 @@ type ShareSpecSnapshotSchedule struct {
 }
 
 type ShareSpec struct {
-	KubeformOutput *ShareSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ShareSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ShareSpecResource `json:"resource" tf:"resource"`
 

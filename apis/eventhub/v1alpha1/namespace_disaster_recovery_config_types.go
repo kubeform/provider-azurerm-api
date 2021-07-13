@@ -42,7 +42,7 @@ type NamespaceDisasterRecoveryConfig struct {
 }
 
 type NamespaceDisasterRecoveryConfigSpec struct {
-	KubeformOutput *NamespaceDisasterRecoveryConfigSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NamespaceDisasterRecoveryConfigSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NamespaceDisasterRecoveryConfigSpecResource `json:"resource" tf:"resource"`
 

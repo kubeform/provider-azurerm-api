@@ -64,7 +64,7 @@ type AlertRuleScheduledSpecIncidentConfiguration struct {
 }
 
 type AlertRuleScheduledSpec struct {
-	KubeformOutput *AlertRuleScheduledSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AlertRuleScheduledSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AlertRuleScheduledSpecResource `json:"resource" tf:"resource"`
 

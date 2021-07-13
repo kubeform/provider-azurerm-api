@@ -63,7 +63,7 @@ type ZoneSpecSoaRecord struct {
 }
 
 type ZoneSpec struct {
-	KubeformOutput *ZoneSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ZoneSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ZoneSpecResource `json:"resource" tf:"resource"`
 

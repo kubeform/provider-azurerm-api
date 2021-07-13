@@ -164,7 +164,7 @@ type FrontdoorSpecRoutingRule struct {
 }
 
 type FrontdoorSpec struct {
-	KubeformOutput *FrontdoorSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FrontdoorSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FrontdoorSpecResource `json:"resource" tf:"resource"`
 

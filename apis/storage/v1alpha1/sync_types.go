@@ -42,7 +42,7 @@ type Sync struct {
 }
 
 type SyncSpec struct {
-	KubeformOutput *SyncSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SyncSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SyncSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type Blob struct {
 }
 
 type BlobSpec struct {
-	KubeformOutput *BlobSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *BlobSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource BlobSpecResource `json:"resource" tf:"resource"`
 

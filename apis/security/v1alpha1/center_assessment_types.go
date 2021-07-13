@@ -50,7 +50,7 @@ type CenterAssessmentSpecStatus struct {
 }
 
 type CenterAssessmentSpec struct {
-	KubeformOutput *CenterAssessmentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CenterAssessmentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CenterAssessmentSpecResource `json:"resource" tf:"resource"`
 

@@ -75,7 +75,7 @@ type FactorySpecVstsConfiguration struct {
 }
 
 type FactorySpec struct {
-	KubeformOutput *FactorySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactorySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactorySpecResource `json:"resource" tf:"resource"`
 

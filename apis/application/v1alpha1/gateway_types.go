@@ -426,7 +426,7 @@ type GatewaySpecWafConfiguration struct {
 }
 
 type GatewaySpec struct {
-	KubeformOutput *GatewaySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *GatewaySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource GatewaySpecResource `json:"resource" tf:"resource"`
 

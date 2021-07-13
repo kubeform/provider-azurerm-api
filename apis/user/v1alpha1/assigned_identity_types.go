@@ -42,7 +42,7 @@ type AssignedIdentity struct {
 }
 
 type AssignedIdentitySpec struct {
-	KubeformOutput *AssignedIdentitySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AssignedIdentitySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AssignedIdentitySpecResource `json:"resource" tf:"resource"`
 

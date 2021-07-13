@@ -50,7 +50,7 @@ type FactoryDatasetHTTPSpecSchemaColumn struct {
 }
 
 type FactoryDatasetHTTPSpec struct {
-	KubeformOutput *FactoryDatasetHTTPSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryDatasetHTTPSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryDatasetHTTPSpecResource `json:"resource" tf:"resource"`
 

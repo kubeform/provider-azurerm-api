@@ -70,7 +70,7 @@ type AssetFilterSpecTrackSelection struct {
 }
 
 type AssetFilterSpec struct {
-	KubeformOutput *AssetFilterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AssetFilterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AssetFilterSpecResource `json:"resource" tf:"resource"`
 

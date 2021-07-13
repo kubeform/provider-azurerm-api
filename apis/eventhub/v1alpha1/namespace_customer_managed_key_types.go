@@ -42,7 +42,7 @@ type NamespaceCustomerManagedKey struct {
 }
 
 type NamespaceCustomerManagedKeySpec struct {
-	KubeformOutput *NamespaceCustomerManagedKeySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NamespaceCustomerManagedKeySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NamespaceCustomerManagedKeySpecResource `json:"resource" tf:"resource"`
 

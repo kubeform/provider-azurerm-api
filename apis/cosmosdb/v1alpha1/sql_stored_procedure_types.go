@@ -42,7 +42,7 @@ type SqlStoredProcedure struct {
 }
 
 type SqlStoredProcedureSpec struct {
-	KubeformOutput *SqlStoredProcedureSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SqlStoredProcedureSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SqlStoredProcedureSpecResource `json:"resource" tf:"resource"`
 

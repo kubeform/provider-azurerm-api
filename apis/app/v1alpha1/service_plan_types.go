@@ -49,7 +49,7 @@ type ServicePlanSpecSku struct {
 }
 
 type ServicePlanSpec struct {
-	KubeformOutput *ServicePlanSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServicePlanSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServicePlanSpecResource `json:"resource" tf:"resource"`
 

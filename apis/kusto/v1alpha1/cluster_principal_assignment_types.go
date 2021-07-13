@@ -42,7 +42,7 @@ type ClusterPrincipalAssignment struct {
 }
 
 type ClusterPrincipalAssignmentSpec struct {
-	KubeformOutput *ClusterPrincipalAssignmentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ClusterPrincipalAssignmentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ClusterPrincipalAssignmentSpecResource `json:"resource" tf:"resource"`
 

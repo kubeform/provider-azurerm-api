@@ -89,7 +89,7 @@ type GremlinGraphSpecUniqueKey struct {
 }
 
 type GremlinGraphSpec struct {
-	KubeformOutput *GremlinGraphSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *GremlinGraphSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource GremlinGraphSpecResource `json:"resource" tf:"resource"`
 

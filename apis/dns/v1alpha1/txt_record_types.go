@@ -46,7 +46,7 @@ type TxtRecordSpecRecord struct {
 }
 
 type TxtRecordSpec struct {
-	KubeformOutput *TxtRecordSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *TxtRecordSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource TxtRecordSpecResource `json:"resource" tf:"resource"`
 

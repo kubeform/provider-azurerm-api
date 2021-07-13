@@ -51,7 +51,7 @@ type FlexibleServerSpecMaintenanceWindow struct {
 }
 
 type FlexibleServerSpec struct {
-	KubeformOutput *FlexibleServerSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FlexibleServerSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FlexibleServerSpecResource `json:"resource" tf:"resource"`
 

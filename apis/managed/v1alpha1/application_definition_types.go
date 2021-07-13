@@ -47,7 +47,7 @@ type ApplicationDefinitionSpecAuthorization struct {
 }
 
 type ApplicationDefinitionSpec struct {
-	KubeformOutput *ApplicationDefinitionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ApplicationDefinitionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ApplicationDefinitionSpecResource `json:"resource" tf:"resource"`
 

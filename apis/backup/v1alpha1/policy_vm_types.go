@@ -71,7 +71,7 @@ type PolicyVmSpecRetentionYearly struct {
 }
 
 type PolicyVmSpec struct {
-	KubeformOutput *PolicyVmSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *PolicyVmSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource PolicyVmSpecResource `json:"resource" tf:"resource"`
 

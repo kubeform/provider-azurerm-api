@@ -42,7 +42,7 @@ type WebApp struct {
 }
 
 type WebAppSpec struct {
-	KubeformOutput *WebAppSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *WebAppSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource WebAppSpecResource `json:"resource" tf:"resource"`
 

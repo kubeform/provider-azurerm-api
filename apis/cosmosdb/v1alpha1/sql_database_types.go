@@ -47,7 +47,7 @@ type SqlDatabaseSpecAutoscaleSettings struct {
 }
 
 type SqlDatabaseSpec struct {
-	KubeformOutput *SqlDatabaseSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SqlDatabaseSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SqlDatabaseSpecResource `json:"resource" tf:"resource"`
 

@@ -50,7 +50,7 @@ type FactoryDatasetSQLServerTableSpecSchemaColumn struct {
 }
 
 type FactoryDatasetSQLServerTableSpec struct {
-	KubeformOutput *FactoryDatasetSQLServerTableSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryDatasetSQLServerTableSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryDatasetSQLServerTableSpecResource `json:"resource" tf:"resource"`
 

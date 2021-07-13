@@ -52,7 +52,7 @@ type AnalyticsOutputServicebusTopicSpecSerialization struct {
 }
 
 type AnalyticsOutputServicebusTopicSpec struct {
-	KubeformOutput *AnalyticsOutputServicebusTopicSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AnalyticsOutputServicebusTopicSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AnalyticsOutputServicebusTopicSpecResource `json:"resource" tf:"resource"`
 

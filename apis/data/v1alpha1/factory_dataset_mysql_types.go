@@ -50,7 +50,7 @@ type FactoryDatasetMysqlSpecSchemaColumn struct {
 }
 
 type FactoryDatasetMysqlSpec struct {
-	KubeformOutput *FactoryDatasetMysqlSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryDatasetMysqlSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryDatasetMysqlSpecResource `json:"resource" tf:"resource"`
 

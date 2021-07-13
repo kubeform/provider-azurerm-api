@@ -70,7 +70,7 @@ type FabricMeshApplicationSpecService struct {
 }
 
 type FabricMeshApplicationSpec struct {
-	KubeformOutput *FabricMeshApplicationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FabricMeshApplicationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FabricMeshApplicationSpecResource `json:"resource" tf:"resource"`
 

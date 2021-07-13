@@ -51,7 +51,7 @@ type CacheNfsTargetSpecNamespaceJunction struct {
 }
 
 type CacheNfsTargetSpec struct {
-	KubeformOutput *CacheNfsTargetSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CacheNfsTargetSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CacheNfsTargetSpecResource `json:"resource" tf:"resource"`
 

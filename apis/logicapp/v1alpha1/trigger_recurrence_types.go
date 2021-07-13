@@ -51,7 +51,7 @@ type TriggerRecurrenceSpecSchedule struct {
 }
 
 type TriggerRecurrenceSpec struct {
-	KubeformOutput *TriggerRecurrenceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *TriggerRecurrenceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource TriggerRecurrenceSpecResource `json:"resource" tf:"resource"`
 

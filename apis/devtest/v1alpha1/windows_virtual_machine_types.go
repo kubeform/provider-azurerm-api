@@ -56,7 +56,7 @@ type WindowsVirtualMachineSpecInboundNATRule struct {
 }
 
 type WindowsVirtualMachineSpec struct {
-	KubeformOutput *WindowsVirtualMachineSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *WindowsVirtualMachineSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource WindowsVirtualMachineSpecResource `json:"resource" tf:"resource"`
 

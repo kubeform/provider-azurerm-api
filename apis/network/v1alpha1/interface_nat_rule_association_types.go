@@ -42,7 +42,7 @@ type InterfaceNATRuleAssociation struct {
 }
 
 type InterfaceNATRuleAssociationSpec struct {
-	KubeformOutput *InterfaceNATRuleAssociationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *InterfaceNATRuleAssociationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource InterfaceNATRuleAssociationSpecResource `json:"resource" tf:"resource"`
 

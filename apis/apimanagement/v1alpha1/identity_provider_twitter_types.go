@@ -42,7 +42,7 @@ type IdentityProviderTwitter struct {
 }
 
 type IdentityProviderTwitterSpec struct {
-	KubeformOutput *IdentityProviderTwitterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *IdentityProviderTwitterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource IdentityProviderTwitterSpecResource `json:"resource" tf:"resource"`
 

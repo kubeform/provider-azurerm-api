@@ -184,7 +184,7 @@ type InteractiveQueryClusterSpecStorageAccountGen2 struct {
 }
 
 type InteractiveQueryClusterSpec struct {
-	KubeformOutput *InteractiveQueryClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *InteractiveQueryClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource InteractiveQueryClusterSpecResource `json:"resource" tf:"resource"`
 

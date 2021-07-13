@@ -50,7 +50,7 @@ type EncryptionSetSpecIdentity struct {
 }
 
 type EncryptionSetSpec struct {
-	KubeformOutput *EncryptionSetSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EncryptionSetSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EncryptionSetSpecResource `json:"resource" tf:"resource"`
 

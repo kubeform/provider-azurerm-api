@@ -48,7 +48,7 @@ type OutboundRuleSpecFrontendIPConfiguration struct {
 }
 
 type OutboundRuleSpec struct {
-	KubeformOutput *OutboundRuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *OutboundRuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource OutboundRuleSpecResource `json:"resource" tf:"resource"`
 

@@ -50,7 +50,7 @@ type FactoryDatasetSnowflakeSpecSchemaColumn struct {
 }
 
 type FactoryDatasetSnowflakeSpec struct {
-	KubeformOutput *FactoryDatasetSnowflakeSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryDatasetSnowflakeSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryDatasetSnowflakeSpecResource `json:"resource" tf:"resource"`
 

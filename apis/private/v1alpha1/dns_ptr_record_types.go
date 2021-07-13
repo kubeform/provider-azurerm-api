@@ -42,7 +42,7 @@ type DnsPtrRecord struct {
 }
 
 type DnsPtrRecordSpec struct {
-	KubeformOutput *DnsPtrRecordSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DnsPtrRecordSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DnsPtrRecordSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type VariableBool struct {
 }
 
 type VariableBoolSpec struct {
-	KubeformOutput *VariableBoolSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *VariableBoolSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource VariableBoolSpecResource `json:"resource" tf:"resource"`
 

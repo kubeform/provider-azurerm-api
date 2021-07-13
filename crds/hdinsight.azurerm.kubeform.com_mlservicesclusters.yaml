@@ -37,192 +37,6 @@ spec:
             type: object
           spec:
             properties:
-              kubeformOutput:
-                properties:
-                  clusterVersion:
-                    type: string
-                  edgeSSHEndpoint:
-                    type: string
-                  gateway:
-                    properties:
-                      enabled:
-                        description: Deprecated
-                        type: boolean
-                      username:
-                        type: string
-                    required:
-                    - username
-                    type: object
-                  httpsEndpoint:
-                    type: string
-                  id:
-                    type: string
-                  location:
-                    type: string
-                  name:
-                    type: string
-                  resourceGroupName:
-                    type: string
-                  roles:
-                    properties:
-                      edgeNode:
-                        properties:
-                          sshKeys:
-                            items:
-                              type: string
-                            type: array
-                          subnetID:
-                            type: string
-                          username:
-                            type: string
-                          virtualNetworkID:
-                            type: string
-                          vmSize:
-                            type: string
-                        required:
-                        - username
-                        - vmSize
-                        type: object
-                      headNode:
-                        properties:
-                          sshKeys:
-                            items:
-                              type: string
-                            type: array
-                          subnetID:
-                            type: string
-                          username:
-                            type: string
-                          virtualNetworkID:
-                            type: string
-                          vmSize:
-                            type: string
-                        required:
-                        - username
-                        - vmSize
-                        type: object
-                      workerNode:
-                        properties:
-                          minInstanceCount:
-                            description: Deprecated
-                            format: int64
-                            type: integer
-                          sshKeys:
-                            items:
-                              type: string
-                            type: array
-                          subnetID:
-                            type: string
-                          targetInstanceCount:
-                            format: int64
-                            type: integer
-                          username:
-                            type: string
-                          virtualNetworkID:
-                            type: string
-                          vmSize:
-                            type: string
-                        required:
-                        - targetInstanceCount
-                        - username
-                        - vmSize
-                        type: object
-                      zookeeperNode:
-                        properties:
-                          sshKeys:
-                            items:
-                              type: string
-                            type: array
-                          subnetID:
-                            type: string
-                          username:
-                            type: string
-                          virtualNetworkID:
-                            type: string
-                          vmSize:
-                            type: string
-                        required:
-                        - username
-                        - vmSize
-                        type: object
-                    required:
-                    - edgeNode
-                    - headNode
-                    - workerNode
-                    - zookeeperNode
-                    type: object
-                  rstudio:
-                    type: boolean
-                  sshEndpoint:
-                    type: string
-                  storageAccount:
-                    items:
-                      properties:
-                        isDefault:
-                          type: boolean
-                        storageContainerID:
-                          type: string
-                      required:
-                      - isDefault
-                      - storageContainerID
-                      type: object
-                    type: array
-                  tags:
-                    additionalProperties:
-                      type: string
-                    type: object
-                  tier:
-                    type: string
-                  timeouts:
-                    properties:
-                      create:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      default:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      delete:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      read:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      update:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                    type: object
-                  tlsMinVersion:
-                    type: string
-                required:
-                - clusterVersion
-                - gateway
-                - location
-                - name
-                - resourceGroupName
-                - roles
-                - rstudio
-                - tier
-                type: object
               providerRef:
                 description: LocalObjectReference contains enough information to let
                   you locate the referenced object inside the same namespace.
@@ -426,6 +240,192 @@ spec:
                     description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
                       TODO: Add other useful fields. apiVersion, kind, uid?'
                     type: string
+                type: object
+              state:
+                properties:
+                  clusterVersion:
+                    type: string
+                  edgeSSHEndpoint:
+                    type: string
+                  gateway:
+                    properties:
+                      enabled:
+                        description: Deprecated
+                        type: boolean
+                      username:
+                        type: string
+                    required:
+                    - username
+                    type: object
+                  httpsEndpoint:
+                    type: string
+                  id:
+                    type: string
+                  location:
+                    type: string
+                  name:
+                    type: string
+                  resourceGroupName:
+                    type: string
+                  roles:
+                    properties:
+                      edgeNode:
+                        properties:
+                          sshKeys:
+                            items:
+                              type: string
+                            type: array
+                          subnetID:
+                            type: string
+                          username:
+                            type: string
+                          virtualNetworkID:
+                            type: string
+                          vmSize:
+                            type: string
+                        required:
+                        - username
+                        - vmSize
+                        type: object
+                      headNode:
+                        properties:
+                          sshKeys:
+                            items:
+                              type: string
+                            type: array
+                          subnetID:
+                            type: string
+                          username:
+                            type: string
+                          virtualNetworkID:
+                            type: string
+                          vmSize:
+                            type: string
+                        required:
+                        - username
+                        - vmSize
+                        type: object
+                      workerNode:
+                        properties:
+                          minInstanceCount:
+                            description: Deprecated
+                            format: int64
+                            type: integer
+                          sshKeys:
+                            items:
+                              type: string
+                            type: array
+                          subnetID:
+                            type: string
+                          targetInstanceCount:
+                            format: int64
+                            type: integer
+                          username:
+                            type: string
+                          virtualNetworkID:
+                            type: string
+                          vmSize:
+                            type: string
+                        required:
+                        - targetInstanceCount
+                        - username
+                        - vmSize
+                        type: object
+                      zookeeperNode:
+                        properties:
+                          sshKeys:
+                            items:
+                              type: string
+                            type: array
+                          subnetID:
+                            type: string
+                          username:
+                            type: string
+                          virtualNetworkID:
+                            type: string
+                          vmSize:
+                            type: string
+                        required:
+                        - username
+                        - vmSize
+                        type: object
+                    required:
+                    - edgeNode
+                    - headNode
+                    - workerNode
+                    - zookeeperNode
+                    type: object
+                  rstudio:
+                    type: boolean
+                  sshEndpoint:
+                    type: string
+                  storageAccount:
+                    items:
+                      properties:
+                        isDefault:
+                          type: boolean
+                        storageContainerID:
+                          type: string
+                      required:
+                      - isDefault
+                      - storageContainerID
+                      type: object
+                    type: array
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  tier:
+                    type: string
+                  timeouts:
+                    properties:
+                      create:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      default:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      delete:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      read:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      update:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                    type: object
+                  tlsMinVersion:
+                    type: string
+                required:
+                - clusterVersion
+                - gateway
+                - location
+                - name
+                - resourceGroupName
+                - roles
+                - rstudio
+                - tier
                 type: object
               terminationPolicy:
                 enum:

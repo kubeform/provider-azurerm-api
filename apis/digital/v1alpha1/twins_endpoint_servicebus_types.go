@@ -42,7 +42,7 @@ type TwinsEndpointServicebus struct {
 }
 
 type TwinsEndpointServicebusSpec struct {
-	KubeformOutput *TwinsEndpointServicebusSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *TwinsEndpointServicebusSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource TwinsEndpointServicebusSpecResource `json:"resource" tf:"resource"`
 

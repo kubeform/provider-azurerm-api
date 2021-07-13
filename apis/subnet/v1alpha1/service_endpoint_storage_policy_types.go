@@ -49,7 +49,7 @@ type ServiceEndpointStoragePolicySpecDefinition struct {
 }
 
 type ServiceEndpointStoragePolicySpec struct {
-	KubeformOutput *ServiceEndpointStoragePolicySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServiceEndpointStoragePolicySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServiceEndpointStoragePolicySpecResource `json:"resource" tf:"resource"`
 

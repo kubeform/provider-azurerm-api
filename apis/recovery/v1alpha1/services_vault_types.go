@@ -50,7 +50,7 @@ type ServicesVaultSpecIdentity struct {
 }
 
 type ServicesVaultSpec struct {
-	KubeformOutput *ServicesVaultSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServicesVaultSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServicesVaultSpecResource `json:"resource" tf:"resource"`
 

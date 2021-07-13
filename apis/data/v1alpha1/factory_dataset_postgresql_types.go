@@ -50,7 +50,7 @@ type FactoryDatasetPostgresqlSpecSchemaColumn struct {
 }
 
 type FactoryDatasetPostgresqlSpec struct {
-	KubeformOutput *FactoryDatasetPostgresqlSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryDatasetPostgresqlSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryDatasetPostgresqlSpecResource `json:"resource" tf:"resource"`
 

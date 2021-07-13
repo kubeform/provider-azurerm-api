@@ -42,7 +42,7 @@ type HybridConnection struct {
 }
 
 type HybridConnectionSpec struct {
-	KubeformOutput *HybridConnectionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *HybridConnectionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource HybridConnectionSpecResource `json:"resource" tf:"resource"`
 

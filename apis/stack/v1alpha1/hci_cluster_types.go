@@ -42,7 +42,7 @@ type HciCluster struct {
 }
 
 type HciClusterSpec struct {
-	KubeformOutput *HciClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *HciClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource HciClusterSpecResource `json:"resource" tf:"resource"`
 

@@ -68,7 +68,7 @@ type CircuitPeeringSpecMicrosoftPeeringConfig struct {
 }
 
 type CircuitPeeringSpec struct {
-	KubeformOutput *CircuitPeeringSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CircuitPeeringSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CircuitPeeringSpecResource `json:"resource" tf:"resource"`
 

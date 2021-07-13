@@ -123,7 +123,7 @@ type StreamingPolicySpecNoEncryptionEnabledProtocols struct {
 }
 
 type StreamingPolicySpec struct {
-	KubeformOutput *StreamingPolicySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *StreamingPolicySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource StreamingPolicySpecResource `json:"resource" tf:"resource"`
 

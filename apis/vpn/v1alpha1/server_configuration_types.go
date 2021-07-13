@@ -111,7 +111,7 @@ type ServerConfigurationSpecRadiusServer2 struct {
 }
 
 type ServerConfigurationSpec struct {
-	KubeformOutput *ServerConfigurationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServerConfigurationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServerConfigurationSpecResource `json:"resource" tf:"resource"`
 

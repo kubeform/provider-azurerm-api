@@ -42,7 +42,7 @@ type ShareDatasetDataLakeGen2 struct {
 }
 
 type ShareDatasetDataLakeGen2Spec struct {
-	KubeformOutput *ShareDatasetDataLakeGen2SpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ShareDatasetDataLakeGen2SpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ShareDatasetDataLakeGen2SpecResource `json:"resource" tf:"resource"`
 

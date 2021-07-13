@@ -74,7 +74,7 @@ type WorkspaceSpecIdentity struct {
 }
 
 type WorkspaceSpec struct {
-	KubeformOutput *WorkspaceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *WorkspaceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource WorkspaceSpecResource `json:"resource" tf:"resource"`
 

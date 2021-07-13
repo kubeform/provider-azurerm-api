@@ -42,7 +42,7 @@ type InsightsSmartDetectionRule struct {
 }
 
 type InsightsSmartDetectionRuleSpec struct {
-	KubeformOutput *InsightsSmartDetectionRuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *InsightsSmartDetectionRuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource InsightsSmartDetectionRuleSpecResource `json:"resource" tf:"resource"`
 

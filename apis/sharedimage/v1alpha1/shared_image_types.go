@@ -56,7 +56,7 @@ type SharedImageSpecPurchasePlan struct {
 }
 
 type SharedImageSpec struct {
-	KubeformOutput *SharedImageSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SharedImageSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SharedImageSpecResource `json:"resource" tf:"resource"`
 

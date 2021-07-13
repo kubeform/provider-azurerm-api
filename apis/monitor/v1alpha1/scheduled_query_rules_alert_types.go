@@ -64,7 +64,7 @@ type ScheduledQueryRulesAlertSpecTrigger struct {
 }
 
 type ScheduledQueryRulesAlertSpec struct {
-	KubeformOutput *ScheduledQueryRulesAlertSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ScheduledQueryRulesAlertSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ScheduledQueryRulesAlertSpecResource `json:"resource" tf:"resource"`
 

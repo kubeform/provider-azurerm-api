@@ -158,7 +158,7 @@ type ContentKeyPolicySpecPolicyOption struct {
 }
 
 type ContentKeyPolicySpec struct {
-	KubeformOutput *ContentKeyPolicySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ContentKeyPolicySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ContentKeyPolicySpecResource `json:"resource" tf:"resource"`
 

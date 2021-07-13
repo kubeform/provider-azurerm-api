@@ -42,7 +42,7 @@ type MigrationProject struct {
 }
 
 type MigrationProjectSpec struct {
-	KubeformOutput *MigrationProjectSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *MigrationProjectSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource MigrationProjectSpecResource `json:"resource" tf:"resource"`
 

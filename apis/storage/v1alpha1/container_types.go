@@ -42,7 +42,7 @@ type Container struct {
 }
 
 type ContainerSpec struct {
-	KubeformOutput *ContainerSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ContainerSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ContainerSpecResource `json:"resource" tf:"resource"`
 

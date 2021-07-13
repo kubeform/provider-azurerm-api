@@ -184,7 +184,7 @@ type SparkClusterSpecStorageAccountGen2 struct {
 }
 
 type SparkClusterSpec struct {
-	KubeformOutput *SparkClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SparkClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SparkClusterSpecResource `json:"resource" tf:"resource"`
 

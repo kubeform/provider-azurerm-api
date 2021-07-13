@@ -42,7 +42,7 @@ type SqlFunction struct {
 }
 
 type SqlFunctionSpec struct {
-	KubeformOutput *SqlFunctionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SqlFunctionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SqlFunctionSpecResource `json:"resource" tf:"resource"`
 

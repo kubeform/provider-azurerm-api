@@ -42,7 +42,7 @@ type ProtectedVm struct {
 }
 
 type ProtectedVmSpec struct {
-	KubeformOutput *ProtectedVmSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ProtectedVmSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ProtectedVmSpecResource `json:"resource" tf:"resource"`
 

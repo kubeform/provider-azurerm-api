@@ -42,7 +42,7 @@ type RegistryScopeMap struct {
 }
 
 type RegistryScopeMapSpec struct {
-	KubeformOutput *RegistryScopeMapSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *RegistryScopeMapSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource RegistryScopeMapSpecResource `json:"resource" tf:"resource"`
 

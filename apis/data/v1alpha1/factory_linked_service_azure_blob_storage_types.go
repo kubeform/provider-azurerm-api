@@ -42,7 +42,7 @@ type FactoryLinkedServiceAzureBlobStorage struct {
 }
 
 type FactoryLinkedServiceAzureBlobStorageSpec struct {
-	KubeformOutput *FactoryLinkedServiceAzureBlobStorageSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceAzureBlobStorageSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceAzureBlobStorageSpecResource `json:"resource" tf:"resource"`
 

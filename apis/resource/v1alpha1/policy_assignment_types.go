@@ -51,7 +51,7 @@ type PolicyAssignmentSpecIdentity struct {
 }
 
 type PolicyAssignmentSpec struct {
-	KubeformOutput *PolicyAssignmentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *PolicyAssignmentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource PolicyAssignmentSpecResource `json:"resource" tf:"resource"`
 

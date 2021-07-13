@@ -56,7 +56,7 @@ type LinuxVirtualMachineSpecInboundNATRule struct {
 }
 
 type LinuxVirtualMachineSpec struct {
-	KubeformOutput *LinuxVirtualMachineSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LinuxVirtualMachineSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LinuxVirtualMachineSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type ManagedHardwareSecurityModule struct {
 }
 
 type ManagedHardwareSecurityModuleSpec struct {
-	KubeformOutput *ManagedHardwareSecurityModuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ManagedHardwareSecurityModuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ManagedHardwareSecurityModuleSpecResource `json:"resource" tf:"resource"`
 

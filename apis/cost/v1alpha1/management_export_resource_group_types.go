@@ -53,7 +53,7 @@ type ManagementExportResourceGroupSpecQuery struct {
 }
 
 type ManagementExportResourceGroupSpec struct {
-	KubeformOutput *ManagementExportResourceGroupSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ManagementExportResourceGroupSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ManagementExportResourceGroupSpecResource `json:"resource" tf:"resource"`
 

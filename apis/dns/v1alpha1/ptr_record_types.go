@@ -42,7 +42,7 @@ type PtrRecord struct {
 }
 
 type PtrRecordSpec struct {
-	KubeformOutput *PtrRecordSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *PtrRecordSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource PtrRecordSpecResource `json:"resource" tf:"resource"`
 

@@ -47,7 +47,7 @@ type FactoryLinkedServiceAzureFileStorageSpecKeyVaultPassword struct {
 }
 
 type FactoryLinkedServiceAzureFileStorageSpec struct {
-	KubeformOutput *FactoryLinkedServiceAzureFileStorageSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceAzureFileStorageSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceAzureFileStorageSpecResource `json:"resource" tf:"resource"`
 

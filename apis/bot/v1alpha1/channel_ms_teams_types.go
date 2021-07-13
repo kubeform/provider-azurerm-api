@@ -42,7 +42,7 @@ type ChannelMsTeams struct {
 }
 
 type ChannelMsTeamsSpec struct {
-	KubeformOutput *ChannelMsTeamsSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ChannelMsTeamsSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ChannelMsTeamsSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type AssignmentDedicatedHost struct {
 }
 
 type AssignmentDedicatedHostSpec struct {
-	KubeformOutput *AssignmentDedicatedHostSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AssignmentDedicatedHostSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AssignmentDedicatedHostSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type GatewayPublicIPPrefixAssociation struct {
 }
 
 type GatewayPublicIPPrefixAssociationSpec struct {
-	KubeformOutput *GatewayPublicIPPrefixAssociationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *GatewayPublicIPPrefixAssociationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource GatewayPublicIPPrefixAssociationSpecResource `json:"resource" tf:"resource"`
 

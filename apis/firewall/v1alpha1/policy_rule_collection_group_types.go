@@ -115,7 +115,7 @@ type PolicyRuleCollectionGroupSpecNetworkRuleCollection struct {
 }
 
 type PolicyRuleCollectionGroupSpec struct {
-	KubeformOutput *PolicyRuleCollectionGroupSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *PolicyRuleCollectionGroupSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource PolicyRuleCollectionGroupSpecResource `json:"resource" tf:"resource"`
 

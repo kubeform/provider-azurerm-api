@@ -298,7 +298,7 @@ type ServiceSlotSpecSiteCredential struct {
 }
 
 type ServiceSlotSpec struct {
-	KubeformOutput *ServiceSlotSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServiceSlotSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServiceSlotSpecResource `json:"resource" tf:"resource"`
 

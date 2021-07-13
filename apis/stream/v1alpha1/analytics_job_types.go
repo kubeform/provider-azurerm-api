@@ -50,7 +50,7 @@ type AnalyticsJobSpecIdentity struct {
 }
 
 type AnalyticsJobSpec struct {
-	KubeformOutput *AnalyticsJobSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AnalyticsJobSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AnalyticsJobSpecResource `json:"resource" tf:"resource"`
 

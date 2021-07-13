@@ -42,7 +42,7 @@ type ProductGroup struct {
 }
 
 type ProductGroupSpec struct {
-	KubeformOutput *ProductGroupSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ProductGroupSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ProductGroupSpecResource `json:"resource" tf:"resource"`
 

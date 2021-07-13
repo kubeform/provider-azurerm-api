@@ -162,7 +162,7 @@ type ConnectionMonitorSpecTestGroup struct {
 }
 
 type ConnectionMonitorSpec struct {
-	KubeformOutput *ConnectionMonitorSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ConnectionMonitorSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ConnectionMonitorSpecResource `json:"resource" tf:"resource"`
 

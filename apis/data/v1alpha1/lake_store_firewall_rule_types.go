@@ -42,7 +42,7 @@ type LakeStoreFirewallRule struct {
 }
 
 type LakeStoreFirewallRuleSpec struct {
-	KubeformOutput *LakeStoreFirewallRuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LakeStoreFirewallRuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LakeStoreFirewallRuleSpecResource `json:"resource" tf:"resource"`
 

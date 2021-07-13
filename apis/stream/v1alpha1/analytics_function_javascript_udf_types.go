@@ -50,7 +50,7 @@ type AnalyticsFunctionJavascriptUdfSpecOutput struct {
 }
 
 type AnalyticsFunctionJavascriptUdfSpec struct {
-	KubeformOutput *AnalyticsFunctionJavascriptUdfSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AnalyticsFunctionJavascriptUdfSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AnalyticsFunctionJavascriptUdfSpecResource `json:"resource" tf:"resource"`
 

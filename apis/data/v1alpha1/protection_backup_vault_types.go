@@ -51,7 +51,7 @@ type ProtectionBackupVaultSpecIdentity struct {
 }
 
 type ProtectionBackupVaultSpec struct {
-	KubeformOutput *ProtectionBackupVaultSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ProtectionBackupVaultSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ProtectionBackupVaultSpecResource `json:"resource" tf:"resource"`
 

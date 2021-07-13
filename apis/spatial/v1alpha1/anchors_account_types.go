@@ -42,7 +42,7 @@ type AnchorsAccount struct {
 }
 
 type AnchorsAccountSpec struct {
-	KubeformOutput *AnchorsAccountSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AnchorsAccountSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AnchorsAccountSpecResource `json:"resource" tf:"resource"`
 

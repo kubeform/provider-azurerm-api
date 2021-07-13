@@ -60,7 +60,7 @@ type FailoverGroupSpecReadonlyEndpointFailoverPolicy struct {
 }
 
 type FailoverGroupSpec struct {
-	KubeformOutput *FailoverGroupSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FailoverGroupSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FailoverGroupSpecResource `json:"resource" tf:"resource"`
 

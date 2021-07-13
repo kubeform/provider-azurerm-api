@@ -42,7 +42,7 @@ type VirtualMachineScaleSet struct {
 }
 
 type VirtualMachineScaleSetSpec struct {
-	KubeformOutput *VirtualMachineScaleSetSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *VirtualMachineScaleSetSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource VirtualMachineScaleSetSpecResource `json:"resource" tf:"resource"`
 

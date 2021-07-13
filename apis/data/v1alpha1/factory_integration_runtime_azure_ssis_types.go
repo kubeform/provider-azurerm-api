@@ -62,7 +62,7 @@ type FactoryIntegrationRuntimeAzureSsisSpecVnetIntegration struct {
 }
 
 type FactoryIntegrationRuntimeAzureSsisSpec struct {
-	KubeformOutput *FactoryIntegrationRuntimeAzureSsisSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryIntegrationRuntimeAzureSsisSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryIntegrationRuntimeAzureSsisSpecResource `json:"resource" tf:"resource"`
 

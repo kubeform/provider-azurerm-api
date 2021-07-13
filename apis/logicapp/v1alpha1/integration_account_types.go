@@ -42,7 +42,7 @@ type IntegrationAccount struct {
 }
 
 type IntegrationAccountSpec struct {
-	KubeformOutput *IntegrationAccountSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *IntegrationAccountSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource IntegrationAccountSpecResource `json:"resource" tf:"resource"`
 

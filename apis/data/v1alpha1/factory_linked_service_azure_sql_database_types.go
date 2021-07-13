@@ -52,7 +52,7 @@ type FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultPassword struct {
 }
 
 type FactoryLinkedServiceAzureSQLDatabaseSpec struct {
-	KubeformOutput *FactoryLinkedServiceAzureSQLDatabaseSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceAzureSQLDatabaseSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceAzureSQLDatabaseSpecResource `json:"resource" tf:"resource"`
 

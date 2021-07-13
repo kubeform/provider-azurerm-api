@@ -66,7 +66,7 @@ type ProtectionBackupPolicyPostgresqlSpecRetentionRule struct {
 }
 
 type ProtectionBackupPolicyPostgresqlSpec struct {
-	KubeformOutput *ProtectionBackupPolicyPostgresqlSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ProtectionBackupPolicyPostgresqlSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ProtectionBackupPolicyPostgresqlSpecResource `json:"resource" tf:"resource"`
 

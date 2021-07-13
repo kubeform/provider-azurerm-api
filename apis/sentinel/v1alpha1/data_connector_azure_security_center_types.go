@@ -42,7 +42,7 @@ type DataConnectorAzureSecurityCenter struct {
 }
 
 type DataConnectorAzureSecurityCenterSpec struct {
-	KubeformOutput *DataConnectorAzureSecurityCenterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DataConnectorAzureSecurityCenterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DataConnectorAzureSecurityCenterSpecResource `json:"resource" tf:"resource"`
 

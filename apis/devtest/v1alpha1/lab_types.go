@@ -42,7 +42,7 @@ type Lab struct {
 }
 
 type LabSpec struct {
-	KubeformOutput *LabSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LabSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LabSpecResource `json:"resource" tf:"resource"`
 

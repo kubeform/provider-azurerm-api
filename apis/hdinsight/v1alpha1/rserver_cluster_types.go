@@ -119,7 +119,7 @@ type RserverClusterSpecStorageAccount struct {
 }
 
 type RserverClusterSpec struct {
-	KubeformOutput *RserverClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *RserverClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource RserverClusterSpecResource `json:"resource" tf:"resource"`
 

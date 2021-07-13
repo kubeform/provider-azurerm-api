@@ -130,7 +130,7 @@ type AutoscaleSettingSpecProfile struct {
 }
 
 type AutoscaleSettingSpec struct {
-	KubeformOutput *AutoscaleSettingSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AutoscaleSettingSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AutoscaleSettingSpecResource `json:"resource" tf:"resource"`
 

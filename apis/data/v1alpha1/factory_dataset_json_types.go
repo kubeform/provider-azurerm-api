@@ -62,7 +62,7 @@ type FactoryDatasetJSONSpecSchemaColumn struct {
 }
 
 type FactoryDatasetJSONSpec struct {
-	KubeformOutput *FactoryDatasetJSONSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryDatasetJSONSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryDatasetJSONSpecResource `json:"resource" tf:"resource"`
 

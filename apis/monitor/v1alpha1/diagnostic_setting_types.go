@@ -70,7 +70,7 @@ type DiagnosticSettingSpecMetric struct {
 }
 
 type DiagnosticSettingSpec struct {
-	KubeformOutput *DiagnosticSettingSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DiagnosticSettingSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DiagnosticSettingSpecResource `json:"resource" tf:"resource"`
 

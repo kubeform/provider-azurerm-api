@@ -42,7 +42,7 @@ type ConsumerGroup struct {
 }
 
 type ConsumerGroupSpec struct {
-	KubeformOutput *ConsumerGroupSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ConsumerGroupSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ConsumerGroupSpecResource `json:"resource" tf:"resource"`
 

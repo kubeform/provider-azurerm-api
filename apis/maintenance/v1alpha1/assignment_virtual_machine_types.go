@@ -42,7 +42,7 @@ type AssignmentVirtualMachine struct {
 }
 
 type AssignmentVirtualMachineSpec struct {
-	KubeformOutput *AssignmentVirtualMachineSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AssignmentVirtualMachineSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AssignmentVirtualMachineSpecResource `json:"resource" tf:"resource"`
 

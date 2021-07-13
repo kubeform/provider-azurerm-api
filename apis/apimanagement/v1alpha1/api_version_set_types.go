@@ -42,7 +42,7 @@ type ApiVersionSet struct {
 }
 
 type ApiVersionSetSpec struct {
-	KubeformOutput *ApiVersionSetSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ApiVersionSetSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ApiVersionSetSpecResource `json:"resource" tf:"resource"`
 

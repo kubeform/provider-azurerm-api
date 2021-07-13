@@ -116,7 +116,7 @@ type ActionRuleSuppressionSpecSuppression struct {
 }
 
 type ActionRuleSuppressionSpec struct {
-	KubeformOutput *ActionRuleSuppressionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ActionRuleSuppressionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ActionRuleSuppressionSpecResource `json:"resource" tf:"resource"`
 

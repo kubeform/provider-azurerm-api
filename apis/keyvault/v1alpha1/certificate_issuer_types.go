@@ -52,7 +52,7 @@ type CertificateIssuerSpecAdmin struct {
 }
 
 type CertificateIssuerSpec struct {
-	KubeformOutput *CertificateIssuerSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CertificateIssuerSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CertificateIssuerSpecResource `json:"resource" tf:"resource"`
 

@@ -50,7 +50,7 @@ type SmartDetectorAlertRuleSpecActionGroup struct {
 }
 
 type SmartDetectorAlertRuleSpec struct {
-	KubeformOutput *SmartDetectorAlertRuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SmartDetectorAlertRuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SmartDetectorAlertRuleSpecResource `json:"resource" tf:"resource"`
 

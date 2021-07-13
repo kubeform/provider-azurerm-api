@@ -42,7 +42,7 @@ type DatasourceWindowsPerformanceCounter struct {
 }
 
 type DatasourceWindowsPerformanceCounterSpec struct {
-	KubeformOutput *DatasourceWindowsPerformanceCounterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DatasourceWindowsPerformanceCounterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DatasourceWindowsPerformanceCounterSpecResource `json:"resource" tf:"resource"`
 

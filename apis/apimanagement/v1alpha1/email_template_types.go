@@ -42,7 +42,7 @@ type EmailTemplate struct {
 }
 
 type EmailTemplateSpec struct {
-	KubeformOutput *EmailTemplateSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EmailTemplateSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EmailTemplateSpecResource `json:"resource" tf:"resource"`
 

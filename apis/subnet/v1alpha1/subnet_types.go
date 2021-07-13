@@ -53,7 +53,7 @@ type SubnetSpecDelegation struct {
 }
 
 type SubnetSpec struct {
-	KubeformOutput *SubnetSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SubnetSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SubnetSpecResource `json:"resource" tf:"resource"`
 

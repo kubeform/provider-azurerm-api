@@ -50,7 +50,7 @@ type AnalyticsStreamInputIothubSpecSerialization struct {
 }
 
 type AnalyticsStreamInputIothubSpec struct {
-	KubeformOutput *AnalyticsStreamInputIothubSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AnalyticsStreamInputIothubSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AnalyticsStreamInputIothubSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type FabricMeshSecretValue struct {
 }
 
 type FabricMeshSecretValueSpec struct {
-	KubeformOutput *FabricMeshSecretValueSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FabricMeshSecretValueSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FabricMeshSecretValueSpecResource `json:"resource" tf:"resource"`
 

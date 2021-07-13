@@ -42,7 +42,7 @@ type DataConnectorMicrosoftCloudAppSecurity struct {
 }
 
 type DataConnectorMicrosoftCloudAppSecuritySpec struct {
-	KubeformOutput *DataConnectorMicrosoftCloudAppSecuritySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DataConnectorMicrosoftCloudAppSecuritySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DataConnectorMicrosoftCloudAppSecuritySpecResource `json:"resource" tf:"resource"`
 

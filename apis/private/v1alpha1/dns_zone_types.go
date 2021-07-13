@@ -64,7 +64,7 @@ type DnsZoneSpecSoaRecord struct {
 }
 
 type DnsZoneSpec struct {
-	KubeformOutput *DnsZoneSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DnsZoneSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DnsZoneSpecResource `json:"resource" tf:"resource"`
 

@@ -48,7 +48,7 @@ type ServicesServerSpecIpv4FirewallRule struct {
 }
 
 type ServicesServerSpec struct {
-	KubeformOutput *ServicesServerSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServicesServerSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServicesServerSpecResource `json:"resource" tf:"resource"`
 

@@ -69,7 +69,7 @@ type PolicyFileShareSpecRetentionYearly struct {
 }
 
 type PolicyFileShareSpec struct {
-	KubeformOutput *PolicyFileShareSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *PolicyFileShareSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource PolicyFileShareSpecResource `json:"resource" tf:"resource"`
 

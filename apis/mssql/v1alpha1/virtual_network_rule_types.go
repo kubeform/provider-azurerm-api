@@ -42,7 +42,7 @@ type VirtualNetworkRule struct {
 }
 
 type VirtualNetworkRuleSpec struct {
-	KubeformOutput *VirtualNetworkRuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *VirtualNetworkRuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource VirtualNetworkRuleSpecResource `json:"resource" tf:"resource"`
 

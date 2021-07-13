@@ -48,7 +48,7 @@ type FactoryTriggerBlobEventSpecPipeline struct {
 }
 
 type FactoryTriggerBlobEventSpec struct {
-	KubeformOutput *FactoryTriggerBlobEventSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryTriggerBlobEventSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryTriggerBlobEventSpecResource `json:"resource" tf:"resource"`
 

@@ -74,7 +74,7 @@ type NamespaceSpecNetworkRulesets struct {
 }
 
 type NamespaceSpec struct {
-	KubeformOutput *NamespaceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NamespaceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NamespaceSpecResource `json:"resource" tf:"resource"`
 

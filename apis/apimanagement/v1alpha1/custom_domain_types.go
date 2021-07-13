@@ -104,7 +104,7 @@ type CustomDomainSpecScm struct {
 }
 
 type CustomDomainSpec struct {
-	KubeformOutput *CustomDomainSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CustomDomainSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CustomDomainSpecResource `json:"resource" tf:"resource"`
 

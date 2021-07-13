@@ -42,7 +42,7 @@ type Prefix struct {
 }
 
 type PrefixSpec struct {
-	KubeformOutput *PrefixSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *PrefixSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource PrefixSpecResource `json:"resource" tf:"resource"`
 

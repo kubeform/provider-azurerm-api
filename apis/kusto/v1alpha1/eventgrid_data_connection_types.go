@@ -42,7 +42,7 @@ type EventgridDataConnection struct {
 }
 
 type EventgridDataConnectionSpec struct {
-	KubeformOutput *EventgridDataConnectionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EventgridDataConnectionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EventgridDataConnectionSpecResource `json:"resource" tf:"resource"`
 

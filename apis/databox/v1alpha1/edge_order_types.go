@@ -100,7 +100,7 @@ type EdgeOrderSpecStatus struct {
 }
 
 type EdgeOrderSpec struct {
-	KubeformOutput *EdgeOrderSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EdgeOrderSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EdgeOrderSpecResource `json:"resource" tf:"resource"`
 

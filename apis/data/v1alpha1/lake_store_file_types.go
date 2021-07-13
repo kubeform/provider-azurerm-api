@@ -42,7 +42,7 @@ type LakeStoreFile struct {
 }
 
 type LakeStoreFileSpec struct {
-	KubeformOutput *LakeStoreFileSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LakeStoreFileSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LakeStoreFileSpecResource `json:"resource" tf:"resource"`
 

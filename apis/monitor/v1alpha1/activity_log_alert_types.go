@@ -87,7 +87,7 @@ type ActivityLogAlertSpecCriteria struct {
 }
 
 type ActivityLogAlertSpec struct {
-	KubeformOutput *ActivityLogAlertSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ActivityLogAlertSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ActivityLogAlertSpecResource `json:"resource" tf:"resource"`
 

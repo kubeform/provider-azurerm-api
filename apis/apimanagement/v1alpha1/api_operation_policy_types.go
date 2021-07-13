@@ -42,7 +42,7 @@ type ApiOperationPolicy struct {
 }
 
 type ApiOperationPolicySpec struct {
-	KubeformOutput *ApiOperationPolicySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ApiOperationPolicySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ApiOperationPolicySpecResource `json:"resource" tf:"resource"`
 

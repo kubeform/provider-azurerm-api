@@ -42,7 +42,7 @@ type SyncCloudEndpoint struct {
 }
 
 type SyncCloudEndpointSpec struct {
-	KubeformOutput *SyncCloudEndpointSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SyncCloudEndpointSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SyncCloudEndpointSpecResource `json:"resource" tf:"resource"`
 

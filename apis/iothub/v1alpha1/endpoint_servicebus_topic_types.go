@@ -42,7 +42,7 @@ type EndpointServicebusTopic struct {
 }
 
 type EndpointServicebusTopicSpec struct {
-	KubeformOutput *EndpointServicebusTopicSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EndpointServicebusTopicSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EndpointServicebusTopicSpecResource `json:"resource" tf:"resource"`
 

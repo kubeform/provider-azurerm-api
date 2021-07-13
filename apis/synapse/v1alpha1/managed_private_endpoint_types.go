@@ -42,7 +42,7 @@ type ManagedPrivateEndpoint struct {
 }
 
 type ManagedPrivateEndpointSpec struct {
-	KubeformOutput *ManagedPrivateEndpointSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ManagedPrivateEndpointSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ManagedPrivateEndpointSpecResource `json:"resource" tf:"resource"`
 

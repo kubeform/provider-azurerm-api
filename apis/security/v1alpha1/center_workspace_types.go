@@ -42,7 +42,7 @@ type CenterWorkspace struct {
 }
 
 type CenterWorkspaceSpec struct {
-	KubeformOutput *CenterWorkspaceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CenterWorkspaceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CenterWorkspaceSpecResource `json:"resource" tf:"resource"`
 

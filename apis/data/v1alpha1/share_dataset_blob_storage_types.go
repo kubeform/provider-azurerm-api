@@ -48,7 +48,7 @@ type ShareDatasetBlobStorageSpecStorageAccount struct {
 }
 
 type ShareDatasetBlobStorageSpec struct {
-	KubeformOutput *ShareDatasetBlobStorageSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ShareDatasetBlobStorageSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ShareDatasetBlobStorageSpecResource `json:"resource" tf:"resource"`
 

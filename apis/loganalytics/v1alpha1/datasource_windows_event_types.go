@@ -42,7 +42,7 @@ type DatasourceWindowsEvent struct {
 }
 
 type DatasourceWindowsEventSpec struct {
-	KubeformOutput *DatasourceWindowsEventSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DatasourceWindowsEventSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DatasourceWindowsEventSpecResource `json:"resource" tf:"resource"`
 

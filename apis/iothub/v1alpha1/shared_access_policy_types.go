@@ -42,7 +42,7 @@ type SharedAccessPolicy struct {
 }
 
 type SharedAccessPolicySpec struct {
-	KubeformOutput *SharedAccessPolicySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SharedAccessPolicySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SharedAccessPolicySpecResource `json:"resource" tf:"resource"`
 

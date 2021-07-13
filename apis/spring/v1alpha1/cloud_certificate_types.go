@@ -42,7 +42,7 @@ type CloudCertificate struct {
 }
 
 type CloudCertificateSpec struct {
-	KubeformOutput *CloudCertificateSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CloudCertificateSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CloudCertificateSpecResource `json:"resource" tf:"resource"`
 

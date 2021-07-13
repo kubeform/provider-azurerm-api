@@ -42,7 +42,7 @@ type CacheBlobTarget struct {
 }
 
 type CacheBlobTargetSpec struct {
-	KubeformOutput *CacheBlobTargetSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CacheBlobTargetSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CacheBlobTargetSpecResource `json:"resource" tf:"resource"`
 

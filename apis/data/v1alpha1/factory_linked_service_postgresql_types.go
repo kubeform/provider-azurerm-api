@@ -42,7 +42,7 @@ type FactoryLinkedServicePostgresql struct {
 }
 
 type FactoryLinkedServicePostgresqlSpec struct {
-	KubeformOutput *FactoryLinkedServicePostgresqlSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServicePostgresqlSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServicePostgresqlSpecResource `json:"resource" tf:"resource"`
 

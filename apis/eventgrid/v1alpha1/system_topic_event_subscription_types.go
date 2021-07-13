@@ -232,7 +232,7 @@ type SystemTopicEventSubscriptionSpecWebhookEndpoint struct {
 }
 
 type SystemTopicEventSubscriptionSpec struct {
-	KubeformOutput *SystemTopicEventSubscriptionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SystemTopicEventSubscriptionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SystemTopicEventSubscriptionSpecResource `json:"resource" tf:"resource"`
 

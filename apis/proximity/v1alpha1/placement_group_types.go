@@ -42,7 +42,7 @@ type PlacementGroup struct {
 }
 
 type PlacementGroupSpec struct {
-	KubeformOutput *PlacementGroupSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *PlacementGroupSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource PlacementGroupSpecResource `json:"resource" tf:"resource"`
 

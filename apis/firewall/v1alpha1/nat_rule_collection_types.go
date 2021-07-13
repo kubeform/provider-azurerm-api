@@ -57,7 +57,7 @@ type NatRuleCollectionSpecRule struct {
 }
 
 type NatRuleCollectionSpec struct {
-	KubeformOutput *NatRuleCollectionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NatRuleCollectionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NatRuleCollectionSpecResource `json:"resource" tf:"resource"`
 

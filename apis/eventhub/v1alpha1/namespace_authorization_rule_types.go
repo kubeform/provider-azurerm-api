@@ -42,7 +42,7 @@ type NamespaceAuthorizationRule struct {
 }
 
 type NamespaceAuthorizationRuleSpec struct {
-	KubeformOutput *NamespaceAuthorizationRuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NamespaceAuthorizationRuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NamespaceAuthorizationRuleSpecResource `json:"resource" tf:"resource"`
 

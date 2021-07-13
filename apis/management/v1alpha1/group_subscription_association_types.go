@@ -42,7 +42,7 @@ type GroupSubscriptionAssociation struct {
 }
 
 type GroupSubscriptionAssociationSpec struct {
-	KubeformOutput *GroupSubscriptionAssociationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *GroupSubscriptionAssociationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource GroupSubscriptionAssociationSpecResource `json:"resource" tf:"resource"`
 

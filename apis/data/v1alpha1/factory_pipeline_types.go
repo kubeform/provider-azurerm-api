@@ -42,7 +42,7 @@ type FactoryPipeline struct {
 }
 
 type FactoryPipelineSpec struct {
-	KubeformOutput *FactoryPipelineSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryPipelineSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryPipelineSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type QueueAuthorizationRule struct {
 }
 
 type QueueAuthorizationRuleSpec struct {
-	KubeformOutput *QueueAuthorizationRuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *QueueAuthorizationRuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource QueueAuthorizationRuleSpecResource `json:"resource" tf:"resource"`
 

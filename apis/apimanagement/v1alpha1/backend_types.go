@@ -92,7 +92,7 @@ type BackendSpecTls struct {
 }
 
 type BackendSpec struct {
-	KubeformOutput *BackendSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *BackendSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource BackendSpecResource `json:"resource" tf:"resource"`
 

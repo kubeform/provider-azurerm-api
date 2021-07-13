@@ -42,7 +42,7 @@ type RegistryWebhook struct {
 }
 
 type RegistryWebhookSpec struct {
-	KubeformOutput *RegistryWebhookSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *RegistryWebhookSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource RegistryWebhookSpecResource `json:"resource" tf:"resource"`
 

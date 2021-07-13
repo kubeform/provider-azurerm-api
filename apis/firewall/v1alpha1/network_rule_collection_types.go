@@ -60,7 +60,7 @@ type NetworkRuleCollectionSpecRule struct {
 }
 
 type NetworkRuleCollectionSpec struct {
-	KubeformOutput *NetworkRuleCollectionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NetworkRuleCollectionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NetworkRuleCollectionSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type Agreement struct {
 }
 
 type AgreementSpec struct {
-	KubeformOutput *AgreementSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AgreementSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AgreementSpecResource `json:"resource" tf:"resource"`
 

@@ -68,7 +68,7 @@ type CenterAutomationSpecSource struct {
 }
 
 type CenterAutomationSpec struct {
-	KubeformOutput *CenterAutomationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CenterAutomationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CenterAutomationSpecResource `json:"resource" tf:"resource"`
 

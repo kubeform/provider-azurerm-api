@@ -70,7 +70,7 @@ type FactoryDatasetDelimitedTextSpecSchemaColumn struct {
 }
 
 type FactoryDatasetDelimitedTextSpec struct {
-	KubeformOutput *FactoryDatasetDelimitedTextSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryDatasetDelimitedTextSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryDatasetDelimitedTextSpecResource `json:"resource" tf:"resource"`
 

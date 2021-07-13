@@ -42,7 +42,7 @@ type AttachedDatabaseConfiguration struct {
 }
 
 type AttachedDatabaseConfigurationSpec struct {
-	KubeformOutput *AttachedDatabaseConfigurationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AttachedDatabaseConfigurationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AttachedDatabaseConfigurationSpecResource `json:"resource" tf:"resource"`
 

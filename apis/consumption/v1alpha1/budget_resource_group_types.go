@@ -107,7 +107,7 @@ type BudgetResourceGroupSpecTimePeriod struct {
 }
 
 type BudgetResourceGroupSpec struct {
-	KubeformOutput *BudgetResourceGroupSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *BudgetResourceGroupSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource BudgetResourceGroupSpecResource `json:"resource" tf:"resource"`
 

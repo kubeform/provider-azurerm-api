@@ -198,7 +198,7 @@ type HadoopClusterSpecStorageAccountGen2 struct {
 }
 
 type HadoopClusterSpec struct {
-	KubeformOutput *HadoopClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *HadoopClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource HadoopClusterSpecResource `json:"resource" tf:"resource"`
 

@@ -47,7 +47,7 @@ type FactoryLinkedServiceSnowflakeSpecKeyVaultPassword struct {
 }
 
 type FactoryLinkedServiceSnowflakeSpec struct {
-	KubeformOutput *FactoryLinkedServiceSnowflakeSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceSnowflakeSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceSnowflakeSpecResource `json:"resource" tf:"resource"`
 

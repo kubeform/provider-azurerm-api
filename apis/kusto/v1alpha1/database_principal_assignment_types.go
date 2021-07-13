@@ -42,7 +42,7 @@ type DatabasePrincipalAssignment struct {
 }
 
 type DatabasePrincipalAssignmentSpec struct {
-	KubeformOutput *DatabasePrincipalAssignmentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DatabasePrincipalAssignmentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DatabasePrincipalAssignmentSpecResource `json:"resource" tf:"resource"`
 

@@ -55,7 +55,7 @@ type StreamingLocatorSpecContentKey struct {
 }
 
 type StreamingLocatorSpec struct {
-	KubeformOutput *StreamingLocatorSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *StreamingLocatorSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource StreamingLocatorSpecResource `json:"resource" tf:"resource"`
 

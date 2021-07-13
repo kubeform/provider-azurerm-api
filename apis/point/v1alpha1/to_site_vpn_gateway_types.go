@@ -65,7 +65,7 @@ type ToSiteVPNGatewaySpecConnectionConfiguration struct {
 }
 
 type ToSiteVPNGatewaySpec struct {
-	KubeformOutput *ToSiteVPNGatewaySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ToSiteVPNGatewaySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ToSiteVPNGatewaySpecResource `json:"resource" tf:"resource"`
 

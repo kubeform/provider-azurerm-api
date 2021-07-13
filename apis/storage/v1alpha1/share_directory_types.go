@@ -42,7 +42,7 @@ type ShareDirectory struct {
 }
 
 type ShareDirectorySpec struct {
-	KubeformOutput *ShareDirectorySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ShareDirectorySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ShareDirectorySpecResource `json:"resource" tf:"resource"`
 

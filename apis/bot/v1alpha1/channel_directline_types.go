@@ -62,7 +62,7 @@ type ChannelDirectlineSpecSite struct {
 }
 
 type ChannelDirectlineSpec struct {
-	KubeformOutput *ChannelDirectlineSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ChannelDirectlineSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ChannelDirectlineSpecResource `json:"resource" tf:"resource"`
 

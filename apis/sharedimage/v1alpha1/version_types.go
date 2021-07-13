@@ -49,7 +49,7 @@ type VersionSpecTargetRegion struct {
 }
 
 type VersionSpec struct {
-	KubeformOutput *VersionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *VersionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource VersionSpecResource `json:"resource" tf:"resource"`
 

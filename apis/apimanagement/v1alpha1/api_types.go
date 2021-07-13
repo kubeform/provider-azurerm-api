@@ -71,7 +71,7 @@ type ApiSpecSubscriptionKeyParameterNames struct {
 }
 
 type ApiSpec struct {
-	KubeformOutput *ApiSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ApiSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ApiSpecResource `json:"resource" tf:"resource"`
 

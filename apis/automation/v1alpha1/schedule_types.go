@@ -47,7 +47,7 @@ type ScheduleSpecMonthlyOccurrence struct {
 }
 
 type ScheduleSpec struct {
-	KubeformOutput *ScheduleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ScheduleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ScheduleSpecResource `json:"resource" tf:"resource"`
 

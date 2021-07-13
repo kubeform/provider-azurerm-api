@@ -42,7 +42,7 @@ type ServiceEnvironment struct {
 }
 
 type ServiceEnvironmentSpec struct {
-	KubeformOutput *ServiceEnvironmentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServiceEnvironmentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServiceEnvironmentSpecResource `json:"resource" tf:"resource"`
 

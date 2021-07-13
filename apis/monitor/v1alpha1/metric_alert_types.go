@@ -98,7 +98,7 @@ type MetricAlertSpecDynamicCriteria struct {
 }
 
 type MetricAlertSpec struct {
-	KubeformOutput *MetricAlertSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *MetricAlertSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource MetricAlertSpecResource `json:"resource" tf:"resource"`
 

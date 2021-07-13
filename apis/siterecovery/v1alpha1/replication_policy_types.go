@@ -42,7 +42,7 @@ type ReplicationPolicy struct {
 }
 
 type ReplicationPolicySpec struct {
-	KubeformOutput *ReplicationPolicySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ReplicationPolicySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ReplicationPolicySpecResource `json:"resource" tf:"resource"`
 

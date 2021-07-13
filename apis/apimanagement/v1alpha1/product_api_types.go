@@ -42,7 +42,7 @@ type ProductAPI struct {
 }
 
 type ProductAPISpec struct {
-	KubeformOutput *ProductAPISpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ProductAPISpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ProductAPISpecResource `json:"resource" tf:"resource"`
 

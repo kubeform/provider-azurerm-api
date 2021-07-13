@@ -42,7 +42,7 @@ type CenterAutoProvisioning struct {
 }
 
 type CenterAutoProvisioningSpec struct {
-	KubeformOutput *CenterAutoProvisioningSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CenterAutoProvisioningSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CenterAutoProvisioningSpecResource `json:"resource" tf:"resource"`
 

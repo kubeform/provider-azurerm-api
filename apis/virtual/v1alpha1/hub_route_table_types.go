@@ -51,7 +51,7 @@ type HubRouteTableSpecRoute struct {
 }
 
 type HubRouteTableSpec struct {
-	KubeformOutput *HubRouteTableSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *HubRouteTableSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource HubRouteTableSpecResource `json:"resource" tf:"resource"`
 

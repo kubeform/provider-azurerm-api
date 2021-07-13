@@ -42,7 +42,7 @@ type ApiSchema struct {
 }
 
 type ApiSchemaSpec struct {
-	KubeformOutput *ApiSchemaSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ApiSchemaSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ApiSchemaSpecResource `json:"resource" tf:"resource"`
 

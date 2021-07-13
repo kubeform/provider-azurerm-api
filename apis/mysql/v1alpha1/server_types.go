@@ -82,7 +82,7 @@ type ServerSpecThreatDetectionPolicy struct {
 }
 
 type ServerSpec struct {
-	KubeformOutput *ServerSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServerSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServerSpecResource `json:"resource" tf:"resource"`
 

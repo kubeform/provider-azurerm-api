@@ -42,7 +42,7 @@ type DomainTopic struct {
 }
 
 type DomainTopicSpec struct {
-	KubeformOutput *DomainTopicSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DomainTopicSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DomainTopicSpecResource `json:"resource" tf:"resource"`
 

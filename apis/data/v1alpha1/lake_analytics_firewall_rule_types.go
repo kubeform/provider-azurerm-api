@@ -42,7 +42,7 @@ type LakeAnalyticsFirewallRule struct {
 }
 
 type LakeAnalyticsFirewallRuleSpec struct {
-	KubeformOutput *LakeAnalyticsFirewallRuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LakeAnalyticsFirewallRuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LakeAnalyticsFirewallRuleSpecResource `json:"resource" tf:"resource"`
 

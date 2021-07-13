@@ -42,7 +42,7 @@ type SqlTrigger struct {
 }
 
 type SqlTriggerSpec struct {
-	KubeformOutput *SqlTriggerSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SqlTriggerSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SqlTriggerSpecResource `json:"resource" tf:"resource"`
 

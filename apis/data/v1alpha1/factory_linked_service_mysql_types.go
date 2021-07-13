@@ -42,7 +42,7 @@ type FactoryLinkedServiceMysql struct {
 }
 
 type FactoryLinkedServiceMysqlSpec struct {
-	KubeformOutput *FactoryLinkedServiceMysqlSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceMysqlSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceMysqlSpecResource `json:"resource" tf:"resource"`
 
