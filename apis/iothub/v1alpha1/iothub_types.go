@@ -123,7 +123,7 @@ type IothubSpecSku struct {
 }
 
 type IothubSpec struct {
-	KubeformOutput *IothubSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *IothubSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource IothubSpecResource `json:"resource" tf:"resource"`
 

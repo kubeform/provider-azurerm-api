@@ -42,7 +42,7 @@ type ApiOperationTag struct {
 }
 
 type ApiOperationTagSpec struct {
-	KubeformOutput *ApiOperationTagSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ApiOperationTagSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ApiOperationTagSpecResource `json:"resource" tf:"resource"`
 

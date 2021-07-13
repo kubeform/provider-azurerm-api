@@ -42,7 +42,7 @@ type GroupTemplateDeployment struct {
 }
 
 type GroupTemplateDeploymentSpec struct {
-	KubeformOutput *GroupTemplateDeploymentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *GroupTemplateDeploymentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource GroupTemplateDeploymentSpecResource `json:"resource" tf:"resource"`
 

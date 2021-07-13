@@ -50,7 +50,7 @@ type LearningWorkspaceSpecIdentity struct {
 }
 
 type LearningWorkspaceSpec struct {
-	KubeformOutput *LearningWorkspaceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LearningWorkspaceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LearningWorkspaceSpecResource `json:"resource" tf:"resource"`
 

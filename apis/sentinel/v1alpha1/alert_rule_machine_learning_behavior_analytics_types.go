@@ -42,7 +42,7 @@ type AlertRuleMachineLearningBehaviorAnalytics struct {
 }
 
 type AlertRuleMachineLearningBehaviorAnalyticsSpec struct {
-	KubeformOutput *AlertRuleMachineLearningBehaviorAnalyticsSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AlertRuleMachineLearningBehaviorAnalyticsSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AlertRuleMachineLearningBehaviorAnalyticsSpecResource `json:"resource" tf:"resource"`
 

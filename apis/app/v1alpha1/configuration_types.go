@@ -86,7 +86,7 @@ type ConfigurationSpecSecondaryWriteKey struct {
 }
 
 type ConfigurationSpec struct {
-	KubeformOutput *ConfigurationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ConfigurationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ConfigurationSpecResource `json:"resource" tf:"resource"`
 

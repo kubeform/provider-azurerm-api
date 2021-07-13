@@ -63,7 +63,7 @@ type CaptureSpecStorageLocation struct {
 }
 
 type CaptureSpec struct {
-	KubeformOutput *CaptureSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CaptureSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CaptureSpecResource `json:"resource" tf:"resource"`
 

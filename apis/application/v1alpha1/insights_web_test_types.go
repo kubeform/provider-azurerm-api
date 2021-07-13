@@ -42,7 +42,7 @@ type InsightsWebTest struct {
 }
 
 type InsightsWebTestSpec struct {
-	KubeformOutput *InsightsWebTestSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *InsightsWebTestSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource InsightsWebTestSpecResource `json:"resource" tf:"resource"`
 

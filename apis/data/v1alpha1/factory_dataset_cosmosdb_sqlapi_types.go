@@ -50,7 +50,7 @@ type FactoryDatasetCosmosdbSqlapiSpecSchemaColumn struct {
 }
 
 type FactoryDatasetCosmosdbSqlapiSpec struct {
-	KubeformOutput *FactoryDatasetCosmosdbSqlapiSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryDatasetCosmosdbSqlapiSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryDatasetCosmosdbSqlapiSpecResource `json:"resource" tf:"resource"`
 

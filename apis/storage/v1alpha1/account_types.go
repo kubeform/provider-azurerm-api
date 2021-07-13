@@ -243,7 +243,7 @@ type AccountSpecStaticWebsite struct {
 }
 
 type AccountSpec struct {
-	KubeformOutput *AccountSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AccountSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AccountSpecResource `json:"resource" tf:"resource"`
 

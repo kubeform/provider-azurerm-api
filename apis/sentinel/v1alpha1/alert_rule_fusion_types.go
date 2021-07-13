@@ -42,7 +42,7 @@ type AlertRuleFusion struct {
 }
 
 type AlertRuleFusionSpec struct {
-	KubeformOutput *AlertRuleFusionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AlertRuleFusionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AlertRuleFusionSpecResource `json:"resource" tf:"resource"`
 

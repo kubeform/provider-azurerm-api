@@ -47,7 +47,7 @@ type HubSpecRoute struct {
 }
 
 type HubSpec struct {
-	KubeformOutput *HubSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *HubSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource HubSpecResource `json:"resource" tf:"resource"`
 

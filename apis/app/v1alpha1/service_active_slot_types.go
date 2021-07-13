@@ -42,7 +42,7 @@ type ServiceActiveSlot struct {
 }
 
 type ServiceActiveSlotSpec struct {
-	KubeformOutput *ServiceActiveSlotSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServiceActiveSlotSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServiceActiveSlotSpecResource `json:"resource" tf:"resource"`
 

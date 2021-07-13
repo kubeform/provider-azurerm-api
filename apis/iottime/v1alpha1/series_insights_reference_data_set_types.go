@@ -47,7 +47,7 @@ type SeriesInsightsReferenceDataSetSpecKeyProperty struct {
 }
 
 type SeriesInsightsReferenceDataSetSpec struct {
-	KubeformOutput *SeriesInsightsReferenceDataSetSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SeriesInsightsReferenceDataSetSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SeriesInsightsReferenceDataSetSpecResource `json:"resource" tf:"resource"`
 

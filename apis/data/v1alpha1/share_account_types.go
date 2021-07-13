@@ -50,7 +50,7 @@ type ShareAccountSpecIdentity struct {
 }
 
 type ShareAccountSpec struct {
-	KubeformOutput *ShareAccountSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ShareAccountSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ShareAccountSpecResource `json:"resource" tf:"resource"`
 

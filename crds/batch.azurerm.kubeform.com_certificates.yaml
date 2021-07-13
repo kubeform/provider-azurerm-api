@@ -37,69 +37,6 @@ spec:
             type: object
           spec:
             properties:
-              kubeformOutput:
-                properties:
-                  accountName:
-                    type: string
-                  format:
-                    type: string
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  publicData:
-                    type: string
-                  resourceGroupName:
-                    type: string
-                  thumbprint:
-                    type: string
-                  thumbprintAlgorithm:
-                    type: string
-                  timeouts:
-                    properties:
-                      create:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      default:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      delete:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      read:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      update:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                    type: object
-                required:
-                - accountName
-                - format
-                - resourceGroupName
-                - thumbprint
-                - thumbprintAlgorithm
-                type: object
               providerRef:
                 description: LocalObjectReference contains enough information to let
                   you locate the referenced object inside the same namespace.
@@ -180,6 +117,69 @@ spec:
                     description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
                       TODO: Add other useful fields. apiVersion, kind, uid?'
                     type: string
+                type: object
+              state:
+                properties:
+                  accountName:
+                    type: string
+                  format:
+                    type: string
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  publicData:
+                    type: string
+                  resourceGroupName:
+                    type: string
+                  thumbprint:
+                    type: string
+                  thumbprintAlgorithm:
+                    type: string
+                  timeouts:
+                    properties:
+                      create:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      default:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      delete:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      read:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      update:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                    type: object
+                required:
+                - accountName
+                - format
+                - resourceGroupName
+                - thumbprint
+                - thumbprintAlgorithm
                 type: object
               terminationPolicy:
                 enum:

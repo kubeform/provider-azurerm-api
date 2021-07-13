@@ -42,7 +42,7 @@ type RoleAssignment struct {
 }
 
 type RoleAssignmentSpec struct {
-	KubeformOutput *RoleAssignmentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *RoleAssignmentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource RoleAssignmentSpecResource `json:"resource" tf:"resource"`
 

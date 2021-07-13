@@ -131,7 +131,7 @@ type CloudServiceSpecTrace struct {
 }
 
 type CloudServiceSpec struct {
-	KubeformOutput *CloudServiceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CloudServiceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CloudServiceSpecResource `json:"resource" tf:"resource"`
 

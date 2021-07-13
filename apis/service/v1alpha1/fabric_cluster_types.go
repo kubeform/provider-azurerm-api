@@ -179,7 +179,7 @@ type FabricClusterSpecUpgradePolicy struct {
 }
 
 type FabricClusterSpec struct {
-	KubeformOutput *FabricClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FabricClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FabricClusterSpecResource `json:"resource" tf:"resource"`
 

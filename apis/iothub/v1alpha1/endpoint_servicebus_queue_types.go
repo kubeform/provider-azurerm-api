@@ -42,7 +42,7 @@ type EndpointServicebusQueue struct {
 }
 
 type EndpointServicebusQueueSpec struct {
-	KubeformOutput *EndpointServicebusQueueSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EndpointServicebusQueueSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EndpointServicebusQueueSpecResource `json:"resource" tf:"resource"`
 

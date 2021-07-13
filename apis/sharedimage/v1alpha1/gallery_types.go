@@ -42,7 +42,7 @@ type Gallery struct {
 }
 
 type GallerySpec struct {
-	KubeformOutput *GallerySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *GallerySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource GallerySpecResource `json:"resource" tf:"resource"`
 

@@ -74,7 +74,7 @@ type KeyVaultSpecNetworkAcls struct {
 }
 
 type KeyVaultSpec struct {
-	KubeformOutput *KeyVaultSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *KeyVaultSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource KeyVaultSpecResource `json:"resource" tf:"resource"`
 

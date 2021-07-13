@@ -358,7 +358,7 @@ type EndpointSpecOrigin struct {
 }
 
 type EndpointSpec struct {
-	KubeformOutput *EndpointSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EndpointSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EndpointSpecResource `json:"resource" tf:"resource"`
 

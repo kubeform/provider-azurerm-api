@@ -53,7 +53,7 @@ type ObjectReplicationSpecRules struct {
 }
 
 type ObjectReplicationSpec struct {
-	KubeformOutput *ObjectReplicationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ObjectReplicationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ObjectReplicationSpecResource `json:"resource" tf:"resource"`
 

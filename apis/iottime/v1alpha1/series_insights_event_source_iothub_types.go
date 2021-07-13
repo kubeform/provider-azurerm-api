@@ -42,7 +42,7 @@ type SeriesInsightsEventSourceIothub struct {
 }
 
 type SeriesInsightsEventSourceIothubSpec struct {
-	KubeformOutput *SeriesInsightsEventSourceIothubSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SeriesInsightsEventSourceIothubSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SeriesInsightsEventSourceIothubSpecResource `json:"resource" tf:"resource"`
 

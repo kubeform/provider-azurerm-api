@@ -57,7 +57,7 @@ type CloudAppSpecPersistentDisk struct {
 }
 
 type CloudAppSpec struct {
-	KubeformOutput *CloudAppSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CloudAppSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CloudAppSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type Asset struct {
 }
 
 type AssetSpec struct {
-	KubeformOutput *AssetSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AssetSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AssetSpecResource `json:"resource" tf:"resource"`
 

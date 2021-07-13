@@ -42,7 +42,7 @@ type DscConfiguration struct {
 }
 
 type DscConfigurationSpec struct {
-	KubeformOutput *DscConfigurationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DscConfigurationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DscConfigurationSpecResource `json:"resource" tf:"resource"`
 

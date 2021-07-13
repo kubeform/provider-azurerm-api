@@ -42,7 +42,7 @@ type NamedValue struct {
 }
 
 type NamedValueSpec struct {
-	KubeformOutput *NamedValueSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NamedValueSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NamedValueSpecResource `json:"resource" tf:"resource"`
 

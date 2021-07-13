@@ -47,7 +47,7 @@ type ActionHTTPSpecRunAfter struct {
 }
 
 type ActionHTTPSpec struct {
-	KubeformOutput *ActionHTTPSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ActionHTTPSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ActionHTTPSpecResource `json:"resource" tf:"resource"`
 

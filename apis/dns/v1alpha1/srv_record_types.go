@@ -49,7 +49,7 @@ type SrvRecordSpecRecord struct {
 }
 
 type SrvRecordSpec struct {
-	KubeformOutput *SrvRecordSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SrvRecordSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SrvRecordSpecResource `json:"resource" tf:"resource"`
 

@@ -56,7 +56,7 @@ type AadDiagnosticSettingSpecLog struct {
 }
 
 type AadDiagnosticSettingSpec struct {
-	KubeformOutput *AadDiagnosticSettingSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AadDiagnosticSettingSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AadDiagnosticSettingSpecResource `json:"resource" tf:"resource"`
 

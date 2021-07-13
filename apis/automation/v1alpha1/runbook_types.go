@@ -65,7 +65,7 @@ type RunbookSpecPublishContentLink struct {
 }
 
 type RunbookSpec struct {
-	KubeformOutput *RunbookSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *RunbookSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource RunbookSpecResource `json:"resource" tf:"resource"`
 

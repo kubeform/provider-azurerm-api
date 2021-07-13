@@ -58,7 +58,7 @@ type DpsSpecSku struct {
 }
 
 type DpsSpec struct {
-	KubeformOutput *DpsSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DpsSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DpsSpecResource `json:"resource" tf:"resource"`
 

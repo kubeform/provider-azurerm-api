@@ -46,7 +46,7 @@ type FactoryIntegrationRuntimeSelfHostedSpecRbacAuthorization struct {
 }
 
 type FactoryIntegrationRuntimeSelfHostedSpec struct {
-	KubeformOutput *FactoryIntegrationRuntimeSelfHostedSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryIntegrationRuntimeSelfHostedSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryIntegrationRuntimeSelfHostedSpecResource `json:"resource" tf:"resource"`
 

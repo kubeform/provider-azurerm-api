@@ -37,86 +37,6 @@ spec:
             type: object
           spec:
             properties:
-              kubeformOutput:
-                properties:
-                  dateFormat:
-                    type: string
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  pathPattern:
-                    type: string
-                  resourceGroupName:
-                    type: string
-                  serialization:
-                    properties:
-                      encoding:
-                        type: string
-                      fieldDelimiter:
-                        type: string
-                      type:
-                        type: string
-                    required:
-                    - type
-                    type: object
-                  storageAccountName:
-                    type: string
-                  storageContainerName:
-                    type: string
-                  streamAnalyticsJobName:
-                    type: string
-                  timeFormat:
-                    type: string
-                  timeouts:
-                    properties:
-                      create:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      default:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      delete:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      read:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      update:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                    type: object
-                required:
-                - dateFormat
-                - name
-                - pathPattern
-                - resourceGroupName
-                - serialization
-                - storageAccountName
-                - storageContainerName
-                - streamAnalyticsJobName
-                - timeFormat
-                type: object
               providerRef:
                 description: LocalObjectReference contains enough information to let
                   you locate the referenced object inside the same namespace.
@@ -214,6 +134,86 @@ spec:
                     description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
                       TODO: Add other useful fields. apiVersion, kind, uid?'
                     type: string
+                type: object
+              state:
+                properties:
+                  dateFormat:
+                    type: string
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  pathPattern:
+                    type: string
+                  resourceGroupName:
+                    type: string
+                  serialization:
+                    properties:
+                      encoding:
+                        type: string
+                      fieldDelimiter:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
+                  storageAccountName:
+                    type: string
+                  storageContainerName:
+                    type: string
+                  streamAnalyticsJobName:
+                    type: string
+                  timeFormat:
+                    type: string
+                  timeouts:
+                    properties:
+                      create:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      default:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      delete:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      read:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      update:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                    type: object
+                required:
+                - dateFormat
+                - name
+                - pathPattern
+                - resourceGroupName
+                - serialization
+                - storageAccountName
+                - storageContainerName
+                - streamAnalyticsJobName
+                - timeFormat
                 type: object
               terminationPolicy:
                 enum:

@@ -42,7 +42,7 @@ type DataExportRule struct {
 }
 
 type DataExportRuleSpec struct {
-	KubeformOutput *DataExportRuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DataExportRuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DataExportRuleSpecResource `json:"resource" tf:"resource"`
 

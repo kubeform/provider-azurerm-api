@@ -59,7 +59,7 @@ type CacheAccessPolicySpecAccessRule struct {
 }
 
 type CacheAccessPolicySpec struct {
-	KubeformOutput *CacheAccessPolicySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CacheAccessPolicySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CacheAccessPolicySpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type ServerExtendedAuditingPolicy struct {
 }
 
 type ServerExtendedAuditingPolicySpec struct {
-	KubeformOutput *ServerExtendedAuditingPolicySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServerExtendedAuditingPolicySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServerExtendedAuditingPolicySpecResource `json:"resource" tf:"resource"`
 

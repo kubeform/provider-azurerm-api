@@ -77,7 +77,7 @@ type FactoryLinkedServiceAzureDatabricksSpecNewClusterConfig struct {
 }
 
 type FactoryLinkedServiceAzureDatabricksSpec struct {
-	KubeformOutput *FactoryLinkedServiceAzureDatabricksSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceAzureDatabricksSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceAzureDatabricksSpecResource `json:"resource" tf:"resource"`
 

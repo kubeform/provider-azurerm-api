@@ -42,7 +42,7 @@ type CnameRecord struct {
 }
 
 type CnameRecordSpec struct {
-	KubeformOutput *CnameRecordSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CnameRecordSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CnameRecordSpecResource `json:"resource" tf:"resource"`
 

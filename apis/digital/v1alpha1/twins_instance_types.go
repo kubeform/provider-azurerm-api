@@ -42,7 +42,7 @@ type TwinsInstance struct {
 }
 
 type TwinsInstanceSpec struct {
-	KubeformOutput *TwinsInstanceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *TwinsInstanceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource TwinsInstanceSpecResource `json:"resource" tf:"resource"`
 

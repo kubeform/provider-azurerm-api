@@ -47,7 +47,7 @@ type SecurityModuleSpecNetworkProfile struct {
 }
 
 type SecurityModuleSpec struct {
-	KubeformOutput *SecurityModuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SecurityModuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SecurityModuleSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type Watcher struct {
 }
 
 type WatcherSpec struct {
-	KubeformOutput *WatcherSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *WatcherSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource WatcherSpecResource `json:"resource" tf:"resource"`
 

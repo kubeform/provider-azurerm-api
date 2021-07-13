@@ -51,7 +51,7 @@ type VirtualNetworkSpecSubnet struct {
 }
 
 type VirtualNetworkSpec struct {
-	KubeformOutput *VirtualNetworkSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *VirtualNetworkSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource VirtualNetworkSpecResource `json:"resource" tf:"resource"`
 

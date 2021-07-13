@@ -42,7 +42,7 @@ type EnterpriseCluster struct {
 }
 
 type EnterpriseClusterSpec struct {
-	KubeformOutput *EnterpriseClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EnterpriseClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EnterpriseClusterSpecResource `json:"resource" tf:"resource"`
 

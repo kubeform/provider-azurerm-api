@@ -112,7 +112,7 @@ type NetworkGatewaySpecVpnClientConfiguration struct {
 }
 
 type NetworkGatewaySpec struct {
-	KubeformOutput *NetworkGatewaySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NetworkGatewaySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NetworkGatewaySpecResource `json:"resource" tf:"resource"`
 

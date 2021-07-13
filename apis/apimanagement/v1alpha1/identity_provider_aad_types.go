@@ -42,7 +42,7 @@ type IdentityProviderAad struct {
 }
 
 type IdentityProviderAadSpec struct {
-	KubeformOutput *IdentityProviderAadSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *IdentityProviderAadSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource IdentityProviderAadSpecResource `json:"resource" tf:"resource"`
 

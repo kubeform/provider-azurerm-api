@@ -72,7 +72,7 @@ type DomainSpecInputMappingFields struct {
 }
 
 type DomainSpec struct {
-	KubeformOutput *DomainSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DomainSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DomainSpecResource `json:"resource" tf:"resource"`
 

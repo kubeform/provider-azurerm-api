@@ -42,7 +42,7 @@ type Controller struct {
 }
 
 type ControllerSpec struct {
-	KubeformOutput *ControllerSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ControllerSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ControllerSpecResource `json:"resource" tf:"resource"`
 

@@ -58,7 +58,7 @@ type ProviderSpecValidation struct {
 }
 
 type ProviderSpec struct {
-	KubeformOutput *ProviderSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ProviderSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ProviderSpecResource `json:"resource" tf:"resource"`
 

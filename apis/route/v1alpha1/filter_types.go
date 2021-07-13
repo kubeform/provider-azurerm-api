@@ -50,7 +50,7 @@ type FilterSpecRule struct {
 }
 
 type FilterSpec struct {
-	KubeformOutput *FilterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FilterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FilterSpecResource `json:"resource" tf:"resource"`
 

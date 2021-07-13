@@ -42,7 +42,7 @@ type Enrichment struct {
 }
 
 type EnrichmentSpec struct {
-	KubeformOutput *EnrichmentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EnrichmentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EnrichmentSpecResource `json:"resource" tf:"resource"`
 

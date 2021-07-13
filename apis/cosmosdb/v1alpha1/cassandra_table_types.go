@@ -69,7 +69,7 @@ type CassandraTableSpecSchema struct {
 }
 
 type CassandraTableSpec struct {
-	KubeformOutput *CassandraTableSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CassandraTableSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CassandraTableSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type Fabric struct {
 }
 
 type FabricSpec struct {
-	KubeformOutput *FabricSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FabricSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FabricSpecResource `json:"resource" tf:"resource"`
 

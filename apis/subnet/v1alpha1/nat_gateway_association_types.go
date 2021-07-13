@@ -42,7 +42,7 @@ type NatGatewayAssociation struct {
 }
 
 type NatGatewayAssociationSpec struct {
-	KubeformOutput *NatGatewayAssociationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NatGatewayAssociationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NatGatewayAssociationSpecResource `json:"resource" tf:"resource"`
 

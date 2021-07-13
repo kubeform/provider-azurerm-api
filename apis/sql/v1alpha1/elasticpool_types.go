@@ -42,7 +42,7 @@ type Elasticpool struct {
 }
 
 type ElasticpoolSpec struct {
-	KubeformOutput *ElasticpoolSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ElasticpoolSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ElasticpoolSpecResource `json:"resource" tf:"resource"`
 

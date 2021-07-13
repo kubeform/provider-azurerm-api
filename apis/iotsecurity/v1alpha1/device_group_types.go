@@ -58,7 +58,7 @@ type DeviceGroupSpecRangeRule struct {
 }
 
 type DeviceGroupSpec struct {
-	KubeformOutput *DeviceGroupSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DeviceGroupSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DeviceGroupSpecResource `json:"resource" tf:"resource"`
 

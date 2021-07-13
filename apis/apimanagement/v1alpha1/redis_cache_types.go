@@ -42,7 +42,7 @@ type RedisCache struct {
 }
 
 type RedisCacheSpec struct {
-	KubeformOutput *RedisCacheSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *RedisCacheSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource RedisCacheSpecResource `json:"resource" tf:"resource"`
 

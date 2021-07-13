@@ -51,7 +51,7 @@ type LoggerSpecEventhub struct {
 }
 
 type LoggerSpec struct {
-	KubeformOutput *LoggerSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LoggerSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LoggerSpecResource `json:"resource" tf:"resource"`
 

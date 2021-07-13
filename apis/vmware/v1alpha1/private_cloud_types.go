@@ -61,7 +61,7 @@ type PrivateCloudSpecManagementCluster struct {
 }
 
 type PrivateCloudSpec struct {
-	KubeformOutput *PrivateCloudSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *PrivateCloudSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource PrivateCloudSpecResource `json:"resource" tf:"resource"`
 

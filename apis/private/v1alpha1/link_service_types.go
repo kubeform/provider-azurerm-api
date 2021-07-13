@@ -52,7 +52,7 @@ type LinkServiceSpecNatIPConfiguration struct {
 }
 
 type LinkServiceSpec struct {
-	KubeformOutput *LinkServiceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LinkServiceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LinkServiceSpecResource `json:"resource" tf:"resource"`
 

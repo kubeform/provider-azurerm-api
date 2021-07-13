@@ -53,7 +53,7 @@ type ServiceCertificateOrderSpecCertificates struct {
 }
 
 type ServiceCertificateOrderSpec struct {
-	KubeformOutput *ServiceCertificateOrderSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServiceCertificateOrderSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServiceCertificateOrderSpecResource `json:"resource" tf:"resource"`
 

@@ -56,7 +56,7 @@ type SparkPoolSpecLibraryRequirement struct {
 }
 
 type SparkPoolSpec struct {
-	KubeformOutput *SparkPoolSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SparkPoolSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SparkPoolSpecResource `json:"resource" tf:"resource"`
 

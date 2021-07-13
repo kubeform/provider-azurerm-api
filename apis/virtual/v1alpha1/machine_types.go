@@ -176,7 +176,7 @@ type MachineSpecStorageOsDisk struct {
 }
 
 type MachineSpec struct {
-	KubeformOutput *MachineSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *MachineSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource MachineSpecResource `json:"resource" tf:"resource"`
 

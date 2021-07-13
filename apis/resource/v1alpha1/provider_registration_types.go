@@ -42,7 +42,7 @@ type ProviderRegistration struct {
 }
 
 type ProviderRegistrationSpec struct {
-	KubeformOutput *ProviderRegistrationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ProviderRegistrationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ProviderRegistrationSpecResource `json:"resource" tf:"resource"`
 

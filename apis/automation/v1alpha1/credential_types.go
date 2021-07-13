@@ -42,7 +42,7 @@ type Credential struct {
 }
 
 type CredentialSpec struct {
-	KubeformOutput *CredentialSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CredentialSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CredentialSpecResource `json:"resource" tf:"resource"`
 

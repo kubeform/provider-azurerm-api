@@ -42,7 +42,7 @@ type ShareDatasetKustoDatabase struct {
 }
 
 type ShareDatasetKustoDatabaseSpec struct {
-	KubeformOutput *ShareDatasetKustoDatabaseSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ShareDatasetKustoDatabaseSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ShareDatasetKustoDatabaseSpecResource `json:"resource" tf:"resource"`
 

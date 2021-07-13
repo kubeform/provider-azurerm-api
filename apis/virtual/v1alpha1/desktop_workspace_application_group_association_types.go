@@ -42,7 +42,7 @@ type DesktopWorkspaceApplicationGroupAssociation struct {
 }
 
 type DesktopWorkspaceApplicationGroupAssociationSpec struct {
-	KubeformOutput *DesktopWorkspaceApplicationGroupAssociationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DesktopWorkspaceApplicationGroupAssociationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DesktopWorkspaceApplicationGroupAssociationSpecResource `json:"resource" tf:"resource"`
 

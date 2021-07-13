@@ -42,7 +42,7 @@ type ServiceSlotVirtualNetworkSwiftConnection struct {
 }
 
 type ServiceSlotVirtualNetworkSwiftConnectionSpec struct {
-	KubeformOutput *ServiceSlotVirtualNetworkSwiftConnectionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServiceSlotVirtualNetworkSwiftConnectionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServiceSlotVirtualNetworkSwiftConnectionSpecResource `json:"resource" tf:"resource"`
 

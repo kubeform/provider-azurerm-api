@@ -48,7 +48,7 @@ type BackendAddressPoolSpecBackendAddress struct {
 }
 
 type BackendAddressPoolSpec struct {
-	KubeformOutput *BackendAddressPoolSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *BackendAddressPoolSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource BackendAddressPoolSpecResource `json:"resource" tf:"resource"`
 

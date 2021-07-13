@@ -234,7 +234,7 @@ type MachineScaleSetSpecStorageProfileOsDisk struct {
 }
 
 type MachineScaleSetSpec struct {
-	KubeformOutput *MachineScaleSetSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *MachineScaleSetSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource MachineScaleSetSpecResource `json:"resource" tf:"resource"`
 

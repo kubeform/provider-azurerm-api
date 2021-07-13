@@ -42,7 +42,7 @@ type DpsCertificate struct {
 }
 
 type DpsCertificateSpec struct {
-	KubeformOutput *DpsCertificateSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DpsCertificateSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DpsCertificateSpecResource `json:"resource" tf:"resource"`
 

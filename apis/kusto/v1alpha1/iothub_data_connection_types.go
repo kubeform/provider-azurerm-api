@@ -42,7 +42,7 @@ type IothubDataConnection struct {
 }
 
 type IothubDataConnectionSpec struct {
-	KubeformOutput *IothubDataConnectionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *IothubDataConnectionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource IothubDataConnectionSpecResource `json:"resource" tf:"resource"`
 

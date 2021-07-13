@@ -42,7 +42,7 @@ type InterfaceSecurityGroupAssociation struct {
 }
 
 type InterfaceSecurityGroupAssociationSpec struct {
-	KubeformOutput *InterfaceSecurityGroupAssociationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *InterfaceSecurityGroupAssociationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource InterfaceSecurityGroupAssociationSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type EncryptionScope struct {
 }
 
 type EncryptionScopeSpec struct {
-	KubeformOutput *EncryptionScopeSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EncryptionScopeSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EncryptionScopeSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type ServerSecurityAlertPolicy struct {
 }
 
 type ServerSecurityAlertPolicySpec struct {
-	KubeformOutput *ServerSecurityAlertPolicySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServerSecurityAlertPolicySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServerSecurityAlertPolicySpecResource `json:"resource" tf:"resource"`
 

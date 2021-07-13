@@ -42,7 +42,7 @@ type DnsZoneVirtualNetworkLink struct {
 }
 
 type DnsZoneVirtualNetworkLinkSpec struct {
-	KubeformOutput *DnsZoneVirtualNetworkLinkSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DnsZoneVirtualNetworkLinkSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DnsZoneVirtualNetworkLinkSpecResource `json:"resource" tf:"resource"`
 

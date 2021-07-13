@@ -246,7 +246,7 @@ type AppSpecSourceControl struct {
 }
 
 type AppSpec struct {
-	KubeformOutput *AppSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AppSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AppSpecResource `json:"resource" tf:"resource"`
 

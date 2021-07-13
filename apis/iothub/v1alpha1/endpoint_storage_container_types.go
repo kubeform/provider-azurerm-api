@@ -42,7 +42,7 @@ type EndpointStorageContainer struct {
 }
 
 type EndpointStorageContainerSpec struct {
-	KubeformOutput *EndpointStorageContainerSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EndpointStorageContainerSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EndpointStorageContainerSpecResource `json:"resource" tf:"resource"`
 

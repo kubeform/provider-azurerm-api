@@ -161,7 +161,7 @@ type PoolSpecStorageImageReference struct {
 }
 
 type PoolSpec struct {
-	KubeformOutput *PoolSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *PoolSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource PoolSpecResource `json:"resource" tf:"resource"`
 

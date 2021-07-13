@@ -439,7 +439,7 @@ type KubernetesClusterSpecWindowsProfile struct {
 }
 
 type KubernetesClusterSpec struct {
-	KubeformOutput *KubernetesClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *KubernetesClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource KubernetesClusterSpecResource `json:"resource" tf:"resource"`
 

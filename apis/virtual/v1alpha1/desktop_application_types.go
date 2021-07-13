@@ -42,7 +42,7 @@ type DesktopApplication struct {
 }
 
 type DesktopApplicationSpec struct {
-	KubeformOutput *DesktopApplicationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DesktopApplicationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DesktopApplicationSpecResource `json:"resource" tf:"resource"`
 

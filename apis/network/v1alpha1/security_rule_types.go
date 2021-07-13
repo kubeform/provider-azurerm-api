@@ -42,7 +42,7 @@ type SecurityRule struct {
 }
 
 type SecurityRuleSpec struct {
-	KubeformOutput *SecurityRuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SecurityRuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SecurityRuleSpecResource `json:"resource" tf:"resource"`
 

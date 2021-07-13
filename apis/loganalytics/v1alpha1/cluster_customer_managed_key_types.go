@@ -42,7 +42,7 @@ type ClusterCustomerManagedKey struct {
 }
 
 type ClusterCustomerManagedKeySpec struct {
-	KubeformOutput *ClusterCustomerManagedKeySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ClusterCustomerManagedKeySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ClusterCustomerManagedKeySpecResource `json:"resource" tf:"resource"`
 

@@ -55,7 +55,7 @@ type LearningInferenceClusterSpecSsl struct {
 }
 
 type LearningInferenceClusterSpec struct {
-	KubeformOutput *LearningInferenceClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LearningInferenceClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LearningInferenceClusterSpecResource `json:"resource" tf:"resource"`
 

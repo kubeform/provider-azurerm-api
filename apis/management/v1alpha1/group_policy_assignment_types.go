@@ -51,7 +51,7 @@ type GroupPolicyAssignmentSpecIdentity struct {
 }
 
 type GroupPolicyAssignmentSpec struct {
-	KubeformOutput *GroupPolicyAssignmentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *GroupPolicyAssignmentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource GroupPolicyAssignmentSpecResource `json:"resource" tf:"resource"`
 

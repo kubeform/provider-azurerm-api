@@ -42,7 +42,7 @@ type TwinsEndpointEventgrid struct {
 }
 
 type TwinsEndpointEventgridSpec struct {
-	KubeformOutput *TwinsEndpointEventgridSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *TwinsEndpointEventgridSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource TwinsEndpointEventgridSpecResource `json:"resource" tf:"resource"`
 

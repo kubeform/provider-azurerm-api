@@ -42,7 +42,7 @@ type ServiceSourceControlToken struct {
 }
 
 type ServiceSourceControlTokenSpec struct {
-	KubeformOutput *ServiceSourceControlTokenSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServiceSourceControlTokenSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServiceSourceControlTokenSpecResource `json:"resource" tf:"resource"`
 

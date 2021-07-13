@@ -42,7 +42,7 @@ type JobAgent struct {
 }
 
 type JobAgentSpec struct {
-	KubeformOutput *JobAgentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *JobAgentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource JobAgentSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type ServiceCustomHostnameBinding struct {
 }
 
 type ServiceCustomHostnameBindingSpec struct {
-	KubeformOutput *ServiceCustomHostnameBindingSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServiceCustomHostnameBindingSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServiceCustomHostnameBindingSpecResource `json:"resource" tf:"resource"`
 

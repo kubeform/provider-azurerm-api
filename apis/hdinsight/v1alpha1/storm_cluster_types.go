@@ -144,7 +144,7 @@ type StormClusterSpecStorageAccount struct {
 }
 
 type StormClusterSpec struct {
-	KubeformOutput *StormClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *StormClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource StormClusterSpecResource `json:"resource" tf:"resource"`
 

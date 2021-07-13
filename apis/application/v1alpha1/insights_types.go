@@ -42,7 +42,7 @@ type Insights struct {
 }
 
 type InsightsSpec struct {
-	KubeformOutput *InsightsSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *InsightsSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource InsightsSpecResource `json:"resource" tf:"resource"`
 

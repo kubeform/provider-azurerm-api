@@ -159,7 +159,7 @@ type ApiOperationSpecTemplateParameter struct {
 }
 
 type ApiOperationSpec struct {
-	KubeformOutput *ApiOperationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ApiOperationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ApiOperationSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type TriggerCustom struct {
 }
 
 type TriggerCustomSpec struct {
-	KubeformOutput *TriggerCustomSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *TriggerCustomSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource TriggerCustomSpecResource `json:"resource" tf:"resource"`
 

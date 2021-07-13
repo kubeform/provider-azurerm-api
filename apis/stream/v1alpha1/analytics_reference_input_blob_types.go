@@ -50,7 +50,7 @@ type AnalyticsReferenceInputBlobSpecSerialization struct {
 }
 
 type AnalyticsReferenceInputBlobSpec struct {
-	KubeformOutput *AnalyticsReferenceInputBlobSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AnalyticsReferenceInputBlobSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AnalyticsReferenceInputBlobSpecResource `json:"resource" tf:"resource"`
 

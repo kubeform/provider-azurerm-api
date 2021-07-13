@@ -42,7 +42,7 @@ type ActionCustom struct {
 }
 
 type ActionCustomSpec struct {
-	KubeformOutput *ActionCustomSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ActionCustomSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ActionCustomSpecResource `json:"resource" tf:"resource"`
 

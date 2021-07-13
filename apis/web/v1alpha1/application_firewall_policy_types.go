@@ -105,7 +105,7 @@ type ApplicationFirewallPolicySpecPolicySettings struct {
 }
 
 type ApplicationFirewallPolicySpec struct {
-	KubeformOutput *ApplicationFirewallPolicySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ApplicationFirewallPolicySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ApplicationFirewallPolicySpecResource `json:"resource" tf:"resource"`
 

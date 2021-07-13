@@ -126,7 +126,7 @@ type ActionGroupSpecWebhookReceiver struct {
 }
 
 type ActionGroupSpec struct {
-	KubeformOutput *ActionGroupSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ActionGroupSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ActionGroupSpecResource `json:"resource" tf:"resource"`
 

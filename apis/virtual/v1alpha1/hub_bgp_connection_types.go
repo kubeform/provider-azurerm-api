@@ -42,7 +42,7 @@ type HubBGPConnection struct {
 }
 
 type HubBGPConnectionSpec struct {
-	KubeformOutput *HubBGPConnectionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *HubBGPConnectionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource HubBGPConnectionSpecResource `json:"resource" tf:"resource"`
 

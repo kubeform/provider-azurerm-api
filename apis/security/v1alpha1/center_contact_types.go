@@ -42,7 +42,7 @@ type CenterContact struct {
 }
 
 type CenterContactSpec struct {
-	KubeformOutput *CenterContactSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CenterContactSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CenterContactSpecResource `json:"resource" tf:"resource"`
 

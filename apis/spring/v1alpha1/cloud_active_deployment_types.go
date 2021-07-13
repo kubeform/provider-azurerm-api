@@ -42,7 +42,7 @@ type CloudActiveDeployment struct {
 }
 
 type CloudActiveDeploymentSpec struct {
-	KubeformOutput *CloudActiveDeploymentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CloudActiveDeploymentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CloudActiveDeploymentSpecResource `json:"resource" tf:"resource"`
 

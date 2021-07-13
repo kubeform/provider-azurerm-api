@@ -42,7 +42,7 @@ type ProtectedFileShare struct {
 }
 
 type ProtectedFileShareSpec struct {
-	KubeformOutput *ProtectedFileShareSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ProtectedFileShareSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ProtectedFileShareSpecResource `json:"resource" tf:"resource"`
 

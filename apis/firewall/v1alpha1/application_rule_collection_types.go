@@ -65,7 +65,7 @@ type ApplicationRuleCollectionSpecRule struct {
 }
 
 type ApplicationRuleCollectionSpec struct {
-	KubeformOutput *ApplicationRuleCollectionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ApplicationRuleCollectionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ApplicationRuleCollectionSpecResource `json:"resource" tf:"resource"`
 

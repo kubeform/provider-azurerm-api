@@ -47,7 +47,7 @@ type SqlPoolSpecRestore struct {
 }
 
 type SqlPoolSpec struct {
-	KubeformOutput *SqlPoolSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SqlPoolSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SqlPoolSpecResource `json:"resource" tf:"resource"`
 

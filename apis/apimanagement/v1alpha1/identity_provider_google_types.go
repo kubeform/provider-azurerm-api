@@ -42,7 +42,7 @@ type IdentityProviderGoogle struct {
 }
 
 type IdentityProviderGoogleSpec struct {
-	KubeformOutput *IdentityProviderGoogleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *IdentityProviderGoogleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource IdentityProviderGoogleSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type Wan struct {
 }
 
 type WanSpec struct {
-	KubeformOutput *WanSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *WanSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource WanSpecResource `json:"resource" tf:"resource"`
 

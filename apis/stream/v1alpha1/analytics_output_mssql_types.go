@@ -42,7 +42,7 @@ type AnalyticsOutputMssql struct {
 }
 
 type AnalyticsOutputMssqlSpec struct {
-	KubeformOutput *AnalyticsOutputMssqlSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AnalyticsOutputMssqlSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AnalyticsOutputMssqlSpecResource `json:"resource" tf:"resource"`
 

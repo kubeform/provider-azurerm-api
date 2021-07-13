@@ -42,7 +42,7 @@ type ExpressRouteAuthorization struct {
 }
 
 type ExpressRouteAuthorizationSpec struct {
-	KubeformOutput *ExpressRouteAuthorizationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ExpressRouteAuthorizationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ExpressRouteAuthorizationSpecResource `json:"resource" tf:"resource"`
 

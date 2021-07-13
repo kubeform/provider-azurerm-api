@@ -42,7 +42,7 @@ type InterfaceBackendAddressPoolAssociation struct {
 }
 
 type InterfaceBackendAddressPoolAssociationSpec struct {
-	KubeformOutput *InterfaceBackendAddressPoolAssociationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *InterfaceBackendAddressPoolAssociationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource InterfaceBackendAddressPoolAssociationSpecResource `json:"resource" tf:"resource"`
 

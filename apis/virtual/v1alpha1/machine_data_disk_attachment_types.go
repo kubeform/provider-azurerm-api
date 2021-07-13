@@ -42,7 +42,7 @@ type MachineDataDiskAttachment struct {
 }
 
 type MachineDataDiskAttachmentSpec struct {
-	KubeformOutput *MachineDataDiskAttachmentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *MachineDataDiskAttachmentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource MachineDataDiskAttachmentSpecResource `json:"resource" tf:"resource"`
 

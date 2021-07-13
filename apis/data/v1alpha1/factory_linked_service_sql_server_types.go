@@ -52,7 +52,7 @@ type FactoryLinkedServiceSQLServerSpecKeyVaultPassword struct {
 }
 
 type FactoryLinkedServiceSQLServerSpec struct {
-	KubeformOutput *FactoryLinkedServiceSQLServerSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceSQLServerSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceSQLServerSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type Property struct {
 }
 
 type PropertySpec struct {
-	KubeformOutput *PropertySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *PropertySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource PropertySpecResource `json:"resource" tf:"resource"`
 

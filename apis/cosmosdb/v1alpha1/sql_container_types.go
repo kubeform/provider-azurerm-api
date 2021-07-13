@@ -96,7 +96,7 @@ type SqlContainerSpecUniqueKey struct {
 }
 
 type SqlContainerSpec struct {
-	KubeformOutput *SqlContainerSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SqlContainerSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SqlContainerSpecResource `json:"resource" tf:"resource"`
 

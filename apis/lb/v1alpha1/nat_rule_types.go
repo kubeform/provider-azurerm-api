@@ -42,7 +42,7 @@ type NatRule struct {
 }
 
 type NatRuleSpec struct {
-	KubeformOutput *NatRuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NatRuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NatRuleSpecResource `json:"resource" tf:"resource"`
 

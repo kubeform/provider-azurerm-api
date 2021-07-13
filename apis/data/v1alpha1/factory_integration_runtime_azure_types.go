@@ -42,7 +42,7 @@ type FactoryIntegrationRuntimeAzure struct {
 }
 
 type FactoryIntegrationRuntimeAzureSpec struct {
-	KubeformOutput *FactoryIntegrationRuntimeAzureSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryIntegrationRuntimeAzureSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryIntegrationRuntimeAzureSpecResource `json:"resource" tf:"resource"`
 

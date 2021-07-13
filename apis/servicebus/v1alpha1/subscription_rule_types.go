@@ -63,7 +63,7 @@ type SubscriptionRuleSpecCorrelationFilter struct {
 }
 
 type SubscriptionRuleSpec struct {
-	KubeformOutput *SubscriptionRuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SubscriptionRuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SubscriptionRuleSpecResource `json:"resource" tf:"resource"`
 

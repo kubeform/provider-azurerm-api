@@ -58,7 +58,7 @@ type DefinitionSpecPlan struct {
 }
 
 type DefinitionSpec struct {
-	KubeformOutput *DefinitionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DefinitionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DefinitionSpecResource `json:"resource" tf:"resource"`
 

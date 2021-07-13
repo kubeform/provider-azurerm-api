@@ -42,7 +42,7 @@ type FabricMeshLocalNetwork struct {
 }
 
 type FabricMeshLocalNetworkSpec struct {
-	KubeformOutput *FabricMeshLocalNetworkSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FabricMeshLocalNetworkSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FabricMeshLocalNetworkSpecResource `json:"resource" tf:"resource"`
 

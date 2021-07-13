@@ -47,7 +47,7 @@ type AuthorizationServerSpecTokenBodyParameter struct {
 }
 
 type AuthorizationServerSpec struct {
-	KubeformOutput *AuthorizationServerSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AuthorizationServerSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AuthorizationServerSpecResource `json:"resource" tf:"resource"`
 

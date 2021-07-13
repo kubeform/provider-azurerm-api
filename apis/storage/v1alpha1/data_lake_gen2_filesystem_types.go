@@ -51,7 +51,7 @@ type DataLakeGen2FilesystemSpecAce struct {
 }
 
 type DataLakeGen2FilesystemSpec struct {
-	KubeformOutput *DataLakeGen2FilesystemSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DataLakeGen2FilesystemSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DataLakeGen2FilesystemSpecResource `json:"resource" tf:"resource"`
 

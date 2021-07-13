@@ -54,7 +54,7 @@ type NotificationHubSpecGcmCredential struct {
 }
 
 type NotificationHubSpec struct {
-	KubeformOutput *NotificationHubSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NotificationHubSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NotificationHubSpecResource `json:"resource" tf:"resource"`
 

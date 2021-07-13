@@ -57,7 +57,7 @@ type BlobInventoryPolicySpecRules struct {
 }
 
 type BlobInventoryPolicySpec struct {
-	KubeformOutput *BlobInventoryPolicySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *BlobInventoryPolicySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource BlobInventoryPolicySpecResource `json:"resource" tf:"resource"`
 

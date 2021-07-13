@@ -42,7 +42,7 @@ type DataConnectorOffice365 struct {
 }
 
 type DataConnectorOffice365Spec struct {
-	KubeformOutput *DataConnectorOffice365SpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DataConnectorOffice365SpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DataConnectorOffice365SpecResource `json:"resource" tf:"resource"`
 

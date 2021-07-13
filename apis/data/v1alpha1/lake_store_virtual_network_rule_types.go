@@ -42,7 +42,7 @@ type LakeStoreVirtualNetworkRule struct {
 }
 
 type LakeStoreVirtualNetworkRuleSpec struct {
-	KubeformOutput *LakeStoreVirtualNetworkRuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LakeStoreVirtualNetworkRuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LakeStoreVirtualNetworkRuleSpecResource `json:"resource" tf:"resource"`
 

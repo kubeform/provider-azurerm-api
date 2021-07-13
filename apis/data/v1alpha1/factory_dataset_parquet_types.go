@@ -62,7 +62,7 @@ type FactoryDatasetParquetSpecSchemaColumn struct {
 }
 
 type FactoryDatasetParquetSpec struct {
-	KubeformOutput *FactoryDatasetParquetSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryDatasetParquetSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryDatasetParquetSpecResource `json:"resource" tf:"resource"`
 

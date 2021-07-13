@@ -42,7 +42,7 @@ type ChannelsRegistration struct {
 }
 
 type ChannelsRegistrationSpec struct {
-	KubeformOutput *ChannelsRegistrationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ChannelsRegistrationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ChannelsRegistrationSpecResource `json:"resource" tf:"resource"`
 

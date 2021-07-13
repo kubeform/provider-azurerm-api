@@ -67,7 +67,7 @@ type SetDefinitionSpecPolicyDefinitionReference struct {
 }
 
 type SetDefinitionSpec struct {
-	KubeformOutput *SetDefinitionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SetDefinitionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SetDefinitionSpecResource `json:"resource" tf:"resource"`
 

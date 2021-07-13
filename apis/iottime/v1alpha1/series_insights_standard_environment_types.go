@@ -42,7 +42,7 @@ type SeriesInsightsStandardEnvironment struct {
 }
 
 type SeriesInsightsStandardEnvironmentSpec struct {
-	KubeformOutput *SeriesInsightsStandardEnvironmentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SeriesInsightsStandardEnvironmentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SeriesInsightsStandardEnvironmentSpecResource `json:"resource" tf:"resource"`
 

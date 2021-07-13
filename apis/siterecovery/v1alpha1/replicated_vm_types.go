@@ -63,7 +63,7 @@ type ReplicatedVmSpecNetworkInterface struct {
 }
 
 type ReplicatedVmSpec struct {
-	KubeformOutput *ReplicatedVmSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ReplicatedVmSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ReplicatedVmSpecResource `json:"resource" tf:"resource"`
 

@@ -56,7 +56,7 @@ type LearningComputeClusterSpecScaleSettings struct {
 }
 
 type LearningComputeClusterSpec struct {
-	KubeformOutput *LearningComputeClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LearningComputeClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LearningComputeClusterSpecResource `json:"resource" tf:"resource"`
 

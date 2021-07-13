@@ -42,7 +42,7 @@ type EndpointEventhub struct {
 }
 
 type EndpointEventhubSpec struct {
-	KubeformOutput *EndpointEventhubSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EndpointEventhubSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EndpointEventhubSpecResource `json:"resource" tf:"resource"`
 

@@ -48,7 +48,7 @@ type FactoryLinkedCustomServiceSpecIntegrationRuntime struct {
 }
 
 type FactoryLinkedCustomServiceSpec struct {
-	KubeformOutput *FactoryLinkedCustomServiceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedCustomServiceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedCustomServiceSpecResource `json:"resource" tf:"resource"`
 

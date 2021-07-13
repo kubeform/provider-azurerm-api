@@ -42,7 +42,7 @@ type ServerTransparentDataEncryption struct {
 }
 
 type ServerTransparentDataEncryptionSpec struct {
-	KubeformOutput *ServerTransparentDataEncryptionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServerTransparentDataEncryptionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServerTransparentDataEncryptionSpecResource `json:"resource" tf:"resource"`
 

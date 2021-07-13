@@ -42,7 +42,7 @@ type TenantConfiguration struct {
 }
 
 type TenantConfigurationSpec struct {
-	KubeformOutput *TenantConfigurationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *TenantConfigurationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource TenantConfigurationSpecResource `json:"resource" tf:"resource"`
 

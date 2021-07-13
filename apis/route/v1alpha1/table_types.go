@@ -50,7 +50,7 @@ type TableSpecRoute struct {
 }
 
 type TableSpec struct {
-	KubeformOutput *TableSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *TableSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource TableSpecResource `json:"resource" tf:"resource"`
 

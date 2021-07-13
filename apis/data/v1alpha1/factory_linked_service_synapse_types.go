@@ -47,7 +47,7 @@ type FactoryLinkedServiceSynapseSpecKeyVaultPassword struct {
 }
 
 type FactoryLinkedServiceSynapseSpec struct {
-	KubeformOutput *FactoryLinkedServiceSynapseSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceSynapseSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceSynapseSpecResource `json:"resource" tf:"resource"`
 

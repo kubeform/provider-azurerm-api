@@ -61,7 +61,7 @@ type EventhubSpecCaptureDescription struct {
 }
 
 type EventhubSpec struct {
-	KubeformOutput *EventhubSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EventhubSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EventhubSpecResource `json:"resource" tf:"resource"`
 

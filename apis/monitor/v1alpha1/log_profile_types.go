@@ -48,7 +48,7 @@ type LogProfileSpecRetentionPolicy struct {
 }
 
 type LogProfileSpec struct {
-	KubeformOutput *LogProfileSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LogProfileSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LogProfileSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type ActiveDirectoryAdministrator struct {
 }
 
 type ActiveDirectoryAdministratorSpec struct {
-	KubeformOutput *ActiveDirectoryAdministratorSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ActiveDirectoryAdministratorSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ActiveDirectoryAdministratorSpecResource `json:"resource" tf:"resource"`
 

@@ -106,7 +106,7 @@ type CacheSpecDns struct {
 }
 
 type CacheSpec struct {
-	KubeformOutput *CacheSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CacheSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CacheSpecResource `json:"resource" tf:"resource"`
 

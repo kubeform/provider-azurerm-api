@@ -42,7 +42,7 @@ type FactoryLinkedServiceWeb struct {
 }
 
 type FactoryLinkedServiceWebSpec struct {
-	KubeformOutput *FactoryLinkedServiceWebSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceWebSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceWebSpecResource `json:"resource" tf:"resource"`
 

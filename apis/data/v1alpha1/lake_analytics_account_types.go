@@ -42,7 +42,7 @@ type LakeAnalyticsAccount struct {
 }
 
 type LakeAnalyticsAccountSpec struct {
-	KubeformOutput *LakeAnalyticsAccountSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LakeAnalyticsAccountSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LakeAnalyticsAccountSpecResource `json:"resource" tf:"resource"`
 

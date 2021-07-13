@@ -42,7 +42,7 @@ type Rule struct {
 }
 
 type RuleSpec struct {
-	KubeformOutput *RuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *RuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource RuleSpecResource `json:"resource" tf:"resource"`
 

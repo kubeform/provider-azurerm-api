@@ -42,7 +42,7 @@ type NatPool struct {
 }
 
 type NatPoolSpec struct {
-	KubeformOutput *NatPoolSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NatPoolSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NatPoolSpecResource `json:"resource" tf:"resource"`
 

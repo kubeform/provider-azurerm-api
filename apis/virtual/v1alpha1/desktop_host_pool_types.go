@@ -50,7 +50,7 @@ type DesktopHostPoolSpecRegistrationInfo struct {
 }
 
 type DesktopHostPoolSpec struct {
-	KubeformOutput *DesktopHostPoolSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DesktopHostPoolSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DesktopHostPoolSpecResource `json:"resource" tf:"resource"`
 

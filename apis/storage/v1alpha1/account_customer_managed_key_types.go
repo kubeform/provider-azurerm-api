@@ -42,7 +42,7 @@ type AccountCustomerManagedKey struct {
 }
 
 type AccountCustomerManagedKeySpec struct {
-	KubeformOutput *AccountCustomerManagedKeySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AccountCustomerManagedKeySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AccountCustomerManagedKeySpecResource `json:"resource" tf:"resource"`
 

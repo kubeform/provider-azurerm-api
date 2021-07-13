@@ -42,7 +42,7 @@ type SavedSearch struct {
 }
 
 type SavedSearchSpec struct {
-	KubeformOutput *SavedSearchSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SavedSearchSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SavedSearchSpecResource `json:"resource" tf:"resource"`
 

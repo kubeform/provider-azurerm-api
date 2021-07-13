@@ -47,7 +47,7 @@ type GremlinDatabaseSpecAutoscaleSettings struct {
 }
 
 type GremlinDatabaseSpec struct {
-	KubeformOutput *GremlinDatabaseSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *GremlinDatabaseSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource GremlinDatabaseSpecResource `json:"resource" tf:"resource"`
 

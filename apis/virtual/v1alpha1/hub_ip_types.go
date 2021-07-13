@@ -42,7 +42,7 @@ type HubIP struct {
 }
 
 type HubIPSpec struct {
-	KubeformOutput *HubIPSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *HubIPSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource HubIPSpecResource `json:"resource" tf:"resource"`
 

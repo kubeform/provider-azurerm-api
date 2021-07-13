@@ -77,7 +77,7 @@ type SolutionSpecRecommendationsEnabled struct {
 }
 
 type SolutionSpec struct {
-	KubeformOutput *SolutionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SolutionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SolutionSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type Probe struct {
 }
 
 type ProbeSpec struct {
-	KubeformOutput *ProbeSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ProbeSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ProbeSpecResource `json:"resource" tf:"resource"`
 

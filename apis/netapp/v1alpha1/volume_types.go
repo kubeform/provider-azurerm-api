@@ -72,7 +72,7 @@ type VolumeSpecExportPolicyRule struct {
 }
 
 type VolumeSpec struct {
-	KubeformOutput *VolumeSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *VolumeSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource VolumeSpecResource `json:"resource" tf:"resource"`
 

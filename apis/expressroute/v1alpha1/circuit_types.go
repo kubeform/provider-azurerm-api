@@ -47,7 +47,7 @@ type CircuitSpecSku struct {
 }
 
 type CircuitSpec struct {
-	KubeformOutput *CircuitSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CircuitSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CircuitSpecResource `json:"resource" tf:"resource"`
 

@@ -232,7 +232,7 @@ type ApiManagementSpecVirtualNetworkConfiguration struct {
 }
 
 type ApiManagementSpec struct {
-	KubeformOutput *ApiManagementSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ApiManagementSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ApiManagementSpecResource `json:"resource" tf:"resource"`
 

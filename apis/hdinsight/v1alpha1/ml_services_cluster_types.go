@@ -119,7 +119,7 @@ type MlServicesClusterSpecStorageAccount struct {
 }
 
 type MlServicesClusterSpec struct {
-	KubeformOutput *MlServicesClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *MlServicesClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource MlServicesClusterSpecResource `json:"resource" tf:"resource"`
 

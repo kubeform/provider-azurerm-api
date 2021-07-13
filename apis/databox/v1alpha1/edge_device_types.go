@@ -67,7 +67,7 @@ type EdgeDeviceSpecDeviceProperties struct {
 }
 
 type EdgeDeviceSpec struct {
-	KubeformOutput *EdgeDeviceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EdgeDeviceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EdgeDeviceSpecResource `json:"resource" tf:"resource"`
 

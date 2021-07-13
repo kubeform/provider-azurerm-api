@@ -42,7 +42,7 @@ type StorageInsights struct {
 }
 
 type StorageInsightsSpec struct {
-	KubeformOutput *StorageInsightsSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *StorageInsightsSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource StorageInsightsSpecResource `json:"resource" tf:"resource"`
 

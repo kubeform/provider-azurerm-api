@@ -50,7 +50,7 @@ type EnterpriseDatabaseSpecModule struct {
 }
 
 type EnterpriseDatabaseSpec struct {
-	KubeformOutput *EnterpriseDatabaseSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EnterpriseDatabaseSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EnterpriseDatabaseSpecResource `json:"resource" tf:"resource"`
 

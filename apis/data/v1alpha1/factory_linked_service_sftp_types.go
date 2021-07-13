@@ -42,7 +42,7 @@ type FactoryLinkedServiceSftp struct {
 }
 
 type FactoryLinkedServiceSftpSpec struct {
-	KubeformOutput *FactoryLinkedServiceSftpSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceSftpSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceSftpSpecResource `json:"resource" tf:"resource"`
 

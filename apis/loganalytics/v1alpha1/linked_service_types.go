@@ -42,7 +42,7 @@ type LinkedService struct {
 }
 
 type LinkedServiceSpec struct {
-	KubeformOutput *LinkedServiceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LinkedServiceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LinkedServiceSpecResource `json:"resource" tf:"resource"`
 

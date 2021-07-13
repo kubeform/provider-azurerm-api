@@ -42,7 +42,7 @@ type InsightsAPIKey struct {
 }
 
 type InsightsAPIKeySpec struct {
-	KubeformOutput *InsightsAPIKeySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *InsightsAPIKeySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource InsightsAPIKeySpecResource `json:"resource" tf:"resource"`
 

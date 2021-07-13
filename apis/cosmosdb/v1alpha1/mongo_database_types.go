@@ -47,7 +47,7 @@ type MongoDatabaseSpecAutoscaleSettings struct {
 }
 
 type MongoDatabaseSpec struct {
-	KubeformOutput *MongoDatabaseSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *MongoDatabaseSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource MongoDatabaseSpecResource `json:"resource" tf:"resource"`
 

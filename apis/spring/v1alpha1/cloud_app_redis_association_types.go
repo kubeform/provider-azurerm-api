@@ -42,7 +42,7 @@ type CloudAppRedisAssociation struct {
 }
 
 type CloudAppRedisAssociationSpec struct {
-	KubeformOutput *CloudAppRedisAssociationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CloudAppRedisAssociationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CloudAppRedisAssociationSpecResource `json:"resource" tf:"resource"`
 

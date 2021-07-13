@@ -42,7 +42,7 @@ type CloudAppMysqlAssociation struct {
 }
 
 type CloudAppMysqlAssociationSpec struct {
-	KubeformOutput *CloudAppMysqlAssociationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CloudAppMysqlAssociationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CloudAppMysqlAssociationSpecResource `json:"resource" tf:"resource"`
 

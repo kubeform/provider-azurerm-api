@@ -47,7 +47,7 @@ type SeriesInsightsGen2EnvironmentSpecStorage struct {
 }
 
 type SeriesInsightsGen2EnvironmentSpec struct {
-	KubeformOutput *SeriesInsightsGen2EnvironmentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SeriesInsightsGen2EnvironmentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SeriesInsightsGen2EnvironmentSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type Healthbot struct {
 }
 
 type HealthbotSpec struct {
-	KubeformOutput *HealthbotSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *HealthbotSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource HealthbotSpecResource `json:"resource" tf:"resource"`
 

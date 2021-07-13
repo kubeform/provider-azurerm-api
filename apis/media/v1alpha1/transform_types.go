@@ -83,7 +83,7 @@ type TransformSpecOutput struct {
 }
 
 type TransformSpec struct {
-	KubeformOutput *TransformSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *TransformSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource TransformSpecResource `json:"resource" tf:"resource"`
 

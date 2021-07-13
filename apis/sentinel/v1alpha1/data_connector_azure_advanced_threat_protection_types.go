@@ -42,7 +42,7 @@ type DataConnectorAzureAdvancedThreatProtection struct {
 }
 
 type DataConnectorAzureAdvancedThreatProtectionSpec struct {
-	KubeformOutput *DataConnectorAzureAdvancedThreatProtectionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DataConnectorAzureAdvancedThreatProtectionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DataConnectorAzureAdvancedThreatProtectionSpecResource `json:"resource" tf:"resource"`
 

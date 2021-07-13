@@ -51,7 +51,7 @@ type AssignmentSpecIdentity struct {
 }
 
 type AssignmentSpec struct {
-	KubeformOutput *AssignmentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AssignmentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AssignmentSpecResource `json:"resource" tf:"resource"`
 

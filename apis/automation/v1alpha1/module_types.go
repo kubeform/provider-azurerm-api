@@ -53,7 +53,7 @@ type ModuleSpecModuleLink struct {
 }
 
 type ModuleSpec struct {
-	KubeformOutput *ModuleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ModuleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ModuleSpecResource `json:"resource" tf:"resource"`
 

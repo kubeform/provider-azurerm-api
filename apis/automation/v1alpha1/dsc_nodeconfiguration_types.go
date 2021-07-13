@@ -42,7 +42,7 @@ type DscNodeconfiguration struct {
 }
 
 type DscNodeconfigurationSpec struct {
-	KubeformOutput *DscNodeconfigurationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DscNodeconfigurationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DscNodeconfigurationSpecResource `json:"resource" tf:"resource"`
 

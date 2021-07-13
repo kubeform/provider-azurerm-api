@@ -170,7 +170,7 @@ type HbaseClusterSpecStorageAccountGen2 struct {
 }
 
 type HbaseClusterSpec struct {
-	KubeformOutput *HbaseClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *HbaseClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource HbaseClusterSpecResource `json:"resource" tf:"resource"`
 

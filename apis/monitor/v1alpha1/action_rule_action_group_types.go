@@ -99,7 +99,7 @@ type ActionRuleActionGroupSpecScope struct {
 }
 
 type ActionRuleActionGroupSpec struct {
-	KubeformOutput *ActionRuleActionGroupSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ActionRuleActionGroupSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ActionRuleActionGroupSpecResource `json:"resource" tf:"resource"`
 

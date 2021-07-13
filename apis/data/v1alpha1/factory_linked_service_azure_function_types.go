@@ -42,7 +42,7 @@ type FactoryLinkedServiceAzureFunction struct {
 }
 
 type FactoryLinkedServiceAzureFunctionSpec struct {
-	KubeformOutput *FactoryLinkedServiceAzureFunctionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceAzureFunctionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceAzureFunctionSpecResource `json:"resource" tf:"resource"`
 

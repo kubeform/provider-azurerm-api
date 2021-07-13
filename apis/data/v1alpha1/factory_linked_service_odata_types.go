@@ -47,7 +47,7 @@ type FactoryLinkedServiceOdataSpecBasicAuthentication struct {
 }
 
 type FactoryLinkedServiceOdataSpec struct {
-	KubeformOutput *FactoryLinkedServiceOdataSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceOdataSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceOdataSpecResource `json:"resource" tf:"resource"`
 

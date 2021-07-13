@@ -42,7 +42,7 @@ type IdentityProviderFacebook struct {
 }
 
 type IdentityProviderFacebookSpec struct {
-	KubeformOutput *IdentityProviderFacebookSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *IdentityProviderFacebookSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource IdentityProviderFacebookSpecResource `json:"resource" tf:"resource"`
 

@@ -52,7 +52,7 @@ type AnalyticsOutputEventhubSpecSerialization struct {
 }
 
 type AnalyticsOutputEventhubSpec struct {
-	KubeformOutput *AnalyticsOutputEventhubSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *AnalyticsOutputEventhubSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource AnalyticsOutputEventhubSpecResource `json:"resource" tf:"resource"`
 

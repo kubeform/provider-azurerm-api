@@ -42,7 +42,7 @@ type FactoryLinkedServiceKeyVault struct {
 }
 
 type FactoryLinkedServiceKeyVaultSpec struct {
-	KubeformOutput *FactoryLinkedServiceKeyVaultSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceKeyVaultSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceKeyVaultSpecResource `json:"resource" tf:"resource"`
 

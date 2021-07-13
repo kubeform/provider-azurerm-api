@@ -47,7 +47,7 @@ type MxRecordSpecRecord struct {
 }
 
 type MxRecordSpec struct {
-	KubeformOutput *MxRecordSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *MxRecordSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource MxRecordSpecResource `json:"resource" tf:"resource"`
 

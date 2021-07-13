@@ -42,7 +42,7 @@ type CenterAssessmentPolicy struct {
 }
 
 type CenterAssessmentPolicySpec struct {
-	KubeformOutput *CenterAssessmentPolicySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CenterAssessmentPolicySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CenterAssessmentPolicySpecResource `json:"resource" tf:"resource"`
 

@@ -141,7 +141,7 @@ type NodePoolSpecUpgradeSettings struct {
 }
 
 type NodePoolSpec struct {
-	KubeformOutput *NodePoolSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NodePoolSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NodePoolSpecResource `json:"resource" tf:"resource"`
 

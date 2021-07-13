@@ -42,7 +42,7 @@ type CloudCustomDomain struct {
 }
 
 type CloudCustomDomainSpec struct {
-	KubeformOutput *CloudCustomDomainSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CloudCustomDomainSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CloudCustomDomainSpecResource `json:"resource" tf:"resource"`
 

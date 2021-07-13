@@ -42,7 +42,7 @@ type ConnectionServicePrincipal struct {
 }
 
 type ConnectionServicePrincipalSpec struct {
-	KubeformOutput *ConnectionServicePrincipalSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ConnectionServicePrincipalSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ConnectionServicePrincipalSpecResource `json:"resource" tf:"resource"`
 

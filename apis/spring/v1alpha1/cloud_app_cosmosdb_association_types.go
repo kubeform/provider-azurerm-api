@@ -42,7 +42,7 @@ type CloudAppCosmosdbAssociation struct {
 }
 
 type CloudAppCosmosdbAssociationSpec struct {
-	KubeformOutput *CloudAppCosmosdbAssociationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CloudAppCosmosdbAssociationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CloudAppCosmosdbAssociationSpecResource `json:"resource" tf:"resource"`
 

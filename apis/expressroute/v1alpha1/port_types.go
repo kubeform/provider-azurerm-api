@@ -95,7 +95,7 @@ type PortSpecLink2 struct {
 }
 
 type PortSpec struct {
-	KubeformOutput *PortSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *PortSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource PortSpecResource `json:"resource" tf:"resource"`
 

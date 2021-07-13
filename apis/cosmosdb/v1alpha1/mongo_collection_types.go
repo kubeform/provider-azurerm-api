@@ -60,7 +60,7 @@ type MongoCollectionSpecSystemIndexes struct {
 }
 
 type MongoCollectionSpec struct {
-	KubeformOutput *MongoCollectionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *MongoCollectionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource MongoCollectionSpecResource `json:"resource" tf:"resource"`
 

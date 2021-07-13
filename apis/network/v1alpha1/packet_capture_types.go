@@ -63,7 +63,7 @@ type PacketCaptureSpecStorageLocation struct {
 }
 
 type PacketCaptureSpec struct {
-	KubeformOutput *PacketCaptureSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *PacketCaptureSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource PacketCaptureSpecResource `json:"resource" tf:"resource"`
 

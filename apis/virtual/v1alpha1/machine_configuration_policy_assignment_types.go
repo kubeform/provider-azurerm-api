@@ -55,7 +55,7 @@ type MachineConfigurationPolicyAssignmentSpecConfiguration struct {
 }
 
 type MachineConfigurationPolicyAssignmentSpec struct {
-	KubeformOutput *MachineConfigurationPolicyAssignmentSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *MachineConfigurationPolicyAssignmentSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource MachineConfigurationPolicyAssignmentSpecResource `json:"resource" tf:"resource"`
 

@@ -171,7 +171,7 @@ type KafkaClusterSpecStorageAccountGen2 struct {
 }
 
 type KafkaClusterSpec struct {
-	KubeformOutput *KafkaClusterSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *KafkaClusterSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource KafkaClusterSpecResource `json:"resource" tf:"resource"`
 

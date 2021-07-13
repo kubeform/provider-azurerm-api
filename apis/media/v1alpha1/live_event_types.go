@@ -118,7 +118,7 @@ type LiveEventSpecPreview struct {
 }
 
 type LiveEventSpec struct {
-	KubeformOutput *LiveEventSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LiveEventSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LiveEventSpecResource `json:"resource" tf:"resource"`
 

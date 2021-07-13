@@ -42,7 +42,7 @@ type MachineScaleSetExtension struct {
 }
 
 type MachineScaleSetExtensionSpec struct {
-	KubeformOutput *MachineScaleSetExtensionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *MachineScaleSetExtensionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource MachineScaleSetExtensionSpecResource `json:"resource" tf:"resource"`
 

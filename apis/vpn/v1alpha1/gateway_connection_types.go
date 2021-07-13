@@ -82,7 +82,7 @@ type GatewayConnectionSpecVpnLink struct {
 }
 
 type GatewayConnectionSpec struct {
-	KubeformOutput *GatewayConnectionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *GatewayConnectionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource GatewayConnectionSpecResource `json:"resource" tf:"resource"`
 

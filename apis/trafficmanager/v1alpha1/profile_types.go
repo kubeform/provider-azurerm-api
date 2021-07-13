@@ -69,7 +69,7 @@ type ProfileSpecMonitorConfig struct {
 }
 
 type ProfileSpec struct {
-	KubeformOutput *ProfileSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ProfileSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ProfileSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type DataConnectorAzureActiveDirectory struct {
 }
 
 type DataConnectorAzureActiveDirectorySpec struct {
-	KubeformOutput *DataConnectorAzureActiveDirectorySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DataConnectorAzureActiveDirectorySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DataConnectorAzureActiveDirectorySpecResource `json:"resource" tf:"resource"`
 

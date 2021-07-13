@@ -37,120 +37,6 @@ spec:
             type: object
           spec:
             properties:
-              kubeformOutput:
-                properties:
-                  apiManagementID:
-                    type: string
-                  developerPortal:
-                    items:
-                      properties:
-                        hostName:
-                          type: string
-                        keyVaultID:
-                          type: string
-                        negotiateClientCertificate:
-                          type: boolean
-                      required:
-                      - hostName
-                      type: object
-                    type: array
-                  id:
-                    type: string
-                  management:
-                    items:
-                      properties:
-                        hostName:
-                          type: string
-                        keyVaultID:
-                          type: string
-                        negotiateClientCertificate:
-                          type: boolean
-                      required:
-                      - hostName
-                      type: object
-                    type: array
-                  portal:
-                    items:
-                      properties:
-                        hostName:
-                          type: string
-                        keyVaultID:
-                          type: string
-                        negotiateClientCertificate:
-                          type: boolean
-                      required:
-                      - hostName
-                      type: object
-                    type: array
-                  proxy:
-                    items:
-                      properties:
-                        defaultSslBinding:
-                          type: boolean
-                        hostName:
-                          type: string
-                        keyVaultID:
-                          type: string
-                        negotiateClientCertificate:
-                          type: boolean
-                      required:
-                      - hostName
-                      type: object
-                    type: array
-                  scm:
-                    items:
-                      properties:
-                        hostName:
-                          type: string
-                        keyVaultID:
-                          type: string
-                        negotiateClientCertificate:
-                          type: boolean
-                      required:
-                      - hostName
-                      type: object
-                    type: array
-                  timeouts:
-                    properties:
-                      create:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      default:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      delete:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      read:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      update:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                    type: object
-                required:
-                - apiManagementID
-                type: object
               providerRef:
                 description: LocalObjectReference contains enough information to let
                   you locate the referenced object inside the same namespace.
@@ -282,6 +168,120 @@ spec:
                     description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
                       TODO: Add other useful fields. apiVersion, kind, uid?'
                     type: string
+                type: object
+              state:
+                properties:
+                  apiManagementID:
+                    type: string
+                  developerPortal:
+                    items:
+                      properties:
+                        hostName:
+                          type: string
+                        keyVaultID:
+                          type: string
+                        negotiateClientCertificate:
+                          type: boolean
+                      required:
+                      - hostName
+                      type: object
+                    type: array
+                  id:
+                    type: string
+                  management:
+                    items:
+                      properties:
+                        hostName:
+                          type: string
+                        keyVaultID:
+                          type: string
+                        negotiateClientCertificate:
+                          type: boolean
+                      required:
+                      - hostName
+                      type: object
+                    type: array
+                  portal:
+                    items:
+                      properties:
+                        hostName:
+                          type: string
+                        keyVaultID:
+                          type: string
+                        negotiateClientCertificate:
+                          type: boolean
+                      required:
+                      - hostName
+                      type: object
+                    type: array
+                  proxy:
+                    items:
+                      properties:
+                        defaultSslBinding:
+                          type: boolean
+                        hostName:
+                          type: string
+                        keyVaultID:
+                          type: string
+                        negotiateClientCertificate:
+                          type: boolean
+                      required:
+                      - hostName
+                      type: object
+                    type: array
+                  scm:
+                    items:
+                      properties:
+                        hostName:
+                          type: string
+                        keyVaultID:
+                          type: string
+                        negotiateClientCertificate:
+                          type: boolean
+                      required:
+                      - hostName
+                      type: object
+                    type: array
+                  timeouts:
+                    properties:
+                      create:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      default:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      delete:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      read:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      update:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                    type: object
+                required:
+                - apiManagementID
                 type: object
               terminationPolicy:
                 enum:

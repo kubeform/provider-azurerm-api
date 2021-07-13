@@ -42,7 +42,7 @@ type Embedded struct {
 }
 
 type EmbeddedSpec struct {
-	KubeformOutput *EmbeddedSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *EmbeddedSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource EmbeddedSpecResource `json:"resource" tf:"resource"`
 

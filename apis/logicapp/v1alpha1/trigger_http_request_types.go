@@ -42,7 +42,7 @@ type TriggerHTTPRequest struct {
 }
 
 type TriggerHTTPRequestSpec struct {
-	KubeformOutput *TriggerHTTPRequestSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *TriggerHTTPRequestSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource TriggerHTTPRequestSpecResource `json:"resource" tf:"resource"`
 

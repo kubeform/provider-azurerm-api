@@ -42,7 +42,7 @@ type CenterAssessmentMetadata struct {
 }
 
 type CenterAssessmentMetadataSpec struct {
-	KubeformOutput *CenterAssessmentMetadataSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CenterAssessmentMetadataSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CenterAssessmentMetadataSpecResource `json:"resource" tf:"resource"`
 

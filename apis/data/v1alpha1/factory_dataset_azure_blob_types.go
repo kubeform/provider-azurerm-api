@@ -50,7 +50,7 @@ type FactoryDatasetAzureBlobSpecSchemaColumn struct {
 }
 
 type FactoryDatasetAzureBlobSpec struct {
-	KubeformOutput *FactoryDatasetAzureBlobSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryDatasetAzureBlobSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryDatasetAzureBlobSpecResource `json:"resource" tf:"resource"`
 

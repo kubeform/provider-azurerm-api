@@ -37,182 +37,6 @@ spec:
             type: object
           spec:
             properties:
-              kubeformOutput:
-                properties:
-                  configServerGitSetting:
-                    properties:
-                      httpBasicAuth:
-                        properties:
-                          username:
-                            type: string
-                        required:
-                        - username
-                        type: object
-                      label:
-                        type: string
-                      repository:
-                        items:
-                          properties:
-                            httpBasicAuth:
-                              properties:
-                                username:
-                                  type: string
-                              required:
-                              - username
-                              type: object
-                            label:
-                              type: string
-                            name:
-                              type: string
-                            pattern:
-                              items:
-                                type: string
-                              type: array
-                            searchPaths:
-                              items:
-                                type: string
-                              type: array
-                            sshAuth:
-                              properties:
-                                hostKeyAlgorithm:
-                                  type: string
-                                strictHostKeyCheckingEnabled:
-                                  type: boolean
-                              type: object
-                            uri:
-                              type: string
-                          required:
-                          - name
-                          - uri
-                          type: object
-                        type: array
-                      searchPaths:
-                        items:
-                          type: string
-                        type: array
-                      sshAuth:
-                        properties:
-                          hostKeyAlgorithm:
-                            type: string
-                          strictHostKeyCheckingEnabled:
-                            type: boolean
-                        type: object
-                      uri:
-                        type: string
-                    required:
-                    - uri
-                    type: object
-                  id:
-                    type: string
-                  location:
-                    type: string
-                  name:
-                    type: string
-                  network:
-                    properties:
-                      appNetworkResourceGroup:
-                        type: string
-                      appSubnetID:
-                        type: string
-                      cidrRanges:
-                        items:
-                          type: string
-                        minItems: 3
-                        type: array
-                      serviceRuntimeNetworkResourceGroup:
-                        type: string
-                      serviceRuntimeSubnetID:
-                        type: string
-                    required:
-                    - appSubnetID
-                    - cidrRanges
-                    - serviceRuntimeSubnetID
-                    type: object
-                  outboundPublicIPAddresses:
-                    items:
-                      type: string
-                    type: array
-                  requiredNetworkTrafficRules:
-                    items:
-                      properties:
-                        direction:
-                          type: string
-                        fqdns:
-                          items:
-                            type: string
-                          type: array
-                        ipAddresses:
-                          items:
-                            type: string
-                          type: array
-                        port:
-                          format: int64
-                          type: integer
-                        protocol:
-                          type: string
-                      type: object
-                    type: array
-                  resourceGroupName:
-                    type: string
-                  skuName:
-                    type: string
-                  tags:
-                    additionalProperties:
-                      type: string
-                    type: object
-                  timeouts:
-                    properties:
-                      create:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      default:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      delete:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      read:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      update:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                    type: object
-                  trace:
-                    properties:
-                      instrumentationKey:
-                        type: string
-                      sampleRate:
-                        format: double
-                        type: number
-                    required:
-                    - instrumentationKey
-                    type: object
-                required:
-                - location
-                - name
-                - resourceGroupName
-                type: object
               providerRef:
                 description: LocalObjectReference contains enough information to let
                   you locate the referenced object inside the same namespace.
@@ -406,6 +230,182 @@ spec:
                     description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
                       TODO: Add other useful fields. apiVersion, kind, uid?'
                     type: string
+                type: object
+              state:
+                properties:
+                  configServerGitSetting:
+                    properties:
+                      httpBasicAuth:
+                        properties:
+                          username:
+                            type: string
+                        required:
+                        - username
+                        type: object
+                      label:
+                        type: string
+                      repository:
+                        items:
+                          properties:
+                            httpBasicAuth:
+                              properties:
+                                username:
+                                  type: string
+                              required:
+                              - username
+                              type: object
+                            label:
+                              type: string
+                            name:
+                              type: string
+                            pattern:
+                              items:
+                                type: string
+                              type: array
+                            searchPaths:
+                              items:
+                                type: string
+                              type: array
+                            sshAuth:
+                              properties:
+                                hostKeyAlgorithm:
+                                  type: string
+                                strictHostKeyCheckingEnabled:
+                                  type: boolean
+                              type: object
+                            uri:
+                              type: string
+                          required:
+                          - name
+                          - uri
+                          type: object
+                        type: array
+                      searchPaths:
+                        items:
+                          type: string
+                        type: array
+                      sshAuth:
+                        properties:
+                          hostKeyAlgorithm:
+                            type: string
+                          strictHostKeyCheckingEnabled:
+                            type: boolean
+                        type: object
+                      uri:
+                        type: string
+                    required:
+                    - uri
+                    type: object
+                  id:
+                    type: string
+                  location:
+                    type: string
+                  name:
+                    type: string
+                  network:
+                    properties:
+                      appNetworkResourceGroup:
+                        type: string
+                      appSubnetID:
+                        type: string
+                      cidrRanges:
+                        items:
+                          type: string
+                        minItems: 3
+                        type: array
+                      serviceRuntimeNetworkResourceGroup:
+                        type: string
+                      serviceRuntimeSubnetID:
+                        type: string
+                    required:
+                    - appSubnetID
+                    - cidrRanges
+                    - serviceRuntimeSubnetID
+                    type: object
+                  outboundPublicIPAddresses:
+                    items:
+                      type: string
+                    type: array
+                  requiredNetworkTrafficRules:
+                    items:
+                      properties:
+                        direction:
+                          type: string
+                        fqdns:
+                          items:
+                            type: string
+                          type: array
+                        ipAddresses:
+                          items:
+                            type: string
+                          type: array
+                        port:
+                          format: int64
+                          type: integer
+                        protocol:
+                          type: string
+                      type: object
+                    type: array
+                  resourceGroupName:
+                    type: string
+                  skuName:
+                    type: string
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  timeouts:
+                    properties:
+                      create:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      default:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      delete:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      read:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      update:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                    type: object
+                  trace:
+                    properties:
+                      instrumentationKey:
+                        type: string
+                      sampleRate:
+                        format: double
+                        type: number
+                    required:
+                    - instrumentationKey
+                    type: object
+                required:
+                - location
+                - name
+                - resourceGroupName
                 type: object
               terminationPolicy:
                 enum:

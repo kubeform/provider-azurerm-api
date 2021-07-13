@@ -42,7 +42,7 @@ type PublicIP struct {
 }
 
 type PublicIPSpec struct {
-	KubeformOutput *PublicIPSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *PublicIPSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource PublicIPSpecResource `json:"resource" tf:"resource"`
 

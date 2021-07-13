@@ -51,7 +51,7 @@ type DataLakeGen2PathSpecAce struct {
 }
 
 type DataLakeGen2PathSpec struct {
-	KubeformOutput *DataLakeGen2PathSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DataLakeGen2PathSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DataLakeGen2PathSpecResource `json:"resource" tf:"resource"`
 

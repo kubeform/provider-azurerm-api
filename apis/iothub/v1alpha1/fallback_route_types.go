@@ -42,7 +42,7 @@ type FallbackRoute struct {
 }
 
 type FallbackRouteSpec struct {
-	KubeformOutput *FallbackRouteSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FallbackRouteSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FallbackRouteSpecResource `json:"resource" tf:"resource"`
 

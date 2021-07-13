@@ -42,7 +42,7 @@ type Remediation struct {
 }
 
 type RemediationSpec struct {
-	KubeformOutput *RemediationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *RemediationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource RemediationSpecResource `json:"resource" tf:"resource"`
 

@@ -56,7 +56,7 @@ type WatcherFlowLogSpecTrafficAnalytics struct {
 }
 
 type WatcherFlowLogSpec struct {
-	KubeformOutput *WatcherFlowLogSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *WatcherFlowLogSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource WatcherFlowLogSpecResource `json:"resource" tf:"resource"`
 

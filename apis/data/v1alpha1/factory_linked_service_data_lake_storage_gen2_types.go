@@ -42,7 +42,7 @@ type FactoryLinkedServiceDataLakeStorageGen2 struct {
 }
 
 type FactoryLinkedServiceDataLakeStorageGen2Spec struct {
-	KubeformOutput *FactoryLinkedServiceDataLakeStorageGen2SpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryLinkedServiceDataLakeStorageGen2SpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryLinkedServiceDataLakeStorageGen2SpecResource `json:"resource" tf:"resource"`
 

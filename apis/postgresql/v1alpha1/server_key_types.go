@@ -42,7 +42,7 @@ type ServerKey struct {
 }
 
 type ServerKeySpec struct {
-	KubeformOutput *ServerKeySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServerKeySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServerKeySpecResource `json:"resource" tf:"resource"`
 

@@ -62,7 +62,7 @@ type FactoryIntegrationRuntimeManagedSpecVnetIntegration struct {
 }
 
 type FactoryIntegrationRuntimeManagedSpec struct {
-	KubeformOutput *FactoryIntegrationRuntimeManagedSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *FactoryIntegrationRuntimeManagedSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource FactoryIntegrationRuntimeManagedSpecResource `json:"resource" tf:"resource"`
 

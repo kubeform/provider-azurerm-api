@@ -42,7 +42,7 @@ type ThreatProtection struct {
 }
 
 type ThreatProtectionSpec struct {
-	KubeformOutput *ThreatProtectionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ThreatProtectionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ThreatProtectionSpecResource `json:"resource" tf:"resource"`
 

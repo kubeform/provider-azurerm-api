@@ -54,7 +54,7 @@ type ScheduledQueryRulesLogSpecCriteria struct {
 }
 
 type ScheduledQueryRulesLogSpec struct {
-	KubeformOutput *ScheduledQueryRulesLogSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ScheduledQueryRulesLogSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ScheduledQueryRulesLogSpecResource `json:"resource" tf:"resource"`
 

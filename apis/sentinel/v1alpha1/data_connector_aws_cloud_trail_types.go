@@ -42,7 +42,7 @@ type DataConnectorAwsCloudTrail struct {
 }
 
 type DataConnectorAwsCloudTrailSpec struct {
-	KubeformOutput *DataConnectorAwsCloudTrailSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DataConnectorAwsCloudTrailSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DataConnectorAwsCloudTrailSpecResource `json:"resource" tf:"resource"`
 

@@ -47,7 +47,7 @@ type ServiceEnvironmentV3SpecClusterSetting struct {
 }
 
 type ServiceEnvironmentV3Spec struct {
-	KubeformOutput *ServiceEnvironmentV3SpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ServiceEnvironmentV3SpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ServiceEnvironmentV3SpecResource `json:"resource" tf:"resource"`
 

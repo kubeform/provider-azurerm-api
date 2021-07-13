@@ -42,7 +42,7 @@ type CircuitAuthorization struct {
 }
 
 type CircuitAuthorizationSpec struct {
-	KubeformOutput *CircuitAuthorizationSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CircuitAuthorizationSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CircuitAuthorizationSpecResource `json:"resource" tf:"resource"`
 

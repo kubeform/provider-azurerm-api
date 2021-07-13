@@ -42,7 +42,7 @@ type IdentityProviderMicrosoft struct {
 }
 
 type IdentityProviderMicrosoftSpec struct {
-	KubeformOutput *IdentityProviderMicrosoftSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *IdentityProviderMicrosoftSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource IdentityProviderMicrosoftSpecResource `json:"resource" tf:"resource"`
 

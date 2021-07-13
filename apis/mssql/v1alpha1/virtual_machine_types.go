@@ -102,7 +102,7 @@ type VirtualMachineSpecStorageConfiguration struct {
 }
 
 type VirtualMachineSpec struct {
-	KubeformOutput *VirtualMachineSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *VirtualMachineSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource VirtualMachineSpecResource `json:"resource" tf:"resource"`
 

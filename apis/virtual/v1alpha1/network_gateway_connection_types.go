@@ -60,7 +60,7 @@ type NetworkGatewayConnectionSpecTrafficSelectorPolicy struct {
 }
 
 type NetworkGatewayConnectionSpec struct {
-	KubeformOutput *NetworkGatewayConnectionSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NetworkGatewayConnectionSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NetworkGatewayConnectionSpecResource `json:"resource" tf:"resource"`
 

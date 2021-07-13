@@ -42,7 +42,7 @@ type LakeStore struct {
 }
 
 type LakeStoreSpec struct {
-	KubeformOutput *LakeStoreSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *LakeStoreSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource LakeStoreSpecResource `json:"resource" tf:"resource"`
 

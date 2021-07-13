@@ -50,7 +50,7 @@ type GlobalVmShutdownScheduleSpecNotificationSettings struct {
 }
 
 type GlobalVmShutdownScheduleSpec struct {
-	KubeformOutput *GlobalVmShutdownScheduleSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *GlobalVmShutdownScheduleSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource GlobalVmShutdownScheduleSpecResource `json:"resource" tf:"resource"`
 

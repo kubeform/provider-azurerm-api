@@ -37,117 +37,6 @@ spec:
             type: object
           spec:
             properties:
-              kubeformOutput:
-                properties:
-                  administratorLogin:
-                    type: string
-                  azureadAdministrator:
-                    properties:
-                      loginUsername:
-                        type: string
-                      objectID:
-                        type: string
-                      tenantID:
-                        type: string
-                    required:
-                    - loginUsername
-                    - objectID
-                    type: object
-                  connectionPolicy:
-                    type: string
-                  extendedAuditingPolicy:
-                    description: Deprecated
-                    properties:
-                      logMonitoringEnabled:
-                        type: boolean
-                      retentionInDays:
-                        format: int64
-                        type: integer
-                      storageAccountAccessKeyIsSecondary:
-                        type: boolean
-                      storageEndpoint:
-                        type: string
-                    type: object
-                  fullyQualifiedDomainName:
-                    type: string
-                  id:
-                    type: string
-                  identity:
-                    properties:
-                      principalID:
-                        type: string
-                      tenantID:
-                        type: string
-                      type:
-                        type: string
-                    required:
-                    - type
-                    type: object
-                  location:
-                    type: string
-                  minimumTlsVersion:
-                    type: string
-                  name:
-                    type: string
-                  publicNetworkAccessEnabled:
-                    type: boolean
-                  resourceGroupName:
-                    type: string
-                  restorableDroppedDatabaseIDS:
-                    items:
-                      type: string
-                    type: array
-                  tags:
-                    additionalProperties:
-                      type: string
-                    type: object
-                  timeouts:
-                    properties:
-                      create:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      default:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      delete:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      read:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      update:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                    type: object
-                  version:
-                    type: string
-                required:
-                - administratorLogin
-                - location
-                - name
-                - resourceGroupName
-                - version
-                type: object
               providerRef:
                 description: LocalObjectReference contains enough information to let
                   you locate the referenced object inside the same namespace.
@@ -276,6 +165,117 @@ spec:
                     description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
                       TODO: Add other useful fields. apiVersion, kind, uid?'
                     type: string
+                type: object
+              state:
+                properties:
+                  administratorLogin:
+                    type: string
+                  azureadAdministrator:
+                    properties:
+                      loginUsername:
+                        type: string
+                      objectID:
+                        type: string
+                      tenantID:
+                        type: string
+                    required:
+                    - loginUsername
+                    - objectID
+                    type: object
+                  connectionPolicy:
+                    type: string
+                  extendedAuditingPolicy:
+                    description: Deprecated
+                    properties:
+                      logMonitoringEnabled:
+                        type: boolean
+                      retentionInDays:
+                        format: int64
+                        type: integer
+                      storageAccountAccessKeyIsSecondary:
+                        type: boolean
+                      storageEndpoint:
+                        type: string
+                    type: object
+                  fullyQualifiedDomainName:
+                    type: string
+                  id:
+                    type: string
+                  identity:
+                    properties:
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
+                  location:
+                    type: string
+                  minimumTlsVersion:
+                    type: string
+                  name:
+                    type: string
+                  publicNetworkAccessEnabled:
+                    type: boolean
+                  resourceGroupName:
+                    type: string
+                  restorableDroppedDatabaseIDS:
+                    items:
+                      type: string
+                    type: array
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  timeouts:
+                    properties:
+                      create:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      default:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      delete:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      read:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      update:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                    type: object
+                  version:
+                    type: string
+                required:
+                - administratorLogin
+                - location
+                - name
+                - resourceGroupName
+                - version
                 type: object
               terminationPolicy:
                 enum:

@@ -57,7 +57,7 @@ type InterfaceSpecIpConfiguration struct {
 }
 
 type InterfaceSpec struct {
-	KubeformOutput *InterfaceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *InterfaceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource InterfaceSpecResource `json:"resource" tf:"resource"`
 

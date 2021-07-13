@@ -42,7 +42,7 @@ type ChannelSlack struct {
 }
 
 type ChannelSlackSpec struct {
-	KubeformOutput *ChannelSlackSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ChannelSlackSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ChannelSlackSpecResource `json:"resource" tf:"resource"`
 

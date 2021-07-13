@@ -42,7 +42,7 @@ type DataConnectorThreatIntelligence struct {
 }
 
 type DataConnectorThreatIntelligenceSpec struct {
-	KubeformOutput *DataConnectorThreatIntelligenceSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *DataConnectorThreatIntelligenceSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource DataConnectorThreatIntelligenceSpecResource `json:"resource" tf:"resource"`
 

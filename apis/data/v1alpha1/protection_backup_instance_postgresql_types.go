@@ -42,7 +42,7 @@ type ProtectionBackupInstancePostgresql struct {
 }
 
 type ProtectionBackupInstancePostgresqlSpec struct {
-	KubeformOutput *ProtectionBackupInstancePostgresqlSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *ProtectionBackupInstancePostgresqlSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource ProtectionBackupInstancePostgresqlSpecResource `json:"resource" tf:"resource"`
 

@@ -42,7 +42,7 @@ type VariableDatetime struct {
 }
 
 type VariableDatetimeSpec struct {
-	KubeformOutput *VariableDatetimeSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *VariableDatetimeSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource VariableDatetimeSpecResource `json:"resource" tf:"resource"`
 

@@ -48,7 +48,7 @@ type CaaRecordSpecRecord struct {
 }
 
 type CaaRecordSpec struct {
-	KubeformOutput *CaaRecordSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *CaaRecordSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource CaaRecordSpecResource `json:"resource" tf:"resource"`
 
