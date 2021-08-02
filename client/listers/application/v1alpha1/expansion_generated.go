@@ -58,13 +58,13 @@ type InsightsSmartDetectionRuleListerExpansion interface{}
 // InsightsSmartDetectionRuleNamespaceLister.
 type InsightsSmartDetectionRuleNamespaceListerExpansion interface{}
 
-// InsightsWebTestListerExpansion allows custom methods to be added to
-// InsightsWebTestLister.
-type InsightsWebTestListerExpansion interface{}
+// InsightsWebtestListerExpansion allows custom methods to be added to
+// InsightsWebtestLister.
+type InsightsWebtestListerExpansion interface{}
 
-// InsightsWebTestNamespaceListerExpansion allows custom methods to be added to
-// InsightsWebTestNamespaceLister.
-type InsightsWebTestNamespaceListerExpansion interface{}
+// InsightsWebtestNamespaceListerExpansion allows custom methods to be added to
+// InsightsWebtestNamespaceLister.
+type InsightsWebtestNamespaceListerExpansion interface{}
 
 // SecurityGroupListerExpansion allows custom methods to be added to
 // SecurityGroupLister.

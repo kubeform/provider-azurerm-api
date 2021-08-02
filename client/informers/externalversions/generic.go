@@ -298,7 +298,7 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 	case applicationv1alpha1.SchemeGroupVersion.WithResource("insightssmartdetectionrules"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Application().V1alpha1().InsightsSmartDetectionRules().Informer()}, nil
 	case applicationv1alpha1.SchemeGroupVersion.WithResource("insightswebtests"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Application().V1alpha1().InsightsWebTests().Informer()}, nil
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Application().V1alpha1().InsightsWebtests().Informer()}, nil
 	case applicationv1alpha1.SchemeGroupVersion.WithResource("securitygroups"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Application().V1alpha1().SecurityGroups().Informer()}, nil
 
