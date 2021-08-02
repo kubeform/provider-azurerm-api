@@ -32,7 +32,7 @@ type ApplicationV1alpha1Interface interface {
 	InsightsAPIKeysGetter
 	InsightsAnalyticsItemsGetter
 	InsightsSmartDetectionRulesGetter
-	InsightsWebTestsGetter
+	InsightsWebtestsGetter
 	SecurityGroupsGetter
 }
 
@@ -61,8 +61,8 @@ func (c *ApplicationV1alpha1Client) InsightsSmartDetectionRules(namespace string
 	return newInsightsSmartDetectionRules(c, namespace)
 }
 
-func (c *ApplicationV1alpha1Client) InsightsWebTests(namespace string) InsightsWebTestInterface {
-	return newInsightsWebTests(c, namespace)
+func (c *ApplicationV1alpha1Client) InsightsWebtests(namespace string) InsightsWebtestInterface {
+	return newInsightsWebtests(c, namespace)
 }
 
 func (c *ApplicationV1alpha1Client) SecurityGroups(namespace string) SecurityGroupInterface {

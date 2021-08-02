@@ -49,8 +49,8 @@ func (c *FakeApplicationV1alpha1) InsightsSmartDetectionRules(namespace string) 
 	return &FakeInsightsSmartDetectionRules{c, namespace}
 }
 
-func (c *FakeApplicationV1alpha1) InsightsWebTests(namespace string) v1alpha1.InsightsWebTestInterface {
-	return &FakeInsightsWebTests{c, namespace}
+func (c *FakeApplicationV1alpha1) InsightsWebtests(namespace string) v1alpha1.InsightsWebtestInterface {
+	return &FakeInsightsWebtests{c, namespace}
 }
 
 func (c *FakeApplicationV1alpha1) SecurityGroups(namespace string) v1alpha1.SecurityGroupInterface {

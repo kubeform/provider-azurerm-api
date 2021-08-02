@@ -31,31 +31,31 @@ import (
 	testing "k8s.io/client-go/testing"
 )
 
-// FakeInsightsWebTests implements InsightsWebTestInterface
-type FakeInsightsWebTests struct {
+// FakeInsightsWebtests implements InsightsWebtestInterface
+type FakeInsightsWebtests struct {
 	Fake *FakeApplicationV1alpha1
 	ns   string
 }
 
 var insightswebtestsResource = schema.GroupVersionResource{Group: "application.azurerm.kubeform.com", Version: "v1alpha1", Resource: "insightswebtests"}
 
-var insightswebtestsKind = schema.GroupVersionKind{Group: "application.azurerm.kubeform.com", Version: "v1alpha1", Kind: "InsightsWebTest"}
+var insightswebtestsKind = schema.GroupVersionKind{Group: "application.azurerm.kubeform.com", Version: "v1alpha1", Kind: "InsightsWebtest"}
 
-// Get takes name of the insightsWebTest, and returns the corresponding insightsWebTest object, and an error if there is any.
-func (c *FakeInsightsWebTests) Get(ctx context.Context, name string, options v1.GetOptions) (result *v1alpha1.InsightsWebTest, err error) {
+// Get takes name of the insightsWebtest, and returns the corresponding insightsWebtest object, and an error if there is any.
+func (c *FakeInsightsWebtests) Get(ctx context.Context, name string, options v1.GetOptions) (result *v1alpha1.InsightsWebtest, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewGetAction(insightswebtestsResource, c.ns, name), &v1alpha1.InsightsWebTest{})
+		Invokes(testing.NewGetAction(insightswebtestsResource, c.ns, name), &v1alpha1.InsightsWebtest{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*v1alpha1.InsightsWebTest), err
+	return obj.(*v1alpha1.InsightsWebtest), err
 }
 
-// List takes label and field selectors, and returns the list of InsightsWebTests that match those selectors.
-func (c *FakeInsightsWebTests) List(ctx context.Context, opts v1.ListOptions) (result *v1alpha1.InsightsWebTestList, err error) {
+// List takes label and field selectors, and returns the list of InsightsWebtests that match those selectors.
+func (c *FakeInsightsWebtests) List(ctx context.Context, opts v1.ListOptions) (result *v1alpha1.InsightsWebtestList, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewListAction(insightswebtestsResource, insightswebtestsKind, c.ns, opts), &v1alpha1.InsightsWebTestList{})
+		Invokes(testing.NewListAction(insightswebtestsResource, insightswebtestsKind, c.ns, opts), &v1alpha1.InsightsWebtestList{})
 
 	if obj == nil {
 		return nil, err
@@ -65,8 +65,8 @@ func (c *FakeInsightsWebTests) List(ctx context.Context, opts v1.ListOptions) (r
 	if label == nil {
 		label = labels.Everything()
 	}
-	list := &v1alpha1.InsightsWebTestList{ListMeta: obj.(*v1alpha1.InsightsWebTestList).ListMeta}
-	for _, item := range obj.(*v1alpha1.InsightsWebTestList).Items {
+	list := &v1alpha1.InsightsWebtestList{ListMeta: obj.(*v1alpha1.InsightsWebtestList).ListMeta}
+	for _, item := range obj.(*v1alpha1.InsightsWebtestList).Items {
 		if label.Matches(labels.Set(item.Labels)) {
 			list.Items = append(list.Items, item)
 		}
@@ -74,70 +74,70 @@ func (c *FakeInsightsWebTests) List(ctx context.Context, opts v1.ListOptions) (r
 	return list, err
 }
 
-// Watch returns a watch.Interface that watches the requested insightsWebTests.
-func (c *FakeInsightsWebTests) Watch(ctx context.Context, opts v1.ListOptions) (watch.Interface, error) {
+// Watch returns a watch.Interface that watches the requested insightsWebtests.
+func (c *FakeInsightsWebtests) Watch(ctx context.Context, opts v1.ListOptions) (watch.Interface, error) {
 	return c.Fake.
 		InvokesWatch(testing.NewWatchAction(insightswebtestsResource, c.ns, opts))
 
 }
 
-// Create takes the representation of a insightsWebTest and creates it.  Returns the server's representation of the insightsWebTest, and an error, if there is any.
-func (c *FakeInsightsWebTests) Create(ctx context.Context, insightsWebTest *v1alpha1.InsightsWebTest, opts v1.CreateOptions) (result *v1alpha1.InsightsWebTest, err error) {
+// Create takes the representation of a insightsWebtest and creates it.  Returns the server's representation of the insightsWebtest, and an error, if there is any.
+func (c *FakeInsightsWebtests) Create(ctx context.Context, insightsWebtest *v1alpha1.InsightsWebtest, opts v1.CreateOptions) (result *v1alpha1.InsightsWebtest, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewCreateAction(insightswebtestsResource, c.ns, insightsWebTest), &v1alpha1.InsightsWebTest{})
+		Invokes(testing.NewCreateAction(insightswebtestsResource, c.ns, insightsWebtest), &v1alpha1.InsightsWebtest{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*v1alpha1.InsightsWebTest), err
+	return obj.(*v1alpha1.InsightsWebtest), err
 }
 
-// Update takes the representation of a insightsWebTest and updates it. Returns the server's representation of the insightsWebTest, and an error, if there is any.
-func (c *FakeInsightsWebTests) Update(ctx context.Context, insightsWebTest *v1alpha1.InsightsWebTest, opts v1.UpdateOptions) (result *v1alpha1.InsightsWebTest, err error) {
+// Update takes the representation of a insightsWebtest and updates it. Returns the server's representation of the insightsWebtest, and an error, if there is any.
+func (c *FakeInsightsWebtests) Update(ctx context.Context, insightsWebtest *v1alpha1.InsightsWebtest, opts v1.UpdateOptions) (result *v1alpha1.InsightsWebtest, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewUpdateAction(insightswebtestsResource, c.ns, insightsWebTest), &v1alpha1.InsightsWebTest{})
+		Invokes(testing.NewUpdateAction(insightswebtestsResource, c.ns, insightsWebtest), &v1alpha1.InsightsWebtest{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*v1alpha1.InsightsWebTest), err
+	return obj.(*v1alpha1.InsightsWebtest), err
 }
 
 // UpdateStatus was generated because the type contains a Status member.
 // Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
-func (c *FakeInsightsWebTests) UpdateStatus(ctx context.Context, insightsWebTest *v1alpha1.InsightsWebTest, opts v1.UpdateOptions) (*v1alpha1.InsightsWebTest, error) {
+func (c *FakeInsightsWebtests) UpdateStatus(ctx context.Context, insightsWebtest *v1alpha1.InsightsWebtest, opts v1.UpdateOptions) (*v1alpha1.InsightsWebtest, error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewUpdateSubresourceAction(insightswebtestsResource, "status", c.ns, insightsWebTest), &v1alpha1.InsightsWebTest{})
+		Invokes(testing.NewUpdateSubresourceAction(insightswebtestsResource, "status", c.ns, insightsWebtest), &v1alpha1.InsightsWebtest{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*v1alpha1.InsightsWebTest), err
+	return obj.(*v1alpha1.InsightsWebtest), err
 }
 
-// Delete takes name of the insightsWebTest and deletes it. Returns an error if one occurs.
-func (c *FakeInsightsWebTests) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
+// Delete takes name of the insightsWebtest and deletes it. Returns an error if one occurs.
+func (c *FakeInsightsWebtests) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewDeleteAction(insightswebtestsResource, c.ns, name), &v1alpha1.InsightsWebTest{})
+		Invokes(testing.NewDeleteAction(insightswebtestsResource, c.ns, name), &v1alpha1.InsightsWebtest{})
 
 	return err
 }
 
 // DeleteCollection deletes a collection of objects.
-func (c *FakeInsightsWebTests) DeleteCollection(ctx context.Context, opts v1.DeleteOptions, listOpts v1.ListOptions) error {
+func (c *FakeInsightsWebtests) DeleteCollection(ctx context.Context, opts v1.DeleteOptions, listOpts v1.ListOptions) error {
 	action := testing.NewDeleteCollectionAction(insightswebtestsResource, c.ns, listOpts)
 
-	_, err := c.Fake.Invokes(action, &v1alpha1.InsightsWebTestList{})
+	_, err := c.Fake.Invokes(action, &v1alpha1.InsightsWebtestList{})
 	return err
 }
 
-// Patch applies the patch and returns the patched insightsWebTest.
-func (c *FakeInsightsWebTests) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *v1alpha1.InsightsWebTest, err error) {
+// Patch applies the patch and returns the patched insightsWebtest.
+func (c *FakeInsightsWebtests) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *v1alpha1.InsightsWebtest, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewPatchSubresourceAction(insightswebtestsResource, c.ns, name, pt, data, subresources...), &v1alpha1.InsightsWebTest{})
+		Invokes(testing.NewPatchSubresourceAction(insightswebtestsResource, c.ns, name, pt, data, subresources...), &v1alpha1.InsightsWebtest{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*v1alpha1.InsightsWebTest), err
+	return obj.(*v1alpha1.InsightsWebtest), err
 }

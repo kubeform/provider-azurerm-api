@@ -34,8 +34,8 @@ type Interface interface {
 	InsightsAnalyticsItems() InsightsAnalyticsItemInformer
 	// InsightsSmartDetectionRules returns a InsightsSmartDetectionRuleInformer.
 	InsightsSmartDetectionRules() InsightsSmartDetectionRuleInformer
-	// InsightsWebTests returns a InsightsWebTestInformer.
-	InsightsWebTests() InsightsWebTestInformer
+	// InsightsWebtests returns a InsightsWebtestInformer.
+	InsightsWebtests() InsightsWebtestInformer
 	// SecurityGroups returns a SecurityGroupInformer.
 	SecurityGroups() SecurityGroupInformer
 }
@@ -76,9 +76,9 @@ func (v *version) InsightsSmartDetectionRules() InsightsSmartDetectionRuleInform
 	return &insightsSmartDetectionRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
-// InsightsWebTests returns a InsightsWebTestInformer.
-func (v *version) InsightsWebTests() InsightsWebTestInformer {
-	return &insightsWebTestInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+// InsightsWebtests returns a InsightsWebtestInformer.
+func (v *version) InsightsWebtests() InsightsWebtestInformer {
+	return &insightsWebtestInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // SecurityGroups returns a SecurityGroupInformer.

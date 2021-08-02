@@ -28,6 +28,6 @@ type InsightsAnalyticsItemExpansion interface{}
 
 type InsightsSmartDetectionRuleExpansion interface{}
 
-type InsightsWebTestExpansion interface{}
+type InsightsWebtestExpansion interface{}
 
 type SecurityGroupExpansion interface{}
