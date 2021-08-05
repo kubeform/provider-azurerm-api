@@ -26,69 +26,69 @@ import (
 	"k8s.io/client-go/tools/cache"
 )
 
-// InsightsWebtestLister helps list InsightsWebtests.
+// InsightsWebTestLister helps list InsightsWebTests.
 // All objects returned here must be treated as read-only.
-type InsightsWebtestLister interface {
-	// List lists all InsightsWebtests in the indexer.
+type InsightsWebTestLister interface {
+	// List lists all InsightsWebTests in the indexer.
 	// Objects returned here must be treated as read-only.
-	List(selector labels.Selector) (ret []*v1alpha1.InsightsWebtest, err error)
-	// InsightsWebtests returns an object that can list and get InsightsWebtests.
-	InsightsWebtests(namespace string) InsightsWebtestNamespaceLister
-	InsightsWebtestListerExpansion
+	List(selector labels.Selector) (ret []*v1alpha1.InsightsWebTest, err error)
+	// InsightsWebTests returns an object that can list and get InsightsWebTests.
+	InsightsWebTests(namespace string) InsightsWebTestNamespaceLister
+	InsightsWebTestListerExpansion
 }
 
-// insightsWebtestLister implements the InsightsWebtestLister interface.
-type insightsWebtestLister struct {
+// insightsWebTestLister implements the InsightsWebTestLister interface.
+type insightsWebTestLister struct {
 	indexer cache.Indexer
 }
 
-// NewInsightsWebtestLister returns a new InsightsWebtestLister.
-func NewInsightsWebtestLister(indexer cache.Indexer) InsightsWebtestLister {
-	return &insightsWebtestLister{indexer: indexer}
+// NewInsightsWebTestLister returns a new InsightsWebTestLister.
+func NewInsightsWebTestLister(indexer cache.Indexer) InsightsWebTestLister {
+	return &insightsWebTestLister{indexer: indexer}
 }
 
-// List lists all InsightsWebtests in the indexer.
-func (s *insightsWebtestLister) List(selector labels.Selector) (ret []*v1alpha1.InsightsWebtest, err error) {
+// List lists all InsightsWebTests in the indexer.
+func (s *insightsWebTestLister) List(selector labels.Selector) (ret []*v1alpha1.InsightsWebTest, err error) {
 	err = cache.ListAll(s.indexer, selector, func(m interface{}) {
-		ret = append(ret, m.(*v1alpha1.InsightsWebtest))
+		ret = append(ret, m.(*v1alpha1.InsightsWebTest))
 	})
 	return ret, err
 }
 
-// InsightsWebtests returns an object that can list and get InsightsWebtests.
-func (s *insightsWebtestLister) InsightsWebtests(namespace string) InsightsWebtestNamespaceLister {
-	return insightsWebtestNamespaceLister{indexer: s.indexer, namespace: namespace}
+// InsightsWebTests returns an object that can list and get InsightsWebTests.
+func (s *insightsWebTestLister) InsightsWebTests(namespace string) InsightsWebTestNamespaceLister {
+	return insightsWebTestNamespaceLister{indexer: s.indexer, namespace: namespace}
 }
 
-// InsightsWebtestNamespaceLister helps list and get InsightsWebtests.
+// InsightsWebTestNamespaceLister helps list and get InsightsWebTests.
 // All objects returned here must be treated as read-only.
-type InsightsWebtestNamespaceLister interface {
-	// List lists all InsightsWebtests in the indexer for a given namespace.
+type InsightsWebTestNamespaceLister interface {
+	// List lists all InsightsWebTests in the indexer for a given namespace.
 	// Objects returned here must be treated as read-only.
-	List(selector labels.Selector) (ret []*v1alpha1.InsightsWebtest, err error)
-	// Get retrieves the InsightsWebtest from the indexer for a given namespace and name.
+	List(selector labels.Selector) (ret []*v1alpha1.InsightsWebTest, err error)
+	// Get retrieves the InsightsWebTest from the indexer for a given namespace and name.
 	// Objects returned here must be treated as read-only.
-	Get(name string) (*v1alpha1.InsightsWebtest, error)
-	InsightsWebtestNamespaceListerExpansion
+	Get(name string) (*v1alpha1.InsightsWebTest, error)
+	InsightsWebTestNamespaceListerExpansion
 }
 
-// insightsWebtestNamespaceLister implements the InsightsWebtestNamespaceLister
+// insightsWebTestNamespaceLister implements the InsightsWebTestNamespaceLister
 // interface.
-type insightsWebtestNamespaceLister struct {
+type insightsWebTestNamespaceLister struct {
 	indexer   cache.Indexer
 	namespace string
 }
 
-// List lists all InsightsWebtests in the indexer for a given namespace.
-func (s insightsWebtestNamespaceLister) List(selector labels.Selector) (ret []*v1alpha1.InsightsWebtest, err error) {
+// List lists all InsightsWebTests in the indexer for a given namespace.
+func (s insightsWebTestNamespaceLister) List(selector labels.Selector) (ret []*v1alpha1.InsightsWebTest, err error) {
 	err = cache.ListAllByNamespace(s.indexer, s.namespace, selector, func(m interface{}) {
-		ret = append(ret, m.(*v1alpha1.InsightsWebtest))
+		ret = append(ret, m.(*v1alpha1.InsightsWebTest))
 	})
 	return ret, err
 }
 
-// Get retrieves the InsightsWebtest from the indexer for a given namespace and name.
-func (s insightsWebtestNamespaceLister) Get(name string) (*v1alpha1.InsightsWebtest, error) {
+// Get retrieves the InsightsWebTest from the indexer for a given namespace and name.
+func (s insightsWebTestNamespaceLister) Get(name string) (*v1alpha1.InsightsWebTest, error) {
 	obj, exists, err := s.indexer.GetByKey(s.namespace + "/" + name)
 	if err != nil {
 		return nil, err
@@ -96,5 +96,5 @@ func (s insightsWebtestNamespaceLister) Get(name string) (*v1alpha1.InsightsWebt
 	if !exists {
 		return nil, errors.NewNotFound(v1alpha1.Resource("insightswebtest"), name)
 	}
-	return obj.(*v1alpha1.InsightsWebtest), nil
+	return obj.(*v1alpha1.InsightsWebTest), nil
 }

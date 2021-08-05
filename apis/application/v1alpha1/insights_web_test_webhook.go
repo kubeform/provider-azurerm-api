@@ -28,7 +28,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 )
 
-func (r *InsightsWebtest) SetupWebhookWithManager(mgr ctrl.Manager) error {
+func (r *InsightsWebTest) SetupWebhookWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewWebhookManagedBy(mgr).
 		For(r).
 		Complete()
@@ -36,20 +36,20 @@ func (r *InsightsWebtest) SetupWebhookWithManager(mgr ctrl.Manager) error {
 
 //+kubebuilder:webhook:verbs=create;update;delete,path=/validate-application-azurerm-kubeform-com-v1alpha1-insightswebtest,mutating=false,failurePolicy=fail,groups=application.azurerm.kubeform.com,resources=insightswebtests,versions=v1alpha1,name=insightswebtest.application.azurerm.kubeform.io,sideEffects=None,admissionReviewVersions=v1
 
-var _ webhook.Validator = &InsightsWebtest{}
+var _ webhook.Validator = &InsightsWebTest{}
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
-func (r *InsightsWebtest) ValidateCreate() error {
+func (r *InsightsWebTest) ValidateCreate() error {
 	return nil
 }
 
 // ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
-func (r *InsightsWebtest) ValidateUpdate(old runtime.Object) error {
+func (r *InsightsWebTest) ValidateUpdate(old runtime.Object) error {
 	return nil
 }
 
 // ValidateDelete implements webhook.Validator so a webhook will be registered for the type
-func (r *InsightsWebtest) ValidateDelete() error {
+func (r *InsightsWebTest) ValidateDelete() error {
 	if r.Spec.TerminationPolicy == base.TerminationPolicyDoNotTerminate {
 		return fmt.Errorf(`insightswebtest "%v/%v" can't be terminated. To delete, change spec.terminationPolicy to Delete`, r.Namespace, r.Name)
 	}

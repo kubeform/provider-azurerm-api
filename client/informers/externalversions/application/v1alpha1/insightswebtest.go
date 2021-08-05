@@ -33,59 +33,59 @@ import (
 	cache "k8s.io/client-go/tools/cache"
 )
 
-// InsightsWebtestInformer provides access to a shared informer and lister for
-// InsightsWebtests.
-type InsightsWebtestInformer interface {
+// InsightsWebTestInformer provides access to a shared informer and lister for
+// InsightsWebTests.
+type InsightsWebTestInformer interface {
 	Informer() cache.SharedIndexInformer
-	Lister() v1alpha1.InsightsWebtestLister
+	Lister() v1alpha1.InsightsWebTestLister
 }
 
-type insightsWebtestInformer struct {
+type insightsWebTestInformer struct {
 	factory          internalinterfaces.SharedInformerFactory
 	tweakListOptions internalinterfaces.TweakListOptionsFunc
 	namespace        string
 }
 
-// NewInsightsWebtestInformer constructs a new informer for InsightsWebtest type.
+// NewInsightsWebTestInformer constructs a new informer for InsightsWebTest type.
 // Always prefer using an informer factory to get a shared informer instead of getting an independent
 // one. This reduces memory footprint and number of connections to the server.
-func NewInsightsWebtestInformer(client versioned.Interface, namespace string, resyncPeriod time.Duration, indexers cache.Indexers) cache.SharedIndexInformer {
-	return NewFilteredInsightsWebtestInformer(client, namespace, resyncPeriod, indexers, nil)
+func NewInsightsWebTestInformer(client versioned.Interface, namespace string, resyncPeriod time.Duration, indexers cache.Indexers) cache.SharedIndexInformer {
+	return NewFilteredInsightsWebTestInformer(client, namespace, resyncPeriod, indexers, nil)
 }
 
-// NewFilteredInsightsWebtestInformer constructs a new informer for InsightsWebtest type.
+// NewFilteredInsightsWebTestInformer constructs a new informer for InsightsWebTest type.
 // Always prefer using an informer factory to get a shared informer instead of getting an independent
 // one. This reduces memory footprint and number of connections to the server.
-func NewFilteredInsightsWebtestInformer(client versioned.Interface, namespace string, resyncPeriod time.Duration, indexers cache.Indexers, tweakListOptions internalinterfaces.TweakListOptionsFunc) cache.SharedIndexInformer {
+func NewFilteredInsightsWebTestInformer(client versioned.Interface, namespace string, resyncPeriod time.Duration, indexers cache.Indexers, tweakListOptions internalinterfaces.TweakListOptionsFunc) cache.SharedIndexInformer {
 	return cache.NewSharedIndexInformer(
 		&cache.ListWatch{
 			ListFunc: func(options v1.ListOptions) (runtime.Object, error) {
 				if tweakListOptions != nil {
 					tweakListOptions(&options)
 				}
-				return client.ApplicationV1alpha1().InsightsWebtests(namespace).List(context.TODO(), options)
+				return client.ApplicationV1alpha1().InsightsWebTests(namespace).List(context.TODO(), options)
 			},
 			WatchFunc: func(options v1.ListOptions) (watch.Interface, error) {
 				if tweakListOptions != nil {
 					tweakListOptions(&options)
 				}
-				return client.ApplicationV1alpha1().InsightsWebtests(namespace).Watch(context.TODO(), options)
+				return client.ApplicationV1alpha1().InsightsWebTests(namespace).Watch(context.TODO(), options)
 			},
 		},
-		&applicationv1alpha1.InsightsWebtest{},
+		&applicationv1alpha1.InsightsWebTest{},
 		resyncPeriod,
 		indexers,
 	)
 }
 
-func (f *insightsWebtestInformer) defaultInformer(client versioned.Interface, resyncPeriod time.Duration) cache.SharedIndexInformer {
-	return NewFilteredInsightsWebtestInformer(client, f.namespace, resyncPeriod, cache.Indexers{cache.NamespaceIndex: cache.MetaNamespaceIndexFunc}, f.tweakListOptions)
+func (f *insightsWebTestInformer) defaultInformer(client versioned.Interface, resyncPeriod time.Duration) cache.SharedIndexInformer {
+	return NewFilteredInsightsWebTestInformer(client, f.namespace, resyncPeriod, cache.Indexers{cache.NamespaceIndex: cache.MetaNamespaceIndexFunc}, f.tweakListOptions)
 }
 
-func (f *insightsWebtestInformer) Informer() cache.SharedIndexInformer {
-	return f.factory.InformerFor(&applicationv1alpha1.InsightsWebtest{}, f.defaultInformer)
+func (f *insightsWebTestInformer) Informer() cache.SharedIndexInformer {
+	return f.factory.InformerFor(&applicationv1alpha1.InsightsWebTest{}, f.defaultInformer)
 }
 
-func (f *insightsWebtestInformer) Lister() v1alpha1.InsightsWebtestLister {
-	return v1alpha1.NewInsightsWebtestLister(f.Informer().GetIndexer())
+func (f *insightsWebTestInformer) Lister() v1alpha1.InsightsWebTestLister {
+	return v1alpha1.NewInsightsWebTestLister(f.Informer().GetIndexer())
 }

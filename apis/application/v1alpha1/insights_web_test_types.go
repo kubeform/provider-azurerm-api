@@ -34,17 +34,17 @@ import (
 // +kubebuilder:subresource:status
 // +kubebuilder:printcolumn:name="Phase",type=string,JSONPath=`.status.phase`
 
-type InsightsWebtest struct {
+type InsightsWebTest struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              InsightsWebtestSpec   `json:"spec,omitempty"`
-	Status            InsightsWebtestStatus `json:"status,omitempty"`
+	Spec              InsightsWebTestSpec   `json:"spec,omitempty"`
+	Status            InsightsWebTestStatus `json:"status,omitempty"`
 }
 
-type InsightsWebtestSpec struct {
-	State *InsightsWebtestSpecResource `json:"state,omitempty" tf:"-"`
+type InsightsWebTestSpec struct {
+	State *InsightsWebTestSpecResource `json:"state,omitempty" tf:"-"`
 
-	Resource InsightsWebtestSpecResource `json:"resource" tf:"resource"`
+	Resource InsightsWebTestSpecResource `json:"resource" tf:"resource"`
 
 	UpdatePolicy base.UpdatePolicy `json:"updatePolicy,omitempty" tf:"-"`
 
@@ -53,7 +53,7 @@ type InsightsWebtestSpec struct {
 	ProviderRef core.LocalObjectReference `json:"providerRef" tf:"-"`
 }
 
-type InsightsWebtestSpecResource struct {
+type InsightsWebTestSpecResource struct {
 	Timeouts *base.ResourceTimeout `json:"timeouts,omitempty" tf:"timeouts"`
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
@@ -82,7 +82,7 @@ type InsightsWebtestSpecResource struct {
 	Timeout *int64 `json:"timeout,omitempty" tf:"timeout"`
 }
 
-type InsightsWebtestStatus struct {
+type InsightsWebTestStatus struct {
 	// Resource generation, which is updated on mutation by the API Server.
 	// +optional
 	ObservedGeneration int64 `json:"observedGeneration,omitempty"`
@@ -95,10 +95,10 @@ type InsightsWebtestStatus struct {
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 // +kubebuilder:object:root=true
 
-// InsightsWebtestList is a list of InsightsWebtests
-type InsightsWebtestList struct {
+// InsightsWebTestList is a list of InsightsWebTests
+type InsightsWebTestList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of InsightsWebtest CRD objects
-	Items []InsightsWebtest `json:"items,omitempty"`
+	// Items is a list of InsightsWebTest CRD objects
+	Items []InsightsWebTest `json:"items,omitempty"`
 }
