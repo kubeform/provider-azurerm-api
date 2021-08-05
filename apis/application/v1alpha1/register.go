@@ -66,8 +66,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&InsightsAnalyticsItemList{},
 		&InsightsSmartDetectionRule{},
 		&InsightsSmartDetectionRuleList{},
-		&InsightsWebtest{},
-		&InsightsWebtestList{},
+		&InsightsWebTest{},
+		&InsightsWebTestList{},
 		&SecurityGroup{},
 		&SecurityGroupList{},
 	)

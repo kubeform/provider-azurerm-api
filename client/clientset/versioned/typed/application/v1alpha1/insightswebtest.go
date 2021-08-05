@@ -31,43 +31,43 @@ import (
 	rest "k8s.io/client-go/rest"
 )
 
-// InsightsWebtestsGetter has a method to return a InsightsWebtestInterface.
+// InsightsWebTestsGetter has a method to return a InsightsWebTestInterface.
 // A group's client should implement this interface.
-type InsightsWebtestsGetter interface {
-	InsightsWebtests(namespace string) InsightsWebtestInterface
+type InsightsWebTestsGetter interface {
+	InsightsWebTests(namespace string) InsightsWebTestInterface
 }
 
-// InsightsWebtestInterface has methods to work with InsightsWebtest resources.
-type InsightsWebtestInterface interface {
-	Create(ctx context.Context, insightsWebtest *v1alpha1.InsightsWebtest, opts v1.CreateOptions) (*v1alpha1.InsightsWebtest, error)
-	Update(ctx context.Context, insightsWebtest *v1alpha1.InsightsWebtest, opts v1.UpdateOptions) (*v1alpha1.InsightsWebtest, error)
-	UpdateStatus(ctx context.Context, insightsWebtest *v1alpha1.InsightsWebtest, opts v1.UpdateOptions) (*v1alpha1.InsightsWebtest, error)
+// InsightsWebTestInterface has methods to work with InsightsWebTest resources.
+type InsightsWebTestInterface interface {
+	Create(ctx context.Context, insightsWebTest *v1alpha1.InsightsWebTest, opts v1.CreateOptions) (*v1alpha1.InsightsWebTest, error)
+	Update(ctx context.Context, insightsWebTest *v1alpha1.InsightsWebTest, opts v1.UpdateOptions) (*v1alpha1.InsightsWebTest, error)
+	UpdateStatus(ctx context.Context, insightsWebTest *v1alpha1.InsightsWebTest, opts v1.UpdateOptions) (*v1alpha1.InsightsWebTest, error)
 	Delete(ctx context.Context, name string, opts v1.DeleteOptions) error
 	DeleteCollection(ctx context.Context, opts v1.DeleteOptions, listOpts v1.ListOptions) error
-	Get(ctx context.Context, name string, opts v1.GetOptions) (*v1alpha1.InsightsWebtest, error)
-	List(ctx context.Context, opts v1.ListOptions) (*v1alpha1.InsightsWebtestList, error)
+	Get(ctx context.Context, name string, opts v1.GetOptions) (*v1alpha1.InsightsWebTest, error)
+	List(ctx context.Context, opts v1.ListOptions) (*v1alpha1.InsightsWebTestList, error)
 	Watch(ctx context.Context, opts v1.ListOptions) (watch.Interface, error)
-	Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *v1alpha1.InsightsWebtest, err error)
-	InsightsWebtestExpansion
+	Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *v1alpha1.InsightsWebTest, err error)
+	InsightsWebTestExpansion
 }
 
-// insightsWebtests implements InsightsWebtestInterface
-type insightsWebtests struct {
+// insightsWebTests implements InsightsWebTestInterface
+type insightsWebTests struct {
 	client rest.Interface
 	ns     string
 }
 
-// newInsightsWebtests returns a InsightsWebtests
-func newInsightsWebtests(c *ApplicationV1alpha1Client, namespace string) *insightsWebtests {
-	return &insightsWebtests{
+// newInsightsWebTests returns a InsightsWebTests
+func newInsightsWebTests(c *ApplicationV1alpha1Client, namespace string) *insightsWebTests {
+	return &insightsWebTests{
 		client: c.RESTClient(),
 		ns:     namespace,
 	}
 }
 
-// Get takes name of the insightsWebtest, and returns the corresponding insightsWebtest object, and an error if there is any.
-func (c *insightsWebtests) Get(ctx context.Context, name string, options v1.GetOptions) (result *v1alpha1.InsightsWebtest, err error) {
-	result = &v1alpha1.InsightsWebtest{}
+// Get takes name of the insightsWebTest, and returns the corresponding insightsWebTest object, and an error if there is any.
+func (c *insightsWebTests) Get(ctx context.Context, name string, options v1.GetOptions) (result *v1alpha1.InsightsWebTest, err error) {
+	result = &v1alpha1.InsightsWebTest{}
 	err = c.client.Get().
 		Namespace(c.ns).
 		Resource("insightswebtests").
@@ -78,13 +78,13 @@ func (c *insightsWebtests) Get(ctx context.Context, name string, options v1.GetO
 	return
 }
 
-// List takes label and field selectors, and returns the list of InsightsWebtests that match those selectors.
-func (c *insightsWebtests) List(ctx context.Context, opts v1.ListOptions) (result *v1alpha1.InsightsWebtestList, err error) {
+// List takes label and field selectors, and returns the list of InsightsWebTests that match those selectors.
+func (c *insightsWebTests) List(ctx context.Context, opts v1.ListOptions) (result *v1alpha1.InsightsWebTestList, err error) {
 	var timeout time.Duration
 	if opts.TimeoutSeconds != nil {
 		timeout = time.Duration(*opts.TimeoutSeconds) * time.Second
 	}
-	result = &v1alpha1.InsightsWebtestList{}
+	result = &v1alpha1.InsightsWebTestList{}
 	err = c.client.Get().
 		Namespace(c.ns).
 		Resource("insightswebtests").
@@ -95,8 +95,8 @@ func (c *insightsWebtests) List(ctx context.Context, opts v1.ListOptions) (resul
 	return
 }
 
-// Watch returns a watch.Interface that watches the requested insightsWebtests.
-func (c *insightsWebtests) Watch(ctx context.Context, opts v1.ListOptions) (watch.Interface, error) {
+// Watch returns a watch.Interface that watches the requested insightsWebTests.
+func (c *insightsWebTests) Watch(ctx context.Context, opts v1.ListOptions) (watch.Interface, error) {
 	var timeout time.Duration
 	if opts.TimeoutSeconds != nil {
 		timeout = time.Duration(*opts.TimeoutSeconds) * time.Second
@@ -110,28 +110,28 @@ func (c *insightsWebtests) Watch(ctx context.Context, opts v1.ListOptions) (watc
 		Watch(ctx)
 }
 
-// Create takes the representation of a insightsWebtest and creates it.  Returns the server's representation of the insightsWebtest, and an error, if there is any.
-func (c *insightsWebtests) Create(ctx context.Context, insightsWebtest *v1alpha1.InsightsWebtest, opts v1.CreateOptions) (result *v1alpha1.InsightsWebtest, err error) {
-	result = &v1alpha1.InsightsWebtest{}
+// Create takes the representation of a insightsWebTest and creates it.  Returns the server's representation of the insightsWebTest, and an error, if there is any.
+func (c *insightsWebTests) Create(ctx context.Context, insightsWebTest *v1alpha1.InsightsWebTest, opts v1.CreateOptions) (result *v1alpha1.InsightsWebTest, err error) {
+	result = &v1alpha1.InsightsWebTest{}
 	err = c.client.Post().
 		Namespace(c.ns).
 		Resource("insightswebtests").
 		VersionedParams(&opts, scheme.ParameterCodec).
-		Body(insightsWebtest).
+		Body(insightsWebTest).
 		Do(ctx).
 		Into(result)
 	return
 }
 
-// Update takes the representation of a insightsWebtest and updates it. Returns the server's representation of the insightsWebtest, and an error, if there is any.
-func (c *insightsWebtests) Update(ctx context.Context, insightsWebtest *v1alpha1.InsightsWebtest, opts v1.UpdateOptions) (result *v1alpha1.InsightsWebtest, err error) {
-	result = &v1alpha1.InsightsWebtest{}
+// Update takes the representation of a insightsWebTest and updates it. Returns the server's representation of the insightsWebTest, and an error, if there is any.
+func (c *insightsWebTests) Update(ctx context.Context, insightsWebTest *v1alpha1.InsightsWebTest, opts v1.UpdateOptions) (result *v1alpha1.InsightsWebTest, err error) {
+	result = &v1alpha1.InsightsWebTest{}
 	err = c.client.Put().
 		Namespace(c.ns).
 		Resource("insightswebtests").
-		Name(insightsWebtest.Name).
+		Name(insightsWebTest.Name).
 		VersionedParams(&opts, scheme.ParameterCodec).
-		Body(insightsWebtest).
+		Body(insightsWebTest).
 		Do(ctx).
 		Into(result)
 	return
@@ -139,22 +139,22 @@ func (c *insightsWebtests) Update(ctx context.Context, insightsWebtest *v1alpha1
 
 // UpdateStatus was generated because the type contains a Status member.
 // Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
-func (c *insightsWebtests) UpdateStatus(ctx context.Context, insightsWebtest *v1alpha1.InsightsWebtest, opts v1.UpdateOptions) (result *v1alpha1.InsightsWebtest, err error) {
-	result = &v1alpha1.InsightsWebtest{}
+func (c *insightsWebTests) UpdateStatus(ctx context.Context, insightsWebTest *v1alpha1.InsightsWebTest, opts v1.UpdateOptions) (result *v1alpha1.InsightsWebTest, err error) {
+	result = &v1alpha1.InsightsWebTest{}
 	err = c.client.Put().
 		Namespace(c.ns).
 		Resource("insightswebtests").
-		Name(insightsWebtest.Name).
+		Name(insightsWebTest.Name).
 		SubResource("status").
 		VersionedParams(&opts, scheme.ParameterCodec).
-		Body(insightsWebtest).
+		Body(insightsWebTest).
 		Do(ctx).
 		Into(result)
 	return
 }
 
-// Delete takes name of the insightsWebtest and deletes it. Returns an error if one occurs.
-func (c *insightsWebtests) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
+// Delete takes name of the insightsWebTest and deletes it. Returns an error if one occurs.
+func (c *insightsWebTests) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	return c.client.Delete().
 		Namespace(c.ns).
 		Resource("insightswebtests").
@@ -165,7 +165,7 @@ func (c *insightsWebtests) Delete(ctx context.Context, name string, opts v1.Dele
 }
 
 // DeleteCollection deletes a collection of objects.
-func (c *insightsWebtests) DeleteCollection(ctx context.Context, opts v1.DeleteOptions, listOpts v1.ListOptions) error {
+func (c *insightsWebTests) DeleteCollection(ctx context.Context, opts v1.DeleteOptions, listOpts v1.ListOptions) error {
 	var timeout time.Duration
 	if listOpts.TimeoutSeconds != nil {
 		timeout = time.Duration(*listOpts.TimeoutSeconds) * time.Second
@@ -180,9 +180,9 @@ func (c *insightsWebtests) DeleteCollection(ctx context.Context, opts v1.DeleteO
 		Error()
 }
 
-// Patch applies the patch and returns the patched insightsWebtest.
-func (c *insightsWebtests) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *v1alpha1.InsightsWebtest, err error) {
-	result = &v1alpha1.InsightsWebtest{}
+// Patch applies the patch and returns the patched insightsWebTest.
+func (c *insightsWebTests) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *v1alpha1.InsightsWebTest, err error) {
+	result = &v1alpha1.InsightsWebTest{}
 	err = c.client.Patch(pt).
 		Namespace(c.ns).
 		Resource("insightswebtests").

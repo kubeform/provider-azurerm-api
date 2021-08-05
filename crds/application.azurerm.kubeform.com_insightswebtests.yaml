@@ -9,8 +9,8 @@ metadata:
 spec:
   group: application.azurerm.kubeform.com
   names:
-    kind: InsightsWebtest
-    listKind: InsightsWebtestList
+    kind: InsightsWebTest
+    listKind: InsightsWebTestList
     plural: insightswebtests
     singular: insightswebtest
   scope: Namespaced
