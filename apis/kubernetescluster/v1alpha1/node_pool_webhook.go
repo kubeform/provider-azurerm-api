@@ -20,9 +20,12 @@ package v1alpha1
 
 import (
 	"fmt"
+	"strings"
 
 	base "kubeform.dev/apimachinery/api/v1alpha1"
+	"kubeform.dev/apimachinery/pkg/util"
 
+	jsoniter "github.com/json-iterator/go"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
@@ -38,6 +41,70 @@ func (r *NodePool) SetupWebhookWithManager(mgr ctrl.Manager) error {
 
 var _ webhook.Validator = &NodePool{}
 
+var nodepoolForceNewList = map[string]bool{
+	"/availability_zones":                                                   true,
+	"/enable_host_encryption":                                               true,
+	"/enable_node_public_ip":                                                true,
+	"/eviction_policy":                                                      true,
+	"/fips_enabled":                                                         true,
+	"/kubelet_config/*/allowed_unsafe_sysctls":                              true,
+	"/kubelet_config/*/container_log_max_line":                              true,
+	"/kubelet_config/*/container_log_max_size_mb":                           true,
+	"/kubelet_config/*/cpu_cfs_quota_enabled":                               true,
+	"/kubelet_config/*/cpu_cfs_quota_period":                                true,
+	"/kubelet_config/*/cpu_manager_policy":                                  true,
+	"/kubelet_config/*/image_gc_high_threshold":                             true,
+	"/kubelet_config/*/image_gc_low_threshold":                              true,
+	"/kubelet_config/*/pod_max_pid":                                         true,
+	"/kubelet_config/*/topology_manager_policy":                             true,
+	"/kubernetes_cluster_id":                                                true,
+	"/linux_os_config/*/swap_file_size_mb":                                  true,
+	"/linux_os_config/*/sysctl_config/*/fs_aio_max_nr":                      true,
+	"/linux_os_config/*/sysctl_config/*/fs_file_max":                        true,
+	"/linux_os_config/*/sysctl_config/*/fs_inotify_max_user_watches":        true,
+	"/linux_os_config/*/sysctl_config/*/fs_nr_open":                         true,
+	"/linux_os_config/*/sysctl_config/*/kernel_threads_max":                 true,
+	"/linux_os_config/*/sysctl_config/*/net_core_netdev_max_backlog":        true,
+	"/linux_os_config/*/sysctl_config/*/net_core_optmem_max":                true,
+	"/linux_os_config/*/sysctl_config/*/net_core_rmem_default":              true,
+	"/linux_os_config/*/sysctl_config/*/net_core_rmem_max":                  true,
+	"/linux_os_config/*/sysctl_config/*/net_core_somaxconn":                 true,
+	"/linux_os_config/*/sysctl_config/*/net_core_wmem_default":              true,
+	"/linux_os_config/*/sysctl_config/*/net_core_wmem_max":                  true,
+	"/linux_os_config/*/sysctl_config/*/net_ipv4_ip_local_port_range_max":   true,
+	"/linux_os_config/*/sysctl_config/*/net_ipv4_ip_local_port_range_min":   true,
+	"/linux_os_config/*/sysctl_config/*/net_ipv4_neigh_default_gc_thresh1":  true,
+	"/linux_os_config/*/sysctl_config/*/net_ipv4_neigh_default_gc_thresh2":  true,
+	"/linux_os_config/*/sysctl_config/*/net_ipv4_neigh_default_gc_thresh3":  true,
+	"/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_fin_timeout":           true,
+	"/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_keepalive_intvl":       true,
+	"/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_keepalive_probes":      true,
+	"/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_keepalive_time":        true,
+	"/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_max_syn_backlog":       true,
+	"/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_max_tw_buckets":        true,
+	"/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_tw_reuse":              true,
+	"/linux_os_config/*/sysctl_config/*/net_netfilter_nf_conntrack_buckets": true,
+	"/linux_os_config/*/sysctl_config/*/net_netfilter_nf_conntrack_max":     true,
+	"/linux_os_config/*/sysctl_config/*/vm_max_map_count":                   true,
+	"/linux_os_config/*/sysctl_config/*/vm_swappiness":                      true,
+	"/linux_os_config/*/sysctl_config/*/vm_vfs_cache_pressure":              true,
+	"/linux_os_config/*/transparent_huge_page_defrag":                       true,
+	"/linux_os_config/*/transparent_huge_page_enabled":                      true,
+	"/max_pods":                     true,
+	"/name":                         true,
+	"/node_labels":                  true,
+	"/node_public_ip_prefix_id":     true,
+	"/node_taints":                  true,
+	"/os_disk_size_gb":              true,
+	"/os_disk_type":                 true,
+	"/os_type":                      true,
+	"/priority":                     true,
+	"/proximity_placement_group_id": true,
+	"/spot_max_price":               true,
+	"/vm_size":                      true,
+	"/vnet_subnet_id":               true,
+}
+
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
 func (r *NodePool) ValidateCreate() error {
 	return nil
@@ -45,6 +112,53 @@ func (r *NodePool) ValidateCreate() error {
 
 // ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 func (r *NodePool) ValidateUpdate(old runtime.Object) error {
+	if r.Spec.Resource.ID == "" {
+		return nil
+	}
+	newObj := r.Spec.Resource
+	res := old.(*NodePool)
+	oldObj := res.Spec.Resource
+
+	jsnitr := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		TagKey:                 "tf",
+		ValidateJsonRawMessage: true,
+		TypeEncoders:           GetEncoder(),
+		TypeDecoders:           GetDecoder(),
+	}.Froze()
+
+	byteNew, err := jsnitr.Marshal(newObj)
+	if err != nil {
+		return err
+	}
+	tempNew := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteNew, &tempNew)
+	if err != nil {
+		return err
+	}
+
+	byteOld, err := jsnitr.Marshal(oldObj)
+	if err != nil {
+		return err
+	}
+	tempOld := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteOld, &tempOld)
+	if err != nil {
+		return err
+	}
+
+	for key := range nodepoolForceNewList {
+		keySplit := strings.Split(key, "/*")
+		length := len(keySplit)
+		checkIfAnyDif := false
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempOld, tempOld, tempNew)
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempNew, tempOld, tempNew)
+
+		if checkIfAnyDif && r.Spec.UpdatePolicy == base.UpdatePolicyDoNotDestroy {
+			return fmt.Errorf(`nodepool "%v/%v" immutable field can't be updated. To update, change spec.updatePolicy to Destroy`, r.Namespace, r.Name)
+		}
+	}
 	return nil
 }
 

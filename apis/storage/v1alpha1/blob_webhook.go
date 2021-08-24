@@ -20,9 +20,12 @@ package v1alpha1
 
 import (
 	"fmt"
+	"strings"
 
 	base "kubeform.dev/apimachinery/api/v1alpha1"
+	"kubeform.dev/apimachinery/pkg/util"
 
+	jsoniter "github.com/json-iterator/go"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
@@ -38,6 +41,19 @@ func (r *Blob) SetupWebhookWithManager(mgr ctrl.Manager) error {
 
 var _ webhook.Validator = &Blob{}
 
+var blobForceNewList = map[string]bool{
+	"/content_md5":            true,
+	"/name":                   true,
+	"/parallelism":            true,
+	"/size":                   true,
+	"/source":                 true,
+	"/source_content":         true,
+	"/source_uri":             true,
+	"/storage_account_name":   true,
+	"/storage_container_name": true,
+	"/type":                   true,
+}
+
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
 func (r *Blob) ValidateCreate() error {
 	return nil
@@ -45,6 +61,53 @@ func (r *Blob) ValidateCreate() error {
 
 // ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 func (r *Blob) ValidateUpdate(old runtime.Object) error {
+	if r.Spec.Resource.ID == "" {
+		return nil
+	}
+	newObj := r.Spec.Resource
+	res := old.(*Blob)
+	oldObj := res.Spec.Resource
+
+	jsnitr := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		TagKey:                 "tf",
+		ValidateJsonRawMessage: true,
+		TypeEncoders:           GetEncoder(),
+		TypeDecoders:           GetDecoder(),
+	}.Froze()
+
+	byteNew, err := jsnitr.Marshal(newObj)
+	if err != nil {
+		return err
+	}
+	tempNew := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteNew, &tempNew)
+	if err != nil {
+		return err
+	}
+
+	byteOld, err := jsnitr.Marshal(oldObj)
+	if err != nil {
+		return err
+	}
+	tempOld := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteOld, &tempOld)
+	if err != nil {
+		return err
+	}
+
+	for key := range blobForceNewList {
+		keySplit := strings.Split(key, "/*")
+		length := len(keySplit)
+		checkIfAnyDif := false
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempOld, tempOld, tempNew)
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempNew, tempOld, tempNew)
+
+		if checkIfAnyDif && r.Spec.UpdatePolicy == base.UpdatePolicyDoNotDestroy {
+			return fmt.Errorf(`blob "%v/%v" immutable field can't be updated. To update, change spec.updatePolicy to Destroy`, r.Namespace, r.Name)
+		}
+	}
 	return nil
 }
 
