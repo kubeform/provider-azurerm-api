@@ -20,9 +20,12 @@ package v1alpha1
 
 import (
 	"fmt"
+	"strings"
 
 	base "kubeform.dev/apimachinery/api/v1alpha1"
+	"kubeform.dev/provider-azurerm-api/util"
 
+	jsoniter "github.com/json-iterator/go"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
@@ -38,6 +41,93 @@ func (r *KubernetesCluster) SetupWebhookWithManager(mgr ctrl.Manager) error {
 
 var _ webhook.Validator = &KubernetesCluster{}
 
+var kubernetesclusterForceNewList = map[string]bool{
+	"/default_node_pool/*/availability_zones":                                                   true,
+	"/default_node_pool/*/enable_host_encryption":                                               true,
+	"/default_node_pool/*/enable_node_public_ip":                                                true,
+	"/default_node_pool/*/fips_enabled":                                                         true,
+	"/default_node_pool/*/kubelet_config/*/allowed_unsafe_sysctls":                              true,
+	"/default_node_pool/*/kubelet_config/*/container_log_max_line":                              true,
+	"/default_node_pool/*/kubelet_config/*/container_log_max_size_mb":                           true,
+	"/default_node_pool/*/kubelet_config/*/cpu_cfs_quota_enabled":                               true,
+	"/default_node_pool/*/kubelet_config/*/cpu_cfs_quota_period":                                true,
+	"/default_node_pool/*/kubelet_config/*/cpu_manager_policy":                                  true,
+	"/default_node_pool/*/kubelet_config/*/image_gc_high_threshold":                             true,
+	"/default_node_pool/*/kubelet_config/*/image_gc_low_threshold":                              true,
+	"/default_node_pool/*/kubelet_config/*/pod_max_pid":                                         true,
+	"/default_node_pool/*/kubelet_config/*/topology_manager_policy":                             true,
+	"/default_node_pool/*/linux_os_config/*/swap_file_size_mb":                                  true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/fs_aio_max_nr":                      true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/fs_file_max":                        true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/fs_inotify_max_user_watches":        true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/fs_nr_open":                         true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/kernel_threads_max":                 true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_core_netdev_max_backlog":        true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_core_optmem_max":                true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_core_rmem_default":              true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_core_rmem_max":                  true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_core_somaxconn":                 true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_core_wmem_default":              true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_core_wmem_max":                  true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_ipv4_ip_local_port_range_max":   true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_ipv4_ip_local_port_range_min":   true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_ipv4_neigh_default_gc_thresh1":  true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_ipv4_neigh_default_gc_thresh2":  true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_ipv4_neigh_default_gc_thresh3":  true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_fin_timeout":           true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_keepalive_intvl":       true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_keepalive_probes":      true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_keepalive_time":        true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_max_syn_backlog":       true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_max_tw_buckets":        true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_ipv4_tcp_tw_reuse":              true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_netfilter_nf_conntrack_buckets": true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/net_netfilter_nf_conntrack_max":     true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/vm_max_map_count":                   true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/vm_swappiness":                      true,
+	"/default_node_pool/*/linux_os_config/*/sysctl_config/*/vm_vfs_cache_pressure":              true,
+	"/default_node_pool/*/linux_os_config/*/transparent_huge_page_defrag":                       true,
+	"/default_node_pool/*/linux_os_config/*/transparent_huge_page_enabled":                      true,
+	"/default_node_pool/*/max_pods":                                                             true,
+	"/default_node_pool/*/name":                                                                 true,
+	"/default_node_pool/*/node_labels":                                                          true,
+	"/default_node_pool/*/node_public_ip_prefix_id":                                             true,
+	"/default_node_pool/*/node_taints":                                                          true,
+	"/default_node_pool/*/only_critical_addons_enabled":                                         true,
+	"/default_node_pool/*/os_disk_size_gb":                                                      true,
+	"/default_node_pool/*/os_disk_type":                                                         true,
+	"/default_node_pool/*/proximity_placement_group_id":                                         true,
+	"/default_node_pool/*/type":                                                                 true,
+	"/default_node_pool/*/vm_size":                                                              true,
+	"/default_node_pool/*/vnet_subnet_id":                                                       true,
+	"/disk_encryption_set_id":                                                                   true,
+	"/dns_prefix":                                                                               true,
+	"/dns_prefix_private_cluster":                                                               true,
+	"/kubelet_identity/*/client_id":                                                             true,
+	"/kubelet_identity/*/object_id":                                                             true,
+	"/kubelet_identity/*/user_assigned_identity_id":                                             true,
+	"/linux_profile/*/admin_username":                                                           true,
+	"/linux_profile/*/ssh_key/*/key_data":                                                       true,
+	"/location":                                                                                 true,
+	"/name":                                                                                     true,
+	"/network_profile/*/dns_service_ip":                                                         true,
+	"/network_profile/*/docker_bridge_cidr":                                                     true,
+	"/network_profile/*/load_balancer_sku":                                                      true,
+	"/network_profile/*/network_mode":                                                           true,
+	"/network_profile/*/network_plugin":                                                         true,
+	"/network_profile/*/network_policy":                                                         true,
+	"/network_profile/*/outbound_type":                                                          true,
+	"/network_profile/*/pod_cidr":                                                               true,
+	"/network_profile/*/service_cidr":                                                           true,
+	"/node_resource_group":                                                                      true,
+	"/private_cluster_enabled":                                                                  true,
+	"/private_dns_zone_id":                                                                      true,
+	"/private_link_enabled":                                                                     true,
+	"/resource_group_name":                                                                      true,
+	"/role_based_access_control/*/enabled":                                                      true,
+	"/windows_profile/*/admin_username":                                                         true,
+}
+
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
 func (r *KubernetesCluster) ValidateCreate() error {
 	return nil
@@ -45,6 +135,53 @@ func (r *KubernetesCluster) ValidateCreate() error {
 
 // ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 func (r *KubernetesCluster) ValidateUpdate(old runtime.Object) error {
+	if r.Spec.Resource.ID == "" {
+		return nil
+	}
+	newObj := r.Spec.Resource
+	res := old.(*KubernetesCluster)
+	oldObj := res.Spec.Resource
+
+	jsnitr := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		TagKey:                 "tf",
+		ValidateJsonRawMessage: true,
+		TypeEncoders:           GetEncoder(),
+		TypeDecoders:           GetDecoder(),
+	}.Froze()
+
+	byteNew, err := jsnitr.Marshal(newObj)
+	if err != nil {
+		return err
+	}
+	tempNew := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteNew, &tempNew)
+	if err != nil {
+		return err
+	}
+
+	byteOld, err := jsnitr.Marshal(oldObj)
+	if err != nil {
+		return err
+	}
+	tempOld := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteOld, &tempOld)
+	if err != nil {
+		return err
+	}
+
+	for key := range kubernetesclusterForceNewList {
+		keySplit := strings.Split(key, "/*")
+		length := len(keySplit)
+		checkIfAnyDif := false
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempOld, tempOld, tempNew)
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempNew, tempOld, tempNew)
+
+		if checkIfAnyDif && r.Spec.UpdatePolicy == base.UpdatePolicyDoNotDestroy {
+			return fmt.Errorf(`kubernetescluster "%v/%v" immutable field can't be updated. To update, change spec.updatePolicy to Destroy`, r.Namespace, r.Name)
+		}
+	}
 	return nil
 }
 

@@ -20,9 +20,12 @@ package v1alpha1
 
 import (
 	"fmt"
+	"strings"
 
 	base "kubeform.dev/apimachinery/api/v1alpha1"
+	"kubeform.dev/provider-azurerm-api/util"
 
+	jsoniter "github.com/json-iterator/go"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
@@ -38,6 +41,24 @@ func (r *LinuxVirtualMachine) SetupWebhookWithManager(mgr ctrl.Manager) error {
 
 var _ webhook.Validator = &LinuxVirtualMachine{}
 
+var linuxvirtualmachineForceNewList = map[string]bool{
+	"/disallow_public_ip_address":          true,
+	"/gallery_image_reference/*/offer":     true,
+	"/gallery_image_reference/*/publisher": true,
+	"/gallery_image_reference/*/sku":       true,
+	"/gallery_image_reference/*/version":   true,
+	"/inbound_nat_rule/*/backend_port":     true,
+	"/lab_name":                            true,
+	"/lab_subnet_name":                     true,
+	"/lab_virtual_network_id":              true,
+	"/location":                            true,
+	"/name":                                true,
+	"/resource_group_name":                 true,
+	"/size":                                true,
+	"/ssh_key":                             true,
+	"/username":                            true,
+}
+
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
 func (r *LinuxVirtualMachine) ValidateCreate() error {
 	return nil
@@ -45,6 +66,53 @@ func (r *LinuxVirtualMachine) ValidateCreate() error {
 
 // ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 func (r *LinuxVirtualMachine) ValidateUpdate(old runtime.Object) error {
+	if r.Spec.Resource.ID == "" {
+		return nil
+	}
+	newObj := r.Spec.Resource
+	res := old.(*LinuxVirtualMachine)
+	oldObj := res.Spec.Resource
+
+	jsnitr := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		TagKey:                 "tf",
+		ValidateJsonRawMessage: true,
+		TypeEncoders:           GetEncoder(),
+		TypeDecoders:           GetDecoder(),
+	}.Froze()
+
+	byteNew, err := jsnitr.Marshal(newObj)
+	if err != nil {
+		return err
+	}
+	tempNew := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteNew, &tempNew)
+	if err != nil {
+		return err
+	}
+
+	byteOld, err := jsnitr.Marshal(oldObj)
+	if err != nil {
+		return err
+	}
+	tempOld := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteOld, &tempOld)
+	if err != nil {
+		return err
+	}
+
+	for key := range linuxvirtualmachineForceNewList {
+		keySplit := strings.Split(key, "/*")
+		length := len(keySplit)
+		checkIfAnyDif := false
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempOld, tempOld, tempNew)
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempNew, tempOld, tempNew)
+
+		if checkIfAnyDif && r.Spec.UpdatePolicy == base.UpdatePolicyDoNotDestroy {
+			return fmt.Errorf(`linuxvirtualmachine "%v/%v" immutable field can't be updated. To update, change spec.updatePolicy to Destroy`, r.Namespace, r.Name)
+		}
+	}
 	return nil
 }
 

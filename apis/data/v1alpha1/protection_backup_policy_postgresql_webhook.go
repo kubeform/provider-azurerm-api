@@ -20,9 +20,12 @@ package v1alpha1
 
 import (
 	"fmt"
+	"strings"
 
 	base "kubeform.dev/apimachinery/api/v1alpha1"
+	"kubeform.dev/provider-azurerm-api/util"
 
+	jsoniter "github.com/json-iterator/go"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
@@ -38,6 +41,22 @@ func (r *ProtectionBackupPolicyPostgresql) SetupWebhookWithManager(mgr ctrl.Mana
 
 var _ webhook.Validator = &ProtectionBackupPolicyPostgresql{}
 
+var protectionbackuppolicypostgresqlForceNewList = map[string]bool{
+	"/backup_repeating_time_intervals":                    true,
+	"/default_retention_duration":                         true,
+	"/name":                                               true,
+	"/resource_group_name":                                true,
+	"/retention_rule/*/criteria/*/absolute_criteria":      true,
+	"/retention_rule/*/criteria/*/days_of_week":           true,
+	"/retention_rule/*/criteria/*/months_of_year":         true,
+	"/retention_rule/*/criteria/*/scheduled_backup_times": true,
+	"/retention_rule/*/criteria/*/weeks_of_month":         true,
+	"/retention_rule/*/duration":                          true,
+	"/retention_rule/*/name":                              true,
+	"/retention_rule/*/priority":                          true,
+	"/vault_name":                                         true,
+}
+
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
 func (r *ProtectionBackupPolicyPostgresql) ValidateCreate() error {
 	return nil
@@ -45,6 +64,53 @@ func (r *ProtectionBackupPolicyPostgresql) ValidateCreate() error {
 
 // ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 func (r *ProtectionBackupPolicyPostgresql) ValidateUpdate(old runtime.Object) error {
+	if r.Spec.Resource.ID == "" {
+		return nil
+	}
+	newObj := r.Spec.Resource
+	res := old.(*ProtectionBackupPolicyPostgresql)
+	oldObj := res.Spec.Resource
+
+	jsnitr := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		TagKey:                 "tf",
+		ValidateJsonRawMessage: true,
+		TypeEncoders:           GetEncoder(),
+		TypeDecoders:           GetDecoder(),
+	}.Froze()
+
+	byteNew, err := jsnitr.Marshal(newObj)
+	if err != nil {
+		return err
+	}
+	tempNew := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteNew, &tempNew)
+	if err != nil {
+		return err
+	}
+
+	byteOld, err := jsnitr.Marshal(oldObj)
+	if err != nil {
+		return err
+	}
+	tempOld := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteOld, &tempOld)
+	if err != nil {
+		return err
+	}
+
+	for key := range protectionbackuppolicypostgresqlForceNewList {
+		keySplit := strings.Split(key, "/*")
+		length := len(keySplit)
+		checkIfAnyDif := false
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempOld, tempOld, tempNew)
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempNew, tempOld, tempNew)
+
+		if checkIfAnyDif && r.Spec.UpdatePolicy == base.UpdatePolicyDoNotDestroy {
+			return fmt.Errorf(`protectionbackuppolicypostgresql "%v/%v" immutable field can't be updated. To update, change spec.updatePolicy to Destroy`, r.Namespace, r.Name)
+		}
+	}
 	return nil
 }
 

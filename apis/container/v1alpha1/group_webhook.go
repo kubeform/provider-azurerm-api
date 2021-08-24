@@ -20,9 +20,12 @@ package v1alpha1
 
 import (
 	"fmt"
+	"strings"
 
 	base "kubeform.dev/apimachinery/api/v1alpha1"
+	"kubeform.dev/provider-azurerm-api/util"
 
+	jsoniter "github.com/json-iterator/go"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
@@ -38,6 +41,65 @@ func (r *Group) SetupWebhookWithManager(mgr ctrl.Manager) error {
 
 var _ webhook.Validator = &Group{}
 
+var groupForceNewList = map[string]bool{
+	"/container/*/commands":                                true,
+	"/container/*/cpu":                                     true,
+	"/container/*/environment_variables":                   true,
+	"/container/*/gpu/*/count":                             true,
+	"/container/*/gpu/*/sku":                               true,
+	"/container/*/image":                                   true,
+	"/container/*/liveness_probe/*/exec":                   true,
+	"/container/*/liveness_probe/*/failure_threshold":      true,
+	"/container/*/liveness_probe/*/http_get/*/path":        true,
+	"/container/*/liveness_probe/*/http_get/*/port":        true,
+	"/container/*/liveness_probe/*/http_get/*/scheme":      true,
+	"/container/*/liveness_probe/*/initial_delay_seconds":  true,
+	"/container/*/liveness_probe/*/period_seconds":         true,
+	"/container/*/liveness_probe/*/success_threshold":      true,
+	"/container/*/liveness_probe/*/timeout_seconds":        true,
+	"/container/*/memory":                                  true,
+	"/container/*/name":                                    true,
+	"/container/*/ports/*/port":                            true,
+	"/container/*/ports/*/protocol":                        true,
+	"/container/*/readiness_probe/*/exec":                  true,
+	"/container/*/readiness_probe/*/failure_threshold":     true,
+	"/container/*/readiness_probe/*/http_get/*/path":       true,
+	"/container/*/readiness_probe/*/http_get/*/port":       true,
+	"/container/*/readiness_probe/*/http_get/*/scheme":     true,
+	"/container/*/readiness_probe/*/initial_delay_seconds": true,
+	"/container/*/readiness_probe/*/period_seconds":        true,
+	"/container/*/readiness_probe/*/success_threshold":     true,
+	"/container/*/readiness_probe/*/timeout_seconds":       true,
+	"/container/*/volume/*/empty_dir":                      true,
+	"/container/*/volume/*/git_repo/*/directory":           true,
+	"/container/*/volume/*/git_repo/*/revision":            true,
+	"/container/*/volume/*/git_repo/*/url":                 true,
+	"/container/*/volume/*/mount_path":                     true,
+	"/container/*/volume/*/name":                           true,
+	"/container/*/volume/*/read_only":                      true,
+	"/container/*/volume/*/share_name":                     true,
+	"/container/*/volume/*/storage_account_name":           true,
+	"/diagnostics/*/log_analytics/*/log_type":              true,
+	"/diagnostics/*/log_analytics/*/metadata":              true,
+	"/diagnostics/*/log_analytics/*/workspace_id":          true,
+	"/dns_config/*/nameservers":                            true,
+	"/dns_config/*/options":                                true,
+	"/dns_config/*/search_domains":                         true,
+	"/dns_name_label":                                      true,
+	"/exposed_port/*/port":                                 true,
+	"/exposed_port/*/protocol":                             true,
+	"/identity/*/identity_ids":                             true,
+	"/image_registry_credential/*/server":                  true,
+	"/image_registry_credential/*/username":                true,
+	"/ip_address_type":                                     true,
+	"/location":                                            true,
+	"/name":                                                true,
+	"/network_profile_id":                                  true,
+	"/os_type":                                             true,
+	"/resource_group_name":                                 true,
+	"/restart_policy":                                      true,
+}
+
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
 func (r *Group) ValidateCreate() error {
 	return nil
@@ -45,6 +107,53 @@ func (r *Group) ValidateCreate() error {
 
 // ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 func (r *Group) ValidateUpdate(old runtime.Object) error {
+	if r.Spec.Resource.ID == "" {
+		return nil
+	}
+	newObj := r.Spec.Resource
+	res := old.(*Group)
+	oldObj := res.Spec.Resource
+
+	jsnitr := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		TagKey:                 "tf",
+		ValidateJsonRawMessage: true,
+		TypeEncoders:           GetEncoder(),
+		TypeDecoders:           GetDecoder(),
+	}.Froze()
+
+	byteNew, err := jsnitr.Marshal(newObj)
+	if err != nil {
+		return err
+	}
+	tempNew := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteNew, &tempNew)
+	if err != nil {
+		return err
+	}
+
+	byteOld, err := jsnitr.Marshal(oldObj)
+	if err != nil {
+		return err
+	}
+	tempOld := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteOld, &tempOld)
+	if err != nil {
+		return err
+	}
+
+	for key := range groupForceNewList {
+		keySplit := strings.Split(key, "/*")
+		length := len(keySplit)
+		checkIfAnyDif := false
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempOld, tempOld, tempNew)
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempNew, tempOld, tempNew)
+
+		if checkIfAnyDif && r.Spec.UpdatePolicy == base.UpdatePolicyDoNotDestroy {
+			return fmt.Errorf(`group "%v/%v" immutable field can't be updated. To update, change spec.updatePolicy to Destroy`, r.Namespace, r.Name)
+		}
+	}
 	return nil
 }
 

@@ -20,9 +20,12 @@ package v1alpha1
 
 import (
 	"fmt"
+	"strings"
 
 	base "kubeform.dev/apimachinery/api/v1alpha1"
+	"kubeform.dev/provider-azurerm-api/util"
 
+	jsoniter "github.com/json-iterator/go"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
@@ -38,6 +41,40 @@ func (r *MlServicesCluster) SetupWebhookWithManager(mgr ctrl.Manager) error {
 
 var _ webhook.Validator = &MlServicesCluster{}
 
+var mlservicesclusterForceNewList = map[string]bool{
+	"/cluster_version":                             true,
+	"/gateway/*/username":                          true,
+	"/location":                                    true,
+	"/name":                                        true,
+	"/resource_group_name":                         true,
+	"/roles/*/edge_node/*/ssh_keys":                true,
+	"/roles/*/edge_node/*/subnet_id":               true,
+	"/roles/*/edge_node/*/username":                true,
+	"/roles/*/edge_node/*/virtual_network_id":      true,
+	"/roles/*/edge_node/*/vm_size":                 true,
+	"/roles/*/head_node/*/ssh_keys":                true,
+	"/roles/*/head_node/*/subnet_id":               true,
+	"/roles/*/head_node/*/username":                true,
+	"/roles/*/head_node/*/virtual_network_id":      true,
+	"/roles/*/head_node/*/vm_size":                 true,
+	"/roles/*/worker_node/*/min_instance_count":    true,
+	"/roles/*/worker_node/*/ssh_keys":              true,
+	"/roles/*/worker_node/*/subnet_id":             true,
+	"/roles/*/worker_node/*/username":              true,
+	"/roles/*/worker_node/*/virtual_network_id":    true,
+	"/roles/*/worker_node/*/vm_size":               true,
+	"/roles/*/zookeeper_node/*/ssh_keys":           true,
+	"/roles/*/zookeeper_node/*/subnet_id":          true,
+	"/roles/*/zookeeper_node/*/username":           true,
+	"/roles/*/zookeeper_node/*/virtual_network_id": true,
+	"/roles/*/zookeeper_node/*/vm_size":            true,
+	"/rstudio":                                     true,
+	"/storage_account/*/is_default":                true,
+	"/storage_account/*/storage_container_id":      true,
+	"/tier":            true,
+	"/tls_min_version": true,
+}
+
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
 func (r *MlServicesCluster) ValidateCreate() error {
 	return nil
@@ -45,6 +82,53 @@ func (r *MlServicesCluster) ValidateCreate() error {
 
 // ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 func (r *MlServicesCluster) ValidateUpdate(old runtime.Object) error {
+	if r.Spec.Resource.ID == "" {
+		return nil
+	}
+	newObj := r.Spec.Resource
+	res := old.(*MlServicesCluster)
+	oldObj := res.Spec.Resource
+
+	jsnitr := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		TagKey:                 "tf",
+		ValidateJsonRawMessage: true,
+		TypeEncoders:           GetEncoder(),
+		TypeDecoders:           GetDecoder(),
+	}.Froze()
+
+	byteNew, err := jsnitr.Marshal(newObj)
+	if err != nil {
+		return err
+	}
+	tempNew := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteNew, &tempNew)
+	if err != nil {
+		return err
+	}
+
+	byteOld, err := jsnitr.Marshal(oldObj)
+	if err != nil {
+		return err
+	}
+	tempOld := make(map[string]interface{})
+	err = jsnitr.Unmarshal(byteOld, &tempOld)
+	if err != nil {
+		return err
+	}
+
+	for key := range mlservicesclusterForceNewList {
+		keySplit := strings.Split(key, "/*")
+		length := len(keySplit)
+		checkIfAnyDif := false
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempOld, tempOld, tempNew)
+		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempNew, tempOld, tempNew)
+
+		if checkIfAnyDif && r.Spec.UpdatePolicy == base.UpdatePolicyDoNotDestroy {
+			return fmt.Errorf(`mlservicescluster "%v/%v" immutable field can't be updated. To update, change spec.updatePolicy to Destroy`, r.Namespace, r.Name)
+		}
+	}
 	return nil
 }
 
