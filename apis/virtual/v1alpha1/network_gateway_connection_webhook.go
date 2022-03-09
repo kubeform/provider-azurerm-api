@@ -42,6 +42,7 @@ func (r *NetworkGatewayConnection) SetupWebhookWithManager(mgr ctrl.Manager) err
 var _ webhook.Validator = &NetworkGatewayConnection{}
 
 var networkgatewayconnectionForceNewList = map[string]bool{
+	"/connection_mode":                 true,
 	"/connection_protocol":             true,
 	"/dpd_timeout_seconds":             true,
 	"/express_route_circuit_id":        true,
@@ -97,7 +98,7 @@ func (r *NetworkGatewayConnection) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range networkgatewayconnectionForceNewList {
+	for key, _ := range networkgatewayconnectionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

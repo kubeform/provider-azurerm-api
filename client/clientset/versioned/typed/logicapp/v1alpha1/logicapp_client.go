@@ -30,6 +30,15 @@ type LogicappV1alpha1Interface interface {
 	ActionCustomsGetter
 	ActionHTTPsGetter
 	IntegrationAccountsGetter
+	IntegrationAccountAgreementsGetter
+	IntegrationAccountAssembliesGetter
+	IntegrationAccountBatchConfigurationsGetter
+	IntegrationAccountCertificatesGetter
+	IntegrationAccountMapsGetter
+	IntegrationAccountPartnersGetter
+	IntegrationAccountSchemasGetter
+	IntegrationAccountSessionsGetter
+	StandardsGetter
 	TriggerCustomsGetter
 	TriggerHTTPRequestsGetter
 	TriggerRecurrencesGetter
@@ -51,6 +60,42 @@ func (c *LogicappV1alpha1Client) ActionHTTPs(namespace string) ActionHTTPInterfa
 
 func (c *LogicappV1alpha1Client) IntegrationAccounts(namespace string) IntegrationAccountInterface {
 	return newIntegrationAccounts(c, namespace)
+}
+
+func (c *LogicappV1alpha1Client) IntegrationAccountAgreements(namespace string) IntegrationAccountAgreementInterface {
+	return newIntegrationAccountAgreements(c, namespace)
+}
+
+func (c *LogicappV1alpha1Client) IntegrationAccountAssemblies(namespace string) IntegrationAccountAssemblyInterface {
+	return newIntegrationAccountAssemblies(c, namespace)
+}
+
+func (c *LogicappV1alpha1Client) IntegrationAccountBatchConfigurations(namespace string) IntegrationAccountBatchConfigurationInterface {
+	return newIntegrationAccountBatchConfigurations(c, namespace)
+}
+
+func (c *LogicappV1alpha1Client) IntegrationAccountCertificates(namespace string) IntegrationAccountCertificateInterface {
+	return newIntegrationAccountCertificates(c, namespace)
+}
+
+func (c *LogicappV1alpha1Client) IntegrationAccountMaps(namespace string) IntegrationAccountMapInterface {
+	return newIntegrationAccountMaps(c, namespace)
+}
+
+func (c *LogicappV1alpha1Client) IntegrationAccountPartners(namespace string) IntegrationAccountPartnerInterface {
+	return newIntegrationAccountPartners(c, namespace)
+}
+
+func (c *LogicappV1alpha1Client) IntegrationAccountSchemas(namespace string) IntegrationAccountSchemaInterface {
+	return newIntegrationAccountSchemas(c, namespace)
+}
+
+func (c *LogicappV1alpha1Client) IntegrationAccountSessions(namespace string) IntegrationAccountSessionInterface {
+	return newIntegrationAccountSessions(c, namespace)
+}
+
+func (c *LogicappV1alpha1Client) Standards(namespace string) StandardInterface {
+	return newStandards(c, namespace)
 }
 
 func (c *LogicappV1alpha1Client) TriggerCustoms(namespace string) TriggerCustomInterface {

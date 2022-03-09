@@ -76,6 +76,13 @@ spec:
                     - remoteVolumeResourceID
                     - replicationFrequency
                     type: object
+                  dataProtectionSnapshotPolicy:
+                    properties:
+                      snapshotPolicyID:
+                        type: string
+                    required:
+                    - snapshotPolicyID
+                    type: object
                   exportPolicyRule:
                     items:
                       properties:
@@ -134,6 +141,8 @@ spec:
                     type: string
                   serviceLevel:
                     type: string
+                  snapshotDirectoryVisible:
+                    type: boolean
                   storageQuotaInGb:
                     format: int64
                     type: integer
@@ -143,6 +152,9 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
+                  throughputInMibps:
+                    format: double
+                    type: number
                   timeouts:
                     properties:
                       create:
@@ -215,6 +227,13 @@ spec:
                     - remoteVolumeResourceID
                     - replicationFrequency
                     type: object
+                  dataProtectionSnapshotPolicy:
+                    properties:
+                      snapshotPolicyID:
+                        type: string
+                    required:
+                    - snapshotPolicyID
+                    type: object
                   exportPolicyRule:
                     items:
                       properties:
@@ -273,6 +292,8 @@ spec:
                     type: string
                   serviceLevel:
                     type: string
+                  snapshotDirectoryVisible:
+                    type: boolean
                   storageQuotaInGb:
                     format: int64
                     type: integer
@@ -282,6 +303,9 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
+                  throughputInMibps:
+                    format: double
+                    type: number
                   timeouts:
                     properties:
                       create:

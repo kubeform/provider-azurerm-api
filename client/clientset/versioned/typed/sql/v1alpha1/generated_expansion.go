@@ -28,6 +28,14 @@ type FailoverGroupExpansion interface{}
 
 type FirewallRuleExpansion interface{}
 
+type ManagedDatabaseExpansion interface{}
+
+type ManagedInstanceExpansion interface{}
+
+type ManagedInstanceActiveDirectoryAdministratorExpansion interface{}
+
+type ManagedInstanceFailoverGroupExpansion interface{}
+
 type ServerExpansion interface{}
 
 type VirtualNetworkRuleExpansion interface{}

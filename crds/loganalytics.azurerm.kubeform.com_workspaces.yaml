@@ -73,7 +73,11 @@ spec:
                   portalURL:
                     description: Deprecated
                     type: string
+                  reservationCapacityInGbPerDay:
+                    format: int64
+                    type: integer
                   reservationCapcityInGbPerDay:
+                    description: Deprecated
                     format: int64
                     type: integer
                   resourceGroupName:
@@ -159,7 +163,11 @@ spec:
                   portalURL:
                     description: Deprecated
                     type: string
+                  reservationCapacityInGbPerDay:
+                    format: int64
+                    type: integer
                   reservationCapcityInGbPerDay:
+                    description: Deprecated
                     format: int64
                     type: integer
                   resourceGroupName:

@@ -42,7 +42,9 @@ type Interface struct {
 }
 
 type InterfaceSpecIpConfiguration struct {
-	Name *string `json:"name" tf:"name"`
+	// +optional
+	GatewayLoadBalancerFrontendIPConfigurationID *string `json:"gatewayLoadBalancerFrontendIPConfigurationID,omitempty" tf:"gateway_load_balancer_frontend_ip_configuration_id"`
+	Name                                         *string `json:"name" tf:"name"`
 	// +optional
 	Primary *bool `json:"primary,omitempty" tf:"primary"`
 	// +optional

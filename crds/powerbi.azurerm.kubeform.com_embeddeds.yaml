@@ -65,6 +65,8 @@ spec:
                     type: string
                   location:
                     type: string
+                  mode:
+                    type: string
                   name:
                     type: string
                   resourceGroupName:
@@ -129,6 +131,8 @@ spec:
                   id:
                     type: string
                   location:
+                    type: string
+                  mode:
                     type: string
                   name:
                     type: string

@@ -60,7 +60,9 @@ type TriggerHTTPRequestSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	LogicAppID *string `json:"logicAppID" tf:"logic_app_id"`
+	// +optional
+	CallbackURL *string `json:"callbackURL,omitempty" tf:"callback_url"`
+	LogicAppID  *string `json:"logicAppID" tf:"logic_app_id"`
 	// +optional
 	Method *string `json:"method,omitempty" tf:"method"`
 	Name   *string `json:"name" tf:"name"`

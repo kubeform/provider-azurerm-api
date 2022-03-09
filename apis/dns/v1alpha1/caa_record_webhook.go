@@ -89,7 +89,7 @@ func (r *CaaRecord) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range caarecordForceNewList {
+	for key, _ := range caarecordForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

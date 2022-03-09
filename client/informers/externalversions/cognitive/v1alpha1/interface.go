@@ -26,6 +26,8 @@ import (
 type Interface interface {
 	// Accounts returns a AccountInformer.
 	Accounts() AccountInformer
+	// AccountCustomerManagedKeys returns a AccountCustomerManagedKeyInformer.
+	AccountCustomerManagedKeys() AccountCustomerManagedKeyInformer
 }
 
 type version struct {
@@ -42,4 +44,9 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // Accounts returns a AccountInformer.
 func (v *version) Accounts() AccountInformer {
 	return &accountInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// AccountCustomerManagedKeys returns a AccountCustomerManagedKeyInformer.
+func (v *version) AccountCustomerManagedKeys() AccountCustomerManagedKeyInformer {
+	return &accountCustomerManagedKeyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

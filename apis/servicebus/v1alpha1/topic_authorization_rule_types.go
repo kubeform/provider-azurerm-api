@@ -65,21 +65,33 @@ type TopicAuthorizationRuleSpecResource struct {
 	// +optional
 	Listen *bool `json:"listen,omitempty" tf:"listen"`
 	// +optional
-	Manage        *bool   `json:"manage,omitempty" tf:"manage"`
-	Name          *string `json:"name" tf:"name"`
-	NamespaceName *string `json:"namespaceName" tf:"namespace_name"`
+	Manage *bool   `json:"manage,omitempty" tf:"manage"`
+	Name   *string `json:"name" tf:"name"`
+	// +optional
+	// Deprecated
+	NamespaceName *string `json:"namespaceName,omitempty" tf:"namespace_name"`
 	// +optional
 	PrimaryConnectionString *string `json:"-" sensitive:"true" tf:"primary_connection_string"`
 	// +optional
-	PrimaryKey        *string `json:"-" sensitive:"true" tf:"primary_key"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	PrimaryConnectionStringAlias *string `json:"-" sensitive:"true" tf:"primary_connection_string_alias"`
+	// +optional
+	PrimaryKey *string `json:"-" sensitive:"true" tf:"primary_key"`
+	// +optional
+	// Deprecated
+	ResourceGroupName *string `json:"resourceGroupName,omitempty" tf:"resource_group_name"`
 	// +optional
 	SecondaryConnectionString *string `json:"-" sensitive:"true" tf:"secondary_connection_string"`
 	// +optional
+	SecondaryConnectionStringAlias *string `json:"-" sensitive:"true" tf:"secondary_connection_string_alias"`
+	// +optional
 	SecondaryKey *string `json:"-" sensitive:"true" tf:"secondary_key"`
 	// +optional
-	Send      *bool   `json:"send,omitempty" tf:"send"`
-	TopicName *string `json:"topicName" tf:"topic_name"`
+	Send *bool `json:"send,omitempty" tf:"send"`
+	// +optional
+	TopicID *string `json:"topicID,omitempty" tf:"topic_id"`
+	// +optional
+	// Deprecated
+	TopicName *string `json:"topicName,omitempty" tf:"topic_name"`
 }
 
 type TopicAuthorizationRuleStatus struct {

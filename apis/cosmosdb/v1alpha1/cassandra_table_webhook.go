@@ -90,7 +90,7 @@ func (r *CassandraTable) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range cassandratableForceNewList {
+	for key, _ := range cassandratableForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

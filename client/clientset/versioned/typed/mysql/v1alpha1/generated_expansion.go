@@ -26,6 +26,14 @@ type DatabaseExpansion interface{}
 
 type FirewallRuleExpansion interface{}
 
+type FlexibleDatabaseExpansion interface{}
+
+type FlexibleServerExpansion interface{}
+
+type FlexibleServerConfigurationExpansion interface{}
+
+type FlexibleServerFirewallRuleExpansion interface{}
+
 type ServerExpansion interface{}
 
 type ServerKeyExpansion interface{}

@@ -42,6 +42,7 @@ func (r *FactoryLinkedServiceAzureDatabricks) SetupWebhookWithManager(mgr ctrl.M
 var _ webhook.Validator = &FactoryLinkedServiceAzureDatabricks{}
 
 var factorylinkedserviceazuredatabricksForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *FactoryLinkedServiceAzureDatabricks) ValidateUpdate(old runtime.Object)
 		return err
 	}
 
-	for key := range factorylinkedserviceazuredatabricksForceNewList {
+	for key, _ := range factorylinkedserviceazuredatabricksForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

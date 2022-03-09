@@ -66,10 +66,15 @@ spec:
                   name:
                     type: string
                   namespaceName:
+                    description: Deprecated
+                    type: string
+                  queueID:
                     type: string
                   queueName:
+                    description: Deprecated
                     type: string
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   send:
                     type: boolean
@@ -113,9 +118,6 @@ spec:
                     type: object
                 required:
                 - name
-                - namespaceName
-                - queueName
-                - resourceGroupName
                 type: object
               secretRef:
                 description: LocalObjectReference contains enough information to let
@@ -137,10 +139,15 @@ spec:
                   name:
                     type: string
                   namespaceName:
+                    description: Deprecated
+                    type: string
+                  queueID:
                     type: string
                   queueName:
+                    description: Deprecated
                     type: string
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   send:
                     type: boolean
@@ -184,9 +191,6 @@ spec:
                     type: object
                 required:
                 - name
-                - namespaceName
-                - queueName
-                - resourceGroupName
                 type: object
               terminationPolicy:
                 enum:

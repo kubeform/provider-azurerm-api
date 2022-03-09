@@ -51,6 +51,8 @@ type RegistrySpecEncryption struct {
 type RegistrySpecGeoreplications struct {
 	Location *string `json:"location" tf:"location"`
 	// +optional
+	RegionalEndpointEnabled *bool `json:"regionalEndpointEnabled,omitempty" tf:"regional_endpoint_enabled"`
+	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 	// +optional
 	ZoneRedundancyEnabled *bool `json:"zoneRedundancyEnabled,omitempty" tf:"zone_redundancy_enabled"`
@@ -58,11 +60,12 @@ type RegistrySpecGeoreplications struct {
 
 type RegistrySpecIdentity struct {
 	// +optional
-	// +kubebuilder:validation:MinItems=1
 	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
 	// +optional
 	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
-	Type        *string `json:"type" tf:"type"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
 }
 
 type RegistrySpecNetworkRuleSetIpRule struct {
@@ -124,6 +127,10 @@ type RegistrySpecResource struct {
 	// +optional
 	AdminUsername *string `json:"adminUsername,omitempty" tf:"admin_username"`
 	// +optional
+	AnonymousPullEnabled *bool `json:"anonymousPullEnabled,omitempty" tf:"anonymous_pull_enabled"`
+	// +optional
+	DataEndpointEnabled *bool `json:"dataEndpointEnabled,omitempty" tf:"data_endpoint_enabled"`
+	// +optional
 	Encryption *RegistrySpecEncryption `json:"encryption,omitempty" tf:"encryption"`
 	// +optional
 	// Deprecated
@@ -137,6 +144,8 @@ type RegistrySpecResource struct {
 	LoginServer *string `json:"loginServer,omitempty" tf:"login_server"`
 	Name        *string `json:"name" tf:"name"`
 	// +optional
+	NetworkRuleBypassOption *string `json:"networkRuleBypassOption,omitempty" tf:"network_rule_bypass_option"`
+	// +optional
 	NetworkRuleSet *RegistrySpecNetworkRuleSet `json:"networkRuleSet,omitempty" tf:"network_rule_set"`
 	// +optional
 	PublicNetworkAccessEnabled *bool `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
@@ -148,6 +157,7 @@ type RegistrySpecResource struct {
 	// +optional
 	Sku *string `json:"sku,omitempty" tf:"sku"`
 	// +optional
+	// Deprecated
 	StorageAccountID *string `json:"storageAccountID,omitempty" tf:"storage_account_id"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`

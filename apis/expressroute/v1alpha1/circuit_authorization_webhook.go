@@ -90,7 +90,7 @@ func (r *CircuitAuthorization) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range circuitauthorizationForceNewList {
+	for key, _ := range circuitauthorizationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

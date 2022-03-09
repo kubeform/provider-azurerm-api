@@ -80,14 +80,16 @@ spec:
                     properties:
                       container:
                         type: string
+                      dynamicFilenameEnabled:
+                        type: boolean
+                      dynamicPathEnabled:
+                        type: boolean
                       filename:
                         type: string
                       path:
                         type: string
                     required:
                     - container
-                    - filename
-                    - path
                     type: object
                   columnDelimiter:
                     type: string
@@ -95,7 +97,10 @@ spec:
                     type: string
                   compressionLevel:
                     type: string
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -109,6 +114,10 @@ spec:
                     type: string
                   httpServerLocation:
                     properties:
+                      dynamicFilenameEnabled:
+                        type: boolean
+                      dynamicPathEnabled:
+                        type: boolean
                       filename:
                         type: string
                       path:
@@ -190,7 +199,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - dataFactoryName
                 - linkedServiceName
                 - name
                 - resourceGroupName
@@ -220,14 +228,16 @@ spec:
                     properties:
                       container:
                         type: string
+                      dynamicFilenameEnabled:
+                        type: boolean
+                      dynamicPathEnabled:
+                        type: boolean
                       filename:
                         type: string
                       path:
                         type: string
                     required:
                     - container
-                    - filename
-                    - path
                     type: object
                   columnDelimiter:
                     type: string
@@ -235,7 +245,10 @@ spec:
                     type: string
                   compressionLevel:
                     type: string
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -249,6 +262,10 @@ spec:
                     type: string
                   httpServerLocation:
                     properties:
+                      dynamicFilenameEnabled:
+                        type: boolean
+                      dynamicPathEnabled:
+                        type: boolean
                       filename:
                         type: string
                       path:
@@ -330,7 +347,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - dataFactoryName
                 - linkedServiceName
                 - name
                 - resourceGroupName

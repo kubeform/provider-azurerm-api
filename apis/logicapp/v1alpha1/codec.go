@@ -27,13 +27,45 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(TriggerRecurrenceSpecSchedule{}).Type1()): TriggerRecurrenceSpecScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountAgreementSpecGuestIdentity{}).Type1()):                              IntegrationAccountAgreementSpecGuestIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountAgreementSpecHostIdentity{}).Type1()):                               IntegrationAccountAgreementSpecHostIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteria{}).Type1()):                   IntegrationAccountBatchConfigurationSpecReleaseCriteriaCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence{}).Type1()):         IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule{}).Type1()): IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountCertificateSpecKeyVaultKey{}).Type1()):                              IntegrationAccountCertificateSpecKeyVaultKeyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecIdentity{}).Type1()):                                                      StandardSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfig{}).Type1()):                                                    StandardSpecSiteConfigCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfigCors{}).Type1()):                                                StandardSpecSiteConfigCorsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfigIpRestrictionHeaders{}).Type1()):                                StandardSpecSiteConfigIpRestrictionHeadersCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(TriggerRecurrenceSpecSchedule{}).Type1()):                                             TriggerRecurrenceSpecScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControl{}).Type1()):                                                 WorkflowSpecAccessControlCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlAction{}).Type1()):                                           WorkflowSpecAccessControlActionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlContent{}).Type1()):                                          WorkflowSpecAccessControlContentCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlTrigger{}).Type1()):                                          WorkflowSpecAccessControlTriggerCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlWorkflowManagement{}).Type1()):                               WorkflowSpecAccessControlWorkflowManagementCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecIdentity{}).Type1()):                                                      WorkflowSpecIdentityCodec{},
 	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(TriggerRecurrenceSpecSchedule{}).Type1()): TriggerRecurrenceSpecScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountAgreementSpecGuestIdentity{}).Type1()):                              IntegrationAccountAgreementSpecGuestIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountAgreementSpecHostIdentity{}).Type1()):                               IntegrationAccountAgreementSpecHostIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteria{}).Type1()):                   IntegrationAccountBatchConfigurationSpecReleaseCriteriaCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence{}).Type1()):         IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule{}).Type1()): IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountCertificateSpecKeyVaultKey{}).Type1()):                              IntegrationAccountCertificateSpecKeyVaultKeyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecIdentity{}).Type1()):                                                      StandardSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfig{}).Type1()):                                                    StandardSpecSiteConfigCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfigCors{}).Type1()):                                                StandardSpecSiteConfigCorsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfigIpRestrictionHeaders{}).Type1()):                                StandardSpecSiteConfigIpRestrictionHeadersCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(TriggerRecurrenceSpecSchedule{}).Type1()):                                             TriggerRecurrenceSpecScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControl{}).Type1()):                                                 WorkflowSpecAccessControlCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlAction{}).Type1()):                                           WorkflowSpecAccessControlActionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlContent{}).Type1()):                                          WorkflowSpecAccessControlContentCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlTrigger{}).Type1()):                                          WorkflowSpecAccessControlTriggerCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlWorkflowManagement{}).Type1()):                               WorkflowSpecAccessControlWorkflowManagementCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecIdentity{}).Type1()):                                                      WorkflowSpecIdentityCodec{},
 	}
 }
 
@@ -47,6 +79,796 @@ func getDecodersWithout(typ string) map[string]jsoniter.ValDecoder {
 	origMap := GetDecoder()
 	delete(origMap, typ)
 	return origMap
+}
+
+// +k8s:deepcopy-gen=false
+type IntegrationAccountAgreementSpecGuestIdentityCodec struct {
+}
+
+func (IntegrationAccountAgreementSpecGuestIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*IntegrationAccountAgreementSpecGuestIdentity)(ptr) == nil
+}
+
+func (IntegrationAccountAgreementSpecGuestIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*IntegrationAccountAgreementSpecGuestIdentity)(ptr)
+	var objs []IntegrationAccountAgreementSpecGuestIdentity
+	if obj != nil {
+		objs = []IntegrationAccountAgreementSpecGuestIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountAgreementSpecGuestIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (IntegrationAccountAgreementSpecGuestIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*IntegrationAccountAgreementSpecGuestIdentity)(ptr) = IntegrationAccountAgreementSpecGuestIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []IntegrationAccountAgreementSpecGuestIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountAgreementSpecGuestIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*IntegrationAccountAgreementSpecGuestIdentity)(ptr) = objs[0]
+			} else {
+				*(*IntegrationAccountAgreementSpecGuestIdentity)(ptr) = IntegrationAccountAgreementSpecGuestIdentity{}
+			}
+		} else {
+			*(*IntegrationAccountAgreementSpecGuestIdentity)(ptr) = IntegrationAccountAgreementSpecGuestIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj IntegrationAccountAgreementSpecGuestIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountAgreementSpecGuestIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*IntegrationAccountAgreementSpecGuestIdentity)(ptr) = obj
+		} else {
+			*(*IntegrationAccountAgreementSpecGuestIdentity)(ptr) = IntegrationAccountAgreementSpecGuestIdentity{}
+		}
+	default:
+		iter.ReportError("decode IntegrationAccountAgreementSpecGuestIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type IntegrationAccountAgreementSpecHostIdentityCodec struct {
+}
+
+func (IntegrationAccountAgreementSpecHostIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*IntegrationAccountAgreementSpecHostIdentity)(ptr) == nil
+}
+
+func (IntegrationAccountAgreementSpecHostIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*IntegrationAccountAgreementSpecHostIdentity)(ptr)
+	var objs []IntegrationAccountAgreementSpecHostIdentity
+	if obj != nil {
+		objs = []IntegrationAccountAgreementSpecHostIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountAgreementSpecHostIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (IntegrationAccountAgreementSpecHostIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*IntegrationAccountAgreementSpecHostIdentity)(ptr) = IntegrationAccountAgreementSpecHostIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []IntegrationAccountAgreementSpecHostIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountAgreementSpecHostIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*IntegrationAccountAgreementSpecHostIdentity)(ptr) = objs[0]
+			} else {
+				*(*IntegrationAccountAgreementSpecHostIdentity)(ptr) = IntegrationAccountAgreementSpecHostIdentity{}
+			}
+		} else {
+			*(*IntegrationAccountAgreementSpecHostIdentity)(ptr) = IntegrationAccountAgreementSpecHostIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj IntegrationAccountAgreementSpecHostIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountAgreementSpecHostIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*IntegrationAccountAgreementSpecHostIdentity)(ptr) = obj
+		} else {
+			*(*IntegrationAccountAgreementSpecHostIdentity)(ptr) = IntegrationAccountAgreementSpecHostIdentity{}
+		}
+	default:
+		iter.ReportError("decode IntegrationAccountAgreementSpecHostIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type IntegrationAccountBatchConfigurationSpecReleaseCriteriaCodec struct {
+}
+
+func (IntegrationAccountBatchConfigurationSpecReleaseCriteriaCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*IntegrationAccountBatchConfigurationSpecReleaseCriteria)(ptr) == nil
+}
+
+func (IntegrationAccountBatchConfigurationSpecReleaseCriteriaCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*IntegrationAccountBatchConfigurationSpecReleaseCriteria)(ptr)
+	var objs []IntegrationAccountBatchConfigurationSpecReleaseCriteria
+	if obj != nil {
+		objs = []IntegrationAccountBatchConfigurationSpecReleaseCriteria{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteria{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (IntegrationAccountBatchConfigurationSpecReleaseCriteriaCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*IntegrationAccountBatchConfigurationSpecReleaseCriteria)(ptr) = IntegrationAccountBatchConfigurationSpecReleaseCriteria{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []IntegrationAccountBatchConfigurationSpecReleaseCriteria
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteria{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*IntegrationAccountBatchConfigurationSpecReleaseCriteria)(ptr) = objs[0]
+			} else {
+				*(*IntegrationAccountBatchConfigurationSpecReleaseCriteria)(ptr) = IntegrationAccountBatchConfigurationSpecReleaseCriteria{}
+			}
+		} else {
+			*(*IntegrationAccountBatchConfigurationSpecReleaseCriteria)(ptr) = IntegrationAccountBatchConfigurationSpecReleaseCriteria{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj IntegrationAccountBatchConfigurationSpecReleaseCriteria
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteria{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*IntegrationAccountBatchConfigurationSpecReleaseCriteria)(ptr) = obj
+		} else {
+			*(*IntegrationAccountBatchConfigurationSpecReleaseCriteria)(ptr) = IntegrationAccountBatchConfigurationSpecReleaseCriteria{}
+		}
+	default:
+		iter.ReportError("decode IntegrationAccountBatchConfigurationSpecReleaseCriteria", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceCodec struct {
+}
+
+func (IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence)(ptr) == nil
+}
+
+func (IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence)(ptr)
+	var objs []IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence
+	if obj != nil {
+		objs = []IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence)(ptr) = IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence)(ptr) = objs[0]
+			} else {
+				*(*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence)(ptr) = IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence{}
+			}
+		} else {
+			*(*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence)(ptr) = IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence)(ptr) = obj
+		} else {
+			*(*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence)(ptr) = IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence{}
+		}
+	default:
+		iter.ReportError("decode IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrence", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceScheduleCodec struct {
+}
+
+func (IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceScheduleCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule)(ptr) == nil
+}
+
+func (IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceScheduleCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule)(ptr)
+	var objs []IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule
+	if obj != nil {
+		objs = []IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceScheduleCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule)(ptr) = IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule)(ptr) = objs[0]
+			} else {
+				*(*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule)(ptr) = IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule{}
+			}
+		} else {
+			*(*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule)(ptr) = IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule)(ptr) = obj
+		} else {
+			*(*IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule)(ptr) = IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule{}
+		}
+	default:
+		iter.ReportError("decode IntegrationAccountBatchConfigurationSpecReleaseCriteriaRecurrenceSchedule", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type IntegrationAccountCertificateSpecKeyVaultKeyCodec struct {
+}
+
+func (IntegrationAccountCertificateSpecKeyVaultKeyCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*IntegrationAccountCertificateSpecKeyVaultKey)(ptr) == nil
+}
+
+func (IntegrationAccountCertificateSpecKeyVaultKeyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*IntegrationAccountCertificateSpecKeyVaultKey)(ptr)
+	var objs []IntegrationAccountCertificateSpecKeyVaultKey
+	if obj != nil {
+		objs = []IntegrationAccountCertificateSpecKeyVaultKey{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountCertificateSpecKeyVaultKey{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (IntegrationAccountCertificateSpecKeyVaultKeyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*IntegrationAccountCertificateSpecKeyVaultKey)(ptr) = IntegrationAccountCertificateSpecKeyVaultKey{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []IntegrationAccountCertificateSpecKeyVaultKey
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountCertificateSpecKeyVaultKey{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*IntegrationAccountCertificateSpecKeyVaultKey)(ptr) = objs[0]
+			} else {
+				*(*IntegrationAccountCertificateSpecKeyVaultKey)(ptr) = IntegrationAccountCertificateSpecKeyVaultKey{}
+			}
+		} else {
+			*(*IntegrationAccountCertificateSpecKeyVaultKey)(ptr) = IntegrationAccountCertificateSpecKeyVaultKey{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj IntegrationAccountCertificateSpecKeyVaultKey
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IntegrationAccountCertificateSpecKeyVaultKey{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*IntegrationAccountCertificateSpecKeyVaultKey)(ptr) = obj
+		} else {
+			*(*IntegrationAccountCertificateSpecKeyVaultKey)(ptr) = IntegrationAccountCertificateSpecKeyVaultKey{}
+		}
+	default:
+		iter.ReportError("decode IntegrationAccountCertificateSpecKeyVaultKey", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type StandardSpecIdentityCodec struct {
+}
+
+func (StandardSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*StandardSpecIdentity)(ptr) == nil
+}
+
+func (StandardSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*StandardSpecIdentity)(ptr)
+	var objs []StandardSpecIdentity
+	if obj != nil {
+		objs = []StandardSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (StandardSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*StandardSpecIdentity)(ptr) = StandardSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []StandardSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*StandardSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*StandardSpecIdentity)(ptr) = StandardSpecIdentity{}
+			}
+		} else {
+			*(*StandardSpecIdentity)(ptr) = StandardSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj StandardSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*StandardSpecIdentity)(ptr) = obj
+		} else {
+			*(*StandardSpecIdentity)(ptr) = StandardSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode StandardSpecIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type StandardSpecSiteConfigCodec struct {
+}
+
+func (StandardSpecSiteConfigCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*StandardSpecSiteConfig)(ptr) == nil
+}
+
+func (StandardSpecSiteConfigCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*StandardSpecSiteConfig)(ptr)
+	var objs []StandardSpecSiteConfig
+	if obj != nil {
+		objs = []StandardSpecSiteConfig{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfig{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (StandardSpecSiteConfigCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*StandardSpecSiteConfig)(ptr) = StandardSpecSiteConfig{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []StandardSpecSiteConfig
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfig{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*StandardSpecSiteConfig)(ptr) = objs[0]
+			} else {
+				*(*StandardSpecSiteConfig)(ptr) = StandardSpecSiteConfig{}
+			}
+		} else {
+			*(*StandardSpecSiteConfig)(ptr) = StandardSpecSiteConfig{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj StandardSpecSiteConfig
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfig{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*StandardSpecSiteConfig)(ptr) = obj
+		} else {
+			*(*StandardSpecSiteConfig)(ptr) = StandardSpecSiteConfig{}
+		}
+	default:
+		iter.ReportError("decode StandardSpecSiteConfig", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type StandardSpecSiteConfigCorsCodec struct {
+}
+
+func (StandardSpecSiteConfigCorsCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*StandardSpecSiteConfigCors)(ptr) == nil
+}
+
+func (StandardSpecSiteConfigCorsCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*StandardSpecSiteConfigCors)(ptr)
+	var objs []StandardSpecSiteConfigCors
+	if obj != nil {
+		objs = []StandardSpecSiteConfigCors{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfigCors{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (StandardSpecSiteConfigCorsCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*StandardSpecSiteConfigCors)(ptr) = StandardSpecSiteConfigCors{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []StandardSpecSiteConfigCors
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfigCors{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*StandardSpecSiteConfigCors)(ptr) = objs[0]
+			} else {
+				*(*StandardSpecSiteConfigCors)(ptr) = StandardSpecSiteConfigCors{}
+			}
+		} else {
+			*(*StandardSpecSiteConfigCors)(ptr) = StandardSpecSiteConfigCors{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj StandardSpecSiteConfigCors
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfigCors{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*StandardSpecSiteConfigCors)(ptr) = obj
+		} else {
+			*(*StandardSpecSiteConfigCors)(ptr) = StandardSpecSiteConfigCors{}
+		}
+	default:
+		iter.ReportError("decode StandardSpecSiteConfigCors", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type StandardSpecSiteConfigIpRestrictionHeadersCodec struct {
+}
+
+func (StandardSpecSiteConfigIpRestrictionHeadersCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*StandardSpecSiteConfigIpRestrictionHeaders)(ptr) == nil
+}
+
+func (StandardSpecSiteConfigIpRestrictionHeadersCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*StandardSpecSiteConfigIpRestrictionHeaders)(ptr)
+	var objs []StandardSpecSiteConfigIpRestrictionHeaders
+	if obj != nil {
+		objs = []StandardSpecSiteConfigIpRestrictionHeaders{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfigIpRestrictionHeaders{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (StandardSpecSiteConfigIpRestrictionHeadersCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*StandardSpecSiteConfigIpRestrictionHeaders)(ptr) = StandardSpecSiteConfigIpRestrictionHeaders{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []StandardSpecSiteConfigIpRestrictionHeaders
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfigIpRestrictionHeaders{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*StandardSpecSiteConfigIpRestrictionHeaders)(ptr) = objs[0]
+			} else {
+				*(*StandardSpecSiteConfigIpRestrictionHeaders)(ptr) = StandardSpecSiteConfigIpRestrictionHeaders{}
+			}
+		} else {
+			*(*StandardSpecSiteConfigIpRestrictionHeaders)(ptr) = StandardSpecSiteConfigIpRestrictionHeaders{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj StandardSpecSiteConfigIpRestrictionHeaders
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(StandardSpecSiteConfigIpRestrictionHeaders{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*StandardSpecSiteConfigIpRestrictionHeaders)(ptr) = obj
+		} else {
+			*(*StandardSpecSiteConfigIpRestrictionHeaders)(ptr) = StandardSpecSiteConfigIpRestrictionHeaders{}
+		}
+	default:
+		iter.ReportError("decode StandardSpecSiteConfigIpRestrictionHeaders", "unexpected JSON type")
+	}
 }
 
 // +k8s:deepcopy-gen=false
@@ -125,5 +947,479 @@ func (TriggerRecurrenceSpecScheduleCodec) Decode(ptr unsafe.Pointer, iter *jsoni
 		}
 	default:
 		iter.ReportError("decode TriggerRecurrenceSpecSchedule", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type WorkflowSpecAccessControlCodec struct {
+}
+
+func (WorkflowSpecAccessControlCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*WorkflowSpecAccessControl)(ptr) == nil
+}
+
+func (WorkflowSpecAccessControlCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*WorkflowSpecAccessControl)(ptr)
+	var objs []WorkflowSpecAccessControl
+	if obj != nil {
+		objs = []WorkflowSpecAccessControl{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControl{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (WorkflowSpecAccessControlCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*WorkflowSpecAccessControl)(ptr) = WorkflowSpecAccessControl{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []WorkflowSpecAccessControl
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControl{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*WorkflowSpecAccessControl)(ptr) = objs[0]
+			} else {
+				*(*WorkflowSpecAccessControl)(ptr) = WorkflowSpecAccessControl{}
+			}
+		} else {
+			*(*WorkflowSpecAccessControl)(ptr) = WorkflowSpecAccessControl{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj WorkflowSpecAccessControl
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControl{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*WorkflowSpecAccessControl)(ptr) = obj
+		} else {
+			*(*WorkflowSpecAccessControl)(ptr) = WorkflowSpecAccessControl{}
+		}
+	default:
+		iter.ReportError("decode WorkflowSpecAccessControl", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type WorkflowSpecAccessControlActionCodec struct {
+}
+
+func (WorkflowSpecAccessControlActionCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*WorkflowSpecAccessControlAction)(ptr) == nil
+}
+
+func (WorkflowSpecAccessControlActionCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*WorkflowSpecAccessControlAction)(ptr)
+	var objs []WorkflowSpecAccessControlAction
+	if obj != nil {
+		objs = []WorkflowSpecAccessControlAction{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlAction{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (WorkflowSpecAccessControlActionCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*WorkflowSpecAccessControlAction)(ptr) = WorkflowSpecAccessControlAction{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []WorkflowSpecAccessControlAction
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlAction{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*WorkflowSpecAccessControlAction)(ptr) = objs[0]
+			} else {
+				*(*WorkflowSpecAccessControlAction)(ptr) = WorkflowSpecAccessControlAction{}
+			}
+		} else {
+			*(*WorkflowSpecAccessControlAction)(ptr) = WorkflowSpecAccessControlAction{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj WorkflowSpecAccessControlAction
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlAction{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*WorkflowSpecAccessControlAction)(ptr) = obj
+		} else {
+			*(*WorkflowSpecAccessControlAction)(ptr) = WorkflowSpecAccessControlAction{}
+		}
+	default:
+		iter.ReportError("decode WorkflowSpecAccessControlAction", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type WorkflowSpecAccessControlContentCodec struct {
+}
+
+func (WorkflowSpecAccessControlContentCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*WorkflowSpecAccessControlContent)(ptr) == nil
+}
+
+func (WorkflowSpecAccessControlContentCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*WorkflowSpecAccessControlContent)(ptr)
+	var objs []WorkflowSpecAccessControlContent
+	if obj != nil {
+		objs = []WorkflowSpecAccessControlContent{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlContent{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (WorkflowSpecAccessControlContentCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*WorkflowSpecAccessControlContent)(ptr) = WorkflowSpecAccessControlContent{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []WorkflowSpecAccessControlContent
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlContent{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*WorkflowSpecAccessControlContent)(ptr) = objs[0]
+			} else {
+				*(*WorkflowSpecAccessControlContent)(ptr) = WorkflowSpecAccessControlContent{}
+			}
+		} else {
+			*(*WorkflowSpecAccessControlContent)(ptr) = WorkflowSpecAccessControlContent{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj WorkflowSpecAccessControlContent
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlContent{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*WorkflowSpecAccessControlContent)(ptr) = obj
+		} else {
+			*(*WorkflowSpecAccessControlContent)(ptr) = WorkflowSpecAccessControlContent{}
+		}
+	default:
+		iter.ReportError("decode WorkflowSpecAccessControlContent", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type WorkflowSpecAccessControlTriggerCodec struct {
+}
+
+func (WorkflowSpecAccessControlTriggerCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*WorkflowSpecAccessControlTrigger)(ptr) == nil
+}
+
+func (WorkflowSpecAccessControlTriggerCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*WorkflowSpecAccessControlTrigger)(ptr)
+	var objs []WorkflowSpecAccessControlTrigger
+	if obj != nil {
+		objs = []WorkflowSpecAccessControlTrigger{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlTrigger{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (WorkflowSpecAccessControlTriggerCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*WorkflowSpecAccessControlTrigger)(ptr) = WorkflowSpecAccessControlTrigger{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []WorkflowSpecAccessControlTrigger
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlTrigger{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*WorkflowSpecAccessControlTrigger)(ptr) = objs[0]
+			} else {
+				*(*WorkflowSpecAccessControlTrigger)(ptr) = WorkflowSpecAccessControlTrigger{}
+			}
+		} else {
+			*(*WorkflowSpecAccessControlTrigger)(ptr) = WorkflowSpecAccessControlTrigger{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj WorkflowSpecAccessControlTrigger
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlTrigger{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*WorkflowSpecAccessControlTrigger)(ptr) = obj
+		} else {
+			*(*WorkflowSpecAccessControlTrigger)(ptr) = WorkflowSpecAccessControlTrigger{}
+		}
+	default:
+		iter.ReportError("decode WorkflowSpecAccessControlTrigger", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type WorkflowSpecAccessControlWorkflowManagementCodec struct {
+}
+
+func (WorkflowSpecAccessControlWorkflowManagementCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*WorkflowSpecAccessControlWorkflowManagement)(ptr) == nil
+}
+
+func (WorkflowSpecAccessControlWorkflowManagementCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*WorkflowSpecAccessControlWorkflowManagement)(ptr)
+	var objs []WorkflowSpecAccessControlWorkflowManagement
+	if obj != nil {
+		objs = []WorkflowSpecAccessControlWorkflowManagement{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlWorkflowManagement{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (WorkflowSpecAccessControlWorkflowManagementCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*WorkflowSpecAccessControlWorkflowManagement)(ptr) = WorkflowSpecAccessControlWorkflowManagement{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []WorkflowSpecAccessControlWorkflowManagement
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlWorkflowManagement{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*WorkflowSpecAccessControlWorkflowManagement)(ptr) = objs[0]
+			} else {
+				*(*WorkflowSpecAccessControlWorkflowManagement)(ptr) = WorkflowSpecAccessControlWorkflowManagement{}
+			}
+		} else {
+			*(*WorkflowSpecAccessControlWorkflowManagement)(ptr) = WorkflowSpecAccessControlWorkflowManagement{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj WorkflowSpecAccessControlWorkflowManagement
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecAccessControlWorkflowManagement{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*WorkflowSpecAccessControlWorkflowManagement)(ptr) = obj
+		} else {
+			*(*WorkflowSpecAccessControlWorkflowManagement)(ptr) = WorkflowSpecAccessControlWorkflowManagement{}
+		}
+	default:
+		iter.ReportError("decode WorkflowSpecAccessControlWorkflowManagement", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type WorkflowSpecIdentityCodec struct {
+}
+
+func (WorkflowSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*WorkflowSpecIdentity)(ptr) == nil
+}
+
+func (WorkflowSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*WorkflowSpecIdentity)(ptr)
+	var objs []WorkflowSpecIdentity
+	if obj != nil {
+		objs = []WorkflowSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (WorkflowSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*WorkflowSpecIdentity)(ptr) = WorkflowSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []WorkflowSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*WorkflowSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*WorkflowSpecIdentity)(ptr) = WorkflowSpecIdentity{}
+			}
+		} else {
+			*(*WorkflowSpecIdentity)(ptr) = WorkflowSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj WorkflowSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkflowSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*WorkflowSpecIdentity)(ptr) = obj
+		} else {
+			*(*WorkflowSpecIdentity)(ptr) = WorkflowSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode WorkflowSpecIdentity", "unexpected JSON type")
 	}
 }

@@ -42,6 +42,7 @@ func (r *FactoryDatasetMysql) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &FactoryDatasetMysql{}
 
 var factorydatasetmysqlForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *FactoryDatasetMysql) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range factorydatasetmysqlForceNewList {
+	for key, _ := range factorydatasetmysqlForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

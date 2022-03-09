@@ -90,7 +90,7 @@ func (r *VariableBool) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range variableboolForceNewList {
+	for key, _ := range variableboolForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

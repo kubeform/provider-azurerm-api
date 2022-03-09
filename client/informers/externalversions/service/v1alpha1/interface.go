@@ -26,6 +26,8 @@ import (
 type Interface interface {
 	// FabricClusters returns a FabricClusterInformer.
 	FabricClusters() FabricClusterInformer
+	// FabricManagedClusters returns a FabricManagedClusterInformer.
+	FabricManagedClusters() FabricManagedClusterInformer
 	// FabricMeshApplications returns a FabricMeshApplicationInformer.
 	FabricMeshApplications() FabricMeshApplicationInformer
 	// FabricMeshLocalNetworks returns a FabricMeshLocalNetworkInformer.
@@ -50,6 +52,11 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // FabricClusters returns a FabricClusterInformer.
 func (v *version) FabricClusters() FabricClusterInformer {
 	return &fabricClusterInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// FabricManagedClusters returns a FabricManagedClusterInformer.
+func (v *version) FabricManagedClusters() FabricManagedClusterInformer {
+	return &fabricManagedClusterInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // FabricMeshApplications returns a FabricMeshApplicationInformer.

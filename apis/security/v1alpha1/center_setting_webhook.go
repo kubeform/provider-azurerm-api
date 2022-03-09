@@ -86,7 +86,7 @@ func (r *CenterSetting) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range centersettingForceNewList {
+	for key, _ := range centersettingForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

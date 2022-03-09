@@ -65,7 +65,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -73,6 +76,16 @@ spec:
                     type: string
                   integrationRuntimeName:
                     type: string
+                  keyVaultKey:
+                    properties:
+                      linkedServiceName:
+                        type: string
+                      secretName:
+                        type: string
+                    required:
+                    - linkedServiceName
+                    - secretName
+                    type: object
                   name:
                     type: string
                   parameters:
@@ -122,7 +135,6 @@ spec:
                   url:
                     type: string
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 - url
@@ -146,7 +158,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -154,6 +169,16 @@ spec:
                     type: string
                   integrationRuntimeName:
                     type: string
+                  keyVaultKey:
+                    properties:
+                      linkedServiceName:
+                        type: string
+                      secretName:
+                        type: string
+                    required:
+                    - linkedServiceName
+                    - secretName
+                    type: object
                   name:
                     type: string
                   parameters:
@@ -203,7 +228,6 @@ spec:
                   url:
                     type: string
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 - url

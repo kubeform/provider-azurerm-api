@@ -42,6 +42,7 @@ func (r *FactoryDatasetCosmosdbSqlapi) SetupWebhookWithManager(mgr ctrl.Manager)
 var _ webhook.Validator = &FactoryDatasetCosmosdbSqlapi{}
 
 var factorydatasetcosmosdbsqlapiForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *FactoryDatasetCosmosdbSqlapi) ValidateUpdate(old runtime.Object) error 
 		return err
 	}
 
-	for key := range factorydatasetcosmosdbsqlapiForceNewList {
+	for key, _ := range factorydatasetcosmosdbsqlapiForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

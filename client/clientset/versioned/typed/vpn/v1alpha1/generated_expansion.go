@@ -22,6 +22,8 @@ type GatewayExpansion interface{}
 
 type GatewayConnectionExpansion interface{}
 
+type GatewayNATRuleExpansion interface{}
+
 type ServerConfigurationExpansion interface{}
 
 type SiteExpansion interface{}

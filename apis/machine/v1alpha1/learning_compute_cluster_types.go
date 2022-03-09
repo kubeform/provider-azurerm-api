@@ -43,6 +43,8 @@ type LearningComputeCluster struct {
 
 type LearningComputeClusterSpecIdentity struct {
 	// +optional
+	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
+	// +optional
 	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
 	// +optional
 	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
@@ -53,6 +55,14 @@ type LearningComputeClusterSpecScaleSettings struct {
 	MaxNodeCount                    *int64  `json:"maxNodeCount" tf:"max_node_count"`
 	MinNodeCount                    *int64  `json:"minNodeCount" tf:"min_node_count"`
 	ScaleDownNodesAfterIdleDuration *string `json:"scaleDownNodesAfterIdleDuration" tf:"scale_down_nodes_after_idle_duration"`
+}
+
+type LearningComputeClusterSpecSsh struct {
+	// +optional
+	AdminPassword *string `json:"adminPassword,omitempty" tf:"admin_password"`
+	AdminUsername *string `json:"adminUsername" tf:"admin_username"`
+	// +optional
+	KeyValue *string `json:"keyValue,omitempty" tf:"key_value"`
 }
 
 type LearningComputeClusterSpec struct {
@@ -75,12 +85,19 @@ type LearningComputeClusterSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
-	Description                *string                                  `json:"description,omitempty" tf:"description"`
-	Identity                   *LearningComputeClusterSpecIdentity      `json:"identity" tf:"identity"`
+	Description *string `json:"description,omitempty" tf:"description"`
+	// +optional
+	Identity *LearningComputeClusterSpecIdentity `json:"identity,omitempty" tf:"identity"`
+	// +optional
+	LocalAuthEnabled           *bool                                    `json:"localAuthEnabled,omitempty" tf:"local_auth_enabled"`
 	Location                   *string                                  `json:"location" tf:"location"`
 	MachineLearningWorkspaceID *string                                  `json:"machineLearningWorkspaceID" tf:"machine_learning_workspace_id"`
 	Name                       *string                                  `json:"name" tf:"name"`
 	ScaleSettings              *LearningComputeClusterSpecScaleSettings `json:"scaleSettings" tf:"scale_settings"`
+	// +optional
+	Ssh *LearningComputeClusterSpecSsh `json:"ssh,omitempty" tf:"ssh"`
+	// +optional
+	SshPublicAccessEnabled *bool `json:"sshPublicAccessEnabled,omitempty" tf:"ssh_public_access_enabled"`
 	// +optional
 	SubnetResourceID *string `json:"subnetResourceID,omitempty" tf:"subnet_resource_id"`
 	// +optional

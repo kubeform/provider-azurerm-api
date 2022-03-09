@@ -41,16 +41,43 @@ type Iothub struct {
 	Status            IothubStatus `json:"status,omitempty"`
 }
 
+type IothubSpecCloudToDeviceFeedback struct {
+	// +optional
+	LockDuration *string `json:"lockDuration,omitempty" tf:"lock_duration"`
+	// +optional
+	MaxDeliveryCount *int64 `json:"maxDeliveryCount,omitempty" tf:"max_delivery_count"`
+	// +optional
+	TimeToLive *string `json:"timeToLive,omitempty" tf:"time_to_live"`
+}
+
+type IothubSpecCloudToDevice struct {
+	// +optional
+	DefaultTtl *string `json:"defaultTtl,omitempty" tf:"default_ttl"`
+	// +optional
+	Feedback []IothubSpecCloudToDeviceFeedback `json:"feedback,omitempty" tf:"feedback"`
+	// +optional
+	MaxDeliveryCount *int64 `json:"maxDeliveryCount,omitempty" tf:"max_delivery_count"`
+}
+
 type IothubSpecEndpoint struct {
 	// +optional
-	BatchFrequencyInSeconds *int64  `json:"batchFrequencyInSeconds,omitempty" tf:"batch_frequency_in_seconds"`
-	ConnectionString        *string `json:"-" sensitive:"true" tf:"connection_string"`
+	AuthenticationType *string `json:"authenticationType,omitempty" tf:"authentication_type"`
+	// +optional
+	BatchFrequencyInSeconds *int64 `json:"batchFrequencyInSeconds,omitempty" tf:"batch_frequency_in_seconds"`
+	// +optional
+	ConnectionString *string `json:"-" sensitive:"true" tf:"connection_string"`
 	// +optional
 	ContainerName *string `json:"containerName,omitempty" tf:"container_name"`
 	// +optional
 	Encoding *string `json:"encoding,omitempty" tf:"encoding"`
 	// +optional
+	EndpointURI *string `json:"endpointURI,omitempty" tf:"endpoint_uri"`
+	// +optional
+	EntityPath *string `json:"entityPath,omitempty" tf:"entity_path"`
+	// +optional
 	FileNameFormat *string `json:"fileNameFormat,omitempty" tf:"file_name_format"`
+	// +optional
+	IdentityID *string `json:"identityID,omitempty" tf:"identity_id"`
 	// +optional
 	MaxChunkSizeInBytes *int64  `json:"maxChunkSizeInBytes,omitempty" tf:"max_chunk_size_in_bytes"`
 	Name                *string `json:"name" tf:"name"`
@@ -89,6 +116,16 @@ type IothubSpecFileUpload struct {
 	Notifications *bool `json:"notifications,omitempty" tf:"notifications"`
 	// +optional
 	SasTtl *string `json:"sasTtl,omitempty" tf:"sas_ttl"`
+}
+
+type IothubSpecIdentity struct {
+	// +optional
+	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
+	// +optional
+	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
 }
 
 type IothubSpecIpFilterRule struct {
@@ -144,12 +181,16 @@ type IothubSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	CloudToDevice *IothubSpecCloudToDevice `json:"cloudToDevice,omitempty" tf:"cloud_to_device"`
+	// +optional
 	Endpoint []IothubSpecEndpoint `json:"endpoint,omitempty" tf:"endpoint"`
 	// +optional
 	// +kubebuilder:validation:MaxItems=10
 	Enrichment []IothubSpecEnrichment `json:"enrichment,omitempty" tf:"enrichment"`
 	// +optional
 	EventHubEventsEndpoint *string `json:"eventHubEventsEndpoint,omitempty" tf:"event_hub_events_endpoint"`
+	// +optional
+	EventHubEventsNamespace *string `json:"eventHubEventsNamespace,omitempty" tf:"event_hub_events_namespace"`
 	// +optional
 	EventHubEventsPath *string `json:"eventHubEventsPath,omitempty" tf:"event_hub_events_path"`
 	// +optional
@@ -166,6 +207,8 @@ type IothubSpecResource struct {
 	FileUpload *IothubSpecFileUpload `json:"fileUpload,omitempty" tf:"file_upload"`
 	// +optional
 	Hostname *string `json:"hostname,omitempty" tf:"hostname"`
+	// +optional
+	Identity *IothubSpecIdentity `json:"identity,omitempty" tf:"identity"`
 	// +optional
 	IpFilterRule []IothubSpecIpFilterRule `json:"ipFilterRule,omitempty" tf:"ip_filter_rule"`
 	Location     *string                  `json:"location" tf:"location"`

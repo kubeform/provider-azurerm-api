@@ -33,6 +33,18 @@ func (c *FakeWebV1alpha1) ApplicationFirewallPolicies(namespace string) v1alpha1
 	return &FakeApplicationFirewallPolicies{c, namespace}
 }
 
+func (c *FakeWebV1alpha1) Pubsubs(namespace string) v1alpha1.PubsubInterface {
+	return &FakePubsubs{c, namespace}
+}
+
+func (c *FakeWebV1alpha1) PubsubHubs(namespace string) v1alpha1.PubsubHubInterface {
+	return &FakePubsubHubs{c, namespace}
+}
+
+func (c *FakeWebV1alpha1) PubsubNetworkACLs(namespace string) v1alpha1.PubsubNetworkACLInterface {
+	return &FakePubsubNetworkACLs{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeWebV1alpha1) RESTClient() rest.Interface {

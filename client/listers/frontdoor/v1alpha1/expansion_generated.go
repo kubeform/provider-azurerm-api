@@ -41,3 +41,11 @@ type FrontdoorListerExpansion interface{}
 // FrontdoorNamespaceListerExpansion allows custom methods to be added to
 // FrontdoorNamespaceLister.
 type FrontdoorNamespaceListerExpansion interface{}
+
+// RulesEngineListerExpansion allows custom methods to be added to
+// RulesEngineLister.
+type RulesEngineListerExpansion interface{}
+
+// RulesEngineNamespaceListerExpansion allows custom methods to be added to
+// RulesEngineNamespaceLister.
+type RulesEngineNamespaceListerExpansion interface{}

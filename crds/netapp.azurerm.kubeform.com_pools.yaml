@@ -65,6 +65,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  qosType:
+                    type: string
                   resourceGroupName:
                     type: string
                   serviceLevel:
@@ -131,6 +133,8 @@ spec:
                   location:
                     type: string
                   name:
+                    type: string
+                  qosType:
                     type: string
                   resourceGroupName:
                     type: string

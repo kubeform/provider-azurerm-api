@@ -90,7 +90,7 @@ func (r *AnalyticsStreamInputBlob) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range analyticsstreaminputblobForceNewList {
+	for key, _ := range analyticsstreaminputblobForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -42,6 +42,7 @@ func (r *Iothub) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &Iothub{}
 
 var iothubForceNewList = map[string]bool{
+	"/endpoint/*/encoding": true,
 	"/location":            true,
 	"/min_tls_version":     true,
 	"/name":                true,
@@ -91,7 +92,7 @@ func (r *Iothub) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range iothubForceNewList {
+	for key, _ := range iothubForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

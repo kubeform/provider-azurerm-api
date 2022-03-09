@@ -33,6 +33,10 @@ func (c *FakeCognitiveV1alpha1) Accounts(namespace string) v1alpha1.AccountInter
 	return &FakeAccounts{c, namespace}
 }
 
+func (c *FakeCognitiveV1alpha1) AccountCustomerManagedKeys(namespace string) v1alpha1.AccountCustomerManagedKeyInterface {
+	return &FakeAccountCustomerManagedKeys{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeCognitiveV1alpha1) RESTClient() rest.Interface {

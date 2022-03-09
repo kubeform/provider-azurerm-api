@@ -28,6 +28,7 @@ import (
 type CognitiveV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	AccountsGetter
+	AccountCustomerManagedKeysGetter
 }
 
 // CognitiveV1alpha1Client is used to interact with features provided by the cognitive.azurerm.kubeform.com group.
@@ -37,6 +38,10 @@ type CognitiveV1alpha1Client struct {
 
 func (c *CognitiveV1alpha1Client) Accounts(namespace string) AccountInterface {
 	return newAccounts(c, namespace)
+}
+
+func (c *CognitiveV1alpha1Client) AccountCustomerManagedKeys(namespace string) AccountCustomerManagedKeyInterface {
+	return newAccountCustomerManagedKeys(c, namespace)
 }
 
 // NewForConfig creates a new CognitiveV1alpha1Client for the given config.

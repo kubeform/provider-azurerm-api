@@ -42,9 +42,7 @@ type Port struct {
 }
 
 type PortSpecIdentity struct {
-	// +optional
-	// +kubebuilder:validation:MinItems=1
-	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
+	IdentityIDS []string `json:"identityIDS" tf:"identity_ids"`
 	Type        *string  `json:"type" tf:"type"`
 }
 

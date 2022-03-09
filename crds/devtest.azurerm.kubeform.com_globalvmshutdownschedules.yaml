@@ -67,6 +67,8 @@ spec:
                     type: string
                   notificationSettings:
                     properties:
+                      email:
+                        type: string
                       enabled:
                         type: boolean
                       timeInMinutes:
@@ -142,6 +144,8 @@ spec:
                     type: string
                   notificationSettings:
                     properties:
+                      email:
+                        type: string
                       enabled:
                         type: boolean
                       timeInMinutes:

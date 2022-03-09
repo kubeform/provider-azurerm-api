@@ -63,6 +63,10 @@ spec:
                     type: string
                   identity:
                     properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
                       principalID:
                         type: string
                       tenantID:
@@ -72,6 +76,8 @@ spec:
                     required:
                     - type
                     type: object
+                  localAuthEnabled:
+                    type: boolean
                   location:
                     type: string
                   machineLearningWorkspaceID:
@@ -93,6 +99,19 @@ spec:
                     - minNodeCount
                     - scaleDownNodesAfterIdleDuration
                     type: object
+                  ssh:
+                    properties:
+                      adminPassword:
+                        type: string
+                      adminUsername:
+                        type: string
+                      keyValue:
+                        type: string
+                    required:
+                    - adminUsername
+                    type: object
+                  sshPublicAccessEnabled:
+                    type: boolean
                   subnetResourceID:
                     type: string
                   tags:
@@ -142,7 +161,6 @@ spec:
                   vmSize:
                     type: string
                 required:
-                - identity
                 - location
                 - machineLearningWorkspaceID
                 - name
@@ -158,6 +176,10 @@ spec:
                     type: string
                   identity:
                     properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
                       principalID:
                         type: string
                       tenantID:
@@ -167,6 +189,8 @@ spec:
                     required:
                     - type
                     type: object
+                  localAuthEnabled:
+                    type: boolean
                   location:
                     type: string
                   machineLearningWorkspaceID:
@@ -188,6 +212,19 @@ spec:
                     - minNodeCount
                     - scaleDownNodesAfterIdleDuration
                     type: object
+                  ssh:
+                    properties:
+                      adminPassword:
+                        type: string
+                      adminUsername:
+                        type: string
+                      keyValue:
+                        type: string
+                    required:
+                    - adminUsername
+                    type: object
+                  sshPublicAccessEnabled:
+                    type: boolean
                   subnetResourceID:
                     type: string
                   tags:
@@ -237,7 +274,6 @@ spec:
                   vmSize:
                     type: string
                 required:
-                - identity
                 - location
                 - machineLearningWorkspaceID
                 - name

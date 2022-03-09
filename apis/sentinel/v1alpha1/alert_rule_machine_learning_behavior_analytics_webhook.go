@@ -90,7 +90,7 @@ func (r *AlertRuleMachineLearningBehaviorAnalytics) ValidateUpdate(old runtime.O
 		return err
 	}
 
-	for key := range alertrulemachinelearningbehavioranalyticsForceNewList {
+	for key, _ := range alertrulemachinelearningbehavioranalyticsForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

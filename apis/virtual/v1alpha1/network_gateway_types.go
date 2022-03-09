@@ -108,6 +108,9 @@ type NetworkGatewaySpecVpnClientConfiguration struct {
 	// +optional
 	RootCertificate []NetworkGatewaySpecVpnClientConfigurationRootCertificate `json:"rootCertificate,omitempty" tf:"root_certificate"`
 	// +optional
+	// +kubebuilder:validation:MaxItems=3
+	VpnAuthTypes []string `json:"vpnAuthTypes,omitempty" tf:"vpn_auth_types"`
+	// +optional
 	VpnClientProtocols []string `json:"vpnClientProtocols,omitempty" tf:"vpn_client_protocols"`
 }
 
@@ -142,7 +145,7 @@ type NetworkGatewaySpecResource struct {
 	EnableBGP *bool `json:"enableBGP,omitempty" tf:"enable_bgp"`
 	// +optional
 	Generation *string `json:"generation,omitempty" tf:"generation"`
-	// +kubebuilder:validation:MaxItems=2
+	// +kubebuilder:validation:MaxItems=3
 	IpConfiguration []NetworkGatewaySpecIpConfiguration `json:"ipConfiguration" tf:"ip_configuration"`
 	Location        *string                             `json:"location" tf:"location"`
 	Name            *string                             `json:"name" tf:"name"`

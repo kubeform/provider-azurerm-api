@@ -93,7 +93,7 @@ func (r *SeriesInsightsStandardEnvironment) ValidateUpdate(old runtime.Object) e
 		return err
 	}
 
-	for key := range seriesinsightsstandardenvironmentForceNewList {
+	for key, _ := range seriesinsightsstandardenvironmentForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

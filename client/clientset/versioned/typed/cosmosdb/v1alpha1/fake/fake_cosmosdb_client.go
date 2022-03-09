@@ -33,6 +33,14 @@ func (c *FakeCosmosdbV1alpha1) Accounts(namespace string) v1alpha1.AccountInterf
 	return &FakeAccounts{c, namespace}
 }
 
+func (c *FakeCosmosdbV1alpha1) CassandraClusters(namespace string) v1alpha1.CassandraClusterInterface {
+	return &FakeCassandraClusters{c, namespace}
+}
+
+func (c *FakeCosmosdbV1alpha1) CassandraDatacenters(namespace string) v1alpha1.CassandraDatacenterInterface {
+	return &FakeCassandraDatacenters{c, namespace}
+}
+
 func (c *FakeCosmosdbV1alpha1) CassandraKeyspaces(namespace string) v1alpha1.CassandraKeyspaceInterface {
 	return &FakeCassandraKeyspaces{c, namespace}
 }

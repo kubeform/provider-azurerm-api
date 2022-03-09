@@ -90,7 +90,7 @@ func (r *CassandraKeyspace) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range cassandrakeyspaceForceNewList {
+	for key, _ := range cassandrakeyspaceForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

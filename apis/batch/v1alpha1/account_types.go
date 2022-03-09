@@ -41,6 +41,16 @@ type Account struct {
 	Status            AccountStatus `json:"status,omitempty"`
 }
 
+type AccountSpecIdentity struct {
+	// +optional
+	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
+	// +optional
+	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
+}
+
 type AccountSpecKeyVaultReference struct {
 	ID  *string `json:"ID" tf:"id"`
 	Url *string `json:"url" tf:"url"`
@@ -69,6 +79,8 @@ type AccountSpecResource struct {
 
 	// +optional
 	AccountEndpoint *string `json:"accountEndpoint,omitempty" tf:"account_endpoint"`
+	// +optional
+	Identity *AccountSpecIdentity `json:"identity,omitempty" tf:"identity"`
 	// +optional
 	KeyVaultReference *AccountSpecKeyVaultReference `json:"keyVaultReference,omitempty" tf:"key_vault_reference"`
 	Location          *string                       `json:"location" tf:"location"`

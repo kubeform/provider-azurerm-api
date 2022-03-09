@@ -46,8 +46,13 @@ type PolicyAssignmentSpecIdentity struct {
 	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
 	// +optional
 	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
+}
+
+type PolicyAssignmentSpecNonComplianceMessage struct {
+	Content *string `json:"content" tf:"content"`
 	// +optional
-	Type *string `json:"type,omitempty" tf:"type"`
+	PolicyDefinitionReferenceID *string `json:"policyDefinitionReferenceID,omitempty" tf:"policy_definition_reference_id"`
 }
 
 type PolicyAssignmentSpec struct {
@@ -82,6 +87,8 @@ type PolicyAssignmentSpecResource struct {
 	// +optional
 	Metadata *string `json:"metadata,omitempty" tf:"metadata"`
 	Name     *string `json:"name" tf:"name"`
+	// +optional
+	NonComplianceMessage []PolicyAssignmentSpecNonComplianceMessage `json:"nonComplianceMessage,omitempty" tf:"non_compliance_message"`
 	// +optional
 	NotScopes []string `json:"notScopes,omitempty" tf:"not_scopes"`
 	// +optional

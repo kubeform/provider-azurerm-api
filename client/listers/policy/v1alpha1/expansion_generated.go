@@ -49,3 +49,11 @@ type SetDefinitionListerExpansion interface{}
 // SetDefinitionNamespaceListerExpansion allows custom methods to be added to
 // SetDefinitionNamespaceLister.
 type SetDefinitionNamespaceListerExpansion interface{}
+
+// VirtualMachineConfigurationAssignmentListerExpansion allows custom methods to be added to
+// VirtualMachineConfigurationAssignmentLister.
+type VirtualMachineConfigurationAssignmentListerExpansion interface{}
+
+// VirtualMachineConfigurationAssignmentNamespaceListerExpansion allows custom methods to be added to
+// VirtualMachineConfigurationAssignmentNamespaceLister.
+type VirtualMachineConfigurationAssignmentNamespaceListerExpansion interface{}

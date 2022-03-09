@@ -37,6 +37,22 @@ func (c *FakeDiskV1alpha1) EncryptionSets(namespace string) v1alpha1.EncryptionS
 	return &FakeEncryptionSets{c, namespace}
 }
 
+func (c *FakeDiskV1alpha1) Pools(namespace string) v1alpha1.PoolInterface {
+	return &FakePools{c, namespace}
+}
+
+func (c *FakeDiskV1alpha1) PoolIscsiTargets(namespace string) v1alpha1.PoolIscsiTargetInterface {
+	return &FakePoolIscsiTargets{c, namespace}
+}
+
+func (c *FakeDiskV1alpha1) PoolIscsiTargetLuns(namespace string) v1alpha1.PoolIscsiTargetLunInterface {
+	return &FakePoolIscsiTargetLuns{c, namespace}
+}
+
+func (c *FakeDiskV1alpha1) PoolManagedDiskAttachments(namespace string) v1alpha1.PoolManagedDiskAttachmentInterface {
+	return &FakePoolManagedDiskAttachments{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeDiskV1alpha1) RESTClient() rest.Interface {

@@ -184,10 +184,23 @@ type HadoopClusterSpecRoles struct {
 	ZookeeperNode *HadoopClusterSpecRolesZookeeperNode `json:"zookeeperNode" tf:"zookeeper_node"`
 }
 
+type HadoopClusterSpecSecurityProfile struct {
+	AaddsResourceID *string `json:"aaddsResourceID" tf:"aadds_resource_id"`
+	// +optional
+	ClusterUsersGroupDNS []string `json:"clusterUsersGroupDNS,omitempty" tf:"cluster_users_group_dns"`
+	DomainName           *string  `json:"domainName" tf:"domain_name"`
+	DomainUserPassword   *string  `json:"-" sensitive:"true" tf:"domain_user_password"`
+	DomainUsername       *string  `json:"domainUsername" tf:"domain_username"`
+	LdapsUrls            []string `json:"ldapsUrls" tf:"ldaps_urls"`
+	MsiResourceID        *string  `json:"msiResourceID" tf:"msi_resource_id"`
+}
+
 type HadoopClusterSpecStorageAccount struct {
 	IsDefault          *bool   `json:"isDefault" tf:"is_default"`
 	StorageAccountKey  *string `json:"-" sensitive:"true" tf:"storage_account_key"`
 	StorageContainerID *string `json:"storageContainerID" tf:"storage_container_id"`
+	// +optional
+	StorageResourceID *string `json:"storageResourceID,omitempty" tf:"storage_resource_id"`
 }
 
 type HadoopClusterSpecStorageAccountGen2 struct {
@@ -233,6 +246,8 @@ type HadoopClusterSpecResource struct {
 	Network           *HadoopClusterSpecNetwork `json:"network,omitempty" tf:"network"`
 	ResourceGroupName *string                   `json:"resourceGroupName" tf:"resource_group_name"`
 	Roles             *HadoopClusterSpecRoles   `json:"roles" tf:"roles"`
+	// +optional
+	SecurityProfile *HadoopClusterSpecSecurityProfile `json:"securityProfile,omitempty" tf:"security_profile"`
 	// +optional
 	SshEndpoint *string `json:"sshEndpoint,omitempty" tf:"ssh_endpoint"`
 	// +optional

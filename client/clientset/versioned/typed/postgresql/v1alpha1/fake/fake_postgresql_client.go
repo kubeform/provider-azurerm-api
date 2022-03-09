@@ -49,6 +49,14 @@ func (c *FakePostgresqlV1alpha1) FlexibleServers(namespace string) v1alpha1.Flex
 	return &FakeFlexibleServers{c, namespace}
 }
 
+func (c *FakePostgresqlV1alpha1) FlexibleServerConfigurations(namespace string) v1alpha1.FlexibleServerConfigurationInterface {
+	return &FakeFlexibleServerConfigurations{c, namespace}
+}
+
+func (c *FakePostgresqlV1alpha1) FlexibleServerDatabases(namespace string) v1alpha1.FlexibleServerDatabaseInterface {
+	return &FakeFlexibleServerDatabases{c, namespace}
+}
+
 func (c *FakePostgresqlV1alpha1) FlexibleServerFirewallRules(namespace string) v1alpha1.FlexibleServerFirewallRuleInterface {
 	return &FakeFlexibleServerFirewallRules{c, namespace}
 }

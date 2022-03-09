@@ -83,6 +83,8 @@ type NetworkSpecResource struct {
 	// +optional
 	DnsServers []string `json:"dnsServers,omitempty" tf:"dns_servers"`
 	// +optional
+	FlowTimeoutInMinutes *int64 `json:"flowTimeoutInMinutes,omitempty" tf:"flow_timeout_in_minutes"`
+	// +optional
 	Guid              *string `json:"guid,omitempty" tf:"guid"`
 	Location          *string `json:"location" tf:"location"`
 	Name              *string `json:"name" tf:"name"`

@@ -29,8 +29,20 @@ type FakeTrafficmanagerV1alpha1 struct {
 	*testing.Fake
 }
 
+func (c *FakeTrafficmanagerV1alpha1) AzureEndpoints(namespace string) v1alpha1.AzureEndpointInterface {
+	return &FakeAzureEndpoints{c, namespace}
+}
+
 func (c *FakeTrafficmanagerV1alpha1) Endpoints(namespace string) v1alpha1.EndpointInterface {
 	return &FakeEndpoints{c, namespace}
+}
+
+func (c *FakeTrafficmanagerV1alpha1) ExternalEndpoints(namespace string) v1alpha1.ExternalEndpointInterface {
+	return &FakeExternalEndpoints{c, namespace}
+}
+
+func (c *FakeTrafficmanagerV1alpha1) NestedEndpoints(namespace string) v1alpha1.NestedEndpointInterface {
+	return &FakeNestedEndpoints{c, namespace}
 }
 
 func (c *FakeTrafficmanagerV1alpha1) Profiles(namespace string) v1alpha1.ProfileInterface {

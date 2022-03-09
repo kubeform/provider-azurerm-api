@@ -88,7 +88,7 @@ func (r *ServerExtendedAuditingPolicy) ValidateUpdate(old runtime.Object) error 
 		return err
 	}
 
-	for key := range serverextendedauditingpolicyForceNewList {
+	for key, _ := range serverextendedauditingpolicyForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

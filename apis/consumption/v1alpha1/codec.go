@@ -27,31 +27,41 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilter{}).Type1()):             BudgetResourceGroupSpecFilterCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilterNot{}).Type1()):          BudgetResourceGroupSpecFilterNotCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilterNotDimension{}).Type1()): BudgetResourceGroupSpecFilterNotDimensionCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilterNotTag{}).Type1()):       BudgetResourceGroupSpecFilterNotTagCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecTimePeriod{}).Type1()):         BudgetResourceGroupSpecTimePeriodCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilter{}).Type1()):              BudgetSubscriptionSpecFilterCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilterNot{}).Type1()):           BudgetSubscriptionSpecFilterNotCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilterNotDimension{}).Type1()):  BudgetSubscriptionSpecFilterNotDimensionCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilterNotTag{}).Type1()):        BudgetSubscriptionSpecFilterNotTagCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecTimePeriod{}).Type1()):          BudgetSubscriptionSpecTimePeriodCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilter{}).Type1()):             BudgetManagementGroupSpecFilterCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNot{}).Type1()):          BudgetManagementGroupSpecFilterNotCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNotDimension{}).Type1()): BudgetManagementGroupSpecFilterNotDimensionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNotTag{}).Type1()):       BudgetManagementGroupSpecFilterNotTagCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecTimePeriod{}).Type1()):         BudgetManagementGroupSpecTimePeriodCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilter{}).Type1()):               BudgetResourceGroupSpecFilterCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilterNot{}).Type1()):            BudgetResourceGroupSpecFilterNotCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilterNotDimension{}).Type1()):   BudgetResourceGroupSpecFilterNotDimensionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilterNotTag{}).Type1()):         BudgetResourceGroupSpecFilterNotTagCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecTimePeriod{}).Type1()):           BudgetResourceGroupSpecTimePeriodCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilter{}).Type1()):                BudgetSubscriptionSpecFilterCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilterNot{}).Type1()):             BudgetSubscriptionSpecFilterNotCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilterNotDimension{}).Type1()):    BudgetSubscriptionSpecFilterNotDimensionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilterNotTag{}).Type1()):          BudgetSubscriptionSpecFilterNotTagCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecTimePeriod{}).Type1()):            BudgetSubscriptionSpecTimePeriodCodec{},
 	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilter{}).Type1()):             BudgetResourceGroupSpecFilterCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilterNot{}).Type1()):          BudgetResourceGroupSpecFilterNotCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilterNotDimension{}).Type1()): BudgetResourceGroupSpecFilterNotDimensionCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilterNotTag{}).Type1()):       BudgetResourceGroupSpecFilterNotTagCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecTimePeriod{}).Type1()):         BudgetResourceGroupSpecTimePeriodCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilter{}).Type1()):              BudgetSubscriptionSpecFilterCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilterNot{}).Type1()):           BudgetSubscriptionSpecFilterNotCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilterNotDimension{}).Type1()):  BudgetSubscriptionSpecFilterNotDimensionCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilterNotTag{}).Type1()):        BudgetSubscriptionSpecFilterNotTagCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecTimePeriod{}).Type1()):          BudgetSubscriptionSpecTimePeriodCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilter{}).Type1()):             BudgetManagementGroupSpecFilterCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNot{}).Type1()):          BudgetManagementGroupSpecFilterNotCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNotDimension{}).Type1()): BudgetManagementGroupSpecFilterNotDimensionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNotTag{}).Type1()):       BudgetManagementGroupSpecFilterNotTagCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecTimePeriod{}).Type1()):         BudgetManagementGroupSpecTimePeriodCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilter{}).Type1()):               BudgetResourceGroupSpecFilterCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilterNot{}).Type1()):            BudgetResourceGroupSpecFilterNotCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilterNotDimension{}).Type1()):   BudgetResourceGroupSpecFilterNotDimensionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecFilterNotTag{}).Type1()):         BudgetResourceGroupSpecFilterNotTagCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetResourceGroupSpecTimePeriod{}).Type1()):           BudgetResourceGroupSpecTimePeriodCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilter{}).Type1()):                BudgetSubscriptionSpecFilterCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilterNot{}).Type1()):             BudgetSubscriptionSpecFilterNotCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilterNotDimension{}).Type1()):    BudgetSubscriptionSpecFilterNotDimensionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecFilterNotTag{}).Type1()):          BudgetSubscriptionSpecFilterNotTagCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(BudgetSubscriptionSpecTimePeriod{}).Type1()):            BudgetSubscriptionSpecTimePeriodCodec{},
 	}
 }
 
@@ -65,6 +75,401 @@ func getDecodersWithout(typ string) map[string]jsoniter.ValDecoder {
 	origMap := GetDecoder()
 	delete(origMap, typ)
 	return origMap
+}
+
+// +k8s:deepcopy-gen=false
+type BudgetManagementGroupSpecFilterCodec struct {
+}
+
+func (BudgetManagementGroupSpecFilterCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*BudgetManagementGroupSpecFilter)(ptr) == nil
+}
+
+func (BudgetManagementGroupSpecFilterCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*BudgetManagementGroupSpecFilter)(ptr)
+	var objs []BudgetManagementGroupSpecFilter
+	if obj != nil {
+		objs = []BudgetManagementGroupSpecFilter{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilter{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (BudgetManagementGroupSpecFilterCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*BudgetManagementGroupSpecFilter)(ptr) = BudgetManagementGroupSpecFilter{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []BudgetManagementGroupSpecFilter
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilter{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*BudgetManagementGroupSpecFilter)(ptr) = objs[0]
+			} else {
+				*(*BudgetManagementGroupSpecFilter)(ptr) = BudgetManagementGroupSpecFilter{}
+			}
+		} else {
+			*(*BudgetManagementGroupSpecFilter)(ptr) = BudgetManagementGroupSpecFilter{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj BudgetManagementGroupSpecFilter
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilter{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*BudgetManagementGroupSpecFilter)(ptr) = obj
+		} else {
+			*(*BudgetManagementGroupSpecFilter)(ptr) = BudgetManagementGroupSpecFilter{}
+		}
+	default:
+		iter.ReportError("decode BudgetManagementGroupSpecFilter", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type BudgetManagementGroupSpecFilterNotCodec struct {
+}
+
+func (BudgetManagementGroupSpecFilterNotCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*BudgetManagementGroupSpecFilterNot)(ptr) == nil
+}
+
+func (BudgetManagementGroupSpecFilterNotCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*BudgetManagementGroupSpecFilterNot)(ptr)
+	var objs []BudgetManagementGroupSpecFilterNot
+	if obj != nil {
+		objs = []BudgetManagementGroupSpecFilterNot{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNot{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (BudgetManagementGroupSpecFilterNotCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*BudgetManagementGroupSpecFilterNot)(ptr) = BudgetManagementGroupSpecFilterNot{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []BudgetManagementGroupSpecFilterNot
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNot{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*BudgetManagementGroupSpecFilterNot)(ptr) = objs[0]
+			} else {
+				*(*BudgetManagementGroupSpecFilterNot)(ptr) = BudgetManagementGroupSpecFilterNot{}
+			}
+		} else {
+			*(*BudgetManagementGroupSpecFilterNot)(ptr) = BudgetManagementGroupSpecFilterNot{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj BudgetManagementGroupSpecFilterNot
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNot{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*BudgetManagementGroupSpecFilterNot)(ptr) = obj
+		} else {
+			*(*BudgetManagementGroupSpecFilterNot)(ptr) = BudgetManagementGroupSpecFilterNot{}
+		}
+	default:
+		iter.ReportError("decode BudgetManagementGroupSpecFilterNot", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type BudgetManagementGroupSpecFilterNotDimensionCodec struct {
+}
+
+func (BudgetManagementGroupSpecFilterNotDimensionCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*BudgetManagementGroupSpecFilterNotDimension)(ptr) == nil
+}
+
+func (BudgetManagementGroupSpecFilterNotDimensionCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*BudgetManagementGroupSpecFilterNotDimension)(ptr)
+	var objs []BudgetManagementGroupSpecFilterNotDimension
+	if obj != nil {
+		objs = []BudgetManagementGroupSpecFilterNotDimension{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNotDimension{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (BudgetManagementGroupSpecFilterNotDimensionCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*BudgetManagementGroupSpecFilterNotDimension)(ptr) = BudgetManagementGroupSpecFilterNotDimension{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []BudgetManagementGroupSpecFilterNotDimension
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNotDimension{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*BudgetManagementGroupSpecFilterNotDimension)(ptr) = objs[0]
+			} else {
+				*(*BudgetManagementGroupSpecFilterNotDimension)(ptr) = BudgetManagementGroupSpecFilterNotDimension{}
+			}
+		} else {
+			*(*BudgetManagementGroupSpecFilterNotDimension)(ptr) = BudgetManagementGroupSpecFilterNotDimension{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj BudgetManagementGroupSpecFilterNotDimension
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNotDimension{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*BudgetManagementGroupSpecFilterNotDimension)(ptr) = obj
+		} else {
+			*(*BudgetManagementGroupSpecFilterNotDimension)(ptr) = BudgetManagementGroupSpecFilterNotDimension{}
+		}
+	default:
+		iter.ReportError("decode BudgetManagementGroupSpecFilterNotDimension", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type BudgetManagementGroupSpecFilterNotTagCodec struct {
+}
+
+func (BudgetManagementGroupSpecFilterNotTagCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*BudgetManagementGroupSpecFilterNotTag)(ptr) == nil
+}
+
+func (BudgetManagementGroupSpecFilterNotTagCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*BudgetManagementGroupSpecFilterNotTag)(ptr)
+	var objs []BudgetManagementGroupSpecFilterNotTag
+	if obj != nil {
+		objs = []BudgetManagementGroupSpecFilterNotTag{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNotTag{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (BudgetManagementGroupSpecFilterNotTagCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*BudgetManagementGroupSpecFilterNotTag)(ptr) = BudgetManagementGroupSpecFilterNotTag{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []BudgetManagementGroupSpecFilterNotTag
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNotTag{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*BudgetManagementGroupSpecFilterNotTag)(ptr) = objs[0]
+			} else {
+				*(*BudgetManagementGroupSpecFilterNotTag)(ptr) = BudgetManagementGroupSpecFilterNotTag{}
+			}
+		} else {
+			*(*BudgetManagementGroupSpecFilterNotTag)(ptr) = BudgetManagementGroupSpecFilterNotTag{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj BudgetManagementGroupSpecFilterNotTag
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecFilterNotTag{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*BudgetManagementGroupSpecFilterNotTag)(ptr) = obj
+		} else {
+			*(*BudgetManagementGroupSpecFilterNotTag)(ptr) = BudgetManagementGroupSpecFilterNotTag{}
+		}
+	default:
+		iter.ReportError("decode BudgetManagementGroupSpecFilterNotTag", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type BudgetManagementGroupSpecTimePeriodCodec struct {
+}
+
+func (BudgetManagementGroupSpecTimePeriodCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*BudgetManagementGroupSpecTimePeriod)(ptr) == nil
+}
+
+func (BudgetManagementGroupSpecTimePeriodCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*BudgetManagementGroupSpecTimePeriod)(ptr)
+	var objs []BudgetManagementGroupSpecTimePeriod
+	if obj != nil {
+		objs = []BudgetManagementGroupSpecTimePeriod{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecTimePeriod{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (BudgetManagementGroupSpecTimePeriodCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*BudgetManagementGroupSpecTimePeriod)(ptr) = BudgetManagementGroupSpecTimePeriod{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []BudgetManagementGroupSpecTimePeriod
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecTimePeriod{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*BudgetManagementGroupSpecTimePeriod)(ptr) = objs[0]
+			} else {
+				*(*BudgetManagementGroupSpecTimePeriod)(ptr) = BudgetManagementGroupSpecTimePeriod{}
+			}
+		} else {
+			*(*BudgetManagementGroupSpecTimePeriod)(ptr) = BudgetManagementGroupSpecTimePeriod{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj BudgetManagementGroupSpecTimePeriod
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(BudgetManagementGroupSpecTimePeriod{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*BudgetManagementGroupSpecTimePeriod)(ptr) = obj
+		} else {
+			*(*BudgetManagementGroupSpecTimePeriod)(ptr) = BudgetManagementGroupSpecTimePeriod{}
+		}
+	default:
+		iter.ReportError("decode BudgetManagementGroupSpecTimePeriod", "unexpected JSON type")
+	}
 }
 
 // +k8s:deepcopy-gen=false

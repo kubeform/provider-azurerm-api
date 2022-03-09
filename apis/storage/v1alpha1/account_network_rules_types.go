@@ -72,9 +72,15 @@ type AccountNetworkRulesSpecResource struct {
 	// +optional
 	IpRules []string `json:"ipRules,omitempty" tf:"ip_rules"`
 	// +optional
-	PrivateLinkAccess  []AccountNetworkRulesSpecPrivateLinkAccess `json:"privateLinkAccess,omitempty" tf:"private_link_access"`
-	ResourceGroupName  *string                                    `json:"resourceGroupName" tf:"resource_group_name"`
-	StorageAccountName *string                                    `json:"storageAccountName" tf:"storage_account_name"`
+	PrivateLinkAccess []AccountNetworkRulesSpecPrivateLinkAccess `json:"privateLinkAccess,omitempty" tf:"private_link_access"`
+	// +optional
+	// Deprecated
+	ResourceGroupName *string `json:"resourceGroupName,omitempty" tf:"resource_group_name"`
+	// +optional
+	StorageAccountID *string `json:"storageAccountID,omitempty" tf:"storage_account_id"`
+	// +optional
+	// Deprecated
+	StorageAccountName *string `json:"storageAccountName,omitempty" tf:"storage_account_name"`
 	// +optional
 	VirtualNetworkSubnetIDS []string `json:"virtualNetworkSubnetIDS,omitempty" tf:"virtual_network_subnet_ids"`
 }

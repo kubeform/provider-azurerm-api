@@ -42,6 +42,7 @@ func (r *ToSiteVPNGateway) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &ToSiteVPNGateway{}
 
 var tositevpngatewayForceNewList = map[string]bool{
+	"/connection_configuration/*/internet_security_enabled": true,
 	"/location":                    true,
 	"/name":                        true,
 	"/resource_group_name":         true,
@@ -92,7 +93,7 @@ func (r *ToSiteVPNGateway) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range tositevpngatewayForceNewList {
+	for key, _ := range tositevpngatewayForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

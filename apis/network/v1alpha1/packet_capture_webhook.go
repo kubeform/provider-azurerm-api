@@ -99,7 +99,7 @@ func (r *PacketCapture) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range packetcaptureForceNewList {
+	for key, _ := range packetcaptureForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -26,6 +26,8 @@ import (
 type Interface interface {
 	// Accounts returns a AccountInformer.
 	Accounts() AccountInformer
+	// Creators returns a CreatorInformer.
+	Creators() CreatorInformer
 }
 
 type version struct {
@@ -42,4 +44,9 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // Accounts returns a AccountInformer.
 func (v *version) Accounts() AccountInformer {
 	return &accountInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// Creators returns a CreatorInformer.
+func (v *version) Creators() CreatorInformer {
+	return &creatorInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

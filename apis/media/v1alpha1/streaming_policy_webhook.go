@@ -112,7 +112,7 @@ func (r *StreamingPolicy) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range streamingpolicyForceNewList {
+	for key, _ := range streamingpolicyForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

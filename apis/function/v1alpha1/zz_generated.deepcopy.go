@@ -663,6 +663,11 @@ func (in *AppSlotSpecSiteConfig) DeepCopyInto(out *AppSlotSpecSiteConfig) {
 		*out = new(bool)
 		**out = **in
 	}
+	if in.AppScaleLimit != nil {
+		in, out := &in.AppScaleLimit, &out.AppScaleLimit
+		*out = new(int64)
+		**out = **in
+	}
 	if in.AutoSwapSlotName != nil {
 		in, out := &in.AutoSwapSlotName, &out.AutoSwapSlotName
 		*out = new(string)
@@ -672,6 +677,16 @@ func (in *AppSlotSpecSiteConfig) DeepCopyInto(out *AppSlotSpecSiteConfig) {
 		in, out := &in.Cors, &out.Cors
 		*out = new(AppSlotSpecSiteConfigCors)
 		(*in).DeepCopyInto(*out)
+	}
+	if in.DotnetFrameworkVersion != nil {
+		in, out := &in.DotnetFrameworkVersion, &out.DotnetFrameworkVersion
+		*out = new(string)
+		**out = **in
+	}
+	if in.ElasticInstanceMinimum != nil {
+		in, out := &in.ElasticInstanceMinimum, &out.ElasticInstanceMinimum
+		*out = new(int64)
+		**out = **in
 	}
 	if in.FtpsState != nil {
 		in, out := &in.FtpsState, &out.FtpsState
@@ -715,6 +730,11 @@ func (in *AppSlotSpecSiteConfig) DeepCopyInto(out *AppSlotSpecSiteConfig) {
 		*out = new(int64)
 		**out = **in
 	}
+	if in.RuntimeScaleMonitoringEnabled != nil {
+		in, out := &in.RuntimeScaleMonitoringEnabled, &out.RuntimeScaleMonitoringEnabled
+		*out = new(bool)
+		**out = **in
+	}
 	if in.ScmIPRestriction != nil {
 		in, out := &in.ScmIPRestriction, &out.ScmIPRestriction
 		*out = make([]AppSlotSpecSiteConfigScmIPRestriction, len(*in))
@@ -734,6 +754,11 @@ func (in *AppSlotSpecSiteConfig) DeepCopyInto(out *AppSlotSpecSiteConfig) {
 	}
 	if in.Use32BitWorkerProcess != nil {
 		in, out := &in.Use32BitWorkerProcess, &out.Use32BitWorkerProcess
+		*out = new(bool)
+		**out = **in
+	}
+	if in.VnetRouteAllEnabled != nil {
+		in, out := &in.VnetRouteAllEnabled, &out.VnetRouteAllEnabled
 		*out = new(bool)
 		**out = **in
 	}
@@ -1427,6 +1452,11 @@ func (in *AppSpecResource) DeepCopyInto(out *AppSpecResource) {
 		*out = new(AppSpecIdentity)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.KeyVaultReferenceIdentityID != nil {
+		in, out := &in.KeyVaultReferenceIdentityID, &out.KeyVaultReferenceIdentityID
+		*out = new(string)
+		**out = **in
+	}
 	if in.Kind != nil {
 		in, out := &in.Kind, &out.Kind
 		*out = new(string)
@@ -1531,6 +1561,11 @@ func (in *AppSpecSiteConfig) DeepCopyInto(out *AppSpecSiteConfig) {
 		*out = new(bool)
 		**out = **in
 	}
+	if in.AppScaleLimit != nil {
+		in, out := &in.AppScaleLimit, &out.AppScaleLimit
+		*out = new(int64)
+		**out = **in
+	}
 	if in.AutoSwapSlotName != nil {
 		in, out := &in.AutoSwapSlotName, &out.AutoSwapSlotName
 		*out = new(string)
@@ -1540,6 +1575,16 @@ func (in *AppSpecSiteConfig) DeepCopyInto(out *AppSpecSiteConfig) {
 		in, out := &in.Cors, &out.Cors
 		*out = new(AppSpecSiteConfigCors)
 		(*in).DeepCopyInto(*out)
+	}
+	if in.DotnetFrameworkVersion != nil {
+		in, out := &in.DotnetFrameworkVersion, &out.DotnetFrameworkVersion
+		*out = new(string)
+		**out = **in
+	}
+	if in.ElasticInstanceMinimum != nil {
+		in, out := &in.ElasticInstanceMinimum, &out.ElasticInstanceMinimum
+		*out = new(int64)
+		**out = **in
 	}
 	if in.FtpsState != nil {
 		in, out := &in.FtpsState, &out.FtpsState
@@ -1583,6 +1628,11 @@ func (in *AppSpecSiteConfig) DeepCopyInto(out *AppSpecSiteConfig) {
 		*out = new(int64)
 		**out = **in
 	}
+	if in.RuntimeScaleMonitoringEnabled != nil {
+		in, out := &in.RuntimeScaleMonitoringEnabled, &out.RuntimeScaleMonitoringEnabled
+		*out = new(bool)
+		**out = **in
+	}
 	if in.ScmIPRestriction != nil {
 		in, out := &in.ScmIPRestriction, &out.ScmIPRestriction
 		*out = make([]AppSpecSiteConfigScmIPRestriction, len(*in))
@@ -1602,6 +1652,11 @@ func (in *AppSpecSiteConfig) DeepCopyInto(out *AppSpecSiteConfig) {
 	}
 	if in.Use32BitWorkerProcess != nil {
 		in, out := &in.Use32BitWorkerProcess, &out.Use32BitWorkerProcess
+		*out = new(bool)
+		**out = **in
+	}
+	if in.VnetRouteAllEnabled != nil {
+		in, out := &in.VnetRouteAllEnabled, &out.VnetRouteAllEnabled
 		*out = new(bool)
 		**out = **in
 	}

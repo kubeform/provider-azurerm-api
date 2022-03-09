@@ -65,7 +65,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -73,6 +76,16 @@ spec:
                     type: string
                   integrationRuntimeName:
                     type: string
+                  keyVaultSasToken:
+                    properties:
+                      linkedServiceName:
+                        type: string
+                      secretName:
+                        type: string
+                    required:
+                    - linkedServiceName
+                    - secretName
+                    type: object
                   name:
                     type: string
                   parameters:
@@ -128,7 +141,6 @@ spec:
                   useManagedIdentity:
                     type: boolean
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 type: object
@@ -151,7 +163,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -159,6 +174,16 @@ spec:
                     type: string
                   integrationRuntimeName:
                     type: string
+                  keyVaultSasToken:
+                    properties:
+                      linkedServiceName:
+                        type: string
+                      secretName:
+                        type: string
+                    required:
+                    - linkedServiceName
+                    - secretName
+                    type: object
                   name:
                     type: string
                   parameters:
@@ -214,7 +239,6 @@ spec:
                   useManagedIdentity:
                     type: boolean
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 type: object

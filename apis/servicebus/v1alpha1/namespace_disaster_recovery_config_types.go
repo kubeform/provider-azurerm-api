@@ -63,16 +63,16 @@ type NamespaceDisasterRecoveryConfigSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
-	AliasPrimaryConnectionString *string `json:"-" sensitive:"true" tf:"alias_primary_connection_string"`
-	// +optional
-	AliasSecondaryConnectionString *string `json:"-" sensitive:"true" tf:"alias_secondary_connection_string"`
-	// +optional
 	DefaultPrimaryKey *string `json:"-" sensitive:"true" tf:"default_primary_key"`
 	// +optional
 	DefaultSecondaryKey *string `json:"-" sensitive:"true" tf:"default_secondary_key"`
 	Name                *string `json:"name" tf:"name"`
 	PartnerNamespaceID  *string `json:"partnerNamespaceID" tf:"partner_namespace_id"`
-	PrimaryNamespaceID  *string `json:"primaryNamespaceID" tf:"primary_namespace_id"`
+	// +optional
+	PrimaryConnectionStringAlias *string `json:"-" sensitive:"true" tf:"primary_connection_string_alias"`
+	PrimaryNamespaceID           *string `json:"primaryNamespaceID" tf:"primary_namespace_id"`
+	// +optional
+	SecondaryConnectionStringAlias *string `json:"-" sensitive:"true" tf:"secondary_connection_string_alias"`
 }
 
 type NamespaceDisasterRecoveryConfigStatus struct {

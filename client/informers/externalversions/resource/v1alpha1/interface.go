@@ -26,6 +26,8 @@ import (
 type Interface interface {
 	// Groups returns a GroupInformer.
 	Groups() GroupInformer
+	// GroupCostManagementExports returns a GroupCostManagementExportInformer.
+	GroupCostManagementExports() GroupCostManagementExportInformer
 	// GroupPolicyAssignments returns a GroupPolicyAssignmentInformer.
 	GroupPolicyAssignments() GroupPolicyAssignmentInformer
 	// GroupTemplateDeployments returns a GroupTemplateDeploymentInformer.
@@ -50,6 +52,11 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // Groups returns a GroupInformer.
 func (v *version) Groups() GroupInformer {
 	return &groupInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// GroupCostManagementExports returns a GroupCostManagementExportInformer.
+func (v *version) GroupCostManagementExports() GroupCostManagementExportInformer {
+	return &groupCostManagementExportInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // GroupPolicyAssignments returns a GroupPolicyAssignmentInformer.

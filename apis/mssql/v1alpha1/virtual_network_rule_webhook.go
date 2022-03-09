@@ -89,7 +89,7 @@ func (r *VirtualNetworkRule) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range virtualnetworkruleForceNewList {
+	for key, _ := range virtualnetworkruleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

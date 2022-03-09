@@ -57,6 +57,18 @@ spec:
                 type: object
               resource:
                 properties:
+                  encryption:
+                    properties:
+                      infrastructureEncryptionEnabled:
+                        type: boolean
+                      keyID:
+                        type: string
+                      useSystemAssignedIdentity:
+                        type: boolean
+                    required:
+                    - infrastructureEncryptionEnabled
+                    - keyID
+                    type: object
                   id:
                     type: string
                   identity:
@@ -80,6 +92,8 @@ spec:
                     type: string
                   softDeleteEnabled:
                     type: boolean
+                  storageModeType:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -130,6 +144,18 @@ spec:
                 type: object
               state:
                 properties:
+                  encryption:
+                    properties:
+                      infrastructureEncryptionEnabled:
+                        type: boolean
+                      keyID:
+                        type: string
+                      useSystemAssignedIdentity:
+                        type: boolean
+                    required:
+                    - infrastructureEncryptionEnabled
+                    - keyID
+                    type: object
                   id:
                     type: string
                   identity:
@@ -153,6 +179,8 @@ spec:
                     type: string
                   softDeleteEnabled:
                     type: boolean
+                  storageModeType:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string

@@ -91,7 +91,7 @@ func (r *DesktopApplicationGroup) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range desktopapplicationgroupForceNewList {
+	for key, _ := range desktopapplicationgroupForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -38,6 +38,8 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(FabricClusterSpecUpgradePolicy{}).Type1()):                               FabricClusterSpecUpgradePolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FabricClusterSpecUpgradePolicyDeltaHealthPolicy{}).Type1()):              FabricClusterSpecUpgradePolicyDeltaHealthPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FabricClusterSpecUpgradePolicyHealthPolicy{}).Type1()):                   FabricClusterSpecUpgradePolicyHealthPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FabricManagedClusterSpecAuthentication{}).Type1()):                       FabricManagedClusterSpecAuthenticationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FabricManagedClusterSpecAuthenticationActiveDirectory{}).Type1()):        FabricManagedClusterSpecAuthenticationActiveDirectoryCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FabricMeshApplicationSpecServiceCodePackageResources{}).Type1()):         FabricMeshApplicationSpecServiceCodePackageResourcesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FabricMeshApplicationSpecServiceCodePackageResourcesLimits{}).Type1()):   FabricMeshApplicationSpecServiceCodePackageResourcesLimitsCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FabricMeshApplicationSpecServiceCodePackageResourcesRequests{}).Type1()): FabricMeshApplicationSpecServiceCodePackageResourcesRequestsCodec{},
@@ -57,6 +59,8 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(FabricClusterSpecUpgradePolicy{}).Type1()):                               FabricClusterSpecUpgradePolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FabricClusterSpecUpgradePolicyDeltaHealthPolicy{}).Type1()):              FabricClusterSpecUpgradePolicyDeltaHealthPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FabricClusterSpecUpgradePolicyHealthPolicy{}).Type1()):                   FabricClusterSpecUpgradePolicyHealthPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FabricManagedClusterSpecAuthentication{}).Type1()):                       FabricManagedClusterSpecAuthenticationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FabricManagedClusterSpecAuthenticationActiveDirectory{}).Type1()):        FabricManagedClusterSpecAuthenticationActiveDirectoryCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FabricMeshApplicationSpecServiceCodePackageResources{}).Type1()):         FabricMeshApplicationSpecServiceCodePackageResourcesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FabricMeshApplicationSpecServiceCodePackageResourcesLimits{}).Type1()):   FabricMeshApplicationSpecServiceCodePackageResourcesLimitsCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FabricMeshApplicationSpecServiceCodePackageResourcesRequests{}).Type1()): FabricMeshApplicationSpecServiceCodePackageResourcesRequestsCodec{},
@@ -941,6 +945,164 @@ func (FabricClusterSpecUpgradePolicyHealthPolicyCodec) Decode(ptr unsafe.Pointer
 		}
 	default:
 		iter.ReportError("decode FabricClusterSpecUpgradePolicyHealthPolicy", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FabricManagedClusterSpecAuthenticationCodec struct {
+}
+
+func (FabricManagedClusterSpecAuthenticationCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FabricManagedClusterSpecAuthentication)(ptr) == nil
+}
+
+func (FabricManagedClusterSpecAuthenticationCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FabricManagedClusterSpecAuthentication)(ptr)
+	var objs []FabricManagedClusterSpecAuthentication
+	if obj != nil {
+		objs = []FabricManagedClusterSpecAuthentication{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FabricManagedClusterSpecAuthentication{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FabricManagedClusterSpecAuthenticationCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FabricManagedClusterSpecAuthentication)(ptr) = FabricManagedClusterSpecAuthentication{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FabricManagedClusterSpecAuthentication
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FabricManagedClusterSpecAuthentication{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FabricManagedClusterSpecAuthentication)(ptr) = objs[0]
+			} else {
+				*(*FabricManagedClusterSpecAuthentication)(ptr) = FabricManagedClusterSpecAuthentication{}
+			}
+		} else {
+			*(*FabricManagedClusterSpecAuthentication)(ptr) = FabricManagedClusterSpecAuthentication{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FabricManagedClusterSpecAuthentication
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FabricManagedClusterSpecAuthentication{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FabricManagedClusterSpecAuthentication)(ptr) = obj
+		} else {
+			*(*FabricManagedClusterSpecAuthentication)(ptr) = FabricManagedClusterSpecAuthentication{}
+		}
+	default:
+		iter.ReportError("decode FabricManagedClusterSpecAuthentication", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FabricManagedClusterSpecAuthenticationActiveDirectoryCodec struct {
+}
+
+func (FabricManagedClusterSpecAuthenticationActiveDirectoryCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FabricManagedClusterSpecAuthenticationActiveDirectory)(ptr) == nil
+}
+
+func (FabricManagedClusterSpecAuthenticationActiveDirectoryCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FabricManagedClusterSpecAuthenticationActiveDirectory)(ptr)
+	var objs []FabricManagedClusterSpecAuthenticationActiveDirectory
+	if obj != nil {
+		objs = []FabricManagedClusterSpecAuthenticationActiveDirectory{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FabricManagedClusterSpecAuthenticationActiveDirectory{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FabricManagedClusterSpecAuthenticationActiveDirectoryCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FabricManagedClusterSpecAuthenticationActiveDirectory)(ptr) = FabricManagedClusterSpecAuthenticationActiveDirectory{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FabricManagedClusterSpecAuthenticationActiveDirectory
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FabricManagedClusterSpecAuthenticationActiveDirectory{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FabricManagedClusterSpecAuthenticationActiveDirectory)(ptr) = objs[0]
+			} else {
+				*(*FabricManagedClusterSpecAuthenticationActiveDirectory)(ptr) = FabricManagedClusterSpecAuthenticationActiveDirectory{}
+			}
+		} else {
+			*(*FabricManagedClusterSpecAuthenticationActiveDirectory)(ptr) = FabricManagedClusterSpecAuthenticationActiveDirectory{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FabricManagedClusterSpecAuthenticationActiveDirectory
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FabricManagedClusterSpecAuthenticationActiveDirectory{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FabricManagedClusterSpecAuthenticationActiveDirectory)(ptr) = obj
+		} else {
+			*(*FabricManagedClusterSpecAuthenticationActiveDirectory)(ptr) = FabricManagedClusterSpecAuthenticationActiveDirectory{}
+		}
+	default:
+		iter.ReportError("decode FabricManagedClusterSpecAuthenticationActiveDirectory", "unexpected JSON type")
 	}
 }
 

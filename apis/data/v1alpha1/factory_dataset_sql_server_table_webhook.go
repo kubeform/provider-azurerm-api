@@ -42,6 +42,7 @@ func (r *FactoryDatasetSQLServerTable) SetupWebhookWithManager(mgr ctrl.Manager)
 var _ webhook.Validator = &FactoryDatasetSQLServerTable{}
 
 var factorydatasetsqlservertableForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *FactoryDatasetSQLServerTable) ValidateUpdate(old runtime.Object) error 
 		return err
 	}
 
-	for key := range factorydatasetsqlservertableForceNewList {
+	for key, _ := range factorydatasetsqlservertableForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

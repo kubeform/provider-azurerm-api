@@ -89,7 +89,7 @@ func (r *InterfaceSecurityGroupAssociation) ValidateUpdate(old runtime.Object) e
 		return err
 	}
 
-	for key := range interfacesecuritygroupassociationForceNewList {
+	for key, _ := range interfacesecuritygroupassociationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -92,7 +92,7 @@ func (r *FabricCluster) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range fabricclusterForceNewList {
+	for key, _ := range fabricclusterForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

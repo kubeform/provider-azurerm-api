@@ -85,6 +85,8 @@ type PublicIPSpecResource struct {
 	// +optional
 	Sku *string `json:"sku,omitempty" tf:"sku"`
 	// +optional
+	SkuTier *string `json:"skuTier,omitempty" tf:"sku_tier"`
+	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 	// +optional
 	// Deprecated

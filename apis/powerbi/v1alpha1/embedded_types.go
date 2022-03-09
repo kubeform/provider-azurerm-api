@@ -60,11 +60,13 @@ type EmbeddedSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	Administrators    []string `json:"administrators" tf:"administrators"`
-	Location          *string  `json:"location" tf:"location"`
-	Name              *string  `json:"name" tf:"name"`
-	ResourceGroupName *string  `json:"resourceGroupName" tf:"resource_group_name"`
-	SkuName           *string  `json:"skuName" tf:"sku_name"`
+	Administrators []string `json:"administrators" tf:"administrators"`
+	Location       *string  `json:"location" tf:"location"`
+	// +optional
+	Mode              *string `json:"mode,omitempty" tf:"mode"`
+	Name              *string `json:"name" tf:"name"`
+	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	SkuName           *string `json:"skuName" tf:"sku_name"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 }

@@ -126,6 +126,23 @@ spec:
                           properties:
                             contentType:
                               type: string
+                            example:
+                              items:
+                                properties:
+                                  description:
+                                    type: string
+                                  externalValue:
+                                    type: string
+                                  name:
+                                    type: string
+                                  summary:
+                                    type: string
+                                  value:
+                                    type: string
+                                required:
+                                - name
+                                type: object
+                              type: array
                             formParameter:
                               items:
                                 properties:
@@ -150,6 +167,7 @@ spec:
                                 type: object
                               type: array
                             sample:
+                              description: Deprecated
                               type: string
                             schemaID:
                               type: string
@@ -195,6 +213,23 @@ spec:
                             properties:
                               contentType:
                                 type: string
+                              example:
+                                items:
+                                  properties:
+                                    description:
+                                      type: string
+                                    externalValue:
+                                      type: string
+                                    name:
+                                      type: string
+                                    summary:
+                                      type: string
+                                    value:
+                                      type: string
+                                  required:
+                                  - name
+                                  type: object
+                                type: array
                               formParameter:
                                 items:
                                   properties:
@@ -219,6 +254,7 @@ spec:
                                   type: object
                                 type: array
                               sample:
+                                description: Deprecated
                                 type: string
                               schemaID:
                                 type: string
@@ -378,6 +414,23 @@ spec:
                           properties:
                             contentType:
                               type: string
+                            example:
+                              items:
+                                properties:
+                                  description:
+                                    type: string
+                                  externalValue:
+                                    type: string
+                                  name:
+                                    type: string
+                                  summary:
+                                    type: string
+                                  value:
+                                    type: string
+                                required:
+                                - name
+                                type: object
+                              type: array
                             formParameter:
                               items:
                                 properties:
@@ -402,6 +455,7 @@ spec:
                                 type: object
                               type: array
                             sample:
+                              description: Deprecated
                               type: string
                             schemaID:
                               type: string
@@ -447,6 +501,23 @@ spec:
                             properties:
                               contentType:
                                 type: string
+                              example:
+                                items:
+                                  properties:
+                                    description:
+                                      type: string
+                                    externalValue:
+                                      type: string
+                                    name:
+                                      type: string
+                                    summary:
+                                      type: string
+                                    value:
+                                      type: string
+                                  required:
+                                  - name
+                                  type: object
+                                type: array
                               formParameter:
                                 items:
                                   properties:
@@ -471,6 +542,7 @@ spec:
                                   type: object
                                 type: array
                               sample:
+                                description: Deprecated
                                 type: string
                               schemaID:
                                 type: string

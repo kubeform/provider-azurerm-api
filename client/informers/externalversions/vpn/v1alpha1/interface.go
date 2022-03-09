@@ -28,6 +28,8 @@ type Interface interface {
 	Gateways() GatewayInformer
 	// GatewayConnections returns a GatewayConnectionInformer.
 	GatewayConnections() GatewayConnectionInformer
+	// GatewayNATRules returns a GatewayNATRuleInformer.
+	GatewayNATRules() GatewayNATRuleInformer
 	// ServerConfigurations returns a ServerConfigurationInformer.
 	ServerConfigurations() ServerConfigurationInformer
 	// Sites returns a SiteInformer.
@@ -53,6 +55,11 @@ func (v *version) Gateways() GatewayInformer {
 // GatewayConnections returns a GatewayConnectionInformer.
 func (v *version) GatewayConnections() GatewayConnectionInformer {
 	return &gatewayConnectionInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// GatewayNATRules returns a GatewayNATRuleInformer.
+func (v *version) GatewayNATRules() GatewayNATRuleInformer {
+	return &gatewayNATRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // ServerConfigurations returns a ServerConfigurationInformer.

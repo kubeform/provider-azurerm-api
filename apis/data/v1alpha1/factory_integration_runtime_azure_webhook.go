@@ -42,10 +42,12 @@ func (r *FactoryIntegrationRuntimeAzure) SetupWebhookWithManager(mgr ctrl.Manage
 var _ webhook.Validator = &FactoryIntegrationRuntimeAzure{}
 
 var factoryintegrationruntimeazureForceNewList = map[string]bool{
-	"/data_factory_name":   true,
-	"/location":            true,
-	"/name":                true,
-	"/resource_group_name": true,
+	"/data_factory_id":         true,
+	"/data_factory_name":       true,
+	"/location":                true,
+	"/name":                    true,
+	"/resource_group_name":     true,
+	"/virtual_network_enabled": true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -91,7 +93,7 @@ func (r *FactoryIntegrationRuntimeAzure) ValidateUpdate(old runtime.Object) erro
 		return err
 	}
 
-	for key := range factoryintegrationruntimeazureForceNewList {
+	for key, _ := range factoryintegrationruntimeazureForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

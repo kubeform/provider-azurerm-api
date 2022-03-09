@@ -42,9 +42,10 @@ func (r *HubIP) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &HubIP{}
 
 var hubipForceNewList = map[string]bool{
-	"/name":           true,
-	"/subnet_id":      true,
-	"/virtual_hub_id": true,
+	"/name":                 true,
+	"/public_ip_address_id": true,
+	"/subnet_id":            true,
+	"/virtual_hub_id":       true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -90,7 +91,7 @@ func (r *HubIP) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range hubipForceNewList {
+	for key, _ := range hubipForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

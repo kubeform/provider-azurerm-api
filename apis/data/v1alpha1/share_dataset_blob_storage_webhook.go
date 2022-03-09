@@ -95,7 +95,7 @@ func (r *ShareDatasetBlobStorage) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range sharedatasetblobstorageForceNewList {
+	for key, _ := range sharedatasetblobstorageForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

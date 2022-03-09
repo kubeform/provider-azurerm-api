@@ -27,13 +27,15 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(ServicesVaultSpecIdentity{}).Type1()): ServicesVaultSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServicesVaultSpecEncryption{}).Type1()): ServicesVaultSpecEncryptionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServicesVaultSpecIdentity{}).Type1()):   ServicesVaultSpecIdentityCodec{},
 	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(ServicesVaultSpecIdentity{}).Type1()): ServicesVaultSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServicesVaultSpecEncryption{}).Type1()): ServicesVaultSpecEncryptionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServicesVaultSpecIdentity{}).Type1()):   ServicesVaultSpecIdentityCodec{},
 	}
 }
 
@@ -47,6 +49,85 @@ func getDecodersWithout(typ string) map[string]jsoniter.ValDecoder {
 	origMap := GetDecoder()
 	delete(origMap, typ)
 	return origMap
+}
+
+// +k8s:deepcopy-gen=false
+type ServicesVaultSpecEncryptionCodec struct {
+}
+
+func (ServicesVaultSpecEncryptionCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*ServicesVaultSpecEncryption)(ptr) == nil
+}
+
+func (ServicesVaultSpecEncryptionCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*ServicesVaultSpecEncryption)(ptr)
+	var objs []ServicesVaultSpecEncryption
+	if obj != nil {
+		objs = []ServicesVaultSpecEncryption{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ServicesVaultSpecEncryption{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (ServicesVaultSpecEncryptionCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*ServicesVaultSpecEncryption)(ptr) = ServicesVaultSpecEncryption{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []ServicesVaultSpecEncryption
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ServicesVaultSpecEncryption{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*ServicesVaultSpecEncryption)(ptr) = objs[0]
+			} else {
+				*(*ServicesVaultSpecEncryption)(ptr) = ServicesVaultSpecEncryption{}
+			}
+		} else {
+			*(*ServicesVaultSpecEncryption)(ptr) = ServicesVaultSpecEncryption{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj ServicesVaultSpecEncryption
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ServicesVaultSpecEncryption{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*ServicesVaultSpecEncryption)(ptr) = obj
+		} else {
+			*(*ServicesVaultSpecEncryption)(ptr) = ServicesVaultSpecEncryption{}
+		}
+	default:
+		iter.ReportError("decode ServicesVaultSpecEncryption", "unexpected JSON type")
+	}
 }
 
 // +k8s:deepcopy-gen=false

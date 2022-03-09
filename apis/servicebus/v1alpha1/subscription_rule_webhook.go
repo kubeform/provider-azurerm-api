@@ -45,6 +45,7 @@ var subscriptionruleForceNewList = map[string]bool{
 	"/name":                true,
 	"/namespace_name":      true,
 	"/resource_group_name": true,
+	"/subscription_id":     true,
 	"/subscription_name":   true,
 	"/topic_name":          true,
 }
@@ -92,7 +93,7 @@ func (r *SubscriptionRule) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range subscriptionruleForceNewList {
+	for key, _ := range subscriptionruleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

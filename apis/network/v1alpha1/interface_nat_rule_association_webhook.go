@@ -90,7 +90,7 @@ func (r *InterfaceNATRuleAssociation) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range interfacenatruleassociationForceNewList {
+	for key, _ := range interfacenatruleassociationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -90,7 +90,7 @@ func (r *ServerConfiguration) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range serverconfigurationForceNewList {
+	for key, _ := range serverconfigurationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

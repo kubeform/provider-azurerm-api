@@ -61,6 +61,10 @@ spec:
                     type: boolean
                   adminUsername:
                     type: string
+                  anonymousPullEnabled:
+                    type: boolean
+                  dataEndpointEnabled:
+                    type: boolean
                   encryption:
                     properties:
                       enabled:
@@ -83,6 +87,8 @@ spec:
                       properties:
                         location:
                           type: string
+                        regionalEndpointEnabled:
+                          type: boolean
                         tags:
                           additionalProperties:
                             type: string
@@ -100,9 +106,10 @@ spec:
                       identityIDS:
                         items:
                           type: string
-                        minItems: 1
                         type: array
                       principalID:
+                        type: string
+                      tenantID:
                         type: string
                       type:
                         type: string
@@ -114,6 +121,8 @@ spec:
                   loginServer:
                     type: string
                   name:
+                    type: string
+                  networkRuleBypassOption:
                     type: string
                   networkRuleSet:
                     properties:
@@ -161,6 +170,7 @@ spec:
                   sku:
                     type: string
                   storageAccountID:
+                    description: Deprecated
                     type: string
                   tags:
                     additionalProperties:
@@ -231,6 +241,10 @@ spec:
                     type: boolean
                   adminUsername:
                     type: string
+                  anonymousPullEnabled:
+                    type: boolean
+                  dataEndpointEnabled:
+                    type: boolean
                   encryption:
                     properties:
                       enabled:
@@ -253,6 +267,8 @@ spec:
                       properties:
                         location:
                           type: string
+                        regionalEndpointEnabled:
+                          type: boolean
                         tags:
                           additionalProperties:
                             type: string
@@ -270,9 +286,10 @@ spec:
                       identityIDS:
                         items:
                           type: string
-                        minItems: 1
                         type: array
                       principalID:
+                        type: string
+                      tenantID:
                         type: string
                       type:
                         type: string
@@ -284,6 +301,8 @@ spec:
                   loginServer:
                     type: string
                   name:
+                    type: string
+                  networkRuleBypassOption:
                     type: string
                   networkRuleSet:
                     properties:
@@ -331,6 +350,7 @@ spec:
                   sku:
                     type: string
                   storageAccountID:
+                    description: Deprecated
                     type: string
                   tags:
                     additionalProperties:

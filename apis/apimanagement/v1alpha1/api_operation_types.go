@@ -65,6 +65,18 @@ type ApiOperationSpecRequestQueryParameter struct {
 	Values []string `json:"values,omitempty" tf:"values"`
 }
 
+type ApiOperationSpecRequestRepresentationExample struct {
+	// +optional
+	Description *string `json:"description,omitempty" tf:"description"`
+	// +optional
+	ExternalValue *string `json:"externalValue,omitempty" tf:"external_value"`
+	Name          *string `json:"name" tf:"name"`
+	// +optional
+	Summary *string `json:"summary,omitempty" tf:"summary"`
+	// +optional
+	Value *string `json:"value,omitempty" tf:"value"`
+}
+
 type ApiOperationSpecRequestRepresentationFormParameter struct {
 	// +optional
 	DefaultValue *string `json:"defaultValue,omitempty" tf:"default_value"`
@@ -80,8 +92,11 @@ type ApiOperationSpecRequestRepresentationFormParameter struct {
 type ApiOperationSpecRequestRepresentation struct {
 	ContentType *string `json:"contentType" tf:"content_type"`
 	// +optional
+	Example []ApiOperationSpecRequestRepresentationExample `json:"example,omitempty" tf:"example"`
+	// +optional
 	FormParameter []ApiOperationSpecRequestRepresentationFormParameter `json:"formParameter,omitempty" tf:"form_parameter"`
 	// +optional
+	// Deprecated
 	Sample *string `json:"sample,omitempty" tf:"sample"`
 	// +optional
 	SchemaID *string `json:"schemaID,omitempty" tf:"schema_id"`
@@ -112,6 +127,18 @@ type ApiOperationSpecResponseHeader struct {
 	Values []string `json:"values,omitempty" tf:"values"`
 }
 
+type ApiOperationSpecResponseRepresentationExample struct {
+	// +optional
+	Description *string `json:"description,omitempty" tf:"description"`
+	// +optional
+	ExternalValue *string `json:"externalValue,omitempty" tf:"external_value"`
+	Name          *string `json:"name" tf:"name"`
+	// +optional
+	Summary *string `json:"summary,omitempty" tf:"summary"`
+	// +optional
+	Value *string `json:"value,omitempty" tf:"value"`
+}
+
 type ApiOperationSpecResponseRepresentationFormParameter struct {
 	// +optional
 	DefaultValue *string `json:"defaultValue,omitempty" tf:"default_value"`
@@ -127,8 +154,11 @@ type ApiOperationSpecResponseRepresentationFormParameter struct {
 type ApiOperationSpecResponseRepresentation struct {
 	ContentType *string `json:"contentType" tf:"content_type"`
 	// +optional
+	Example []ApiOperationSpecResponseRepresentationExample `json:"example,omitempty" tf:"example"`
+	// +optional
 	FormParameter []ApiOperationSpecResponseRepresentationFormParameter `json:"formParameter,omitempty" tf:"form_parameter"`
 	// +optional
+	// Deprecated
 	Sample *string `json:"sample,omitempty" tf:"sample"`
 	// +optional
 	SchemaID *string `json:"schemaID,omitempty" tf:"schema_id"`

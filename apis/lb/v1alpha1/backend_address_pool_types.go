@@ -47,6 +47,13 @@ type BackendAddressPoolSpecBackendAddress struct {
 	VirtualNetworkID *string `json:"virtualNetworkID" tf:"virtual_network_id"`
 }
 
+type BackendAddressPoolSpecTunnelInterface struct {
+	Identifier *int64  `json:"identifier" tf:"identifier"`
+	Port       *int64  `json:"port" tf:"port"`
+	Protocol   *string `json:"protocol" tf:"protocol"`
+	Type       *string `json:"type" tf:"type"`
+}
+
 type BackendAddressPoolSpec struct {
 	State *BackendAddressPoolSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -81,6 +88,9 @@ type BackendAddressPoolSpecResource struct {
 	// +optional
 	// Deprecated
 	ResourceGroupName *string `json:"resourceGroupName,omitempty" tf:"resource_group_name"`
+	// +optional
+	// +kubebuilder:validation:MinItems=1
+	TunnelInterface []BackendAddressPoolSpecTunnelInterface `json:"tunnelInterface,omitempty" tf:"tunnel_interface"`
 }
 
 type BackendAddressPoolStatus struct {

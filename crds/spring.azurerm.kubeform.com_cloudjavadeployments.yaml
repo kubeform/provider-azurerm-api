@@ -58,6 +58,7 @@ spec:
               resource:
                 properties:
                   cpu:
+                    description: Deprecated
                     format: int64
                     type: integer
                   environmentVariables:
@@ -72,10 +73,18 @@ spec:
                   jvmOptions:
                     type: string
                   memoryInGb:
+                    description: Deprecated
                     format: int64
                     type: integer
                   name:
                     type: string
+                  quota:
+                    properties:
+                      cpu:
+                        type: string
+                      memory:
+                        type: string
+                    type: object
                   runtimeVersion:
                     type: string
                   springCloudAppID:
@@ -125,6 +134,7 @@ spec:
               state:
                 properties:
                   cpu:
+                    description: Deprecated
                     format: int64
                     type: integer
                   environmentVariables:
@@ -139,10 +149,18 @@ spec:
                   jvmOptions:
                     type: string
                   memoryInGb:
+                    description: Deprecated
                     format: int64
                     type: integer
                   name:
                     type: string
+                  quota:
+                    properties:
+                      cpu:
+                        type: string
+                      memory:
+                        type: string
+                    type: object
                   runtimeVersion:
                     type: string
                   springCloudAppID:

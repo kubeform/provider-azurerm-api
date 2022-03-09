@@ -78,13 +78,21 @@ type SubscriptionSpecResource struct {
 	LockDuration     *string `json:"lockDuration,omitempty" tf:"lock_duration"`
 	MaxDeliveryCount *int64  `json:"maxDeliveryCount" tf:"max_delivery_count"`
 	Name             *string `json:"name" tf:"name"`
-	NamespaceName    *string `json:"namespaceName" tf:"namespace_name"`
 	// +optional
-	RequiresSession   *bool   `json:"requiresSession,omitempty" tf:"requires_session"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	// Deprecated
+	NamespaceName *string `json:"namespaceName,omitempty" tf:"namespace_name"`
 	// +optional
-	Status    *string `json:"status,omitempty" tf:"status"`
-	TopicName *string `json:"topicName" tf:"topic_name"`
+	RequiresSession *bool `json:"requiresSession,omitempty" tf:"requires_session"`
+	// +optional
+	// Deprecated
+	ResourceGroupName *string `json:"resourceGroupName,omitempty" tf:"resource_group_name"`
+	// +optional
+	Status *string `json:"status,omitempty" tf:"status"`
+	// +optional
+	TopicID *string `json:"topicID,omitempty" tf:"topic_id"`
+	// +optional
+	// Deprecated
+	TopicName *string `json:"topicName,omitempty" tf:"topic_name"`
 }
 
 type SubscriptionStatus struct {

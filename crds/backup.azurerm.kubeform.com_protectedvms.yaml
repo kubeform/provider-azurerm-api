@@ -59,8 +59,18 @@ spec:
                 properties:
                   backupPolicyID:
                     type: string
+                  excludeDiskLuns:
+                    items:
+                      format: int64
+                      type: integer
+                    type: array
                   id:
                     type: string
+                  includeDiskLuns:
+                    items:
+                      format: int64
+                      type: integer
+                    type: array
                   recoveryVaultName:
                     type: string
                   resourceGroupName:
@@ -119,8 +129,18 @@ spec:
                 properties:
                   backupPolicyID:
                     type: string
+                  excludeDiskLuns:
+                    items:
+                      format: int64
+                      type: integer
+                    type: array
                   id:
                     type: string
+                  includeDiskLuns:
+                    items:
+                      format: int64
+                      type: integer
+                    type: array
                   recoveryVaultName:
                     type: string
                   resourceGroupName:

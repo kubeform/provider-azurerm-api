@@ -122,6 +122,18 @@ spec:
                     type: object
                   id:
                     type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      type:
+                        type: string
+                    required:
+                    - identityIDS
+                    - type
+                    type: object
                   maxTasksPerNode:
                     format: int64
                     type: integer
@@ -187,11 +199,17 @@ spec:
                     properties:
                       commandLine:
                         type: string
-                      environment:
+                      commonEnvironmentProperties:
                         additionalProperties:
                           type: string
                         type: object
+                      environment:
+                        additionalProperties:
+                          type: string
+                        description: Deprecated
+                        type: object
                       maxTaskRetryCount:
+                        description: Deprecated
                         format: int64
                         type: integer
                       resourceFile:
@@ -211,6 +229,9 @@ spec:
                               type: string
                           type: object
                         type: array
+                      taskRetryMaximum:
+                        format: int64
+                        type: integer
                       userIdentity:
                         properties:
                           autoUser:
@@ -368,6 +389,18 @@ spec:
                     type: object
                   id:
                     type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      type:
+                        type: string
+                    required:
+                    - identityIDS
+                    - type
+                    type: object
                   maxTasksPerNode:
                     format: int64
                     type: integer
@@ -433,11 +466,17 @@ spec:
                     properties:
                       commandLine:
                         type: string
-                      environment:
+                      commonEnvironmentProperties:
                         additionalProperties:
                           type: string
                         type: object
+                      environment:
+                        additionalProperties:
+                          type: string
+                        description: Deprecated
+                        type: object
                       maxTaskRetryCount:
+                        description: Deprecated
                         format: int64
                         type: integer
                       resourceFile:
@@ -457,6 +496,9 @@ spec:
                               type: string
                           type: object
                         type: array
+                      taskRetryMaximum:
+                        format: int64
+                        type: integer
                       userIdentity:
                         properties:
                           autoUser:

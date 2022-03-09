@@ -28,6 +28,7 @@ import (
 type CdnV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	EndpointsGetter
+	EndpointCustomDomainsGetter
 	ProfilesGetter
 }
 
@@ -38,6 +39,10 @@ type CdnV1alpha1Client struct {
 
 func (c *CdnV1alpha1Client) Endpoints(namespace string) EndpointInterface {
 	return newEndpoints(c, namespace)
+}
+
+func (c *CdnV1alpha1Client) EndpointCustomDomains(namespace string) EndpointCustomDomainInterface {
+	return newEndpointCustomDomains(c, namespace)
 }
 
 func (c *CdnV1alpha1Client) Profiles(namespace string) ProfileInterface {

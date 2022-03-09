@@ -25,3 +25,11 @@ type WorkspaceListerExpansion interface{}
 // WorkspaceNamespaceListerExpansion allows custom methods to be added to
 // WorkspaceNamespaceLister.
 type WorkspaceNamespaceListerExpansion interface{}
+
+// WorkspaceCustomerManagedKeyListerExpansion allows custom methods to be added to
+// WorkspaceCustomerManagedKeyLister.
+type WorkspaceCustomerManagedKeyListerExpansion interface{}
+
+// WorkspaceCustomerManagedKeyNamespaceListerExpansion allows custom methods to be added to
+// WorkspaceCustomerManagedKeyNamespaceLister.
+type WorkspaceCustomerManagedKeyNamespaceListerExpansion interface{}

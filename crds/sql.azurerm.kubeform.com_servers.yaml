@@ -99,6 +99,26 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
+                  threatDetectionPolicy:
+                    properties:
+                      disabledAlerts:
+                        items:
+                          type: string
+                        type: array
+                      emailAccountAdmins:
+                        type: boolean
+                      emailAddresses:
+                        items:
+                          type: string
+                        type: array
+                      retentionDays:
+                        format: int64
+                        type: integer
+                      state:
+                        type: string
+                      storageEndpoint:
+                        type: string
+                    type: object
                   timeouts:
                     properties:
                       create:
@@ -198,6 +218,26 @@ spec:
                   tags:
                     additionalProperties:
                       type: string
+                    type: object
+                  threatDetectionPolicy:
+                    properties:
+                      disabledAlerts:
+                        items:
+                          type: string
+                        type: array
+                      emailAccountAdmins:
+                        type: boolean
+                      emailAddresses:
+                        items:
+                          type: string
+                        type: array
+                      retentionDays:
+                        format: int64
+                        type: integer
+                      state:
+                        type: string
+                      storageEndpoint:
+                        type: string
                     type: object
                   timeouts:
                     properties:

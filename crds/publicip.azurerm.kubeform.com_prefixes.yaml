@@ -63,6 +63,8 @@ spec:
                     type: string
                   ipPrefix:
                     type: string
+                  ipVersion:
+                    type: string
                   location:
                     type: string
                   name:
@@ -133,6 +135,8 @@ spec:
                   id:
                     type: string
                   ipPrefix:
+                    type: string
+                  ipVersion:
                     type: string
                   location:
                     type: string

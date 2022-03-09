@@ -32,6 +32,10 @@ type SqlV1alpha1Interface interface {
 	ElasticpoolsGetter
 	FailoverGroupsGetter
 	FirewallRulesGetter
+	ManagedDatabasesGetter
+	ManagedInstancesGetter
+	ManagedInstanceActiveDirectoryAdministratorsGetter
+	ManagedInstanceFailoverGroupsGetter
 	ServersGetter
 	VirtualNetworkRulesGetter
 }
@@ -59,6 +63,22 @@ func (c *SqlV1alpha1Client) FailoverGroups(namespace string) FailoverGroupInterf
 
 func (c *SqlV1alpha1Client) FirewallRules(namespace string) FirewallRuleInterface {
 	return newFirewallRules(c, namespace)
+}
+
+func (c *SqlV1alpha1Client) ManagedDatabases(namespace string) ManagedDatabaseInterface {
+	return newManagedDatabases(c, namespace)
+}
+
+func (c *SqlV1alpha1Client) ManagedInstances(namespace string) ManagedInstanceInterface {
+	return newManagedInstances(c, namespace)
+}
+
+func (c *SqlV1alpha1Client) ManagedInstanceActiveDirectoryAdministrators(namespace string) ManagedInstanceActiveDirectoryAdministratorInterface {
+	return newManagedInstanceActiveDirectoryAdministrators(c, namespace)
+}
+
+func (c *SqlV1alpha1Client) ManagedInstanceFailoverGroups(namespace string) ManagedInstanceFailoverGroupInterface {
+	return newManagedInstanceFailoverGroups(c, namespace)
 }
 
 func (c *SqlV1alpha1Client) Servers(namespace string) ServerInterface {

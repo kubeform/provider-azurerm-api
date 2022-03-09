@@ -93,7 +93,7 @@ func (r *Port) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range portForceNewList {
+	for key, _ := range portForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

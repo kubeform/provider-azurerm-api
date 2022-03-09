@@ -42,7 +42,9 @@ type DesktopHostPool struct {
 }
 
 type DesktopHostPoolSpecRegistrationInfo struct {
-	ExpirationDate *string `json:"expirationDate" tf:"expiration_date"`
+	// +optional
+	// Deprecated
+	ExpirationDate *string `json:"expirationDate,omitempty" tf:"expiration_date"`
 	// +optional
 	ResetToken *bool `json:"resetToken,omitempty" tf:"reset_token"`
 	// +optional
@@ -86,6 +88,7 @@ type DesktopHostPoolSpecResource struct {
 	// Preferred App Group type to display
 	// +optional
 	PreferredAppGroupType *string `json:"preferredAppGroupType,omitempty" tf:"preferred_app_group_type"`
+	// This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
 	// +optional
 	RegistrationInfo  *DesktopHostPoolSpecRegistrationInfo `json:"registrationInfo,omitempty" tf:"registration_info"`
 	ResourceGroupName *string                              `json:"resourceGroupName" tf:"resource_group_name"`

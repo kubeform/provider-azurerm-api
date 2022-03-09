@@ -28,6 +28,7 @@ import (
 type MapsV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	AccountsGetter
+	CreatorsGetter
 }
 
 // MapsV1alpha1Client is used to interact with features provided by the maps.azurerm.kubeform.com group.
@@ -37,6 +38,10 @@ type MapsV1alpha1Client struct {
 
 func (c *MapsV1alpha1Client) Accounts(namespace string) AccountInterface {
 	return newAccounts(c, namespace)
+}
+
+func (c *MapsV1alpha1Client) Creators(namespace string) CreatorInterface {
+	return newCreators(c, namespace)
 }
 
 // NewForConfig creates a new MapsV1alpha1Client for the given config.

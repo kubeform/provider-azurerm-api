@@ -698,8 +698,18 @@ func (in *DiskSpecResource) DeepCopyInto(out *DiskSpecResource) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.DiskIopsReadOnly != nil {
+		in, out := &in.DiskIopsReadOnly, &out.DiskIopsReadOnly
+		*out = new(int64)
+		**out = **in
+	}
 	if in.DiskIopsReadWrite != nil {
 		in, out := &in.DiskIopsReadWrite, &out.DiskIopsReadWrite
+		*out = new(int64)
+		**out = **in
+	}
+	if in.DiskMbpsReadOnly != nil {
+		in, out := &in.DiskMbpsReadOnly, &out.DiskMbpsReadOnly
 		*out = new(int64)
 		**out = **in
 	}
@@ -718,6 +728,16 @@ func (in *DiskSpecResource) DeepCopyInto(out *DiskSpecResource) {
 		*out = new(DiskSpecEncryptionSettings)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.GalleryImageReferenceID != nil {
+		in, out := &in.GalleryImageReferenceID, &out.GalleryImageReferenceID
+		*out = new(string)
+		**out = **in
+	}
+	if in.HyperVGeneration != nil {
+		in, out := &in.HyperVGeneration, &out.HyperVGeneration
+		*out = new(string)
+		**out = **in
+	}
 	if in.ImageReferenceID != nil {
 		in, out := &in.ImageReferenceID, &out.ImageReferenceID
 		*out = new(string)
@@ -726,6 +746,16 @@ func (in *DiskSpecResource) DeepCopyInto(out *DiskSpecResource) {
 	if in.Location != nil {
 		in, out := &in.Location, &out.Location
 		*out = new(string)
+		**out = **in
+	}
+	if in.LogicalSectorSize != nil {
+		in, out := &in.LogicalSectorSize, &out.LogicalSectorSize
+		*out = new(int64)
+		**out = **in
+	}
+	if in.MaxShares != nil {
+		in, out := &in.MaxShares, &out.MaxShares
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Name != nil {
@@ -738,9 +768,19 @@ func (in *DiskSpecResource) DeepCopyInto(out *DiskSpecResource) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.OnDemandBurstingEnabled != nil {
+		in, out := &in.OnDemandBurstingEnabled, &out.OnDemandBurstingEnabled
+		*out = new(bool)
+		**out = **in
+	}
 	if in.OsType != nil {
 		in, out := &in.OsType, &out.OsType
 		*out = new(string)
+		**out = **in
+	}
+	if in.PublicNetworkAccessEnabled != nil {
+		in, out := &in.PublicNetworkAccessEnabled, &out.PublicNetworkAccessEnabled
+		*out = new(bool)
 		**out = **in
 	}
 	if in.ResourceGroupName != nil {
@@ -782,6 +822,11 @@ func (in *DiskSpecResource) DeepCopyInto(out *DiskSpecResource) {
 	if in.Tier != nil {
 		in, out := &in.Tier, &out.Tier
 		*out = new(string)
+		**out = **in
+	}
+	if in.TrustedLaunchEnabled != nil {
+		in, out := &in.TrustedLaunchEnabled, &out.TrustedLaunchEnabled
+		*out = new(bool)
 		**out = **in
 	}
 	if in.Zones != nil {

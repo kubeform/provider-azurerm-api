@@ -75,12 +75,9 @@ spec:
                     type: string
                   storage:
                     properties:
-                      key:
-                        type: string
                       name:
                         type: string
                     required:
-                    - key
                     - name
                     type: object
                   tags:
@@ -135,6 +132,15 @@ spec:
                 - skuName
                 - storage
                 type: object
+              secretRef:
+                description: LocalObjectReference contains enough information to let
+                  you locate the referenced object inside the same namespace.
+                properties:
+                  name:
+                    description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+                      TODO: Add other useful fields. apiVersion, kind, uid?'
+                    type: string
+                type: object
               state:
                 properties:
                   IDProperties:
@@ -155,12 +161,9 @@ spec:
                     type: string
                   storage:
                     properties:
-                      key:
-                        type: string
                       name:
                         type: string
                     required:
-                    - key
                     - name
                     type: object
                   tags:

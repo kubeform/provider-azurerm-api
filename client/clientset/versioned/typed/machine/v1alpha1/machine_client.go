@@ -28,7 +28,9 @@ import (
 type MachineV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	LearningComputeClustersGetter
+	LearningComputeInstancesGetter
 	LearningInferenceClustersGetter
+	LearningSynapseSparksGetter
 	LearningWorkspacesGetter
 }
 
@@ -41,8 +43,16 @@ func (c *MachineV1alpha1Client) LearningComputeClusters(namespace string) Learni
 	return newLearningComputeClusters(c, namespace)
 }
 
+func (c *MachineV1alpha1Client) LearningComputeInstances(namespace string) LearningComputeInstanceInterface {
+	return newLearningComputeInstances(c, namespace)
+}
+
 func (c *MachineV1alpha1Client) LearningInferenceClusters(namespace string) LearningInferenceClusterInterface {
 	return newLearningInferenceClusters(c, namespace)
+}
+
+func (c *MachineV1alpha1Client) LearningSynapseSparks(namespace string) LearningSynapseSparkInterface {
+	return newLearningSynapseSparks(c, namespace)
 }
 
 func (c *MachineV1alpha1Client) LearningWorkspaces(namespace string) LearningWorkspaceInterface {

@@ -365,6 +365,11 @@ func (in *CenterAssessmentPolicySpecResource) DeepCopyInto(out *CenterAssessment
 		*out = new(apiv1alpha1.ResourceTimeout)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.Categories != nil {
+		in, out := &in.Categories, &out.Categories
+		*out = make([]string, len(*in))
+		copy(*out, *in)
+	}
 	if in.Description != nil {
 		in, out := &in.Description, &out.Description
 		*out = new(string)

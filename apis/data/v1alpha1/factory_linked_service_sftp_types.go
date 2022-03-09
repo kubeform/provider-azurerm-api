@@ -67,7 +67,11 @@ type FactoryLinkedServiceSftpSpecResource struct {
 	// +optional
 	Annotations        []string `json:"annotations,omitempty" tf:"annotations"`
 	AuthenticationType *string  `json:"authenticationType" tf:"authentication_type"`
-	DataFactoryName    *string  `json:"dataFactoryName" tf:"data_factory_name"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	Host        *string `json:"host" tf:"host"`

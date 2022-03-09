@@ -42,13 +42,8 @@ type Assignment struct {
 }
 
 type AssignmentSpecIdentity struct {
-	// +kubebuilder:validation:MinItems=1
 	IdentityIDS []string `json:"identityIDS" tf:"identity_ids"`
-	// +optional
-	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
-	// +optional
-	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
-	Type     *string `json:"type" tf:"type"`
+	Type        *string  `json:"type" tf:"type"`
 }
 
 type AssignmentSpec struct {
@@ -75,10 +70,12 @@ type AssignmentSpecResource struct {
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name"`
+	DisplayName *string                 `json:"displayName,omitempty" tf:"display_name"`
+	Identity    *AssignmentSpecIdentity `json:"identity" tf:"identity"`
+	Location    *string                 `json:"location" tf:"location"`
 	// +optional
-	Identity *AssignmentSpecIdentity `json:"identity,omitempty" tf:"identity"`
-	Location *string                 `json:"location" tf:"location"`
+	// +kubebuilder:validation:MaxItems=200
+	LockExcludeActions []string `json:"lockExcludeActions,omitempty" tf:"lock_exclude_actions"`
 	// +optional
 	// +kubebuilder:validation:MaxItems=5
 	LockExcludePrincipals []string `json:"lockExcludePrincipals,omitempty" tf:"lock_exclude_principals"`

@@ -72,6 +72,10 @@ type AnalyticsOutputBlobSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// +optional
+	BatchMaxWaitTime *string `json:"batchMaxWaitTime,omitempty" tf:"batch_max_wait_time"`
+	// +optional
+	BatchMinRows           *float64                              `json:"batchMinRows,omitempty" tf:"batch_min_rows"`
 	DateFormat             *string                               `json:"dateFormat" tf:"date_format"`
 	Name                   *string                               `json:"name" tf:"name"`
 	PathPattern            *string                               `json:"pathPattern" tf:"path_pattern"`

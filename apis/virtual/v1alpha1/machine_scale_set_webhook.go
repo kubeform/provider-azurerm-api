@@ -97,7 +97,7 @@ func (r *MachineScaleSet) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range machinescalesetForceNewList {
+	for key, _ := range machinescalesetForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

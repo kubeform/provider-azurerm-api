@@ -63,6 +63,12 @@ spec:
                     type: string
                   name:
                     type: string
+                  partitionKey:
+                    type: string
+                  propertyColumns:
+                    items:
+                      type: string
+                    type: array
                   resourceGroupName:
                     type: string
                   serialization:
@@ -148,6 +154,12 @@ spec:
                     type: string
                   name:
                     type: string
+                  partitionKey:
+                    type: string
+                  propertyColumns:
+                    items:
+                      type: string
+                    type: array
                   resourceGroupName:
                     type: string
                   serialization:

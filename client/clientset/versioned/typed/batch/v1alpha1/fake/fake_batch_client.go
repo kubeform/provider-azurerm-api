@@ -41,6 +41,10 @@ func (c *FakeBatchV1alpha1) Certificates(namespace string) v1alpha1.CertificateI
 	return &FakeCertificates{c, namespace}
 }
 
+func (c *FakeBatchV1alpha1) Jobs(namespace string) v1alpha1.JobInterface {
+	return &FakeJobs{c, namespace}
+}
+
 func (c *FakeBatchV1alpha1) Pools(namespace string) v1alpha1.PoolInterface {
 	return &FakePools{c, namespace}
 }

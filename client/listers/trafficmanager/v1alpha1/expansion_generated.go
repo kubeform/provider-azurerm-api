@@ -18,6 +18,14 @@ limitations under the License.
 
 package v1alpha1
 
+// AzureEndpointListerExpansion allows custom methods to be added to
+// AzureEndpointLister.
+type AzureEndpointListerExpansion interface{}
+
+// AzureEndpointNamespaceListerExpansion allows custom methods to be added to
+// AzureEndpointNamespaceLister.
+type AzureEndpointNamespaceListerExpansion interface{}
+
 // EndpointListerExpansion allows custom methods to be added to
 // EndpointLister.
 type EndpointListerExpansion interface{}
@@ -25,6 +33,22 @@ type EndpointListerExpansion interface{}
 // EndpointNamespaceListerExpansion allows custom methods to be added to
 // EndpointNamespaceLister.
 type EndpointNamespaceListerExpansion interface{}
+
+// ExternalEndpointListerExpansion allows custom methods to be added to
+// ExternalEndpointLister.
+type ExternalEndpointListerExpansion interface{}
+
+// ExternalEndpointNamespaceListerExpansion allows custom methods to be added to
+// ExternalEndpointNamespaceLister.
+type ExternalEndpointNamespaceListerExpansion interface{}
+
+// NestedEndpointListerExpansion allows custom methods to be added to
+// NestedEndpointLister.
+type NestedEndpointListerExpansion interface{}
+
+// NestedEndpointNamespaceListerExpansion allows custom methods to be added to
+// NestedEndpointNamespaceLister.
+type NestedEndpointNamespaceListerExpansion interface{}
 
 // ProfileListerExpansion allows custom methods to be added to
 // ProfileLister.

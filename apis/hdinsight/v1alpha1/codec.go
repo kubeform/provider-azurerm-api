@@ -43,6 +43,7 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(HadoopClusterSpecRolesWorkerNodeAutoscaleCapacity{}).Type1()):             HadoopClusterSpecRolesWorkerNodeAutoscaleCapacityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HadoopClusterSpecRolesWorkerNodeAutoscaleRecurrence{}).Type1()):           HadoopClusterSpecRolesWorkerNodeAutoscaleRecurrenceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HadoopClusterSpecRolesZookeeperNode{}).Type1()):                           HadoopClusterSpecRolesZookeeperNodeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(HadoopClusterSpecSecurityProfile{}).Type1()):                              HadoopClusterSpecSecurityProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HadoopClusterSpecStorageAccountGen2{}).Type1()):                           HadoopClusterSpecStorageAccountGen2Codec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecComponentVersion{}).Type1()):                              HbaseClusterSpecComponentVersionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecGateway{}).Type1()):                                       HbaseClusterSpecGatewayCodec{},
@@ -51,12 +52,14 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecMetastoresHive{}).Type1()):                                HbaseClusterSpecMetastoresHiveCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecMetastoresOozie{}).Type1()):                               HbaseClusterSpecMetastoresOozieCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecMonitor{}).Type1()):                                       HbaseClusterSpecMonitorCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecNetwork{}).Type1()):                                       HbaseClusterSpecNetworkCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecRoles{}).Type1()):                                         HbaseClusterSpecRolesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecRolesHeadNode{}).Type1()):                                 HbaseClusterSpecRolesHeadNodeCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecRolesWorkerNode{}).Type1()):                               HbaseClusterSpecRolesWorkerNodeCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecRolesWorkerNodeAutoscale{}).Type1()):                      HbaseClusterSpecRolesWorkerNodeAutoscaleCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecRolesWorkerNodeAutoscaleRecurrence{}).Type1()):            HbaseClusterSpecRolesWorkerNodeAutoscaleRecurrenceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecRolesZookeeperNode{}).Type1()):                            HbaseClusterSpecRolesZookeeperNodeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecSecurityProfile{}).Type1()):                               HbaseClusterSpecSecurityProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecStorageAccountGen2{}).Type1()):                            HbaseClusterSpecStorageAccountGen2Codec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecComponentVersion{}).Type1()):                   InteractiveQueryClusterSpecComponentVersionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecGateway{}).Type1()):                            InteractiveQueryClusterSpecGatewayCodec{},
@@ -73,6 +76,7 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecRolesWorkerNodeAutoscaleCapacity{}).Type1()):   InteractiveQueryClusterSpecRolesWorkerNodeAutoscaleCapacityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecRolesWorkerNodeAutoscaleRecurrence{}).Type1()): InteractiveQueryClusterSpecRolesWorkerNodeAutoscaleRecurrenceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecRolesZookeeperNode{}).Type1()):                 InteractiveQueryClusterSpecRolesZookeeperNodeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecSecurityProfile{}).Type1()):                    InteractiveQueryClusterSpecSecurityProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecStorageAccountGen2{}).Type1()):                 InteractiveQueryClusterSpecStorageAccountGen2Codec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecComponentVersion{}).Type1()):                              KafkaClusterSpecComponentVersionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecGateway{}).Type1()):                                       KafkaClusterSpecGatewayCodec{},
@@ -87,6 +91,7 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecRolesKafkaManagementNode{}).Type1()):                      KafkaClusterSpecRolesKafkaManagementNodeCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecRolesWorkerNode{}).Type1()):                               KafkaClusterSpecRolesWorkerNodeCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecRolesZookeeperNode{}).Type1()):                            KafkaClusterSpecRolesZookeeperNodeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecSecurityProfile{}).Type1()):                               KafkaClusterSpecSecurityProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecStorageAccountGen2{}).Type1()):                            KafkaClusterSpecStorageAccountGen2Codec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(MlServicesClusterSpecGateway{}).Type1()):                                  MlServicesClusterSpecGatewayCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(MlServicesClusterSpecRoles{}).Type1()):                                    MlServicesClusterSpecRolesCodec{},
@@ -115,6 +120,7 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(SparkClusterSpecRolesWorkerNodeAutoscaleCapacity{}).Type1()):              SparkClusterSpecRolesWorkerNodeAutoscaleCapacityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SparkClusterSpecRolesWorkerNodeAutoscaleRecurrence{}).Type1()):            SparkClusterSpecRolesWorkerNodeAutoscaleRecurrenceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SparkClusterSpecRolesZookeeperNode{}).Type1()):                            SparkClusterSpecRolesZookeeperNodeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SparkClusterSpecSecurityProfile{}).Type1()):                               SparkClusterSpecSecurityProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SparkClusterSpecStorageAccountGen2{}).Type1()):                            SparkClusterSpecStorageAccountGen2Codec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(StormClusterSpecComponentVersion{}).Type1()):                              StormClusterSpecComponentVersionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(StormClusterSpecGateway{}).Type1()):                                       StormClusterSpecGatewayCodec{},
@@ -148,6 +154,7 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(HadoopClusterSpecRolesWorkerNodeAutoscaleCapacity{}).Type1()):             HadoopClusterSpecRolesWorkerNodeAutoscaleCapacityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HadoopClusterSpecRolesWorkerNodeAutoscaleRecurrence{}).Type1()):           HadoopClusterSpecRolesWorkerNodeAutoscaleRecurrenceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HadoopClusterSpecRolesZookeeperNode{}).Type1()):                           HadoopClusterSpecRolesZookeeperNodeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(HadoopClusterSpecSecurityProfile{}).Type1()):                              HadoopClusterSpecSecurityProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HadoopClusterSpecStorageAccountGen2{}).Type1()):                           HadoopClusterSpecStorageAccountGen2Codec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecComponentVersion{}).Type1()):                              HbaseClusterSpecComponentVersionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecGateway{}).Type1()):                                       HbaseClusterSpecGatewayCodec{},
@@ -156,12 +163,14 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecMetastoresHive{}).Type1()):                                HbaseClusterSpecMetastoresHiveCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecMetastoresOozie{}).Type1()):                               HbaseClusterSpecMetastoresOozieCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecMonitor{}).Type1()):                                       HbaseClusterSpecMonitorCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecNetwork{}).Type1()):                                       HbaseClusterSpecNetworkCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecRoles{}).Type1()):                                         HbaseClusterSpecRolesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecRolesHeadNode{}).Type1()):                                 HbaseClusterSpecRolesHeadNodeCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecRolesWorkerNode{}).Type1()):                               HbaseClusterSpecRolesWorkerNodeCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecRolesWorkerNodeAutoscale{}).Type1()):                      HbaseClusterSpecRolesWorkerNodeAutoscaleCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecRolesWorkerNodeAutoscaleRecurrence{}).Type1()):            HbaseClusterSpecRolesWorkerNodeAutoscaleRecurrenceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecRolesZookeeperNode{}).Type1()):                            HbaseClusterSpecRolesZookeeperNodeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecSecurityProfile{}).Type1()):                               HbaseClusterSpecSecurityProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecStorageAccountGen2{}).Type1()):                            HbaseClusterSpecStorageAccountGen2Codec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecComponentVersion{}).Type1()):                   InteractiveQueryClusterSpecComponentVersionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecGateway{}).Type1()):                            InteractiveQueryClusterSpecGatewayCodec{},
@@ -178,6 +187,7 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecRolesWorkerNodeAutoscaleCapacity{}).Type1()):   InteractiveQueryClusterSpecRolesWorkerNodeAutoscaleCapacityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecRolesWorkerNodeAutoscaleRecurrence{}).Type1()): InteractiveQueryClusterSpecRolesWorkerNodeAutoscaleRecurrenceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecRolesZookeeperNode{}).Type1()):                 InteractiveQueryClusterSpecRolesZookeeperNodeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecSecurityProfile{}).Type1()):                    InteractiveQueryClusterSpecSecurityProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecStorageAccountGen2{}).Type1()):                 InteractiveQueryClusterSpecStorageAccountGen2Codec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecComponentVersion{}).Type1()):                              KafkaClusterSpecComponentVersionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecGateway{}).Type1()):                                       KafkaClusterSpecGatewayCodec{},
@@ -192,6 +202,7 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecRolesKafkaManagementNode{}).Type1()):                      KafkaClusterSpecRolesKafkaManagementNodeCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecRolesWorkerNode{}).Type1()):                               KafkaClusterSpecRolesWorkerNodeCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecRolesZookeeperNode{}).Type1()):                            KafkaClusterSpecRolesZookeeperNodeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecSecurityProfile{}).Type1()):                               KafkaClusterSpecSecurityProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecStorageAccountGen2{}).Type1()):                            KafkaClusterSpecStorageAccountGen2Codec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(MlServicesClusterSpecGateway{}).Type1()):                                  MlServicesClusterSpecGatewayCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(MlServicesClusterSpecRoles{}).Type1()):                                    MlServicesClusterSpecRolesCodec{},
@@ -220,6 +231,7 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(SparkClusterSpecRolesWorkerNodeAutoscaleCapacity{}).Type1()):              SparkClusterSpecRolesWorkerNodeAutoscaleCapacityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SparkClusterSpecRolesWorkerNodeAutoscaleRecurrence{}).Type1()):            SparkClusterSpecRolesWorkerNodeAutoscaleRecurrenceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SparkClusterSpecRolesZookeeperNode{}).Type1()):                            SparkClusterSpecRolesZookeeperNodeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SparkClusterSpecSecurityProfile{}).Type1()):                               SparkClusterSpecSecurityProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SparkClusterSpecStorageAccountGen2{}).Type1()):                            SparkClusterSpecStorageAccountGen2Codec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(StormClusterSpecComponentVersion{}).Type1()):                              StormClusterSpecComponentVersionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(StormClusterSpecGateway{}).Type1()):                                       StormClusterSpecGatewayCodec{},
@@ -1512,6 +1524,85 @@ func (HadoopClusterSpecRolesZookeeperNodeCodec) Decode(ptr unsafe.Pointer, iter 
 }
 
 // +k8s:deepcopy-gen=false
+type HadoopClusterSpecSecurityProfileCodec struct {
+}
+
+func (HadoopClusterSpecSecurityProfileCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*HadoopClusterSpecSecurityProfile)(ptr) == nil
+}
+
+func (HadoopClusterSpecSecurityProfileCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*HadoopClusterSpecSecurityProfile)(ptr)
+	var objs []HadoopClusterSpecSecurityProfile
+	if obj != nil {
+		objs = []HadoopClusterSpecSecurityProfile{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(HadoopClusterSpecSecurityProfile{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (HadoopClusterSpecSecurityProfileCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*HadoopClusterSpecSecurityProfile)(ptr) = HadoopClusterSpecSecurityProfile{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []HadoopClusterSpecSecurityProfile
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(HadoopClusterSpecSecurityProfile{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*HadoopClusterSpecSecurityProfile)(ptr) = objs[0]
+			} else {
+				*(*HadoopClusterSpecSecurityProfile)(ptr) = HadoopClusterSpecSecurityProfile{}
+			}
+		} else {
+			*(*HadoopClusterSpecSecurityProfile)(ptr) = HadoopClusterSpecSecurityProfile{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj HadoopClusterSpecSecurityProfile
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(HadoopClusterSpecSecurityProfile{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*HadoopClusterSpecSecurityProfile)(ptr) = obj
+		} else {
+			*(*HadoopClusterSpecSecurityProfile)(ptr) = HadoopClusterSpecSecurityProfile{}
+		}
+	default:
+		iter.ReportError("decode HadoopClusterSpecSecurityProfile", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type HadoopClusterSpecStorageAccountGen2Codec struct {
 }
 
@@ -2144,6 +2235,85 @@ func (HbaseClusterSpecMonitorCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.It
 }
 
 // +k8s:deepcopy-gen=false
+type HbaseClusterSpecNetworkCodec struct {
+}
+
+func (HbaseClusterSpecNetworkCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*HbaseClusterSpecNetwork)(ptr) == nil
+}
+
+func (HbaseClusterSpecNetworkCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*HbaseClusterSpecNetwork)(ptr)
+	var objs []HbaseClusterSpecNetwork
+	if obj != nil {
+		objs = []HbaseClusterSpecNetwork{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecNetwork{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (HbaseClusterSpecNetworkCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*HbaseClusterSpecNetwork)(ptr) = HbaseClusterSpecNetwork{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []HbaseClusterSpecNetwork
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecNetwork{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*HbaseClusterSpecNetwork)(ptr) = objs[0]
+			} else {
+				*(*HbaseClusterSpecNetwork)(ptr) = HbaseClusterSpecNetwork{}
+			}
+		} else {
+			*(*HbaseClusterSpecNetwork)(ptr) = HbaseClusterSpecNetwork{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj HbaseClusterSpecNetwork
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecNetwork{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*HbaseClusterSpecNetwork)(ptr) = obj
+		} else {
+			*(*HbaseClusterSpecNetwork)(ptr) = HbaseClusterSpecNetwork{}
+		}
+	default:
+		iter.ReportError("decode HbaseClusterSpecNetwork", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type HbaseClusterSpecRolesCodec struct {
 }
 
@@ -2614,6 +2784,85 @@ func (HbaseClusterSpecRolesZookeeperNodeCodec) Decode(ptr unsafe.Pointer, iter *
 		}
 	default:
 		iter.ReportError("decode HbaseClusterSpecRolesZookeeperNode", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type HbaseClusterSpecSecurityProfileCodec struct {
+}
+
+func (HbaseClusterSpecSecurityProfileCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*HbaseClusterSpecSecurityProfile)(ptr) == nil
+}
+
+func (HbaseClusterSpecSecurityProfileCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*HbaseClusterSpecSecurityProfile)(ptr)
+	var objs []HbaseClusterSpecSecurityProfile
+	if obj != nil {
+		objs = []HbaseClusterSpecSecurityProfile{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecSecurityProfile{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (HbaseClusterSpecSecurityProfileCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*HbaseClusterSpecSecurityProfile)(ptr) = HbaseClusterSpecSecurityProfile{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []HbaseClusterSpecSecurityProfile
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecSecurityProfile{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*HbaseClusterSpecSecurityProfile)(ptr) = objs[0]
+			} else {
+				*(*HbaseClusterSpecSecurityProfile)(ptr) = HbaseClusterSpecSecurityProfile{}
+			}
+		} else {
+			*(*HbaseClusterSpecSecurityProfile)(ptr) = HbaseClusterSpecSecurityProfile{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj HbaseClusterSpecSecurityProfile
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(HbaseClusterSpecSecurityProfile{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*HbaseClusterSpecSecurityProfile)(ptr) = obj
+		} else {
+			*(*HbaseClusterSpecSecurityProfile)(ptr) = HbaseClusterSpecSecurityProfile{}
+		}
+	default:
+		iter.ReportError("decode HbaseClusterSpecSecurityProfile", "unexpected JSON type")
 	}
 }
 
@@ -3882,6 +4131,85 @@ func (InteractiveQueryClusterSpecRolesZookeeperNodeCodec) Decode(ptr unsafe.Poin
 }
 
 // +k8s:deepcopy-gen=false
+type InteractiveQueryClusterSpecSecurityProfileCodec struct {
+}
+
+func (InteractiveQueryClusterSpecSecurityProfileCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*InteractiveQueryClusterSpecSecurityProfile)(ptr) == nil
+}
+
+func (InteractiveQueryClusterSpecSecurityProfileCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*InteractiveQueryClusterSpecSecurityProfile)(ptr)
+	var objs []InteractiveQueryClusterSpecSecurityProfile
+	if obj != nil {
+		objs = []InteractiveQueryClusterSpecSecurityProfile{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecSecurityProfile{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (InteractiveQueryClusterSpecSecurityProfileCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*InteractiveQueryClusterSpecSecurityProfile)(ptr) = InteractiveQueryClusterSpecSecurityProfile{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []InteractiveQueryClusterSpecSecurityProfile
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecSecurityProfile{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*InteractiveQueryClusterSpecSecurityProfile)(ptr) = objs[0]
+			} else {
+				*(*InteractiveQueryClusterSpecSecurityProfile)(ptr) = InteractiveQueryClusterSpecSecurityProfile{}
+			}
+		} else {
+			*(*InteractiveQueryClusterSpecSecurityProfile)(ptr) = InteractiveQueryClusterSpecSecurityProfile{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj InteractiveQueryClusterSpecSecurityProfile
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(InteractiveQueryClusterSpecSecurityProfile{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*InteractiveQueryClusterSpecSecurityProfile)(ptr) = obj
+		} else {
+			*(*InteractiveQueryClusterSpecSecurityProfile)(ptr) = InteractiveQueryClusterSpecSecurityProfile{}
+		}
+	default:
+		iter.ReportError("decode InteractiveQueryClusterSpecSecurityProfile", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type InteractiveQueryClusterSpecStorageAccountGen2Codec struct {
 }
 
@@ -4984,6 +5312,85 @@ func (KafkaClusterSpecRolesZookeeperNodeCodec) Decode(ptr unsafe.Pointer, iter *
 		}
 	default:
 		iter.ReportError("decode KafkaClusterSpecRolesZookeeperNode", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type KafkaClusterSpecSecurityProfileCodec struct {
+}
+
+func (KafkaClusterSpecSecurityProfileCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*KafkaClusterSpecSecurityProfile)(ptr) == nil
+}
+
+func (KafkaClusterSpecSecurityProfileCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*KafkaClusterSpecSecurityProfile)(ptr)
+	var objs []KafkaClusterSpecSecurityProfile
+	if obj != nil {
+		objs = []KafkaClusterSpecSecurityProfile{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecSecurityProfile{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (KafkaClusterSpecSecurityProfileCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*KafkaClusterSpecSecurityProfile)(ptr) = KafkaClusterSpecSecurityProfile{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []KafkaClusterSpecSecurityProfile
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecSecurityProfile{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*KafkaClusterSpecSecurityProfile)(ptr) = objs[0]
+			} else {
+				*(*KafkaClusterSpecSecurityProfile)(ptr) = KafkaClusterSpecSecurityProfile{}
+			}
+		} else {
+			*(*KafkaClusterSpecSecurityProfile)(ptr) = KafkaClusterSpecSecurityProfile{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj KafkaClusterSpecSecurityProfile
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KafkaClusterSpecSecurityProfile{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*KafkaClusterSpecSecurityProfile)(ptr) = obj
+		} else {
+			*(*KafkaClusterSpecSecurityProfile)(ptr) = KafkaClusterSpecSecurityProfile{}
+		}
+	default:
+		iter.ReportError("decode KafkaClusterSpecSecurityProfile", "unexpected JSON type")
 	}
 }
 
@@ -7196,6 +7603,85 @@ func (SparkClusterSpecRolesZookeeperNodeCodec) Decode(ptr unsafe.Pointer, iter *
 		}
 	default:
 		iter.ReportError("decode SparkClusterSpecRolesZookeeperNode", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type SparkClusterSpecSecurityProfileCodec struct {
+}
+
+func (SparkClusterSpecSecurityProfileCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*SparkClusterSpecSecurityProfile)(ptr) == nil
+}
+
+func (SparkClusterSpecSecurityProfileCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*SparkClusterSpecSecurityProfile)(ptr)
+	var objs []SparkClusterSpecSecurityProfile
+	if obj != nil {
+		objs = []SparkClusterSpecSecurityProfile{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SparkClusterSpecSecurityProfile{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (SparkClusterSpecSecurityProfileCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*SparkClusterSpecSecurityProfile)(ptr) = SparkClusterSpecSecurityProfile{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []SparkClusterSpecSecurityProfile
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SparkClusterSpecSecurityProfile{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*SparkClusterSpecSecurityProfile)(ptr) = objs[0]
+			} else {
+				*(*SparkClusterSpecSecurityProfile)(ptr) = SparkClusterSpecSecurityProfile{}
+			}
+		} else {
+			*(*SparkClusterSpecSecurityProfile)(ptr) = SparkClusterSpecSecurityProfile{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj SparkClusterSpecSecurityProfile
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SparkClusterSpecSecurityProfile{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*SparkClusterSpecSecurityProfile)(ptr) = obj
+		} else {
+			*(*SparkClusterSpecSecurityProfile)(ptr) = SparkClusterSpecSecurityProfile{}
+		}
+	default:
+		iter.ReportError("decode SparkClusterSpecSecurityProfile", "unexpected JSON type")
 	}
 }
 

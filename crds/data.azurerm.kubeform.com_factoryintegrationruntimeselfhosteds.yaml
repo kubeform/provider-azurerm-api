@@ -61,7 +61,10 @@ spec:
                     type: string
                   authKey2:
                     type: string
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -119,7 +122,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 type: object
@@ -129,7 +131,10 @@ spec:
                     type: string
                   authKey2:
                     type: string
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -187,7 +192,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 type: object

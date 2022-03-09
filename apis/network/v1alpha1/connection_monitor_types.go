@@ -130,7 +130,9 @@ type ConnectionMonitorSpecTestConfigurationSuccessThreshold struct {
 }
 
 type ConnectionMonitorSpecTestConfigurationTcpConfiguration struct {
-	Port *int64 `json:"port" tf:"port"`
+	// +optional
+	DestinationPortBehavior *string `json:"destinationPortBehavior,omitempty" tf:"destination_port_behavior"`
+	Port                    *int64  `json:"port" tf:"port"`
 	// +optional
 	TraceRouteEnabled *bool `json:"traceRouteEnabled,omitempty" tf:"trace_route_enabled"`
 }

@@ -193,6 +193,29 @@ type EventSubscriptionSpecAzureFunctionEndpoint struct {
 	PreferredBatchSizeInKilobytes *int64 `json:"preferredBatchSizeInKilobytes,omitempty" tf:"preferred_batch_size_in_kilobytes"`
 }
 
+type EventSubscriptionSpecDeadLetterIdentity struct {
+	Type *string `json:"type" tf:"type"`
+	// +optional
+	UserAssignedIdentity *string `json:"userAssignedIdentity,omitempty" tf:"user_assigned_identity"`
+}
+
+type EventSubscriptionSpecDeliveryIdentity struct {
+	Type *string `json:"type" tf:"type"`
+	// +optional
+	UserAssignedIdentity *string `json:"userAssignedIdentity,omitempty" tf:"user_assigned_identity"`
+}
+
+type EventSubscriptionSpecDeliveryProperty struct {
+	HeaderName *string `json:"headerName" tf:"header_name"`
+	// +optional
+	Secret *bool `json:"secret,omitempty" tf:"secret"`
+	// +optional
+	SourceField *string `json:"sourceField,omitempty" tf:"source_field"`
+	Type        *string `json:"type" tf:"type"`
+	// +optional
+	Value *string `json:"-" sensitive:"true" tf:"value"`
+}
+
 type EventSubscriptionSpecEventhubEndpoint struct {
 	// +optional
 	EventhubID *string `json:"eventhubID,omitempty" tf:"eventhub_id"`
@@ -214,8 +237,10 @@ type EventSubscriptionSpecStorageBlobDeadLetterDestination struct {
 }
 
 type EventSubscriptionSpecStorageQueueEndpoint struct {
-	QueueName        *string `json:"queueName" tf:"queue_name"`
-	StorageAccountID *string `json:"storageAccountID" tf:"storage_account_id"`
+	// +optional
+	QueueMessageTimeToLiveInSeconds *int64  `json:"queueMessageTimeToLiveInSeconds,omitempty" tf:"queue_message_time_to_live_in_seconds"`
+	QueueName                       *string `json:"queueName" tf:"queue_name"`
+	StorageAccountID                *string `json:"storageAccountID" tf:"storage_account_id"`
 }
 
 type EventSubscriptionSpecSubjectFilter struct {
@@ -252,6 +277,8 @@ type EventSubscriptionSpec struct {
 
 	ProviderRef core.LocalObjectReference `json:"providerRef" tf:"-"`
 
+	SecretRef *core.LocalObjectReference `json:"secretRef,omitempty" tf:"-"`
+
 	BackendRef *core.LocalObjectReference `json:"backendRef,omitempty" tf:"-"`
 }
 
@@ -263,7 +290,15 @@ type EventSubscriptionSpecResource struct {
 	// +optional
 	AdvancedFilter *EventSubscriptionSpecAdvancedFilter `json:"advancedFilter,omitempty" tf:"advanced_filter"`
 	// +optional
+	AdvancedFilteringOnArraysEnabled *bool `json:"advancedFilteringOnArraysEnabled,omitempty" tf:"advanced_filtering_on_arrays_enabled"`
+	// +optional
 	AzureFunctionEndpoint *EventSubscriptionSpecAzureFunctionEndpoint `json:"azureFunctionEndpoint,omitempty" tf:"azure_function_endpoint"`
+	// +optional
+	DeadLetterIdentity *EventSubscriptionSpecDeadLetterIdentity `json:"deadLetterIdentity,omitempty" tf:"dead_letter_identity"`
+	// +optional
+	DeliveryIdentity *EventSubscriptionSpecDeliveryIdentity `json:"deliveryIdentity,omitempty" tf:"delivery_identity"`
+	// +optional
+	DeliveryProperty []EventSubscriptionSpecDeliveryProperty `json:"deliveryProperty,omitempty" tf:"delivery_property"`
 	// +optional
 	EventDeliverySchema *string `json:"eventDeliverySchema,omitempty" tf:"event_delivery_schema"`
 	// +optional

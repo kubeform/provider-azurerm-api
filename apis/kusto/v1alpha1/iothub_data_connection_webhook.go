@@ -99,7 +99,7 @@ func (r *IothubDataConnection) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range iothubdataconnectionForceNewList {
+	for key, _ := range iothubdataconnectionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

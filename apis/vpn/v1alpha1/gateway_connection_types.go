@@ -41,9 +41,24 @@ type GatewayConnection struct {
 	Status            GatewayConnectionStatus `json:"status,omitempty"`
 }
 
+type GatewayConnectionSpecRoutingPropagatedRouteTable struct {
+	// +optional
+	Labels        []string `json:"labels,omitempty" tf:"labels"`
+	RouteTableIDS []string `json:"routeTableIDS" tf:"route_table_ids"`
+}
+
 type GatewayConnectionSpecRouting struct {
-	AssociatedRouteTable  *string  `json:"associatedRouteTable" tf:"associated_route_table"`
-	PropagatedRouteTables []string `json:"propagatedRouteTables" tf:"propagated_route_tables"`
+	AssociatedRouteTable *string `json:"associatedRouteTable" tf:"associated_route_table"`
+	// +optional
+	PropagatedRouteTable *GatewayConnectionSpecRoutingPropagatedRouteTable `json:"propagatedRouteTable,omitempty" tf:"propagated_route_table"`
+	// +optional
+	// Deprecated
+	PropagatedRouteTables []string `json:"propagatedRouteTables,omitempty" tf:"propagated_route_tables"`
+}
+
+type GatewayConnectionSpecTrafficSelectorPolicy struct {
+	LocalAddressRanges  []string `json:"localAddressRanges" tf:"local_address_ranges"`
+	RemoteAddressRanges []string `json:"remoteAddressRanges" tf:"remote_address_ranges"`
 }
 
 type GatewayConnectionSpecVpnLinkIpsecPolicy struct {
@@ -62,6 +77,12 @@ type GatewayConnectionSpecVpnLink struct {
 	BandwidthMbps *int64 `json:"bandwidthMbps,omitempty" tf:"bandwidth_mbps"`
 	// +optional
 	BgpEnabled *bool `json:"bgpEnabled,omitempty" tf:"bgp_enabled"`
+	// +optional
+	ConnectionMode *string `json:"connectionMode,omitempty" tf:"connection_mode"`
+	// +optional
+	EgressNATRuleIDS []string `json:"egressNATRuleIDS,omitempty" tf:"egress_nat_rule_ids"`
+	// +optional
+	IngressNATRuleIDS []string `json:"ingressNATRuleIDS,omitempty" tf:"ingress_nat_rule_ids"`
 	// +optional
 	// +kubebuilder:validation:MinItems=1
 	IpsecPolicy []GatewayConnectionSpecVpnLinkIpsecPolicy `json:"ipsecPolicy,omitempty" tf:"ipsec_policy"`
@@ -105,8 +126,10 @@ type GatewayConnectionSpecResource struct {
 	Name                    *string `json:"name" tf:"name"`
 	RemoteVPNSiteID         *string `json:"remoteVPNSiteID" tf:"remote_vpn_site_id"`
 	// +optional
-	Routing      []GatewayConnectionSpecRouting `json:"routing,omitempty" tf:"routing"`
-	VpnGatewayID *string                        `json:"vpnGatewayID" tf:"vpn_gateway_id"`
+	Routing *GatewayConnectionSpecRouting `json:"routing,omitempty" tf:"routing"`
+	// +optional
+	TrafficSelectorPolicy []GatewayConnectionSpecTrafficSelectorPolicy `json:"trafficSelectorPolicy,omitempty" tf:"traffic_selector_policy"`
+	VpnGatewayID          *string                                      `json:"vpnGatewayID" tf:"vpn_gateway_id"`
 	// +kubebuilder:validation:MinItems=1
 	VpnLink []GatewayConnectionSpecVpnLink `json:"vpnLink" tf:"vpn_link"`
 }

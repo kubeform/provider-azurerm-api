@@ -90,7 +90,7 @@ func (r *AnalyticsJob) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range analyticsjobForceNewList {
+	for key, _ := range analyticsjobForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

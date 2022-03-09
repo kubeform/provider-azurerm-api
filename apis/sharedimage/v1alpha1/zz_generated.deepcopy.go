@@ -433,6 +433,11 @@ func (in *SharedImageSpecResource) DeepCopyInto(out *SharedImageSpecResource) {
 			}
 		}
 	}
+	if in.TrustedLaunchEnabled != nil {
+		in, out := &in.TrustedLaunchEnabled, &out.TrustedLaunchEnabled
+		*out = new(bool)
+		**out = **in
+	}
 	return
 }
 

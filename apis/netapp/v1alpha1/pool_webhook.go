@@ -46,6 +46,7 @@ var poolForceNewList = map[string]bool{
 	"/location":            true,
 	"/name":                true,
 	"/resource_group_name": true,
+	"/service_level":       true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -91,7 +92,7 @@ func (r *Pool) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range poolForceNewList {
+	for key, _ := range poolForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

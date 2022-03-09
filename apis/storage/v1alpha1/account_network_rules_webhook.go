@@ -43,6 +43,7 @@ var _ webhook.Validator = &AccountNetworkRules{}
 
 var accountnetworkrulesForceNewList = map[string]bool{
 	"/resource_group_name":  true,
+	"/storage_account_id":   true,
 	"/storage_account_name": true,
 }
 
@@ -89,7 +90,7 @@ func (r *AccountNetworkRules) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range accountnetworkrulesForceNewList {
+	for key, _ := range accountnetworkrulesForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

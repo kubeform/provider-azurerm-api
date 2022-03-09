@@ -26,6 +26,8 @@ import (
 type Interface interface {
 	// Workspaces returns a WorkspaceInformer.
 	Workspaces() WorkspaceInformer
+	// WorkspaceCustomerManagedKeys returns a WorkspaceCustomerManagedKeyInformer.
+	WorkspaceCustomerManagedKeys() WorkspaceCustomerManagedKeyInformer
 }
 
 type version struct {
@@ -42,4 +44,9 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // Workspaces returns a WorkspaceInformer.
 func (v *version) Workspaces() WorkspaceInformer {
 	return &workspaceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// WorkspaceCustomerManagedKeys returns a WorkspaceCustomerManagedKeyInformer.
+func (v *version) WorkspaceCustomerManagedKeys() WorkspaceCustomerManagedKeyInformer {
+	return &workspaceCustomerManagedKeyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

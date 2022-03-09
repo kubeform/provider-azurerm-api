@@ -91,7 +91,7 @@ func (r *MachineDataDiskAttachment) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range machinedatadiskattachmentForceNewList {
+	for key, _ := range machinedatadiskattachmentForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -133,6 +133,27 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  tunnelInterface:
+                    items:
+                      properties:
+                        identifier:
+                          format: int64
+                          type: integer
+                        port:
+                          format: int64
+                          type: integer
+                        protocol:
+                          type: string
+                        type:
+                          type: string
+                      required:
+                      - identifier
+                      - port
+                      - protocol
+                      - type
+                      type: object
+                    minItems: 1
+                    type: array
                 required:
                 - loadbalancerID
                 - name
@@ -215,6 +236,27 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  tunnelInterface:
+                    items:
+                      properties:
+                        identifier:
+                          format: int64
+                          type: integer
+                        port:
+                          format: int64
+                          type: integer
+                        protocol:
+                          type: string
+                        type:
+                          type: string
+                      required:
+                      - identifier
+                      - port
+                      - protocol
+                      - type
+                      type: object
+                    minItems: 1
+                    type: array
                 required:
                 - loadbalancerID
                 - name

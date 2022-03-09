@@ -153,10 +153,11 @@ type CertificateSpecResource struct {
 	// +optional
 	CertificateData *string `json:"certificateData,omitempty" tf:"certificate_data"`
 	// +optional
-	CertificateDataBase64 *string                           `json:"certificateDataBase64,omitempty" tf:"certificate_data_base64"`
-	CertificatePolicy     *CertificateSpecCertificatePolicy `json:"certificatePolicy" tf:"certificate_policy"`
-	KeyVaultID            *string                           `json:"keyVaultID" tf:"key_vault_id"`
-	Name                  *string                           `json:"name" tf:"name"`
+	CertificateDataBase64 *string `json:"certificateDataBase64,omitempty" tf:"certificate_data_base64"`
+	// +optional
+	CertificatePolicy *CertificateSpecCertificatePolicy `json:"certificatePolicy,omitempty" tf:"certificate_policy"`
+	KeyVaultID        *string                           `json:"keyVaultID" tf:"key_vault_id"`
+	Name              *string                           `json:"name" tf:"name"`
 	// +optional
 	SecretID *string `json:"secretID,omitempty" tf:"secret_id"`
 	// +optional
@@ -165,6 +166,10 @@ type CertificateSpecResource struct {
 	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint"`
 	// +optional
 	Version *string `json:"version,omitempty" tf:"version"`
+	// +optional
+	VersionlessID *string `json:"versionlessID,omitempty" tf:"versionless_id"`
+	// +optional
+	VersionlessSecretID *string `json:"versionlessSecretID,omitempty" tf:"versionless_secret_id"`
 }
 
 type CertificateStatus struct {

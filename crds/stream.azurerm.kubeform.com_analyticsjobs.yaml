@@ -92,6 +92,8 @@ spec:
                     type: string
                   resourceGroupName:
                     type: string
+                  streamAnalyticsClusterID:
+                    type: string
                   streamingUnits:
                     format: int64
                     type: integer
@@ -182,6 +184,8 @@ spec:
                   outputErrorPolicy:
                     type: string
                   resourceGroupName:
+                    type: string
+                  streamAnalyticsClusterID:
                     type: string
                   streamingUnits:
                     format: int64

@@ -58,6 +58,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
 		&SeriesInsightsAccessPolicy{},
 		&SeriesInsightsAccessPolicyList{},
+		&SeriesInsightsEventSourceEventhub{},
+		&SeriesInsightsEventSourceEventhubList{},
 		&SeriesInsightsEventSourceIothub{},
 		&SeriesInsightsEventSourceIothubList{},
 		&SeriesInsightsGen2Environment{},

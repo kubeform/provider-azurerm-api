@@ -90,7 +90,7 @@ func (r *EncryptionScope) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range encryptionscopeForceNewList {
+	for key, _ := range encryptionscopeForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

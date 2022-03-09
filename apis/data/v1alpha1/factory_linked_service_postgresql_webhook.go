@@ -42,6 +42,7 @@ func (r *FactoryLinkedServicePostgresql) SetupWebhookWithManager(mgr ctrl.Manage
 var _ webhook.Validator = &FactoryLinkedServicePostgresql{}
 
 var factorylinkedservicepostgresqlForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *FactoryLinkedServicePostgresql) ValidateUpdate(old runtime.Object) erro
 		return err
 	}
 
-	for key := range factorylinkedservicepostgresqlForceNewList {
+	for key, _ := range factorylinkedservicepostgresqlForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -42,7 +42,9 @@ type GlobalVmShutdownSchedule struct {
 }
 
 type GlobalVmShutdownScheduleSpecNotificationSettings struct {
-	Enabled *bool `json:"enabled" tf:"enabled"`
+	// +optional
+	Email   *string `json:"email,omitempty" tf:"email"`
+	Enabled *bool   `json:"enabled" tf:"enabled"`
 	// +optional
 	TimeInMinutes *int64 `json:"timeInMinutes,omitempty" tf:"time_in_minutes"`
 	// +optional

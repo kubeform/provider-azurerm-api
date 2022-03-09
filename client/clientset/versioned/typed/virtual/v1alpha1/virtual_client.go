@@ -30,6 +30,8 @@ type VirtualV1alpha1Interface interface {
 	DesktopApplicationsGetter
 	DesktopApplicationGroupsGetter
 	DesktopHostPoolsGetter
+	DesktopHostPoolRegistrationInfosGetter
+	DesktopScalingPlansGetter
 	DesktopWorkspacesGetter
 	DesktopWorkspaceApplicationGroupAssociationsGetter
 	HubsGetter
@@ -37,6 +39,7 @@ type VirtualV1alpha1Interface interface {
 	HubConnectionsGetter
 	HubIPsGetter
 	HubRouteTablesGetter
+	HubRouteTableRoutesGetter
 	HubSecurityPartnerProvidersGetter
 	MachinesGetter
 	MachineConfigurationPolicyAssignmentsGetter
@@ -45,6 +48,7 @@ type VirtualV1alpha1Interface interface {
 	MachineScaleSetsGetter
 	MachineScaleSetExtensionsGetter
 	NetworksGetter
+	NetworkDNSServersesGetter
 	NetworkGatewaysGetter
 	NetworkGatewayConnectionsGetter
 	NetworkPeeringsGetter
@@ -66,6 +70,14 @@ func (c *VirtualV1alpha1Client) DesktopApplicationGroups(namespace string) Deskt
 
 func (c *VirtualV1alpha1Client) DesktopHostPools(namespace string) DesktopHostPoolInterface {
 	return newDesktopHostPools(c, namespace)
+}
+
+func (c *VirtualV1alpha1Client) DesktopHostPoolRegistrationInfos(namespace string) DesktopHostPoolRegistrationInfoInterface {
+	return newDesktopHostPoolRegistrationInfos(c, namespace)
+}
+
+func (c *VirtualV1alpha1Client) DesktopScalingPlans(namespace string) DesktopScalingPlanInterface {
+	return newDesktopScalingPlans(c, namespace)
 }
 
 func (c *VirtualV1alpha1Client) DesktopWorkspaces(namespace string) DesktopWorkspaceInterface {
@@ -94,6 +106,10 @@ func (c *VirtualV1alpha1Client) HubIPs(namespace string) HubIPInterface {
 
 func (c *VirtualV1alpha1Client) HubRouteTables(namespace string) HubRouteTableInterface {
 	return newHubRouteTables(c, namespace)
+}
+
+func (c *VirtualV1alpha1Client) HubRouteTableRoutes(namespace string) HubRouteTableRouteInterface {
+	return newHubRouteTableRoutes(c, namespace)
 }
 
 func (c *VirtualV1alpha1Client) HubSecurityPartnerProviders(namespace string) HubSecurityPartnerProviderInterface {
@@ -126,6 +142,10 @@ func (c *VirtualV1alpha1Client) MachineScaleSetExtensions(namespace string) Mach
 
 func (c *VirtualV1alpha1Client) Networks(namespace string) NetworkInterface {
 	return newNetworks(c, namespace)
+}
+
+func (c *VirtualV1alpha1Client) NetworkDNSServerses(namespace string) NetworkDNSServersInterface {
+	return newNetworkDNSServerses(c, namespace)
 }
 
 func (c *VirtualV1alpha1Client) NetworkGateways(namespace string) NetworkGatewayInterface {

@@ -90,7 +90,7 @@ func (r *AnalyticsOutputEventhub) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range analyticsoutputeventhubForceNewList {
+	for key, _ := range analyticsoutputeventhubForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

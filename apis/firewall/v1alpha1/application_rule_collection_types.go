@@ -42,8 +42,7 @@ type ApplicationRuleCollection struct {
 }
 
 type ApplicationRuleCollectionSpecRuleProtocol struct {
-	// +optional
-	Port *int64  `json:"port,omitempty" tf:"port"`
+	Port *int64  `json:"port" tf:"port"`
 	Type *string `json:"type" tf:"type"`
 }
 

@@ -22,4 +22,6 @@ type AssignmentDedicatedHostExpansion interface{}
 
 type AssignmentVirtualMachineExpansion interface{}
 
+type AssignmentVirtualMachineScaleSetExpansion interface{}
+
 type ConfigurationExpansion interface{}

@@ -41,6 +41,10 @@ func (c *FakeContainerV1alpha1) RegistryScopeMaps(namespace string) v1alpha1.Reg
 	return &FakeRegistryScopeMaps{c, namespace}
 }
 
+func (c *FakeContainerV1alpha1) RegistryTasks(namespace string) v1alpha1.RegistryTaskInterface {
+	return &FakeRegistryTasks{c, namespace}
+}
+
 func (c *FakeContainerV1alpha1) RegistryTokens(namespace string) v1alpha1.RegistryTokenInterface {
 	return &FakeRegistryTokens{c, namespace}
 }

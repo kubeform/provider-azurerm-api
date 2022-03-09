@@ -63,6 +63,20 @@ spec:
                     type: string
                   description:
                     type: string
+                  discoveryURL:
+                    type: string
+                  encryption:
+                    properties:
+                      keyID:
+                        type: string
+                      keyVaultID:
+                        type: string
+                      userAssignedIdentityID:
+                        type: string
+                    required:
+                    - keyID
+                    - keyVaultID
+                    type: object
                   friendlyName:
                     type: string
                   highBusinessImpact:
@@ -71,6 +85,10 @@ spec:
                     type: string
                   identity:
                     properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
                       principalID:
                         type: string
                       tenantID:
@@ -80,12 +98,18 @@ spec:
                     required:
                     - type
                     type: object
+                  imageBuildComputeName:
+                    type: string
                   keyVaultID:
                     type: string
                   location:
                     type: string
                   name:
                     type: string
+                  primaryUserAssignedIdentity:
+                    type: string
+                  publicNetworkAccessEnabled:
+                    type: boolean
                   resourceGroupName:
                     type: string
                   skuName:
@@ -151,6 +175,20 @@ spec:
                     type: string
                   description:
                     type: string
+                  discoveryURL:
+                    type: string
+                  encryption:
+                    properties:
+                      keyID:
+                        type: string
+                      keyVaultID:
+                        type: string
+                      userAssignedIdentityID:
+                        type: string
+                    required:
+                    - keyID
+                    - keyVaultID
+                    type: object
                   friendlyName:
                     type: string
                   highBusinessImpact:
@@ -159,6 +197,10 @@ spec:
                     type: string
                   identity:
                     properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
                       principalID:
                         type: string
                       tenantID:
@@ -168,12 +210,18 @@ spec:
                     required:
                     - type
                     type: object
+                  imageBuildComputeName:
+                    type: string
                   keyVaultID:
                     type: string
                   location:
                     type: string
                   name:
                     type: string
+                  primaryUserAssignedIdentity:
+                    type: string
+                  publicNetworkAccessEnabled:
+                    type: boolean
                   resourceGroupName:
                     type: string
                   skuName:

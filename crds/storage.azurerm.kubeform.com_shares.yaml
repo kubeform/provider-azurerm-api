@@ -79,6 +79,8 @@ spec:
                       - ID
                       type: object
                     type: array
+                  enabledProtocol:
+                    type: string
                   id:
                     type: string
                   metadata:
@@ -162,6 +164,8 @@ spec:
                       - ID
                       type: object
                     type: array
+                  enabledProtocol:
+                    type: string
                   id:
                     type: string
                   metadata:

@@ -48,6 +48,13 @@ type EndpointSpecCustomDNSConfigs struct {
 	IpAddresses []string `json:"ipAddresses,omitempty" tf:"ip_addresses"`
 }
 
+type EndpointSpecNetworkInterface struct {
+	// +optional
+	ID *string `json:"ID,omitempty" tf:"id"`
+	// +optional
+	Name *string `json:"name,omitempty" tf:"name"`
+}
+
 type EndpointSpecPrivateDNSZoneConfigsRecordSets struct {
 	// +optional
 	Fqdn *string `json:"fqdn,omitempty" tf:"fqdn"`
@@ -117,6 +124,8 @@ type EndpointSpecResource struct {
 	CustomDNSConfigs []EndpointSpecCustomDNSConfigs `json:"customDNSConfigs,omitempty" tf:"custom_dns_configs"`
 	Location         *string                        `json:"location" tf:"location"`
 	Name             *string                        `json:"name" tf:"name"`
+	// +optional
+	NetworkInterface []EndpointSpecNetworkInterface `json:"networkInterface,omitempty" tf:"network_interface"`
 	// +optional
 	PrivateDNSZoneConfigs []EndpointSpecPrivateDNSZoneConfigs `json:"privateDNSZoneConfigs,omitempty" tf:"private_dns_zone_configs"`
 	// +optional

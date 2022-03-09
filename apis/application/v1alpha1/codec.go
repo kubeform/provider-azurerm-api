@@ -33,6 +33,8 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecProbeMatch{}).Type1()):                            GatewaySpecProbeMatchCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecRewriteRuleSetRewriteRuleUrl{}).Type1()):          GatewaySpecRewriteRuleSetRewriteRuleUrlCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecSku{}).Type1()):                                   GatewaySpecSkuCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecSslPolicy{}).Type1()):                             GatewaySpecSslPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecSslProfileSslPolicy{}).Type1()):                   GatewaySpecSslProfileSslPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecWafConfiguration{}).Type1()):                      GatewaySpecWafConfigurationCodec{},
 	}
 }
@@ -45,6 +47,8 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecProbeMatch{}).Type1()):                            GatewaySpecProbeMatchCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecRewriteRuleSetRewriteRuleUrl{}).Type1()):          GatewaySpecRewriteRuleSetRewriteRuleUrlCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecSku{}).Type1()):                                   GatewaySpecSkuCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecSslPolicy{}).Type1()):                             GatewaySpecSslPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecSslProfileSslPolicy{}).Type1()):                   GatewaySpecSslProfileSslPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecWafConfiguration{}).Type1()):                      GatewaySpecWafConfigurationCodec{},
 	}
 }
@@ -532,6 +536,164 @@ func (GatewaySpecSkuCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 		}
 	default:
 		iter.ReportError("decode GatewaySpecSku", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type GatewaySpecSslPolicyCodec struct {
+}
+
+func (GatewaySpecSslPolicyCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*GatewaySpecSslPolicy)(ptr) == nil
+}
+
+func (GatewaySpecSslPolicyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*GatewaySpecSslPolicy)(ptr)
+	var objs []GatewaySpecSslPolicy
+	if obj != nil {
+		objs = []GatewaySpecSslPolicy{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecSslPolicy{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (GatewaySpecSslPolicyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*GatewaySpecSslPolicy)(ptr) = GatewaySpecSslPolicy{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []GatewaySpecSslPolicy
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecSslPolicy{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*GatewaySpecSslPolicy)(ptr) = objs[0]
+			} else {
+				*(*GatewaySpecSslPolicy)(ptr) = GatewaySpecSslPolicy{}
+			}
+		} else {
+			*(*GatewaySpecSslPolicy)(ptr) = GatewaySpecSslPolicy{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj GatewaySpecSslPolicy
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecSslPolicy{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*GatewaySpecSslPolicy)(ptr) = obj
+		} else {
+			*(*GatewaySpecSslPolicy)(ptr) = GatewaySpecSslPolicy{}
+		}
+	default:
+		iter.ReportError("decode GatewaySpecSslPolicy", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type GatewaySpecSslProfileSslPolicyCodec struct {
+}
+
+func (GatewaySpecSslProfileSslPolicyCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*GatewaySpecSslProfileSslPolicy)(ptr) == nil
+}
+
+func (GatewaySpecSslProfileSslPolicyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*GatewaySpecSslProfileSslPolicy)(ptr)
+	var objs []GatewaySpecSslProfileSslPolicy
+	if obj != nil {
+		objs = []GatewaySpecSslProfileSslPolicy{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecSslProfileSslPolicy{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (GatewaySpecSslProfileSslPolicyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*GatewaySpecSslProfileSslPolicy)(ptr) = GatewaySpecSslProfileSslPolicy{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []GatewaySpecSslProfileSslPolicy
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecSslProfileSslPolicy{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*GatewaySpecSslProfileSslPolicy)(ptr) = objs[0]
+			} else {
+				*(*GatewaySpecSslProfileSslPolicy)(ptr) = GatewaySpecSslProfileSslPolicy{}
+			}
+		} else {
+			*(*GatewaySpecSslProfileSslPolicy)(ptr) = GatewaySpecSslProfileSslPolicy{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj GatewaySpecSslProfileSslPolicy
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecSslProfileSslPolicy{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*GatewaySpecSslProfileSslPolicy)(ptr) = obj
+		} else {
+			*(*GatewaySpecSslProfileSslPolicy)(ptr) = GatewaySpecSslProfileSslPolicy{}
+		}
+	default:
+		iter.ReportError("decode GatewaySpecSslProfileSslPolicy", "unexpected JSON type")
 	}
 }
 

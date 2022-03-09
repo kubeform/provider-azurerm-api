@@ -65,7 +65,11 @@ var virtualmachinescalesetForceNewList = map[string]bool{
 	"/provision_vm_agent":                    true,
 	"/proximity_placement_group_id":          true,
 	"/resource_group_name":                   true,
+	"/secure_boot_enabled":                   true,
+	"/source_image_reference/*/offer":        true,
+	"/source_image_reference/*/publisher":    true,
 	"/upgrade_mode":                          true,
+	"/vtpm_enabled":                          true,
 	"/winrm_listener/*/certificate_url":      true,
 	"/winrm_listener/*/protocol":             true,
 	"/zone_balance":                          true,
@@ -115,7 +119,7 @@ func (r *VirtualMachineScaleSet) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range virtualmachinescalesetForceNewList {
+	for key, _ := range virtualmachinescalesetForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -96,7 +96,7 @@ func (r *EnterpriseDatabase) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range enterprisedatabaseForceNewList {
+	for key, _ := range enterprisedatabaseForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

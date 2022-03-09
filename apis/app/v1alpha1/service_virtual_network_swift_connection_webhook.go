@@ -88,7 +88,7 @@ func (r *ServiceVirtualNetworkSwiftConnection) ValidateUpdate(old runtime.Object
 		return err
 	}
 
-	for key := range servicevirtualnetworkswiftconnectionForceNewList {
+	for key, _ := range servicevirtualnetworkswiftconnectionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

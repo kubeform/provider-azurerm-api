@@ -56,7 +56,6 @@ type GatewaySpecAutoscaleConfiguration struct {
 
 type GatewaySpecBackendAddressPool struct {
 	// +optional
-	// +kubebuilder:validation:MinItems=1
 	Fqdns []string `json:"fqdns,omitempty" tf:"fqdns"`
 	// +optional
 	ID *string `json:"ID,omitempty" tf:"id"`
@@ -121,6 +120,10 @@ type GatewaySpecFrontendIPConfiguration struct {
 	// +optional
 	PrivateIPAddressAllocation *string `json:"privateIPAddressAllocation,omitempty" tf:"private_ip_address_allocation"`
 	// +optional
+	PrivateLinkConfigurationID *string `json:"privateLinkConfigurationID,omitempty" tf:"private_link_configuration_id"`
+	// +optional
+	PrivateLinkConfigurationName *string `json:"privateLinkConfigurationName,omitempty" tf:"private_link_configuration_name"`
+	// +optional
 	PublicIPAddressID *string `json:"publicIPAddressID,omitempty" tf:"public_ip_address_id"`
 	// +optional
 	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
@@ -172,12 +175,39 @@ type GatewaySpecHttpListener struct {
 	SslCertificateID *string `json:"sslCertificateID,omitempty" tf:"ssl_certificate_id"`
 	// +optional
 	SslCertificateName *string `json:"sslCertificateName,omitempty" tf:"ssl_certificate_name"`
+	// +optional
+	SslProfileID *string `json:"sslProfileID,omitempty" tf:"ssl_profile_id"`
+	// +optional
+	SslProfileName *string `json:"sslProfileName,omitempty" tf:"ssl_profile_name"`
 }
 
 type GatewaySpecIdentity struct {
 	IdentityIDS []string `json:"identityIDS" tf:"identity_ids"`
+	Type        *string  `json:"type" tf:"type"`
+}
+
+type GatewaySpecPrivateEndpointConnection struct {
 	// +optional
-	Type *string `json:"type,omitempty" tf:"type"`
+	ID *string `json:"ID,omitempty" tf:"id"`
+	// +optional
+	Name *string `json:"name,omitempty" tf:"name"`
+}
+
+type GatewaySpecPrivateLinkConfigurationIpConfiguration struct {
+	Name    *string `json:"name" tf:"name"`
+	Primary *bool   `json:"primary" tf:"primary"`
+	// +optional
+	PrivateIPAddress           *string `json:"privateIPAddress,omitempty" tf:"private_ip_address"`
+	PrivateIPAddressAllocation *string `json:"privateIPAddressAllocation" tf:"private_ip_address_allocation"`
+	SubnetID                   *string `json:"subnetID" tf:"subnet_id"`
+}
+
+type GatewaySpecPrivateLinkConfiguration struct {
+	// +optional
+	ID *string `json:"ID,omitempty" tf:"id"`
+	// +kubebuilder:validation:MinItems=1
+	IpConfiguration []GatewaySpecPrivateLinkConfigurationIpConfiguration `json:"ipConfiguration" tf:"ip_configuration"`
+	Name            *string                                              `json:"name" tf:"name"`
 }
 
 type GatewaySpecProbeMatch struct {
@@ -240,6 +270,8 @@ type GatewaySpecRequestRoutingRule struct {
 	// +optional
 	ID   *string `json:"ID,omitempty" tf:"id"`
 	Name *string `json:"name" tf:"name"`
+	// +optional
+	Priority *int64 `json:"priority,omitempty" tf:"priority"`
 	// +optional
 	RedirectConfigurationID *string `json:"redirectConfigurationID,omitempty" tf:"redirect_configuration_id"`
 	// +optional
@@ -338,11 +370,46 @@ type GatewaySpecSslPolicy struct {
 	PolicyType *string `json:"policyType,omitempty" tf:"policy_type"`
 }
 
-type GatewaySpecTrustedRootCertificate struct {
+type GatewaySpecSslProfileSslPolicy struct {
+	// +optional
+	CipherSuites []string `json:"cipherSuites,omitempty" tf:"cipher_suites"`
+	// +optional
+	DisabledProtocols []string `json:"disabledProtocols,omitempty" tf:"disabled_protocols"`
+	// +optional
+	MinProtocolVersion *string `json:"minProtocolVersion,omitempty" tf:"min_protocol_version"`
+	// +optional
+	PolicyName *string `json:"policyName,omitempty" tf:"policy_name"`
+	// +optional
+	PolicyType *string `json:"policyType,omitempty" tf:"policy_type"`
+}
+
+type GatewaySpecSslProfile struct {
+	// +optional
+	ID   *string `json:"ID,omitempty" tf:"id"`
+	Name *string `json:"name" tf:"name"`
+	// +optional
+	SslPolicy *GatewaySpecSslProfileSslPolicy `json:"sslPolicy,omitempty" tf:"ssl_policy"`
+	// +optional
+	TrustedClientCertificateNames []string `json:"trustedClientCertificateNames,omitempty" tf:"trusted_client_certificate_names"`
+	// +optional
+	VerifyClientCertIssuerDn *bool `json:"verifyClientCertIssuerDn,omitempty" tf:"verify_client_cert_issuer_dn"`
+}
+
+type GatewaySpecTrustedClientCertificate struct {
 	Data *string `json:"-" sensitive:"true" tf:"data"`
 	// +optional
 	ID   *string `json:"ID,omitempty" tf:"id"`
 	Name *string `json:"name" tf:"name"`
+}
+
+type GatewaySpecTrustedRootCertificate struct {
+	// +optional
+	Data *string `json:"-" sensitive:"true" tf:"data"`
+	// +optional
+	ID *string `json:"ID,omitempty" tf:"id"`
+	// +optional
+	KeyVaultSecretID *string `json:"keyVaultSecretID,omitempty" tf:"key_vault_secret_id"`
+	Name             *string `json:"name" tf:"name"`
 }
 
 type GatewaySpecUrlPathMapPathRule struct {
@@ -458,7 +525,11 @@ type GatewaySpecResource struct {
 	// +optional
 	EnableHttp2 *bool `json:"enableHttp2,omitempty" tf:"enable_http2"`
 	// +optional
+	FipsEnabled *bool `json:"fipsEnabled,omitempty" tf:"fips_enabled"`
+	// +optional
 	FirewallPolicyID *string `json:"firewallPolicyID,omitempty" tf:"firewall_policy_id"`
+	// +optional
+	ForceFirewallPolicyAssociation *bool `json:"forceFirewallPolicyAssociation,omitempty" tf:"force_firewall_policy_association"`
 	// +kubebuilder:validation:MinItems=1
 	FrontendIPConfiguration []GatewaySpecFrontendIPConfiguration `json:"frontendIPConfiguration" tf:"frontend_ip_configuration"`
 	FrontendPort            []GatewaySpecFrontendPort            `json:"frontendPort" tf:"frontend_port"`
@@ -469,6 +540,10 @@ type GatewaySpecResource struct {
 	Identity *GatewaySpecIdentity `json:"identity,omitempty" tf:"identity"`
 	Location *string              `json:"location" tf:"location"`
 	Name     *string              `json:"name" tf:"name"`
+	// +optional
+	PrivateEndpointConnection []GatewaySpecPrivateEndpointConnection `json:"privateEndpointConnection,omitempty" tf:"private_endpoint_connection"`
+	// +optional
+	PrivateLinkConfiguration []GatewaySpecPrivateLinkConfiguration `json:"privateLinkConfiguration,omitempty" tf:"private_link_configuration"`
 	// +optional
 	Probe []GatewaySpecProbe `json:"probe,omitempty" tf:"probe"`
 	// +optional
@@ -482,9 +557,13 @@ type GatewaySpecResource struct {
 	// +optional
 	SslCertificate []GatewaySpecSslCertificate `json:"sslCertificate,omitempty" tf:"ssl_certificate"`
 	// +optional
-	SslPolicy []GatewaySpecSslPolicy `json:"sslPolicy,omitempty" tf:"ssl_policy"`
+	SslPolicy *GatewaySpecSslPolicy `json:"sslPolicy,omitempty" tf:"ssl_policy"`
+	// +optional
+	SslProfile []GatewaySpecSslProfile `json:"sslProfile,omitempty" tf:"ssl_profile"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
+	// +optional
+	TrustedClientCertificate []GatewaySpecTrustedClientCertificate `json:"trustedClientCertificate,omitempty" tf:"trusted_client_certificate"`
 	// +optional
 	TrustedRootCertificate []GatewaySpecTrustedRootCertificate `json:"trustedRootCertificate,omitempty" tf:"trusted_root_certificate"`
 	// +optional

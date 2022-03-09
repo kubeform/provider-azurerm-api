@@ -61,9 +61,17 @@ type ServiceSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
-	DataLocation      *string `json:"dataLocation,omitempty" tf:"data_location"`
-	Name              *string `json:"name" tf:"name"`
+	DataLocation *string `json:"dataLocation,omitempty" tf:"data_location"`
+	Name         *string `json:"name" tf:"name"`
+	// +optional
+	PrimaryConnectionString *string `json:"primaryConnectionString,omitempty" tf:"primary_connection_string"`
+	// +optional
+	PrimaryKey        *string `json:"primaryKey,omitempty" tf:"primary_key"`
 	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	// +optional
+	SecondaryConnectionString *string `json:"secondaryConnectionString,omitempty" tf:"secondary_connection_string"`
+	// +optional
+	SecondaryKey *string `json:"secondaryKey,omitempty" tf:"secondary_key"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 }

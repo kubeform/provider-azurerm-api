@@ -60,9 +60,11 @@ type PoolSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	AccountName       *string `json:"accountName" tf:"account_name"`
-	Location          *string `json:"location" tf:"location"`
-	Name              *string `json:"name" tf:"name"`
+	AccountName *string `json:"accountName" tf:"account_name"`
+	Location    *string `json:"location" tf:"location"`
+	Name        *string `json:"name" tf:"name"`
+	// +optional
+	QosType           *string `json:"qosType,omitempty" tf:"qos_type"`
 	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
 	ServiceLevel      *string `json:"serviceLevel" tf:"service_level"`
 	SizeInTb          *int64  `json:"sizeInTb" tf:"size_in_tb"`

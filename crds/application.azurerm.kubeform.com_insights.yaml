@@ -68,8 +68,16 @@ spec:
                     type: boolean
                   disableIPMasking:
                     type: boolean
+                  forceCustomerStorageForProfiler:
+                    type: boolean
                   id:
                     type: string
+                  internetIngestionEnabled:
+                    type: boolean
+                  internetQueryEnabled:
+                    type: boolean
+                  localAuthenticationDisabled:
+                    type: boolean
                   location:
                     type: string
                   name:
@@ -124,6 +132,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  workspaceID:
+                    type: string
                 required:
                 - applicationType
                 - location
@@ -152,8 +162,16 @@ spec:
                     type: boolean
                   disableIPMasking:
                     type: boolean
+                  forceCustomerStorageForProfiler:
+                    type: boolean
                   id:
                     type: string
+                  internetIngestionEnabled:
+                    type: boolean
+                  internetQueryEnabled:
+                    type: boolean
+                  localAuthenticationDisabled:
+                    type: boolean
                   location:
                     type: string
                   name:
@@ -208,6 +226,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  workspaceID:
+                    type: string
                 required:
                 - applicationType
                 - location

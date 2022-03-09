@@ -62,8 +62,21 @@ type EndpointServicebusQueueSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	ConnectionString  *string `json:"-" sensitive:"true" tf:"connection_string"`
-	IothubName        *string `json:"iothubName" tf:"iothub_name"`
+	// +optional
+	AuthenticationType *string `json:"authenticationType,omitempty" tf:"authentication_type"`
+	// +optional
+	ConnectionString *string `json:"-" sensitive:"true" tf:"connection_string"`
+	// +optional
+	EndpointURI *string `json:"endpointURI,omitempty" tf:"endpoint_uri"`
+	// +optional
+	EntityPath *string `json:"entityPath,omitempty" tf:"entity_path"`
+	// +optional
+	IdentityID *string `json:"identityID,omitempty" tf:"identity_id"`
+	// +optional
+	IothubID *string `json:"iothubID,omitempty" tf:"iothub_id"`
+	// +optional
+	// Deprecated
+	IothubName        *string `json:"iothubName,omitempty" tf:"iothub_name"`
 	Name              *string `json:"name" tf:"name"`
 	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
 }

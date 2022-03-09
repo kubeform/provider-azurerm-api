@@ -111,6 +111,15 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  valueFromKeyVault:
+                    properties:
+                      identityClientID:
+                        type: string
+                      secretID:
+                        type: string
+                    required:
+                    - secretID
+                    type: object
                 required:
                 - apiManagementName
                 - displayName
@@ -181,6 +190,15 @@ spec:
                           290 years.
                         format: int64
                         type: integer
+                    type: object
+                  valueFromKeyVault:
+                    properties:
+                      identityClientID:
+                        type: string
+                      secretID:
+                        type: string
+                    required:
+                    - secretID
                     type: object
                 required:
                 - apiManagementName

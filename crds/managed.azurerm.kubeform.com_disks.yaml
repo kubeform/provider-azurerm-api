@@ -63,7 +63,13 @@ spec:
                     type: string
                   diskEncryptionSetID:
                     type: string
+                  diskIopsReadOnly:
+                    format: int64
+                    type: integer
                   diskIopsReadWrite:
+                    format: int64
+                    type: integer
+                  diskMbpsReadOnly:
                     format: int64
                     type: integer
                   diskMbpsReadWrite:
@@ -99,18 +105,32 @@ spec:
                     required:
                     - enabled
                     type: object
+                  galleryImageReferenceID:
+                    type: string
+                  hyperVGeneration:
+                    type: string
                   id:
                     type: string
                   imageReferenceID:
                     type: string
                   location:
                     type: string
+                  logicalSectorSize:
+                    format: int64
+                    type: integer
+                  maxShares:
+                    format: int64
+                    type: integer
                   name:
                     type: string
                   networkAccessPolicy:
                     type: string
+                  onDemandBurstingEnabled:
+                    type: boolean
                   osType:
                     type: string
+                  publicNetworkAccessEnabled:
+                    type: boolean
                   resourceGroupName:
                     type: string
                   sourceResourceID:
@@ -165,6 +185,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  trustedLaunchEnabled:
+                    type: boolean
                   zones:
                     items:
                       type: string
@@ -184,7 +206,13 @@ spec:
                     type: string
                   diskEncryptionSetID:
                     type: string
+                  diskIopsReadOnly:
+                    format: int64
+                    type: integer
                   diskIopsReadWrite:
+                    format: int64
+                    type: integer
+                  diskMbpsReadOnly:
                     format: int64
                     type: integer
                   diskMbpsReadWrite:
@@ -220,18 +248,32 @@ spec:
                     required:
                     - enabled
                     type: object
+                  galleryImageReferenceID:
+                    type: string
+                  hyperVGeneration:
+                    type: string
                   id:
                     type: string
                   imageReferenceID:
                     type: string
                   location:
                     type: string
+                  logicalSectorSize:
+                    format: int64
+                    type: integer
+                  maxShares:
+                    format: int64
+                    type: integer
                   name:
                     type: string
                   networkAccessPolicy:
                     type: string
+                  onDemandBurstingEnabled:
+                    type: boolean
                   osType:
                     type: string
+                  publicNetworkAccessEnabled:
+                    type: boolean
                   resourceGroupName:
                     type: string
                   sourceResourceID:
@@ -286,6 +328,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  trustedLaunchEnabled:
+                    type: boolean
                   zones:
                     items:
                       type: string

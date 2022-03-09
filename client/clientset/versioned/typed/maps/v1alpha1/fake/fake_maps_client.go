@@ -33,6 +33,10 @@ func (c *FakeMapsV1alpha1) Accounts(namespace string) v1alpha1.AccountInterface 
 	return &FakeAccounts{c, namespace}
 }
 
+func (c *FakeMapsV1alpha1) Creators(namespace string) v1alpha1.CreatorInterface {
+	return &FakeCreators{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeMapsV1alpha1) RESTClient() rest.Interface {

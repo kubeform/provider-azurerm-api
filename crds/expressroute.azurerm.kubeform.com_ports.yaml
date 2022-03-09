@@ -73,11 +73,11 @@ spec:
                       identityIDS:
                         items:
                           type: string
-                        minItems: 1
                         type: array
                       type:
                         type: string
                     required:
+                    - identityIDS
                     - type
                     type: object
                   link1:
@@ -204,11 +204,11 @@ spec:
                       identityIDS:
                         items:
                           type: string
-                        minItems: 1
                         type: array
                       type:
                         type: string
                     required:
+                    - identityIDS
                     - type
                     type: object
                   link1:

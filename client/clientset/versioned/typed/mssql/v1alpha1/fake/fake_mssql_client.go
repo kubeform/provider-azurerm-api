@@ -45,6 +45,10 @@ func (c *FakeMssqlV1alpha1) Elasticpools(namespace string) v1alpha1.ElasticpoolI
 	return &FakeElasticpools{c, namespace}
 }
 
+func (c *FakeMssqlV1alpha1) FailoverGroups(namespace string) v1alpha1.FailoverGroupInterface {
+	return &FakeFailoverGroups{c, namespace}
+}
+
 func (c *FakeMssqlV1alpha1) FirewallRules(namespace string) v1alpha1.FirewallRuleInterface {
 	return &FakeFirewallRules{c, namespace}
 }
@@ -55,6 +59,26 @@ func (c *FakeMssqlV1alpha1) JobAgents(namespace string) v1alpha1.JobAgentInterfa
 
 func (c *FakeMssqlV1alpha1) JobCredentials(namespace string) v1alpha1.JobCredentialInterface {
 	return &FakeJobCredentials{c, namespace}
+}
+
+func (c *FakeMssqlV1alpha1) ManagedDatabases(namespace string) v1alpha1.ManagedDatabaseInterface {
+	return &FakeManagedDatabases{c, namespace}
+}
+
+func (c *FakeMssqlV1alpha1) ManagedInstances(namespace string) v1alpha1.ManagedInstanceInterface {
+	return &FakeManagedInstances{c, namespace}
+}
+
+func (c *FakeMssqlV1alpha1) ManagedInstanceActiveDirectoryAdministrators(namespace string) v1alpha1.ManagedInstanceActiveDirectoryAdministratorInterface {
+	return &FakeManagedInstanceActiveDirectoryAdministrators{c, namespace}
+}
+
+func (c *FakeMssqlV1alpha1) ManagedInstanceFailoverGroups(namespace string) v1alpha1.ManagedInstanceFailoverGroupInterface {
+	return &FakeManagedInstanceFailoverGroups{c, namespace}
+}
+
+func (c *FakeMssqlV1alpha1) OutboundFirewallRules(namespace string) v1alpha1.OutboundFirewallRuleInterface {
+	return &FakeOutboundFirewallRules{c, namespace}
 }
 
 func (c *FakeMssqlV1alpha1) Servers(namespace string) v1alpha1.ServerInterface {

@@ -90,7 +90,7 @@ func (r *MachineConfigurationPolicyAssignment) ValidateUpdate(old runtime.Object
 		return err
 	}
 
-	for key := range machineconfigurationpolicyassignmentForceNewList {
+	for key, _ := range machineconfigurationpolicyassignmentForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -89,7 +89,7 @@ func (r *DataLakeGen2Filesystem) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range datalakegen2filesystemForceNewList {
+	for key, _ := range datalakegen2filesystemForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

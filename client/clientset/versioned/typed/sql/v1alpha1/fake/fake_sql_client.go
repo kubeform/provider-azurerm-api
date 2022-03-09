@@ -49,6 +49,22 @@ func (c *FakeSqlV1alpha1) FirewallRules(namespace string) v1alpha1.FirewallRuleI
 	return &FakeFirewallRules{c, namespace}
 }
 
+func (c *FakeSqlV1alpha1) ManagedDatabases(namespace string) v1alpha1.ManagedDatabaseInterface {
+	return &FakeManagedDatabases{c, namespace}
+}
+
+func (c *FakeSqlV1alpha1) ManagedInstances(namespace string) v1alpha1.ManagedInstanceInterface {
+	return &FakeManagedInstances{c, namespace}
+}
+
+func (c *FakeSqlV1alpha1) ManagedInstanceActiveDirectoryAdministrators(namespace string) v1alpha1.ManagedInstanceActiveDirectoryAdministratorInterface {
+	return &FakeManagedInstanceActiveDirectoryAdministrators{c, namespace}
+}
+
+func (c *FakeSqlV1alpha1) ManagedInstanceFailoverGroups(namespace string) v1alpha1.ManagedInstanceFailoverGroupInterface {
+	return &FakeManagedInstanceFailoverGroups{c, namespace}
+}
+
 func (c *FakeSqlV1alpha1) Servers(namespace string) v1alpha1.ServerInterface {
 	return &FakeServers{c, namespace}
 }

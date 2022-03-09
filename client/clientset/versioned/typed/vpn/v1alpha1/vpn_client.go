@@ -29,6 +29,7 @@ type VpnV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	GatewaysGetter
 	GatewayConnectionsGetter
+	GatewayNATRulesGetter
 	ServerConfigurationsGetter
 	SitesGetter
 }
@@ -44,6 +45,10 @@ func (c *VpnV1alpha1Client) Gateways(namespace string) GatewayInterface {
 
 func (c *VpnV1alpha1Client) GatewayConnections(namespace string) GatewayConnectionInterface {
 	return newGatewayConnections(c, namespace)
+}
+
+func (c *VpnV1alpha1Client) GatewayNATRules(namespace string) GatewayNATRuleInterface {
+	return newGatewayNATRules(c, namespace)
 }
 
 func (c *VpnV1alpha1Client) ServerConfigurations(namespace string) ServerConfigurationInterface {

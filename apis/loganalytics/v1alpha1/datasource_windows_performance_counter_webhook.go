@@ -90,7 +90,7 @@ func (r *DatasourceWindowsPerformanceCounter) ValidateUpdate(old runtime.Object)
 		return err
 	}
 
-	for key := range datasourcewindowsperformancecounterForceNewList {
+	for key, _ := range datasourcewindowsperformancecounterForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

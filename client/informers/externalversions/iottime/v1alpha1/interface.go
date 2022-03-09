@@ -26,6 +26,8 @@ import (
 type Interface interface {
 	// SeriesInsightsAccessPolicies returns a SeriesInsightsAccessPolicyInformer.
 	SeriesInsightsAccessPolicies() SeriesInsightsAccessPolicyInformer
+	// SeriesInsightsEventSourceEventhubs returns a SeriesInsightsEventSourceEventhubInformer.
+	SeriesInsightsEventSourceEventhubs() SeriesInsightsEventSourceEventhubInformer
 	// SeriesInsightsEventSourceIothubs returns a SeriesInsightsEventSourceIothubInformer.
 	SeriesInsightsEventSourceIothubs() SeriesInsightsEventSourceIothubInformer
 	// SeriesInsightsGen2Environments returns a SeriesInsightsGen2EnvironmentInformer.
@@ -50,6 +52,11 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // SeriesInsightsAccessPolicies returns a SeriesInsightsAccessPolicyInformer.
 func (v *version) SeriesInsightsAccessPolicies() SeriesInsightsAccessPolicyInformer {
 	return &seriesInsightsAccessPolicyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// SeriesInsightsEventSourceEventhubs returns a SeriesInsightsEventSourceEventhubInformer.
+func (v *version) SeriesInsightsEventSourceEventhubs() SeriesInsightsEventSourceEventhubInformer {
+	return &seriesInsightsEventSourceEventhubInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // SeriesInsightsEventSourceIothubs returns a SeriesInsightsEventSourceIothubInformer.

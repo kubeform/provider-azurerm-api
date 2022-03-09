@@ -63,7 +63,9 @@ type MachineExtensionSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
-	AutoUpgradeMinorVersion *bool   `json:"autoUpgradeMinorVersion,omitempty" tf:"auto_upgrade_minor_version"`
+	AutoUpgradeMinorVersion *bool `json:"autoUpgradeMinorVersion,omitempty" tf:"auto_upgrade_minor_version"`
+	// +optional
+	AutomaticUpgradeEnabled *bool   `json:"automaticUpgradeEnabled,omitempty" tf:"automatic_upgrade_enabled"`
 	Name                    *string `json:"name" tf:"name"`
 	// +optional
 	ProtectedSettings *string `json:"-" sensitive:"true" tf:"protected_settings"`

@@ -55,6 +55,11 @@ type SparkPoolSpecLibraryRequirement struct {
 	Filename *string `json:"filename" tf:"filename"`
 }
 
+type SparkPoolSpecSparkConfig struct {
+	Content  *string `json:"content" tf:"content"`
+	Filename *string `json:"filename" tf:"filename"`
+}
+
 type SparkPoolSpec struct {
 	State *SparkPoolSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -79,12 +84,22 @@ type SparkPoolSpecResource struct {
 	// +optional
 	AutoScale *SparkPoolSpecAutoScale `json:"autoScale,omitempty" tf:"auto_scale"`
 	// +optional
+	CacheSize *int64 `json:"cacheSize,omitempty" tf:"cache_size"`
+	// +optional
+	ComputeIsolationEnabled *bool `json:"computeIsolationEnabled,omitempty" tf:"compute_isolation_enabled"`
+	// +optional
+	DynamicExecutorAllocationEnabled *bool `json:"dynamicExecutorAllocationEnabled,omitempty" tf:"dynamic_executor_allocation_enabled"`
+	// +optional
 	LibraryRequirement *SparkPoolSpecLibraryRequirement `json:"libraryRequirement,omitempty" tf:"library_requirement"`
 	Name               *string                          `json:"name" tf:"name"`
 	// +optional
 	NodeCount      *int64  `json:"nodeCount,omitempty" tf:"node_count"`
 	NodeSize       *string `json:"nodeSize" tf:"node_size"`
 	NodeSizeFamily *string `json:"nodeSizeFamily" tf:"node_size_family"`
+	// +optional
+	SessionLevelPackagesEnabled *bool `json:"sessionLevelPackagesEnabled,omitempty" tf:"session_level_packages_enabled"`
+	// +optional
+	SparkConfig *SparkPoolSpecSparkConfig `json:"sparkConfig,omitempty" tf:"spark_config"`
 	// +optional
 	SparkEventsFolder *string `json:"sparkEventsFolder,omitempty" tf:"spark_events_folder"`
 	// +optional

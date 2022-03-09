@@ -89,7 +89,7 @@ func (r *BlobInventoryPolicy) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range blobinventorypolicyForceNewList {
+	for key, _ := range blobinventorypolicyForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

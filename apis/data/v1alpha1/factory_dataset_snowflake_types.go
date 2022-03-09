@@ -42,6 +42,16 @@ type FactoryDatasetSnowflake struct {
 }
 
 type FactoryDatasetSnowflakeSpecSchemaColumn struct {
+	Name *string `json:"name" tf:"name"`
+	// +optional
+	Precision *int64 `json:"precision,omitempty" tf:"precision"`
+	// +optional
+	Scale *int64 `json:"scale,omitempty" tf:"scale"`
+	// +optional
+	Type *string `json:"type,omitempty" tf:"type"`
+}
+
+type FactoryDatasetSnowflakeSpecStructureColumn struct {
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	Name        *string `json:"name" tf:"name"`
@@ -71,8 +81,12 @@ type FactoryDatasetSnowflakeSpecResource struct {
 	// +optional
 	AdditionalProperties *map[string]string `json:"additionalProperties,omitempty" tf:"additional_properties"`
 	// +optional
-	Annotations     []string `json:"annotations,omitempty" tf:"annotations"`
-	DataFactoryName *string  `json:"dataFactoryName" tf:"data_factory_name"`
+	Annotations []string `json:"annotations,omitempty" tf:"annotations"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional
@@ -86,6 +100,9 @@ type FactoryDatasetSnowflakeSpecResource struct {
 	SchemaColumn []FactoryDatasetSnowflakeSpecSchemaColumn `json:"schemaColumn,omitempty" tf:"schema_column"`
 	// +optional
 	SchemaName *string `json:"schemaName,omitempty" tf:"schema_name"`
+	// +optional
+	// Deprecated
+	StructureColumn []FactoryDatasetSnowflakeSpecStructureColumn `json:"structureColumn,omitempty" tf:"structure_column"`
 	// +optional
 	TableName *string `json:"tableName,omitempty" tf:"table_name"`
 }

@@ -236,8 +236,6 @@ spec:
                         type: array
                     required:
                     - nameservers
-                    - options
-                    - searchDomains
                     type: object
                   dnsNameLabel:
                     type: string
@@ -260,9 +258,10 @@ spec:
                       identityIDS:
                         items:
                           type: string
-                        minItems: 1
                         type: array
                       principalID:
+                        type: string
+                      tenantID:
                         type: string
                       type:
                         type: string
@@ -536,8 +535,6 @@ spec:
                         type: array
                     required:
                     - nameservers
-                    - options
-                    - searchDomains
                     type: object
                   dnsNameLabel:
                     type: string
@@ -560,9 +557,10 @@ spec:
                       identityIDS:
                         items:
                           type: string
-                        minItems: 1
                         type: array
                       principalID:
+                        type: string
+                      tenantID:
                         type: string
                       type:
                         type: string

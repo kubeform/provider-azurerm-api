@@ -58,7 +58,14 @@ spec:
               resource:
                 properties:
                   backendAddressPoolID:
+                    description: Deprecated
                     type: string
+                  backendAddressPoolIDS:
+                    items:
+                      type: string
+                    maxItems: 2
+                    minItems: 1
+                    type: array
                   backendPort:
                     format: int64
                     type: integer
@@ -142,7 +149,14 @@ spec:
               state:
                 properties:
                   backendAddressPoolID:
+                    description: Deprecated
                     type: string
+                  backendAddressPoolIDS:
+                    items:
+                      type: string
+                    maxItems: 2
+                    minItems: 1
+                    type: array
                   backendPort:
                     format: int64
                     type: integer

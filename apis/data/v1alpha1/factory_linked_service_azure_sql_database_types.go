@@ -76,7 +76,11 @@ type FactoryLinkedServiceAzureSQLDatabaseSpecResource struct {
 	Annotations []string `json:"annotations,omitempty" tf:"annotations"`
 	// +optional
 	ConnectionString *string `json:"connectionString,omitempty" tf:"connection_string"`
-	DataFactoryName  *string `json:"dataFactoryName" tf:"data_factory_name"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional

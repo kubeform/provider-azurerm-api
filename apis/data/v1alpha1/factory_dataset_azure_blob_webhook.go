@@ -42,6 +42,7 @@ func (r *FactoryDatasetAzureBlob) SetupWebhookWithManager(mgr ctrl.Manager) erro
 var _ webhook.Validator = &FactoryDatasetAzureBlob{}
 
 var factorydatasetazureblobForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *FactoryDatasetAzureBlob) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range factorydatasetazureblobForceNewList {
+	for key, _ := range factorydatasetazureblobForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

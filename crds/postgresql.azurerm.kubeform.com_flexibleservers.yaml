@@ -63,6 +63,7 @@ spec:
                     format: int64
                     type: integer
                   cmkEnabled:
+                    description: Deprecated
                     type: string
                   createMode:
                     type: string
@@ -70,6 +71,17 @@ spec:
                     type: string
                   fqdn:
                     type: string
+                  geoRedundantBackupEnabled:
+                    type: boolean
+                  highAvailability:
+                    properties:
+                      mode:
+                        type: string
+                      standbyAvailabilityZone:
+                        type: string
+                    required:
+                    - mode
+                    type: object
                   id:
                     type: string
                   location:
@@ -89,6 +101,8 @@ spec:
                   name:
                     type: string
                   pointInTimeRestoreTimeInUtc:
+                    type: string
+                  privateDNSZoneID:
                     type: string
                   publicNetworkAccessEnabled:
                     type: boolean
@@ -169,6 +183,7 @@ spec:
                     format: int64
                     type: integer
                   cmkEnabled:
+                    description: Deprecated
                     type: string
                   createMode:
                     type: string
@@ -176,6 +191,17 @@ spec:
                     type: string
                   fqdn:
                     type: string
+                  geoRedundantBackupEnabled:
+                    type: boolean
+                  highAvailability:
+                    properties:
+                      mode:
+                        type: string
+                      standbyAvailabilityZone:
+                        type: string
+                    required:
+                    - mode
+                    type: object
                   id:
                     type: string
                   location:
@@ -195,6 +221,8 @@ spec:
                   name:
                     type: string
                   pointInTimeRestoreTimeInUtc:
+                    type: string
+                  privateDNSZoneID:
                     type: string
                   publicNetworkAccessEnabled:
                     type: boolean

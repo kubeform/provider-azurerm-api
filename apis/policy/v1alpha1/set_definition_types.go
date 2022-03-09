@@ -89,9 +89,9 @@ type SetDefinitionSpecResource struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 	DisplayName *string `json:"displayName" tf:"display_name"`
 	// +optional
-	// Deprecated
 	ManagementGroupID *string `json:"managementGroupID,omitempty" tf:"management_group_id"`
 	// +optional
+	// Deprecated
 	ManagementGroupName *string `json:"managementGroupName,omitempty" tf:"management_group_name"`
 	// +optional
 	Metadata *string `json:"metadata,omitempty" tf:"metadata"`

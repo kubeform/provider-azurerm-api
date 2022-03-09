@@ -93,7 +93,7 @@ func (r *Assignment) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range assignmentForceNewList {
+	for key, _ := range assignmentForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

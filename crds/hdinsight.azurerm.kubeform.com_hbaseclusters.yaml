@@ -133,6 +133,13 @@ spec:
                     type: object
                   name:
                     type: string
+                  network:
+                    properties:
+                      connectionDirection:
+                        type: string
+                      privateLinkEnabled:
+                        type: boolean
+                    type: object
                   resourceGroupName:
                     type: string
                   roles:
@@ -234,6 +241,31 @@ spec:
                     - workerNode
                     - zookeeperNode
                     type: object
+                  securityProfile:
+                    properties:
+                      aaddsResourceID:
+                        type: string
+                      clusterUsersGroupDNS:
+                        items:
+                          type: string
+                        type: array
+                      domainName:
+                        type: string
+                      domainUsername:
+                        type: string
+                      ldapsUrls:
+                        items:
+                          type: string
+                        type: array
+                      msiResourceID:
+                        type: string
+                    required:
+                    - aaddsResourceID
+                    - domainName
+                    - domainUsername
+                    - ldapsUrls
+                    - msiResourceID
+                    type: object
                   sshEndpoint:
                     type: string
                   storageAccount:
@@ -242,6 +274,8 @@ spec:
                         isDefault:
                           type: boolean
                         storageContainerID:
+                          type: string
+                        storageResourceID:
                           type: string
                       required:
                       - isDefault
@@ -407,6 +441,13 @@ spec:
                     type: object
                   name:
                     type: string
+                  network:
+                    properties:
+                      connectionDirection:
+                        type: string
+                      privateLinkEnabled:
+                        type: boolean
+                    type: object
                   resourceGroupName:
                     type: string
                   roles:
@@ -508,6 +549,31 @@ spec:
                     - workerNode
                     - zookeeperNode
                     type: object
+                  securityProfile:
+                    properties:
+                      aaddsResourceID:
+                        type: string
+                      clusterUsersGroupDNS:
+                        items:
+                          type: string
+                        type: array
+                      domainName:
+                        type: string
+                      domainUsername:
+                        type: string
+                      ldapsUrls:
+                        items:
+                          type: string
+                        type: array
+                      msiResourceID:
+                        type: string
+                    required:
+                    - aaddsResourceID
+                    - domainName
+                    - domainUsername
+                    - ldapsUrls
+                    - msiResourceID
+                    type: object
                   sshEndpoint:
                     type: string
                   storageAccount:
@@ -516,6 +582,8 @@ spec:
                         isDefault:
                           type: boolean
                         storageContainerID:
+                          type: string
+                        storageResourceID:
                           type: string
                       required:
                       - isDefault

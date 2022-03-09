@@ -33,8 +33,24 @@ func (c *FakeSynapseV1alpha1) FirewallRules(namespace string) v1alpha1.FirewallR
 	return &FakeFirewallRules{c, namespace}
 }
 
+func (c *FakeSynapseV1alpha1) IntegrationRuntimeAzures(namespace string) v1alpha1.IntegrationRuntimeAzureInterface {
+	return &FakeIntegrationRuntimeAzures{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) IntegrationRuntimeSelfHosteds(namespace string) v1alpha1.IntegrationRuntimeSelfHostedInterface {
+	return &FakeIntegrationRuntimeSelfHosteds{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) LinkedServices(namespace string) v1alpha1.LinkedServiceInterface {
+	return &FakeLinkedServices{c, namespace}
+}
+
 func (c *FakeSynapseV1alpha1) ManagedPrivateEndpoints(namespace string) v1alpha1.ManagedPrivateEndpointInterface {
 	return &FakeManagedPrivateEndpoints{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) PrivateLinkHubs(namespace string) v1alpha1.PrivateLinkHubInterface {
+	return &FakePrivateLinkHubs{c, namespace}
 }
 
 func (c *FakeSynapseV1alpha1) RoleAssignments(namespace string) v1alpha1.RoleAssignmentInterface {
@@ -49,8 +65,56 @@ func (c *FakeSynapseV1alpha1) SqlPools(namespace string) v1alpha1.SqlPoolInterfa
 	return &FakeSqlPools{c, namespace}
 }
 
+func (c *FakeSynapseV1alpha1) SqlPoolExtendedAuditingPolicies(namespace string) v1alpha1.SqlPoolExtendedAuditingPolicyInterface {
+	return &FakeSqlPoolExtendedAuditingPolicies{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) SqlPoolSecurityAlertPolicies(namespace string) v1alpha1.SqlPoolSecurityAlertPolicyInterface {
+	return &FakeSqlPoolSecurityAlertPolicies{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) SqlPoolVulnerabilityAssessments(namespace string) v1alpha1.SqlPoolVulnerabilityAssessmentInterface {
+	return &FakeSqlPoolVulnerabilityAssessments{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) SqlPoolVulnerabilityAssessmentBaselines(namespace string) v1alpha1.SqlPoolVulnerabilityAssessmentBaselineInterface {
+	return &FakeSqlPoolVulnerabilityAssessmentBaselines{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) SqlPoolWorkloadClassifiers(namespace string) v1alpha1.SqlPoolWorkloadClassifierInterface {
+	return &FakeSqlPoolWorkloadClassifiers{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) SqlPoolWorkloadGroups(namespace string) v1alpha1.SqlPoolWorkloadGroupInterface {
+	return &FakeSqlPoolWorkloadGroups{c, namespace}
+}
+
 func (c *FakeSynapseV1alpha1) Workspaces(namespace string) v1alpha1.WorkspaceInterface {
 	return &FakeWorkspaces{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) WorkspaceAadAdmins(namespace string) v1alpha1.WorkspaceAadAdminInterface {
+	return &FakeWorkspaceAadAdmins{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) WorkspaceExtendedAuditingPolicies(namespace string) v1alpha1.WorkspaceExtendedAuditingPolicyInterface {
+	return &FakeWorkspaceExtendedAuditingPolicies{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) WorkspaceKeys(namespace string) v1alpha1.WorkspaceKeyInterface {
+	return &FakeWorkspaceKeys{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) WorkspaceSQLAadAdmins(namespace string) v1alpha1.WorkspaceSQLAadAdminInterface {
+	return &FakeWorkspaceSQLAadAdmins{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) WorkspaceSecurityAlertPolicies(namespace string) v1alpha1.WorkspaceSecurityAlertPolicyInterface {
+	return &FakeWorkspaceSecurityAlertPolicies{c, namespace}
+}
+
+func (c *FakeSynapseV1alpha1) WorkspaceVulnerabilityAssessments(namespace string) v1alpha1.WorkspaceVulnerabilityAssessmentInterface {
+	return &FakeWorkspaceVulnerabilityAssessments{c, namespace}
 }
 
 // RESTClient returns a RESTClient that is used to communicate

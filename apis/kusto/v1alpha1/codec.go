@@ -27,19 +27,21 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecIdentity{}).Type1()):                    ClusterSpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecOptimizedAutoScale{}).Type1()):          ClusterSpecOptimizedAutoScaleCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecSku{}).Type1()):                         ClusterSpecSkuCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecVirtualNetworkConfiguration{}).Type1()): ClusterSpecVirtualNetworkConfigurationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(AttachedDatabaseConfigurationSpecSharing{}).Type1()): AttachedDatabaseConfigurationSpecSharingCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecIdentity{}).Type1()):                      ClusterSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecOptimizedAutoScale{}).Type1()):            ClusterSpecOptimizedAutoScaleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecSku{}).Type1()):                           ClusterSpecSkuCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecVirtualNetworkConfiguration{}).Type1()):   ClusterSpecVirtualNetworkConfigurationCodec{},
 	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecIdentity{}).Type1()):                    ClusterSpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecOptimizedAutoScale{}).Type1()):          ClusterSpecOptimizedAutoScaleCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecSku{}).Type1()):                         ClusterSpecSkuCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecVirtualNetworkConfiguration{}).Type1()): ClusterSpecVirtualNetworkConfigurationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(AttachedDatabaseConfigurationSpecSharing{}).Type1()): AttachedDatabaseConfigurationSpecSharingCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecIdentity{}).Type1()):                      ClusterSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecOptimizedAutoScale{}).Type1()):            ClusterSpecOptimizedAutoScaleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecSku{}).Type1()):                           ClusterSpecSkuCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ClusterSpecVirtualNetworkConfiguration{}).Type1()):   ClusterSpecVirtualNetworkConfigurationCodec{},
 	}
 }
 
@@ -53,6 +55,85 @@ func getDecodersWithout(typ string) map[string]jsoniter.ValDecoder {
 	origMap := GetDecoder()
 	delete(origMap, typ)
 	return origMap
+}
+
+// +k8s:deepcopy-gen=false
+type AttachedDatabaseConfigurationSpecSharingCodec struct {
+}
+
+func (AttachedDatabaseConfigurationSpecSharingCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*AttachedDatabaseConfigurationSpecSharing)(ptr) == nil
+}
+
+func (AttachedDatabaseConfigurationSpecSharingCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*AttachedDatabaseConfigurationSpecSharing)(ptr)
+	var objs []AttachedDatabaseConfigurationSpecSharing
+	if obj != nil {
+		objs = []AttachedDatabaseConfigurationSpecSharing{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AttachedDatabaseConfigurationSpecSharing{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (AttachedDatabaseConfigurationSpecSharingCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*AttachedDatabaseConfigurationSpecSharing)(ptr) = AttachedDatabaseConfigurationSpecSharing{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []AttachedDatabaseConfigurationSpecSharing
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AttachedDatabaseConfigurationSpecSharing{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*AttachedDatabaseConfigurationSpecSharing)(ptr) = objs[0]
+			} else {
+				*(*AttachedDatabaseConfigurationSpecSharing)(ptr) = AttachedDatabaseConfigurationSpecSharing{}
+			}
+		} else {
+			*(*AttachedDatabaseConfigurationSpecSharing)(ptr) = AttachedDatabaseConfigurationSpecSharing{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj AttachedDatabaseConfigurationSpecSharing
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AttachedDatabaseConfigurationSpecSharing{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*AttachedDatabaseConfigurationSpecSharing)(ptr) = obj
+		} else {
+			*(*AttachedDatabaseConfigurationSpecSharing)(ptr) = AttachedDatabaseConfigurationSpecSharing{}
+		}
+	default:
+		iter.ReportError("decode AttachedDatabaseConfigurationSpecSharing", "unexpected JSON type")
+	}
 }
 
 // +k8s:deepcopy-gen=false

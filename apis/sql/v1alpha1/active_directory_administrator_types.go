@@ -60,11 +60,13 @@ type ActiveDirectoryAdministratorSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	Login             *string `json:"login" tf:"login"`
-	ObjectID          *string `json:"objectID" tf:"object_id"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
-	ServerName        *string `json:"serverName" tf:"server_name"`
-	TenantID          *string `json:"tenantID" tf:"tenant_id"`
+	// +optional
+	AzureadAuthenticationOnly *bool   `json:"azureadAuthenticationOnly,omitempty" tf:"azuread_authentication_only"`
+	Login                     *string `json:"login" tf:"login"`
+	ObjectID                  *string `json:"objectID" tf:"object_id"`
+	ResourceGroupName         *string `json:"resourceGroupName" tf:"resource_group_name"`
+	ServerName                *string `json:"serverName" tf:"server_name"`
+	TenantID                  *string `json:"tenantID" tf:"tenant_id"`
 }
 
 type ActiveDirectoryAdministratorStatus struct {

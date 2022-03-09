@@ -59,6 +59,8 @@ spec:
                 properties:
                   backupPolicyID:
                     type: string
+                  databaseCredentialKeyVaultSecretID:
+                    type: string
                   databaseID:
                     type: string
                   id:
@@ -117,6 +119,8 @@ spec:
               state:
                 properties:
                   backupPolicyID:
+                    type: string
+                  databaseCredentialKeyVaultSecretID:
                     type: string
                   databaseID:
                     type: string

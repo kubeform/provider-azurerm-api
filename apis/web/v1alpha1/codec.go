@@ -29,6 +29,10 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
 		jsoniter.MustGetKind(reflect2.TypeOf(ApplicationFirewallPolicySpecManagedRules{}).Type1()):   ApplicationFirewallPolicySpecManagedRulesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApplicationFirewallPolicySpecPolicySettings{}).Type1()): ApplicationFirewallPolicySpecPolicySettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PubsubSpecIdentity{}).Type1()):                          PubsubSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PubsubSpecLiveTrace{}).Type1()):                         PubsubSpecLiveTraceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PubsubHubSpecEventHandlerAuth{}).Type1()):               PubsubHubSpecEventHandlerAuthCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PubsubNetworkACLSpecPublicNetwork{}).Type1()):           PubsubNetworkACLSpecPublicNetworkCodec{},
 	}
 }
 
@@ -36,6 +40,10 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
 		jsoniter.MustGetKind(reflect2.TypeOf(ApplicationFirewallPolicySpecManagedRules{}).Type1()):   ApplicationFirewallPolicySpecManagedRulesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApplicationFirewallPolicySpecPolicySettings{}).Type1()): ApplicationFirewallPolicySpecPolicySettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PubsubSpecIdentity{}).Type1()):                          PubsubSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PubsubSpecLiveTrace{}).Type1()):                         PubsubSpecLiveTraceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PubsubHubSpecEventHandlerAuth{}).Type1()):               PubsubHubSpecEventHandlerAuthCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PubsubNetworkACLSpecPublicNetwork{}).Type1()):           PubsubNetworkACLSpecPublicNetworkCodec{},
 	}
 }
 
@@ -206,5 +214,321 @@ func (ApplicationFirewallPolicySpecPolicySettingsCodec) Decode(ptr unsafe.Pointe
 		}
 	default:
 		iter.ReportError("decode ApplicationFirewallPolicySpecPolicySettings", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type PubsubSpecIdentityCodec struct {
+}
+
+func (PubsubSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*PubsubSpecIdentity)(ptr) == nil
+}
+
+func (PubsubSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*PubsubSpecIdentity)(ptr)
+	var objs []PubsubSpecIdentity
+	if obj != nil {
+		objs = []PubsubSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PubsubSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (PubsubSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*PubsubSpecIdentity)(ptr) = PubsubSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []PubsubSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PubsubSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*PubsubSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*PubsubSpecIdentity)(ptr) = PubsubSpecIdentity{}
+			}
+		} else {
+			*(*PubsubSpecIdentity)(ptr) = PubsubSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj PubsubSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PubsubSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*PubsubSpecIdentity)(ptr) = obj
+		} else {
+			*(*PubsubSpecIdentity)(ptr) = PubsubSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode PubsubSpecIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type PubsubSpecLiveTraceCodec struct {
+}
+
+func (PubsubSpecLiveTraceCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*PubsubSpecLiveTrace)(ptr) == nil
+}
+
+func (PubsubSpecLiveTraceCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*PubsubSpecLiveTrace)(ptr)
+	var objs []PubsubSpecLiveTrace
+	if obj != nil {
+		objs = []PubsubSpecLiveTrace{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PubsubSpecLiveTrace{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (PubsubSpecLiveTraceCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*PubsubSpecLiveTrace)(ptr) = PubsubSpecLiveTrace{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []PubsubSpecLiveTrace
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PubsubSpecLiveTrace{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*PubsubSpecLiveTrace)(ptr) = objs[0]
+			} else {
+				*(*PubsubSpecLiveTrace)(ptr) = PubsubSpecLiveTrace{}
+			}
+		} else {
+			*(*PubsubSpecLiveTrace)(ptr) = PubsubSpecLiveTrace{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj PubsubSpecLiveTrace
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PubsubSpecLiveTrace{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*PubsubSpecLiveTrace)(ptr) = obj
+		} else {
+			*(*PubsubSpecLiveTrace)(ptr) = PubsubSpecLiveTrace{}
+		}
+	default:
+		iter.ReportError("decode PubsubSpecLiveTrace", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type PubsubHubSpecEventHandlerAuthCodec struct {
+}
+
+func (PubsubHubSpecEventHandlerAuthCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*PubsubHubSpecEventHandlerAuth)(ptr) == nil
+}
+
+func (PubsubHubSpecEventHandlerAuthCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*PubsubHubSpecEventHandlerAuth)(ptr)
+	var objs []PubsubHubSpecEventHandlerAuth
+	if obj != nil {
+		objs = []PubsubHubSpecEventHandlerAuth{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PubsubHubSpecEventHandlerAuth{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (PubsubHubSpecEventHandlerAuthCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*PubsubHubSpecEventHandlerAuth)(ptr) = PubsubHubSpecEventHandlerAuth{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []PubsubHubSpecEventHandlerAuth
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PubsubHubSpecEventHandlerAuth{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*PubsubHubSpecEventHandlerAuth)(ptr) = objs[0]
+			} else {
+				*(*PubsubHubSpecEventHandlerAuth)(ptr) = PubsubHubSpecEventHandlerAuth{}
+			}
+		} else {
+			*(*PubsubHubSpecEventHandlerAuth)(ptr) = PubsubHubSpecEventHandlerAuth{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj PubsubHubSpecEventHandlerAuth
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PubsubHubSpecEventHandlerAuth{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*PubsubHubSpecEventHandlerAuth)(ptr) = obj
+		} else {
+			*(*PubsubHubSpecEventHandlerAuth)(ptr) = PubsubHubSpecEventHandlerAuth{}
+		}
+	default:
+		iter.ReportError("decode PubsubHubSpecEventHandlerAuth", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type PubsubNetworkACLSpecPublicNetworkCodec struct {
+}
+
+func (PubsubNetworkACLSpecPublicNetworkCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*PubsubNetworkACLSpecPublicNetwork)(ptr) == nil
+}
+
+func (PubsubNetworkACLSpecPublicNetworkCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*PubsubNetworkACLSpecPublicNetwork)(ptr)
+	var objs []PubsubNetworkACLSpecPublicNetwork
+	if obj != nil {
+		objs = []PubsubNetworkACLSpecPublicNetwork{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PubsubNetworkACLSpecPublicNetwork{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (PubsubNetworkACLSpecPublicNetworkCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*PubsubNetworkACLSpecPublicNetwork)(ptr) = PubsubNetworkACLSpecPublicNetwork{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []PubsubNetworkACLSpecPublicNetwork
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PubsubNetworkACLSpecPublicNetwork{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*PubsubNetworkACLSpecPublicNetwork)(ptr) = objs[0]
+			} else {
+				*(*PubsubNetworkACLSpecPublicNetwork)(ptr) = PubsubNetworkACLSpecPublicNetwork{}
+			}
+		} else {
+			*(*PubsubNetworkACLSpecPublicNetwork)(ptr) = PubsubNetworkACLSpecPublicNetwork{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj PubsubNetworkACLSpecPublicNetwork
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PubsubNetworkACLSpecPublicNetwork{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*PubsubNetworkACLSpecPublicNetwork)(ptr) = obj
+		} else {
+			*(*PubsubNetworkACLSpecPublicNetwork)(ptr) = PubsubNetworkACLSpecPublicNetwork{}
+		}
+	default:
+		iter.ReportError("decode PubsubNetworkACLSpecPublicNetwork", "unexpected JSON type")
 	}
 }

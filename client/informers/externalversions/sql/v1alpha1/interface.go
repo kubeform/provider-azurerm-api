@@ -34,6 +34,14 @@ type Interface interface {
 	FailoverGroups() FailoverGroupInformer
 	// FirewallRules returns a FirewallRuleInformer.
 	FirewallRules() FirewallRuleInformer
+	// ManagedDatabases returns a ManagedDatabaseInformer.
+	ManagedDatabases() ManagedDatabaseInformer
+	// ManagedInstances returns a ManagedInstanceInformer.
+	ManagedInstances() ManagedInstanceInformer
+	// ManagedInstanceActiveDirectoryAdministrators returns a ManagedInstanceActiveDirectoryAdministratorInformer.
+	ManagedInstanceActiveDirectoryAdministrators() ManagedInstanceActiveDirectoryAdministratorInformer
+	// ManagedInstanceFailoverGroups returns a ManagedInstanceFailoverGroupInformer.
+	ManagedInstanceFailoverGroups() ManagedInstanceFailoverGroupInformer
 	// Servers returns a ServerInformer.
 	Servers() ServerInformer
 	// VirtualNetworkRules returns a VirtualNetworkRuleInformer.
@@ -74,6 +82,26 @@ func (v *version) FailoverGroups() FailoverGroupInformer {
 // FirewallRules returns a FirewallRuleInformer.
 func (v *version) FirewallRules() FirewallRuleInformer {
 	return &firewallRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ManagedDatabases returns a ManagedDatabaseInformer.
+func (v *version) ManagedDatabases() ManagedDatabaseInformer {
+	return &managedDatabaseInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ManagedInstances returns a ManagedInstanceInformer.
+func (v *version) ManagedInstances() ManagedInstanceInformer {
+	return &managedInstanceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ManagedInstanceActiveDirectoryAdministrators returns a ManagedInstanceActiveDirectoryAdministratorInformer.
+func (v *version) ManagedInstanceActiveDirectoryAdministrators() ManagedInstanceActiveDirectoryAdministratorInformer {
+	return &managedInstanceActiveDirectoryAdministratorInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ManagedInstanceFailoverGroups returns a ManagedInstanceFailoverGroupInformer.
+func (v *version) ManagedInstanceFailoverGroups() ManagedInstanceFailoverGroupInformer {
+	return &managedInstanceFailoverGroupInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Servers returns a ServerInformer.

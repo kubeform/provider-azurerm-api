@@ -43,6 +43,7 @@ var _ webhook.Validator = &MachineExtension{}
 
 var machineextensionForceNewList = map[string]bool{
 	"/name":               true,
+	"/publisher":          true,
 	"/virtual_machine_id": true,
 }
 
@@ -89,7 +90,7 @@ func (r *MachineExtension) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range machineextensionForceNewList {
+	for key, _ := range machineextensionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

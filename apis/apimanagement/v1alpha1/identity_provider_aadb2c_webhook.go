@@ -89,7 +89,7 @@ func (r *IdentityProviderAadb2c) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range identityprovideraadb2cForceNewList {
+	for key, _ := range identityprovideraadb2cForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -27,12 +27,14 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
+		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecIdentity{}).Type1()):    AccountSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecNetworkAcls{}).Type1()): AccountSpecNetworkAclsCodec{},
 	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
+		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecIdentity{}).Type1()):    AccountSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecNetworkAcls{}).Type1()): AccountSpecNetworkAclsCodec{},
 	}
 }
@@ -47,6 +49,85 @@ func getDecodersWithout(typ string) map[string]jsoniter.ValDecoder {
 	origMap := GetDecoder()
 	delete(origMap, typ)
 	return origMap
+}
+
+// +k8s:deepcopy-gen=false
+type AccountSpecIdentityCodec struct {
+}
+
+func (AccountSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*AccountSpecIdentity)(ptr) == nil
+}
+
+func (AccountSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*AccountSpecIdentity)(ptr)
+	var objs []AccountSpecIdentity
+	if obj != nil {
+		objs = []AccountSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (AccountSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*AccountSpecIdentity)(ptr) = AccountSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []AccountSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*AccountSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*AccountSpecIdentity)(ptr) = AccountSpecIdentity{}
+			}
+		} else {
+			*(*AccountSpecIdentity)(ptr) = AccountSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj AccountSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*AccountSpecIdentity)(ptr) = obj
+		} else {
+			*(*AccountSpecIdentity)(ptr) = AccountSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode AccountSpecIdentity", "unexpected JSON type")
+	}
 }
 
 // +k8s:deepcopy-gen=false

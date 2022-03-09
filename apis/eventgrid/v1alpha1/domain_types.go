@@ -41,6 +41,16 @@ type Domain struct {
 	Status            DomainStatus `json:"status,omitempty"`
 }
 
+type DomainSpecIdentity struct {
+	// +optional
+	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
+	// +optional
+	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
+}
+
 type DomainSpecInboundIPRule struct {
 	// +optional
 	Action *string `json:"action,omitempty" tf:"action"`
@@ -93,7 +103,13 @@ type DomainSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	AutoCreateTopicWithFirstSubscription *bool `json:"autoCreateTopicWithFirstSubscription,omitempty" tf:"auto_create_topic_with_first_subscription"`
+	// +optional
+	AutoDeleteTopicWithLastSubscription *bool `json:"autoDeleteTopicWithLastSubscription,omitempty" tf:"auto_delete_topic_with_last_subscription"`
+	// +optional
 	Endpoint *string `json:"endpoint,omitempty" tf:"endpoint"`
+	// +optional
+	Identity *DomainSpecIdentity `json:"identity,omitempty" tf:"identity"`
 	// +optional
 	// +kubebuilder:validation:MaxItems=128
 	InboundIPRule []DomainSpecInboundIPRule `json:"inboundIPRule,omitempty" tf:"inbound_ip_rule"`
@@ -103,8 +119,10 @@ type DomainSpecResource struct {
 	InputMappingFields *DomainSpecInputMappingFields `json:"inputMappingFields,omitempty" tf:"input_mapping_fields"`
 	// +optional
 	InputSchema *string `json:"inputSchema,omitempty" tf:"input_schema"`
-	Location    *string `json:"location" tf:"location"`
-	Name        *string `json:"name" tf:"name"`
+	// +optional
+	LocalAuthEnabled *bool   `json:"localAuthEnabled,omitempty" tf:"local_auth_enabled"`
+	Location         *string `json:"location" tf:"location"`
+	Name             *string `json:"name" tf:"name"`
 	// +optional
 	PrimaryAccessKey *string `json:"-" sensitive:"true" tf:"primary_access_key"`
 	// +optional

@@ -74,6 +74,14 @@ type ApiPolicyListerExpansion interface{}
 // ApiPolicyNamespaceLister.
 type ApiPolicyNamespaceListerExpansion interface{}
 
+// ApiReleaseListerExpansion allows custom methods to be added to
+// ApiReleaseLister.
+type ApiReleaseListerExpansion interface{}
+
+// ApiReleaseNamespaceListerExpansion allows custom methods to be added to
+// ApiReleaseNamespaceLister.
+type ApiReleaseNamespaceListerExpansion interface{}
+
 // ApiSchemaListerExpansion allows custom methods to be added to
 // ApiSchemaLister.
 type ApiSchemaListerExpansion interface{}
@@ -81,6 +89,14 @@ type ApiSchemaListerExpansion interface{}
 // ApiSchemaNamespaceListerExpansion allows custom methods to be added to
 // ApiSchemaNamespaceLister.
 type ApiSchemaNamespaceListerExpansion interface{}
+
+// ApiTagListerExpansion allows custom methods to be added to
+// ApiTagLister.
+type ApiTagListerExpansion interface{}
+
+// ApiTagNamespaceListerExpansion allows custom methods to be added to
+// ApiTagNamespaceLister.
+type ApiTagNamespaceListerExpansion interface{}
 
 // ApiVersionSetListerExpansion allows custom methods to be added to
 // ApiVersionSetLister.
@@ -137,6 +153,22 @@ type EmailTemplateListerExpansion interface{}
 // EmailTemplateNamespaceListerExpansion allows custom methods to be added to
 // EmailTemplateNamespaceLister.
 type EmailTemplateNamespaceListerExpansion interface{}
+
+// GatewayListerExpansion allows custom methods to be added to
+// GatewayLister.
+type GatewayListerExpansion interface{}
+
+// GatewayNamespaceListerExpansion allows custom methods to be added to
+// GatewayNamespaceLister.
+type GatewayNamespaceListerExpansion interface{}
+
+// GatewayAPIListerExpansion allows custom methods to be added to
+// GatewayAPILister.
+type GatewayAPIListerExpansion interface{}
+
+// GatewayAPINamespaceListerExpansion allows custom methods to be added to
+// GatewayAPINamespaceLister.
+type GatewayAPINamespaceListerExpansion interface{}
 
 // GroupListerExpansion allows custom methods to be added to
 // GroupLister.
@@ -218,6 +250,22 @@ type NamedValueListerExpansion interface{}
 // NamedValueNamespaceLister.
 type NamedValueNamespaceListerExpansion interface{}
 
+// NotificationRecipientEmailListerExpansion allows custom methods to be added to
+// NotificationRecipientEmailLister.
+type NotificationRecipientEmailListerExpansion interface{}
+
+// NotificationRecipientEmailNamespaceListerExpansion allows custom methods to be added to
+// NotificationRecipientEmailNamespaceLister.
+type NotificationRecipientEmailNamespaceListerExpansion interface{}
+
+// NotificationRecipientUserListerExpansion allows custom methods to be added to
+// NotificationRecipientUserLister.
+type NotificationRecipientUserListerExpansion interface{}
+
+// NotificationRecipientUserNamespaceListerExpansion allows custom methods to be added to
+// NotificationRecipientUserNamespaceLister.
+type NotificationRecipientUserNamespaceListerExpansion interface{}
+
 // OpenidConnectProviderListerExpansion allows custom methods to be added to
 // OpenidConnectProviderLister.
 type OpenidConnectProviderListerExpansion interface{}
@@ -289,6 +337,14 @@ type SubscriptionListerExpansion interface{}
 // SubscriptionNamespaceListerExpansion allows custom methods to be added to
 // SubscriptionNamespaceLister.
 type SubscriptionNamespaceListerExpansion interface{}
+
+// TagListerExpansion allows custom methods to be added to
+// TagLister.
+type TagListerExpansion interface{}
+
+// TagNamespaceListerExpansion allows custom methods to be added to
+// TagNamespaceLister.
+type TagNamespaceListerExpansion interface{}
 
 // UserListerExpansion allows custom methods to be added to
 // UserLister.

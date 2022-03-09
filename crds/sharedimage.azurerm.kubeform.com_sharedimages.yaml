@@ -147,6 +147,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  trustedLaunchEnabled:
+                    type: boolean
                 required:
                 - galleryName
                 - identifier
@@ -247,6 +249,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  trustedLaunchEnabled:
+                    type: boolean
                 required:
                 - galleryName
                 - identifier

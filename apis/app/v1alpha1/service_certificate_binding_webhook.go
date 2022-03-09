@@ -90,7 +90,7 @@ func (r *ServiceCertificateBinding) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range servicecertificatebindingForceNewList {
+	for key, _ := range servicecertificatebindingForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

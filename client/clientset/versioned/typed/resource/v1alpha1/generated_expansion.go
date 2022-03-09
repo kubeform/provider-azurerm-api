@@ -20,6 +20,8 @@ package v1alpha1
 
 type GroupExpansion interface{}
 
+type GroupCostManagementExportExpansion interface{}
+
 type GroupPolicyAssignmentExpansion interface{}
 
 type GroupTemplateDeploymentExpansion interface{}

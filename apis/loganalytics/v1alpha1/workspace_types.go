@@ -76,6 +76,9 @@ type WorkspaceSpecResource struct {
 	// +optional
 	PrimarySharedKey *string `json:"-" sensitive:"true" tf:"primary_shared_key"`
 	// +optional
+	ReservationCapacityInGbPerDay *int64 `json:"reservationCapacityInGbPerDay,omitempty" tf:"reservation_capacity_in_gb_per_day"`
+	// +optional
+	// Deprecated
 	ReservationCapcityInGbPerDay *int64  `json:"reservationCapcityInGbPerDay,omitempty" tf:"reservation_capcity_in_gb_per_day"`
 	ResourceGroupName            *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional

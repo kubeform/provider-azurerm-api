@@ -82,6 +82,14 @@ type DataLakeGen2PathListerExpansion interface{}
 // DataLakeGen2PathNamespaceLister.
 type DataLakeGen2PathNamespaceListerExpansion interface{}
 
+// DisksPoolListerExpansion allows custom methods to be added to
+// DisksPoolLister.
+type DisksPoolListerExpansion interface{}
+
+// DisksPoolNamespaceListerExpansion allows custom methods to be added to
+// DisksPoolNamespaceLister.
+type DisksPoolNamespaceListerExpansion interface{}
+
 // EncryptionScopeListerExpansion allows custom methods to be added to
 // EncryptionScopeLister.
 type EncryptionScopeListerExpansion interface{}

@@ -61,6 +61,8 @@ type DesktopApplicationGroupSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	DefaultDesktopDisplayName *string `json:"defaultDesktopDisplayName,omitempty" tf:"default_desktop_display_name"`
+	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional
 	FriendlyName      *string `json:"friendlyName,omitempty" tf:"friendly_name"`

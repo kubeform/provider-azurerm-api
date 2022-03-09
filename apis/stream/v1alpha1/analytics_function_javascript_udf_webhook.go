@@ -90,7 +90,7 @@ func (r *AnalyticsFunctionJavascriptUdf) ValidateUpdate(old runtime.Object) erro
 		return err
 	}
 
-	for key := range analyticsfunctionjavascriptudfForceNewList {
+	for key, _ := range analyticsfunctionjavascriptudfForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

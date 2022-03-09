@@ -44,7 +44,6 @@ var _ webhook.Validator = &Eventhub{}
 var eventhubForceNewList = map[string]bool{
 	"/name":                true,
 	"/namespace_name":      true,
-	"/partition_count":     true,
 	"/resource_group_name": true,
 }
 
@@ -91,7 +90,7 @@ func (r *Eventhub) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range eventhubForceNewList {
+	for key, _ := range eventhubForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

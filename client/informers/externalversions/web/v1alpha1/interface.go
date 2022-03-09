@@ -26,6 +26,12 @@ import (
 type Interface interface {
 	// ApplicationFirewallPolicies returns a ApplicationFirewallPolicyInformer.
 	ApplicationFirewallPolicies() ApplicationFirewallPolicyInformer
+	// Pubsubs returns a PubsubInformer.
+	Pubsubs() PubsubInformer
+	// PubsubHubs returns a PubsubHubInformer.
+	PubsubHubs() PubsubHubInformer
+	// PubsubNetworkACLs returns a PubsubNetworkACLInformer.
+	PubsubNetworkACLs() PubsubNetworkACLInformer
 }
 
 type version struct {
@@ -42,4 +48,19 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // ApplicationFirewallPolicies returns a ApplicationFirewallPolicyInformer.
 func (v *version) ApplicationFirewallPolicies() ApplicationFirewallPolicyInformer {
 	return &applicationFirewallPolicyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// Pubsubs returns a PubsubInformer.
+func (v *version) Pubsubs() PubsubInformer {
+	return &pubsubInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// PubsubHubs returns a PubsubHubInformer.
+func (v *version) PubsubHubs() PubsubHubInformer {
+	return &pubsubHubInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// PubsubNetworkACLs returns a PubsubNetworkACLInformer.
+func (v *version) PubsubNetworkACLs() PubsubNetworkACLInformer {
+	return &pubsubNetworkACLInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

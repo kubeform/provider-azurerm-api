@@ -87,7 +87,9 @@ type AnalyticsJobSpecResource struct {
 	// +optional
 	OutputErrorPolicy *string `json:"outputErrorPolicy,omitempty" tf:"output_error_policy"`
 	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
-	StreamingUnits    *int64  `json:"streamingUnits" tf:"streaming_units"`
+	// +optional
+	StreamAnalyticsClusterID *string `json:"streamAnalyticsClusterID,omitempty" tf:"stream_analytics_cluster_id"`
+	StreamingUnits           *int64  `json:"streamingUnits" tf:"streaming_units"`
 	// +optional
 	Tags                *map[string]string `json:"tags,omitempty" tf:"tags"`
 	TransformationQuery *string            `json:"transformationQuery" tf:"transformation_query"`

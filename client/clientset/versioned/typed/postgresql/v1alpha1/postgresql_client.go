@@ -32,6 +32,8 @@ type PostgresqlV1alpha1Interface interface {
 	DatabasesGetter
 	FirewallRulesGetter
 	FlexibleServersGetter
+	FlexibleServerConfigurationsGetter
+	FlexibleServerDatabasesGetter
 	FlexibleServerFirewallRulesGetter
 	ServersGetter
 	ServerKeysGetter
@@ -61,6 +63,14 @@ func (c *PostgresqlV1alpha1Client) FirewallRules(namespace string) FirewallRuleI
 
 func (c *PostgresqlV1alpha1Client) FlexibleServers(namespace string) FlexibleServerInterface {
 	return newFlexibleServers(c, namespace)
+}
+
+func (c *PostgresqlV1alpha1Client) FlexibleServerConfigurations(namespace string) FlexibleServerConfigurationInterface {
+	return newFlexibleServerConfigurations(c, namespace)
+}
+
+func (c *PostgresqlV1alpha1Client) FlexibleServerDatabases(namespace string) FlexibleServerDatabaseInterface {
+	return newFlexibleServerDatabases(c, namespace)
 }
 
 func (c *PostgresqlV1alpha1Client) FlexibleServerFirewallRules(namespace string) FlexibleServerFirewallRuleInterface {

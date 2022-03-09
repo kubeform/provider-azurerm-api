@@ -52,6 +52,8 @@ type SeriesInsightsEventSourceIothubSpec struct {
 
 	ProviderRef core.LocalObjectReference `json:"providerRef" tf:"-"`
 
+	SecretRef *core.LocalObjectReference `json:"secretRef,omitempty" tf:"-"`
+
 	BackendRef *core.LocalObjectReference `json:"backendRef,omitempty" tf:"-"`
 }
 
@@ -66,7 +68,7 @@ type SeriesInsightsEventSourceIothubSpecResource struct {
 	IothubName            *string `json:"iothubName" tf:"iothub_name"`
 	Location              *string `json:"location" tf:"location"`
 	Name                  *string `json:"name" tf:"name"`
-	SharedAccessKey       *string `json:"sharedAccessKey" tf:"shared_access_key"`
+	SharedAccessKey       *string `json:"-" sensitive:"true" tf:"shared_access_key"`
 	SharedAccessKeyName   *string `json:"sharedAccessKeyName" tf:"shared_access_key_name"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`

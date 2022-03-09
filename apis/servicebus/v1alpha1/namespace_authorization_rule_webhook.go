@@ -43,6 +43,7 @@ var _ webhook.Validator = &NamespaceAuthorizationRule{}
 
 var namespaceauthorizationruleForceNewList = map[string]bool{
 	"/name":                true,
+	"/namespace_id":        true,
 	"/namespace_name":      true,
 	"/resource_group_name": true,
 }
@@ -90,7 +91,7 @@ func (r *NamespaceAuthorizationRule) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range namespaceauthorizationruleForceNewList {
+	for key, _ := range namespaceauthorizationruleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

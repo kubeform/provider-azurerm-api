@@ -89,7 +89,7 @@ func (r *CircuitPeering) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range circuitpeeringForceNewList {
+	for key, _ := range circuitpeeringForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

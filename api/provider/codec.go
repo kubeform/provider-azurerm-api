@@ -28,10 +28,12 @@ import (
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeatures{}).Type1()):                       AzurermSpecFeaturesCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesApiManagement{}).Type1()):          AzurermSpecFeaturesApiManagementCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesCognitiveAccount{}).Type1()):       AzurermSpecFeaturesCognitiveAccountCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesKeyVault{}).Type1()):               AzurermSpecFeaturesKeyVaultCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesLogAnalyticsWorkspace{}).Type1()):  AzurermSpecFeaturesLogAnalyticsWorkspaceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesNetwork{}).Type1()):                AzurermSpecFeaturesNetworkCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesResourceGroup{}).Type1()):          AzurermSpecFeaturesResourceGroupCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesTemplateDeployment{}).Type1()):     AzurermSpecFeaturesTemplateDeploymentCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesVirtualMachine{}).Type1()):         AzurermSpecFeaturesVirtualMachineCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesVirtualMachineScaleSet{}).Type1()): AzurermSpecFeaturesVirtualMachineScaleSetCodec{},
@@ -41,10 +43,12 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeatures{}).Type1()):                       AzurermSpecFeaturesCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesApiManagement{}).Type1()):          AzurermSpecFeaturesApiManagementCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesCognitiveAccount{}).Type1()):       AzurermSpecFeaturesCognitiveAccountCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesKeyVault{}).Type1()):               AzurermSpecFeaturesKeyVaultCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesLogAnalyticsWorkspace{}).Type1()):  AzurermSpecFeaturesLogAnalyticsWorkspaceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesNetwork{}).Type1()):                AzurermSpecFeaturesNetworkCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesResourceGroup{}).Type1()):          AzurermSpecFeaturesResourceGroupCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesTemplateDeployment{}).Type1()):     AzurermSpecFeaturesTemplateDeploymentCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesVirtualMachine{}).Type1()):         AzurermSpecFeaturesVirtualMachineCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesVirtualMachineScaleSet{}).Type1()): AzurermSpecFeaturesVirtualMachineScaleSetCodec{},
@@ -139,6 +143,85 @@ func (AzurermSpecFeaturesCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterat
 		}
 	default:
 		iter.ReportError("decode AzurermSpecFeatures", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type AzurermSpecFeaturesApiManagementCodec struct {
+}
+
+func (AzurermSpecFeaturesApiManagementCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*AzurermSpecFeaturesApiManagement)(ptr) == nil
+}
+
+func (AzurermSpecFeaturesApiManagementCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*AzurermSpecFeaturesApiManagement)(ptr)
+	var objs []AzurermSpecFeaturesApiManagement
+	if obj != nil {
+		objs = []AzurermSpecFeaturesApiManagement{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesApiManagement{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (AzurermSpecFeaturesApiManagementCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*AzurermSpecFeaturesApiManagement)(ptr) = AzurermSpecFeaturesApiManagement{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []AzurermSpecFeaturesApiManagement
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesApiManagement{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*AzurermSpecFeaturesApiManagement)(ptr) = objs[0]
+			} else {
+				*(*AzurermSpecFeaturesApiManagement)(ptr) = AzurermSpecFeaturesApiManagement{}
+			}
+		} else {
+			*(*AzurermSpecFeaturesApiManagement)(ptr) = AzurermSpecFeaturesApiManagement{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj AzurermSpecFeaturesApiManagement
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesApiManagement{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*AzurermSpecFeaturesApiManagement)(ptr) = obj
+		} else {
+			*(*AzurermSpecFeaturesApiManagement)(ptr) = AzurermSpecFeaturesApiManagement{}
+		}
+	default:
+		iter.ReportError("decode AzurermSpecFeaturesApiManagement", "unexpected JSON type")
 	}
 }
 
@@ -455,6 +538,85 @@ func (AzurermSpecFeaturesNetworkCodec) Decode(ptr unsafe.Pointer, iter *jsoniter
 		}
 	default:
 		iter.ReportError("decode AzurermSpecFeaturesNetwork", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type AzurermSpecFeaturesResourceGroupCodec struct {
+}
+
+func (AzurermSpecFeaturesResourceGroupCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*AzurermSpecFeaturesResourceGroup)(ptr) == nil
+}
+
+func (AzurermSpecFeaturesResourceGroupCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*AzurermSpecFeaturesResourceGroup)(ptr)
+	var objs []AzurermSpecFeaturesResourceGroup
+	if obj != nil {
+		objs = []AzurermSpecFeaturesResourceGroup{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesResourceGroup{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (AzurermSpecFeaturesResourceGroupCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*AzurermSpecFeaturesResourceGroup)(ptr) = AzurermSpecFeaturesResourceGroup{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []AzurermSpecFeaturesResourceGroup
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesResourceGroup{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*AzurermSpecFeaturesResourceGroup)(ptr) = objs[0]
+			} else {
+				*(*AzurermSpecFeaturesResourceGroup)(ptr) = AzurermSpecFeaturesResourceGroup{}
+			}
+		} else {
+			*(*AzurermSpecFeaturesResourceGroup)(ptr) = AzurermSpecFeaturesResourceGroup{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj AzurermSpecFeaturesResourceGroup
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AzurermSpecFeaturesResourceGroup{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*AzurermSpecFeaturesResourceGroup)(ptr) = obj
+		} else {
+			*(*AzurermSpecFeaturesResourceGroup)(ptr) = AzurermSpecFeaturesResourceGroup{}
+		}
+	default:
+		iter.ReportError("decode AzurermSpecFeaturesResourceGroup", "unexpected JSON type")
 	}
 }
 

@@ -88,7 +88,7 @@ func (r *LinkedService) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range linkedserviceForceNewList {
+	for key, _ := range linkedserviceForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

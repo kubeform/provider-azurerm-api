@@ -91,7 +91,7 @@ func (r *DnsZoneVirtualNetworkLink) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range dnszonevirtualnetworklinkForceNewList {
+	for key, _ := range dnszonevirtualnetworklinkForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

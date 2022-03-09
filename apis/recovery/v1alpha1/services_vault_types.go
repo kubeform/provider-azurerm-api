@@ -41,6 +41,13 @@ type ServicesVault struct {
 	Status            ServicesVaultStatus `json:"status,omitempty"`
 }
 
+type ServicesVaultSpecEncryption struct {
+	InfrastructureEncryptionEnabled *bool   `json:"infrastructureEncryptionEnabled" tf:"infrastructure_encryption_enabled"`
+	KeyID                           *string `json:"keyID" tf:"key_id"`
+	// +optional
+	UseSystemAssignedIdentity *bool `json:"useSystemAssignedIdentity,omitempty" tf:"use_system_assigned_identity"`
+}
+
 type ServicesVaultSpecIdentity struct {
 	// +optional
 	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
@@ -69,6 +76,8 @@ type ServicesVaultSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	Encryption *ServicesVaultSpecEncryption `json:"encryption,omitempty" tf:"encryption"`
+	// +optional
 	Identity          *ServicesVaultSpecIdentity `json:"identity,omitempty" tf:"identity"`
 	Location          *string                    `json:"location" tf:"location"`
 	Name              *string                    `json:"name" tf:"name"`
@@ -76,6 +85,8 @@ type ServicesVaultSpecResource struct {
 	Sku               *string                    `json:"sku" tf:"sku"`
 	// +optional
 	SoftDeleteEnabled *bool `json:"softDeleteEnabled,omitempty" tf:"soft_delete_enabled"`
+	// +optional
+	StorageModeType *string `json:"storageModeType,omitempty" tf:"storage_mode_type"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 }

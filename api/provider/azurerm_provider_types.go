@@ -18,6 +18,11 @@ limitations under the License.
 
 package provider
 
+type AzurermSpecFeaturesApiManagement struct {
+	// +optional
+	PurgeSoftDeleteOnDestroy *bool `json:"purgeSoftDeleteOnDestroy,omitempty" tf:"purge_soft_delete_on_destroy"`
+}
+
 type AzurermSpecFeaturesCognitiveAccount struct {
 	// +optional
 	PurgeSoftDeleteOnDestroy *bool `json:"purgeSoftDeleteOnDestroy,omitempty" tf:"purge_soft_delete_on_destroy"`
@@ -38,6 +43,11 @@ type AzurermSpecFeaturesNetwork struct {
 	RelaxedLocking *bool `json:"relaxedLocking" tf:"relaxed_locking"`
 }
 
+type AzurermSpecFeaturesResourceGroup struct {
+	// +optional
+	PreventDeletionIfContainsResources *bool `json:"preventDeletionIfContainsResources,omitempty" tf:"prevent_deletion_if_contains_resources"`
+}
+
 type AzurermSpecFeaturesTemplateDeployment struct {
 	DeleteNestedItemsDuringDeletion *bool `json:"deleteNestedItemsDuringDeletion" tf:"delete_nested_items_during_deletion"`
 }
@@ -55,9 +65,13 @@ type AzurermSpecFeaturesVirtualMachineScaleSet struct {
 	// +optional
 	ForceDelete               *bool `json:"forceDelete,omitempty" tf:"force_delete"`
 	RollInstancesWhenRequired *bool `json:"rollInstancesWhenRequired" tf:"roll_instances_when_required"`
+	// +optional
+	ScaleToZeroBeforeDeletion *bool `json:"scaleToZeroBeforeDeletion,omitempty" tf:"scale_to_zero_before_deletion"`
 }
 
 type AzurermSpecFeatures struct {
+	// +optional
+	ApiManagement *AzurermSpecFeaturesApiManagement `json:"apiManagement,omitempty" tf:"api_management"`
 	// +optional
 	CognitiveAccount *AzurermSpecFeaturesCognitiveAccount `json:"cognitiveAccount,omitempty" tf:"cognitive_account"`
 	// +optional
@@ -66,6 +80,8 @@ type AzurermSpecFeatures struct {
 	LogAnalyticsWorkspace *AzurermSpecFeaturesLogAnalyticsWorkspace `json:"logAnalyticsWorkspace,omitempty" tf:"log_analytics_workspace"`
 	// +optional
 	Network *AzurermSpecFeaturesNetwork `json:"network,omitempty" tf:"network"`
+	// +optional
+	ResourceGroup *AzurermSpecFeaturesResourceGroup `json:"resourceGroup,omitempty" tf:"resource_group"`
 	// +optional
 	TemplateDeployment *AzurermSpecFeaturesTemplateDeployment `json:"templateDeployment,omitempty" tf:"template_deployment"`
 	// +optional
@@ -96,7 +112,7 @@ type AzurermSpec struct {
 	// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
 	// +optional
 	DisableTerraformPartnerID *bool `json:"disableTerraformPartnerID,omitempty" tf:"disable_terraform_partner_id"`
-	// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
 	Environment *string              `json:"environment" tf:"environment"`
 	Features    *AzurermSpecFeatures `json:"features" tf:"features"`
 	// The Hostname which should be used for the Azure Metadata Service.
@@ -127,6 +143,9 @@ type AzurermSpec struct {
 	// The Tenant ID which should be used.
 	// +optional
 	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	// Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
+	// +optional
+	UseMsal *bool `json:"useMsal,omitempty" tf:"use_msal"`
 	// Allowed Managed Service Identity be used for Authentication.
 	// +optional
 	UseMsi *bool `json:"useMsi,omitempty" tf:"use_msi"`

@@ -42,6 +42,7 @@ func (r *Workspace) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &Workspace{}
 
 var workspaceForceNewList = map[string]bool{
+	"/compute_subnet_id":                    true,
 	"/data_exfiltration_protection_enabled": true,
 	"/location":                             true,
 	"/managed_resource_group_name":          true,
@@ -95,7 +96,7 @@ func (r *Workspace) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range workspaceForceNewList {
+	for key, _ := range workspaceForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

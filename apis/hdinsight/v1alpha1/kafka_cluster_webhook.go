@@ -59,6 +59,7 @@ var kafkaclusterForceNewList = map[string]bool{
 	"/name":                                                true,
 	"/resource_group_name":                                 true,
 	"/rest_proxy/*/security_group_id":                      true,
+	"/rest_proxy/*/security_group_name":                    true,
 	"/roles/*/head_node/*/ssh_keys":                        true,
 	"/roles/*/head_node/*/subnet_id":                       true,
 	"/roles/*/head_node/*/username":                        true,
@@ -81,8 +82,15 @@ var kafkaclusterForceNewList = map[string]bool{
 	"/roles/*/zookeeper_node/*/username":                   true,
 	"/roles/*/zookeeper_node/*/virtual_network_id":         true,
 	"/roles/*/zookeeper_node/*/vm_size":                    true,
+	"/security_profile/*/aadds_resource_id":                true,
+	"/security_profile/*/cluster_users_group_dns":          true,
+	"/security_profile/*/domain_name":                      true,
+	"/security_profile/*/domain_username":                  true,
+	"/security_profile/*/ldaps_urls":                       true,
+	"/security_profile/*/msi_resource_id":                  true,
 	"/storage_account/*/is_default":                        true,
 	"/storage_account/*/storage_container_id":              true,
+	"/storage_account/*/storage_resource_id":               true,
 	"/storage_account_gen2/*/filesystem_id":                true,
 	"/storage_account_gen2/*/is_default":                   true,
 	"/storage_account_gen2/*/managed_identity_resource_id": true,
@@ -134,7 +142,7 @@ func (r *KafkaCluster) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range kafkaclusterForceNewList {
+	for key, _ := range kafkaclusterForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

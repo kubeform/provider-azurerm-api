@@ -87,12 +87,22 @@ type SubscriptionRuleSpecResource struct {
 	CorrelationFilter *SubscriptionRuleSpecCorrelationFilter `json:"correlationFilter,omitempty" tf:"correlation_filter"`
 	FilterType        *string                                `json:"filterType" tf:"filter_type"`
 	Name              *string                                `json:"name" tf:"name"`
-	NamespaceName     *string                                `json:"namespaceName" tf:"namespace_name"`
-	ResourceGroupName *string                                `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
-	SqlFilter        *string `json:"sqlFilter,omitempty" tf:"sql_filter"`
-	SubscriptionName *string `json:"subscriptionName" tf:"subscription_name"`
-	TopicName        *string `json:"topicName" tf:"topic_name"`
+	// Deprecated
+	NamespaceName *string `json:"namespaceName,omitempty" tf:"namespace_name"`
+	// +optional
+	// Deprecated
+	ResourceGroupName *string `json:"resourceGroupName,omitempty" tf:"resource_group_name"`
+	// +optional
+	SqlFilter *string `json:"sqlFilter,omitempty" tf:"sql_filter"`
+	// +optional
+	SubscriptionID *string `json:"subscriptionID,omitempty" tf:"subscription_id"`
+	// +optional
+	// Deprecated
+	SubscriptionName *string `json:"subscriptionName,omitempty" tf:"subscription_name"`
+	// +optional
+	// Deprecated
+	TopicName *string `json:"topicName,omitempty" tf:"topic_name"`
 }
 
 type SubscriptionRuleStatus struct {

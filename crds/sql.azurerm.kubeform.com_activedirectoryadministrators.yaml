@@ -57,6 +57,8 @@ spec:
                 type: object
               resource:
                 properties:
+                  azureadAuthenticationOnly:
+                    type: boolean
                   id:
                     type: string
                   login:
@@ -116,6 +118,8 @@ spec:
                 type: object
               state:
                 properties:
+                  azureadAuthenticationOnly:
+                    type: boolean
                   id:
                     type: string
                   login:

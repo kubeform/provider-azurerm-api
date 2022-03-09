@@ -88,7 +88,7 @@ func (r *AccountCustomerManagedKey) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range accountcustomermanagedkeyForceNewList {
+	for key, _ := range accountcustomermanagedkeyForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

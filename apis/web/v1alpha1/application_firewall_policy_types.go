@@ -73,7 +73,8 @@ type ApplicationFirewallPolicySpecManagedRulesExclusion struct {
 }
 
 type ApplicationFirewallPolicySpecManagedRulesManagedRuleSetRuleGroupOverride struct {
-	DisabledRules []string `json:"disabledRules" tf:"disabled_rules"`
+	// +optional
+	DisabledRules []string `json:"disabledRules,omitempty" tf:"disabled_rules"`
 	RuleGroupName *string  `json:"ruleGroupName" tf:"rule_group_name"`
 }
 

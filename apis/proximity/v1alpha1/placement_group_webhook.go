@@ -90,7 +90,7 @@ func (r *PlacementGroup) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range placementgroupForceNewList {
+	for key, _ := range placementgroupForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

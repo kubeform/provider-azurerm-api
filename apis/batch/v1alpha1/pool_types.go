@@ -80,6 +80,11 @@ type PoolSpecFixedScale struct {
 	TargetLowPriorityNodes *int64 `json:"targetLowPriorityNodes,omitempty" tf:"target_low_priority_nodes"`
 }
 
+type PoolSpecIdentity struct {
+	IdentityIDS []string `json:"identityIDS" tf:"identity_ids"`
+	Type        *string  `json:"type" tf:"type"`
+}
+
 type PoolSpecNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRules struct {
 	Access              *string `json:"access" tf:"access"`
 	Priority            *int64  `json:"priority" tf:"priority"`
@@ -137,12 +142,18 @@ type PoolSpecStartTaskUserIdentity struct {
 type PoolSpecStartTask struct {
 	CommandLine *string `json:"commandLine" tf:"command_line"`
 	// +optional
+	CommonEnvironmentProperties *map[string]string `json:"commonEnvironmentProperties,omitempty" tf:"common_environment_properties"`
+	// +optional
+	// Deprecated
 	Environment *map[string]string `json:"environment,omitempty" tf:"environment"`
 	// +optional
+	// Deprecated
 	MaxTaskRetryCount *int64 `json:"maxTaskRetryCount,omitempty" tf:"max_task_retry_count"`
 	// +optional
 	ResourceFile []PoolSpecStartTaskResourceFile `json:"resourceFile,omitempty" tf:"resource_file"`
-	UserIdentity *PoolSpecStartTaskUserIdentity  `json:"userIdentity" tf:"user_identity"`
+	// +optional
+	TaskRetryMaximum *int64                         `json:"taskRetryMaximum,omitempty" tf:"task_retry_maximum"`
+	UserIdentity     *PoolSpecStartTaskUserIdentity `json:"userIdentity" tf:"user_identity"`
 	// +optional
 	WaitForSuccess *bool `json:"waitForSuccess,omitempty" tf:"wait_for_success"`
 }
@@ -192,6 +203,8 @@ type PoolSpecResource struct {
 	DisplayName *string `json:"displayName,omitempty" tf:"display_name"`
 	// +optional
 	FixedScale *PoolSpecFixedScale `json:"fixedScale,omitempty" tf:"fixed_scale"`
+	// +optional
+	Identity *PoolSpecIdentity `json:"identity,omitempty" tf:"identity"`
 	// +optional
 	MaxTasksPerNode *int64 `json:"maxTasksPerNode,omitempty" tf:"max_tasks_per_node"`
 	// +optional

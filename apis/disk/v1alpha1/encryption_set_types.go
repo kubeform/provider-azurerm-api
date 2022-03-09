@@ -68,6 +68,10 @@ type EncryptionSetSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// +optional
+	AutoKeyRotationEnabled *bool `json:"autoKeyRotationEnabled,omitempty" tf:"auto_key_rotation_enabled"`
+	// +optional
+	EncryptionType    *string                    `json:"encryptionType,omitempty" tf:"encryption_type"`
 	Identity          *EncryptionSetSpecIdentity `json:"identity" tf:"identity"`
 	KeyVaultKeyID     *string                    `json:"keyVaultKeyID" tf:"key_vault_key_id"`
 	Location          *string                    `json:"location" tf:"location"`

@@ -28,6 +28,7 @@ import (
 type ServiceV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	FabricClustersGetter
+	FabricManagedClustersGetter
 	FabricMeshApplicationsGetter
 	FabricMeshLocalNetworksGetter
 	FabricMeshSecretsGetter
@@ -41,6 +42,10 @@ type ServiceV1alpha1Client struct {
 
 func (c *ServiceV1alpha1Client) FabricClusters(namespace string) FabricClusterInterface {
 	return newFabricClusters(c, namespace)
+}
+
+func (c *ServiceV1alpha1Client) FabricManagedClusters(namespace string) FabricManagedClusterInterface {
+	return newFabricManagedClusters(c, namespace)
 }
 
 func (c *ServiceV1alpha1Client) FabricMeshApplications(namespace string) FabricMeshApplicationInterface {

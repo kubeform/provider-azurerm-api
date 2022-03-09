@@ -42,6 +42,78 @@ type IntegrationAccountListerExpansion interface{}
 // IntegrationAccountNamespaceLister.
 type IntegrationAccountNamespaceListerExpansion interface{}
 
+// IntegrationAccountAgreementListerExpansion allows custom methods to be added to
+// IntegrationAccountAgreementLister.
+type IntegrationAccountAgreementListerExpansion interface{}
+
+// IntegrationAccountAgreementNamespaceListerExpansion allows custom methods to be added to
+// IntegrationAccountAgreementNamespaceLister.
+type IntegrationAccountAgreementNamespaceListerExpansion interface{}
+
+// IntegrationAccountAssemblyListerExpansion allows custom methods to be added to
+// IntegrationAccountAssemblyLister.
+type IntegrationAccountAssemblyListerExpansion interface{}
+
+// IntegrationAccountAssemblyNamespaceListerExpansion allows custom methods to be added to
+// IntegrationAccountAssemblyNamespaceLister.
+type IntegrationAccountAssemblyNamespaceListerExpansion interface{}
+
+// IntegrationAccountBatchConfigurationListerExpansion allows custom methods to be added to
+// IntegrationAccountBatchConfigurationLister.
+type IntegrationAccountBatchConfigurationListerExpansion interface{}
+
+// IntegrationAccountBatchConfigurationNamespaceListerExpansion allows custom methods to be added to
+// IntegrationAccountBatchConfigurationNamespaceLister.
+type IntegrationAccountBatchConfigurationNamespaceListerExpansion interface{}
+
+// IntegrationAccountCertificateListerExpansion allows custom methods to be added to
+// IntegrationAccountCertificateLister.
+type IntegrationAccountCertificateListerExpansion interface{}
+
+// IntegrationAccountCertificateNamespaceListerExpansion allows custom methods to be added to
+// IntegrationAccountCertificateNamespaceLister.
+type IntegrationAccountCertificateNamespaceListerExpansion interface{}
+
+// IntegrationAccountMapListerExpansion allows custom methods to be added to
+// IntegrationAccountMapLister.
+type IntegrationAccountMapListerExpansion interface{}
+
+// IntegrationAccountMapNamespaceListerExpansion allows custom methods to be added to
+// IntegrationAccountMapNamespaceLister.
+type IntegrationAccountMapNamespaceListerExpansion interface{}
+
+// IntegrationAccountPartnerListerExpansion allows custom methods to be added to
+// IntegrationAccountPartnerLister.
+type IntegrationAccountPartnerListerExpansion interface{}
+
+// IntegrationAccountPartnerNamespaceListerExpansion allows custom methods to be added to
+// IntegrationAccountPartnerNamespaceLister.
+type IntegrationAccountPartnerNamespaceListerExpansion interface{}
+
+// IntegrationAccountSchemaListerExpansion allows custom methods to be added to
+// IntegrationAccountSchemaLister.
+type IntegrationAccountSchemaListerExpansion interface{}
+
+// IntegrationAccountSchemaNamespaceListerExpansion allows custom methods to be added to
+// IntegrationAccountSchemaNamespaceLister.
+type IntegrationAccountSchemaNamespaceListerExpansion interface{}
+
+// IntegrationAccountSessionListerExpansion allows custom methods to be added to
+// IntegrationAccountSessionLister.
+type IntegrationAccountSessionListerExpansion interface{}
+
+// IntegrationAccountSessionNamespaceListerExpansion allows custom methods to be added to
+// IntegrationAccountSessionNamespaceLister.
+type IntegrationAccountSessionNamespaceListerExpansion interface{}
+
+// StandardListerExpansion allows custom methods to be added to
+// StandardLister.
+type StandardListerExpansion interface{}
+
+// StandardNamespaceListerExpansion allows custom methods to be added to
+// StandardNamespaceLister.
+type StandardNamespaceListerExpansion interface{}
+
 // TriggerCustomListerExpansion allows custom methods to be added to
 // TriggerCustomLister.
 type TriggerCustomListerExpansion interface{}

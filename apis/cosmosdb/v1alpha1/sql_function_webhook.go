@@ -89,7 +89,7 @@ func (r *SqlFunction) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range sqlfunctionForceNewList {
+	for key, _ := range sqlfunctionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

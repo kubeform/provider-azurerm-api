@@ -96,6 +96,8 @@ type SharedImageSpecResource struct {
 	Specialized *bool `json:"specialized,omitempty" tf:"specialized"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
+	// +optional
+	TrustedLaunchEnabled *bool `json:"trustedLaunchEnabled,omitempty" tf:"trusted_launch_enabled"`
 }
 
 type SharedImageStatus struct {

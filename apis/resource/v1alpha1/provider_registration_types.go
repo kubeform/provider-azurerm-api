@@ -41,6 +41,11 @@ type ProviderRegistration struct {
 	Status            ProviderRegistrationStatus `json:"status,omitempty"`
 }
 
+type ProviderRegistrationSpecFeature struct {
+	Name       *string `json:"name" tf:"name"`
+	Registered *bool   `json:"registered" tf:"registered"`
+}
+
 type ProviderRegistrationSpec struct {
 	State *ProviderRegistrationSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -60,7 +65,9 @@ type ProviderRegistrationSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	Name *string `json:"name" tf:"name"`
+	// +optional
+	Feature []ProviderRegistrationSpecFeature `json:"feature,omitempty" tf:"feature"`
+	Name    *string                           `json:"name" tf:"name"`
 }
 
 type ProviderRegistrationStatus struct {

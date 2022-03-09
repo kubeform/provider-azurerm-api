@@ -58,7 +58,9 @@ type ToSiteVPNGatewaySpecConnectionConfigurationVpnClientAddressPool struct {
 }
 
 type ToSiteVPNGatewaySpecConnectionConfiguration struct {
-	Name *string `json:"name" tf:"name"`
+	// +optional
+	InternetSecurityEnabled *bool   `json:"internetSecurityEnabled,omitempty" tf:"internet_security_enabled"`
+	Name                    *string `json:"name" tf:"name"`
 	// +optional
 	Route                *ToSiteVPNGatewaySpecConnectionConfigurationRoute                `json:"route,omitempty" tf:"route"`
 	VpnClientAddressPool *ToSiteVPNGatewaySpecConnectionConfigurationVpnClientAddressPool `json:"vpnClientAddressPool" tf:"vpn_client_address_pool"`

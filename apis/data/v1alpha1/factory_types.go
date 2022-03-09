@@ -102,7 +102,9 @@ type FactorySpecResource struct {
 	// +optional
 	Identity *FactorySpecIdentity `json:"identity,omitempty" tf:"identity"`
 	Location *string              `json:"location" tf:"location"`
-	Name     *string              `json:"name" tf:"name"`
+	// +optional
+	ManagedVirtualNetworkEnabled *bool   `json:"managedVirtualNetworkEnabled,omitempty" tf:"managed_virtual_network_enabled"`
+	Name                         *string `json:"name" tf:"name"`
 	// +optional
 	PublicNetworkEnabled *bool   `json:"publicNetworkEnabled,omitempty" tf:"public_network_enabled"`
 	ResourceGroupName    *string `json:"resourceGroupName" tf:"resource_group_name"`

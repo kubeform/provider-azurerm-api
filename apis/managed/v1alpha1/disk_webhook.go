@@ -44,13 +44,17 @@ var _ webhook.Validator = &Disk{}
 var diskForceNewList = map[string]bool{
 	"/create_option":                 true,
 	"/encryption_settings/*/enabled": true,
+	"/gallery_image_reference_id":    true,
+	"/hyper_v_generation":            true,
 	"/image_reference_id":            true,
 	"/location":                      true,
+	"/logical_sector_size":           true,
 	"/name":                          true,
 	"/resource_group_name":           true,
 	"/source_resource_id":            true,
 	"/source_uri":                    true,
 	"/storage_account_id":            true,
+	"/trusted_launch_enabled":        true,
 	"/zones":                         true,
 }
 
@@ -97,7 +101,7 @@ func (r *Disk) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range diskForceNewList {
+	for key, _ := range diskForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

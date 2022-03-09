@@ -92,7 +92,7 @@ func (r *SqlStoredProcedure) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range sqlstoredprocedureForceNewList {
+	for key, _ := range sqlstoredprocedureForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

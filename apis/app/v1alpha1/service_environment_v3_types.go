@@ -46,6 +46,15 @@ type ServiceEnvironmentV3SpecClusterSetting struct {
 	Value *string `json:"value" tf:"value"`
 }
 
+type ServiceEnvironmentV3SpecInboundNetworkDependencies struct {
+	// +optional
+	Description *string `json:"description,omitempty" tf:"description"`
+	// +optional
+	IpAddresses []string `json:"ipAddresses,omitempty" tf:"ip_addresses"`
+	// +optional
+	Ports []string `json:"ports,omitempty" tf:"ports"`
+}
+
 type ServiceEnvironmentV3Spec struct {
 	State *ServiceEnvironmentV3SpecResource `json:"state,omitempty" tf:"-"`
 
@@ -66,7 +75,25 @@ type ServiceEnvironmentV3SpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	AllowNewPrivateEndpointConnections *bool `json:"allowNewPrivateEndpointConnections,omitempty" tf:"allow_new_private_endpoint_connections"`
+	// +optional
 	ClusterSetting []ServiceEnvironmentV3SpecClusterSetting `json:"clusterSetting,omitempty" tf:"cluster_setting"`
+	// +optional
+	DedicatedHostCount *int64 `json:"dedicatedHostCount,omitempty" tf:"dedicated_host_count"`
+	// +optional
+	DnsSuffix *string `json:"dnsSuffix,omitempty" tf:"dns_suffix"`
+	// +optional
+	ExternalInboundIPAddresses []string `json:"externalInboundIPAddresses,omitempty" tf:"external_inbound_ip_addresses"`
+	// +optional
+	InboundNetworkDependencies []ServiceEnvironmentV3SpecInboundNetworkDependencies `json:"inboundNetworkDependencies,omitempty" tf:"inbound_network_dependencies"`
+	// +optional
+	InternalInboundIPAddresses []string `json:"internalInboundIPAddresses,omitempty" tf:"internal_inbound_ip_addresses"`
+	// +optional
+	InternalLoadBalancingMode *string `json:"internalLoadBalancingMode,omitempty" tf:"internal_load_balancing_mode"`
+	// +optional
+	IpSslAddressCount *int64 `json:"ipSslAddressCount,omitempty" tf:"ip_ssl_address_count"`
+	// +optional
+	LinuxOutboundIPAddresses []string `json:"linuxOutboundIPAddresses,omitempty" tf:"linux_outbound_ip_addresses"`
 	// +optional
 	Location *string `json:"location,omitempty" tf:"location"`
 	Name     *string `json:"name" tf:"name"`
@@ -76,6 +103,10 @@ type ServiceEnvironmentV3SpecResource struct {
 	SubnetID          *string `json:"subnetID" tf:"subnet_id"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
+	// +optional
+	WindowsOutboundIPAddresses []string `json:"windowsOutboundIPAddresses,omitempty" tf:"windows_outbound_ip_addresses"`
+	// +optional
+	ZoneRedundant *bool `json:"zoneRedundant,omitempty" tf:"zone_redundant"`
 }
 
 type ServiceEnvironmentV3Status struct {

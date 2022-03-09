@@ -125,7 +125,11 @@ type CloudServiceSpecRequiredNetworkTrafficRules struct {
 }
 
 type CloudServiceSpecTrace struct {
-	InstrumentationKey *string `json:"instrumentationKey" tf:"instrumentation_key"`
+	// +optional
+	ConnectionString *string `json:"connectionString,omitempty" tf:"connection_string"`
+	// +optional
+	// Deprecated
+	InstrumentationKey *string `json:"instrumentationKey,omitempty" tf:"instrumentation_key"`
 	// +optional
 	SampleRate *float64 `json:"sampleRate,omitempty" tf:"sample_rate"`
 }

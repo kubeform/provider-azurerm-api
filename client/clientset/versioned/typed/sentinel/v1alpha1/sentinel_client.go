@@ -31,6 +31,7 @@ type SentinelV1alpha1Interface interface {
 	AlertRuleMachineLearningBehaviorAnalyticsesGetter
 	AlertRuleMsSecurityIncidentsGetter
 	AlertRuleScheduledsGetter
+	AutomationRulesGetter
 	DataConnectorAwsCloudTrailsGetter
 	DataConnectorAzureActiveDirectoriesGetter
 	DataConnectorAzureAdvancedThreatProtectionsGetter
@@ -39,6 +40,8 @@ type SentinelV1alpha1Interface interface {
 	DataConnectorMicrosoftDefenderAdvancedThreatProtectionsGetter
 	DataConnectorOffice365sGetter
 	DataConnectorThreatIntelligencesGetter
+	WatchlistsGetter
+	WatchlistItemsGetter
 }
 
 // SentinelV1alpha1Client is used to interact with features provided by the sentinel.azurerm.kubeform.com group.
@@ -60,6 +63,10 @@ func (c *SentinelV1alpha1Client) AlertRuleMsSecurityIncidents(namespace string) 
 
 func (c *SentinelV1alpha1Client) AlertRuleScheduleds(namespace string) AlertRuleScheduledInterface {
 	return newAlertRuleScheduleds(c, namespace)
+}
+
+func (c *SentinelV1alpha1Client) AutomationRules(namespace string) AutomationRuleInterface {
+	return newAutomationRules(c, namespace)
 }
 
 func (c *SentinelV1alpha1Client) DataConnectorAwsCloudTrails(namespace string) DataConnectorAwsCloudTrailInterface {
@@ -92,6 +99,14 @@ func (c *SentinelV1alpha1Client) DataConnectorOffice365s(namespace string) DataC
 
 func (c *SentinelV1alpha1Client) DataConnectorThreatIntelligences(namespace string) DataConnectorThreatIntelligenceInterface {
 	return newDataConnectorThreatIntelligences(c, namespace)
+}
+
+func (c *SentinelV1alpha1Client) Watchlists(namespace string) WatchlistInterface {
+	return newWatchlists(c, namespace)
+}
+
+func (c *SentinelV1alpha1Client) WatchlistItems(namespace string) WatchlistItemInterface {
+	return newWatchlistItems(c, namespace)
 }
 
 // NewForConfig creates a new SentinelV1alpha1Client for the given config.

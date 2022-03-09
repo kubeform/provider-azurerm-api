@@ -90,7 +90,7 @@ func (r *SeriesInsightsAccessPolicy) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range seriesinsightsaccesspolicyForceNewList {
+	for key, _ := range seriesinsightsaccesspolicyForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

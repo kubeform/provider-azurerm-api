@@ -89,7 +89,7 @@ func (r *DataConnectorMicrosoftCloudAppSecurity) ValidateUpdate(old runtime.Obje
 		return err
 	}
 
-	for key := range dataconnectormicrosoftcloudappsecurityForceNewList {
+	for key, _ := range dataconnectormicrosoftcloudappsecurityForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

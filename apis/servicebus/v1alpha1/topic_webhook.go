@@ -44,6 +44,7 @@ var _ webhook.Validator = &Topic{}
 var topicForceNewList = map[string]bool{
 	"/enable_partitioning":          true,
 	"/name":                         true,
+	"/namespace_id":                 true,
 	"/namespace_name":               true,
 	"/requires_duplicate_detection": true,
 	"/resource_group_name":          true,
@@ -92,7 +93,7 @@ func (r *Topic) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range topicForceNewList {
+	for key, _ := range topicForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

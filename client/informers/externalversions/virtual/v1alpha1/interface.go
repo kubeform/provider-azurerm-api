@@ -30,6 +30,10 @@ type Interface interface {
 	DesktopApplicationGroups() DesktopApplicationGroupInformer
 	// DesktopHostPools returns a DesktopHostPoolInformer.
 	DesktopHostPools() DesktopHostPoolInformer
+	// DesktopHostPoolRegistrationInfos returns a DesktopHostPoolRegistrationInfoInformer.
+	DesktopHostPoolRegistrationInfos() DesktopHostPoolRegistrationInfoInformer
+	// DesktopScalingPlans returns a DesktopScalingPlanInformer.
+	DesktopScalingPlans() DesktopScalingPlanInformer
 	// DesktopWorkspaces returns a DesktopWorkspaceInformer.
 	DesktopWorkspaces() DesktopWorkspaceInformer
 	// DesktopWorkspaceApplicationGroupAssociations returns a DesktopWorkspaceApplicationGroupAssociationInformer.
@@ -44,6 +48,8 @@ type Interface interface {
 	HubIPs() HubIPInformer
 	// HubRouteTables returns a HubRouteTableInformer.
 	HubRouteTables() HubRouteTableInformer
+	// HubRouteTableRoutes returns a HubRouteTableRouteInformer.
+	HubRouteTableRoutes() HubRouteTableRouteInformer
 	// HubSecurityPartnerProviders returns a HubSecurityPartnerProviderInformer.
 	HubSecurityPartnerProviders() HubSecurityPartnerProviderInformer
 	// Machines returns a MachineInformer.
@@ -60,6 +66,8 @@ type Interface interface {
 	MachineScaleSetExtensions() MachineScaleSetExtensionInformer
 	// Networks returns a NetworkInformer.
 	Networks() NetworkInformer
+	// NetworkDNSServerses returns a NetworkDNSServersInformer.
+	NetworkDNSServerses() NetworkDNSServersInformer
 	// NetworkGateways returns a NetworkGatewayInformer.
 	NetworkGateways() NetworkGatewayInformer
 	// NetworkGatewayConnections returns a NetworkGatewayConnectionInformer.
@@ -96,6 +104,16 @@ func (v *version) DesktopHostPools() DesktopHostPoolInformer {
 	return &desktopHostPoolInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// DesktopHostPoolRegistrationInfos returns a DesktopHostPoolRegistrationInfoInformer.
+func (v *version) DesktopHostPoolRegistrationInfos() DesktopHostPoolRegistrationInfoInformer {
+	return &desktopHostPoolRegistrationInfoInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// DesktopScalingPlans returns a DesktopScalingPlanInformer.
+func (v *version) DesktopScalingPlans() DesktopScalingPlanInformer {
+	return &desktopScalingPlanInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // DesktopWorkspaces returns a DesktopWorkspaceInformer.
 func (v *version) DesktopWorkspaces() DesktopWorkspaceInformer {
 	return &desktopWorkspaceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
@@ -129,6 +147,11 @@ func (v *version) HubIPs() HubIPInformer {
 // HubRouteTables returns a HubRouteTableInformer.
 func (v *version) HubRouteTables() HubRouteTableInformer {
 	return &hubRouteTableInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// HubRouteTableRoutes returns a HubRouteTableRouteInformer.
+func (v *version) HubRouteTableRoutes() HubRouteTableRouteInformer {
+	return &hubRouteTableRouteInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // HubSecurityPartnerProviders returns a HubSecurityPartnerProviderInformer.
@@ -169,6 +192,11 @@ func (v *version) MachineScaleSetExtensions() MachineScaleSetExtensionInformer {
 // Networks returns a NetworkInformer.
 func (v *version) Networks() NetworkInformer {
 	return &networkInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// NetworkDNSServerses returns a NetworkDNSServersInformer.
+func (v *version) NetworkDNSServerses() NetworkDNSServersInformer {
+	return &networkDNSServersInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // NetworkGateways returns a NetworkGatewayInformer.

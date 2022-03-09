@@ -28,6 +28,7 @@ import (
 type ResourceV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	GroupsGetter
+	GroupCostManagementExportsGetter
 	GroupPolicyAssignmentsGetter
 	GroupTemplateDeploymentsGetter
 	PolicyAssignmentsGetter
@@ -41,6 +42,10 @@ type ResourceV1alpha1Client struct {
 
 func (c *ResourceV1alpha1Client) Groups(namespace string) GroupInterface {
 	return newGroups(c, namespace)
+}
+
+func (c *ResourceV1alpha1Client) GroupCostManagementExports(namespace string) GroupCostManagementExportInterface {
+	return newGroupCostManagementExports(c, namespace)
 }
 
 func (c *ResourceV1alpha1Client) GroupPolicyAssignments(namespace string) GroupPolicyAssignmentInterface {

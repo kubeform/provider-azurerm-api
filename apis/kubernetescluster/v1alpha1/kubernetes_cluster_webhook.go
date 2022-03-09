@@ -96,13 +96,19 @@ var kubernetesclusterForceNewList = map[string]bool{
 	"/default_node_pool/*/only_critical_addons_enabled":                                         true,
 	"/default_node_pool/*/os_disk_size_gb":                                                      true,
 	"/default_node_pool/*/os_disk_type":                                                         true,
+	"/default_node_pool/*/os_sku":                                                               true,
+	"/default_node_pool/*/pod_subnet_id":                                                        true,
 	"/default_node_pool/*/proximity_placement_group_id":                                         true,
 	"/default_node_pool/*/type":                                                                 true,
+	"/default_node_pool/*/ultra_ssd_enabled":                                                    true,
 	"/default_node_pool/*/vm_size":                                                              true,
 	"/default_node_pool/*/vnet_subnet_id":                                                       true,
 	"/disk_encryption_set_id":                                                                   true,
 	"/dns_prefix":                                                                               true,
 	"/dns_prefix_private_cluster":                                                               true,
+	"/http_proxy_config/*/http_proxy":                                                           true,
+	"/http_proxy_config/*/https_proxy":                                                          true,
+	"/http_proxy_config/*/no_proxy":                                                             true,
 	"/kubelet_identity/*/client_id":                                                             true,
 	"/kubelet_identity/*/object_id":                                                             true,
 	"/kubelet_identity/*/user_assigned_identity_id":                                             true,
@@ -123,6 +129,7 @@ var kubernetesclusterForceNewList = map[string]bool{
 	"/private_cluster_enabled":                                                                  true,
 	"/private_dns_zone_id":                                                                      true,
 	"/private_link_enabled":                                                                     true,
+	"/public_network_access_enabled":                                                            true,
 	"/resource_group_name":                                                                      true,
 	"/role_based_access_control/*/enabled":                                                      true,
 	"/windows_profile/*/admin_username":                                                         true,
@@ -171,7 +178,7 @@ func (r *KubernetesCluster) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range kubernetesclusterForceNewList {
+	for key, _ := range kubernetesclusterForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -18,6 +18,14 @@ limitations under the License.
 
 package v1alpha1
 
+// AnalyticsClusterListerExpansion allows custom methods to be added to
+// AnalyticsClusterLister.
+type AnalyticsClusterListerExpansion interface{}
+
+// AnalyticsClusterNamespaceListerExpansion allows custom methods to be added to
+// AnalyticsClusterNamespaceLister.
+type AnalyticsClusterNamespaceListerExpansion interface{}
+
 // AnalyticsFunctionJavascriptUdfListerExpansion allows custom methods to be added to
 // AnalyticsFunctionJavascriptUdfLister.
 type AnalyticsFunctionJavascriptUdfListerExpansion interface{}
@@ -34,6 +42,14 @@ type AnalyticsJobListerExpansion interface{}
 // AnalyticsJobNamespaceLister.
 type AnalyticsJobNamespaceListerExpansion interface{}
 
+// AnalyticsManagedPrivateEndpointListerExpansion allows custom methods to be added to
+// AnalyticsManagedPrivateEndpointLister.
+type AnalyticsManagedPrivateEndpointListerExpansion interface{}
+
+// AnalyticsManagedPrivateEndpointNamespaceListerExpansion allows custom methods to be added to
+// AnalyticsManagedPrivateEndpointNamespaceLister.
+type AnalyticsManagedPrivateEndpointNamespaceListerExpansion interface{}
+
 // AnalyticsOutputBlobListerExpansion allows custom methods to be added to
 // AnalyticsOutputBlobLister.
 type AnalyticsOutputBlobListerExpansion interface{}
@@ -49,6 +65,14 @@ type AnalyticsOutputEventhubListerExpansion interface{}
 // AnalyticsOutputEventhubNamespaceListerExpansion allows custom methods to be added to
 // AnalyticsOutputEventhubNamespaceLister.
 type AnalyticsOutputEventhubNamespaceListerExpansion interface{}
+
+// AnalyticsOutputFunctionListerExpansion allows custom methods to be added to
+// AnalyticsOutputFunctionLister.
+type AnalyticsOutputFunctionListerExpansion interface{}
+
+// AnalyticsOutputFunctionNamespaceListerExpansion allows custom methods to be added to
+// AnalyticsOutputFunctionNamespaceLister.
+type AnalyticsOutputFunctionNamespaceListerExpansion interface{}
 
 // AnalyticsOutputMssqlListerExpansion allows custom methods to be added to
 // AnalyticsOutputMssqlLister.
@@ -74,6 +98,22 @@ type AnalyticsOutputServicebusTopicListerExpansion interface{}
 // AnalyticsOutputServicebusTopicNamespaceLister.
 type AnalyticsOutputServicebusTopicNamespaceListerExpansion interface{}
 
+// AnalyticsOutputSynapseListerExpansion allows custom methods to be added to
+// AnalyticsOutputSynapseLister.
+type AnalyticsOutputSynapseListerExpansion interface{}
+
+// AnalyticsOutputSynapseNamespaceListerExpansion allows custom methods to be added to
+// AnalyticsOutputSynapseNamespaceLister.
+type AnalyticsOutputSynapseNamespaceListerExpansion interface{}
+
+// AnalyticsOutputTableListerExpansion allows custom methods to be added to
+// AnalyticsOutputTableLister.
+type AnalyticsOutputTableListerExpansion interface{}
+
+// AnalyticsOutputTableNamespaceListerExpansion allows custom methods to be added to
+// AnalyticsOutputTableNamespaceLister.
+type AnalyticsOutputTableNamespaceListerExpansion interface{}
+
 // AnalyticsReferenceInputBlobListerExpansion allows custom methods to be added to
 // AnalyticsReferenceInputBlobLister.
 type AnalyticsReferenceInputBlobListerExpansion interface{}
@@ -81,6 +121,14 @@ type AnalyticsReferenceInputBlobListerExpansion interface{}
 // AnalyticsReferenceInputBlobNamespaceListerExpansion allows custom methods to be added to
 // AnalyticsReferenceInputBlobNamespaceLister.
 type AnalyticsReferenceInputBlobNamespaceListerExpansion interface{}
+
+// AnalyticsReferenceInputMssqlListerExpansion allows custom methods to be added to
+// AnalyticsReferenceInputMssqlLister.
+type AnalyticsReferenceInputMssqlListerExpansion interface{}
+
+// AnalyticsReferenceInputMssqlNamespaceListerExpansion allows custom methods to be added to
+// AnalyticsReferenceInputMssqlNamespaceLister.
+type AnalyticsReferenceInputMssqlNamespaceListerExpansion interface{}
 
 // AnalyticsStreamInputBlobListerExpansion allows custom methods to be added to
 // AnalyticsStreamInputBlobLister.

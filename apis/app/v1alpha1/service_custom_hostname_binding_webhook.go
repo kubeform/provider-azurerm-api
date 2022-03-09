@@ -92,7 +92,7 @@ func (r *ServiceCustomHostnameBinding) ValidateUpdate(old runtime.Object) error 
 		return err
 	}
 
-	for key := range servicecustomhostnamebindingForceNewList {
+	for key, _ := range servicecustomhostnamebindingForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

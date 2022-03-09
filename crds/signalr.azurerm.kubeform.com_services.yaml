@@ -57,6 +57,8 @@ spec:
                 type: object
               resource:
                 properties:
+                  connectivityLogsEnabled:
+                    type: boolean
                   cors:
                     items:
                       properties:
@@ -69,6 +71,7 @@ spec:
                       type: object
                     type: array
                   features:
+                    description: Deprecated
                     items:
                       properties:
                         flag:
@@ -86,8 +89,12 @@ spec:
                     type: string
                   ipAddress:
                     type: string
+                  liveTraceEnabled:
+                    type: boolean
                   location:
                     type: string
+                  messagingLogsEnabled:
+                    type: boolean
                   name:
                     type: string
                   publicPort:
@@ -98,6 +105,8 @@ spec:
                   serverPort:
                     format: int64
                     type: integer
+                  serviceMode:
+                    type: string
                   sku:
                     properties:
                       capacity:
@@ -192,6 +201,8 @@ spec:
                 type: object
               state:
                 properties:
+                  connectivityLogsEnabled:
+                    type: boolean
                   cors:
                     items:
                       properties:
@@ -204,6 +215,7 @@ spec:
                       type: object
                     type: array
                   features:
+                    description: Deprecated
                     items:
                       properties:
                         flag:
@@ -221,8 +233,12 @@ spec:
                     type: string
                   ipAddress:
                     type: string
+                  liveTraceEnabled:
+                    type: boolean
                   location:
                     type: string
+                  messagingLogsEnabled:
+                    type: boolean
                   name:
                     type: string
                   publicPort:
@@ -233,6 +249,8 @@ spec:
                   serverPort:
                     format: int64
                     type: integer
+                  serviceMode:
+                    type: string
                   sku:
                     properties:
                       capacity:

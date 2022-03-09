@@ -26,8 +26,12 @@ import (
 type Interface interface {
 	// LearningComputeClusters returns a LearningComputeClusterInformer.
 	LearningComputeClusters() LearningComputeClusterInformer
+	// LearningComputeInstances returns a LearningComputeInstanceInformer.
+	LearningComputeInstances() LearningComputeInstanceInformer
 	// LearningInferenceClusters returns a LearningInferenceClusterInformer.
 	LearningInferenceClusters() LearningInferenceClusterInformer
+	// LearningSynapseSparks returns a LearningSynapseSparkInformer.
+	LearningSynapseSparks() LearningSynapseSparkInformer
 	// LearningWorkspaces returns a LearningWorkspaceInformer.
 	LearningWorkspaces() LearningWorkspaceInformer
 }
@@ -48,9 +52,19 @@ func (v *version) LearningComputeClusters() LearningComputeClusterInformer {
 	return &learningComputeClusterInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// LearningComputeInstances returns a LearningComputeInstanceInformer.
+func (v *version) LearningComputeInstances() LearningComputeInstanceInformer {
+	return &learningComputeInstanceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // LearningInferenceClusters returns a LearningInferenceClusterInformer.
 func (v *version) LearningInferenceClusters() LearningInferenceClusterInformer {
 	return &learningInferenceClusterInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// LearningSynapseSparks returns a LearningSynapseSparkInformer.
+func (v *version) LearningSynapseSparks() LearningSynapseSparkInformer {
+	return &learningSynapseSparkInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // LearningWorkspaces returns a LearningWorkspaceInformer.

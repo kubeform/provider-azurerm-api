@@ -20,4 +20,8 @@ package v1alpha1
 
 type HybridConnectionExpansion interface{}
 
+type HybridConnectionAuthorizationRuleExpansion interface{}
+
 type NamespaceExpansion interface{}
+
+type NamespaceAuthorizationRuleExpansion interface{}

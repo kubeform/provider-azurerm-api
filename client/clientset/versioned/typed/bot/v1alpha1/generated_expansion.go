@@ -18,16 +18,30 @@ limitations under the License.
 
 package v1alpha1
 
+type ChannelAlexaExpansion interface{}
+
+type ChannelDirectLineSpeechExpansion interface{}
+
 type ChannelDirectlineExpansion interface{}
 
 type ChannelEmailExpansion interface{}
+
+type ChannelFacebookExpansion interface{}
+
+type ChannelLineExpansion interface{}
 
 type ChannelMsTeamsExpansion interface{}
 
 type ChannelSlackExpansion interface{}
 
+type ChannelSmsExpansion interface{}
+
+type ChannelWebChatExpansion interface{}
+
 type ChannelsRegistrationExpansion interface{}
 
 type ConnectionExpansion interface{}
+
+type ServiceAzureBotExpansion interface{}
 
 type WebAppExpansion interface{}

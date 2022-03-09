@@ -29,6 +29,10 @@ type DiskV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	AccessesGetter
 	EncryptionSetsGetter
+	PoolsGetter
+	PoolIscsiTargetsGetter
+	PoolIscsiTargetLunsGetter
+	PoolManagedDiskAttachmentsGetter
 }
 
 // DiskV1alpha1Client is used to interact with features provided by the disk.azurerm.kubeform.com group.
@@ -42,6 +46,22 @@ func (c *DiskV1alpha1Client) Accesses(namespace string) AccessInterface {
 
 func (c *DiskV1alpha1Client) EncryptionSets(namespace string) EncryptionSetInterface {
 	return newEncryptionSets(c, namespace)
+}
+
+func (c *DiskV1alpha1Client) Pools(namespace string) PoolInterface {
+	return newPools(c, namespace)
+}
+
+func (c *DiskV1alpha1Client) PoolIscsiTargets(namespace string) PoolIscsiTargetInterface {
+	return newPoolIscsiTargets(c, namespace)
+}
+
+func (c *DiskV1alpha1Client) PoolIscsiTargetLuns(namespace string) PoolIscsiTargetLunInterface {
+	return newPoolIscsiTargetLuns(c, namespace)
+}
+
+func (c *DiskV1alpha1Client) PoolManagedDiskAttachments(namespace string) PoolManagedDiskAttachmentInterface {
+	return newPoolManagedDiskAttachments(c, namespace)
 }
 
 // NewForConfig creates a new DiskV1alpha1Client for the given config.

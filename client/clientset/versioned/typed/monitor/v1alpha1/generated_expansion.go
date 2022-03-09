@@ -36,6 +36,10 @@ type LogProfileExpansion interface{}
 
 type MetricAlertExpansion interface{}
 
+type PrivateLinkScopeExpansion interface{}
+
+type PrivateLinkScopedServiceExpansion interface{}
+
 type ScheduledQueryRulesAlertExpansion interface{}
 
 type ScheduledQueryRulesLogExpansion interface{}

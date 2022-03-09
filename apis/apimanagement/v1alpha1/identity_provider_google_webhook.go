@@ -89,7 +89,7 @@ func (r *IdentityProviderGoogle) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range identityprovidergoogleForceNewList {
+	for key, _ := range identityprovidergoogleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

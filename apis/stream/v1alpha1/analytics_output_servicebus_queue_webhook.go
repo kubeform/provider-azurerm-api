@@ -90,7 +90,7 @@ func (r *AnalyticsOutputServicebusQueue) ValidateUpdate(old runtime.Object) erro
 		return err
 	}
 
-	for key := range analyticsoutputservicebusqueueForceNewList {
+	for key, _ := range analyticsoutputservicebusqueueForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

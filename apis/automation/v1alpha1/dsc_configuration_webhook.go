@@ -91,7 +91,7 @@ func (r *DscConfiguration) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range dscconfigurationForceNewList {
+	for key, _ := range dscconfigurationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

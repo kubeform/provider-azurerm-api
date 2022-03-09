@@ -88,7 +88,7 @@ func (r *NamespaceCustomerManagedKey) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range namespacecustomermanagedkeyForceNewList {
+	for key, _ := range namespacecustomermanagedkeyForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

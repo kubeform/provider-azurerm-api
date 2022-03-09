@@ -66,6 +66,22 @@ type ManagedHardwareSecurityModuleListerExpansion interface{}
 // ManagedHardwareSecurityModuleNamespaceLister.
 type ManagedHardwareSecurityModuleNamespaceListerExpansion interface{}
 
+// ManagedStorageAccountListerExpansion allows custom methods to be added to
+// ManagedStorageAccountLister.
+type ManagedStorageAccountListerExpansion interface{}
+
+// ManagedStorageAccountNamespaceListerExpansion allows custom methods to be added to
+// ManagedStorageAccountNamespaceLister.
+type ManagedStorageAccountNamespaceListerExpansion interface{}
+
+// ManagedStorageAccountSasTokenDefinitionListerExpansion allows custom methods to be added to
+// ManagedStorageAccountSasTokenDefinitionLister.
+type ManagedStorageAccountSasTokenDefinitionListerExpansion interface{}
+
+// ManagedStorageAccountSasTokenDefinitionNamespaceListerExpansion allows custom methods to be added to
+// ManagedStorageAccountSasTokenDefinitionNamespaceLister.
+type ManagedStorageAccountSasTokenDefinitionNamespaceListerExpansion interface{}
+
 // SecretListerExpansion allows custom methods to be added to
 // SecretLister.
 type SecretListerExpansion interface{}

@@ -29,6 +29,10 @@ type FakeStreamV1alpha1 struct {
 	*testing.Fake
 }
 
+func (c *FakeStreamV1alpha1) AnalyticsClusters(namespace string) v1alpha1.AnalyticsClusterInterface {
+	return &FakeAnalyticsClusters{c, namespace}
+}
+
 func (c *FakeStreamV1alpha1) AnalyticsFunctionJavascriptUdves(namespace string) v1alpha1.AnalyticsFunctionJavascriptUdfInterface {
 	return &FakeAnalyticsFunctionJavascriptUdves{c, namespace}
 }
@@ -37,12 +41,20 @@ func (c *FakeStreamV1alpha1) AnalyticsJobs(namespace string) v1alpha1.AnalyticsJ
 	return &FakeAnalyticsJobs{c, namespace}
 }
 
+func (c *FakeStreamV1alpha1) AnalyticsManagedPrivateEndpoints(namespace string) v1alpha1.AnalyticsManagedPrivateEndpointInterface {
+	return &FakeAnalyticsManagedPrivateEndpoints{c, namespace}
+}
+
 func (c *FakeStreamV1alpha1) AnalyticsOutputBlobs(namespace string) v1alpha1.AnalyticsOutputBlobInterface {
 	return &FakeAnalyticsOutputBlobs{c, namespace}
 }
 
 func (c *FakeStreamV1alpha1) AnalyticsOutputEventhubs(namespace string) v1alpha1.AnalyticsOutputEventhubInterface {
 	return &FakeAnalyticsOutputEventhubs{c, namespace}
+}
+
+func (c *FakeStreamV1alpha1) AnalyticsOutputFunctions(namespace string) v1alpha1.AnalyticsOutputFunctionInterface {
+	return &FakeAnalyticsOutputFunctions{c, namespace}
 }
 
 func (c *FakeStreamV1alpha1) AnalyticsOutputMssqls(namespace string) v1alpha1.AnalyticsOutputMssqlInterface {
@@ -57,8 +69,20 @@ func (c *FakeStreamV1alpha1) AnalyticsOutputServicebusTopics(namespace string) v
 	return &FakeAnalyticsOutputServicebusTopics{c, namespace}
 }
 
+func (c *FakeStreamV1alpha1) AnalyticsOutputSynapses(namespace string) v1alpha1.AnalyticsOutputSynapseInterface {
+	return &FakeAnalyticsOutputSynapses{c, namespace}
+}
+
+func (c *FakeStreamV1alpha1) AnalyticsOutputTables(namespace string) v1alpha1.AnalyticsOutputTableInterface {
+	return &FakeAnalyticsOutputTables{c, namespace}
+}
+
 func (c *FakeStreamV1alpha1) AnalyticsReferenceInputBlobs(namespace string) v1alpha1.AnalyticsReferenceInputBlobInterface {
 	return &FakeAnalyticsReferenceInputBlobs{c, namespace}
+}
+
+func (c *FakeStreamV1alpha1) AnalyticsReferenceInputMssqls(namespace string) v1alpha1.AnalyticsReferenceInputMssqlInterface {
+	return &FakeAnalyticsReferenceInputMssqls{c, namespace}
 }
 
 func (c *FakeStreamV1alpha1) AnalyticsStreamInputBlobs(namespace string) v1alpha1.AnalyticsStreamInputBlobInterface {

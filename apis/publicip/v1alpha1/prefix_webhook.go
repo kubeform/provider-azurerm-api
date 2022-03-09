@@ -43,6 +43,7 @@ var _ webhook.Validator = &Prefix{}
 
 var prefixForceNewList = map[string]bool{
 	"/availability_zone":   true,
+	"/ip_version":          true,
 	"/location":            true,
 	"/name":                true,
 	"/prefix_length":       true,
@@ -94,7 +95,7 @@ func (r *Prefix) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range prefixForceNewList {
+	for key, _ := range prefixForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

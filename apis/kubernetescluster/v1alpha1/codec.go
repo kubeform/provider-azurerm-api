@@ -27,25 +27,34 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAciConnectorLinux{}).Type1()):                          KubernetesClusterSpecAciConnectorLinuxCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfile{}).Type1()):                               KubernetesClusterSpecAddonProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileAciConnectorLinux{}).Type1()):              KubernetesClusterSpecAddonProfileAciConnectorLinuxCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider{}).Type1()):   KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProviderCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileAzurePolicy{}).Type1()):                    KubernetesClusterSpecAddonProfileAzurePolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileHttpApplicationRouting{}).Type1()):         KubernetesClusterSpecAddonProfileHttpApplicationRoutingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileIngressApplicationGateway{}).Type1()):      KubernetesClusterSpecAddonProfileIngressApplicationGatewayCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileKubeDashboard{}).Type1()):                  KubernetesClusterSpecAddonProfileKubeDashboardCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileOmsAgent{}).Type1()):                       KubernetesClusterSpecAddonProfileOmsAgentCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileOpenServiceMesh{}).Type1()):                KubernetesClusterSpecAddonProfileOpenServiceMeshCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAutoScalerProfile{}).Type1()):                          KubernetesClusterSpecAutoScalerProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecDefaultNodePool{}).Type1()):                            KubernetesClusterSpecDefaultNodePoolCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecDefaultNodePoolKubeletConfig{}).Type1()):               KubernetesClusterSpecDefaultNodePoolKubeletConfigCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecDefaultNodePoolLinuxOsConfig{}).Type1()):               KubernetesClusterSpecDefaultNodePoolLinuxOsConfigCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecDefaultNodePoolLinuxOsConfigSysctlConfig{}).Type1()):   KubernetesClusterSpecDefaultNodePoolLinuxOsConfigSysctlConfigCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecDefaultNodePoolUpgradeSettings{}).Type1()):             KubernetesClusterSpecDefaultNodePoolUpgradeSettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecHttpProxyConfig{}).Type1()):                            KubernetesClusterSpecHttpProxyConfigCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecIdentity{}).Type1()):                                   KubernetesClusterSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecIngressApplicationGateway{}).Type1()):                  KubernetesClusterSpecIngressApplicationGatewayCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecKeyVaultSecretsProvider{}).Type1()):                    KubernetesClusterSpecKeyVaultSecretsProviderCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecKubeletIdentity{}).Type1()):                            KubernetesClusterSpecKubeletIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecLinuxProfile{}).Type1()):                               KubernetesClusterSpecLinuxProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecLinuxProfileSshKey{}).Type1()):                         KubernetesClusterSpecLinuxProfileSshKeyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecMaintenanceWindow{}).Type1()):                          KubernetesClusterSpecMaintenanceWindowCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecNetworkProfile{}).Type1()):                             KubernetesClusterSpecNetworkProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecNetworkProfileLoadBalancerProfile{}).Type1()):          KubernetesClusterSpecNetworkProfileLoadBalancerProfileCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecNetworkProfileNatGatewayProfile{}).Type1()):            KubernetesClusterSpecNetworkProfileNatGatewayProfileCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecOmsAgent{}).Type1()):                                   KubernetesClusterSpecOmsAgentCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecRoleBasedAccessControl{}).Type1()):                     KubernetesClusterSpecRoleBasedAccessControlCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecRoleBasedAccessControlAzureActiveDirectory{}).Type1()): KubernetesClusterSpecRoleBasedAccessControlAzureActiveDirectoryCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecServicePrincipal{}).Type1()):                           KubernetesClusterSpecServicePrincipalCodec{},
@@ -59,25 +68,34 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAciConnectorLinux{}).Type1()):                          KubernetesClusterSpecAciConnectorLinuxCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfile{}).Type1()):                               KubernetesClusterSpecAddonProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileAciConnectorLinux{}).Type1()):              KubernetesClusterSpecAddonProfileAciConnectorLinuxCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider{}).Type1()):   KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProviderCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileAzurePolicy{}).Type1()):                    KubernetesClusterSpecAddonProfileAzurePolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileHttpApplicationRouting{}).Type1()):         KubernetesClusterSpecAddonProfileHttpApplicationRoutingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileIngressApplicationGateway{}).Type1()):      KubernetesClusterSpecAddonProfileIngressApplicationGatewayCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileKubeDashboard{}).Type1()):                  KubernetesClusterSpecAddonProfileKubeDashboardCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileOmsAgent{}).Type1()):                       KubernetesClusterSpecAddonProfileOmsAgentCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileOpenServiceMesh{}).Type1()):                KubernetesClusterSpecAddonProfileOpenServiceMeshCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAutoScalerProfile{}).Type1()):                          KubernetesClusterSpecAutoScalerProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecDefaultNodePool{}).Type1()):                            KubernetesClusterSpecDefaultNodePoolCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecDefaultNodePoolKubeletConfig{}).Type1()):               KubernetesClusterSpecDefaultNodePoolKubeletConfigCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecDefaultNodePoolLinuxOsConfig{}).Type1()):               KubernetesClusterSpecDefaultNodePoolLinuxOsConfigCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecDefaultNodePoolLinuxOsConfigSysctlConfig{}).Type1()):   KubernetesClusterSpecDefaultNodePoolLinuxOsConfigSysctlConfigCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecDefaultNodePoolUpgradeSettings{}).Type1()):             KubernetesClusterSpecDefaultNodePoolUpgradeSettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecHttpProxyConfig{}).Type1()):                            KubernetesClusterSpecHttpProxyConfigCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecIdentity{}).Type1()):                                   KubernetesClusterSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecIngressApplicationGateway{}).Type1()):                  KubernetesClusterSpecIngressApplicationGatewayCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecKeyVaultSecretsProvider{}).Type1()):                    KubernetesClusterSpecKeyVaultSecretsProviderCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecKubeletIdentity{}).Type1()):                            KubernetesClusterSpecKubeletIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecLinuxProfile{}).Type1()):                               KubernetesClusterSpecLinuxProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecLinuxProfileSshKey{}).Type1()):                         KubernetesClusterSpecLinuxProfileSshKeyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecMaintenanceWindow{}).Type1()):                          KubernetesClusterSpecMaintenanceWindowCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecNetworkProfile{}).Type1()):                             KubernetesClusterSpecNetworkProfileCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecNetworkProfileLoadBalancerProfile{}).Type1()):          KubernetesClusterSpecNetworkProfileLoadBalancerProfileCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecNetworkProfileNatGatewayProfile{}).Type1()):            KubernetesClusterSpecNetworkProfileNatGatewayProfileCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecOmsAgent{}).Type1()):                                   KubernetesClusterSpecOmsAgentCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecRoleBasedAccessControl{}).Type1()):                     KubernetesClusterSpecRoleBasedAccessControlCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecRoleBasedAccessControlAzureActiveDirectory{}).Type1()): KubernetesClusterSpecRoleBasedAccessControlAzureActiveDirectoryCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecServicePrincipal{}).Type1()):                           KubernetesClusterSpecServicePrincipalCodec{},
@@ -99,6 +117,85 @@ func getDecodersWithout(typ string) map[string]jsoniter.ValDecoder {
 	origMap := GetDecoder()
 	delete(origMap, typ)
 	return origMap
+}
+
+// +k8s:deepcopy-gen=false
+type KubernetesClusterSpecAciConnectorLinuxCodec struct {
+}
+
+func (KubernetesClusterSpecAciConnectorLinuxCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*KubernetesClusterSpecAciConnectorLinux)(ptr) == nil
+}
+
+func (KubernetesClusterSpecAciConnectorLinuxCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*KubernetesClusterSpecAciConnectorLinux)(ptr)
+	var objs []KubernetesClusterSpecAciConnectorLinux
+	if obj != nil {
+		objs = []KubernetesClusterSpecAciConnectorLinux{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAciConnectorLinux{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (KubernetesClusterSpecAciConnectorLinuxCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*KubernetesClusterSpecAciConnectorLinux)(ptr) = KubernetesClusterSpecAciConnectorLinux{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []KubernetesClusterSpecAciConnectorLinux
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAciConnectorLinux{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*KubernetesClusterSpecAciConnectorLinux)(ptr) = objs[0]
+			} else {
+				*(*KubernetesClusterSpecAciConnectorLinux)(ptr) = KubernetesClusterSpecAciConnectorLinux{}
+			}
+		} else {
+			*(*KubernetesClusterSpecAciConnectorLinux)(ptr) = KubernetesClusterSpecAciConnectorLinux{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj KubernetesClusterSpecAciConnectorLinux
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAciConnectorLinux{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*KubernetesClusterSpecAciConnectorLinux)(ptr) = obj
+		} else {
+			*(*KubernetesClusterSpecAciConnectorLinux)(ptr) = KubernetesClusterSpecAciConnectorLinux{}
+		}
+	default:
+		iter.ReportError("decode KubernetesClusterSpecAciConnectorLinux", "unexpected JSON type")
+	}
 }
 
 // +k8s:deepcopy-gen=false
@@ -256,6 +353,85 @@ func (KubernetesClusterSpecAddonProfileAciConnectorLinuxCodec) Decode(ptr unsafe
 		}
 	default:
 		iter.ReportError("decode KubernetesClusterSpecAddonProfileAciConnectorLinux", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProviderCodec struct {
+}
+
+func (KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProviderCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider)(ptr) == nil
+}
+
+func (KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProviderCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider)(ptr)
+	var objs []KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider
+	if obj != nil {
+		objs = []KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProviderCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider)(ptr) = KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider)(ptr) = objs[0]
+			} else {
+				*(*KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider)(ptr) = KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider{}
+			}
+		} else {
+			*(*KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider)(ptr) = KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider)(ptr) = obj
+		} else {
+			*(*KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider)(ptr) = KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider{}
+		}
+	default:
+		iter.ReportError("decode KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider", "unexpected JSON type")
 	}
 }
 
@@ -651,6 +827,85 @@ func (KubernetesClusterSpecAddonProfileOmsAgentCodec) Decode(ptr unsafe.Pointer,
 		}
 	default:
 		iter.ReportError("decode KubernetesClusterSpecAddonProfileOmsAgent", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type KubernetesClusterSpecAddonProfileOpenServiceMeshCodec struct {
+}
+
+func (KubernetesClusterSpecAddonProfileOpenServiceMeshCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*KubernetesClusterSpecAddonProfileOpenServiceMesh)(ptr) == nil
+}
+
+func (KubernetesClusterSpecAddonProfileOpenServiceMeshCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*KubernetesClusterSpecAddonProfileOpenServiceMesh)(ptr)
+	var objs []KubernetesClusterSpecAddonProfileOpenServiceMesh
+	if obj != nil {
+		objs = []KubernetesClusterSpecAddonProfileOpenServiceMesh{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileOpenServiceMesh{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (KubernetesClusterSpecAddonProfileOpenServiceMeshCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*KubernetesClusterSpecAddonProfileOpenServiceMesh)(ptr) = KubernetesClusterSpecAddonProfileOpenServiceMesh{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []KubernetesClusterSpecAddonProfileOpenServiceMesh
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileOpenServiceMesh{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*KubernetesClusterSpecAddonProfileOpenServiceMesh)(ptr) = objs[0]
+			} else {
+				*(*KubernetesClusterSpecAddonProfileOpenServiceMesh)(ptr) = KubernetesClusterSpecAddonProfileOpenServiceMesh{}
+			}
+		} else {
+			*(*KubernetesClusterSpecAddonProfileOpenServiceMesh)(ptr) = KubernetesClusterSpecAddonProfileOpenServiceMesh{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj KubernetesClusterSpecAddonProfileOpenServiceMesh
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecAddonProfileOpenServiceMesh{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*KubernetesClusterSpecAddonProfileOpenServiceMesh)(ptr) = obj
+		} else {
+			*(*KubernetesClusterSpecAddonProfileOpenServiceMesh)(ptr) = KubernetesClusterSpecAddonProfileOpenServiceMesh{}
+		}
+	default:
+		iter.ReportError("decode KubernetesClusterSpecAddonProfileOpenServiceMesh", "unexpected JSON type")
 	}
 }
 
@@ -1129,6 +1384,85 @@ func (KubernetesClusterSpecDefaultNodePoolUpgradeSettingsCodec) Decode(ptr unsaf
 }
 
 // +k8s:deepcopy-gen=false
+type KubernetesClusterSpecHttpProxyConfigCodec struct {
+}
+
+func (KubernetesClusterSpecHttpProxyConfigCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*KubernetesClusterSpecHttpProxyConfig)(ptr) == nil
+}
+
+func (KubernetesClusterSpecHttpProxyConfigCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*KubernetesClusterSpecHttpProxyConfig)(ptr)
+	var objs []KubernetesClusterSpecHttpProxyConfig
+	if obj != nil {
+		objs = []KubernetesClusterSpecHttpProxyConfig{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecHttpProxyConfig{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (KubernetesClusterSpecHttpProxyConfigCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*KubernetesClusterSpecHttpProxyConfig)(ptr) = KubernetesClusterSpecHttpProxyConfig{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []KubernetesClusterSpecHttpProxyConfig
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecHttpProxyConfig{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*KubernetesClusterSpecHttpProxyConfig)(ptr) = objs[0]
+			} else {
+				*(*KubernetesClusterSpecHttpProxyConfig)(ptr) = KubernetesClusterSpecHttpProxyConfig{}
+			}
+		} else {
+			*(*KubernetesClusterSpecHttpProxyConfig)(ptr) = KubernetesClusterSpecHttpProxyConfig{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj KubernetesClusterSpecHttpProxyConfig
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecHttpProxyConfig{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*KubernetesClusterSpecHttpProxyConfig)(ptr) = obj
+		} else {
+			*(*KubernetesClusterSpecHttpProxyConfig)(ptr) = KubernetesClusterSpecHttpProxyConfig{}
+		}
+	default:
+		iter.ReportError("decode KubernetesClusterSpecHttpProxyConfig", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type KubernetesClusterSpecIdentityCodec struct {
 }
 
@@ -1204,6 +1538,164 @@ func (KubernetesClusterSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoni
 		}
 	default:
 		iter.ReportError("decode KubernetesClusterSpecIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type KubernetesClusterSpecIngressApplicationGatewayCodec struct {
+}
+
+func (KubernetesClusterSpecIngressApplicationGatewayCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*KubernetesClusterSpecIngressApplicationGateway)(ptr) == nil
+}
+
+func (KubernetesClusterSpecIngressApplicationGatewayCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*KubernetesClusterSpecIngressApplicationGateway)(ptr)
+	var objs []KubernetesClusterSpecIngressApplicationGateway
+	if obj != nil {
+		objs = []KubernetesClusterSpecIngressApplicationGateway{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecIngressApplicationGateway{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (KubernetesClusterSpecIngressApplicationGatewayCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*KubernetesClusterSpecIngressApplicationGateway)(ptr) = KubernetesClusterSpecIngressApplicationGateway{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []KubernetesClusterSpecIngressApplicationGateway
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecIngressApplicationGateway{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*KubernetesClusterSpecIngressApplicationGateway)(ptr) = objs[0]
+			} else {
+				*(*KubernetesClusterSpecIngressApplicationGateway)(ptr) = KubernetesClusterSpecIngressApplicationGateway{}
+			}
+		} else {
+			*(*KubernetesClusterSpecIngressApplicationGateway)(ptr) = KubernetesClusterSpecIngressApplicationGateway{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj KubernetesClusterSpecIngressApplicationGateway
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecIngressApplicationGateway{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*KubernetesClusterSpecIngressApplicationGateway)(ptr) = obj
+		} else {
+			*(*KubernetesClusterSpecIngressApplicationGateway)(ptr) = KubernetesClusterSpecIngressApplicationGateway{}
+		}
+	default:
+		iter.ReportError("decode KubernetesClusterSpecIngressApplicationGateway", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type KubernetesClusterSpecKeyVaultSecretsProviderCodec struct {
+}
+
+func (KubernetesClusterSpecKeyVaultSecretsProviderCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*KubernetesClusterSpecKeyVaultSecretsProvider)(ptr) == nil
+}
+
+func (KubernetesClusterSpecKeyVaultSecretsProviderCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*KubernetesClusterSpecKeyVaultSecretsProvider)(ptr)
+	var objs []KubernetesClusterSpecKeyVaultSecretsProvider
+	if obj != nil {
+		objs = []KubernetesClusterSpecKeyVaultSecretsProvider{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecKeyVaultSecretsProvider{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (KubernetesClusterSpecKeyVaultSecretsProviderCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*KubernetesClusterSpecKeyVaultSecretsProvider)(ptr) = KubernetesClusterSpecKeyVaultSecretsProvider{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []KubernetesClusterSpecKeyVaultSecretsProvider
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecKeyVaultSecretsProvider{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*KubernetesClusterSpecKeyVaultSecretsProvider)(ptr) = objs[0]
+			} else {
+				*(*KubernetesClusterSpecKeyVaultSecretsProvider)(ptr) = KubernetesClusterSpecKeyVaultSecretsProvider{}
+			}
+		} else {
+			*(*KubernetesClusterSpecKeyVaultSecretsProvider)(ptr) = KubernetesClusterSpecKeyVaultSecretsProvider{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj KubernetesClusterSpecKeyVaultSecretsProvider
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecKeyVaultSecretsProvider{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*KubernetesClusterSpecKeyVaultSecretsProvider)(ptr) = obj
+		} else {
+			*(*KubernetesClusterSpecKeyVaultSecretsProvider)(ptr) = KubernetesClusterSpecKeyVaultSecretsProvider{}
+		}
+	default:
+		iter.ReportError("decode KubernetesClusterSpecKeyVaultSecretsProvider", "unexpected JSON type")
 	}
 }
 
@@ -1445,6 +1937,85 @@ func (KubernetesClusterSpecLinuxProfileSshKeyCodec) Decode(ptr unsafe.Pointer, i
 }
 
 // +k8s:deepcopy-gen=false
+type KubernetesClusterSpecMaintenanceWindowCodec struct {
+}
+
+func (KubernetesClusterSpecMaintenanceWindowCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*KubernetesClusterSpecMaintenanceWindow)(ptr) == nil
+}
+
+func (KubernetesClusterSpecMaintenanceWindowCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*KubernetesClusterSpecMaintenanceWindow)(ptr)
+	var objs []KubernetesClusterSpecMaintenanceWindow
+	if obj != nil {
+		objs = []KubernetesClusterSpecMaintenanceWindow{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecMaintenanceWindow{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (KubernetesClusterSpecMaintenanceWindowCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*KubernetesClusterSpecMaintenanceWindow)(ptr) = KubernetesClusterSpecMaintenanceWindow{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []KubernetesClusterSpecMaintenanceWindow
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecMaintenanceWindow{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*KubernetesClusterSpecMaintenanceWindow)(ptr) = objs[0]
+			} else {
+				*(*KubernetesClusterSpecMaintenanceWindow)(ptr) = KubernetesClusterSpecMaintenanceWindow{}
+			}
+		} else {
+			*(*KubernetesClusterSpecMaintenanceWindow)(ptr) = KubernetesClusterSpecMaintenanceWindow{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj KubernetesClusterSpecMaintenanceWindow
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecMaintenanceWindow{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*KubernetesClusterSpecMaintenanceWindow)(ptr) = obj
+		} else {
+			*(*KubernetesClusterSpecMaintenanceWindow)(ptr) = KubernetesClusterSpecMaintenanceWindow{}
+		}
+	default:
+		iter.ReportError("decode KubernetesClusterSpecMaintenanceWindow", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type KubernetesClusterSpecNetworkProfileCodec struct {
 }
 
@@ -1599,6 +2170,164 @@ func (KubernetesClusterSpecNetworkProfileLoadBalancerProfileCodec) Decode(ptr un
 		}
 	default:
 		iter.ReportError("decode KubernetesClusterSpecNetworkProfileLoadBalancerProfile", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type KubernetesClusterSpecNetworkProfileNatGatewayProfileCodec struct {
+}
+
+func (KubernetesClusterSpecNetworkProfileNatGatewayProfileCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*KubernetesClusterSpecNetworkProfileNatGatewayProfile)(ptr) == nil
+}
+
+func (KubernetesClusterSpecNetworkProfileNatGatewayProfileCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*KubernetesClusterSpecNetworkProfileNatGatewayProfile)(ptr)
+	var objs []KubernetesClusterSpecNetworkProfileNatGatewayProfile
+	if obj != nil {
+		objs = []KubernetesClusterSpecNetworkProfileNatGatewayProfile{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecNetworkProfileNatGatewayProfile{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (KubernetesClusterSpecNetworkProfileNatGatewayProfileCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*KubernetesClusterSpecNetworkProfileNatGatewayProfile)(ptr) = KubernetesClusterSpecNetworkProfileNatGatewayProfile{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []KubernetesClusterSpecNetworkProfileNatGatewayProfile
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecNetworkProfileNatGatewayProfile{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*KubernetesClusterSpecNetworkProfileNatGatewayProfile)(ptr) = objs[0]
+			} else {
+				*(*KubernetesClusterSpecNetworkProfileNatGatewayProfile)(ptr) = KubernetesClusterSpecNetworkProfileNatGatewayProfile{}
+			}
+		} else {
+			*(*KubernetesClusterSpecNetworkProfileNatGatewayProfile)(ptr) = KubernetesClusterSpecNetworkProfileNatGatewayProfile{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj KubernetesClusterSpecNetworkProfileNatGatewayProfile
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecNetworkProfileNatGatewayProfile{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*KubernetesClusterSpecNetworkProfileNatGatewayProfile)(ptr) = obj
+		} else {
+			*(*KubernetesClusterSpecNetworkProfileNatGatewayProfile)(ptr) = KubernetesClusterSpecNetworkProfileNatGatewayProfile{}
+		}
+	default:
+		iter.ReportError("decode KubernetesClusterSpecNetworkProfileNatGatewayProfile", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type KubernetesClusterSpecOmsAgentCodec struct {
+}
+
+func (KubernetesClusterSpecOmsAgentCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*KubernetesClusterSpecOmsAgent)(ptr) == nil
+}
+
+func (KubernetesClusterSpecOmsAgentCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*KubernetesClusterSpecOmsAgent)(ptr)
+	var objs []KubernetesClusterSpecOmsAgent
+	if obj != nil {
+		objs = []KubernetesClusterSpecOmsAgent{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecOmsAgent{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (KubernetesClusterSpecOmsAgentCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*KubernetesClusterSpecOmsAgent)(ptr) = KubernetesClusterSpecOmsAgent{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []KubernetesClusterSpecOmsAgent
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecOmsAgent{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*KubernetesClusterSpecOmsAgent)(ptr) = objs[0]
+			} else {
+				*(*KubernetesClusterSpecOmsAgent)(ptr) = KubernetesClusterSpecOmsAgent{}
+			}
+		} else {
+			*(*KubernetesClusterSpecOmsAgent)(ptr) = KubernetesClusterSpecOmsAgent{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj KubernetesClusterSpecOmsAgent
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(KubernetesClusterSpecOmsAgent{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*KubernetesClusterSpecOmsAgent)(ptr) = obj
+		} else {
+			*(*KubernetesClusterSpecOmsAgent)(ptr) = KubernetesClusterSpecOmsAgent{}
+		}
+	default:
+		iter.ReportError("decode KubernetesClusterSpecOmsAgent", "unexpected JSON type")
 	}
 }
 

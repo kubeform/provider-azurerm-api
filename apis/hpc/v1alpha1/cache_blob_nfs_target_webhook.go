@@ -91,7 +91,7 @@ func (r *CacheBlobNfsTarget) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range cacheblobnfstargetForceNewList {
+	for key, _ := range cacheblobnfstargetForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -59,6 +59,8 @@ spec:
                 properties:
                   connectionConfiguration:
                     properties:
+                      internetSecurityEnabled:
+                        type: boolean
                       name:
                         type: string
                       route:
@@ -168,6 +170,8 @@ spec:
                 properties:
                   connectionConfiguration:
                     properties:
+                      internetSecurityEnabled:
+                        type: boolean
                       name:
                         type: string
                       route:

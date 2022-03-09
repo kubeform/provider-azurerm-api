@@ -89,12 +89,17 @@ spec:
                   name:
                     type: string
                   namespaceName:
+                    description: Deprecated
                     type: string
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   sqlFilter:
                     type: string
+                  subscriptionID:
+                    type: string
                   subscriptionName:
+                    description: Deprecated
                     type: string
                   timeouts:
                     properties:
@@ -135,14 +140,11 @@ spec:
                         type: integer
                     type: object
                   topicName:
+                    description: Deprecated
                     type: string
                 required:
                 - filterType
                 - name
-                - namespaceName
-                - resourceGroupName
-                - subscriptionName
-                - topicName
                 type: object
               state:
                 properties:
@@ -178,12 +180,17 @@ spec:
                   name:
                     type: string
                   namespaceName:
+                    description: Deprecated
                     type: string
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   sqlFilter:
                     type: string
+                  subscriptionID:
+                    type: string
                   subscriptionName:
+                    description: Deprecated
                     type: string
                   timeouts:
                     properties:
@@ -224,14 +231,11 @@ spec:
                         type: integer
                     type: object
                   topicName:
+                    description: Deprecated
                     type: string
                 required:
                 - filterType
                 - name
-                - namespaceName
-                - resourceGroupName
-                - subscriptionName
-                - topicName
                 type: object
               terminationPolicy:
                 enum:

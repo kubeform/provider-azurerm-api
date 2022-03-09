@@ -67,14 +67,28 @@ type HostSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	CopyPasteEnabled *bool `json:"copyPasteEnabled,omitempty" tf:"copy_paste_enabled"`
+	// +optional
 	DnsName *string `json:"dnsName,omitempty" tf:"dns_name"`
 	// +optional
-	IpConfiguration   *HostSpecIpConfiguration `json:"ipConfiguration,omitempty" tf:"ip_configuration"`
-	Location          *string                  `json:"location" tf:"location"`
-	Name              *string                  `json:"name" tf:"name"`
-	ResourceGroupName *string                  `json:"resourceGroupName" tf:"resource_group_name"`
+	FileCopyEnabled *bool `json:"fileCopyEnabled,omitempty" tf:"file_copy_enabled"`
+	// +optional
+	IpConfiguration *HostSpecIpConfiguration `json:"ipConfiguration,omitempty" tf:"ip_configuration"`
+	// +optional
+	IpConnectEnabled  *bool   `json:"ipConnectEnabled,omitempty" tf:"ip_connect_enabled"`
+	Location          *string `json:"location" tf:"location"`
+	Name              *string `json:"name" tf:"name"`
+	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	// +optional
+	ScaleUnits *int64 `json:"scaleUnits,omitempty" tf:"scale_units"`
+	// +optional
+	ShareableLinkEnabled *bool `json:"shareableLinkEnabled,omitempty" tf:"shareable_link_enabled"`
+	// +optional
+	Sku *string `json:"sku,omitempty" tf:"sku"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
+	// +optional
+	TunnelingEnabled *bool `json:"tunnelingEnabled,omitempty" tf:"tunneling_enabled"`
 }
 
 type HostStatus struct {

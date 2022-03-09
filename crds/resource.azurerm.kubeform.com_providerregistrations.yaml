@@ -57,6 +57,18 @@ spec:
                 type: object
               resource:
                 properties:
+                  feature:
+                    items:
+                      properties:
+                        name:
+                          type: string
+                        registered:
+                          type: boolean
+                      required:
+                      - name
+                      - registered
+                      type: object
+                    type: array
                   id:
                     type: string
                   name:
@@ -104,6 +116,18 @@ spec:
                 type: object
               state:
                 properties:
+                  feature:
+                    items:
+                      properties:
+                        name:
+                          type: string
+                        registered:
+                          type: boolean
+                      required:
+                      - name
+                      - registered
+                      type: object
+                    type: array
                   id:
                     type: string
                   name:

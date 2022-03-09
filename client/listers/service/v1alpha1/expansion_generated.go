@@ -26,6 +26,14 @@ type FabricClusterListerExpansion interface{}
 // FabricClusterNamespaceLister.
 type FabricClusterNamespaceListerExpansion interface{}
 
+// FabricManagedClusterListerExpansion allows custom methods to be added to
+// FabricManagedClusterLister.
+type FabricManagedClusterListerExpansion interface{}
+
+// FabricManagedClusterNamespaceListerExpansion allows custom methods to be added to
+// FabricManagedClusterNamespaceLister.
+type FabricManagedClusterNamespaceListerExpansion interface{}
+
 // FabricMeshApplicationListerExpansion allows custom methods to be added to
 // FabricMeshApplicationLister.
 type FabricMeshApplicationListerExpansion interface{}

@@ -27,14 +27,20 @@ import (
 
 type StreamV1alpha1Interface interface {
 	RESTClient() rest.Interface
+	AnalyticsClustersGetter
 	AnalyticsFunctionJavascriptUdvesGetter
 	AnalyticsJobsGetter
+	AnalyticsManagedPrivateEndpointsGetter
 	AnalyticsOutputBlobsGetter
 	AnalyticsOutputEventhubsGetter
+	AnalyticsOutputFunctionsGetter
 	AnalyticsOutputMssqlsGetter
 	AnalyticsOutputServicebusQueuesGetter
 	AnalyticsOutputServicebusTopicsGetter
+	AnalyticsOutputSynapsesGetter
+	AnalyticsOutputTablesGetter
 	AnalyticsReferenceInputBlobsGetter
+	AnalyticsReferenceInputMssqlsGetter
 	AnalyticsStreamInputBlobsGetter
 	AnalyticsStreamInputEventhubsGetter
 	AnalyticsStreamInputIothubsGetter
@@ -45,6 +51,10 @@ type StreamV1alpha1Client struct {
 	restClient rest.Interface
 }
 
+func (c *StreamV1alpha1Client) AnalyticsClusters(namespace string) AnalyticsClusterInterface {
+	return newAnalyticsClusters(c, namespace)
+}
+
 func (c *StreamV1alpha1Client) AnalyticsFunctionJavascriptUdves(namespace string) AnalyticsFunctionJavascriptUdfInterface {
 	return newAnalyticsFunctionJavascriptUdves(c, namespace)
 }
@@ -53,12 +63,20 @@ func (c *StreamV1alpha1Client) AnalyticsJobs(namespace string) AnalyticsJobInter
 	return newAnalyticsJobs(c, namespace)
 }
 
+func (c *StreamV1alpha1Client) AnalyticsManagedPrivateEndpoints(namespace string) AnalyticsManagedPrivateEndpointInterface {
+	return newAnalyticsManagedPrivateEndpoints(c, namespace)
+}
+
 func (c *StreamV1alpha1Client) AnalyticsOutputBlobs(namespace string) AnalyticsOutputBlobInterface {
 	return newAnalyticsOutputBlobs(c, namespace)
 }
 
 func (c *StreamV1alpha1Client) AnalyticsOutputEventhubs(namespace string) AnalyticsOutputEventhubInterface {
 	return newAnalyticsOutputEventhubs(c, namespace)
+}
+
+func (c *StreamV1alpha1Client) AnalyticsOutputFunctions(namespace string) AnalyticsOutputFunctionInterface {
+	return newAnalyticsOutputFunctions(c, namespace)
 }
 
 func (c *StreamV1alpha1Client) AnalyticsOutputMssqls(namespace string) AnalyticsOutputMssqlInterface {
@@ -73,8 +91,20 @@ func (c *StreamV1alpha1Client) AnalyticsOutputServicebusTopics(namespace string)
 	return newAnalyticsOutputServicebusTopics(c, namespace)
 }
 
+func (c *StreamV1alpha1Client) AnalyticsOutputSynapses(namespace string) AnalyticsOutputSynapseInterface {
+	return newAnalyticsOutputSynapses(c, namespace)
+}
+
+func (c *StreamV1alpha1Client) AnalyticsOutputTables(namespace string) AnalyticsOutputTableInterface {
+	return newAnalyticsOutputTables(c, namespace)
+}
+
 func (c *StreamV1alpha1Client) AnalyticsReferenceInputBlobs(namespace string) AnalyticsReferenceInputBlobInterface {
 	return newAnalyticsReferenceInputBlobs(c, namespace)
+}
+
+func (c *StreamV1alpha1Client) AnalyticsReferenceInputMssqls(namespace string) AnalyticsReferenceInputMssqlInterface {
+	return newAnalyticsReferenceInputMssqls(c, namespace)
 }
 
 func (c *StreamV1alpha1Client) AnalyticsStreamInputBlobs(namespace string) AnalyticsStreamInputBlobInterface {

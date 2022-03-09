@@ -66,10 +66,19 @@ spec:
                           properties:
                             baseBlob:
                               properties:
+                                deleteAfterDaysSinceLastAccessTimeGreaterThan:
+                                  format: int64
+                                  type: integer
                                 deleteAfterDaysSinceModificationGreaterThan:
                                   format: int64
                                   type: integer
+                                tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan:
+                                  format: int64
+                                  type: integer
                                 tierToArchiveAfterDaysSinceModificationGreaterThan:
+                                  format: int64
+                                  type: integer
+                                tierToCoolAfterDaysSinceLastAccessTimeGreaterThan:
                                   format: int64
                                   type: integer
                                 tierToCoolAfterDaysSinceModificationGreaterThan:
@@ -191,10 +200,19 @@ spec:
                           properties:
                             baseBlob:
                               properties:
+                                deleteAfterDaysSinceLastAccessTimeGreaterThan:
+                                  format: int64
+                                  type: integer
                                 deleteAfterDaysSinceModificationGreaterThan:
                                   format: int64
                                   type: integer
+                                tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan:
+                                  format: int64
+                                  type: integer
                                 tierToArchiveAfterDaysSinceModificationGreaterThan:
+                                  format: int64
+                                  type: integer
+                                tierToCoolAfterDaysSinceLastAccessTimeGreaterThan:
                                   format: int64
                                   type: integer
                                 tierToCoolAfterDaysSinceModificationGreaterThan:

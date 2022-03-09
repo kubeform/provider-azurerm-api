@@ -61,12 +61,14 @@ var virtualmachineForceNewList = map[string]bool{
 	"/priority":                              true,
 	"/provision_vm_agent":                    true,
 	"/resource_group_name":                   true,
+	"/secure_boot_enabled":                   true,
 	"/source_image_id":                       true,
 	"/source_image_reference/*/offer":        true,
 	"/source_image_reference/*/publisher":    true,
 	"/source_image_reference/*/sku":          true,
 	"/source_image_reference/*/version":      true,
 	"/virtual_machine_scale_set_id":          true,
+	"/vtpm_enabled":                          true,
 	"/zone":                                  true,
 }
 
@@ -113,7 +115,7 @@ func (r *VirtualMachine) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range virtualmachineForceNewList {
+	for key, _ := range virtualmachineForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

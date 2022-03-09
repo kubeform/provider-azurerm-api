@@ -42,6 +42,10 @@ type Interface interface {
 	LogProfiles() LogProfileInformer
 	// MetricAlerts returns a MetricAlertInformer.
 	MetricAlerts() MetricAlertInformer
+	// PrivateLinkScopes returns a PrivateLinkScopeInformer.
+	PrivateLinkScopes() PrivateLinkScopeInformer
+	// PrivateLinkScopedServices returns a PrivateLinkScopedServiceInformer.
+	PrivateLinkScopedServices() PrivateLinkScopedServiceInformer
 	// ScheduledQueryRulesAlerts returns a ScheduledQueryRulesAlertInformer.
 	ScheduledQueryRulesAlerts() ScheduledQueryRulesAlertInformer
 	// ScheduledQueryRulesLogs returns a ScheduledQueryRulesLogInformer.
@@ -104,6 +108,16 @@ func (v *version) LogProfiles() LogProfileInformer {
 // MetricAlerts returns a MetricAlertInformer.
 func (v *version) MetricAlerts() MetricAlertInformer {
 	return &metricAlertInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// PrivateLinkScopes returns a PrivateLinkScopeInformer.
+func (v *version) PrivateLinkScopes() PrivateLinkScopeInformer {
+	return &privateLinkScopeInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// PrivateLinkScopedServices returns a PrivateLinkScopedServiceInformer.
+func (v *version) PrivateLinkScopedServices() PrivateLinkScopedServiceInformer {
+	return &privateLinkScopedServiceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // ScheduledQueryRulesAlerts returns a ScheduledQueryRulesAlertInformer.

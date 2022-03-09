@@ -61,6 +61,8 @@ spec:
                     type: string
                   azureadAdministrator:
                     properties:
+                      azureadAuthenticationOnly:
+                        type: boolean
                       loginUsername:
                         type: string
                       objectID:
@@ -86,6 +88,21 @@ spec:
                       storageEndpoint:
                         type: string
                     type: object
+                  foo:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   fullyQualifiedDomainName:
                     type: string
                   id:
@@ -98,6 +115,11 @@ spec:
                         type: string
                       type:
                         type: string
+                      userAssignedIdentityIDS:
+                        items:
+                          type: string
+                        minItems: 1
+                        type: array
                     required:
                     - type
                     type: object
@@ -106,6 +128,10 @@ spec:
                   minimumTlsVersion:
                     type: string
                   name:
+                    type: string
+                  outboundNetworkRestrictionEnabled:
+                    type: boolean
+                  primaryUserAssignedIdentityID:
                     type: string
                   publicNetworkAccessEnabled:
                     type: boolean
@@ -181,6 +207,8 @@ spec:
                     type: string
                   azureadAdministrator:
                     properties:
+                      azureadAuthenticationOnly:
+                        type: boolean
                       loginUsername:
                         type: string
                       objectID:
@@ -206,6 +234,21 @@ spec:
                       storageEndpoint:
                         type: string
                     type: object
+                  foo:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   fullyQualifiedDomainName:
                     type: string
                   id:
@@ -218,6 +261,11 @@ spec:
                         type: string
                       type:
                         type: string
+                      userAssignedIdentityIDS:
+                        items:
+                          type: string
+                        minItems: 1
+                        type: array
                     required:
                     - type
                     type: object
@@ -226,6 +274,10 @@ spec:
                   minimumTlsVersion:
                     type: string
                   name:
+                    type: string
+                  outboundNetworkRestrictionEnabled:
+                    type: boolean
+                  primaryUserAssignedIdentityID:
                     type: string
                   publicNetworkAccessEnabled:
                     type: boolean

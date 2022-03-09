@@ -28,6 +28,8 @@ type Interface interface {
 	AssignmentDedicatedHosts() AssignmentDedicatedHostInformer
 	// AssignmentVirtualMachines returns a AssignmentVirtualMachineInformer.
 	AssignmentVirtualMachines() AssignmentVirtualMachineInformer
+	// AssignmentVirtualMachineScaleSets returns a AssignmentVirtualMachineScaleSetInformer.
+	AssignmentVirtualMachineScaleSets() AssignmentVirtualMachineScaleSetInformer
 	// Configurations returns a ConfigurationInformer.
 	Configurations() ConfigurationInformer
 }
@@ -51,6 +53,11 @@ func (v *version) AssignmentDedicatedHosts() AssignmentDedicatedHostInformer {
 // AssignmentVirtualMachines returns a AssignmentVirtualMachineInformer.
 func (v *version) AssignmentVirtualMachines() AssignmentVirtualMachineInformer {
 	return &assignmentVirtualMachineInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// AssignmentVirtualMachineScaleSets returns a AssignmentVirtualMachineScaleSetInformer.
+func (v *version) AssignmentVirtualMachineScaleSets() AssignmentVirtualMachineScaleSetInformer {
+	return &assignmentVirtualMachineScaleSetInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Configurations returns a ConfigurationInformer.

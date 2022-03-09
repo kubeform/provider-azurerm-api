@@ -218,13 +218,14 @@ spec:
                     type: object
                   trace:
                     properties:
+                      connectionString:
+                        type: string
                       instrumentationKey:
+                        description: Deprecated
                         type: string
                       sampleRate:
                         format: double
                         type: number
-                    required:
-                    - instrumentationKey
                     type: object
                 required:
                 - location
@@ -403,13 +404,14 @@ spec:
                     type: object
                   trace:
                     properties:
+                      connectionString:
+                        type: string
                       instrumentationKey:
+                        description: Deprecated
                         type: string
                       sampleRate:
                         format: double
                         type: number
-                    required:
-                    - instrumentationKey
                     type: object
                 required:
                 - location

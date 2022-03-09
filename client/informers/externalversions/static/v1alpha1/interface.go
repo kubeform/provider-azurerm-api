@@ -26,6 +26,8 @@ import (
 type Interface interface {
 	// Sites returns a SiteInformer.
 	Sites() SiteInformer
+	// SiteCustomDomains returns a SiteCustomDomainInformer.
+	SiteCustomDomains() SiteCustomDomainInformer
 }
 
 type version struct {
@@ -42,4 +44,9 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // Sites returns a SiteInformer.
 func (v *version) Sites() SiteInformer {
 	return &siteInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// SiteCustomDomains returns a SiteCustomDomainInformer.
+func (v *version) SiteCustomDomains() SiteCustomDomainInformer {
+	return &siteCustomDomainInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

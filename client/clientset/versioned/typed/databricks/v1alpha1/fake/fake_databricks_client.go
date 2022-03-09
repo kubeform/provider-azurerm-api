@@ -33,6 +33,10 @@ func (c *FakeDatabricksV1alpha1) Workspaces(namespace string) v1alpha1.Workspace
 	return &FakeWorkspaces{c, namespace}
 }
 
+func (c *FakeDatabricksV1alpha1) WorkspaceCustomerManagedKeys(namespace string) v1alpha1.WorkspaceCustomerManagedKeyInterface {
+	return &FakeWorkspaceCustomerManagedKeys{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeDatabricksV1alpha1) RESTClient() rest.Interface {

@@ -27,15 +27,25 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecActiveDirectory{}).Type1()):          AccountSpecActiveDirectoryCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VolumeSpecDataProtectionReplication{}).Type1()): VolumeSpecDataProtectionReplicationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecActiveDirectory{}).Type1()):             AccountSpecActiveDirectoryCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecDailySchedule{}).Type1()):        SnapshotPolicySpecDailyScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecHourlySchedule{}).Type1()):       SnapshotPolicySpecHourlyScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecMonthlySchedule{}).Type1()):      SnapshotPolicySpecMonthlyScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecWeeklySchedule{}).Type1()):       SnapshotPolicySpecWeeklyScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VolumeSpecDataProtectionReplication{}).Type1()):    VolumeSpecDataProtectionReplicationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VolumeSpecDataProtectionSnapshotPolicy{}).Type1()): VolumeSpecDataProtectionSnapshotPolicyCodec{},
 	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecActiveDirectory{}).Type1()):          AccountSpecActiveDirectoryCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VolumeSpecDataProtectionReplication{}).Type1()): VolumeSpecDataProtectionReplicationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecActiveDirectory{}).Type1()):             AccountSpecActiveDirectoryCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecDailySchedule{}).Type1()):        SnapshotPolicySpecDailyScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecHourlySchedule{}).Type1()):       SnapshotPolicySpecHourlyScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecMonthlySchedule{}).Type1()):      SnapshotPolicySpecMonthlyScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecWeeklySchedule{}).Type1()):       SnapshotPolicySpecWeeklyScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VolumeSpecDataProtectionReplication{}).Type1()):    VolumeSpecDataProtectionReplicationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VolumeSpecDataProtectionSnapshotPolicy{}).Type1()): VolumeSpecDataProtectionSnapshotPolicyCodec{},
 	}
 }
 
@@ -131,6 +141,322 @@ func (AccountSpecActiveDirectoryCodec) Decode(ptr unsafe.Pointer, iter *jsoniter
 }
 
 // +k8s:deepcopy-gen=false
+type SnapshotPolicySpecDailyScheduleCodec struct {
+}
+
+func (SnapshotPolicySpecDailyScheduleCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*SnapshotPolicySpecDailySchedule)(ptr) == nil
+}
+
+func (SnapshotPolicySpecDailyScheduleCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*SnapshotPolicySpecDailySchedule)(ptr)
+	var objs []SnapshotPolicySpecDailySchedule
+	if obj != nil {
+		objs = []SnapshotPolicySpecDailySchedule{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecDailySchedule{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (SnapshotPolicySpecDailyScheduleCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*SnapshotPolicySpecDailySchedule)(ptr) = SnapshotPolicySpecDailySchedule{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []SnapshotPolicySpecDailySchedule
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecDailySchedule{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*SnapshotPolicySpecDailySchedule)(ptr) = objs[0]
+			} else {
+				*(*SnapshotPolicySpecDailySchedule)(ptr) = SnapshotPolicySpecDailySchedule{}
+			}
+		} else {
+			*(*SnapshotPolicySpecDailySchedule)(ptr) = SnapshotPolicySpecDailySchedule{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj SnapshotPolicySpecDailySchedule
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecDailySchedule{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*SnapshotPolicySpecDailySchedule)(ptr) = obj
+		} else {
+			*(*SnapshotPolicySpecDailySchedule)(ptr) = SnapshotPolicySpecDailySchedule{}
+		}
+	default:
+		iter.ReportError("decode SnapshotPolicySpecDailySchedule", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type SnapshotPolicySpecHourlyScheduleCodec struct {
+}
+
+func (SnapshotPolicySpecHourlyScheduleCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*SnapshotPolicySpecHourlySchedule)(ptr) == nil
+}
+
+func (SnapshotPolicySpecHourlyScheduleCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*SnapshotPolicySpecHourlySchedule)(ptr)
+	var objs []SnapshotPolicySpecHourlySchedule
+	if obj != nil {
+		objs = []SnapshotPolicySpecHourlySchedule{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecHourlySchedule{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (SnapshotPolicySpecHourlyScheduleCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*SnapshotPolicySpecHourlySchedule)(ptr) = SnapshotPolicySpecHourlySchedule{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []SnapshotPolicySpecHourlySchedule
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecHourlySchedule{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*SnapshotPolicySpecHourlySchedule)(ptr) = objs[0]
+			} else {
+				*(*SnapshotPolicySpecHourlySchedule)(ptr) = SnapshotPolicySpecHourlySchedule{}
+			}
+		} else {
+			*(*SnapshotPolicySpecHourlySchedule)(ptr) = SnapshotPolicySpecHourlySchedule{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj SnapshotPolicySpecHourlySchedule
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecHourlySchedule{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*SnapshotPolicySpecHourlySchedule)(ptr) = obj
+		} else {
+			*(*SnapshotPolicySpecHourlySchedule)(ptr) = SnapshotPolicySpecHourlySchedule{}
+		}
+	default:
+		iter.ReportError("decode SnapshotPolicySpecHourlySchedule", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type SnapshotPolicySpecMonthlyScheduleCodec struct {
+}
+
+func (SnapshotPolicySpecMonthlyScheduleCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*SnapshotPolicySpecMonthlySchedule)(ptr) == nil
+}
+
+func (SnapshotPolicySpecMonthlyScheduleCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*SnapshotPolicySpecMonthlySchedule)(ptr)
+	var objs []SnapshotPolicySpecMonthlySchedule
+	if obj != nil {
+		objs = []SnapshotPolicySpecMonthlySchedule{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecMonthlySchedule{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (SnapshotPolicySpecMonthlyScheduleCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*SnapshotPolicySpecMonthlySchedule)(ptr) = SnapshotPolicySpecMonthlySchedule{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []SnapshotPolicySpecMonthlySchedule
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecMonthlySchedule{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*SnapshotPolicySpecMonthlySchedule)(ptr) = objs[0]
+			} else {
+				*(*SnapshotPolicySpecMonthlySchedule)(ptr) = SnapshotPolicySpecMonthlySchedule{}
+			}
+		} else {
+			*(*SnapshotPolicySpecMonthlySchedule)(ptr) = SnapshotPolicySpecMonthlySchedule{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj SnapshotPolicySpecMonthlySchedule
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecMonthlySchedule{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*SnapshotPolicySpecMonthlySchedule)(ptr) = obj
+		} else {
+			*(*SnapshotPolicySpecMonthlySchedule)(ptr) = SnapshotPolicySpecMonthlySchedule{}
+		}
+	default:
+		iter.ReportError("decode SnapshotPolicySpecMonthlySchedule", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type SnapshotPolicySpecWeeklyScheduleCodec struct {
+}
+
+func (SnapshotPolicySpecWeeklyScheduleCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*SnapshotPolicySpecWeeklySchedule)(ptr) == nil
+}
+
+func (SnapshotPolicySpecWeeklyScheduleCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*SnapshotPolicySpecWeeklySchedule)(ptr)
+	var objs []SnapshotPolicySpecWeeklySchedule
+	if obj != nil {
+		objs = []SnapshotPolicySpecWeeklySchedule{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecWeeklySchedule{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (SnapshotPolicySpecWeeklyScheduleCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*SnapshotPolicySpecWeeklySchedule)(ptr) = SnapshotPolicySpecWeeklySchedule{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []SnapshotPolicySpecWeeklySchedule
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecWeeklySchedule{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*SnapshotPolicySpecWeeklySchedule)(ptr) = objs[0]
+			} else {
+				*(*SnapshotPolicySpecWeeklySchedule)(ptr) = SnapshotPolicySpecWeeklySchedule{}
+			}
+		} else {
+			*(*SnapshotPolicySpecWeeklySchedule)(ptr) = SnapshotPolicySpecWeeklySchedule{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj SnapshotPolicySpecWeeklySchedule
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SnapshotPolicySpecWeeklySchedule{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*SnapshotPolicySpecWeeklySchedule)(ptr) = obj
+		} else {
+			*(*SnapshotPolicySpecWeeklySchedule)(ptr) = SnapshotPolicySpecWeeklySchedule{}
+		}
+	default:
+		iter.ReportError("decode SnapshotPolicySpecWeeklySchedule", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type VolumeSpecDataProtectionReplicationCodec struct {
 }
 
@@ -206,5 +532,84 @@ func (VolumeSpecDataProtectionReplicationCodec) Decode(ptr unsafe.Pointer, iter 
 		}
 	default:
 		iter.ReportError("decode VolumeSpecDataProtectionReplication", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type VolumeSpecDataProtectionSnapshotPolicyCodec struct {
+}
+
+func (VolumeSpecDataProtectionSnapshotPolicyCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*VolumeSpecDataProtectionSnapshotPolicy)(ptr) == nil
+}
+
+func (VolumeSpecDataProtectionSnapshotPolicyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*VolumeSpecDataProtectionSnapshotPolicy)(ptr)
+	var objs []VolumeSpecDataProtectionSnapshotPolicy
+	if obj != nil {
+		objs = []VolumeSpecDataProtectionSnapshotPolicy{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(VolumeSpecDataProtectionSnapshotPolicy{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (VolumeSpecDataProtectionSnapshotPolicyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*VolumeSpecDataProtectionSnapshotPolicy)(ptr) = VolumeSpecDataProtectionSnapshotPolicy{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []VolumeSpecDataProtectionSnapshotPolicy
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(VolumeSpecDataProtectionSnapshotPolicy{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*VolumeSpecDataProtectionSnapshotPolicy)(ptr) = objs[0]
+			} else {
+				*(*VolumeSpecDataProtectionSnapshotPolicy)(ptr) = VolumeSpecDataProtectionSnapshotPolicy{}
+			}
+		} else {
+			*(*VolumeSpecDataProtectionSnapshotPolicy)(ptr) = VolumeSpecDataProtectionSnapshotPolicy{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj VolumeSpecDataProtectionSnapshotPolicy
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(VolumeSpecDataProtectionSnapshotPolicy{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*VolumeSpecDataProtectionSnapshotPolicy)(ptr) = obj
+		} else {
+			*(*VolumeSpecDataProtectionSnapshotPolicy)(ptr) = VolumeSpecDataProtectionSnapshotPolicy{}
+		}
+	default:
+		iter.ReportError("decode VolumeSpecDataProtectionSnapshotPolicy", "unexpected JSON type")
 	}
 }

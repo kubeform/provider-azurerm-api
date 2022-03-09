@@ -47,7 +47,6 @@ var enterpriseclusterForceNewList = map[string]bool{
 	"/name":                true,
 	"/resource_group_name": true,
 	"/sku_name":            true,
-	"/tags":                true,
 	"/zones":               true,
 }
 
@@ -94,7 +93,7 @@ func (r *EnterpriseCluster) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range enterpriseclusterForceNewList {
+	for key, _ := range enterpriseclusterForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

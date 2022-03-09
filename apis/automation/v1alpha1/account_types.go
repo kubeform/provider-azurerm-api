@@ -41,6 +41,16 @@ type Account struct {
 	Status            AccountStatus `json:"status,omitempty"`
 }
 
+type AccountSpecIdentity struct {
+	// +optional
+	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
+	// +optional
+	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
+}
+
 type AccountSpec struct {
 	State *AccountSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -66,10 +76,14 @@ type AccountSpecResource struct {
 	DscSecondaryAccessKey *string `json:"dscSecondaryAccessKey,omitempty" tf:"dsc_secondary_access_key"`
 	// +optional
 	DscServerEndpoint *string `json:"dscServerEndpoint,omitempty" tf:"dsc_server_endpoint"`
-	Location          *string `json:"location" tf:"location"`
-	Name              *string `json:"name" tf:"name"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
-	SkuName           *string `json:"skuName" tf:"sku_name"`
+	// +optional
+	Identity *AccountSpecIdentity `json:"identity,omitempty" tf:"identity"`
+	Location *string              `json:"location" tf:"location"`
+	Name     *string              `json:"name" tf:"name"`
+	// +optional
+	PublicNetworkAccessEnabled *bool   `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
+	ResourceGroupName          *string `json:"resourceGroupName" tf:"resource_group_name"`
+	SkuName                    *string `json:"skuName" tf:"sku_name"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 }

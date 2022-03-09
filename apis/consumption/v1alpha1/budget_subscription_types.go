@@ -98,6 +98,8 @@ type BudgetSubscriptionSpecNotification struct {
 	Enabled   *bool   `json:"enabled,omitempty" tf:"enabled"`
 	Operator  *string `json:"operator" tf:"operator"`
 	Threshold *int64  `json:"threshold" tf:"threshold"`
+	// +optional
+	ThresholdType *string `json:"thresholdType,omitempty" tf:"threshold_type"`
 }
 
 type BudgetSubscriptionSpecTimePeriod struct {
@@ -126,6 +128,8 @@ type BudgetSubscriptionSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	Amount *float64 `json:"amount" tf:"amount"`
+	// +optional
+	Etag *string `json:"etag,omitempty" tf:"etag"`
 	// +optional
 	Filter *BudgetSubscriptionSpecFilter `json:"filter,omitempty" tf:"filter"`
 	Name   *string                       `json:"name" tf:"name"`

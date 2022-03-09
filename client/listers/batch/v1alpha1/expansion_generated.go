@@ -42,6 +42,14 @@ type CertificateListerExpansion interface{}
 // CertificateNamespaceLister.
 type CertificateNamespaceListerExpansion interface{}
 
+// JobListerExpansion allows custom methods to be added to
+// JobLister.
+type JobListerExpansion interface{}
+
+// JobNamespaceListerExpansion allows custom methods to be added to
+// JobNamespaceLister.
+type JobNamespaceListerExpansion interface{}
+
 // PoolListerExpansion allows custom methods to be added to
 // PoolLister.
 type PoolListerExpansion interface{}

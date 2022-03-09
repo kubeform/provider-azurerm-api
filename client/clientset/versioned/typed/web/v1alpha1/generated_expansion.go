@@ -19,3 +19,9 @@ limitations under the License.
 package v1alpha1
 
 type ApplicationFirewallPolicyExpansion interface{}
+
+type PubsubExpansion interface{}
+
+type PubsubHubExpansion interface{}
+
+type PubsubNetworkACLExpansion interface{}

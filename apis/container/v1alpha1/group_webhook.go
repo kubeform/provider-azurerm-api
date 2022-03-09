@@ -88,7 +88,6 @@ var groupForceNewList = map[string]bool{
 	"/dns_name_label":                                      true,
 	"/exposed_port/*/port":                                 true,
 	"/exposed_port/*/protocol":                             true,
-	"/identity/*/identity_ids":                             true,
 	"/image_registry_credential/*/server":                  true,
 	"/image_registry_credential/*/username":                true,
 	"/ip_address_type":                                     true,
@@ -143,7 +142,7 @@ func (r *Group) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range groupForceNewList {
+	for key, _ := range groupForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

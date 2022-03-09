@@ -18,6 +18,8 @@ limitations under the License.
 
 package v1alpha1
 
+type CostManagementExportExpansion interface{}
+
 type PolicyAssignmentExpansion interface{}
 
 type SubscriptionExpansion interface{}

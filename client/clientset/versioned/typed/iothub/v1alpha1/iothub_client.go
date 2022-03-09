@@ -27,6 +27,7 @@ import (
 
 type IothubV1alpha1Interface interface {
 	RESTClient() rest.Interface
+	CertificatesGetter
 	ConsumerGroupsGetter
 	DpsesGetter
 	DpsCertificatesGetter
@@ -45,6 +46,10 @@ type IothubV1alpha1Interface interface {
 // IothubV1alpha1Client is used to interact with features provided by the iothub.azurerm.kubeform.com group.
 type IothubV1alpha1Client struct {
 	restClient rest.Interface
+}
+
+func (c *IothubV1alpha1Client) Certificates(namespace string) CertificateInterface {
+	return newCertificates(c, namespace)
 }
 
 func (c *IothubV1alpha1Client) ConsumerGroups(namespace string) ConsumerGroupInterface {

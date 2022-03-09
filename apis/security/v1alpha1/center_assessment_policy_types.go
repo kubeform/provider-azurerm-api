@@ -60,8 +60,10 @@ type CenterAssessmentPolicySpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	Description *string `json:"description" tf:"description"`
-	DisplayName *string `json:"displayName" tf:"display_name"`
+	// +optional
+	Categories  []string `json:"categories,omitempty" tf:"categories"`
+	Description *string  `json:"description" tf:"description"`
+	DisplayName *string  `json:"displayName" tf:"display_name"`
 	// +optional
 	ImplementationEffort *string `json:"implementationEffort,omitempty" tf:"implementation_effort"`
 	// +optional

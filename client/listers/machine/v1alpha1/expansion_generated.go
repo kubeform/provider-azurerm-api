@@ -26,6 +26,14 @@ type LearningComputeClusterListerExpansion interface{}
 // LearningComputeClusterNamespaceLister.
 type LearningComputeClusterNamespaceListerExpansion interface{}
 
+// LearningComputeInstanceListerExpansion allows custom methods to be added to
+// LearningComputeInstanceLister.
+type LearningComputeInstanceListerExpansion interface{}
+
+// LearningComputeInstanceNamespaceListerExpansion allows custom methods to be added to
+// LearningComputeInstanceNamespaceLister.
+type LearningComputeInstanceNamespaceListerExpansion interface{}
+
 // LearningInferenceClusterListerExpansion allows custom methods to be added to
 // LearningInferenceClusterLister.
 type LearningInferenceClusterListerExpansion interface{}
@@ -33,6 +41,14 @@ type LearningInferenceClusterListerExpansion interface{}
 // LearningInferenceClusterNamespaceListerExpansion allows custom methods to be added to
 // LearningInferenceClusterNamespaceLister.
 type LearningInferenceClusterNamespaceListerExpansion interface{}
+
+// LearningSynapseSparkListerExpansion allows custom methods to be added to
+// LearningSynapseSparkLister.
+type LearningSynapseSparkListerExpansion interface{}
+
+// LearningSynapseSparkNamespaceListerExpansion allows custom methods to be added to
+// LearningSynapseSparkNamespaceLister.
+type LearningSynapseSparkNamespaceListerExpansion interface{}
 
 // LearningWorkspaceListerExpansion allows custom methods to be added to
 // LearningWorkspaceLister.

@@ -27,37 +27,57 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerGpu{}).Type1()):            GroupSpecContainerGpuCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerLivenessProbe{}).Type1()):  GroupSpecContainerLivenessProbeCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerReadinessProbe{}).Type1()): GroupSpecContainerReadinessProbeCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerVolumeGitRepo{}).Type1()):  GroupSpecContainerVolumeGitRepoCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecDiagnostics{}).Type1()):             GroupSpecDiagnosticsCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecDiagnosticsLogAnalytics{}).Type1()): GroupSpecDiagnosticsLogAnalyticsCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecDnsConfig{}).Type1()):               GroupSpecDnsConfigCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecIdentity{}).Type1()):                GroupSpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecEncryption{}).Type1()):           RegistrySpecEncryptionCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecIdentity{}).Type1()):             RegistrySpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecNetworkRuleSet{}).Type1()):       RegistrySpecNetworkRuleSetCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecRetentionPolicy{}).Type1()):      RegistrySpecRetentionPolicyCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecTrustPolicy{}).Type1()):          RegistrySpecTrustPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerGpu{}).Type1()):                       GroupSpecContainerGpuCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerLivenessProbe{}).Type1()):             GroupSpecContainerLivenessProbeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerReadinessProbe{}).Type1()):            GroupSpecContainerReadinessProbeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerVolumeGitRepo{}).Type1()):             GroupSpecContainerVolumeGitRepoCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecDiagnostics{}).Type1()):                        GroupSpecDiagnosticsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecDiagnosticsLogAnalytics{}).Type1()):            GroupSpecDiagnosticsLogAnalyticsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecDnsConfig{}).Type1()):                          GroupSpecDnsConfigCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecIdentity{}).Type1()):                           GroupSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecEncryption{}).Type1()):                      RegistrySpecEncryptionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecIdentity{}).Type1()):                        RegistrySpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecNetworkRuleSet{}).Type1()):                  RegistrySpecNetworkRuleSetCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecRetentionPolicy{}).Type1()):                 RegistrySpecRetentionPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecTrustPolicy{}).Type1()):                     RegistrySpecTrustPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecAgentSetting{}).Type1()):                RegistryTaskSpecAgentSettingCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecBaseImageTrigger{}).Type1()):            RegistryTaskSpecBaseImageTriggerCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecDockerStep{}).Type1()):                  RegistryTaskSpecDockerStepCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecEncodedStep{}).Type1()):                 RegistryTaskSpecEncodedStepCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecFileStep{}).Type1()):                    RegistryTaskSpecFileStepCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecIdentity{}).Type1()):                    RegistryTaskSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecPlatform{}).Type1()):                    RegistryTaskSpecPlatformCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecRegistryCredential{}).Type1()):          RegistryTaskSpecRegistryCredentialCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecRegistryCredentialSource{}).Type1()):    RegistryTaskSpecRegistryCredentialSourceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecSourceTriggerAuthentication{}).Type1()): RegistryTaskSpecSourceTriggerAuthenticationCodec{},
 	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerGpu{}).Type1()):            GroupSpecContainerGpuCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerLivenessProbe{}).Type1()):  GroupSpecContainerLivenessProbeCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerReadinessProbe{}).Type1()): GroupSpecContainerReadinessProbeCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerVolumeGitRepo{}).Type1()):  GroupSpecContainerVolumeGitRepoCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecDiagnostics{}).Type1()):             GroupSpecDiagnosticsCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecDiagnosticsLogAnalytics{}).Type1()): GroupSpecDiagnosticsLogAnalyticsCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecDnsConfig{}).Type1()):               GroupSpecDnsConfigCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecIdentity{}).Type1()):                GroupSpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecEncryption{}).Type1()):           RegistrySpecEncryptionCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecIdentity{}).Type1()):             RegistrySpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecNetworkRuleSet{}).Type1()):       RegistrySpecNetworkRuleSetCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecRetentionPolicy{}).Type1()):      RegistrySpecRetentionPolicyCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecTrustPolicy{}).Type1()):          RegistrySpecTrustPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerGpu{}).Type1()):                       GroupSpecContainerGpuCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerLivenessProbe{}).Type1()):             GroupSpecContainerLivenessProbeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerReadinessProbe{}).Type1()):            GroupSpecContainerReadinessProbeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecContainerVolumeGitRepo{}).Type1()):             GroupSpecContainerVolumeGitRepoCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecDiagnostics{}).Type1()):                        GroupSpecDiagnosticsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecDiagnosticsLogAnalytics{}).Type1()):            GroupSpecDiagnosticsLogAnalyticsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecDnsConfig{}).Type1()):                          GroupSpecDnsConfigCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GroupSpecIdentity{}).Type1()):                           GroupSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecEncryption{}).Type1()):                      RegistrySpecEncryptionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecIdentity{}).Type1()):                        RegistrySpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecNetworkRuleSet{}).Type1()):                  RegistrySpecNetworkRuleSetCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecRetentionPolicy{}).Type1()):                 RegistrySpecRetentionPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistrySpecTrustPolicy{}).Type1()):                     RegistrySpecTrustPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecAgentSetting{}).Type1()):                RegistryTaskSpecAgentSettingCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecBaseImageTrigger{}).Type1()):            RegistryTaskSpecBaseImageTriggerCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecDockerStep{}).Type1()):                  RegistryTaskSpecDockerStepCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecEncodedStep{}).Type1()):                 RegistryTaskSpecEncodedStepCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecFileStep{}).Type1()):                    RegistryTaskSpecFileStepCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecIdentity{}).Type1()):                    RegistryTaskSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecPlatform{}).Type1()):                    RegistryTaskSpecPlatformCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecRegistryCredential{}).Type1()):          RegistryTaskSpecRegistryCredentialCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecRegistryCredentialSource{}).Type1()):    RegistryTaskSpecRegistryCredentialSourceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecSourceTriggerAuthentication{}).Type1()): RegistryTaskSpecSourceTriggerAuthenticationCodec{},
 	}
 }
 
@@ -1097,5 +1117,795 @@ func (RegistrySpecTrustPolicyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.It
 		}
 	default:
 		iter.ReportError("decode RegistrySpecTrustPolicy", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type RegistryTaskSpecAgentSettingCodec struct {
+}
+
+func (RegistryTaskSpecAgentSettingCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*RegistryTaskSpecAgentSetting)(ptr) == nil
+}
+
+func (RegistryTaskSpecAgentSettingCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*RegistryTaskSpecAgentSetting)(ptr)
+	var objs []RegistryTaskSpecAgentSetting
+	if obj != nil {
+		objs = []RegistryTaskSpecAgentSetting{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecAgentSetting{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (RegistryTaskSpecAgentSettingCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*RegistryTaskSpecAgentSetting)(ptr) = RegistryTaskSpecAgentSetting{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []RegistryTaskSpecAgentSetting
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecAgentSetting{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*RegistryTaskSpecAgentSetting)(ptr) = objs[0]
+			} else {
+				*(*RegistryTaskSpecAgentSetting)(ptr) = RegistryTaskSpecAgentSetting{}
+			}
+		} else {
+			*(*RegistryTaskSpecAgentSetting)(ptr) = RegistryTaskSpecAgentSetting{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj RegistryTaskSpecAgentSetting
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecAgentSetting{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*RegistryTaskSpecAgentSetting)(ptr) = obj
+		} else {
+			*(*RegistryTaskSpecAgentSetting)(ptr) = RegistryTaskSpecAgentSetting{}
+		}
+	default:
+		iter.ReportError("decode RegistryTaskSpecAgentSetting", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type RegistryTaskSpecBaseImageTriggerCodec struct {
+}
+
+func (RegistryTaskSpecBaseImageTriggerCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*RegistryTaskSpecBaseImageTrigger)(ptr) == nil
+}
+
+func (RegistryTaskSpecBaseImageTriggerCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*RegistryTaskSpecBaseImageTrigger)(ptr)
+	var objs []RegistryTaskSpecBaseImageTrigger
+	if obj != nil {
+		objs = []RegistryTaskSpecBaseImageTrigger{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecBaseImageTrigger{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (RegistryTaskSpecBaseImageTriggerCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*RegistryTaskSpecBaseImageTrigger)(ptr) = RegistryTaskSpecBaseImageTrigger{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []RegistryTaskSpecBaseImageTrigger
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecBaseImageTrigger{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*RegistryTaskSpecBaseImageTrigger)(ptr) = objs[0]
+			} else {
+				*(*RegistryTaskSpecBaseImageTrigger)(ptr) = RegistryTaskSpecBaseImageTrigger{}
+			}
+		} else {
+			*(*RegistryTaskSpecBaseImageTrigger)(ptr) = RegistryTaskSpecBaseImageTrigger{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj RegistryTaskSpecBaseImageTrigger
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecBaseImageTrigger{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*RegistryTaskSpecBaseImageTrigger)(ptr) = obj
+		} else {
+			*(*RegistryTaskSpecBaseImageTrigger)(ptr) = RegistryTaskSpecBaseImageTrigger{}
+		}
+	default:
+		iter.ReportError("decode RegistryTaskSpecBaseImageTrigger", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type RegistryTaskSpecDockerStepCodec struct {
+}
+
+func (RegistryTaskSpecDockerStepCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*RegistryTaskSpecDockerStep)(ptr) == nil
+}
+
+func (RegistryTaskSpecDockerStepCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*RegistryTaskSpecDockerStep)(ptr)
+	var objs []RegistryTaskSpecDockerStep
+	if obj != nil {
+		objs = []RegistryTaskSpecDockerStep{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecDockerStep{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (RegistryTaskSpecDockerStepCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*RegistryTaskSpecDockerStep)(ptr) = RegistryTaskSpecDockerStep{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []RegistryTaskSpecDockerStep
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecDockerStep{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*RegistryTaskSpecDockerStep)(ptr) = objs[0]
+			} else {
+				*(*RegistryTaskSpecDockerStep)(ptr) = RegistryTaskSpecDockerStep{}
+			}
+		} else {
+			*(*RegistryTaskSpecDockerStep)(ptr) = RegistryTaskSpecDockerStep{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj RegistryTaskSpecDockerStep
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecDockerStep{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*RegistryTaskSpecDockerStep)(ptr) = obj
+		} else {
+			*(*RegistryTaskSpecDockerStep)(ptr) = RegistryTaskSpecDockerStep{}
+		}
+	default:
+		iter.ReportError("decode RegistryTaskSpecDockerStep", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type RegistryTaskSpecEncodedStepCodec struct {
+}
+
+func (RegistryTaskSpecEncodedStepCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*RegistryTaskSpecEncodedStep)(ptr) == nil
+}
+
+func (RegistryTaskSpecEncodedStepCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*RegistryTaskSpecEncodedStep)(ptr)
+	var objs []RegistryTaskSpecEncodedStep
+	if obj != nil {
+		objs = []RegistryTaskSpecEncodedStep{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecEncodedStep{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (RegistryTaskSpecEncodedStepCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*RegistryTaskSpecEncodedStep)(ptr) = RegistryTaskSpecEncodedStep{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []RegistryTaskSpecEncodedStep
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecEncodedStep{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*RegistryTaskSpecEncodedStep)(ptr) = objs[0]
+			} else {
+				*(*RegistryTaskSpecEncodedStep)(ptr) = RegistryTaskSpecEncodedStep{}
+			}
+		} else {
+			*(*RegistryTaskSpecEncodedStep)(ptr) = RegistryTaskSpecEncodedStep{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj RegistryTaskSpecEncodedStep
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecEncodedStep{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*RegistryTaskSpecEncodedStep)(ptr) = obj
+		} else {
+			*(*RegistryTaskSpecEncodedStep)(ptr) = RegistryTaskSpecEncodedStep{}
+		}
+	default:
+		iter.ReportError("decode RegistryTaskSpecEncodedStep", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type RegistryTaskSpecFileStepCodec struct {
+}
+
+func (RegistryTaskSpecFileStepCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*RegistryTaskSpecFileStep)(ptr) == nil
+}
+
+func (RegistryTaskSpecFileStepCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*RegistryTaskSpecFileStep)(ptr)
+	var objs []RegistryTaskSpecFileStep
+	if obj != nil {
+		objs = []RegistryTaskSpecFileStep{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecFileStep{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (RegistryTaskSpecFileStepCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*RegistryTaskSpecFileStep)(ptr) = RegistryTaskSpecFileStep{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []RegistryTaskSpecFileStep
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecFileStep{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*RegistryTaskSpecFileStep)(ptr) = objs[0]
+			} else {
+				*(*RegistryTaskSpecFileStep)(ptr) = RegistryTaskSpecFileStep{}
+			}
+		} else {
+			*(*RegistryTaskSpecFileStep)(ptr) = RegistryTaskSpecFileStep{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj RegistryTaskSpecFileStep
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecFileStep{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*RegistryTaskSpecFileStep)(ptr) = obj
+		} else {
+			*(*RegistryTaskSpecFileStep)(ptr) = RegistryTaskSpecFileStep{}
+		}
+	default:
+		iter.ReportError("decode RegistryTaskSpecFileStep", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type RegistryTaskSpecIdentityCodec struct {
+}
+
+func (RegistryTaskSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*RegistryTaskSpecIdentity)(ptr) == nil
+}
+
+func (RegistryTaskSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*RegistryTaskSpecIdentity)(ptr)
+	var objs []RegistryTaskSpecIdentity
+	if obj != nil {
+		objs = []RegistryTaskSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (RegistryTaskSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*RegistryTaskSpecIdentity)(ptr) = RegistryTaskSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []RegistryTaskSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*RegistryTaskSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*RegistryTaskSpecIdentity)(ptr) = RegistryTaskSpecIdentity{}
+			}
+		} else {
+			*(*RegistryTaskSpecIdentity)(ptr) = RegistryTaskSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj RegistryTaskSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*RegistryTaskSpecIdentity)(ptr) = obj
+		} else {
+			*(*RegistryTaskSpecIdentity)(ptr) = RegistryTaskSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode RegistryTaskSpecIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type RegistryTaskSpecPlatformCodec struct {
+}
+
+func (RegistryTaskSpecPlatformCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*RegistryTaskSpecPlatform)(ptr) == nil
+}
+
+func (RegistryTaskSpecPlatformCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*RegistryTaskSpecPlatform)(ptr)
+	var objs []RegistryTaskSpecPlatform
+	if obj != nil {
+		objs = []RegistryTaskSpecPlatform{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecPlatform{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (RegistryTaskSpecPlatformCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*RegistryTaskSpecPlatform)(ptr) = RegistryTaskSpecPlatform{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []RegistryTaskSpecPlatform
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecPlatform{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*RegistryTaskSpecPlatform)(ptr) = objs[0]
+			} else {
+				*(*RegistryTaskSpecPlatform)(ptr) = RegistryTaskSpecPlatform{}
+			}
+		} else {
+			*(*RegistryTaskSpecPlatform)(ptr) = RegistryTaskSpecPlatform{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj RegistryTaskSpecPlatform
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecPlatform{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*RegistryTaskSpecPlatform)(ptr) = obj
+		} else {
+			*(*RegistryTaskSpecPlatform)(ptr) = RegistryTaskSpecPlatform{}
+		}
+	default:
+		iter.ReportError("decode RegistryTaskSpecPlatform", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type RegistryTaskSpecRegistryCredentialCodec struct {
+}
+
+func (RegistryTaskSpecRegistryCredentialCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*RegistryTaskSpecRegistryCredential)(ptr) == nil
+}
+
+func (RegistryTaskSpecRegistryCredentialCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*RegistryTaskSpecRegistryCredential)(ptr)
+	var objs []RegistryTaskSpecRegistryCredential
+	if obj != nil {
+		objs = []RegistryTaskSpecRegistryCredential{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecRegistryCredential{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (RegistryTaskSpecRegistryCredentialCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*RegistryTaskSpecRegistryCredential)(ptr) = RegistryTaskSpecRegistryCredential{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []RegistryTaskSpecRegistryCredential
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecRegistryCredential{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*RegistryTaskSpecRegistryCredential)(ptr) = objs[0]
+			} else {
+				*(*RegistryTaskSpecRegistryCredential)(ptr) = RegistryTaskSpecRegistryCredential{}
+			}
+		} else {
+			*(*RegistryTaskSpecRegistryCredential)(ptr) = RegistryTaskSpecRegistryCredential{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj RegistryTaskSpecRegistryCredential
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecRegistryCredential{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*RegistryTaskSpecRegistryCredential)(ptr) = obj
+		} else {
+			*(*RegistryTaskSpecRegistryCredential)(ptr) = RegistryTaskSpecRegistryCredential{}
+		}
+	default:
+		iter.ReportError("decode RegistryTaskSpecRegistryCredential", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type RegistryTaskSpecRegistryCredentialSourceCodec struct {
+}
+
+func (RegistryTaskSpecRegistryCredentialSourceCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*RegistryTaskSpecRegistryCredentialSource)(ptr) == nil
+}
+
+func (RegistryTaskSpecRegistryCredentialSourceCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*RegistryTaskSpecRegistryCredentialSource)(ptr)
+	var objs []RegistryTaskSpecRegistryCredentialSource
+	if obj != nil {
+		objs = []RegistryTaskSpecRegistryCredentialSource{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecRegistryCredentialSource{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (RegistryTaskSpecRegistryCredentialSourceCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*RegistryTaskSpecRegistryCredentialSource)(ptr) = RegistryTaskSpecRegistryCredentialSource{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []RegistryTaskSpecRegistryCredentialSource
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecRegistryCredentialSource{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*RegistryTaskSpecRegistryCredentialSource)(ptr) = objs[0]
+			} else {
+				*(*RegistryTaskSpecRegistryCredentialSource)(ptr) = RegistryTaskSpecRegistryCredentialSource{}
+			}
+		} else {
+			*(*RegistryTaskSpecRegistryCredentialSource)(ptr) = RegistryTaskSpecRegistryCredentialSource{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj RegistryTaskSpecRegistryCredentialSource
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecRegistryCredentialSource{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*RegistryTaskSpecRegistryCredentialSource)(ptr) = obj
+		} else {
+			*(*RegistryTaskSpecRegistryCredentialSource)(ptr) = RegistryTaskSpecRegistryCredentialSource{}
+		}
+	default:
+		iter.ReportError("decode RegistryTaskSpecRegistryCredentialSource", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type RegistryTaskSpecSourceTriggerAuthenticationCodec struct {
+}
+
+func (RegistryTaskSpecSourceTriggerAuthenticationCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*RegistryTaskSpecSourceTriggerAuthentication)(ptr) == nil
+}
+
+func (RegistryTaskSpecSourceTriggerAuthenticationCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*RegistryTaskSpecSourceTriggerAuthentication)(ptr)
+	var objs []RegistryTaskSpecSourceTriggerAuthentication
+	if obj != nil {
+		objs = []RegistryTaskSpecSourceTriggerAuthentication{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecSourceTriggerAuthentication{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (RegistryTaskSpecSourceTriggerAuthenticationCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*RegistryTaskSpecSourceTriggerAuthentication)(ptr) = RegistryTaskSpecSourceTriggerAuthentication{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []RegistryTaskSpecSourceTriggerAuthentication
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecSourceTriggerAuthentication{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*RegistryTaskSpecSourceTriggerAuthentication)(ptr) = objs[0]
+			} else {
+				*(*RegistryTaskSpecSourceTriggerAuthentication)(ptr) = RegistryTaskSpecSourceTriggerAuthentication{}
+			}
+		} else {
+			*(*RegistryTaskSpecSourceTriggerAuthentication)(ptr) = RegistryTaskSpecSourceTriggerAuthentication{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj RegistryTaskSpecSourceTriggerAuthentication
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RegistryTaskSpecSourceTriggerAuthentication{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*RegistryTaskSpecSourceTriggerAuthentication)(ptr) = obj
+		} else {
+			*(*RegistryTaskSpecSourceTriggerAuthentication)(ptr) = RegistryTaskSpecSourceTriggerAuthentication{}
+		}
+	default:
+		iter.ReportError("decode RegistryTaskSpecSourceTriggerAuthentication", "unexpected JSON type")
 	}
 }

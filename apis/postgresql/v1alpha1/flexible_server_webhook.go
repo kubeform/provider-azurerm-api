@@ -45,13 +45,14 @@ var flexibleserverForceNewList = map[string]bool{
 	"/administrator_login":               true,
 	"/create_mode":                       true,
 	"/delegated_subnet_id":               true,
+	"/geo_redundant_backup_enabled":      true,
 	"/location":                          true,
 	"/name":                              true,
 	"/point_in_time_restore_time_in_utc": true,
+	"/private_dns_zone_id":               true,
 	"/resource_group_name":               true,
 	"/source_server_id":                  true,
 	"/version":                           true,
-	"/zone":                              true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -97,7 +98,7 @@ func (r *FlexibleServer) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range flexibleserverForceNewList {
+	for key, _ := range flexibleserverForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

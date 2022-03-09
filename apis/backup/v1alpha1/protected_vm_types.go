@@ -60,7 +60,11 @@ type ProtectedVmSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	BackupPolicyID    *string `json:"backupPolicyID" tf:"backup_policy_id"`
+	BackupPolicyID *string `json:"backupPolicyID" tf:"backup_policy_id"`
+	// +optional
+	ExcludeDiskLuns []int64 `json:"excludeDiskLuns,omitempty" tf:"exclude_disk_luns"`
+	// +optional
+	IncludeDiskLuns   []int64 `json:"includeDiskLuns,omitempty" tf:"include_disk_luns"`
 	RecoveryVaultName *string `json:"recoveryVaultName" tf:"recovery_vault_name"`
 	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
 	SourceVmID        *string `json:"sourceVmID" tf:"source_vm_id"`

@@ -43,9 +43,15 @@ type ManagementPolicy struct {
 
 type ManagementPolicySpecRuleActionsBaseBlob struct {
 	// +optional
+	DeleteAfterDaysSinceLastAccessTimeGreaterThan *int64 `json:"deleteAfterDaysSinceLastAccessTimeGreaterThan,omitempty" tf:"delete_after_days_since_last_access_time_greater_than"`
+	// +optional
 	DeleteAfterDaysSinceModificationGreaterThan *int64 `json:"deleteAfterDaysSinceModificationGreaterThan,omitempty" tf:"delete_after_days_since_modification_greater_than"`
 	// +optional
+	TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan *int64 `json:"tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan,omitempty" tf:"tier_to_archive_after_days_since_last_access_time_greater_than"`
+	// +optional
 	TierToArchiveAfterDaysSinceModificationGreaterThan *int64 `json:"tierToArchiveAfterDaysSinceModificationGreaterThan,omitempty" tf:"tier_to_archive_after_days_since_modification_greater_than"`
+	// +optional
+	TierToCoolAfterDaysSinceLastAccessTimeGreaterThan *int64 `json:"tierToCoolAfterDaysSinceLastAccessTimeGreaterThan,omitempty" tf:"tier_to_cool_after_days_since_last_access_time_greater_than"`
 	// +optional
 	TierToCoolAfterDaysSinceModificationGreaterThan *int64 `json:"tierToCoolAfterDaysSinceModificationGreaterThan,omitempty" tf:"tier_to_cool_after_days_since_modification_greater_than"`
 }

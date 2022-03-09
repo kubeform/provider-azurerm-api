@@ -88,14 +88,24 @@ type ClusterSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	AutoStopEnabled *bool `json:"autoStopEnabled,omitempty" tf:"auto_stop_enabled"`
+	// +optional
 	DataIngestionURI *string `json:"dataIngestionURI,omitempty" tf:"data_ingestion_uri"`
+	// +optional
+	DiskEncryptionEnabled *bool `json:"diskEncryptionEnabled,omitempty" tf:"disk_encryption_enabled"`
 	// +optional
 	DoubleEncryptionEnabled *bool `json:"doubleEncryptionEnabled,omitempty" tf:"double_encryption_enabled"`
 	// +optional
+	// Deprecated
+	EnableAutoStop *bool `json:"enableAutoStop,omitempty" tf:"enable_auto_stop"`
+	// +optional
+	// Deprecated
 	EnableDiskEncryption *bool `json:"enableDiskEncryption,omitempty" tf:"enable_disk_encryption"`
 	// +optional
+	// Deprecated
 	EnablePurge *bool `json:"enablePurge,omitempty" tf:"enable_purge"`
 	// +optional
+	// Deprecated
 	EnableStreamingIngest *bool `json:"enableStreamingIngest,omitempty" tf:"enable_streaming_ingest"`
 	// +optional
 	Engine *string `json:"engine,omitempty" tf:"engine"`
@@ -107,8 +117,14 @@ type ClusterSpecResource struct {
 	Name               *string  `json:"name" tf:"name"`
 	// +optional
 	OptimizedAutoScale *ClusterSpecOptimizedAutoScale `json:"optimizedAutoScale,omitempty" tf:"optimized_auto_scale"`
-	ResourceGroupName  *string                        `json:"resourceGroupName" tf:"resource_group_name"`
-	Sku                *ClusterSpecSku                `json:"sku" tf:"sku"`
+	// +optional
+	PublicNetworkAccessEnabled *bool `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
+	// +optional
+	PurgeEnabled      *bool           `json:"purgeEnabled,omitempty" tf:"purge_enabled"`
+	ResourceGroupName *string         `json:"resourceGroupName" tf:"resource_group_name"`
+	Sku               *ClusterSpecSku `json:"sku" tf:"sku"`
+	// +optional
+	StreamingIngestionEnabled *bool `json:"streamingIngestionEnabled,omitempty" tf:"streaming_ingestion_enabled"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 	// +optional

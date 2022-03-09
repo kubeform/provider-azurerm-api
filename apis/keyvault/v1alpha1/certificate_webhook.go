@@ -61,7 +61,6 @@ var certificateForceNewList = map[string]bool{
 	"/certificate_policy/*/x509_certificate_properties/*/validity_in_months":                    true,
 	"/key_vault_id": true,
 	"/name":         true,
-	"/tags":         true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -107,7 +106,7 @@ func (r *Certificate) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range certificateForceNewList {
+	for key, _ := range certificateForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

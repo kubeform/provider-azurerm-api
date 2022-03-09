@@ -90,7 +90,7 @@ func (r *FactoryLinkedCustomService) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range factorylinkedcustomserviceForceNewList {
+	for key, _ := range factorylinkedcustomserviceForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

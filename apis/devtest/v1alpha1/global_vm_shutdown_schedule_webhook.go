@@ -89,7 +89,7 @@ func (r *GlobalVmShutdownSchedule) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range globalvmshutdownscheduleForceNewList {
+	for key, _ := range globalvmshutdownscheduleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

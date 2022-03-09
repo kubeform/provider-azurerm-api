@@ -91,7 +91,7 @@ func (r *CloudAppCosmosdbAssociation) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range cloudappcosmosdbassociationForceNewList {
+	for key, _ := range cloudappcosmosdbassociationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -42,6 +42,7 @@ func (r *EndpointEventhub) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &EndpointEventhub{}
 
 var endpointeventhubForceNewList = map[string]bool{
+	"/iothub_id":           true,
 	"/iothub_name":         true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *EndpointEventhub) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range endpointeventhubForceNewList {
+	for key, _ := range endpointeventhubForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

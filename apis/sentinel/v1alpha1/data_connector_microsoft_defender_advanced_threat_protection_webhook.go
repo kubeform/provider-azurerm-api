@@ -90,7 +90,7 @@ func (r *DataConnectorMicrosoftDefenderAdvancedThreatProtection) ValidateUpdate(
 		return err
 	}
 
-	for key := range dataconnectormicrosoftdefenderadvancedthreatprotectionForceNewList {
+	for key, _ := range dataconnectormicrosoftdefenderadvancedthreatprotectionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

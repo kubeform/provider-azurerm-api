@@ -347,6 +347,16 @@ func (in *VirtualMachineScaleSetSpecDataDisk) DeepCopyInto(out *VirtualMachineSc
 		*out = new(string)
 		**out = **in
 	}
+	if in.UltraSsdDiskIopsReadWrite != nil {
+		in, out := &in.UltraSsdDiskIopsReadWrite, &out.UltraSsdDiskIopsReadWrite
+		*out = new(int64)
+		**out = **in
+	}
+	if in.UltraSsdDiskMbpsReadWrite != nil {
+		in, out := &in.UltraSsdDiskMbpsReadWrite, &out.UltraSsdDiskMbpsReadWrite
+		*out = new(int64)
+		**out = **in
+	}
 	if in.WriteAcceleratorEnabled != nil {
 		in, out := &in.WriteAcceleratorEnabled, &out.WriteAcceleratorEnabled
 		*out = new(bool)
@@ -370,6 +380,11 @@ func (in *VirtualMachineScaleSetSpecExtension) DeepCopyInto(out *VirtualMachineS
 	*out = *in
 	if in.AutoUpgradeMinorVersion != nil {
 		in, out := &in.AutoUpgradeMinorVersion, &out.AutoUpgradeMinorVersion
+		*out = new(bool)
+		**out = **in
+	}
+	if in.AutomaticUpgradeEnabled != nil {
+		in, out := &in.AutomaticUpgradeEnabled, &out.AutomaticUpgradeEnabled
 		*out = new(bool)
 		**out = **in
 	}
@@ -436,6 +451,11 @@ func (in *VirtualMachineScaleSetSpecIdentity) DeepCopyInto(out *VirtualMachineSc
 	}
 	if in.PrincipalID != nil {
 		in, out := &in.PrincipalID, &out.PrincipalID
+		*out = new(string)
+		**out = **in
+	}
+	if in.TenantID != nil {
+		in, out := &in.TenantID, &out.TenantID
 		*out = new(string)
 		**out = **in
 	}
@@ -933,6 +953,11 @@ func (in *VirtualMachineScaleSetSpecResource) DeepCopyInto(out *VirtualMachineSc
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
 	}
+	if in.SecureBootEnabled != nil {
+		in, out := &in.SecureBootEnabled, &out.SecureBootEnabled
+		*out = new(bool)
+		**out = **in
+	}
 	if in.SinglePlacementGroup != nil {
 		in, out := &in.SinglePlacementGroup, &out.SinglePlacementGroup
 		*out = new(bool)
@@ -982,6 +1007,16 @@ func (in *VirtualMachineScaleSetSpecResource) DeepCopyInto(out *VirtualMachineSc
 	if in.UpgradeMode != nil {
 		in, out := &in.UpgradeMode, &out.UpgradeMode
 		*out = new(string)
+		**out = **in
+	}
+	if in.UserData != nil {
+		in, out := &in.UserData, &out.UserData
+		*out = new(string)
+		**out = **in
+	}
+	if in.VtpmEnabled != nil {
+		in, out := &in.VtpmEnabled, &out.VtpmEnabled
+		*out = new(bool)
 		**out = **in
 	}
 	if in.WinrmListener != nil {
@@ -1510,6 +1545,11 @@ func (in *VirtualMachineSpecResource) DeepCopyInto(out *VirtualMachineSpecResour
 		*out = new(string)
 		**out = **in
 	}
+	if in.DedicatedHostGroupID != nil {
+		in, out := &in.DedicatedHostGroupID, &out.DedicatedHostGroupID
+		*out = new(string)
+		**out = **in
+	}
 	if in.DedicatedHostID != nil {
 		in, out := &in.DedicatedHostID, &out.DedicatedHostID
 		*out = new(string)
@@ -1533,6 +1573,11 @@ func (in *VirtualMachineSpecResource) DeepCopyInto(out *VirtualMachineSpecResour
 	if in.ExtensionsTimeBudget != nil {
 		in, out := &in.ExtensionsTimeBudget, &out.ExtensionsTimeBudget
 		*out = new(string)
+		**out = **in
+	}
+	if in.HotpatchingEnabled != nil {
+		in, out := &in.HotpatchingEnabled, &out.HotpatchingEnabled
+		*out = new(bool)
 		**out = **in
 	}
 	if in.Identity != nil {
@@ -1632,6 +1677,11 @@ func (in *VirtualMachineSpecResource) DeepCopyInto(out *VirtualMachineSpecResour
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
 	}
+	if in.SecureBootEnabled != nil {
+		in, out := &in.SecureBootEnabled, &out.SecureBootEnabled
+		*out = new(bool)
+		**out = **in
+	}
 	if in.Size != nil {
 		in, out := &in.Size, &out.Size
 		*out = new(string)
@@ -1663,6 +1713,11 @@ func (in *VirtualMachineSpecResource) DeepCopyInto(out *VirtualMachineSpecResour
 		*out = new(string)
 		**out = **in
 	}
+	if in.UserData != nil {
+		in, out := &in.UserData, &out.UserData
+		*out = new(string)
+		**out = **in
+	}
 	if in.VirtualMachineID != nil {
 		in, out := &in.VirtualMachineID, &out.VirtualMachineID
 		*out = new(string)
@@ -1671,6 +1726,11 @@ func (in *VirtualMachineSpecResource) DeepCopyInto(out *VirtualMachineSpecResour
 	if in.VirtualMachineScaleSetID != nil {
 		in, out := &in.VirtualMachineScaleSetID, &out.VirtualMachineScaleSetID
 		*out = new(string)
+		**out = **in
+	}
+	if in.VtpmEnabled != nil {
+		in, out := &in.VtpmEnabled, &out.VtpmEnabled
+		*out = new(bool)
 		**out = **in
 	}
 	if in.WinrmListener != nil {

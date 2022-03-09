@@ -57,6 +57,8 @@ spec:
                 type: object
               resource:
                 properties:
+                  callbackURL:
+                    type: string
                   id:
                     type: string
                   logicAppID:
@@ -114,6 +116,8 @@ spec:
                 type: object
               state:
                 properties:
+                  callbackURL:
+                    type: string
                   id:
                     type: string
                   logicAppID:

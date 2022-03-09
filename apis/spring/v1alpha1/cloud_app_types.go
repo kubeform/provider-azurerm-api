@@ -41,13 +41,22 @@ type CloudApp struct {
 	Status            CloudAppStatus `json:"status,omitempty"`
 }
 
+type CloudAppSpecCustomPersistentDisk struct {
+	// +optional
+	MountOptions []string `json:"mountOptions,omitempty" tf:"mount_options"`
+	MountPath    *string  `json:"mountPath" tf:"mount_path"`
+	// +optional
+	ReadOnlyEnabled *bool   `json:"readOnlyEnabled,omitempty" tf:"read_only_enabled"`
+	ShareName       *string `json:"shareName" tf:"share_name"`
+	StorageName     *string `json:"storageName" tf:"storage_name"`
+}
+
 type CloudAppSpecIdentity struct {
 	// +optional
 	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
 	// +optional
 	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
-	// +optional
-	Type *string `json:"type,omitempty" tf:"type"`
+	Type     *string `json:"type" tf:"type"`
 }
 
 type CloudAppSpecPersistentDisk struct {
@@ -75,6 +84,9 @@ type CloudAppSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// +optional
+	// +kubebuilder:validation:MinItems=1
+	CustomPersistentDisk []CloudAppSpecCustomPersistentDisk `json:"customPersistentDisk,omitempty" tf:"custom_persistent_disk"`
 	// +optional
 	Fqdn *string `json:"fqdn,omitempty" tf:"fqdn"`
 	// +optional

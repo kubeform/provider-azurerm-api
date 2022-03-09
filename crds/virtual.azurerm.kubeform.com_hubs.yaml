@@ -59,6 +59,8 @@ spec:
                 properties:
                   addressPrefix:
                     type: string
+                  defaultRouteTableID:
+                    type: string
                   id:
                     type: string
                   location:
@@ -135,6 +137,8 @@ spec:
               state:
                 properties:
                   addressPrefix:
+                    type: string
+                  defaultRouteTableID:
                     type: string
                   id:
                     type: string

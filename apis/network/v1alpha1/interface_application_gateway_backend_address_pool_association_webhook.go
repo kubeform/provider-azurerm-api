@@ -90,7 +90,7 @@ func (r *InterfaceApplicationGatewayBackendAddressPoolAssociation) ValidateUpdat
 		return err
 	}
 
-	for key := range interfaceapplicationgatewaybackendaddresspoolassociationForceNewList {
+	for key, _ := range interfaceapplicationgatewaybackendaddresspoolassociationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

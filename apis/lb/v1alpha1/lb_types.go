@@ -45,6 +45,8 @@ type LbSpecFrontendIPConfiguration struct {
 	// +optional
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 	// +optional
+	GatewayLoadBalancerFrontendIPConfigurationID *string `json:"gatewayLoadBalancerFrontendIPConfigurationID,omitempty" tf:"gateway_load_balancer_frontend_ip_configuration_id"`
+	// +optional
 	ID *string `json:"ID,omitempty" tf:"id"`
 	// +optional
 	InboundNATRules []string `json:"inboundNATRules,omitempty" tf:"inbound_nat_rules"`
@@ -101,6 +103,8 @@ type LbSpecResource struct {
 	ResourceGroupName  *string  `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	Sku *string `json:"sku,omitempty" tf:"sku"`
+	// +optional
+	SkuTier *string `json:"skuTier,omitempty" tf:"sku_tier"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 }

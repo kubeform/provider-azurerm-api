@@ -57,24 +57,379 @@ spec:
                 type: object
               resource:
                 properties:
+                  automaticInstanceRepair:
+                    properties:
+                      enabled:
+                        type: boolean
+                      gracePeriod:
+                        type: string
+                    required:
+                    - enabled
+                    type: object
+                  bootDiagnostics:
+                    properties:
+                      storageAccountURI:
+                        type: string
+                    type: object
+                  dataDisk:
+                    items:
+                      properties:
+                        caching:
+                          type: string
+                        createOption:
+                          type: string
+                        diskEncryptionSetID:
+                          type: string
+                        diskIopsReadWrite:
+                          description: Deprecated
+                          format: int64
+                          type: integer
+                        diskMbpsReadWrite:
+                          description: Deprecated
+                          format: int64
+                          type: integer
+                        diskSizeGb:
+                          format: int64
+                          type: integer
+                        lun:
+                          format: int64
+                          type: integer
+                        storageAccountType:
+                          type: string
+                        ultraSsdDiskIopsReadWrite:
+                          format: int64
+                          type: integer
+                        ultraSsdDiskMbpsReadWrite:
+                          format: int64
+                          type: integer
+                        writeAcceleratorEnabled:
+                          type: boolean
+                      required:
+                      - caching
+                      - diskSizeGb
+                      - lun
+                      - storageAccountType
+                      type: object
+                    type: array
+                  encryptionAtHostEnabled:
+                    type: boolean
+                  evictionPolicy:
+                    type: string
+                  extension:
+                    items:
+                      properties:
+                        autoUpgradeMinorVersionEnabled:
+                          type: boolean
+                        extensionsToProvisionAfterVmCreation:
+                          items:
+                            type: string
+                          type: array
+                        forceExtensionExecutionOnChange:
+                          type: string
+                        name:
+                          type: string
+                        publisher:
+                          type: string
+                        settings:
+                          type: string
+                        type:
+                          type: string
+                        typeHandlerVersion:
+                          type: string
+                      required:
+                      - name
+                      - publisher
+                      - type
+                      - typeHandlerVersion
+                      type: object
+                    type: array
+                  extensionsTimeBudget:
+                    type: string
                   id:
+                    type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      type:
+                        type: string
+                    required:
+                    - identityIDS
+                    - type
+                    type: object
+                  instances:
+                    format: int64
+                    type: integer
+                  licenseType:
                     type: string
                   location:
                     type: string
+                  maxBidPrice:
+                    format: double
+                    type: number
                   name:
                     type: string
+                  networkInterface:
+                    items:
+                      properties:
+                        dnsServers:
+                          items:
+                            type: string
+                          type: array
+                        enableAcceleratedNetworking:
+                          type: boolean
+                        enableIPForwarding:
+                          type: boolean
+                        ipConfiguration:
+                          items:
+                            properties:
+                              applicationGatewayBackendAddressPoolIDS:
+                                items:
+                                  type: string
+                                type: array
+                              applicationSecurityGroupIDS:
+                                items:
+                                  type: string
+                                maxItems: 20
+                                type: array
+                              loadBalancerBackendAddressPoolIDS:
+                                items:
+                                  type: string
+                                type: array
+                              name:
+                                type: string
+                              primary:
+                                type: boolean
+                              publicIPAddress:
+                                items:
+                                  properties:
+                                    domainNameLabel:
+                                      type: string
+                                    idleTimeoutInMinutes:
+                                      format: int64
+                                      type: integer
+                                    ipTag:
+                                      items:
+                                        properties:
+                                          tag:
+                                            type: string
+                                          type:
+                                            type: string
+                                        required:
+                                        - tag
+                                        - type
+                                        type: object
+                                      type: array
+                                    name:
+                                      type: string
+                                    publicIPPrefixID:
+                                      type: string
+                                  required:
+                                  - name
+                                  type: object
+                                type: array
+                              subnetID:
+                                type: string
+                              version:
+                                type: string
+                            required:
+                            - name
+                            type: object
+                          type: array
+                        name:
+                          type: string
+                        networkSecurityGroupID:
+                          type: string
+                        primary:
+                          type: boolean
+                      required:
+                      - ipConfiguration
+                      - name
+                      type: object
+                    type: array
+                  osDisk:
+                    properties:
+                      caching:
+                        type: string
+                      diffDiskSettings:
+                        properties:
+                          option:
+                            type: string
+                        required:
+                        - option
+                        type: object
+                      diskEncryptionSetID:
+                        type: string
+                      diskSizeGb:
+                        format: int64
+                        type: integer
+                      storageAccountType:
+                        type: string
+                      writeAcceleratorEnabled:
+                        type: boolean
+                    required:
+                    - caching
+                    - storageAccountType
+                    type: object
+                  osProfile:
+                    properties:
+                      linuxConfiguration:
+                        properties:
+                          adminSSHKey:
+                            items:
+                              properties:
+                                publicKey:
+                                  type: string
+                                username:
+                                  type: string
+                              required:
+                              - publicKey
+                              - username
+                              type: object
+                            type: array
+                          adminUsername:
+                            type: string
+                          computerNamePrefix:
+                            type: string
+                          disablePasswordAuthentication:
+                            type: boolean
+                          patchMode:
+                            type: string
+                          provisionVmAgent:
+                            type: boolean
+                          secret:
+                            items:
+                              properties:
+                                certificate:
+                                  items:
+                                    properties:
+                                      url:
+                                        type: string
+                                    required:
+                                    - url
+                                    type: object
+                                  minItems: 1
+                                  type: array
+                                keyVaultID:
+                                  type: string
+                              required:
+                              - certificate
+                              - keyVaultID
+                              type: object
+                            type: array
+                        required:
+                        - adminUsername
+                        type: object
+                      windowsConfiguration:
+                        properties:
+                          adminUsername:
+                            type: string
+                          computerNamePrefix:
+                            type: string
+                          enableAutomaticUpdates:
+                            type: boolean
+                          hotpatchingEnabled:
+                            type: boolean
+                          patchMode:
+                            type: string
+                          provisionVmAgent:
+                            type: boolean
+                          secret:
+                            items:
+                              properties:
+                                certificate:
+                                  items:
+                                    properties:
+                                      store:
+                                        type: string
+                                      url:
+                                        type: string
+                                    required:
+                                    - store
+                                    - url
+                                    type: object
+                                  minItems: 1
+                                  type: array
+                                keyVaultID:
+                                  type: string
+                              required:
+                              - certificate
+                              - keyVaultID
+                              type: object
+                            type: array
+                          timezone:
+                            type: string
+                          winrmListener:
+                            items:
+                              properties:
+                                certificateURL:
+                                  type: string
+                                protocol:
+                                  type: string
+                              required:
+                              - protocol
+                              type: object
+                            type: array
+                        required:
+                        - adminUsername
+                        type: object
+                    type: object
+                  plan:
+                    properties:
+                      name:
+                        type: string
+                      product:
+                        type: string
+                      publisher:
+                        type: string
+                    required:
+                    - name
+                    - product
+                    - publisher
+                    type: object
                   platformFaultDomainCount:
                     format: int64
                     type: integer
+                  priority:
+                    type: string
                   proximityPlacementGroupID:
                     type: string
                   resourceGroupName:
                     type: string
-                  singlePlacementGroup:
-                    type: boolean
+                  skuName:
+                    type: string
+                  sourceImageID:
+                    type: string
+                  sourceImageReference:
+                    properties:
+                      offer:
+                        type: string
+                      publisher:
+                        type: string
+                      sku:
+                        type: string
+                      version:
+                        type: string
+                    required:
+                    - offer
+                    - publisher
+                    - sku
+                    - version
+                    type: object
                   tags:
                     additionalProperties:
                       type: string
+                    type: object
+                  terminationNotification:
+                    properties:
+                      enabled:
+                        type: boolean
+                      timeout:
+                        type: string
+                    required:
+                    - enabled
                     type: object
                   timeouts:
                     properties:
@@ -116,6 +471,8 @@ spec:
                     type: object
                   uniqueID:
                     type: string
+                  zoneBalance:
+                    type: boolean
                   zones:
                     items:
                       type: string
@@ -126,26 +483,390 @@ spec:
                 - platformFaultDomainCount
                 - resourceGroupName
                 type: object
+              secretRef:
+                description: LocalObjectReference contains enough information to let
+                  you locate the referenced object inside the same namespace.
+                properties:
+                  name:
+                    description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+                      TODO: Add other useful fields. apiVersion, kind, uid?'
+                    type: string
+                type: object
               state:
                 properties:
+                  automaticInstanceRepair:
+                    properties:
+                      enabled:
+                        type: boolean
+                      gracePeriod:
+                        type: string
+                    required:
+                    - enabled
+                    type: object
+                  bootDiagnostics:
+                    properties:
+                      storageAccountURI:
+                        type: string
+                    type: object
+                  dataDisk:
+                    items:
+                      properties:
+                        caching:
+                          type: string
+                        createOption:
+                          type: string
+                        diskEncryptionSetID:
+                          type: string
+                        diskIopsReadWrite:
+                          description: Deprecated
+                          format: int64
+                          type: integer
+                        diskMbpsReadWrite:
+                          description: Deprecated
+                          format: int64
+                          type: integer
+                        diskSizeGb:
+                          format: int64
+                          type: integer
+                        lun:
+                          format: int64
+                          type: integer
+                        storageAccountType:
+                          type: string
+                        ultraSsdDiskIopsReadWrite:
+                          format: int64
+                          type: integer
+                        ultraSsdDiskMbpsReadWrite:
+                          format: int64
+                          type: integer
+                        writeAcceleratorEnabled:
+                          type: boolean
+                      required:
+                      - caching
+                      - diskSizeGb
+                      - lun
+                      - storageAccountType
+                      type: object
+                    type: array
+                  encryptionAtHostEnabled:
+                    type: boolean
+                  evictionPolicy:
+                    type: string
+                  extension:
+                    items:
+                      properties:
+                        autoUpgradeMinorVersionEnabled:
+                          type: boolean
+                        extensionsToProvisionAfterVmCreation:
+                          items:
+                            type: string
+                          type: array
+                        forceExtensionExecutionOnChange:
+                          type: string
+                        name:
+                          type: string
+                        publisher:
+                          type: string
+                        settings:
+                          type: string
+                        type:
+                          type: string
+                        typeHandlerVersion:
+                          type: string
+                      required:
+                      - name
+                      - publisher
+                      - type
+                      - typeHandlerVersion
+                      type: object
+                    type: array
+                  extensionsTimeBudget:
+                    type: string
                   id:
+                    type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      type:
+                        type: string
+                    required:
+                    - identityIDS
+                    - type
+                    type: object
+                  instances:
+                    format: int64
+                    type: integer
+                  licenseType:
                     type: string
                   location:
                     type: string
+                  maxBidPrice:
+                    format: double
+                    type: number
                   name:
                     type: string
+                  networkInterface:
+                    items:
+                      properties:
+                        dnsServers:
+                          items:
+                            type: string
+                          type: array
+                        enableAcceleratedNetworking:
+                          type: boolean
+                        enableIPForwarding:
+                          type: boolean
+                        ipConfiguration:
+                          items:
+                            properties:
+                              applicationGatewayBackendAddressPoolIDS:
+                                items:
+                                  type: string
+                                type: array
+                              applicationSecurityGroupIDS:
+                                items:
+                                  type: string
+                                maxItems: 20
+                                type: array
+                              loadBalancerBackendAddressPoolIDS:
+                                items:
+                                  type: string
+                                type: array
+                              name:
+                                type: string
+                              primary:
+                                type: boolean
+                              publicIPAddress:
+                                items:
+                                  properties:
+                                    domainNameLabel:
+                                      type: string
+                                    idleTimeoutInMinutes:
+                                      format: int64
+                                      type: integer
+                                    ipTag:
+                                      items:
+                                        properties:
+                                          tag:
+                                            type: string
+                                          type:
+                                            type: string
+                                        required:
+                                        - tag
+                                        - type
+                                        type: object
+                                      type: array
+                                    name:
+                                      type: string
+                                    publicIPPrefixID:
+                                      type: string
+                                  required:
+                                  - name
+                                  type: object
+                                type: array
+                              subnetID:
+                                type: string
+                              version:
+                                type: string
+                            required:
+                            - name
+                            type: object
+                          type: array
+                        name:
+                          type: string
+                        networkSecurityGroupID:
+                          type: string
+                        primary:
+                          type: boolean
+                      required:
+                      - ipConfiguration
+                      - name
+                      type: object
+                    type: array
+                  osDisk:
+                    properties:
+                      caching:
+                        type: string
+                      diffDiskSettings:
+                        properties:
+                          option:
+                            type: string
+                        required:
+                        - option
+                        type: object
+                      diskEncryptionSetID:
+                        type: string
+                      diskSizeGb:
+                        format: int64
+                        type: integer
+                      storageAccountType:
+                        type: string
+                      writeAcceleratorEnabled:
+                        type: boolean
+                    required:
+                    - caching
+                    - storageAccountType
+                    type: object
+                  osProfile:
+                    properties:
+                      linuxConfiguration:
+                        properties:
+                          adminSSHKey:
+                            items:
+                              properties:
+                                publicKey:
+                                  type: string
+                                username:
+                                  type: string
+                              required:
+                              - publicKey
+                              - username
+                              type: object
+                            type: array
+                          adminUsername:
+                            type: string
+                          computerNamePrefix:
+                            type: string
+                          disablePasswordAuthentication:
+                            type: boolean
+                          patchMode:
+                            type: string
+                          provisionVmAgent:
+                            type: boolean
+                          secret:
+                            items:
+                              properties:
+                                certificate:
+                                  items:
+                                    properties:
+                                      url:
+                                        type: string
+                                    required:
+                                    - url
+                                    type: object
+                                  minItems: 1
+                                  type: array
+                                keyVaultID:
+                                  type: string
+                              required:
+                              - certificate
+                              - keyVaultID
+                              type: object
+                            type: array
+                        required:
+                        - adminUsername
+                        type: object
+                      windowsConfiguration:
+                        properties:
+                          adminUsername:
+                            type: string
+                          computerNamePrefix:
+                            type: string
+                          enableAutomaticUpdates:
+                            type: boolean
+                          hotpatchingEnabled:
+                            type: boolean
+                          patchMode:
+                            type: string
+                          provisionVmAgent:
+                            type: boolean
+                          secret:
+                            items:
+                              properties:
+                                certificate:
+                                  items:
+                                    properties:
+                                      store:
+                                        type: string
+                                      url:
+                                        type: string
+                                    required:
+                                    - store
+                                    - url
+                                    type: object
+                                  minItems: 1
+                                  type: array
+                                keyVaultID:
+                                  type: string
+                              required:
+                              - certificate
+                              - keyVaultID
+                              type: object
+                            type: array
+                          timezone:
+                            type: string
+                          winrmListener:
+                            items:
+                              properties:
+                                certificateURL:
+                                  type: string
+                                protocol:
+                                  type: string
+                              required:
+                              - protocol
+                              type: object
+                            type: array
+                        required:
+                        - adminUsername
+                        type: object
+                    type: object
+                  plan:
+                    properties:
+                      name:
+                        type: string
+                      product:
+                        type: string
+                      publisher:
+                        type: string
+                    required:
+                    - name
+                    - product
+                    - publisher
+                    type: object
                   platformFaultDomainCount:
                     format: int64
                     type: integer
+                  priority:
+                    type: string
                   proximityPlacementGroupID:
                     type: string
                   resourceGroupName:
                     type: string
-                  singlePlacementGroup:
-                    type: boolean
+                  skuName:
+                    type: string
+                  sourceImageID:
+                    type: string
+                  sourceImageReference:
+                    properties:
+                      offer:
+                        type: string
+                      publisher:
+                        type: string
+                      sku:
+                        type: string
+                      version:
+                        type: string
+                    required:
+                    - offer
+                    - publisher
+                    - sku
+                    - version
+                    type: object
                   tags:
                     additionalProperties:
                       type: string
+                    type: object
+                  terminationNotification:
+                    properties:
+                      enabled:
+                        type: boolean
+                      timeout:
+                        type: string
+                    required:
+                    - enabled
                     type: object
                   timeouts:
                     properties:
@@ -187,6 +908,8 @@ spec:
                     type: object
                   uniqueID:
                     type: string
+                  zoneBalance:
+                    type: boolean
                   zones:
                     items:
                       type: string

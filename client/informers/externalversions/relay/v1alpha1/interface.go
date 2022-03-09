@@ -26,8 +26,12 @@ import (
 type Interface interface {
 	// HybridConnections returns a HybridConnectionInformer.
 	HybridConnections() HybridConnectionInformer
+	// HybridConnectionAuthorizationRules returns a HybridConnectionAuthorizationRuleInformer.
+	HybridConnectionAuthorizationRules() HybridConnectionAuthorizationRuleInformer
 	// Namespaces returns a NamespaceInformer.
 	Namespaces() NamespaceInformer
+	// NamespaceAuthorizationRules returns a NamespaceAuthorizationRuleInformer.
+	NamespaceAuthorizationRules() NamespaceAuthorizationRuleInformer
 }
 
 type version struct {
@@ -46,7 +50,17 @@ func (v *version) HybridConnections() HybridConnectionInformer {
 	return &hybridConnectionInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// HybridConnectionAuthorizationRules returns a HybridConnectionAuthorizationRuleInformer.
+func (v *version) HybridConnectionAuthorizationRules() HybridConnectionAuthorizationRuleInformer {
+	return &hybridConnectionAuthorizationRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // Namespaces returns a NamespaceInformer.
 func (v *version) Namespaces() NamespaceInformer {
 	return &namespaceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// NamespaceAuthorizationRules returns a NamespaceAuthorizationRuleInformer.
+func (v *version) NamespaceAuthorizationRules() NamespaceAuthorizationRuleInformer {
+	return &namespaceAuthorizationRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

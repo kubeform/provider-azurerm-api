@@ -24,8 +24,14 @@ import (
 
 // Interface provides access to all the informers in this group version.
 type Interface interface {
+	// AzureEndpoints returns a AzureEndpointInformer.
+	AzureEndpoints() AzureEndpointInformer
 	// Endpoints returns a EndpointInformer.
 	Endpoints() EndpointInformer
+	// ExternalEndpoints returns a ExternalEndpointInformer.
+	ExternalEndpoints() ExternalEndpointInformer
+	// NestedEndpoints returns a NestedEndpointInformer.
+	NestedEndpoints() NestedEndpointInformer
 	// Profiles returns a ProfileInformer.
 	Profiles() ProfileInformer
 }
@@ -41,9 +47,24 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 	return &version{factory: f, namespace: namespace, tweakListOptions: tweakListOptions}
 }
 
+// AzureEndpoints returns a AzureEndpointInformer.
+func (v *version) AzureEndpoints() AzureEndpointInformer {
+	return &azureEndpointInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // Endpoints returns a EndpointInformer.
 func (v *version) Endpoints() EndpointInformer {
 	return &endpointInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ExternalEndpoints returns a ExternalEndpointInformer.
+func (v *version) ExternalEndpoints() ExternalEndpointInformer {
+	return &externalEndpointInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// NestedEndpoints returns a NestedEndpointInformer.
+func (v *version) NestedEndpoints() NestedEndpointInformer {
+	return &nestedEndpointInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Profiles returns a ProfileInformer.

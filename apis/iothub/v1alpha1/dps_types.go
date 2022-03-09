@@ -41,6 +41,14 @@ type Dps struct {
 	Status            DpsStatus `json:"status,omitempty"`
 }
 
+type DpsSpecIpFilterRule struct {
+	Action *string `json:"action" tf:"action"`
+	IpMask *string `json:"ipMask" tf:"ip_mask"`
+	Name   *string `json:"name" tf:"name"`
+	// +optional
+	Target *string `json:"target,omitempty" tf:"target"`
+}
+
 type DpsSpecLinkedHub struct {
 	// +optional
 	AllocationWeight *int64 `json:"allocationWeight,omitempty" tf:"allocation_weight"`
@@ -85,10 +93,14 @@ type DpsSpecResource struct {
 	// +optional
 	IDScope *string `json:"IDScope,omitempty" tf:"id_scope"`
 	// +optional
-	LinkedHub         []DpsSpecLinkedHub `json:"linkedHub,omitempty" tf:"linked_hub"`
-	Location          *string            `json:"location" tf:"location"`
-	Name              *string            `json:"name" tf:"name"`
-	ResourceGroupName *string            `json:"resourceGroupName" tf:"resource_group_name"`
+	IpFilterRule []DpsSpecIpFilterRule `json:"ipFilterRule,omitempty" tf:"ip_filter_rule"`
+	// +optional
+	LinkedHub []DpsSpecLinkedHub `json:"linkedHub,omitempty" tf:"linked_hub"`
+	Location  *string            `json:"location" tf:"location"`
+	Name      *string            `json:"name" tf:"name"`
+	// +optional
+	PublicNetworkAccessEnabled *bool   `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
+	ResourceGroupName          *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	ServiceOperationsHostName *string     `json:"serviceOperationsHostName,omitempty" tf:"service_operations_host_name"`
 	Sku                       *DpsSpecSku `json:"sku" tf:"sku"`

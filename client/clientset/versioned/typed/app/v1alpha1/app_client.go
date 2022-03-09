@@ -28,6 +28,8 @@ import (
 type AppV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	ConfigurationsGetter
+	ConfigurationFeaturesGetter
+	ConfigurationKeysGetter
 	ServicesGetter
 	ServiceActiveSlotsGetter
 	ServiceCertificatesGetter
@@ -39,7 +41,9 @@ type AppV1alpha1Interface interface {
 	ServiceHybridConnectionsGetter
 	ServiceManagedCertificatesGetter
 	ServicePlansGetter
+	ServicePublicCertificatesGetter
 	ServiceSlotsGetter
+	ServiceSlotCustomHostnameBindingsGetter
 	ServiceSlotVirtualNetworkSwiftConnectionsGetter
 	ServiceSourceControlTokensGetter
 	ServiceVirtualNetworkSwiftConnectionsGetter
@@ -52,6 +56,14 @@ type AppV1alpha1Client struct {
 
 func (c *AppV1alpha1Client) Configurations(namespace string) ConfigurationInterface {
 	return newConfigurations(c, namespace)
+}
+
+func (c *AppV1alpha1Client) ConfigurationFeatures(namespace string) ConfigurationFeatureInterface {
+	return newConfigurationFeatures(c, namespace)
+}
+
+func (c *AppV1alpha1Client) ConfigurationKeys(namespace string) ConfigurationKeyInterface {
+	return newConfigurationKeys(c, namespace)
 }
 
 func (c *AppV1alpha1Client) Services(namespace string) ServiceInterface {
@@ -98,8 +110,16 @@ func (c *AppV1alpha1Client) ServicePlans(namespace string) ServicePlanInterface 
 	return newServicePlans(c, namespace)
 }
 
+func (c *AppV1alpha1Client) ServicePublicCertificates(namespace string) ServicePublicCertificateInterface {
+	return newServicePublicCertificates(c, namespace)
+}
+
 func (c *AppV1alpha1Client) ServiceSlots(namespace string) ServiceSlotInterface {
 	return newServiceSlots(c, namespace)
+}
+
+func (c *AppV1alpha1Client) ServiceSlotCustomHostnameBindings(namespace string) ServiceSlotCustomHostnameBindingInterface {
+	return newServiceSlotCustomHostnameBindings(c, namespace)
 }
 
 func (c *AppV1alpha1Client) ServiceSlotVirtualNetworkSwiftConnections(namespace string) ServiceSlotVirtualNetworkSwiftConnectionInterface {

@@ -90,7 +90,7 @@ func (r *Healthbot) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range healthbotForceNewList {
+	for key, _ := range healthbotForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

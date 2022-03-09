@@ -94,7 +94,7 @@ func (r *NetworkMapping) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range networkmappingForceNewList {
+	for key, _ := range networkmappingForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

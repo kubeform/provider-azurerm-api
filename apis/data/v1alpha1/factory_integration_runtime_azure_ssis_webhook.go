@@ -42,6 +42,7 @@ func (r *FactoryIntegrationRuntimeAzureSsis) SetupWebhookWithManager(mgr ctrl.Ma
 var _ webhook.Validator = &FactoryIntegrationRuntimeAzureSsis{}
 
 var factoryintegrationruntimeazuressisForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/location":            true,
 	"/name":                true,
@@ -91,7 +92,7 @@ func (r *FactoryIntegrationRuntimeAzureSsis) ValidateUpdate(old runtime.Object) 
 		return err
 	}
 
-	for key := range factoryintegrationruntimeazuressisForceNewList {
+	for key, _ := range factoryintegrationruntimeazuressisForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

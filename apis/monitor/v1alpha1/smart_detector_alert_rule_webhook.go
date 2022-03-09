@@ -89,7 +89,7 @@ func (r *SmartDetectorAlertRule) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range smartdetectoralertruleForceNewList {
+	for key, _ := range smartdetectoralertruleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

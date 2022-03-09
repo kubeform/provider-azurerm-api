@@ -59,16 +59,38 @@ spec:
                 properties:
                   customParameters:
                     properties:
+                      machineLearningWorkspaceID:
+                        type: string
+                      natGatewayName:
+                        type: string
                       noPublicIP:
                         type: boolean
                       privateSubnetName:
                         type: string
+                      privateSubnetNetworkSecurityGroupAssociationID:
+                        type: string
+                      publicIPName:
+                        type: string
                       publicSubnetName:
+                        type: string
+                      publicSubnetNetworkSecurityGroupAssociationID:
+                        type: string
+                      storageAccountName:
+                        type: string
+                      storageAccountSkuName:
                         type: string
                       virtualNetworkID:
                         type: string
+                      vnetAddressPrefix:
+                        type: string
                     type: object
+                  customerManagedKeyEnabled:
+                    type: boolean
                   id:
+                    type: string
+                  infrastructureEncryptionEnabled:
+                    type: boolean
+                  loadBalancerBackendAddressPoolID:
                     type: string
                   location:
                     type: string
@@ -76,12 +98,25 @@ spec:
                     type: string
                   managedResourceGroupName:
                     type: string
+                  managedServicesCmkKeyVaultKeyID:
+                    type: string
                   name:
                     type: string
+                  networkSecurityGroupRulesRequired:
+                    type: string
+                  publicNetworkAccessEnabled:
+                    type: boolean
                   resourceGroupName:
                     type: string
                   sku:
                     type: string
+                  storageAccountIdentity:
+                    items:
+                      properties:
+                        type:
+                          type: string
+                      type: object
+                    type: array
                   tags:
                     additionalProperties:
                       type: string
@@ -134,20 +169,51 @@ spec:
                 - resourceGroupName
                 - sku
                 type: object
+              secretRef:
+                description: LocalObjectReference contains enough information to let
+                  you locate the referenced object inside the same namespace.
+                properties:
+                  name:
+                    description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+                      TODO: Add other useful fields. apiVersion, kind, uid?'
+                    type: string
+                type: object
               state:
                 properties:
                   customParameters:
                     properties:
+                      machineLearningWorkspaceID:
+                        type: string
+                      natGatewayName:
+                        type: string
                       noPublicIP:
                         type: boolean
                       privateSubnetName:
                         type: string
+                      privateSubnetNetworkSecurityGroupAssociationID:
+                        type: string
+                      publicIPName:
+                        type: string
                       publicSubnetName:
+                        type: string
+                      publicSubnetNetworkSecurityGroupAssociationID:
+                        type: string
+                      storageAccountName:
+                        type: string
+                      storageAccountSkuName:
                         type: string
                       virtualNetworkID:
                         type: string
+                      vnetAddressPrefix:
+                        type: string
                     type: object
+                  customerManagedKeyEnabled:
+                    type: boolean
                   id:
+                    type: string
+                  infrastructureEncryptionEnabled:
+                    type: boolean
+                  loadBalancerBackendAddressPoolID:
                     type: string
                   location:
                     type: string
@@ -155,12 +221,25 @@ spec:
                     type: string
                   managedResourceGroupName:
                     type: string
+                  managedServicesCmkKeyVaultKeyID:
+                    type: string
                   name:
                     type: string
+                  networkSecurityGroupRulesRequired:
+                    type: string
+                  publicNetworkAccessEnabled:
+                    type: boolean
                   resourceGroupName:
                     type: string
                   sku:
                     type: string
+                  storageAccountIdentity:
+                    items:
+                      properties:
+                        type:
+                          type: string
+                      type: object
+                    type: array
                   tags:
                     additionalProperties:
                       type: string

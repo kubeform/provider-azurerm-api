@@ -158,6 +158,7 @@ spec:
                       storageEndpoint:
                         type: string
                       useServerDefault:
+                        description: Deprecated
                         type: string
                     type: object
                   timeouts:
@@ -316,6 +317,7 @@ spec:
                       storageEndpoint:
                         type: string
                       useServerDefault:
+                        description: Deprecated
                         type: string
                     type: object
                   timeouts:

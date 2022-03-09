@@ -39,6 +39,8 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(EndpointSpecGlobalDeliveryRuleCacheKeyQueryStringAction{}).Type1()): EndpointSpecGlobalDeliveryRuleCacheKeyQueryStringActionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EndpointSpecGlobalDeliveryRuleUrlRedirectAction{}).Type1()):         EndpointSpecGlobalDeliveryRuleUrlRedirectActionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EndpointSpecGlobalDeliveryRuleUrlRewriteAction{}).Type1()):          EndpointSpecGlobalDeliveryRuleUrlRewriteActionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(EndpointCustomDomainSpecCdnManagedHTTPS{}).Type1()):                 EndpointCustomDomainSpecCdnManagedHTTPSCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(EndpointCustomDomainSpecUserManagedHTTPS{}).Type1()):                EndpointCustomDomainSpecUserManagedHTTPSCodec{},
 	}
 }
 
@@ -56,6 +58,8 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(EndpointSpecGlobalDeliveryRuleCacheKeyQueryStringAction{}).Type1()): EndpointSpecGlobalDeliveryRuleCacheKeyQueryStringActionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EndpointSpecGlobalDeliveryRuleUrlRedirectAction{}).Type1()):         EndpointSpecGlobalDeliveryRuleUrlRedirectActionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EndpointSpecGlobalDeliveryRuleUrlRewriteAction{}).Type1()):          EndpointSpecGlobalDeliveryRuleUrlRewriteActionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(EndpointCustomDomainSpecCdnManagedHTTPS{}).Type1()):                 EndpointCustomDomainSpecCdnManagedHTTPSCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(EndpointCustomDomainSpecUserManagedHTTPS{}).Type1()):                EndpointCustomDomainSpecUserManagedHTTPSCodec{},
 	}
 }
 
@@ -1016,5 +1020,163 @@ func (EndpointSpecGlobalDeliveryRuleUrlRewriteActionCodec) Decode(ptr unsafe.Poi
 		}
 	default:
 		iter.ReportError("decode EndpointSpecGlobalDeliveryRuleUrlRewriteAction", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type EndpointCustomDomainSpecCdnManagedHTTPSCodec struct {
+}
+
+func (EndpointCustomDomainSpecCdnManagedHTTPSCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*EndpointCustomDomainSpecCdnManagedHTTPS)(ptr) == nil
+}
+
+func (EndpointCustomDomainSpecCdnManagedHTTPSCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*EndpointCustomDomainSpecCdnManagedHTTPS)(ptr)
+	var objs []EndpointCustomDomainSpecCdnManagedHTTPS
+	if obj != nil {
+		objs = []EndpointCustomDomainSpecCdnManagedHTTPS{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(EndpointCustomDomainSpecCdnManagedHTTPS{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (EndpointCustomDomainSpecCdnManagedHTTPSCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*EndpointCustomDomainSpecCdnManagedHTTPS)(ptr) = EndpointCustomDomainSpecCdnManagedHTTPS{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []EndpointCustomDomainSpecCdnManagedHTTPS
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(EndpointCustomDomainSpecCdnManagedHTTPS{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*EndpointCustomDomainSpecCdnManagedHTTPS)(ptr) = objs[0]
+			} else {
+				*(*EndpointCustomDomainSpecCdnManagedHTTPS)(ptr) = EndpointCustomDomainSpecCdnManagedHTTPS{}
+			}
+		} else {
+			*(*EndpointCustomDomainSpecCdnManagedHTTPS)(ptr) = EndpointCustomDomainSpecCdnManagedHTTPS{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj EndpointCustomDomainSpecCdnManagedHTTPS
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(EndpointCustomDomainSpecCdnManagedHTTPS{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*EndpointCustomDomainSpecCdnManagedHTTPS)(ptr) = obj
+		} else {
+			*(*EndpointCustomDomainSpecCdnManagedHTTPS)(ptr) = EndpointCustomDomainSpecCdnManagedHTTPS{}
+		}
+	default:
+		iter.ReportError("decode EndpointCustomDomainSpecCdnManagedHTTPS", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type EndpointCustomDomainSpecUserManagedHTTPSCodec struct {
+}
+
+func (EndpointCustomDomainSpecUserManagedHTTPSCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*EndpointCustomDomainSpecUserManagedHTTPS)(ptr) == nil
+}
+
+func (EndpointCustomDomainSpecUserManagedHTTPSCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*EndpointCustomDomainSpecUserManagedHTTPS)(ptr)
+	var objs []EndpointCustomDomainSpecUserManagedHTTPS
+	if obj != nil {
+		objs = []EndpointCustomDomainSpecUserManagedHTTPS{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(EndpointCustomDomainSpecUserManagedHTTPS{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (EndpointCustomDomainSpecUserManagedHTTPSCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*EndpointCustomDomainSpecUserManagedHTTPS)(ptr) = EndpointCustomDomainSpecUserManagedHTTPS{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []EndpointCustomDomainSpecUserManagedHTTPS
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(EndpointCustomDomainSpecUserManagedHTTPS{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*EndpointCustomDomainSpecUserManagedHTTPS)(ptr) = objs[0]
+			} else {
+				*(*EndpointCustomDomainSpecUserManagedHTTPS)(ptr) = EndpointCustomDomainSpecUserManagedHTTPS{}
+			}
+		} else {
+			*(*EndpointCustomDomainSpecUserManagedHTTPS)(ptr) = EndpointCustomDomainSpecUserManagedHTTPS{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj EndpointCustomDomainSpecUserManagedHTTPS
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(EndpointCustomDomainSpecUserManagedHTTPS{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*EndpointCustomDomainSpecUserManagedHTTPS)(ptr) = obj
+		} else {
+			*(*EndpointCustomDomainSpecUserManagedHTTPS)(ptr) = EndpointCustomDomainSpecUserManagedHTTPS{}
+		}
+	default:
+		iter.ReportError("decode EndpointCustomDomainSpecUserManagedHTTPS", "unexpected JSON type")
 	}
 }

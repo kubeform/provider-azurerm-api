@@ -25,3 +25,11 @@ type AccountListerExpansion interface{}
 // AccountNamespaceListerExpansion allows custom methods to be added to
 // AccountNamespaceLister.
 type AccountNamespaceListerExpansion interface{}
+
+// AccountCustomerManagedKeyListerExpansion allows custom methods to be added to
+// AccountCustomerManagedKeyLister.
+type AccountCustomerManagedKeyListerExpansion interface{}
+
+// AccountCustomerManagedKeyNamespaceListerExpansion allows custom methods to be added to
+// AccountCustomerManagedKeyNamespaceLister.
+type AccountCustomerManagedKeyNamespaceListerExpansion interface{}

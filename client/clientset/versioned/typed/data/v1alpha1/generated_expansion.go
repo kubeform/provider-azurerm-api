@@ -20,7 +20,13 @@ package v1alpha1
 
 type FactoryExpansion interface{}
 
+type FactoryCustomDatasetExpansion interface{}
+
+type FactoryDataFlowExpansion interface{}
+
 type FactoryDatasetAzureBlobExpansion interface{}
+
+type FactoryDatasetBinaryExpansion interface{}
 
 type FactoryDatasetCosmosdbSqlapiExpansion interface{}
 
@@ -66,6 +72,8 @@ type FactoryLinkedServiceAzureTableStorageExpansion interface{}
 
 type FactoryLinkedServiceCosmosdbExpansion interface{}
 
+type FactoryLinkedServiceCosmosdbMongoapiExpansion interface{}
+
 type FactoryLinkedServiceDataLakeStorageGen2Expansion interface{}
 
 type FactoryLinkedServiceKeyVaultExpansion interface{}
@@ -75,6 +83,8 @@ type FactoryLinkedServiceKustoExpansion interface{}
 type FactoryLinkedServiceMysqlExpansion interface{}
 
 type FactoryLinkedServiceOdataExpansion interface{}
+
+type FactoryLinkedServiceOdbcExpansion interface{}
 
 type FactoryLinkedServicePostgresqlExpansion interface{}
 
@@ -88,11 +98,17 @@ type FactoryLinkedServiceSynapseExpansion interface{}
 
 type FactoryLinkedServiceWebExpansion interface{}
 
+type FactoryManagedPrivateEndpointExpansion interface{}
+
 type FactoryPipelineExpansion interface{}
 
 type FactoryTriggerBlobEventExpansion interface{}
 
+type FactoryTriggerCustomEventExpansion interface{}
+
 type FactoryTriggerScheduleExpansion interface{}
+
+type FactoryTriggerTumblingWindowExpansion interface{}
 
 type LakeAnalyticsAccountExpansion interface{}
 
@@ -106,7 +122,15 @@ type LakeStoreFirewallRuleExpansion interface{}
 
 type LakeStoreVirtualNetworkRuleExpansion interface{}
 
+type ProtectionBackupInstanceBlobStorageExpansion interface{}
+
+type ProtectionBackupInstanceDiskExpansion interface{}
+
 type ProtectionBackupInstancePostgresqlExpansion interface{}
+
+type ProtectionBackupPolicyBlobStorageExpansion interface{}
+
+type ProtectionBackupPolicyDiskExpansion interface{}
 
 type ProtectionBackupPolicyPostgresqlExpansion interface{}
 

@@ -41,6 +41,42 @@ func (c *FakeLogicappV1alpha1) IntegrationAccounts(namespace string) v1alpha1.In
 	return &FakeIntegrationAccounts{c, namespace}
 }
 
+func (c *FakeLogicappV1alpha1) IntegrationAccountAgreements(namespace string) v1alpha1.IntegrationAccountAgreementInterface {
+	return &FakeIntegrationAccountAgreements{c, namespace}
+}
+
+func (c *FakeLogicappV1alpha1) IntegrationAccountAssemblies(namespace string) v1alpha1.IntegrationAccountAssemblyInterface {
+	return &FakeIntegrationAccountAssemblies{c, namespace}
+}
+
+func (c *FakeLogicappV1alpha1) IntegrationAccountBatchConfigurations(namespace string) v1alpha1.IntegrationAccountBatchConfigurationInterface {
+	return &FakeIntegrationAccountBatchConfigurations{c, namespace}
+}
+
+func (c *FakeLogicappV1alpha1) IntegrationAccountCertificates(namespace string) v1alpha1.IntegrationAccountCertificateInterface {
+	return &FakeIntegrationAccountCertificates{c, namespace}
+}
+
+func (c *FakeLogicappV1alpha1) IntegrationAccountMaps(namespace string) v1alpha1.IntegrationAccountMapInterface {
+	return &FakeIntegrationAccountMaps{c, namespace}
+}
+
+func (c *FakeLogicappV1alpha1) IntegrationAccountPartners(namespace string) v1alpha1.IntegrationAccountPartnerInterface {
+	return &FakeIntegrationAccountPartners{c, namespace}
+}
+
+func (c *FakeLogicappV1alpha1) IntegrationAccountSchemas(namespace string) v1alpha1.IntegrationAccountSchemaInterface {
+	return &FakeIntegrationAccountSchemas{c, namespace}
+}
+
+func (c *FakeLogicappV1alpha1) IntegrationAccountSessions(namespace string) v1alpha1.IntegrationAccountSessionInterface {
+	return &FakeIntegrationAccountSessions{c, namespace}
+}
+
+func (c *FakeLogicappV1alpha1) Standards(namespace string) v1alpha1.StandardInterface {
+	return &FakeStandards{c, namespace}
+}
+
 func (c *FakeLogicappV1alpha1) TriggerCustoms(namespace string) v1alpha1.TriggerCustomInterface {
 	return &FakeTriggerCustoms{c, namespace}
 }

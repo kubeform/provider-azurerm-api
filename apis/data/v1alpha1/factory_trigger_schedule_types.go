@@ -41,6 +41,27 @@ type FactoryTriggerSchedule struct {
 	Status            FactoryTriggerScheduleStatus `json:"status,omitempty"`
 }
 
+type FactoryTriggerScheduleSpecScheduleMonthly struct {
+	// +optional
+	Week    *int64  `json:"week,omitempty" tf:"week"`
+	Weekday *string `json:"weekday" tf:"weekday"`
+}
+
+type FactoryTriggerScheduleSpecSchedule struct {
+	// +optional
+	DaysOfMonth []int64 `json:"daysOfMonth,omitempty" tf:"days_of_month"`
+	// +optional
+	// +kubebuilder:validation:MaxItems=7
+	DaysOfWeek []string `json:"daysOfWeek,omitempty" tf:"days_of_week"`
+	// +optional
+	Hours []int64 `json:"hours,omitempty" tf:"hours"`
+	// +optional
+	Minutes []int64 `json:"minutes,omitempty" tf:"minutes"`
+	// +optional
+	// +kubebuilder:validation:MinItems=1
+	Monthly []FactoryTriggerScheduleSpecScheduleMonthly `json:"monthly,omitempty" tf:"monthly"`
+}
+
 type FactoryTriggerScheduleSpec struct {
 	State *FactoryTriggerScheduleSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -61,8 +82,16 @@ type FactoryTriggerScheduleSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
-	Annotations     []string `json:"annotations,omitempty" tf:"annotations"`
-	DataFactoryName *string  `json:"dataFactoryName" tf:"data_factory_name"`
+	Activated *bool `json:"activated,omitempty" tf:"activated"`
+	// +optional
+	Annotations []string `json:"annotations,omitempty" tf:"annotations"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
+	// +optional
+	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional
 	EndTime *string `json:"endTime,omitempty" tf:"end_time"`
 	// +optional
@@ -74,6 +103,8 @@ type FactoryTriggerScheduleSpecResource struct {
 	// +optional
 	PipelineParameters *map[string]string `json:"pipelineParameters,omitempty" tf:"pipeline_parameters"`
 	ResourceGroupName  *string            `json:"resourceGroupName" tf:"resource_group_name"`
+	// +optional
+	Schedule *FactoryTriggerScheduleSpecSchedule `json:"schedule,omitempty" tf:"schedule"`
 	// +optional
 	StartTime *string `json:"startTime,omitempty" tf:"start_time"`
 }

@@ -62,6 +62,23 @@ type ServerSpecIdentity struct {
 	Type     *string `json:"type" tf:"type"`
 }
 
+type ServerSpecThreatDetectionPolicy struct {
+	// +optional
+	DisabledAlerts []string `json:"disabledAlerts,omitempty" tf:"disabled_alerts"`
+	// +optional
+	EmailAccountAdmins *bool `json:"emailAccountAdmins,omitempty" tf:"email_account_admins"`
+	// +optional
+	EmailAddresses []string `json:"emailAddresses,omitempty" tf:"email_addresses"`
+	// +optional
+	RetentionDays *int64 `json:"retentionDays,omitempty" tf:"retention_days"`
+	// +optional
+	State *string `json:"state,omitempty" tf:"state"`
+	// +optional
+	StorageAccountAccessKey *string `json:"-" sensitive:"true" tf:"storage_account_access_key"`
+	// +optional
+	StorageEndpoint *string `json:"storageEndpoint,omitempty" tf:"storage_endpoint"`
+}
+
 type ServerSpec struct {
 	State *ServerSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -98,8 +115,10 @@ type ServerSpecResource struct {
 	Name              *string             `json:"name" tf:"name"`
 	ResourceGroupName *string             `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
-	Tags    *map[string]string `json:"tags,omitempty" tf:"tags"`
-	Version *string            `json:"version" tf:"version"`
+	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
+	// +optional
+	ThreatDetectionPolicy *ServerSpecThreatDetectionPolicy `json:"threatDetectionPolicy,omitempty" tf:"threat_detection_policy"`
+	Version               *string                          `json:"version" tf:"version"`
 }
 
 type ServerStatus struct {

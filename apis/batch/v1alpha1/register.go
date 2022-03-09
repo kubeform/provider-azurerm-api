@@ -62,6 +62,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&ApplicationList{},
 		&Certificate{},
 		&CertificateList{},
+		&Job{},
+		&JobList{},
 		&Pool{},
 		&PoolList{},
 	)

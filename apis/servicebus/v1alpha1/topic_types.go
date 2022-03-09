@@ -73,12 +73,20 @@ type TopicSpecResource struct {
 	// +optional
 	EnablePartitioning *bool `json:"enablePartitioning,omitempty" tf:"enable_partitioning"`
 	// +optional
+	MaxMessageSizeInKilobytes *int64 `json:"maxMessageSizeInKilobytes,omitempty" tf:"max_message_size_in_kilobytes"`
+	// +optional
 	MaxSizeInMegabytes *int64  `json:"maxSizeInMegabytes,omitempty" tf:"max_size_in_megabytes"`
 	Name               *string `json:"name" tf:"name"`
-	NamespaceName      *string `json:"namespaceName" tf:"namespace_name"`
 	// +optional
-	RequiresDuplicateDetection *bool   `json:"requiresDuplicateDetection,omitempty" tf:"requires_duplicate_detection"`
-	ResourceGroupName          *string `json:"resourceGroupName" tf:"resource_group_name"`
+	NamespaceID *string `json:"namespaceID,omitempty" tf:"namespace_id"`
+	// +optional
+	// Deprecated
+	NamespaceName *string `json:"namespaceName,omitempty" tf:"namespace_name"`
+	// +optional
+	RequiresDuplicateDetection *bool `json:"requiresDuplicateDetection,omitempty" tf:"requires_duplicate_detection"`
+	// +optional
+	// Deprecated
+	ResourceGroupName *string `json:"resourceGroupName,omitempty" tf:"resource_group_name"`
 	// +optional
 	Status *string `json:"status,omitempty" tf:"status"`
 	// +optional

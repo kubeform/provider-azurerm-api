@@ -42,6 +42,7 @@ func (r *FactoryLinkedServiceWeb) SetupWebhookWithManager(mgr ctrl.Manager) erro
 var _ webhook.Validator = &FactoryLinkedServiceWeb{}
 
 var factorylinkedservicewebForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *FactoryLinkedServiceWeb) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range factorylinkedservicewebForceNewList {
+	for key, _ := range factorylinkedservicewebForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

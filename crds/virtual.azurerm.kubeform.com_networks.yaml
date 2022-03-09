@@ -78,6 +78,9 @@ spec:
                     items:
                       type: string
                     type: array
+                  flowTimeoutInMinutes:
+                    format: int64
+                    type: integer
                   guid:
                     type: string
                   id:
@@ -178,6 +181,9 @@ spec:
                     items:
                       type: string
                     type: array
+                  flowTimeoutInMinutes:
+                    format: int64
+                    type: integer
                   guid:
                     type: string
                   id:

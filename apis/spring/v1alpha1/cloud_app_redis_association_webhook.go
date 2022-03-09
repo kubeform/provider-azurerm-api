@@ -90,7 +90,7 @@ func (r *CloudAppRedisAssociation) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range cloudappredisassociationForceNewList {
+	for key, _ := range cloudappredisassociationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

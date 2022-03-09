@@ -41,6 +41,17 @@ type Configuration struct {
 	Status            ConfigurationStatus `json:"status,omitempty"`
 }
 
+type ConfigurationSpecWindow struct {
+	// +optional
+	Duration *string `json:"duration,omitempty" tf:"duration"`
+	// +optional
+	ExpirationDateTime *string `json:"expirationDateTime,omitempty" tf:"expiration_date_time"`
+	// +optional
+	RecurEvery    *string `json:"recurEvery,omitempty" tf:"recur_every"`
+	StartDateTime *string `json:"startDateTime" tf:"start_date_time"`
+	TimeZone      *string `json:"timeZone" tf:"time_zone"`
+}
+
 type ConfigurationSpec struct {
 	State *ConfigurationSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -60,13 +71,19 @@ type ConfigurationSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	Location          *string `json:"location" tf:"location"`
-	Name              *string `json:"name" tf:"name"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	Location *string `json:"location" tf:"location"`
+	Name     *string `json:"name" tf:"name"`
+	// +optional
+	Properties        *map[string]string `json:"properties,omitempty" tf:"properties"`
+	ResourceGroupName *string            `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	Scope *string `json:"scope,omitempty" tf:"scope"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
+	// +optional
+	Visibility *string `json:"visibility,omitempty" tf:"visibility"`
+	// +optional
+	Window *ConfigurationSpecWindow `json:"window,omitempty" tf:"window"`
 }
 
 type ConfigurationStatus struct {

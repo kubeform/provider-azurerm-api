@@ -61,10 +61,12 @@ type ProtectionBackupInstancePostgresqlSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	BackupPolicyID *string `json:"backupPolicyID" tf:"backup_policy_id"`
-	DatabaseID     *string `json:"databaseID" tf:"database_id"`
-	Location       *string `json:"location" tf:"location"`
-	Name           *string `json:"name" tf:"name"`
-	VaultID        *string `json:"vaultID" tf:"vault_id"`
+	// +optional
+	DatabaseCredentialKeyVaultSecretID *string `json:"databaseCredentialKeyVaultSecretID,omitempty" tf:"database_credential_key_vault_secret_id"`
+	DatabaseID                         *string `json:"databaseID" tf:"database_id"`
+	Location                           *string `json:"location" tf:"location"`
+	Name                               *string `json:"name" tf:"name"`
+	VaultID                            *string `json:"vaultID" tf:"vault_id"`
 }
 
 type ProtectionBackupInstancePostgresqlStatus struct {

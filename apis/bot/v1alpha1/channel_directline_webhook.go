@@ -90,7 +90,7 @@ func (r *ChannelDirectline) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range channeldirectlineForceNewList {
+	for key, _ := range channeldirectlineForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

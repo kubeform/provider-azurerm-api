@@ -73,8 +73,12 @@ type FactoryDatasetCosmosdbSqlapiSpecResource struct {
 	// +optional
 	Annotations []string `json:"annotations,omitempty" tf:"annotations"`
 	// +optional
-	CollectionName  *string `json:"collectionName,omitempty" tf:"collection_name"`
-	DataFactoryName *string `json:"dataFactoryName" tf:"data_factory_name"`
+	CollectionName *string `json:"collectionName,omitempty" tf:"collection_name"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional

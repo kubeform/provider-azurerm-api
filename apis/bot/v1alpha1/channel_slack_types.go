@@ -69,6 +69,8 @@ type ChannelSlackSpecResource struct {
 	LandingPageURL    *string `json:"landingPageURL,omitempty" tf:"landing_page_url"`
 	Location          *string `json:"location" tf:"location"`
 	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	// +optional
+	SigningSecret     *string `json:"-" sensitive:"true" tf:"signing_secret"`
 	VerificationToken *string `json:"-" sensitive:"true" tf:"verification_token"`
 }
 

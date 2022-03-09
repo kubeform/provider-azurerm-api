@@ -26,6 +26,22 @@ type AccountListerExpansion interface{}
 // AccountNamespaceLister.
 type AccountNamespaceListerExpansion interface{}
 
+// CassandraClusterListerExpansion allows custom methods to be added to
+// CassandraClusterLister.
+type CassandraClusterListerExpansion interface{}
+
+// CassandraClusterNamespaceListerExpansion allows custom methods to be added to
+// CassandraClusterNamespaceLister.
+type CassandraClusterNamespaceListerExpansion interface{}
+
+// CassandraDatacenterListerExpansion allows custom methods to be added to
+// CassandraDatacenterLister.
+type CassandraDatacenterListerExpansion interface{}
+
+// CassandraDatacenterNamespaceListerExpansion allows custom methods to be added to
+// CassandraDatacenterNamespaceLister.
+type CassandraDatacenterNamespaceListerExpansion interface{}
+
 // CassandraKeyspaceListerExpansion allows custom methods to be added to
 // CassandraKeyspaceLister.
 type CassandraKeyspaceListerExpansion interface{}

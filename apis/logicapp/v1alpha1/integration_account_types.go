@@ -60,10 +60,12 @@ type IntegrationAccountSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	Location          *string `json:"location" tf:"location"`
-	Name              *string `json:"name" tf:"name"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
-	SkuName           *string `json:"skuName" tf:"sku_name"`
+	// +optional
+	IntegrationServiceEnvironmentID *string `json:"integrationServiceEnvironmentID,omitempty" tf:"integration_service_environment_id"`
+	Location                        *string `json:"location" tf:"location"`
+	Name                            *string `json:"name" tf:"name"`
+	ResourceGroupName               *string `json:"resourceGroupName" tf:"resource_group_name"`
+	SkuName                         *string `json:"skuName" tf:"sku_name"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 }

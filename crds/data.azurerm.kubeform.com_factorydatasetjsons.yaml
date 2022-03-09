@@ -69,6 +69,10 @@ spec:
                     properties:
                       container:
                         type: string
+                      dynamicFilenameEnabled:
+                        type: boolean
+                      dynamicPathEnabled:
+                        type: boolean
                       filename:
                         type: string
                       path:
@@ -78,7 +82,10 @@ spec:
                     - filename
                     - path
                     type: object
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -88,6 +95,10 @@ spec:
                     type: string
                   httpServerLocation:
                     properties:
+                      dynamicFilenameEnabled:
+                        type: boolean
+                      dynamicPathEnabled:
+                        type: boolean
                       filename:
                         type: string
                       path:
@@ -163,7 +174,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - dataFactoryName
                 - linkedServiceName
                 - name
                 - resourceGroupName
@@ -182,6 +192,10 @@ spec:
                     properties:
                       container:
                         type: string
+                      dynamicFilenameEnabled:
+                        type: boolean
+                      dynamicPathEnabled:
+                        type: boolean
                       filename:
                         type: string
                       path:
@@ -191,7 +205,10 @@ spec:
                     - filename
                     - path
                     type: object
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -201,6 +218,10 @@ spec:
                     type: string
                   httpServerLocation:
                     properties:
+                      dynamicFilenameEnabled:
+                        type: boolean
+                      dynamicPathEnabled:
+                        type: boolean
                       filename:
                         type: string
                       path:
@@ -276,7 +297,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - dataFactoryName
                 - linkedServiceName
                 - name
                 - resourceGroupName

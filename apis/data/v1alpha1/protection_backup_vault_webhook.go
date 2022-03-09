@@ -92,7 +92,7 @@ func (r *ProtectionBackupVault) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range protectionbackupvaultForceNewList {
+	for key, _ := range protectionbackupvaultForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

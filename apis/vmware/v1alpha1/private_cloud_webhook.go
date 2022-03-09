@@ -92,7 +92,7 @@ func (r *PrivateCloud) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range privatecloudForceNewList {
+	for key, _ := range privatecloudForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

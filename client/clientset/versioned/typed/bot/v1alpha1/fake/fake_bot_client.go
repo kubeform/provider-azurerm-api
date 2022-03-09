@@ -29,12 +29,28 @@ type FakeBotV1alpha1 struct {
 	*testing.Fake
 }
 
+func (c *FakeBotV1alpha1) ChannelAlexas(namespace string) v1alpha1.ChannelAlexaInterface {
+	return &FakeChannelAlexas{c, namespace}
+}
+
+func (c *FakeBotV1alpha1) ChannelDirectLineSpeeches(namespace string) v1alpha1.ChannelDirectLineSpeechInterface {
+	return &FakeChannelDirectLineSpeeches{c, namespace}
+}
+
 func (c *FakeBotV1alpha1) ChannelDirectlines(namespace string) v1alpha1.ChannelDirectlineInterface {
 	return &FakeChannelDirectlines{c, namespace}
 }
 
 func (c *FakeBotV1alpha1) ChannelEmails(namespace string) v1alpha1.ChannelEmailInterface {
 	return &FakeChannelEmails{c, namespace}
+}
+
+func (c *FakeBotV1alpha1) ChannelFacebooks(namespace string) v1alpha1.ChannelFacebookInterface {
+	return &FakeChannelFacebooks{c, namespace}
+}
+
+func (c *FakeBotV1alpha1) ChannelLines(namespace string) v1alpha1.ChannelLineInterface {
+	return &FakeChannelLines{c, namespace}
 }
 
 func (c *FakeBotV1alpha1) ChannelMsTeamses(namespace string) v1alpha1.ChannelMsTeamsInterface {
@@ -45,12 +61,24 @@ func (c *FakeBotV1alpha1) ChannelSlacks(namespace string) v1alpha1.ChannelSlackI
 	return &FakeChannelSlacks{c, namespace}
 }
 
+func (c *FakeBotV1alpha1) ChannelSmses(namespace string) v1alpha1.ChannelSmsInterface {
+	return &FakeChannelSmses{c, namespace}
+}
+
+func (c *FakeBotV1alpha1) ChannelWebChats(namespace string) v1alpha1.ChannelWebChatInterface {
+	return &FakeChannelWebChats{c, namespace}
+}
+
 func (c *FakeBotV1alpha1) ChannelsRegistrations(namespace string) v1alpha1.ChannelsRegistrationInterface {
 	return &FakeChannelsRegistrations{c, namespace}
 }
 
 func (c *FakeBotV1alpha1) Connections(namespace string) v1alpha1.ConnectionInterface {
 	return &FakeConnections{c, namespace}
+}
+
+func (c *FakeBotV1alpha1) ServiceAzureBots(namespace string) v1alpha1.ServiceAzureBotInterface {
+	return &FakeServiceAzureBots{c, namespace}
 }
 
 func (c *FakeBotV1alpha1) WebApps(namespace string) v1alpha1.WebAppInterface {

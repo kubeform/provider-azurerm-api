@@ -67,7 +67,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   database:
                     type: string
@@ -124,7 +127,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 type: object
@@ -149,7 +151,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   database:
                     type: string
@@ -206,7 +211,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 type: object

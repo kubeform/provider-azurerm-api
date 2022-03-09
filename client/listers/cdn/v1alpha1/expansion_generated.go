@@ -26,6 +26,14 @@ type EndpointListerExpansion interface{}
 // EndpointNamespaceLister.
 type EndpointNamespaceListerExpansion interface{}
 
+// EndpointCustomDomainListerExpansion allows custom methods to be added to
+// EndpointCustomDomainLister.
+type EndpointCustomDomainListerExpansion interface{}
+
+// EndpointCustomDomainNamespaceListerExpansion allows custom methods to be added to
+// EndpointCustomDomainNamespaceLister.
+type EndpointCustomDomainNamespaceListerExpansion interface{}
+
 // ProfileListerExpansion allows custom methods to be added to
 // ProfileLister.
 type ProfileListerExpansion interface{}

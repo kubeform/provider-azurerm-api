@@ -26,6 +26,22 @@ type FactoryListerExpansion interface{}
 // FactoryNamespaceLister.
 type FactoryNamespaceListerExpansion interface{}
 
+// FactoryCustomDatasetListerExpansion allows custom methods to be added to
+// FactoryCustomDatasetLister.
+type FactoryCustomDatasetListerExpansion interface{}
+
+// FactoryCustomDatasetNamespaceListerExpansion allows custom methods to be added to
+// FactoryCustomDatasetNamespaceLister.
+type FactoryCustomDatasetNamespaceListerExpansion interface{}
+
+// FactoryDataFlowListerExpansion allows custom methods to be added to
+// FactoryDataFlowLister.
+type FactoryDataFlowListerExpansion interface{}
+
+// FactoryDataFlowNamespaceListerExpansion allows custom methods to be added to
+// FactoryDataFlowNamespaceLister.
+type FactoryDataFlowNamespaceListerExpansion interface{}
+
 // FactoryDatasetAzureBlobListerExpansion allows custom methods to be added to
 // FactoryDatasetAzureBlobLister.
 type FactoryDatasetAzureBlobListerExpansion interface{}
@@ -33,6 +49,14 @@ type FactoryDatasetAzureBlobListerExpansion interface{}
 // FactoryDatasetAzureBlobNamespaceListerExpansion allows custom methods to be added to
 // FactoryDatasetAzureBlobNamespaceLister.
 type FactoryDatasetAzureBlobNamespaceListerExpansion interface{}
+
+// FactoryDatasetBinaryListerExpansion allows custom methods to be added to
+// FactoryDatasetBinaryLister.
+type FactoryDatasetBinaryListerExpansion interface{}
+
+// FactoryDatasetBinaryNamespaceListerExpansion allows custom methods to be added to
+// FactoryDatasetBinaryNamespaceLister.
+type FactoryDatasetBinaryNamespaceListerExpansion interface{}
 
 // FactoryDatasetCosmosdbSqlapiListerExpansion allows custom methods to be added to
 // FactoryDatasetCosmosdbSqlapiLister.
@@ -210,6 +234,14 @@ type FactoryLinkedServiceCosmosdbListerExpansion interface{}
 // FactoryLinkedServiceCosmosdbNamespaceLister.
 type FactoryLinkedServiceCosmosdbNamespaceListerExpansion interface{}
 
+// FactoryLinkedServiceCosmosdbMongoapiListerExpansion allows custom methods to be added to
+// FactoryLinkedServiceCosmosdbMongoapiLister.
+type FactoryLinkedServiceCosmosdbMongoapiListerExpansion interface{}
+
+// FactoryLinkedServiceCosmosdbMongoapiNamespaceListerExpansion allows custom methods to be added to
+// FactoryLinkedServiceCosmosdbMongoapiNamespaceLister.
+type FactoryLinkedServiceCosmosdbMongoapiNamespaceListerExpansion interface{}
+
 // FactoryLinkedServiceDataLakeStorageGen2ListerExpansion allows custom methods to be added to
 // FactoryLinkedServiceDataLakeStorageGen2Lister.
 type FactoryLinkedServiceDataLakeStorageGen2ListerExpansion interface{}
@@ -249,6 +281,14 @@ type FactoryLinkedServiceOdataListerExpansion interface{}
 // FactoryLinkedServiceOdataNamespaceListerExpansion allows custom methods to be added to
 // FactoryLinkedServiceOdataNamespaceLister.
 type FactoryLinkedServiceOdataNamespaceListerExpansion interface{}
+
+// FactoryLinkedServiceOdbcListerExpansion allows custom methods to be added to
+// FactoryLinkedServiceOdbcLister.
+type FactoryLinkedServiceOdbcListerExpansion interface{}
+
+// FactoryLinkedServiceOdbcNamespaceListerExpansion allows custom methods to be added to
+// FactoryLinkedServiceOdbcNamespaceLister.
+type FactoryLinkedServiceOdbcNamespaceListerExpansion interface{}
 
 // FactoryLinkedServicePostgresqlListerExpansion allows custom methods to be added to
 // FactoryLinkedServicePostgresqlLister.
@@ -298,6 +338,14 @@ type FactoryLinkedServiceWebListerExpansion interface{}
 // FactoryLinkedServiceWebNamespaceLister.
 type FactoryLinkedServiceWebNamespaceListerExpansion interface{}
 
+// FactoryManagedPrivateEndpointListerExpansion allows custom methods to be added to
+// FactoryManagedPrivateEndpointLister.
+type FactoryManagedPrivateEndpointListerExpansion interface{}
+
+// FactoryManagedPrivateEndpointNamespaceListerExpansion allows custom methods to be added to
+// FactoryManagedPrivateEndpointNamespaceLister.
+type FactoryManagedPrivateEndpointNamespaceListerExpansion interface{}
+
 // FactoryPipelineListerExpansion allows custom methods to be added to
 // FactoryPipelineLister.
 type FactoryPipelineListerExpansion interface{}
@@ -314,6 +362,14 @@ type FactoryTriggerBlobEventListerExpansion interface{}
 // FactoryTriggerBlobEventNamespaceLister.
 type FactoryTriggerBlobEventNamespaceListerExpansion interface{}
 
+// FactoryTriggerCustomEventListerExpansion allows custom methods to be added to
+// FactoryTriggerCustomEventLister.
+type FactoryTriggerCustomEventListerExpansion interface{}
+
+// FactoryTriggerCustomEventNamespaceListerExpansion allows custom methods to be added to
+// FactoryTriggerCustomEventNamespaceLister.
+type FactoryTriggerCustomEventNamespaceListerExpansion interface{}
+
 // FactoryTriggerScheduleListerExpansion allows custom methods to be added to
 // FactoryTriggerScheduleLister.
 type FactoryTriggerScheduleListerExpansion interface{}
@@ -321,6 +377,14 @@ type FactoryTriggerScheduleListerExpansion interface{}
 // FactoryTriggerScheduleNamespaceListerExpansion allows custom methods to be added to
 // FactoryTriggerScheduleNamespaceLister.
 type FactoryTriggerScheduleNamespaceListerExpansion interface{}
+
+// FactoryTriggerTumblingWindowListerExpansion allows custom methods to be added to
+// FactoryTriggerTumblingWindowLister.
+type FactoryTriggerTumblingWindowListerExpansion interface{}
+
+// FactoryTriggerTumblingWindowNamespaceListerExpansion allows custom methods to be added to
+// FactoryTriggerTumblingWindowNamespaceLister.
+type FactoryTriggerTumblingWindowNamespaceListerExpansion interface{}
 
 // LakeAnalyticsAccountListerExpansion allows custom methods to be added to
 // LakeAnalyticsAccountLister.
@@ -370,6 +434,22 @@ type LakeStoreVirtualNetworkRuleListerExpansion interface{}
 // LakeStoreVirtualNetworkRuleNamespaceLister.
 type LakeStoreVirtualNetworkRuleNamespaceListerExpansion interface{}
 
+// ProtectionBackupInstanceBlobStorageListerExpansion allows custom methods to be added to
+// ProtectionBackupInstanceBlobStorageLister.
+type ProtectionBackupInstanceBlobStorageListerExpansion interface{}
+
+// ProtectionBackupInstanceBlobStorageNamespaceListerExpansion allows custom methods to be added to
+// ProtectionBackupInstanceBlobStorageNamespaceLister.
+type ProtectionBackupInstanceBlobStorageNamespaceListerExpansion interface{}
+
+// ProtectionBackupInstanceDiskListerExpansion allows custom methods to be added to
+// ProtectionBackupInstanceDiskLister.
+type ProtectionBackupInstanceDiskListerExpansion interface{}
+
+// ProtectionBackupInstanceDiskNamespaceListerExpansion allows custom methods to be added to
+// ProtectionBackupInstanceDiskNamespaceLister.
+type ProtectionBackupInstanceDiskNamespaceListerExpansion interface{}
+
 // ProtectionBackupInstancePostgresqlListerExpansion allows custom methods to be added to
 // ProtectionBackupInstancePostgresqlLister.
 type ProtectionBackupInstancePostgresqlListerExpansion interface{}
@@ -377,6 +457,22 @@ type ProtectionBackupInstancePostgresqlListerExpansion interface{}
 // ProtectionBackupInstancePostgresqlNamespaceListerExpansion allows custom methods to be added to
 // ProtectionBackupInstancePostgresqlNamespaceLister.
 type ProtectionBackupInstancePostgresqlNamespaceListerExpansion interface{}
+
+// ProtectionBackupPolicyBlobStorageListerExpansion allows custom methods to be added to
+// ProtectionBackupPolicyBlobStorageLister.
+type ProtectionBackupPolicyBlobStorageListerExpansion interface{}
+
+// ProtectionBackupPolicyBlobStorageNamespaceListerExpansion allows custom methods to be added to
+// ProtectionBackupPolicyBlobStorageNamespaceLister.
+type ProtectionBackupPolicyBlobStorageNamespaceListerExpansion interface{}
+
+// ProtectionBackupPolicyDiskListerExpansion allows custom methods to be added to
+// ProtectionBackupPolicyDiskLister.
+type ProtectionBackupPolicyDiskListerExpansion interface{}
+
+// ProtectionBackupPolicyDiskNamespaceListerExpansion allows custom methods to be added to
+// ProtectionBackupPolicyDiskNamespaceLister.
+type ProtectionBackupPolicyDiskNamespaceListerExpansion interface{}
 
 // ProtectionBackupPolicyPostgresqlListerExpansion allows custom methods to be added to
 // ProtectionBackupPolicyPostgresqlLister.

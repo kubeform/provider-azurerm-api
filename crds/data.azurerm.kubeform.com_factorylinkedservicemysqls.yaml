@@ -67,7 +67,10 @@ spec:
                     type: array
                   connectionString:
                     type: string
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -123,7 +126,6 @@ spec:
                     type: object
                 required:
                 - connectionString
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 type: object
@@ -139,7 +141,10 @@ spec:
                     type: array
                   connectionString:
                     type: string
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -195,7 +200,6 @@ spec:
                     type: object
                 required:
                 - connectionString
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 type: object

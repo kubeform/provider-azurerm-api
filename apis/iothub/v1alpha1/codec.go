@@ -27,8 +27,10 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
+		jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecCloudToDevice{}).Type1()): IothubSpecCloudToDeviceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecFallbackRoute{}).Type1()): IothubSpecFallbackRouteCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecFileUpload{}).Type1()):    IothubSpecFileUploadCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecIdentity{}).Type1()):      IothubSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecSku{}).Type1()):           IothubSpecSkuCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DpsSpecSku{}).Type1()):              DpsSpecSkuCodec{},
 	}
@@ -36,8 +38,10 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
+		jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecCloudToDevice{}).Type1()): IothubSpecCloudToDeviceCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecFallbackRoute{}).Type1()): IothubSpecFallbackRouteCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecFileUpload{}).Type1()):    IothubSpecFileUploadCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecIdentity{}).Type1()):      IothubSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecSku{}).Type1()):           IothubSpecSkuCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DpsSpecSku{}).Type1()):              DpsSpecSkuCodec{},
 	}
@@ -53,6 +57,85 @@ func getDecodersWithout(typ string) map[string]jsoniter.ValDecoder {
 	origMap := GetDecoder()
 	delete(origMap, typ)
 	return origMap
+}
+
+// +k8s:deepcopy-gen=false
+type IothubSpecCloudToDeviceCodec struct {
+}
+
+func (IothubSpecCloudToDeviceCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*IothubSpecCloudToDevice)(ptr) == nil
+}
+
+func (IothubSpecCloudToDeviceCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*IothubSpecCloudToDevice)(ptr)
+	var objs []IothubSpecCloudToDevice
+	if obj != nil {
+		objs = []IothubSpecCloudToDevice{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecCloudToDevice{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (IothubSpecCloudToDeviceCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*IothubSpecCloudToDevice)(ptr) = IothubSpecCloudToDevice{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []IothubSpecCloudToDevice
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecCloudToDevice{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*IothubSpecCloudToDevice)(ptr) = objs[0]
+			} else {
+				*(*IothubSpecCloudToDevice)(ptr) = IothubSpecCloudToDevice{}
+			}
+		} else {
+			*(*IothubSpecCloudToDevice)(ptr) = IothubSpecCloudToDevice{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj IothubSpecCloudToDevice
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecCloudToDevice{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*IothubSpecCloudToDevice)(ptr) = obj
+		} else {
+			*(*IothubSpecCloudToDevice)(ptr) = IothubSpecCloudToDevice{}
+		}
+	default:
+		iter.ReportError("decode IothubSpecCloudToDevice", "unexpected JSON type")
+	}
 }
 
 // +k8s:deepcopy-gen=false
@@ -210,6 +293,85 @@ func (IothubSpecFileUploadCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Itera
 		}
 	default:
 		iter.ReportError("decode IothubSpecFileUpload", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type IothubSpecIdentityCodec struct {
+}
+
+func (IothubSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*IothubSpecIdentity)(ptr) == nil
+}
+
+func (IothubSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*IothubSpecIdentity)(ptr)
+	var objs []IothubSpecIdentity
+	if obj != nil {
+		objs = []IothubSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (IothubSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*IothubSpecIdentity)(ptr) = IothubSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []IothubSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*IothubSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*IothubSpecIdentity)(ptr) = IothubSpecIdentity{}
+			}
+		} else {
+			*(*IothubSpecIdentity)(ptr) = IothubSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj IothubSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(IothubSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*IothubSpecIdentity)(ptr) = obj
+		} else {
+			*(*IothubSpecIdentity)(ptr) = IothubSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode IothubSpecIdentity", "unexpected JSON type")
 	}
 }
 

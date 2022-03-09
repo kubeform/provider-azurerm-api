@@ -30,6 +30,8 @@ type Interface interface {
 	Pools() PoolInformer
 	// Snapshots returns a SnapshotInformer.
 	Snapshots() SnapshotInformer
+	// SnapshotPolicies returns a SnapshotPolicyInformer.
+	SnapshotPolicies() SnapshotPolicyInformer
 	// Volumes returns a VolumeInformer.
 	Volumes() VolumeInformer
 }
@@ -58,6 +60,11 @@ func (v *version) Pools() PoolInformer {
 // Snapshots returns a SnapshotInformer.
 func (v *version) Snapshots() SnapshotInformer {
 	return &snapshotInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// SnapshotPolicies returns a SnapshotPolicyInformer.
+func (v *version) SnapshotPolicies() SnapshotPolicyInformer {
+	return &snapshotPolicyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Volumes returns a VolumeInformer.

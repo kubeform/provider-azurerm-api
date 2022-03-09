@@ -194,9 +194,15 @@ type AppSlotSpecSiteConfig struct {
 	// +optional
 	AlwaysOn *bool `json:"alwaysOn,omitempty" tf:"always_on"`
 	// +optional
+	AppScaleLimit *int64 `json:"appScaleLimit,omitempty" tf:"app_scale_limit"`
+	// +optional
 	AutoSwapSlotName *string `json:"autoSwapSlotName,omitempty" tf:"auto_swap_slot_name"`
 	// +optional
 	Cors *AppSlotSpecSiteConfigCors `json:"cors,omitempty" tf:"cors"`
+	// +optional
+	DotnetFrameworkVersion *string `json:"dotnetFrameworkVersion,omitempty" tf:"dotnet_framework_version"`
+	// +optional
+	ElasticInstanceMinimum *int64 `json:"elasticInstanceMinimum,omitempty" tf:"elastic_instance_minimum"`
 	// +optional
 	FtpsState *string `json:"ftpsState,omitempty" tf:"ftps_state"`
 	// +optional
@@ -214,6 +220,8 @@ type AppSlotSpecSiteConfig struct {
 	// +optional
 	PreWarmedInstanceCount *int64 `json:"preWarmedInstanceCount,omitempty" tf:"pre_warmed_instance_count"`
 	// +optional
+	RuntimeScaleMonitoringEnabled *bool `json:"runtimeScaleMonitoringEnabled,omitempty" tf:"runtime_scale_monitoring_enabled"`
+	// +optional
 	ScmIPRestriction []AppSlotSpecSiteConfigScmIPRestriction `json:"scmIPRestriction,omitempty" tf:"scm_ip_restriction"`
 	// +optional
 	ScmType *string `json:"scmType,omitempty" tf:"scm_type"`
@@ -221,6 +229,8 @@ type AppSlotSpecSiteConfig struct {
 	ScmUseMainIPRestriction *bool `json:"scmUseMainIPRestriction,omitempty" tf:"scm_use_main_ip_restriction"`
 	// +optional
 	Use32BitWorkerProcess *bool `json:"use32BitWorkerProcess,omitempty" tf:"use_32_bit_worker_process"`
+	// +optional
+	VnetRouteAllEnabled *bool `json:"vnetRouteAllEnabled,omitempty" tf:"vnet_route_all_enabled"`
 	// +optional
 	WebsocketsEnabled *bool `json:"websocketsEnabled,omitempty" tf:"websockets_enabled"`
 }
@@ -259,6 +269,7 @@ type AppSlotSpecResource struct {
 	// +optional
 	AuthSettings *AppSlotSpecAuthSettings `json:"authSettings,omitempty" tf:"auth_settings"`
 	// +optional
+	// Deprecated
 	ClientAffinityEnabled *bool `json:"clientAffinityEnabled,omitempty" tf:"client_affinity_enabled"`
 	// +optional
 	ConnectionString []AppSlotSpecConnectionString `json:"connectionString,omitempty" tf:"connection_string"`

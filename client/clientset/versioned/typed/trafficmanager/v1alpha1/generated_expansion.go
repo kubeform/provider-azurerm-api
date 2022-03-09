@@ -18,6 +18,12 @@ limitations under the License.
 
 package v1alpha1
 
+type AzureEndpointExpansion interface{}
+
 type EndpointExpansion interface{}
+
+type ExternalEndpointExpansion interface{}
+
+type NestedEndpointExpansion interface{}
 
 type ProfileExpansion interface{}

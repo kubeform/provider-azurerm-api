@@ -90,7 +90,7 @@ func (r *TwinsInstance) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range twinsinstanceForceNewList {
+	for key, _ := range twinsinstanceForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

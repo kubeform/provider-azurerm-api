@@ -252,6 +252,10 @@ type ServiceSpecSiteConfigScmIPRestriction struct {
 
 type ServiceSpecSiteConfig struct {
 	// +optional
+	AcrUseManagedIdentityCredentials *bool `json:"acrUseManagedIdentityCredentials,omitempty" tf:"acr_use_managed_identity_credentials"`
+	// +optional
+	AcrUserManagedIdentityClientID *string `json:"acrUserManagedIdentityClientID,omitempty" tf:"acr_user_managed_identity_client_id"`
+	// +optional
 	AlwaysOn *bool `json:"alwaysOn,omitempty" tf:"always_on"`
 	// +optional
 	AppCommandLine *string `json:"appCommandLine,omitempty" tf:"app_command_line"`
@@ -303,6 +307,8 @@ type ServiceSpecSiteConfig struct {
 	ScmUseMainIPRestriction *bool `json:"scmUseMainIPRestriction,omitempty" tf:"scm_use_main_ip_restriction"`
 	// +optional
 	Use32BitWorkerProcess *bool `json:"use32BitWorkerProcess,omitempty" tf:"use_32_bit_worker_process"`
+	// +optional
+	VnetRouteAllEnabled *bool `json:"vnetRouteAllEnabled,omitempty" tf:"vnet_route_all_enabled"`
 	// +optional
 	WebsocketsEnabled *bool `json:"websocketsEnabled,omitempty" tf:"websockets_enabled"`
 	// +optional
@@ -372,6 +378,8 @@ type ServiceSpecResource struct {
 	// +optional
 	ClientCertEnabled *bool `json:"clientCertEnabled,omitempty" tf:"client_cert_enabled"`
 	// +optional
+	ClientCertMode *string `json:"clientCertMode,omitempty" tf:"client_cert_mode"`
+	// +optional
 	ConnectionString []ServiceSpecConnectionString `json:"connectionString,omitempty" tf:"connection_string"`
 	// +optional
 	CustomDomainVerificationID *string `json:"customDomainVerificationID,omitempty" tf:"custom_domain_verification_id"`
@@ -383,7 +391,9 @@ type ServiceSpecResource struct {
 	HttpsOnly *bool `json:"httpsOnly,omitempty" tf:"https_only"`
 	// +optional
 	Identity *ServiceSpecIdentity `json:"identity,omitempty" tf:"identity"`
-	Location *string              `json:"location" tf:"location"`
+	// +optional
+	KeyVaultReferenceIdentityID *string `json:"keyVaultReferenceIdentityID,omitempty" tf:"key_vault_reference_identity_id"`
+	Location                    *string `json:"location" tf:"location"`
 	// +optional
 	Logs *ServiceSpecLogs `json:"logs,omitempty" tf:"logs"`
 	Name *string          `json:"name" tf:"name"`

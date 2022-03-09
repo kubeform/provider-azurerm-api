@@ -60,6 +60,14 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&AccessList{},
 		&EncryptionSet{},
 		&EncryptionSetList{},
+		&Pool{},
+		&PoolList{},
+		&PoolIscsiTarget{},
+		&PoolIscsiTargetList{},
+		&PoolIscsiTargetLun{},
+		&PoolIscsiTargetLunList{},
+		&PoolManagedDiskAttachment{},
+		&PoolManagedDiskAttachmentList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

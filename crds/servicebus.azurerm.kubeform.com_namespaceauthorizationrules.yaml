@@ -65,9 +65,13 @@ spec:
                     type: boolean
                   name:
                     type: string
+                  namespaceID:
+                    type: string
                   namespaceName:
+                    description: Deprecated
                     type: string
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   send:
                     type: boolean
@@ -111,8 +115,6 @@ spec:
                     type: object
                 required:
                 - name
-                - namespaceName
-                - resourceGroupName
                 type: object
               secretRef:
                 description: LocalObjectReference contains enough information to let
@@ -133,9 +135,13 @@ spec:
                     type: boolean
                   name:
                     type: string
+                  namespaceID:
+                    type: string
                   namespaceName:
+                    description: Deprecated
                     type: string
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   send:
                     type: boolean
@@ -179,8 +185,6 @@ spec:
                     type: object
                 required:
                 - name
-                - namespaceName
-                - resourceGroupName
                 type: object
               terminationPolicy:
                 enum:

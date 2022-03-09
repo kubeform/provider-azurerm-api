@@ -64,9 +64,9 @@ spec:
                   id:
                     type: string
                   managementGroupID:
-                    description: Deprecated
                     type: string
                   managementGroupName:
+                    description: Deprecated
                     type: string
                   metadata:
                     type: string
@@ -133,9 +133,9 @@ spec:
                   id:
                     type: string
                   managementGroupID:
-                    description: Deprecated
                     type: string
                   managementGroupName:
+                    description: Deprecated
                     type: string
                   metadata:
                     type: string

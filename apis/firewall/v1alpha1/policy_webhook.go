@@ -42,6 +42,7 @@ func (r *Policy) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &Policy{}
 
 var policyForceNewList = map[string]bool{
+	"/identity/*/type":     true,
 	"/location":            true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -91,7 +92,7 @@ func (r *Policy) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range policyForceNewList {
+	for key, _ := range policyForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

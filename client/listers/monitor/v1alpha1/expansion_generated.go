@@ -90,6 +90,22 @@ type MetricAlertListerExpansion interface{}
 // MetricAlertNamespaceLister.
 type MetricAlertNamespaceListerExpansion interface{}
 
+// PrivateLinkScopeListerExpansion allows custom methods to be added to
+// PrivateLinkScopeLister.
+type PrivateLinkScopeListerExpansion interface{}
+
+// PrivateLinkScopeNamespaceListerExpansion allows custom methods to be added to
+// PrivateLinkScopeNamespaceLister.
+type PrivateLinkScopeNamespaceListerExpansion interface{}
+
+// PrivateLinkScopedServiceListerExpansion allows custom methods to be added to
+// PrivateLinkScopedServiceLister.
+type PrivateLinkScopedServiceListerExpansion interface{}
+
+// PrivateLinkScopedServiceNamespaceListerExpansion allows custom methods to be added to
+// PrivateLinkScopedServiceNamespaceLister.
+type PrivateLinkScopedServiceNamespaceListerExpansion interface{}
+
 // ScheduledQueryRulesAlertListerExpansion allows custom methods to be added to
 // ScheduledQueryRulesAlertLister.
 type ScheduledQueryRulesAlertListerExpansion interface{}

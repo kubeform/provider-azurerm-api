@@ -90,7 +90,7 @@ func (r *Agreement) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range agreementForceNewList {
+	for key, _ := range agreementForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

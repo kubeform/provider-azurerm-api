@@ -66,8 +66,10 @@ spec:
                   name:
                     type: string
                   namespaceName:
+                    description: Deprecated
                     type: string
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   send:
                     type: boolean
@@ -109,13 +111,13 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  topicID:
+                    type: string
                   topicName:
+                    description: Deprecated
                     type: string
                 required:
                 - name
-                - namespaceName
-                - resourceGroupName
-                - topicName
                 type: object
               secretRef:
                 description: LocalObjectReference contains enough information to let
@@ -137,8 +139,10 @@ spec:
                   name:
                     type: string
                   namespaceName:
+                    description: Deprecated
                     type: string
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   send:
                     type: boolean
@@ -180,13 +184,13 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  topicID:
+                    type: string
                   topicName:
+                    description: Deprecated
                     type: string
                 required:
                 - name
-                - namespaceName
-                - resourceGroupName
-                - topicName
                 type: object
               terminationPolicy:
                 enum:

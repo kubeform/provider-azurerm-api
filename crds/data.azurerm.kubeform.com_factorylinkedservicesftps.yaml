@@ -67,7 +67,10 @@ spec:
                     type: array
                   authenticationType:
                     type: string
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -134,7 +137,6 @@ spec:
                     type: string
                 required:
                 - authenticationType
-                - dataFactoryName
                 - host
                 - name
                 - port
@@ -162,7 +164,10 @@ spec:
                     type: array
                   authenticationType:
                     type: string
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -229,7 +234,6 @@ spec:
                     type: string
                 required:
                 - authenticationType
-                - dataFactoryName
                 - host
                 - name
                 - port

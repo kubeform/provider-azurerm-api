@@ -104,9 +104,13 @@ type AccountSpecCustomDomain struct {
 	UseSubdomain *bool `json:"useSubdomain,omitempty" tf:"use_subdomain"`
 }
 
+type AccountSpecCustomerManagedKey struct {
+	KeyVaultKeyID          *string `json:"keyVaultKeyID" tf:"key_vault_key_id"`
+	UserAssignedIdentityID *string `json:"userAssignedIdentityID" tf:"user_assigned_identity_id"`
+}
+
 type AccountSpecIdentity struct {
 	// +optional
-	// +kubebuilder:validation:MinItems=1
 	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
 	// +optional
 	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
@@ -278,9 +282,13 @@ type AccountSpecResource struct {
 	// +optional
 	CustomDomain *AccountSpecCustomDomain `json:"customDomain,omitempty" tf:"custom_domain"`
 	// +optional
+	CustomerManagedKey *AccountSpecCustomerManagedKey `json:"customerManagedKey,omitempty" tf:"customer_managed_key"`
+	// +optional
 	EnableHTTPSTrafficOnly *bool `json:"enableHTTPSTrafficOnly,omitempty" tf:"enable_https_traffic_only"`
 	// +optional
 	Identity *AccountSpecIdentity `json:"identity,omitempty" tf:"identity"`
+	// +optional
+	InfrastructureEncryptionEnabled *bool `json:"infrastructureEncryptionEnabled,omitempty" tf:"infrastructure_encryption_enabled"`
 	// +optional
 	IsHnsEnabled *bool `json:"isHnsEnabled,omitempty" tf:"is_hns_enabled"`
 	// +optional
@@ -326,6 +334,8 @@ type AccountSpecResource struct {
 	// +optional
 	PrimaryWebHost *string `json:"primaryWebHost,omitempty" tf:"primary_web_host"`
 	// +optional
+	QueueEncryptionKeyType *string `json:"queueEncryptionKeyType,omitempty" tf:"queue_encryption_key_type"`
+	// +optional
 	QueueProperties   *AccountSpecQueueProperties `json:"queueProperties,omitempty" tf:"queue_properties"`
 	ResourceGroupName *string                     `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
@@ -365,7 +375,11 @@ type AccountSpecResource struct {
 	// +optional
 	ShareProperties *AccountSpecShareProperties `json:"shareProperties,omitempty" tf:"share_properties"`
 	// +optional
+	SharedAccessKeyEnabled *bool `json:"sharedAccessKeyEnabled,omitempty" tf:"shared_access_key_enabled"`
+	// +optional
 	StaticWebsite *AccountSpecStaticWebsite `json:"staticWebsite,omitempty" tf:"static_website"`
+	// +optional
+	TableEncryptionKeyType *string `json:"tableEncryptionKeyType,omitempty" tf:"table_encryption_key_type"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 }

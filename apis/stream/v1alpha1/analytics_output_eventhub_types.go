@@ -72,8 +72,12 @@ type AnalyticsOutputEventhubSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	EventhubName           *string                                   `json:"eventhubName" tf:"eventhub_name"`
-	Name                   *string                                   `json:"name" tf:"name"`
+	EventhubName *string `json:"eventhubName" tf:"eventhub_name"`
+	Name         *string `json:"name" tf:"name"`
+	// +optional
+	PartitionKey *string `json:"partitionKey,omitempty" tf:"partition_key"`
+	// +optional
+	PropertyColumns        []string                                  `json:"propertyColumns,omitempty" tf:"property_columns"`
 	ResourceGroupName      *string                                   `json:"resourceGroupName" tf:"resource_group_name"`
 	Serialization          *AnalyticsOutputEventhubSpecSerialization `json:"serialization" tf:"serialization"`
 	ServicebusNamespace    *string                                   `json:"servicebusNamespace" tf:"servicebus_namespace"`

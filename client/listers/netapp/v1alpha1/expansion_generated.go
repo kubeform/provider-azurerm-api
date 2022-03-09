@@ -42,6 +42,14 @@ type SnapshotListerExpansion interface{}
 // SnapshotNamespaceLister.
 type SnapshotNamespaceListerExpansion interface{}
 
+// SnapshotPolicyListerExpansion allows custom methods to be added to
+// SnapshotPolicyLister.
+type SnapshotPolicyListerExpansion interface{}
+
+// SnapshotPolicyNamespaceListerExpansion allows custom methods to be added to
+// SnapshotPolicyNamespaceLister.
+type SnapshotPolicyNamespaceListerExpansion interface{}
+
 // VolumeListerExpansion allows custom methods to be added to
 // VolumeLister.
 type VolumeListerExpansion interface{}

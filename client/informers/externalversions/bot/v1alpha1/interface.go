@@ -24,18 +24,32 @@ import (
 
 // Interface provides access to all the informers in this group version.
 type Interface interface {
+	// ChannelAlexas returns a ChannelAlexaInformer.
+	ChannelAlexas() ChannelAlexaInformer
+	// ChannelDirectLineSpeeches returns a ChannelDirectLineSpeechInformer.
+	ChannelDirectLineSpeeches() ChannelDirectLineSpeechInformer
 	// ChannelDirectlines returns a ChannelDirectlineInformer.
 	ChannelDirectlines() ChannelDirectlineInformer
 	// ChannelEmails returns a ChannelEmailInformer.
 	ChannelEmails() ChannelEmailInformer
+	// ChannelFacebooks returns a ChannelFacebookInformer.
+	ChannelFacebooks() ChannelFacebookInformer
+	// ChannelLines returns a ChannelLineInformer.
+	ChannelLines() ChannelLineInformer
 	// ChannelMsTeamses returns a ChannelMsTeamsInformer.
 	ChannelMsTeamses() ChannelMsTeamsInformer
 	// ChannelSlacks returns a ChannelSlackInformer.
 	ChannelSlacks() ChannelSlackInformer
+	// ChannelSmses returns a ChannelSmsInformer.
+	ChannelSmses() ChannelSmsInformer
+	// ChannelWebChats returns a ChannelWebChatInformer.
+	ChannelWebChats() ChannelWebChatInformer
 	// ChannelsRegistrations returns a ChannelsRegistrationInformer.
 	ChannelsRegistrations() ChannelsRegistrationInformer
 	// Connections returns a ConnectionInformer.
 	Connections() ConnectionInformer
+	// ServiceAzureBots returns a ServiceAzureBotInformer.
+	ServiceAzureBots() ServiceAzureBotInformer
 	// WebApps returns a WebAppInformer.
 	WebApps() WebAppInformer
 }
@@ -51,6 +65,16 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 	return &version{factory: f, namespace: namespace, tweakListOptions: tweakListOptions}
 }
 
+// ChannelAlexas returns a ChannelAlexaInformer.
+func (v *version) ChannelAlexas() ChannelAlexaInformer {
+	return &channelAlexaInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ChannelDirectLineSpeeches returns a ChannelDirectLineSpeechInformer.
+func (v *version) ChannelDirectLineSpeeches() ChannelDirectLineSpeechInformer {
+	return &channelDirectLineSpeechInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // ChannelDirectlines returns a ChannelDirectlineInformer.
 func (v *version) ChannelDirectlines() ChannelDirectlineInformer {
 	return &channelDirectlineInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
@@ -59,6 +83,16 @@ func (v *version) ChannelDirectlines() ChannelDirectlineInformer {
 // ChannelEmails returns a ChannelEmailInformer.
 func (v *version) ChannelEmails() ChannelEmailInformer {
 	return &channelEmailInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ChannelFacebooks returns a ChannelFacebookInformer.
+func (v *version) ChannelFacebooks() ChannelFacebookInformer {
+	return &channelFacebookInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ChannelLines returns a ChannelLineInformer.
+func (v *version) ChannelLines() ChannelLineInformer {
+	return &channelLineInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // ChannelMsTeamses returns a ChannelMsTeamsInformer.
@@ -71,6 +105,16 @@ func (v *version) ChannelSlacks() ChannelSlackInformer {
 	return &channelSlackInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// ChannelSmses returns a ChannelSmsInformer.
+func (v *version) ChannelSmses() ChannelSmsInformer {
+	return &channelSmsInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ChannelWebChats returns a ChannelWebChatInformer.
+func (v *version) ChannelWebChats() ChannelWebChatInformer {
+	return &channelWebChatInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // ChannelsRegistrations returns a ChannelsRegistrationInformer.
 func (v *version) ChannelsRegistrations() ChannelsRegistrationInformer {
 	return &channelsRegistrationInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
@@ -79,6 +123,11 @@ func (v *version) ChannelsRegistrations() ChannelsRegistrationInformer {
 // Connections returns a ConnectionInformer.
 func (v *version) Connections() ConnectionInformer {
 	return &connectionInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ServiceAzureBots returns a ServiceAzureBotInformer.
+func (v *version) ServiceAzureBots() ServiceAzureBotInformer {
+	return &serviceAzureBotInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // WebApps returns a WebAppInformer.

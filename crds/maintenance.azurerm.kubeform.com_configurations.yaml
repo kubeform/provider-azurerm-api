@@ -63,6 +63,10 @@ spec:
                     type: string
                   name:
                     type: string
+                  properties:
+                    additionalProperties:
+                      type: string
+                    type: object
                   resourceGroupName:
                     type: string
                   scope:
@@ -108,6 +112,24 @@ spec:
                           290 years.
                         format: int64
                         type: integer
+                    type: object
+                  visibility:
+                    type: string
+                  window:
+                    properties:
+                      duration:
+                        type: string
+                      expirationDateTime:
+                        type: string
+                      recurEvery:
+                        type: string
+                      startDateTime:
+                        type: string
+                      timeZone:
+                        type: string
+                    required:
+                    - startDateTime
+                    - timeZone
                     type: object
                 required:
                 - location
@@ -122,6 +144,10 @@ spec:
                     type: string
                   name:
                     type: string
+                  properties:
+                    additionalProperties:
+                      type: string
+                    type: object
                   resourceGroupName:
                     type: string
                   scope:
@@ -167,6 +193,24 @@ spec:
                           290 years.
                         format: int64
                         type: integer
+                    type: object
+                  visibility:
+                    type: string
+                  window:
+                    properties:
+                      duration:
+                        type: string
+                      expirationDateTime:
+                        type: string
+                      recurEvery:
+                        type: string
+                      startDateTime:
+                        type: string
+                      timeZone:
+                        type: string
+                    required:
+                    - startDateTime
+                    - timeZone
                     type: object
                 required:
                 - location

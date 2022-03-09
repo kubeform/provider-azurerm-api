@@ -104,7 +104,7 @@ func (r *Machine) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range machineForceNewList {
+	for key, _ := range machineForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

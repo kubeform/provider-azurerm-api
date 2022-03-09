@@ -63,6 +63,10 @@ spec:
                     type: string
                   identity:
                     properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
                       principalID:
                         type: string
                       tenantID:
@@ -160,6 +164,10 @@ spec:
                     type: string
                   identity:
                     properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
                       principalID:
                         type: string
                       tenantID:

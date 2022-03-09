@@ -57,6 +57,10 @@ spec:
                 type: object
               resource:
                 properties:
+                  categories:
+                    items:
+                      type: string
+                    type: array
                   description:
                     type: string
                   displayName:
@@ -121,6 +125,10 @@ spec:
                 type: object
               state:
                 properties:
+                  categories:
+                    items:
+                      type: string
+                    type: array
                   description:
                     type: string
                   displayName:

@@ -29,6 +29,7 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
 		jsoniter.MustGetKind(reflect2.TypeOf(CloudAppSpecIdentity{}).Type1()):                                          CloudAppSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(CloudAppSpecPersistentDisk{}).Type1()):                                    CloudAppSpecPersistentDiskCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CloudJavaDeploymentSpecQuota{}).Type1()):                                  CloudJavaDeploymentSpecQuotaCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(CloudServiceSpecConfigServerGitSetting{}).Type1()):                        CloudServiceSpecConfigServerGitSettingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(CloudServiceSpecConfigServerGitSettingHttpBasicAuth{}).Type1()):           CloudServiceSpecConfigServerGitSettingHttpBasicAuthCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(CloudServiceSpecConfigServerGitSettingRepositoryHttpBasicAuth{}).Type1()): CloudServiceSpecConfigServerGitSettingRepositoryHttpBasicAuthCodec{},
@@ -43,6 +44,7 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
 		jsoniter.MustGetKind(reflect2.TypeOf(CloudAppSpecIdentity{}).Type1()):                                          CloudAppSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(CloudAppSpecPersistentDisk{}).Type1()):                                    CloudAppSpecPersistentDiskCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CloudJavaDeploymentSpecQuota{}).Type1()):                                  CloudJavaDeploymentSpecQuotaCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(CloudServiceSpecConfigServerGitSetting{}).Type1()):                        CloudServiceSpecConfigServerGitSettingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(CloudServiceSpecConfigServerGitSettingHttpBasicAuth{}).Type1()):           CloudServiceSpecConfigServerGitSettingHttpBasicAuthCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(CloudServiceSpecConfigServerGitSettingRepositoryHttpBasicAuth{}).Type1()): CloudServiceSpecConfigServerGitSettingRepositoryHttpBasicAuthCodec{},
@@ -220,6 +222,85 @@ func (CloudAppSpecPersistentDiskCodec) Decode(ptr unsafe.Pointer, iter *jsoniter
 		}
 	default:
 		iter.ReportError("decode CloudAppSpecPersistentDisk", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type CloudJavaDeploymentSpecQuotaCodec struct {
+}
+
+func (CloudJavaDeploymentSpecQuotaCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*CloudJavaDeploymentSpecQuota)(ptr) == nil
+}
+
+func (CloudJavaDeploymentSpecQuotaCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*CloudJavaDeploymentSpecQuota)(ptr)
+	var objs []CloudJavaDeploymentSpecQuota
+	if obj != nil {
+		objs = []CloudJavaDeploymentSpecQuota{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(CloudJavaDeploymentSpecQuota{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (CloudJavaDeploymentSpecQuotaCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*CloudJavaDeploymentSpecQuota)(ptr) = CloudJavaDeploymentSpecQuota{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []CloudJavaDeploymentSpecQuota
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(CloudJavaDeploymentSpecQuota{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*CloudJavaDeploymentSpecQuota)(ptr) = objs[0]
+			} else {
+				*(*CloudJavaDeploymentSpecQuota)(ptr) = CloudJavaDeploymentSpecQuota{}
+			}
+		} else {
+			*(*CloudJavaDeploymentSpecQuota)(ptr) = CloudJavaDeploymentSpecQuota{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj CloudJavaDeploymentSpecQuota
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(CloudJavaDeploymentSpecQuota{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*CloudJavaDeploymentSpecQuota)(ptr) = obj
+		} else {
+			*(*CloudJavaDeploymentSpecQuota)(ptr) = CloudJavaDeploymentSpecQuota{}
+		}
+	default:
+		iter.ReportError("decode CloudJavaDeploymentSpecQuota", "unexpected JSON type")
 	}
 }
 

@@ -57,44 +57,93 @@ spec:
                 type: object
               resource:
                 properties:
+                  aciConnectorLinux:
+                    properties:
+                      subnetName:
+                        type: string
+                    required:
+                    - subnetName
+                    type: object
                   addonProfile:
+                    description: Deprecated
                     properties:
                       aciConnectorLinux:
+                        description: Deprecated
                         properties:
                           enabled:
+                            description: Deprecated
                             type: boolean
                           subnetName:
+                            description: Deprecated
+                            type: string
+                        required:
+                        - enabled
+                        type: object
+                      azureKeyvaultSecretsProvider:
+                        description: Deprecated
+                        properties:
+                          enabled:
+                            description: Deprecated
+                            type: boolean
+                          secretIdentity:
+                            description: Deprecated
+                            items:
+                              properties:
+                                clientID:
+                                  type: string
+                                objectID:
+                                  type: string
+                                userAssignedIdentityID:
+                                  type: string
+                              type: object
+                            type: array
+                          secretRotationEnabled:
+                            description: Deprecated
+                            type: boolean
+                          secretRotationInterval:
+                            description: Deprecated
                             type: string
                         required:
                         - enabled
                         type: object
                       azurePolicy:
+                        description: Deprecated
                         properties:
                           enabled:
+                            description: Deprecated
                             type: boolean
                         required:
                         - enabled
                         type: object
                       httpApplicationRouting:
+                        description: Deprecated
                         properties:
                           enabled:
+                            description: Deprecated
                             type: boolean
                           httpApplicationRoutingZoneName:
+                            description: Deprecated
                             type: string
                         required:
                         - enabled
                         type: object
                       ingressApplicationGateway:
+                        description: Deprecated
                         properties:
                           effectiveGatewayID:
+                            description: Deprecated
                             type: string
                           enabled:
+                            description: Deprecated
                             type: boolean
                           gatewayID:
+                            description: Deprecated
                             type: string
                           gatewayName:
+                            description: Deprecated
                             type: string
                           ingressApplicationGatewayIdentity:
+                            description: Deprecated
                             items:
                               properties:
                                 clientID:
@@ -106,13 +155,16 @@ spec:
                               type: object
                             type: array
                           subnetCIDR:
+                            description: Deprecated
                             type: string
                           subnetID:
+                            description: Deprecated
                             type: string
                         required:
                         - enabled
                         type: object
                       kubeDashboard:
+                        description: Deprecated
                         properties:
                           enabled:
                             type: boolean
@@ -120,12 +172,16 @@ spec:
                         - enabled
                         type: object
                       omsAgent:
+                        description: Deprecated
                         properties:
                           enabled:
+                            description: Deprecated
                             type: boolean
                           logAnalyticsWorkspaceID:
+                            description: Deprecated
                             type: string
                           omsAgentIdentity:
+                            description: Deprecated
                             items:
                               properties:
                                 clientID:
@@ -136,6 +192,15 @@ spec:
                                   type: string
                               type: object
                             type: array
+                        required:
+                        - enabled
+                        type: object
+                      openServiceMesh:
+                        description: Deprecated
+                        properties:
+                          enabled:
+                            description: Deprecated
+                            type: boolean
                         required:
                         - enabled
                         type: object
@@ -185,6 +250,8 @@ spec:
                     type: object
                   automaticChannelUpgrade:
                     type: string
+                  azurePolicyEnabled:
+                    type: boolean
                   defaultNodePool:
                     properties:
                       availabilityZones:
@@ -363,6 +430,10 @@ spec:
                         type: integer
                       osDiskType:
                         type: string
+                      osSku:
+                        type: string
+                      podSubnetID:
+                        type: string
                       proximityPlacementGroupID:
                         type: string
                       tags:
@@ -371,6 +442,8 @@ spec:
                         type: object
                       type:
                         type: string
+                      ultraSsdEnabled:
+                        type: boolean
                       upgradeSettings:
                         properties:
                           maxSurge:
@@ -396,6 +469,21 @@ spec:
                     type: boolean
                   fqdn:
                     type: string
+                  httpApplicationRoutingEnabled:
+                    type: boolean
+                  httpApplicationRoutingZoneName:
+                    type: string
+                  httpProxyConfig:
+                    properties:
+                      httpProxy:
+                        type: string
+                      httpsProxy:
+                        type: string
+                      noProxy:
+                        items:
+                          type: string
+                        type: array
+                    type: object
                   id:
                     type: string
                   identity:
@@ -410,6 +498,48 @@ spec:
                         type: string
                     required:
                     - type
+                    type: object
+                  ingressApplicationGateway:
+                    properties:
+                      effectiveGatewayID:
+                        type: string
+                      gatewayID:
+                        type: string
+                      gatewayName:
+                        type: string
+                      ingressApplicationGatewayIdentity:
+                        items:
+                          properties:
+                            clientID:
+                              type: string
+                            objectID:
+                              type: string
+                            userAssignedIdentityID:
+                              type: string
+                          type: object
+                        type: array
+                      subnetCIDR:
+                        type: string
+                      subnetID:
+                        type: string
+                    type: object
+                  keyVaultSecretsProvider:
+                    properties:
+                      secretIdentity:
+                        items:
+                          properties:
+                            clientID:
+                              type: string
+                            objectID:
+                              type: string
+                            userAssignedIdentityID:
+                              type: string
+                          type: object
+                        type: array
+                      secretRotationEnabled:
+                        type: boolean
+                      secretRotationInterval:
+                        type: string
                     type: object
                   kubeAdminConfig:
                     items:
@@ -455,8 +585,41 @@ spec:
                     - adminUsername
                     - sshKey
                     type: object
+                  localAccountDisabled:
+                    type: boolean
                   location:
                     type: string
+                  maintenanceWindow:
+                    properties:
+                      allowed:
+                        items:
+                          properties:
+                            day:
+                              type: string
+                            hours:
+                              items:
+                                format: int64
+                                type: integer
+                              minItems: 1
+                              type: array
+                          required:
+                          - day
+                          - hours
+                          type: object
+                        type: array
+                      notAllowed:
+                        items:
+                          properties:
+                            end:
+                              type: string
+                            start:
+                              type: string
+                          required:
+                          - end
+                          - start
+                          type: object
+                        type: array
+                    type: object
                   name:
                     type: string
                   networkProfile:
@@ -491,6 +654,19 @@ spec:
                         type: object
                       loadBalancerSku:
                         type: string
+                      natGatewayProfile:
+                        properties:
+                          effectiveOutboundIPS:
+                            items:
+                              type: string
+                            type: array
+                          idleTimeoutInMinutes:
+                            format: int64
+                            type: integer
+                          managedOutboundIPCount:
+                            format: int64
+                            type: integer
+                        type: object
                       networkMode:
                         type: string
                       networkPlugin:
@@ -508,7 +684,31 @@ spec:
                     type: object
                   nodeResourceGroup:
                     type: string
+                  omsAgent:
+                    properties:
+                      logAnalyticsWorkspaceID:
+                        type: string
+                      omsAgentIdentity:
+                        items:
+                          properties:
+                            clientID:
+                              type: string
+                            objectID:
+                              type: string
+                            userAssignedIdentityID:
+                              type: string
+                          type: object
+                        type: array
+                    required:
+                    - logAnalyticsWorkspaceID
+                    type: object
+                  openServiceMeshEnabled:
+                    type: boolean
+                  portalFqdn:
+                    type: string
                   privateClusterEnabled:
+                    type: boolean
+                  privateClusterPublicFqdnEnabled:
                     type: boolean
                   privateDNSZoneID:
                     type: string
@@ -516,6 +716,8 @@ spec:
                     type: string
                   privateLinkEnabled:
                     description: Deprecated
+                    type: boolean
+                  publicNetworkAccessEnabled:
                     type: boolean
                   resourceGroupName:
                     type: string
@@ -620,44 +822,93 @@ spec:
                 type: object
               state:
                 properties:
+                  aciConnectorLinux:
+                    properties:
+                      subnetName:
+                        type: string
+                    required:
+                    - subnetName
+                    type: object
                   addonProfile:
+                    description: Deprecated
                     properties:
                       aciConnectorLinux:
+                        description: Deprecated
                         properties:
                           enabled:
+                            description: Deprecated
                             type: boolean
                           subnetName:
+                            description: Deprecated
+                            type: string
+                        required:
+                        - enabled
+                        type: object
+                      azureKeyvaultSecretsProvider:
+                        description: Deprecated
+                        properties:
+                          enabled:
+                            description: Deprecated
+                            type: boolean
+                          secretIdentity:
+                            description: Deprecated
+                            items:
+                              properties:
+                                clientID:
+                                  type: string
+                                objectID:
+                                  type: string
+                                userAssignedIdentityID:
+                                  type: string
+                              type: object
+                            type: array
+                          secretRotationEnabled:
+                            description: Deprecated
+                            type: boolean
+                          secretRotationInterval:
+                            description: Deprecated
                             type: string
                         required:
                         - enabled
                         type: object
                       azurePolicy:
+                        description: Deprecated
                         properties:
                           enabled:
+                            description: Deprecated
                             type: boolean
                         required:
                         - enabled
                         type: object
                       httpApplicationRouting:
+                        description: Deprecated
                         properties:
                           enabled:
+                            description: Deprecated
                             type: boolean
                           httpApplicationRoutingZoneName:
+                            description: Deprecated
                             type: string
                         required:
                         - enabled
                         type: object
                       ingressApplicationGateway:
+                        description: Deprecated
                         properties:
                           effectiveGatewayID:
+                            description: Deprecated
                             type: string
                           enabled:
+                            description: Deprecated
                             type: boolean
                           gatewayID:
+                            description: Deprecated
                             type: string
                           gatewayName:
+                            description: Deprecated
                             type: string
                           ingressApplicationGatewayIdentity:
+                            description: Deprecated
                             items:
                               properties:
                                 clientID:
@@ -669,13 +920,16 @@ spec:
                               type: object
                             type: array
                           subnetCIDR:
+                            description: Deprecated
                             type: string
                           subnetID:
+                            description: Deprecated
                             type: string
                         required:
                         - enabled
                         type: object
                       kubeDashboard:
+                        description: Deprecated
                         properties:
                           enabled:
                             type: boolean
@@ -683,12 +937,16 @@ spec:
                         - enabled
                         type: object
                       omsAgent:
+                        description: Deprecated
                         properties:
                           enabled:
+                            description: Deprecated
                             type: boolean
                           logAnalyticsWorkspaceID:
+                            description: Deprecated
                             type: string
                           omsAgentIdentity:
+                            description: Deprecated
                             items:
                               properties:
                                 clientID:
@@ -699,6 +957,15 @@ spec:
                                   type: string
                               type: object
                             type: array
+                        required:
+                        - enabled
+                        type: object
+                      openServiceMesh:
+                        description: Deprecated
+                        properties:
+                          enabled:
+                            description: Deprecated
+                            type: boolean
                         required:
                         - enabled
                         type: object
@@ -748,6 +1015,8 @@ spec:
                     type: object
                   automaticChannelUpgrade:
                     type: string
+                  azurePolicyEnabled:
+                    type: boolean
                   defaultNodePool:
                     properties:
                       availabilityZones:
@@ -926,6 +1195,10 @@ spec:
                         type: integer
                       osDiskType:
                         type: string
+                      osSku:
+                        type: string
+                      podSubnetID:
+                        type: string
                       proximityPlacementGroupID:
                         type: string
                       tags:
@@ -934,6 +1207,8 @@ spec:
                         type: object
                       type:
                         type: string
+                      ultraSsdEnabled:
+                        type: boolean
                       upgradeSettings:
                         properties:
                           maxSurge:
@@ -959,6 +1234,21 @@ spec:
                     type: boolean
                   fqdn:
                     type: string
+                  httpApplicationRoutingEnabled:
+                    type: boolean
+                  httpApplicationRoutingZoneName:
+                    type: string
+                  httpProxyConfig:
+                    properties:
+                      httpProxy:
+                        type: string
+                      httpsProxy:
+                        type: string
+                      noProxy:
+                        items:
+                          type: string
+                        type: array
+                    type: object
                   id:
                     type: string
                   identity:
@@ -973,6 +1263,48 @@ spec:
                         type: string
                     required:
                     - type
+                    type: object
+                  ingressApplicationGateway:
+                    properties:
+                      effectiveGatewayID:
+                        type: string
+                      gatewayID:
+                        type: string
+                      gatewayName:
+                        type: string
+                      ingressApplicationGatewayIdentity:
+                        items:
+                          properties:
+                            clientID:
+                              type: string
+                            objectID:
+                              type: string
+                            userAssignedIdentityID:
+                              type: string
+                          type: object
+                        type: array
+                      subnetCIDR:
+                        type: string
+                      subnetID:
+                        type: string
+                    type: object
+                  keyVaultSecretsProvider:
+                    properties:
+                      secretIdentity:
+                        items:
+                          properties:
+                            clientID:
+                              type: string
+                            objectID:
+                              type: string
+                            userAssignedIdentityID:
+                              type: string
+                          type: object
+                        type: array
+                      secretRotationEnabled:
+                        type: boolean
+                      secretRotationInterval:
+                        type: string
                     type: object
                   kubeAdminConfig:
                     items:
@@ -1018,8 +1350,41 @@ spec:
                     - adminUsername
                     - sshKey
                     type: object
+                  localAccountDisabled:
+                    type: boolean
                   location:
                     type: string
+                  maintenanceWindow:
+                    properties:
+                      allowed:
+                        items:
+                          properties:
+                            day:
+                              type: string
+                            hours:
+                              items:
+                                format: int64
+                                type: integer
+                              minItems: 1
+                              type: array
+                          required:
+                          - day
+                          - hours
+                          type: object
+                        type: array
+                      notAllowed:
+                        items:
+                          properties:
+                            end:
+                              type: string
+                            start:
+                              type: string
+                          required:
+                          - end
+                          - start
+                          type: object
+                        type: array
+                    type: object
                   name:
                     type: string
                   networkProfile:
@@ -1054,6 +1419,19 @@ spec:
                         type: object
                       loadBalancerSku:
                         type: string
+                      natGatewayProfile:
+                        properties:
+                          effectiveOutboundIPS:
+                            items:
+                              type: string
+                            type: array
+                          idleTimeoutInMinutes:
+                            format: int64
+                            type: integer
+                          managedOutboundIPCount:
+                            format: int64
+                            type: integer
+                        type: object
                       networkMode:
                         type: string
                       networkPlugin:
@@ -1071,7 +1449,31 @@ spec:
                     type: object
                   nodeResourceGroup:
                     type: string
+                  omsAgent:
+                    properties:
+                      logAnalyticsWorkspaceID:
+                        type: string
+                      omsAgentIdentity:
+                        items:
+                          properties:
+                            clientID:
+                              type: string
+                            objectID:
+                              type: string
+                            userAssignedIdentityID:
+                              type: string
+                          type: object
+                        type: array
+                    required:
+                    - logAnalyticsWorkspaceID
+                    type: object
+                  openServiceMeshEnabled:
+                    type: boolean
+                  portalFqdn:
+                    type: string
                   privateClusterEnabled:
+                    type: boolean
+                  privateClusterPublicFqdnEnabled:
                     type: boolean
                   privateDNSZoneID:
                     type: string
@@ -1079,6 +1481,8 @@ spec:
                     type: string
                   privateLinkEnabled:
                     description: Deprecated
+                    type: boolean
+                  publicNetworkAccessEnabled:
                     type: boolean
                   resourceGroupName:
                     type: string

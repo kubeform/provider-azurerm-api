@@ -88,7 +88,7 @@ func (r *ServerTransparentDataEncryption) ValidateUpdate(old runtime.Object) err
 		return err
 	}
 
-	for key := range servertransparentdataencryptionForceNewList {
+	for key, _ := range servertransparentdataencryptionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

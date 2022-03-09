@@ -83,14 +83,22 @@ type QueueSpecResource struct {
 	// +optional
 	MaxDeliveryCount *int64 `json:"maxDeliveryCount,omitempty" tf:"max_delivery_count"`
 	// +optional
+	MaxMessageSizeInKilobytes *int64 `json:"maxMessageSizeInKilobytes,omitempty" tf:"max_message_size_in_kilobytes"`
+	// +optional
 	MaxSizeInMegabytes *int64  `json:"maxSizeInMegabytes,omitempty" tf:"max_size_in_megabytes"`
 	Name               *string `json:"name" tf:"name"`
-	NamespaceName      *string `json:"namespaceName" tf:"namespace_name"`
+	// +optional
+	NamespaceID *string `json:"namespaceID,omitempty" tf:"namespace_id"`
+	// +optional
+	// Deprecated
+	NamespaceName *string `json:"namespaceName,omitempty" tf:"namespace_name"`
 	// +optional
 	RequiresDuplicateDetection *bool `json:"requiresDuplicateDetection,omitempty" tf:"requires_duplicate_detection"`
 	// +optional
-	RequiresSession   *bool   `json:"requiresSession,omitempty" tf:"requires_session"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	RequiresSession *bool `json:"requiresSession,omitempty" tf:"requires_session"`
+	// +optional
+	// Deprecated
+	ResourceGroupName *string `json:"resourceGroupName,omitempty" tf:"resource_group_name"`
 	// +optional
 	Status *string `json:"status,omitempty" tf:"status"`
 }

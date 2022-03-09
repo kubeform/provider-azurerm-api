@@ -53,6 +53,14 @@ func (c *FakeKeyvaultV1alpha1) ManagedHardwareSecurityModules(namespace string) 
 	return &FakeManagedHardwareSecurityModules{c, namespace}
 }
 
+func (c *FakeKeyvaultV1alpha1) ManagedStorageAccounts(namespace string) v1alpha1.ManagedStorageAccountInterface {
+	return &FakeManagedStorageAccounts{c, namespace}
+}
+
+func (c *FakeKeyvaultV1alpha1) ManagedStorageAccountSasTokenDefinitions(namespace string) v1alpha1.ManagedStorageAccountSasTokenDefinitionInterface {
+	return &FakeManagedStorageAccountSasTokenDefinitions{c, namespace}
+}
+
 func (c *FakeKeyvaultV1alpha1) Secrets(namespace string) v1alpha1.SecretInterface {
 	return &FakeSecrets{c, namespace}
 }

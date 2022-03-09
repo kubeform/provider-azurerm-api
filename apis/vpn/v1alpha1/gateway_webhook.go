@@ -47,6 +47,7 @@ var gatewayForceNewList = map[string]bool{
 	"/location":                   true,
 	"/name":                       true,
 	"/resource_group_name":        true,
+	"/routing_preference":         true,
 	"/virtual_hub_id":             true,
 }
 
@@ -93,7 +94,7 @@ func (r *Gateway) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range gatewayForceNewList {
+	for key, _ := range gatewayForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

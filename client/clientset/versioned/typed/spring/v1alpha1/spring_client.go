@@ -36,6 +36,7 @@ type SpringV1alpha1Interface interface {
 	CloudCustomDomainsGetter
 	CloudJavaDeploymentsGetter
 	CloudServicesGetter
+	CloudStoragesGetter
 }
 
 // SpringV1alpha1Client is used to interact with features provided by the spring.azurerm.kubeform.com group.
@@ -77,6 +78,10 @@ func (c *SpringV1alpha1Client) CloudJavaDeployments(namespace string) CloudJavaD
 
 func (c *SpringV1alpha1Client) CloudServices(namespace string) CloudServiceInterface {
 	return newCloudServices(c, namespace)
+}
+
+func (c *SpringV1alpha1Client) CloudStorages(namespace string) CloudStorageInterface {
+	return newCloudStorages(c, namespace)
 }
 
 // NewForConfig creates a new SpringV1alpha1Client for the given config.

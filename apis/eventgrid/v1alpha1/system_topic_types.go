@@ -41,6 +41,16 @@ type SystemTopic struct {
 	Status            SystemTopicStatus `json:"status,omitempty"`
 }
 
+type SystemTopicSpecIdentity struct {
+	// +optional
+	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
+	// +optional
+	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
+}
+
 type SystemTopicSpec struct {
 	State *SystemTopicSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -60,7 +70,9 @@ type SystemTopicSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	Location *string `json:"location" tf:"location"`
+	// +optional
+	Identity *SystemTopicSpecIdentity `json:"identity,omitempty" tf:"identity"`
+	Location *string                  `json:"location" tf:"location"`
 	// +optional
 	MetricArmResourceID *string `json:"metricArmResourceID,omitempty" tf:"metric_arm_resource_id"`
 	Name                *string `json:"name" tf:"name"`

@@ -25,3 +25,27 @@ type ApplicationFirewallPolicyListerExpansion interface{}
 // ApplicationFirewallPolicyNamespaceListerExpansion allows custom methods to be added to
 // ApplicationFirewallPolicyNamespaceLister.
 type ApplicationFirewallPolicyNamespaceListerExpansion interface{}
+
+// PubsubListerExpansion allows custom methods to be added to
+// PubsubLister.
+type PubsubListerExpansion interface{}
+
+// PubsubNamespaceListerExpansion allows custom methods to be added to
+// PubsubNamespaceLister.
+type PubsubNamespaceListerExpansion interface{}
+
+// PubsubHubListerExpansion allows custom methods to be added to
+// PubsubHubLister.
+type PubsubHubListerExpansion interface{}
+
+// PubsubHubNamespaceListerExpansion allows custom methods to be added to
+// PubsubHubNamespaceLister.
+type PubsubHubNamespaceListerExpansion interface{}
+
+// PubsubNetworkACLListerExpansion allows custom methods to be added to
+// PubsubNetworkACLLister.
+type PubsubNetworkACLListerExpansion interface{}
+
+// PubsubNetworkACLNamespaceListerExpansion allows custom methods to be added to
+// PubsubNetworkACLNamespaceLister.
+type PubsubNetworkACLNamespaceListerExpansion interface{}

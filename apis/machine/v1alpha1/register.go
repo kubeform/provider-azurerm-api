@@ -58,8 +58,12 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
 		&LearningComputeCluster{},
 		&LearningComputeClusterList{},
+		&LearningComputeInstance{},
+		&LearningComputeInstanceList{},
 		&LearningInferenceCluster{},
 		&LearningInferenceClusterList{},
+		&LearningSynapseSpark{},
+		&LearningSynapseSparkList{},
 		&LearningWorkspace{},
 		&LearningWorkspaceList{},
 	)

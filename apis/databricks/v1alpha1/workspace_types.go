@@ -43,13 +43,38 @@ type Workspace struct {
 
 type WorkspaceSpecCustomParameters struct {
 	// +optional
+	MachineLearningWorkspaceID *string `json:"machineLearningWorkspaceID,omitempty" tf:"machine_learning_workspace_id"`
+	// +optional
+	NatGatewayName *string `json:"natGatewayName,omitempty" tf:"nat_gateway_name"`
+	// +optional
 	NoPublicIP *bool `json:"noPublicIP,omitempty" tf:"no_public_ip"`
 	// +optional
 	PrivateSubnetName *string `json:"privateSubnetName,omitempty" tf:"private_subnet_name"`
 	// +optional
+	PrivateSubnetNetworkSecurityGroupAssociationID *string `json:"privateSubnetNetworkSecurityGroupAssociationID,omitempty" tf:"private_subnet_network_security_group_association_id"`
+	// +optional
+	PublicIPName *string `json:"publicIPName,omitempty" tf:"public_ip_name"`
+	// +optional
 	PublicSubnetName *string `json:"publicSubnetName,omitempty" tf:"public_subnet_name"`
 	// +optional
+	PublicSubnetNetworkSecurityGroupAssociationID *string `json:"publicSubnetNetworkSecurityGroupAssociationID,omitempty" tf:"public_subnet_network_security_group_association_id"`
+	// +optional
+	StorageAccountName *string `json:"storageAccountName,omitempty" tf:"storage_account_name"`
+	// +optional
+	StorageAccountSkuName *string `json:"storageAccountSkuName,omitempty" tf:"storage_account_sku_name"`
+	// +optional
 	VirtualNetworkID *string `json:"virtualNetworkID,omitempty" tf:"virtual_network_id"`
+	// +optional
+	VnetAddressPrefix *string `json:"vnetAddressPrefix,omitempty" tf:"vnet_address_prefix"`
+}
+
+type WorkspaceSpecStorageAccountIdentity struct {
+	// +optional
+	PrincipalID *string `json:"-" sensitive:"true" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"-" sensitive:"true" tf:"tenant_id"`
+	// +optional
+	Type *string `json:"type,omitempty" tf:"type"`
 }
 
 type WorkspaceSpec struct {
@@ -63,6 +88,8 @@ type WorkspaceSpec struct {
 
 	ProviderRef core.LocalObjectReference `json:"providerRef" tf:"-"`
 
+	SecretRef *core.LocalObjectReference `json:"secretRef,omitempty" tf:"-"`
+
 	BackendRef *core.LocalObjectReference `json:"backendRef,omitempty" tf:"-"`
 }
 
@@ -73,14 +100,28 @@ type WorkspaceSpecResource struct {
 
 	// +optional
 	CustomParameters *WorkspaceSpecCustomParameters `json:"customParameters,omitempty" tf:"custom_parameters"`
-	Location         *string                        `json:"location" tf:"location"`
+	// +optional
+	CustomerManagedKeyEnabled *bool `json:"customerManagedKeyEnabled,omitempty" tf:"customer_managed_key_enabled"`
+	// +optional
+	InfrastructureEncryptionEnabled *bool `json:"infrastructureEncryptionEnabled,omitempty" tf:"infrastructure_encryption_enabled"`
+	// +optional
+	LoadBalancerBackendAddressPoolID *string `json:"loadBalancerBackendAddressPoolID,omitempty" tf:"load_balancer_backend_address_pool_id"`
+	Location                         *string `json:"location" tf:"location"`
 	// +optional
 	ManagedResourceGroupID *string `json:"managedResourceGroupID,omitempty" tf:"managed_resource_group_id"`
 	// +optional
 	ManagedResourceGroupName *string `json:"managedResourceGroupName,omitempty" tf:"managed_resource_group_name"`
-	Name                     *string `json:"name" tf:"name"`
-	ResourceGroupName        *string `json:"resourceGroupName" tf:"resource_group_name"`
-	Sku                      *string `json:"sku" tf:"sku"`
+	// +optional
+	ManagedServicesCmkKeyVaultKeyID *string `json:"managedServicesCmkKeyVaultKeyID,omitempty" tf:"managed_services_cmk_key_vault_key_id"`
+	Name                            *string `json:"name" tf:"name"`
+	// +optional
+	NetworkSecurityGroupRulesRequired *string `json:"networkSecurityGroupRulesRequired,omitempty" tf:"network_security_group_rules_required"`
+	// +optional
+	PublicNetworkAccessEnabled *bool   `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
+	ResourceGroupName          *string `json:"resourceGroupName" tf:"resource_group_name"`
+	Sku                        *string `json:"sku" tf:"sku"`
+	// +optional
+	StorageAccountIdentity []WorkspaceSpecStorageAccountIdentity `json:"storageAccountIdentity,omitempty" tf:"storage_account_identity"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 	// +optional

@@ -88,7 +88,7 @@ func (r *LogProfile) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range logprofileForceNewList {
+	for key, _ := range logprofileForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

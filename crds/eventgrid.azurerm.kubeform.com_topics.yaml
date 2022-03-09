@@ -61,6 +61,21 @@ spec:
                     type: string
                   id:
                     type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   inboundIPRule:
                     items:
                       properties:
@@ -99,6 +114,8 @@ spec:
                     type: object
                   inputSchema:
                     type: string
+                  localAuthEnabled:
+                    type: boolean
                   location:
                     type: string
                   name:
@@ -169,6 +186,21 @@ spec:
                     type: string
                   id:
                     type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   inboundIPRule:
                     items:
                       properties:
@@ -207,6 +239,8 @@ spec:
                     type: object
                   inputSchema:
                     type: string
+                  localAuthEnabled:
+                    type: boolean
                   location:
                     type: string
                   name:

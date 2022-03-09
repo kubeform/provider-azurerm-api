@@ -62,12 +62,20 @@ spec:
                   developerPortal:
                     items:
                       properties:
+                        expiry:
+                          type: string
                         hostName:
                           type: string
                         keyVaultID:
                           type: string
                         negotiateClientCertificate:
                           type: boolean
+                        sslKeyvaultIdentityClientID:
+                          type: string
+                        subject:
+                          type: string
+                        thumbprint:
+                          type: string
                       required:
                       - hostName
                       type: object
@@ -77,12 +85,20 @@ spec:
                   management:
                     items:
                       properties:
+                        expiry:
+                          type: string
                         hostName:
                           type: string
                         keyVaultID:
                           type: string
                         negotiateClientCertificate:
                           type: boolean
+                        sslKeyvaultIdentityClientID:
+                          type: string
+                        subject:
+                          type: string
+                        thumbprint:
+                          type: string
                       required:
                       - hostName
                       type: object
@@ -90,27 +106,44 @@ spec:
                   portal:
                     items:
                       properties:
+                        expiry:
+                          type: string
                         hostName:
                           type: string
                         keyVaultID:
                           type: string
                         negotiateClientCertificate:
                           type: boolean
+                        sslKeyvaultIdentityClientID:
+                          type: string
+                        subject:
+                          type: string
+                        thumbprint:
+                          type: string
                       required:
                       - hostName
                       type: object
                     type: array
                   proxy:
+                    description: Deprecated
                     items:
                       properties:
                         defaultSslBinding:
                           type: boolean
+                        expiry:
+                          type: string
                         hostName:
                           type: string
                         keyVaultID:
                           type: string
                         negotiateClientCertificate:
                           type: boolean
+                        sslKeyvaultIdentityClientID:
+                          type: string
+                        subject:
+                          type: string
+                        thumbprint:
+                          type: string
                       required:
                       - hostName
                       type: object
@@ -118,12 +151,20 @@ spec:
                   scm:
                     items:
                       properties:
+                        expiry:
+                          type: string
                         hostName:
                           type: string
                         keyVaultID:
                           type: string
                         negotiateClientCertificate:
                           type: boolean
+                        sslKeyvaultIdentityClientID:
+                          type: string
+                        subject:
+                          type: string
+                        thumbprint:
+                          type: string
                       required:
                       - hostName
                       type: object
@@ -185,12 +226,20 @@ spec:
                   developerPortal:
                     items:
                       properties:
+                        expiry:
+                          type: string
                         hostName:
                           type: string
                         keyVaultID:
                           type: string
                         negotiateClientCertificate:
                           type: boolean
+                        sslKeyvaultIdentityClientID:
+                          type: string
+                        subject:
+                          type: string
+                        thumbprint:
+                          type: string
                       required:
                       - hostName
                       type: object
@@ -200,12 +249,20 @@ spec:
                   management:
                     items:
                       properties:
+                        expiry:
+                          type: string
                         hostName:
                           type: string
                         keyVaultID:
                           type: string
                         negotiateClientCertificate:
                           type: boolean
+                        sslKeyvaultIdentityClientID:
+                          type: string
+                        subject:
+                          type: string
+                        thumbprint:
+                          type: string
                       required:
                       - hostName
                       type: object
@@ -213,27 +270,44 @@ spec:
                   portal:
                     items:
                       properties:
+                        expiry:
+                          type: string
                         hostName:
                           type: string
                         keyVaultID:
                           type: string
                         negotiateClientCertificate:
                           type: boolean
+                        sslKeyvaultIdentityClientID:
+                          type: string
+                        subject:
+                          type: string
+                        thumbprint:
+                          type: string
                       required:
                       - hostName
                       type: object
                     type: array
                   proxy:
+                    description: Deprecated
                     items:
                       properties:
                         defaultSslBinding:
                           type: boolean
+                        expiry:
+                          type: string
                         hostName:
                           type: string
                         keyVaultID:
                           type: string
                         negotiateClientCertificate:
                           type: boolean
+                        sslKeyvaultIdentityClientID:
+                          type: string
+                        subject:
+                          type: string
+                        thumbprint:
+                          type: string
                       required:
                       - hostName
                       type: object
@@ -241,12 +315,20 @@ spec:
                   scm:
                     items:
                       properties:
+                        expiry:
+                          type: string
                         hostName:
                           type: string
                         keyVaultID:
                           type: string
                         negotiateClientCertificate:
                           type: boolean
+                        sslKeyvaultIdentityClientID:
+                          type: string
+                        subject:
+                          type: string
+                        thumbprint:
+                          type: string
                       required:
                       - hostName
                       type: object

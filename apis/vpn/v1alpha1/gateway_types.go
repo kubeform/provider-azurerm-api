@@ -97,6 +97,8 @@ type GatewaySpecResource struct {
 	Name              *string                 `json:"name" tf:"name"`
 	ResourceGroupName *string                 `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
+	RoutingPreference *string `json:"routingPreference,omitempty" tf:"routing_preference"`
+	// +optional
 	ScaleUnit *int64 `json:"scaleUnit,omitempty" tf:"scale_unit"`
 	// +optional
 	Tags         *map[string]string `json:"tags,omitempty" tf:"tags"`

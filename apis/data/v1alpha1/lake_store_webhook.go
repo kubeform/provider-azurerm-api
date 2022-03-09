@@ -92,7 +92,7 @@ func (r *LakeStore) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range lakestoreForceNewList {
+	for key, _ := range lakestoreForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

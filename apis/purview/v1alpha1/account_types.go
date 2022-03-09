@@ -50,6 +50,15 @@ type AccountSpecIdentity struct {
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
+type AccountSpecManagedResources struct {
+	// +optional
+	EventHubNamespaceID *string `json:"eventHubNamespaceID,omitempty" tf:"event_hub_namespace_id"`
+	// +optional
+	ResourceGroupID *string `json:"resourceGroupID,omitempty" tf:"resource_group_id"`
+	// +optional
+	StorageAccountID *string `json:"storageAccountID,omitempty" tf:"storage_account_id"`
+}
+
 type AccountSpec struct {
 	State *AccountSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -82,13 +91,19 @@ type AccountSpecResource struct {
 	// +optional
 	Identity []AccountSpecIdentity `json:"identity,omitempty" tf:"identity"`
 	Location *string               `json:"location" tf:"location"`
-	Name     *string               `json:"name" tf:"name"`
+	// +optional
+	ManagedResourceGroupName *string `json:"managedResourceGroupName,omitempty" tf:"managed_resource_group_name"`
+	// +optional
+	ManagedResources []AccountSpecManagedResources `json:"managedResources,omitempty" tf:"managed_resources"`
+	Name             *string                       `json:"name" tf:"name"`
 	// +optional
 	PublicNetworkEnabled *bool   `json:"publicNetworkEnabled,omitempty" tf:"public_network_enabled"`
 	ResourceGroupName    *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	ScanEndpoint *string `json:"scanEndpoint,omitempty" tf:"scan_endpoint"`
-	SkuName      *string `json:"skuName" tf:"sku_name"`
+	// +optional
+	// Deprecated
+	SkuName *string `json:"skuName,omitempty" tf:"sku_name"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 }

@@ -42,12 +42,11 @@ func (r *ApiManagement) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &ApiManagement{}
 
 var apimanagementForceNewList = map[string]bool{
-	"/additional_location/*/location":                                  true,
-	"/additional_location/*/virtual_network_configuration/*/subnet_id": true,
-	"/location":            true,
-	"/name":                true,
-	"/resource_group_name": true,
-	"/zones":               true,
+	"/additional_location/*/zones": true,
+	"/location":                    true,
+	"/name":                        true,
+	"/resource_group_name":         true,
+	"/zones":                       true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -93,7 +92,7 @@ func (r *ApiManagement) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range apimanagementForceNewList {
+	for key, _ := range apimanagementForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

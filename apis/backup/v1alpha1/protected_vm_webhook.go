@@ -90,7 +90,7 @@ func (r *ProtectedVm) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range protectedvmForceNewList {
+	for key, _ := range protectedvmForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

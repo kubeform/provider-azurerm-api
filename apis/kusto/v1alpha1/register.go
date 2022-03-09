@@ -76,6 +76,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&EventhubDataConnectionList{},
 		&IothubDataConnection{},
 		&IothubDataConnectionList{},
+		&Script{},
+		&ScriptList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

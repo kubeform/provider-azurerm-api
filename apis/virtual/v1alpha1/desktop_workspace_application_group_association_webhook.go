@@ -89,7 +89,7 @@ func (r *DesktopWorkspaceApplicationGroupAssociation) ValidateUpdate(old runtime
 		return err
 	}
 
-	for key := range desktopworkspaceapplicationgroupassociationForceNewList {
+	for key, _ := range desktopworkspaceapplicationgroupassociationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

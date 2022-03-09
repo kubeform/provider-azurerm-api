@@ -41,6 +41,13 @@ type CloudJavaDeployment struct {
 	Status            CloudJavaDeploymentStatus `json:"status,omitempty"`
 }
 
+type CloudJavaDeploymentSpecQuota struct {
+	// +optional
+	Cpu *string `json:"cpu,omitempty" tf:"cpu"`
+	// +optional
+	Memory *string `json:"memory,omitempty" tf:"memory"`
+}
+
 type CloudJavaDeploymentSpec struct {
 	State *CloudJavaDeploymentSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -61,6 +68,7 @@ type CloudJavaDeploymentSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	// Deprecated
 	Cpu *int64 `json:"cpu,omitempty" tf:"cpu"`
 	// +optional
 	EnvironmentVariables *map[string]string `json:"environmentVariables,omitempty" tf:"environment_variables"`
@@ -69,8 +77,11 @@ type CloudJavaDeploymentSpecResource struct {
 	// +optional
 	JvmOptions *string `json:"jvmOptions,omitempty" tf:"jvm_options"`
 	// +optional
+	// Deprecated
 	MemoryInGb *int64  `json:"memoryInGb,omitempty" tf:"memory_in_gb"`
 	Name       *string `json:"name" tf:"name"`
+	// +optional
+	Quota *CloudJavaDeploymentSpecQuota `json:"quota,omitempty" tf:"quota"`
 	// +optional
 	RuntimeVersion   *string `json:"runtimeVersion,omitempty" tf:"runtime_version"`
 	SpringCloudAppID *string `json:"springCloudAppID" tf:"spring_cloud_app_id"`

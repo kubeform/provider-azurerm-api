@@ -30,6 +30,7 @@ type NetappV1alpha1Interface interface {
 	AccountsGetter
 	PoolsGetter
 	SnapshotsGetter
+	SnapshotPoliciesGetter
 	VolumesGetter
 }
 
@@ -48,6 +49,10 @@ func (c *NetappV1alpha1Client) Pools(namespace string) PoolInterface {
 
 func (c *NetappV1alpha1Client) Snapshots(namespace string) SnapshotInterface {
 	return newSnapshots(c, namespace)
+}
+
+func (c *NetappV1alpha1Client) SnapshotPolicies(namespace string) SnapshotPolicyInterface {
+	return newSnapshotPolicies(c, namespace)
 }
 
 func (c *NetappV1alpha1Client) Volumes(namespace string) VolumeInterface {

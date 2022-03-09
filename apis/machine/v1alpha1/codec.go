@@ -29,7 +29,14 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
 		jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeClusterSpecIdentity{}).Type1()):      LearningComputeClusterSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeClusterSpecScaleSettings{}).Type1()): LearningComputeClusterSpecScaleSettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeClusterSpecSsh{}).Type1()):           LearningComputeClusterSpecSshCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecAssignToUser{}).Type1()): LearningComputeInstanceSpecAssignToUserCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecIdentity{}).Type1()):     LearningComputeInstanceSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecSsh{}).Type1()):          LearningComputeInstanceSpecSshCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningInferenceClusterSpecIdentity{}).Type1()):    LearningInferenceClusterSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(LearningInferenceClusterSpecSsl{}).Type1()):         LearningInferenceClusterSpecSslCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningSynapseSparkSpecIdentity{}).Type1()):        LearningSynapseSparkSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningWorkspaceSpecEncryption{}).Type1()):         LearningWorkspaceSpecEncryptionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(LearningWorkspaceSpecIdentity{}).Type1()):           LearningWorkspaceSpecIdentityCodec{},
 	}
 }
@@ -38,7 +45,14 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
 		jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeClusterSpecIdentity{}).Type1()):      LearningComputeClusterSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeClusterSpecScaleSettings{}).Type1()): LearningComputeClusterSpecScaleSettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeClusterSpecSsh{}).Type1()):           LearningComputeClusterSpecSshCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecAssignToUser{}).Type1()): LearningComputeInstanceSpecAssignToUserCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecIdentity{}).Type1()):     LearningComputeInstanceSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecSsh{}).Type1()):          LearningComputeInstanceSpecSshCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningInferenceClusterSpecIdentity{}).Type1()):    LearningInferenceClusterSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(LearningInferenceClusterSpecSsl{}).Type1()):         LearningInferenceClusterSpecSslCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningSynapseSparkSpecIdentity{}).Type1()):        LearningSynapseSparkSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LearningWorkspaceSpecEncryption{}).Type1()):         LearningWorkspaceSpecEncryptionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(LearningWorkspaceSpecIdentity{}).Type1()):           LearningWorkspaceSpecIdentityCodec{},
 	}
 }
@@ -214,6 +228,401 @@ func (LearningComputeClusterSpecScaleSettingsCodec) Decode(ptr unsafe.Pointer, i
 }
 
 // +k8s:deepcopy-gen=false
+type LearningComputeClusterSpecSshCodec struct {
+}
+
+func (LearningComputeClusterSpecSshCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*LearningComputeClusterSpecSsh)(ptr) == nil
+}
+
+func (LearningComputeClusterSpecSshCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*LearningComputeClusterSpecSsh)(ptr)
+	var objs []LearningComputeClusterSpecSsh
+	if obj != nil {
+		objs = []LearningComputeClusterSpecSsh{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeClusterSpecSsh{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (LearningComputeClusterSpecSshCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*LearningComputeClusterSpecSsh)(ptr) = LearningComputeClusterSpecSsh{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []LearningComputeClusterSpecSsh
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeClusterSpecSsh{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*LearningComputeClusterSpecSsh)(ptr) = objs[0]
+			} else {
+				*(*LearningComputeClusterSpecSsh)(ptr) = LearningComputeClusterSpecSsh{}
+			}
+		} else {
+			*(*LearningComputeClusterSpecSsh)(ptr) = LearningComputeClusterSpecSsh{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj LearningComputeClusterSpecSsh
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeClusterSpecSsh{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*LearningComputeClusterSpecSsh)(ptr) = obj
+		} else {
+			*(*LearningComputeClusterSpecSsh)(ptr) = LearningComputeClusterSpecSsh{}
+		}
+	default:
+		iter.ReportError("decode LearningComputeClusterSpecSsh", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type LearningComputeInstanceSpecAssignToUserCodec struct {
+}
+
+func (LearningComputeInstanceSpecAssignToUserCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*LearningComputeInstanceSpecAssignToUser)(ptr) == nil
+}
+
+func (LearningComputeInstanceSpecAssignToUserCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*LearningComputeInstanceSpecAssignToUser)(ptr)
+	var objs []LearningComputeInstanceSpecAssignToUser
+	if obj != nil {
+		objs = []LearningComputeInstanceSpecAssignToUser{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecAssignToUser{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (LearningComputeInstanceSpecAssignToUserCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*LearningComputeInstanceSpecAssignToUser)(ptr) = LearningComputeInstanceSpecAssignToUser{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []LearningComputeInstanceSpecAssignToUser
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecAssignToUser{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*LearningComputeInstanceSpecAssignToUser)(ptr) = objs[0]
+			} else {
+				*(*LearningComputeInstanceSpecAssignToUser)(ptr) = LearningComputeInstanceSpecAssignToUser{}
+			}
+		} else {
+			*(*LearningComputeInstanceSpecAssignToUser)(ptr) = LearningComputeInstanceSpecAssignToUser{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj LearningComputeInstanceSpecAssignToUser
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecAssignToUser{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*LearningComputeInstanceSpecAssignToUser)(ptr) = obj
+		} else {
+			*(*LearningComputeInstanceSpecAssignToUser)(ptr) = LearningComputeInstanceSpecAssignToUser{}
+		}
+	default:
+		iter.ReportError("decode LearningComputeInstanceSpecAssignToUser", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type LearningComputeInstanceSpecIdentityCodec struct {
+}
+
+func (LearningComputeInstanceSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*LearningComputeInstanceSpecIdentity)(ptr) == nil
+}
+
+func (LearningComputeInstanceSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*LearningComputeInstanceSpecIdentity)(ptr)
+	var objs []LearningComputeInstanceSpecIdentity
+	if obj != nil {
+		objs = []LearningComputeInstanceSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (LearningComputeInstanceSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*LearningComputeInstanceSpecIdentity)(ptr) = LearningComputeInstanceSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []LearningComputeInstanceSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*LearningComputeInstanceSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*LearningComputeInstanceSpecIdentity)(ptr) = LearningComputeInstanceSpecIdentity{}
+			}
+		} else {
+			*(*LearningComputeInstanceSpecIdentity)(ptr) = LearningComputeInstanceSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj LearningComputeInstanceSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*LearningComputeInstanceSpecIdentity)(ptr) = obj
+		} else {
+			*(*LearningComputeInstanceSpecIdentity)(ptr) = LearningComputeInstanceSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode LearningComputeInstanceSpecIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type LearningComputeInstanceSpecSshCodec struct {
+}
+
+func (LearningComputeInstanceSpecSshCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*LearningComputeInstanceSpecSsh)(ptr) == nil
+}
+
+func (LearningComputeInstanceSpecSshCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*LearningComputeInstanceSpecSsh)(ptr)
+	var objs []LearningComputeInstanceSpecSsh
+	if obj != nil {
+		objs = []LearningComputeInstanceSpecSsh{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecSsh{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (LearningComputeInstanceSpecSshCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*LearningComputeInstanceSpecSsh)(ptr) = LearningComputeInstanceSpecSsh{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []LearningComputeInstanceSpecSsh
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecSsh{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*LearningComputeInstanceSpecSsh)(ptr) = objs[0]
+			} else {
+				*(*LearningComputeInstanceSpecSsh)(ptr) = LearningComputeInstanceSpecSsh{}
+			}
+		} else {
+			*(*LearningComputeInstanceSpecSsh)(ptr) = LearningComputeInstanceSpecSsh{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj LearningComputeInstanceSpecSsh
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningComputeInstanceSpecSsh{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*LearningComputeInstanceSpecSsh)(ptr) = obj
+		} else {
+			*(*LearningComputeInstanceSpecSsh)(ptr) = LearningComputeInstanceSpecSsh{}
+		}
+	default:
+		iter.ReportError("decode LearningComputeInstanceSpecSsh", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type LearningInferenceClusterSpecIdentityCodec struct {
+}
+
+func (LearningInferenceClusterSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*LearningInferenceClusterSpecIdentity)(ptr) == nil
+}
+
+func (LearningInferenceClusterSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*LearningInferenceClusterSpecIdentity)(ptr)
+	var objs []LearningInferenceClusterSpecIdentity
+	if obj != nil {
+		objs = []LearningInferenceClusterSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningInferenceClusterSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (LearningInferenceClusterSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*LearningInferenceClusterSpecIdentity)(ptr) = LearningInferenceClusterSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []LearningInferenceClusterSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningInferenceClusterSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*LearningInferenceClusterSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*LearningInferenceClusterSpecIdentity)(ptr) = LearningInferenceClusterSpecIdentity{}
+			}
+		} else {
+			*(*LearningInferenceClusterSpecIdentity)(ptr) = LearningInferenceClusterSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj LearningInferenceClusterSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningInferenceClusterSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*LearningInferenceClusterSpecIdentity)(ptr) = obj
+		} else {
+			*(*LearningInferenceClusterSpecIdentity)(ptr) = LearningInferenceClusterSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode LearningInferenceClusterSpecIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type LearningInferenceClusterSpecSslCodec struct {
 }
 
@@ -289,6 +698,164 @@ func (LearningInferenceClusterSpecSslCodec) Decode(ptr unsafe.Pointer, iter *jso
 		}
 	default:
 		iter.ReportError("decode LearningInferenceClusterSpecSsl", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type LearningSynapseSparkSpecIdentityCodec struct {
+}
+
+func (LearningSynapseSparkSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*LearningSynapseSparkSpecIdentity)(ptr) == nil
+}
+
+func (LearningSynapseSparkSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*LearningSynapseSparkSpecIdentity)(ptr)
+	var objs []LearningSynapseSparkSpecIdentity
+	if obj != nil {
+		objs = []LearningSynapseSparkSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningSynapseSparkSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (LearningSynapseSparkSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*LearningSynapseSparkSpecIdentity)(ptr) = LearningSynapseSparkSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []LearningSynapseSparkSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningSynapseSparkSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*LearningSynapseSparkSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*LearningSynapseSparkSpecIdentity)(ptr) = LearningSynapseSparkSpecIdentity{}
+			}
+		} else {
+			*(*LearningSynapseSparkSpecIdentity)(ptr) = LearningSynapseSparkSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj LearningSynapseSparkSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningSynapseSparkSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*LearningSynapseSparkSpecIdentity)(ptr) = obj
+		} else {
+			*(*LearningSynapseSparkSpecIdentity)(ptr) = LearningSynapseSparkSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode LearningSynapseSparkSpecIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type LearningWorkspaceSpecEncryptionCodec struct {
+}
+
+func (LearningWorkspaceSpecEncryptionCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*LearningWorkspaceSpecEncryption)(ptr) == nil
+}
+
+func (LearningWorkspaceSpecEncryptionCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*LearningWorkspaceSpecEncryption)(ptr)
+	var objs []LearningWorkspaceSpecEncryption
+	if obj != nil {
+		objs = []LearningWorkspaceSpecEncryption{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningWorkspaceSpecEncryption{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (LearningWorkspaceSpecEncryptionCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*LearningWorkspaceSpecEncryption)(ptr) = LearningWorkspaceSpecEncryption{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []LearningWorkspaceSpecEncryption
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningWorkspaceSpecEncryption{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*LearningWorkspaceSpecEncryption)(ptr) = objs[0]
+			} else {
+				*(*LearningWorkspaceSpecEncryption)(ptr) = LearningWorkspaceSpecEncryption{}
+			}
+		} else {
+			*(*LearningWorkspaceSpecEncryption)(ptr) = LearningWorkspaceSpecEncryption{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj LearningWorkspaceSpecEncryption
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LearningWorkspaceSpecEncryption{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*LearningWorkspaceSpecEncryption)(ptr) = obj
+		} else {
+			*(*LearningWorkspaceSpecEncryption)(ptr) = LearningWorkspaceSpecEncryption{}
+		}
+	default:
+		iter.ReportError("decode LearningWorkspaceSpecEncryption", "unexpected JSON type")
 	}
 }
 

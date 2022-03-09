@@ -90,6 +90,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&VariableIntList{},
 		&VariableString{},
 		&VariableStringList{},
+		&Webhook{},
+		&WebhookList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

@@ -57,6 +57,8 @@ spec:
                 type: object
               resource:
                 properties:
+                  authenticationType:
+                    type: string
                   batchFrequencyInSeconds:
                     format: int64
                     type: integer
@@ -64,11 +66,18 @@ spec:
                     type: string
                   encoding:
                     type: string
+                  endpointURI:
+                    type: string
                   fileNameFormat:
                     type: string
                   id:
                     type: string
+                  identityID:
+                    type: string
+                  iothubID:
+                    type: string
                   iothubName:
+                    description: Deprecated
                     type: string
                   maxChunkSizeInBytes:
                     format: int64
@@ -117,7 +126,6 @@ spec:
                     type: object
                 required:
                 - containerName
-                - iothubName
                 - name
                 - resourceGroupName
                 type: object
@@ -132,6 +140,8 @@ spec:
                 type: object
               state:
                 properties:
+                  authenticationType:
+                    type: string
                   batchFrequencyInSeconds:
                     format: int64
                     type: integer
@@ -139,11 +149,18 @@ spec:
                     type: string
                   encoding:
                     type: string
+                  endpointURI:
+                    type: string
                   fileNameFormat:
                     type: string
                   id:
                     type: string
+                  identityID:
+                    type: string
+                  iothubID:
+                    type: string
                   iothubName:
+                    description: Deprecated
                     type: string
                   maxChunkSizeInBytes:
                     format: int64
@@ -192,7 +209,6 @@ spec:
                     type: object
                 required:
                 - containerName
-                - iothubName
                 - name
                 - resourceGroupName
                 type: object

@@ -29,6 +29,10 @@ type FakeSubscriptionV1alpha1 struct {
 	*testing.Fake
 }
 
+func (c *FakeSubscriptionV1alpha1) CostManagementExports(namespace string) v1alpha1.CostManagementExportInterface {
+	return &FakeCostManagementExports{c, namespace}
+}
+
 func (c *FakeSubscriptionV1alpha1) PolicyAssignments(namespace string) v1alpha1.PolicyAssignmentInterface {
 	return &FakePolicyAssignments{c, namespace}
 }

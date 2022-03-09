@@ -76,6 +76,19 @@ spec:
                     type: array
                   location:
                     type: string
+                  managedResourceGroupName:
+                    type: string
+                  managedResources:
+                    items:
+                      properties:
+                        eventHubNamespaceID:
+                          type: string
+                        resourceGroupID:
+                          type: string
+                        storageAccountID:
+                          type: string
+                      type: object
+                    type: array
                   name:
                     type: string
                   publicNetworkEnabled:
@@ -85,6 +98,7 @@ spec:
                   scanEndpoint:
                     type: string
                   skuName:
+                    description: Deprecated
                     type: string
                   tags:
                     additionalProperties:
@@ -132,7 +146,6 @@ spec:
                 - location
                 - name
                 - resourceGroupName
-                - skuName
                 type: object
               secretRef:
                 description: LocalObjectReference contains enough information to let
@@ -164,6 +177,19 @@ spec:
                     type: array
                   location:
                     type: string
+                  managedResourceGroupName:
+                    type: string
+                  managedResources:
+                    items:
+                      properties:
+                        eventHubNamespaceID:
+                          type: string
+                        resourceGroupID:
+                          type: string
+                        storageAccountID:
+                          type: string
+                      type: object
+                    type: array
                   name:
                     type: string
                   publicNetworkEnabled:
@@ -173,6 +199,7 @@ spec:
                   scanEndpoint:
                     type: string
                   skuName:
+                    description: Deprecated
                     type: string
                   tags:
                     additionalProperties:
@@ -220,7 +247,6 @@ spec:
                 - location
                 - name
                 - resourceGroupName
-                - skuName
                 type: object
               terminationPolicy:
                 enum:

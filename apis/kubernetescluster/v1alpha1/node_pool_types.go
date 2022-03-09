@@ -202,20 +202,30 @@ type NodePoolSpecResource struct {
 	// +optional
 	OsDiskType *string `json:"osDiskType,omitempty" tf:"os_disk_type"`
 	// +optional
+	OsSku *string `json:"osSku,omitempty" tf:"os_sku"`
+	// +optional
 	OsType *string `json:"osType,omitempty" tf:"os_type"`
+	// +optional
+	PodSubnetID *string `json:"podSubnetID,omitempty" tf:"pod_subnet_id"`
 	// +optional
 	Priority *string `json:"priority,omitempty" tf:"priority"`
 	// +optional
 	ProximityPlacementGroupID *string `json:"proximityPlacementGroupID,omitempty" tf:"proximity_placement_group_id"`
 	// +optional
+	ScaleDownMode *string `json:"scaleDownMode,omitempty" tf:"scale_down_mode"`
+	// +optional
 	SpotMaxPrice *float64 `json:"spotMaxPrice,omitempty" tf:"spot_max_price"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
+	// +optional
+	UltraSsdEnabled *bool `json:"ultraSsdEnabled,omitempty" tf:"ultra_ssd_enabled"`
 	// +optional
 	UpgradeSettings *NodePoolSpecUpgradeSettings `json:"upgradeSettings,omitempty" tf:"upgrade_settings"`
 	VmSize          *string                      `json:"vmSize" tf:"vm_size"`
 	// +optional
 	VnetSubnetID *string `json:"vnetSubnetID,omitempty" tf:"vnet_subnet_id"`
+	// +optional
+	WorkloadRuntime *string `json:"workloadRuntime,omitempty" tf:"workload_runtime"`
 }
 
 type NodePoolStatus struct {

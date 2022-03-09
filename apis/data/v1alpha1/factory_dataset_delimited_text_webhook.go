@@ -42,6 +42,7 @@ func (r *FactoryDatasetDelimitedText) SetupWebhookWithManager(mgr ctrl.Manager) 
 var _ webhook.Validator = &FactoryDatasetDelimitedText{}
 
 var factorydatasetdelimitedtextForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *FactoryDatasetDelimitedText) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range factorydatasetdelimitedtextForceNewList {
+	for key, _ := range factorydatasetdelimitedtextForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

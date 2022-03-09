@@ -73,7 +73,11 @@ type FactoryLinkedServiceOdataSpecResource struct {
 	Annotations []string `json:"annotations,omitempty" tf:"annotations"`
 	// +optional
 	BasicAuthentication *FactoryLinkedServiceOdataSpecBasicAuthentication `json:"basicAuthentication,omitempty" tf:"basic_authentication"`
-	DataFactoryName     *string                                           `json:"dataFactoryName" tf:"data_factory_name"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional

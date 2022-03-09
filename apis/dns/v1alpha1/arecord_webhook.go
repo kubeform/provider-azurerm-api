@@ -89,7 +89,7 @@ func (r *ARecord) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range arecordForceNewList {
+	for key, _ := range arecordForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

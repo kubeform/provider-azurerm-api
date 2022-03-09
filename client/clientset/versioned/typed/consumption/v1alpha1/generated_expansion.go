@@ -18,6 +18,8 @@ limitations under the License.
 
 package v1alpha1
 
+type BudgetManagementGroupExpansion interface{}
+
 type BudgetResourceGroupExpansion interface{}
 
 type BudgetSubscriptionExpansion interface{}

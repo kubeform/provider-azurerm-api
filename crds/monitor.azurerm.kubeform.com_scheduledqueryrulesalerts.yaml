@@ -75,6 +75,8 @@ spec:
                       type: string
                     maxItems: 100
                     type: array
+                  autoMitigationEnabled:
+                    type: boolean
                   dataSourceID:
                     type: string
                   description:
@@ -206,6 +208,8 @@ spec:
                       type: string
                     maxItems: 100
                     type: array
+                  autoMitigationEnabled:
+                    type: boolean
                   dataSourceID:
                     type: string
                   description:

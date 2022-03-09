@@ -23,3 +23,5 @@ type CustomHTTPSConfigurationExpansion interface{}
 type FirewallPolicyExpansion interface{}
 
 type FrontdoorExpansion interface{}
+
+type RulesEngineExpansion interface{}

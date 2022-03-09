@@ -249,10 +249,17 @@ spec:
                           properties:
                             backendPoolName:
                               type: string
+                            cacheDuration:
+                              type: string
                             cacheEnabled:
                               type: boolean
                             cacheQueryParameterStripDirective:
                               type: string
+                            cacheQueryParameters:
+                              items:
+                                type: string
+                              maxItems: 25
+                              type: array
                             cacheUseDynamicCompression:
                               type: boolean
                             customForwardingPath:
@@ -550,10 +557,17 @@ spec:
                           properties:
                             backendPoolName:
                               type: string
+                            cacheDuration:
+                              type: string
                             cacheEnabled:
                               type: boolean
                             cacheQueryParameterStripDirective:
                               type: string
+                            cacheQueryParameters:
+                              items:
+                                type: string
+                              maxItems: 25
+                              type: array
                             cacheUseDynamicCompression:
                               type: boolean
                             customForwardingPath:

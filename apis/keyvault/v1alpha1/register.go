@@ -68,6 +68,10 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&KeyVaultList{},
 		&ManagedHardwareSecurityModule{},
 		&ManagedHardwareSecurityModuleList{},
+		&ManagedStorageAccount{},
+		&ManagedStorageAccountList{},
+		&ManagedStorageAccountSasTokenDefinition{},
+		&ManagedStorageAccountSasTokenDefinitionList{},
 		&Secret{},
 		&SecretList{},
 	)

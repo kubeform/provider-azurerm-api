@@ -41,6 +41,10 @@ func (c *FakeNetappV1alpha1) Snapshots(namespace string) v1alpha1.SnapshotInterf
 	return &FakeSnapshots{c, namespace}
 }
 
+func (c *FakeNetappV1alpha1) SnapshotPolicies(namespace string) v1alpha1.SnapshotPolicyInterface {
+	return &FakeSnapshotPolicies{c, namespace}
+}
+
 func (c *FakeNetappV1alpha1) Volumes(namespace string) v1alpha1.VolumeInterface {
 	return &FakeVolumes{c, namespace}
 }

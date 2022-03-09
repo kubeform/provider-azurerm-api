@@ -77,6 +77,10 @@ type KeySpecResource struct {
 	// +optional
 	NotBeforeDate *string `json:"notBeforeDate,omitempty" tf:"not_before_date"`
 	// +optional
+	PublicKeyOpenssh *string `json:"publicKeyOpenssh,omitempty" tf:"public_key_openssh"`
+	// +optional
+	PublicKeyPem *string `json:"publicKeyPem,omitempty" tf:"public_key_pem"`
+	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 	// +optional
 	Version *string `json:"version,omitempty" tf:"version"`

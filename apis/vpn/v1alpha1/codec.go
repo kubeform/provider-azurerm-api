@@ -30,6 +30,8 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecBgpSettings{}).Type1()):                           GatewaySpecBgpSettingsCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecBgpSettingsInstance0BGPPeeringAddress{}).Type1()): GatewaySpecBgpSettingsInstance0BGPPeeringAddressCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecBgpSettingsInstance1BGPPeeringAddress{}).Type1()): GatewaySpecBgpSettingsInstance1BGPPeeringAddressCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GatewayConnectionSpecRouting{}).Type1()):                     GatewayConnectionSpecRoutingCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GatewayConnectionSpecRoutingPropagatedRouteTable{}).Type1()): GatewayConnectionSpecRoutingPropagatedRouteTableCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecIpsecPolicy{}).Type1()):               ServerConfigurationSpecIpsecPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadius{}).Type1()):                    ServerConfigurationSpecRadiusCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadiusServer2{}).Type1()):             ServerConfigurationSpecRadiusServer2Codec{},
@@ -42,6 +44,8 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecBgpSettings{}).Type1()):                           GatewaySpecBgpSettingsCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecBgpSettingsInstance0BGPPeeringAddress{}).Type1()): GatewaySpecBgpSettingsInstance0BGPPeeringAddressCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecBgpSettingsInstance1BGPPeeringAddress{}).Type1()): GatewaySpecBgpSettingsInstance1BGPPeeringAddressCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GatewayConnectionSpecRouting{}).Type1()):                     GatewayConnectionSpecRoutingCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GatewayConnectionSpecRoutingPropagatedRouteTable{}).Type1()): GatewayConnectionSpecRoutingPropagatedRouteTableCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecIpsecPolicy{}).Type1()):               ServerConfigurationSpecIpsecPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadius{}).Type1()):                    ServerConfigurationSpecRadiusCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ServerConfigurationSpecRadiusServer2{}).Type1()):             ServerConfigurationSpecRadiusServer2Codec{},
@@ -295,6 +299,164 @@ func (GatewaySpecBgpSettingsInstance1BGPPeeringAddressCodec) Decode(ptr unsafe.P
 		}
 	default:
 		iter.ReportError("decode GatewaySpecBgpSettingsInstance1BGPPeeringAddress", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type GatewayConnectionSpecRoutingCodec struct {
+}
+
+func (GatewayConnectionSpecRoutingCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*GatewayConnectionSpecRouting)(ptr) == nil
+}
+
+func (GatewayConnectionSpecRoutingCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*GatewayConnectionSpecRouting)(ptr)
+	var objs []GatewayConnectionSpecRouting
+	if obj != nil {
+		objs = []GatewayConnectionSpecRouting{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewayConnectionSpecRouting{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (GatewayConnectionSpecRoutingCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*GatewayConnectionSpecRouting)(ptr) = GatewayConnectionSpecRouting{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []GatewayConnectionSpecRouting
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewayConnectionSpecRouting{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*GatewayConnectionSpecRouting)(ptr) = objs[0]
+			} else {
+				*(*GatewayConnectionSpecRouting)(ptr) = GatewayConnectionSpecRouting{}
+			}
+		} else {
+			*(*GatewayConnectionSpecRouting)(ptr) = GatewayConnectionSpecRouting{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj GatewayConnectionSpecRouting
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewayConnectionSpecRouting{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*GatewayConnectionSpecRouting)(ptr) = obj
+		} else {
+			*(*GatewayConnectionSpecRouting)(ptr) = GatewayConnectionSpecRouting{}
+		}
+	default:
+		iter.ReportError("decode GatewayConnectionSpecRouting", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type GatewayConnectionSpecRoutingPropagatedRouteTableCodec struct {
+}
+
+func (GatewayConnectionSpecRoutingPropagatedRouteTableCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*GatewayConnectionSpecRoutingPropagatedRouteTable)(ptr) == nil
+}
+
+func (GatewayConnectionSpecRoutingPropagatedRouteTableCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*GatewayConnectionSpecRoutingPropagatedRouteTable)(ptr)
+	var objs []GatewayConnectionSpecRoutingPropagatedRouteTable
+	if obj != nil {
+		objs = []GatewayConnectionSpecRoutingPropagatedRouteTable{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewayConnectionSpecRoutingPropagatedRouteTable{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (GatewayConnectionSpecRoutingPropagatedRouteTableCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*GatewayConnectionSpecRoutingPropagatedRouteTable)(ptr) = GatewayConnectionSpecRoutingPropagatedRouteTable{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []GatewayConnectionSpecRoutingPropagatedRouteTable
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewayConnectionSpecRoutingPropagatedRouteTable{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*GatewayConnectionSpecRoutingPropagatedRouteTable)(ptr) = objs[0]
+			} else {
+				*(*GatewayConnectionSpecRoutingPropagatedRouteTable)(ptr) = GatewayConnectionSpecRoutingPropagatedRouteTable{}
+			}
+		} else {
+			*(*GatewayConnectionSpecRoutingPropagatedRouteTable)(ptr) = GatewayConnectionSpecRoutingPropagatedRouteTable{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj GatewayConnectionSpecRoutingPropagatedRouteTable
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewayConnectionSpecRoutingPropagatedRouteTable{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*GatewayConnectionSpecRoutingPropagatedRouteTable)(ptr) = obj
+		} else {
+			*(*GatewayConnectionSpecRoutingPropagatedRouteTable)(ptr) = GatewayConnectionSpecRoutingPropagatedRouteTable{}
+		}
+	default:
+		iter.ReportError("decode GatewayConnectionSpecRoutingPropagatedRouteTable", "unexpected JSON type")
 	}
 }
 

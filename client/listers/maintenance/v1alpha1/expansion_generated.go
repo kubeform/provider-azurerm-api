@@ -34,6 +34,14 @@ type AssignmentVirtualMachineListerExpansion interface{}
 // AssignmentVirtualMachineNamespaceLister.
 type AssignmentVirtualMachineNamespaceListerExpansion interface{}
 
+// AssignmentVirtualMachineScaleSetListerExpansion allows custom methods to be added to
+// AssignmentVirtualMachineScaleSetLister.
+type AssignmentVirtualMachineScaleSetListerExpansion interface{}
+
+// AssignmentVirtualMachineScaleSetNamespaceListerExpansion allows custom methods to be added to
+// AssignmentVirtualMachineScaleSetNamespaceLister.
+type AssignmentVirtualMachineScaleSetNamespaceListerExpansion interface{}
+
 // ConfigurationListerExpansion allows custom methods to be added to
 // ConfigurationLister.
 type ConfigurationListerExpansion interface{}

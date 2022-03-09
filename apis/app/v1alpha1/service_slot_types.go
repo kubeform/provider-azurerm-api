@@ -233,6 +233,10 @@ type ServiceSlotSpecSiteConfigScmIPRestriction struct {
 
 type ServiceSlotSpecSiteConfig struct {
 	// +optional
+	AcrUseManagedIdentityCredentials *bool `json:"acrUseManagedIdentityCredentials,omitempty" tf:"acr_use_managed_identity_credentials"`
+	// +optional
+	AcrUserManagedIdentityClientID *string `json:"acrUserManagedIdentityClientID,omitempty" tf:"acr_user_managed_identity_client_id"`
+	// +optional
 	AlwaysOn *bool `json:"alwaysOn,omitempty" tf:"always_on"`
 	// +optional
 	AppCommandLine *string `json:"appCommandLine,omitempty" tf:"app_command_line"`
@@ -285,6 +289,8 @@ type ServiceSlotSpecSiteConfig struct {
 	// +optional
 	Use32BitWorkerProcess *bool `json:"use32BitWorkerProcess,omitempty" tf:"use_32_bit_worker_process"`
 	// +optional
+	VnetRouteAllEnabled *bool `json:"vnetRouteAllEnabled,omitempty" tf:"vnet_route_all_enabled"`
+	// +optional
 	WebsocketsEnabled *bool `json:"websocketsEnabled,omitempty" tf:"websockets_enabled"`
 	// +optional
 	WindowsFxVersion *string `json:"windowsFxVersion,omitempty" tf:"windows_fx_version"`
@@ -295,6 +301,16 @@ type ServiceSlotSpecSiteCredential struct {
 	Password *string `json:"-" sensitive:"true" tf:"password"`
 	// +optional
 	Username *string `json:"username,omitempty" tf:"username"`
+}
+
+type ServiceSlotSpecStorageAccount struct {
+	AccessKey   *string `json:"-" sensitive:"true" tf:"access_key"`
+	AccountName *string `json:"accountName" tf:"account_name"`
+	// +optional
+	MountPath *string `json:"mountPath,omitempty" tf:"mount_path"`
+	Name      *string `json:"name" tf:"name"`
+	ShareName *string `json:"shareName" tf:"share_name"`
+	Type      *string `json:"type" tf:"type"`
 }
 
 type ServiceSlotSpec struct {
@@ -336,7 +352,9 @@ type ServiceSlotSpecResource struct {
 	HttpsOnly *bool `json:"httpsOnly,omitempty" tf:"https_only"`
 	// +optional
 	Identity *ServiceSlotSpecIdentity `json:"identity,omitempty" tf:"identity"`
-	Location *string                  `json:"location" tf:"location"`
+	// +optional
+	KeyVaultReferenceIdentityID *string `json:"keyVaultReferenceIdentityID,omitempty" tf:"key_vault_reference_identity_id"`
+	Location                    *string `json:"location" tf:"location"`
 	// +optional
 	Logs              *ServiceSlotSpecLogs `json:"logs,omitempty" tf:"logs"`
 	Name              *string              `json:"name" tf:"name"`
@@ -345,6 +363,8 @@ type ServiceSlotSpecResource struct {
 	SiteConfig *ServiceSlotSpecSiteConfig `json:"siteConfig,omitempty" tf:"site_config"`
 	// +optional
 	SiteCredential []ServiceSlotSpecSiteCredential `json:"siteCredential,omitempty" tf:"site_credential"`
+	// +optional
+	StorageAccount []ServiceSlotSpecStorageAccount `json:"storageAccount,omitempty" tf:"storage_account"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 }

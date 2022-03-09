@@ -20,4 +20,6 @@ package v1alpha1
 
 type EndpointExpansion interface{}
 
+type EndpointCustomDomainExpansion interface{}
+
 type ProfileExpansion interface{}

@@ -90,7 +90,7 @@ func (r *DnsCnameRecord) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range dnscnamerecordForceNewList {
+	for key, _ := range dnscnamerecordForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

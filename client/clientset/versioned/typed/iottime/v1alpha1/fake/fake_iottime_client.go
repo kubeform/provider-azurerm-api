@@ -33,6 +33,10 @@ func (c *FakeIottimeV1alpha1) SeriesInsightsAccessPolicies(namespace string) v1a
 	return &FakeSeriesInsightsAccessPolicies{c, namespace}
 }
 
+func (c *FakeIottimeV1alpha1) SeriesInsightsEventSourceEventhubs(namespace string) v1alpha1.SeriesInsightsEventSourceEventhubInterface {
+	return &FakeSeriesInsightsEventSourceEventhubs{c, namespace}
+}
+
 func (c *FakeIottimeV1alpha1) SeriesInsightsEventSourceIothubs(namespace string) v1alpha1.SeriesInsightsEventSourceIothubInterface {
 	return &FakeSeriesInsightsEventSourceIothubs{c, namespace}
 }

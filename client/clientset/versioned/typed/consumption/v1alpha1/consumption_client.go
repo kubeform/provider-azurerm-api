@@ -27,6 +27,7 @@ import (
 
 type ConsumptionV1alpha1Interface interface {
 	RESTClient() rest.Interface
+	BudgetManagementGroupsGetter
 	BudgetResourceGroupsGetter
 	BudgetSubscriptionsGetter
 }
@@ -34,6 +35,10 @@ type ConsumptionV1alpha1Interface interface {
 // ConsumptionV1alpha1Client is used to interact with features provided by the consumption.azurerm.kubeform.com group.
 type ConsumptionV1alpha1Client struct {
 	restClient rest.Interface
+}
+
+func (c *ConsumptionV1alpha1Client) BudgetManagementGroups(namespace string) BudgetManagementGroupInterface {
+	return newBudgetManagementGroups(c, namespace)
 }
 
 func (c *ConsumptionV1alpha1Client) BudgetResourceGroups(namespace string) BudgetResourceGroupInterface {

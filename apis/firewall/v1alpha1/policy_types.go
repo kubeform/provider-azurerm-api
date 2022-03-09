@@ -51,11 +51,74 @@ type PolicySpecDns struct {
 	Servers []string `json:"servers,omitempty" tf:"servers"`
 }
 
+type PolicySpecIdentity struct {
+	// +optional
+	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
+	// +optional
+	// +kubebuilder:validation:MinItems=1
+	UserAssignedIdentityIDS []string `json:"userAssignedIdentityIDS,omitempty" tf:"user_assigned_identity_ids"`
+}
+
+type PolicySpecInsightsLogAnalyticsWorkspace struct {
+	FirewallLocation *string `json:"firewallLocation" tf:"firewall_location"`
+	ID               *string `json:"ID" tf:"id"`
+}
+
+type PolicySpecInsights struct {
+	DefaultLogAnalyticsWorkspaceID *string `json:"defaultLogAnalyticsWorkspaceID" tf:"default_log_analytics_workspace_id"`
+	Enabled                        *bool   `json:"enabled" tf:"enabled"`
+	// +optional
+	LogAnalyticsWorkspace []PolicySpecInsightsLogAnalyticsWorkspace `json:"logAnalyticsWorkspace,omitempty" tf:"log_analytics_workspace"`
+	// +optional
+	RetentionInDays *int64 `json:"retentionInDays,omitempty" tf:"retention_in_days"`
+}
+
+type PolicySpecIntrusionDetectionSignatureOverrides struct {
+	// +optional
+	ID *string `json:"ID,omitempty" tf:"id"`
+	// +optional
+	State *string `json:"state,omitempty" tf:"state"`
+}
+
+type PolicySpecIntrusionDetectionTrafficBypass struct {
+	// +optional
+	Description *string `json:"description,omitempty" tf:"description"`
+	// +optional
+	DestinationAddresses []string `json:"destinationAddresses,omitempty" tf:"destination_addresses"`
+	// +optional
+	DestinationIPGroups []string `json:"destinationIPGroups,omitempty" tf:"destination_ip_groups"`
+	// +optional
+	DestinationPorts []string `json:"destinationPorts,omitempty" tf:"destination_ports"`
+	Name             *string  `json:"name" tf:"name"`
+	Protocol         *string  `json:"protocol" tf:"protocol"`
+	// +optional
+	SourceAddresses []string `json:"sourceAddresses,omitempty" tf:"source_addresses"`
+	// +optional
+	SourceIPGroups []string `json:"sourceIPGroups,omitempty" tf:"source_ip_groups"`
+}
+
+type PolicySpecIntrusionDetection struct {
+	// +optional
+	Mode *string `json:"mode,omitempty" tf:"mode"`
+	// +optional
+	SignatureOverrides []PolicySpecIntrusionDetectionSignatureOverrides `json:"signatureOverrides,omitempty" tf:"signature_overrides"`
+	// +optional
+	TrafficBypass []PolicySpecIntrusionDetectionTrafficBypass `json:"trafficBypass,omitempty" tf:"traffic_bypass"`
+}
+
 type PolicySpecThreatIntelligenceAllowlist struct {
 	// +optional
 	Fqdns []string `json:"fqdns,omitempty" tf:"fqdns"`
 	// +optional
 	IpAddresses []string `json:"ipAddresses,omitempty" tf:"ip_addresses"`
+}
+
+type PolicySpecTlsCertificate struct {
+	KeyVaultSecretID *string `json:"keyVaultSecretID" tf:"key_vault_secret_id"`
+	Name             *string `json:"name" tf:"name"`
 }
 
 type PolicySpec struct {
@@ -84,9 +147,18 @@ type PolicySpecResource struct {
 	// +optional
 	Dns *PolicySpecDns `json:"dns,omitempty" tf:"dns"`
 	// +optional
-	Firewalls         []string `json:"firewalls,omitempty" tf:"firewalls"`
-	Location          *string  `json:"location" tf:"location"`
-	Name              *string  `json:"name" tf:"name"`
+	Firewalls []string `json:"firewalls,omitempty" tf:"firewalls"`
+	// +optional
+	Identity *PolicySpecIdentity `json:"identity,omitempty" tf:"identity"`
+	// +optional
+	Insights *PolicySpecInsights `json:"insights,omitempty" tf:"insights"`
+	// +optional
+	IntrusionDetection *PolicySpecIntrusionDetection `json:"intrusionDetection,omitempty" tf:"intrusion_detection"`
+	Location           *string                       `json:"location" tf:"location"`
+	Name               *string                       `json:"name" tf:"name"`
+	// +optional
+	// +kubebuilder:validation:MinItems=1
+	PrivateIPRanges   []string `json:"privateIPRanges,omitempty" tf:"private_ip_ranges"`
 	ResourceGroupName *string  `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	RuleCollectionGroups []string `json:"ruleCollectionGroups,omitempty" tf:"rule_collection_groups"`
@@ -98,6 +170,8 @@ type PolicySpecResource struct {
 	ThreatIntelligenceAllowlist *PolicySpecThreatIntelligenceAllowlist `json:"threatIntelligenceAllowlist,omitempty" tf:"threat_intelligence_allowlist"`
 	// +optional
 	ThreatIntelligenceMode *string `json:"threatIntelligenceMode,omitempty" tf:"threat_intelligence_mode"`
+	// +optional
+	TlsCertificate *PolicySpecTlsCertificate `json:"tlsCertificate,omitempty" tf:"tls_certificate"`
 }
 
 type PolicyStatus struct {

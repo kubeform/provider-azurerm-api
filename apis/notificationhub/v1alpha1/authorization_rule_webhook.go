@@ -91,7 +91,7 @@ func (r *AuthorizationRule) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range authorizationruleForceNewList {
+	for key, _ := range authorizationruleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

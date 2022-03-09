@@ -88,7 +88,7 @@ func (r *CloudActiveDeployment) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range cloudactivedeploymentForceNewList {
+	for key, _ := range cloudactivedeploymentForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

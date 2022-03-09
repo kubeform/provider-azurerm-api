@@ -90,7 +90,7 @@ func (r *NatPool) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range natpoolForceNewList {
+	for key, _ := range natpoolForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

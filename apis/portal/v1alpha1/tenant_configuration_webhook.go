@@ -86,7 +86,7 @@ func (r *TenantConfiguration) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range tenantconfigurationForceNewList {
+	for key, _ := range tenantconfigurationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -27,13 +27,17 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(PolicyAssignmentSpecIdentity{}).Type1()): PolicyAssignmentSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CostManagementExportSpecExportDataOptions{}).Type1()):         CostManagementExportSpecExportDataOptionsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CostManagementExportSpecExportDataStorageLocation{}).Type1()): CostManagementExportSpecExportDataStorageLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PolicyAssignmentSpecIdentity{}).Type1()):                      PolicyAssignmentSpecIdentityCodec{},
 	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(PolicyAssignmentSpecIdentity{}).Type1()): PolicyAssignmentSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CostManagementExportSpecExportDataOptions{}).Type1()):         CostManagementExportSpecExportDataOptionsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(CostManagementExportSpecExportDataStorageLocation{}).Type1()): CostManagementExportSpecExportDataStorageLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PolicyAssignmentSpecIdentity{}).Type1()):                      PolicyAssignmentSpecIdentityCodec{},
 	}
 }
 
@@ -47,6 +51,164 @@ func getDecodersWithout(typ string) map[string]jsoniter.ValDecoder {
 	origMap := GetDecoder()
 	delete(origMap, typ)
 	return origMap
+}
+
+// +k8s:deepcopy-gen=false
+type CostManagementExportSpecExportDataOptionsCodec struct {
+}
+
+func (CostManagementExportSpecExportDataOptionsCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*CostManagementExportSpecExportDataOptions)(ptr) == nil
+}
+
+func (CostManagementExportSpecExportDataOptionsCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*CostManagementExportSpecExportDataOptions)(ptr)
+	var objs []CostManagementExportSpecExportDataOptions
+	if obj != nil {
+		objs = []CostManagementExportSpecExportDataOptions{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(CostManagementExportSpecExportDataOptions{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (CostManagementExportSpecExportDataOptionsCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*CostManagementExportSpecExportDataOptions)(ptr) = CostManagementExportSpecExportDataOptions{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []CostManagementExportSpecExportDataOptions
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(CostManagementExportSpecExportDataOptions{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*CostManagementExportSpecExportDataOptions)(ptr) = objs[0]
+			} else {
+				*(*CostManagementExportSpecExportDataOptions)(ptr) = CostManagementExportSpecExportDataOptions{}
+			}
+		} else {
+			*(*CostManagementExportSpecExportDataOptions)(ptr) = CostManagementExportSpecExportDataOptions{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj CostManagementExportSpecExportDataOptions
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(CostManagementExportSpecExportDataOptions{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*CostManagementExportSpecExportDataOptions)(ptr) = obj
+		} else {
+			*(*CostManagementExportSpecExportDataOptions)(ptr) = CostManagementExportSpecExportDataOptions{}
+		}
+	default:
+		iter.ReportError("decode CostManagementExportSpecExportDataOptions", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type CostManagementExportSpecExportDataStorageLocationCodec struct {
+}
+
+func (CostManagementExportSpecExportDataStorageLocationCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*CostManagementExportSpecExportDataStorageLocation)(ptr) == nil
+}
+
+func (CostManagementExportSpecExportDataStorageLocationCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*CostManagementExportSpecExportDataStorageLocation)(ptr)
+	var objs []CostManagementExportSpecExportDataStorageLocation
+	if obj != nil {
+		objs = []CostManagementExportSpecExportDataStorageLocation{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(CostManagementExportSpecExportDataStorageLocation{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (CostManagementExportSpecExportDataStorageLocationCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*CostManagementExportSpecExportDataStorageLocation)(ptr) = CostManagementExportSpecExportDataStorageLocation{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []CostManagementExportSpecExportDataStorageLocation
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(CostManagementExportSpecExportDataStorageLocation{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*CostManagementExportSpecExportDataStorageLocation)(ptr) = objs[0]
+			} else {
+				*(*CostManagementExportSpecExportDataStorageLocation)(ptr) = CostManagementExportSpecExportDataStorageLocation{}
+			}
+		} else {
+			*(*CostManagementExportSpecExportDataStorageLocation)(ptr) = CostManagementExportSpecExportDataStorageLocation{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj CostManagementExportSpecExportDataStorageLocation
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(CostManagementExportSpecExportDataStorageLocation{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*CostManagementExportSpecExportDataStorageLocation)(ptr) = obj
+		} else {
+			*(*CostManagementExportSpecExportDataStorageLocation)(ptr) = CostManagementExportSpecExportDataStorageLocation{}
+		}
+	default:
+		iter.ReportError("decode CostManagementExportSpecExportDataStorageLocation", "unexpected JSON type")
+	}
 }
 
 // +k8s:deepcopy-gen=false

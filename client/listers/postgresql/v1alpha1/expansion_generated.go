@@ -58,6 +58,22 @@ type FlexibleServerListerExpansion interface{}
 // FlexibleServerNamespaceLister.
 type FlexibleServerNamespaceListerExpansion interface{}
 
+// FlexibleServerConfigurationListerExpansion allows custom methods to be added to
+// FlexibleServerConfigurationLister.
+type FlexibleServerConfigurationListerExpansion interface{}
+
+// FlexibleServerConfigurationNamespaceListerExpansion allows custom methods to be added to
+// FlexibleServerConfigurationNamespaceLister.
+type FlexibleServerConfigurationNamespaceListerExpansion interface{}
+
+// FlexibleServerDatabaseListerExpansion allows custom methods to be added to
+// FlexibleServerDatabaseLister.
+type FlexibleServerDatabaseListerExpansion interface{}
+
+// FlexibleServerDatabaseNamespaceListerExpansion allows custom methods to be added to
+// FlexibleServerDatabaseNamespaceLister.
+type FlexibleServerDatabaseNamespaceListerExpansion interface{}
+
 // FlexibleServerFirewallRuleListerExpansion allows custom methods to be added to
 // FlexibleServerFirewallRuleLister.
 type FlexibleServerFirewallRuleListerExpansion interface{}

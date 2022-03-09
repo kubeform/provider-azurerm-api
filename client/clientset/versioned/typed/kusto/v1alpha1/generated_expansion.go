@@ -37,3 +37,5 @@ type EventgridDataConnectionExpansion interface{}
 type EventhubDataConnectionExpansion interface{}
 
 type IothubDataConnectionExpansion interface{}
+
+type ScriptExpansion interface{}

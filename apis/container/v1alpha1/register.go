@@ -62,6 +62,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&RegistryList{},
 		&RegistryScopeMap{},
 		&RegistryScopeMapList{},
+		&RegistryTask{},
+		&RegistryTaskList{},
 		&RegistryToken{},
 		&RegistryTokenList{},
 		&RegistryWebhook{},

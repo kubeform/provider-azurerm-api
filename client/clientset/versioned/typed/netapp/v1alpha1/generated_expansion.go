@@ -24,4 +24,6 @@ type PoolExpansion interface{}
 
 type SnapshotExpansion interface{}
 
+type SnapshotPolicyExpansion interface{}
+
 type VolumeExpansion interface{}

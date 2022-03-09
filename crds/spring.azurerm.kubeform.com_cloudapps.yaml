@@ -57,6 +57,28 @@ spec:
                 type: object
               resource:
                 properties:
+                  customPersistentDisk:
+                    items:
+                      properties:
+                        mountOptions:
+                          items:
+                            type: string
+                          type: array
+                        mountPath:
+                          type: string
+                        readOnlyEnabled:
+                          type: boolean
+                        shareName:
+                          type: string
+                        storageName:
+                          type: string
+                      required:
+                      - mountPath
+                      - shareName
+                      - storageName
+                      type: object
+                    minItems: 1
+                    type: array
                   fqdn:
                     type: string
                   httpsOnly:
@@ -71,6 +93,8 @@ spec:
                         type: string
                       type:
                         type: string
+                    required:
+                    - type
                     type: object
                   isPublic:
                     type: boolean
@@ -139,6 +163,28 @@ spec:
                 type: object
               state:
                 properties:
+                  customPersistentDisk:
+                    items:
+                      properties:
+                        mountOptions:
+                          items:
+                            type: string
+                          type: array
+                        mountPath:
+                          type: string
+                        readOnlyEnabled:
+                          type: boolean
+                        shareName:
+                          type: string
+                        storageName:
+                          type: string
+                      required:
+                      - mountPath
+                      - shareName
+                      - storageName
+                      type: object
+                    minItems: 1
+                    type: array
                   fqdn:
                     type: string
                   httpsOnly:
@@ -153,6 +199,8 @@ spec:
                         type: string
                       type:
                         type: string
+                    required:
+                    - type
                     type: object
                   isPublic:
                     type: boolean

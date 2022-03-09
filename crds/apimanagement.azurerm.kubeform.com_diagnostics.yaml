@@ -68,6 +68,33 @@ spec:
                       bodyBytes:
                         format: int64
                         type: integer
+                      dataMasking:
+                        properties:
+                          headers:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                          queryParams:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                        type: object
                       headersToLog:
                         items:
                           type: string
@@ -78,6 +105,33 @@ spec:
                       bodyBytes:
                         format: int64
                         type: integer
+                      dataMasking:
+                        properties:
+                          headers:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                          queryParams:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                        type: object
                       headersToLog:
                         items:
                           type: string
@@ -91,6 +145,33 @@ spec:
                       bodyBytes:
                         format: int64
                         type: integer
+                      dataMasking:
+                        properties:
+                          headers:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                          queryParams:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                        type: object
                       headersToLog:
                         items:
                           type: string
@@ -101,6 +182,33 @@ spec:
                       bodyBytes:
                         format: int64
                         type: integer
+                      dataMasking:
+                        properties:
+                          headers:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                          queryParams:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                        type: object
                       headersToLog:
                         items:
                           type: string
@@ -114,6 +222,8 @@ spec:
                     type: string
                   logClientIP:
                     type: boolean
+                  operationNameFormat:
+                    type: string
                   resourceGroupName:
                     type: string
                   samplingPercentage:
@@ -178,6 +288,33 @@ spec:
                       bodyBytes:
                         format: int64
                         type: integer
+                      dataMasking:
+                        properties:
+                          headers:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                          queryParams:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                        type: object
                       headersToLog:
                         items:
                           type: string
@@ -188,6 +325,33 @@ spec:
                       bodyBytes:
                         format: int64
                         type: integer
+                      dataMasking:
+                        properties:
+                          headers:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                          queryParams:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                        type: object
                       headersToLog:
                         items:
                           type: string
@@ -201,6 +365,33 @@ spec:
                       bodyBytes:
                         format: int64
                         type: integer
+                      dataMasking:
+                        properties:
+                          headers:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                          queryParams:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                        type: object
                       headersToLog:
                         items:
                           type: string
@@ -211,6 +402,33 @@ spec:
                       bodyBytes:
                         format: int64
                         type: integer
+                      dataMasking:
+                        properties:
+                          headers:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                          queryParams:
+                            items:
+                              properties:
+                                mode:
+                                  type: string
+                                value:
+                                  type: string
+                              required:
+                              - mode
+                              - value
+                              type: object
+                            type: array
+                        type: object
                       headersToLog:
                         items:
                           type: string
@@ -224,6 +442,8 @@ spec:
                     type: string
                   logClientIP:
                     type: boolean
+                  operationNameFormat:
+                    type: string
                   resourceGroupName:
                     type: string
                   samplingPercentage:

@@ -41,16 +41,26 @@ type Account struct {
 	Status            AccountStatus `json:"status,omitempty"`
 }
 
+type AccountSpecAnalyticalStorage struct {
+	SchemaType *string `json:"schemaType" tf:"schema_type"`
+}
+
 type AccountSpecBackup struct {
 	// +optional
 	IntervalInMinutes *int64 `json:"intervalInMinutes,omitempty" tf:"interval_in_minutes"`
 	// +optional
-	RetentionInHours *int64  `json:"retentionInHours,omitempty" tf:"retention_in_hours"`
-	Type             *string `json:"type" tf:"type"`
+	RetentionInHours *int64 `json:"retentionInHours,omitempty" tf:"retention_in_hours"`
+	// +optional
+	StorageRedundancy *string `json:"storageRedundancy,omitempty" tf:"storage_redundancy"`
+	Type              *string `json:"type" tf:"type"`
 }
 
 type AccountSpecCapabilities struct {
 	Name *string `json:"name" tf:"name"`
+}
+
+type AccountSpecCapacity struct {
+	TotalThroughputLimit *int64 `json:"totalThroughputLimit" tf:"total_throughput_limit"`
 }
 
 type AccountSpecConsistencyPolicy struct {
@@ -93,6 +103,19 @@ type AccountSpecIdentity struct {
 	Type     *string `json:"type" tf:"type"`
 }
 
+type AccountSpecRestoreDatabase struct {
+	// +optional
+	CollectionNames []string `json:"collectionNames,omitempty" tf:"collection_names"`
+	Name            *string  `json:"name" tf:"name"`
+}
+
+type AccountSpecRestore struct {
+	// +optional
+	Database                []AccountSpecRestoreDatabase `json:"database,omitempty" tf:"database"`
+	RestoreTimestampInUtc   *string                      `json:"restoreTimestampInUtc" tf:"restore_timestamp_in_utc"`
+	SourceCosmosdbAccountID *string                      `json:"sourceCosmosdbAccountID" tf:"source_cosmosdb_account_id"`
+}
+
 type AccountSpecVirtualNetworkRule struct {
 	ID *string `json:"ID" tf:"id"`
 	// +optional
@@ -123,15 +146,24 @@ type AccountSpecResource struct {
 	// +optional
 	AccessKeyMetadataWritesEnabled *bool `json:"accessKeyMetadataWritesEnabled,omitempty" tf:"access_key_metadata_writes_enabled"`
 	// +optional
+	AnalyticalStorage *AccountSpecAnalyticalStorage `json:"analyticalStorage,omitempty" tf:"analytical_storage"`
+	// +optional
 	AnalyticalStorageEnabled *bool `json:"analyticalStorageEnabled,omitempty" tf:"analytical_storage_enabled"`
 	// +optional
 	Backup *AccountSpecBackup `json:"backup,omitempty" tf:"backup"`
 	// +optional
 	Capabilities []AccountSpecCapabilities `json:"capabilities,omitempty" tf:"capabilities"`
 	// +optional
+	Capacity *AccountSpecCapacity `json:"capacity,omitempty" tf:"capacity"`
+	// +optional
+	ConnectionStrings []string                      `json:"-" sensitive:"true" tf:"connection_strings"`
 	ConsistencyPolicy *AccountSpecConsistencyPolicy `json:"consistencyPolicy" tf:"consistency_policy"`
 	// +optional
 	CorsRule *AccountSpecCorsRule `json:"corsRule,omitempty" tf:"cors_rule"`
+	// +optional
+	CreateMode *string `json:"createMode,omitempty" tf:"create_mode"`
+	// +optional
+	DefaultIdentityType *string `json:"defaultIdentityType,omitempty" tf:"default_identity_type"`
 	// +optional
 	EnableAutomaticFailover *bool `json:"enableAutomaticFailover,omitempty" tf:"enable_automatic_failover"`
 	// +optional
@@ -150,8 +182,10 @@ type AccountSpecResource struct {
 	// +optional
 	KeyVaultKeyID *string `json:"keyVaultKeyID,omitempty" tf:"key_vault_key_id"`
 	// +optional
-	Kind     *string `json:"kind,omitempty" tf:"kind"`
-	Location *string `json:"location" tf:"location"`
+	Kind *string `json:"kind,omitempty" tf:"kind"`
+	// +optional
+	LocalAuthenticationDisabled *bool   `json:"localAuthenticationDisabled,omitempty" tf:"local_authentication_disabled"`
+	Location                    *string `json:"location" tf:"location"`
 	// +optional
 	MongoServerVersion *string `json:"mongoServerVersion,omitempty" tf:"mongo_server_version"`
 	Name               *string `json:"name" tf:"name"`
@@ -173,6 +207,8 @@ type AccountSpecResource struct {
 	// +optional
 	ReadEndpoints     []string `json:"readEndpoints,omitempty" tf:"read_endpoints"`
 	ResourceGroupName *string  `json:"resourceGroupName" tf:"resource_group_name"`
+	// +optional
+	Restore *AccountSpecRestore `json:"restore,omitempty" tf:"restore"`
 	// +optional
 	SecondaryKey *string `json:"-" sensitive:"true" tf:"secondary_key"`
 	// +optional

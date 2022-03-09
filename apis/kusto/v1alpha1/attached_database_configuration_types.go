@@ -41,6 +41,21 @@ type AttachedDatabaseConfiguration struct {
 	Status            AttachedDatabaseConfigurationStatus `json:"status,omitempty"`
 }
 
+type AttachedDatabaseConfigurationSpecSharing struct {
+	// +optional
+	ExternalTablesToExclude []string `json:"externalTablesToExclude,omitempty" tf:"external_tables_to_exclude"`
+	// +optional
+	ExternalTablesToInclude []string `json:"externalTablesToInclude,omitempty" tf:"external_tables_to_include"`
+	// +optional
+	MaterializedViewsToExclude []string `json:"materializedViewsToExclude,omitempty" tf:"materialized_views_to_exclude"`
+	// +optional
+	MaterializedViewsToInclude []string `json:"materializedViewsToInclude,omitempty" tf:"materialized_views_to_include"`
+	// +optional
+	TablesToExclude []string `json:"tablesToExclude,omitempty" tf:"tables_to_exclude"`
+	// +optional
+	TablesToInclude []string `json:"tablesToInclude,omitempty" tf:"tables_to_include"`
+}
+
 type AttachedDatabaseConfigurationSpec struct {
 	State *AttachedDatabaseConfigurationSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -70,6 +85,8 @@ type AttachedDatabaseConfigurationSpecResource struct {
 	Location                         *string `json:"location" tf:"location"`
 	Name                             *string `json:"name" tf:"name"`
 	ResourceGroupName                *string `json:"resourceGroupName" tf:"resource_group_name"`
+	// +optional
+	Sharing *AttachedDatabaseConfigurationSpecSharing `json:"sharing,omitempty" tf:"sharing"`
 }
 
 type AttachedDatabaseConfigurationStatus struct {

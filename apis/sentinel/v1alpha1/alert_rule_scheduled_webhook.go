@@ -90,7 +90,7 @@ func (r *AlertRuleScheduled) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range alertrulescheduledForceNewList {
+	for key, _ := range alertrulescheduledForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

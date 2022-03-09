@@ -232,8 +232,11 @@ spec:
                     type: object
                   version:
                     type: string
+                  versionlessID:
+                    type: string
+                  versionlessSecretID:
+                    type: string
                 required:
-                - certificatePolicy
                 - keyVaultID
                 - name
                 type: object
@@ -423,8 +426,11 @@ spec:
                     type: object
                   version:
                     type: string
+                  versionlessID:
+                    type: string
+                  versionlessSecretID:
+                    type: string
                 required:
-                - certificatePolicy
                 - keyVaultID
                 - name
                 type: object

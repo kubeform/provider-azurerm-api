@@ -41,30 +41,106 @@ type ApiDiagnostic struct {
 	Status            ApiDiagnosticStatus `json:"status,omitempty"`
 }
 
+type ApiDiagnosticSpecBackendRequestDataMaskingHeaders struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type ApiDiagnosticSpecBackendRequestDataMaskingQueryParams struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type ApiDiagnosticSpecBackendRequestDataMasking struct {
+	// +optional
+	Headers []ApiDiagnosticSpecBackendRequestDataMaskingHeaders `json:"headers,omitempty" tf:"headers"`
+	// +optional
+	QueryParams []ApiDiagnosticSpecBackendRequestDataMaskingQueryParams `json:"queryParams,omitempty" tf:"query_params"`
+}
+
 type ApiDiagnosticSpecBackendRequest struct {
 	// +optional
 	BodyBytes *int64 `json:"bodyBytes,omitempty" tf:"body_bytes"`
 	// +optional
+	DataMasking *ApiDiagnosticSpecBackendRequestDataMasking `json:"dataMasking,omitempty" tf:"data_masking"`
+	// +optional
 	HeadersToLog []string `json:"headersToLog,omitempty" tf:"headers_to_log"`
+}
+
+type ApiDiagnosticSpecBackendResponseDataMaskingHeaders struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type ApiDiagnosticSpecBackendResponseDataMaskingQueryParams struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type ApiDiagnosticSpecBackendResponseDataMasking struct {
+	// +optional
+	Headers []ApiDiagnosticSpecBackendResponseDataMaskingHeaders `json:"headers,omitempty" tf:"headers"`
+	// +optional
+	QueryParams []ApiDiagnosticSpecBackendResponseDataMaskingQueryParams `json:"queryParams,omitempty" tf:"query_params"`
 }
 
 type ApiDiagnosticSpecBackendResponse struct {
 	// +optional
 	BodyBytes *int64 `json:"bodyBytes,omitempty" tf:"body_bytes"`
 	// +optional
+	DataMasking *ApiDiagnosticSpecBackendResponseDataMasking `json:"dataMasking,omitempty" tf:"data_masking"`
+	// +optional
 	HeadersToLog []string `json:"headersToLog,omitempty" tf:"headers_to_log"`
+}
+
+type ApiDiagnosticSpecFrontendRequestDataMaskingHeaders struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type ApiDiagnosticSpecFrontendRequestDataMaskingQueryParams struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type ApiDiagnosticSpecFrontendRequestDataMasking struct {
+	// +optional
+	Headers []ApiDiagnosticSpecFrontendRequestDataMaskingHeaders `json:"headers,omitempty" tf:"headers"`
+	// +optional
+	QueryParams []ApiDiagnosticSpecFrontendRequestDataMaskingQueryParams `json:"queryParams,omitempty" tf:"query_params"`
 }
 
 type ApiDiagnosticSpecFrontendRequest struct {
 	// +optional
 	BodyBytes *int64 `json:"bodyBytes,omitempty" tf:"body_bytes"`
 	// +optional
+	DataMasking *ApiDiagnosticSpecFrontendRequestDataMasking `json:"dataMasking,omitempty" tf:"data_masking"`
+	// +optional
 	HeadersToLog []string `json:"headersToLog,omitempty" tf:"headers_to_log"`
+}
+
+type ApiDiagnosticSpecFrontendResponseDataMaskingHeaders struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type ApiDiagnosticSpecFrontendResponseDataMaskingQueryParams struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type ApiDiagnosticSpecFrontendResponseDataMasking struct {
+	// +optional
+	Headers []ApiDiagnosticSpecFrontendResponseDataMaskingHeaders `json:"headers,omitempty" tf:"headers"`
+	// +optional
+	QueryParams []ApiDiagnosticSpecFrontendResponseDataMaskingQueryParams `json:"queryParams,omitempty" tf:"query_params"`
 }
 
 type ApiDiagnosticSpecFrontendResponse struct {
 	// +optional
 	BodyBytes *int64 `json:"bodyBytes,omitempty" tf:"body_bytes"`
+	// +optional
+	DataMasking *ApiDiagnosticSpecFrontendResponseDataMasking `json:"dataMasking,omitempty" tf:"data_masking"`
 	// +optional
 	HeadersToLog []string `json:"headersToLog,omitempty" tf:"headers_to_log"`
 }
@@ -105,8 +181,10 @@ type ApiDiagnosticSpecResource struct {
 	HttpCorrelationProtocol *string `json:"httpCorrelationProtocol,omitempty" tf:"http_correlation_protocol"`
 	Identifier              *string `json:"identifier" tf:"identifier"`
 	// +optional
-	LogClientIP       *bool   `json:"logClientIP,omitempty" tf:"log_client_ip"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	LogClientIP *bool `json:"logClientIP,omitempty" tf:"log_client_ip"`
+	// +optional
+	OperationNameFormat *string `json:"operationNameFormat,omitempty" tf:"operation_name_format"`
+	ResourceGroupName   *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	SamplingPercentage *float64 `json:"samplingPercentage,omitempty" tf:"sampling_percentage"`
 	// +optional

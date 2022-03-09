@@ -33,6 +33,10 @@ func (c *FakeResourceV1alpha1) Groups(namespace string) v1alpha1.GroupInterface 
 	return &FakeGroups{c, namespace}
 }
 
+func (c *FakeResourceV1alpha1) GroupCostManagementExports(namespace string) v1alpha1.GroupCostManagementExportInterface {
+	return &FakeGroupCostManagementExports{c, namespace}
+}
+
 func (c *FakeResourceV1alpha1) GroupPolicyAssignments(namespace string) v1alpha1.GroupPolicyAssignmentInterface {
 	return &FakeGroupPolicyAssignments{c, namespace}
 }

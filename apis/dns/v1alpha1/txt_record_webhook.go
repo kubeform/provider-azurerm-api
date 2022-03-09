@@ -89,7 +89,7 @@ func (r *TxtRecord) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range txtrecordForceNewList {
+	for key, _ := range txtrecordForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

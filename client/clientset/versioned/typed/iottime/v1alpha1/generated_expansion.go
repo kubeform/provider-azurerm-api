@@ -20,6 +20,8 @@ package v1alpha1
 
 type SeriesInsightsAccessPolicyExpansion interface{}
 
+type SeriesInsightsEventSourceEventhubExpansion interface{}
+
 type SeriesInsightsEventSourceIothubExpansion interface{}
 
 type SeriesInsightsGen2EnvironmentExpansion interface{}

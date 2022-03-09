@@ -26,6 +26,22 @@ type ConfigurationListerExpansion interface{}
 // ConfigurationNamespaceLister.
 type ConfigurationNamespaceListerExpansion interface{}
 
+// ConfigurationFeatureListerExpansion allows custom methods to be added to
+// ConfigurationFeatureLister.
+type ConfigurationFeatureListerExpansion interface{}
+
+// ConfigurationFeatureNamespaceListerExpansion allows custom methods to be added to
+// ConfigurationFeatureNamespaceLister.
+type ConfigurationFeatureNamespaceListerExpansion interface{}
+
+// ConfigurationKeyListerExpansion allows custom methods to be added to
+// ConfigurationKeyLister.
+type ConfigurationKeyListerExpansion interface{}
+
+// ConfigurationKeyNamespaceListerExpansion allows custom methods to be added to
+// ConfigurationKeyNamespaceLister.
+type ConfigurationKeyNamespaceListerExpansion interface{}
+
 // ServiceListerExpansion allows custom methods to be added to
 // ServiceLister.
 type ServiceListerExpansion interface{}
@@ -114,6 +130,14 @@ type ServicePlanListerExpansion interface{}
 // ServicePlanNamespaceLister.
 type ServicePlanNamespaceListerExpansion interface{}
 
+// ServicePublicCertificateListerExpansion allows custom methods to be added to
+// ServicePublicCertificateLister.
+type ServicePublicCertificateListerExpansion interface{}
+
+// ServicePublicCertificateNamespaceListerExpansion allows custom methods to be added to
+// ServicePublicCertificateNamespaceLister.
+type ServicePublicCertificateNamespaceListerExpansion interface{}
+
 // ServiceSlotListerExpansion allows custom methods to be added to
 // ServiceSlotLister.
 type ServiceSlotListerExpansion interface{}
@@ -121,6 +145,14 @@ type ServiceSlotListerExpansion interface{}
 // ServiceSlotNamespaceListerExpansion allows custom methods to be added to
 // ServiceSlotNamespaceLister.
 type ServiceSlotNamespaceListerExpansion interface{}
+
+// ServiceSlotCustomHostnameBindingListerExpansion allows custom methods to be added to
+// ServiceSlotCustomHostnameBindingLister.
+type ServiceSlotCustomHostnameBindingListerExpansion interface{}
+
+// ServiceSlotCustomHostnameBindingNamespaceListerExpansion allows custom methods to be added to
+// ServiceSlotCustomHostnameBindingNamespaceLister.
+type ServiceSlotCustomHostnameBindingNamespaceListerExpansion interface{}
 
 // ServiceSlotVirtualNetworkSwiftConnectionListerExpansion allows custom methods to be added to
 // ServiceSlotVirtualNetworkSwiftConnectionLister.

@@ -28,6 +28,8 @@ import (
 type CosmosdbV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	AccountsGetter
+	CassandraClustersGetter
+	CassandraDatacentersGetter
 	CassandraKeyspacesGetter
 	CassandraTablesGetter
 	GremlinDatabasesGetter
@@ -50,6 +52,14 @@ type CosmosdbV1alpha1Client struct {
 
 func (c *CosmosdbV1alpha1Client) Accounts(namespace string) AccountInterface {
 	return newAccounts(c, namespace)
+}
+
+func (c *CosmosdbV1alpha1Client) CassandraClusters(namespace string) CassandraClusterInterface {
+	return newCassandraClusters(c, namespace)
+}
+
+func (c *CosmosdbV1alpha1Client) CassandraDatacenters(namespace string) CassandraDatacenterInterface {
+	return newCassandraDatacenters(c, namespace)
 }
 
 func (c *CosmosdbV1alpha1Client) CassandraKeyspaces(namespace string) CassandraKeyspaceInterface {

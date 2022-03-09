@@ -32,6 +32,8 @@ type Interface interface {
 	AlertRuleMsSecurityIncidents() AlertRuleMsSecurityIncidentInformer
 	// AlertRuleScheduleds returns a AlertRuleScheduledInformer.
 	AlertRuleScheduleds() AlertRuleScheduledInformer
+	// AutomationRules returns a AutomationRuleInformer.
+	AutomationRules() AutomationRuleInformer
 	// DataConnectorAwsCloudTrails returns a DataConnectorAwsCloudTrailInformer.
 	DataConnectorAwsCloudTrails() DataConnectorAwsCloudTrailInformer
 	// DataConnectorAzureActiveDirectories returns a DataConnectorAzureActiveDirectoryInformer.
@@ -48,6 +50,10 @@ type Interface interface {
 	DataConnectorOffice365s() DataConnectorOffice365Informer
 	// DataConnectorThreatIntelligences returns a DataConnectorThreatIntelligenceInformer.
 	DataConnectorThreatIntelligences() DataConnectorThreatIntelligenceInformer
+	// Watchlists returns a WatchlistInformer.
+	Watchlists() WatchlistInformer
+	// WatchlistItems returns a WatchlistItemInformer.
+	WatchlistItems() WatchlistItemInformer
 }
 
 type version struct {
@@ -79,6 +85,11 @@ func (v *version) AlertRuleMsSecurityIncidents() AlertRuleMsSecurityIncidentInfo
 // AlertRuleScheduleds returns a AlertRuleScheduledInformer.
 func (v *version) AlertRuleScheduleds() AlertRuleScheduledInformer {
 	return &alertRuleScheduledInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// AutomationRules returns a AutomationRuleInformer.
+func (v *version) AutomationRules() AutomationRuleInformer {
+	return &automationRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // DataConnectorAwsCloudTrails returns a DataConnectorAwsCloudTrailInformer.
@@ -119,4 +130,14 @@ func (v *version) DataConnectorOffice365s() DataConnectorOffice365Informer {
 // DataConnectorThreatIntelligences returns a DataConnectorThreatIntelligenceInformer.
 func (v *version) DataConnectorThreatIntelligences() DataConnectorThreatIntelligenceInformer {
 	return &dataConnectorThreatIntelligenceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// Watchlists returns a WatchlistInformer.
+func (v *version) Watchlists() WatchlistInformer {
+	return &watchlistInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// WatchlistItems returns a WatchlistItemInformer.
+func (v *version) WatchlistItems() WatchlistItemInformer {
+	return &watchlistItemInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

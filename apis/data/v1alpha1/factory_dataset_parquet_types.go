@@ -43,14 +43,23 @@ type FactoryDatasetParquet struct {
 
 type FactoryDatasetParquetSpecAzureBlobStorageLocation struct {
 	Container *string `json:"container" tf:"container"`
-	Filename  *string `json:"filename" tf:"filename"`
-	Path      *string `json:"path" tf:"path"`
+	// +optional
+	DynamicFilenameEnabled *bool `json:"dynamicFilenameEnabled,omitempty" tf:"dynamic_filename_enabled"`
+	// +optional
+	DynamicPathEnabled *bool `json:"dynamicPathEnabled,omitempty" tf:"dynamic_path_enabled"`
+	// +optional
+	Filename *string `json:"filename,omitempty" tf:"filename"`
+	Path     *string `json:"path" tf:"path"`
 }
 
 type FactoryDatasetParquetSpecHttpServerLocation struct {
-	Filename    *string `json:"filename" tf:"filename"`
-	Path        *string `json:"path" tf:"path"`
-	RelativeURL *string `json:"relativeURL" tf:"relative_url"`
+	// +optional
+	DynamicFilenameEnabled *bool `json:"dynamicFilenameEnabled,omitempty" tf:"dynamic_filename_enabled"`
+	// +optional
+	DynamicPathEnabled *bool   `json:"dynamicPathEnabled,omitempty" tf:"dynamic_path_enabled"`
+	Filename           *string `json:"filename" tf:"filename"`
+	Path               *string `json:"path" tf:"path"`
+	RelativeURL        *string `json:"relativeURL" tf:"relative_url"`
 }
 
 type FactoryDatasetParquetSpecSchemaColumn struct {
@@ -90,7 +99,11 @@ type FactoryDatasetParquetSpecResource struct {
 	CompressionCodec *string `json:"compressionCodec,omitempty" tf:"compression_codec"`
 	// +optional
 	CompressionLevel *string `json:"compressionLevel,omitempty" tf:"compression_level"`
-	DataFactoryName  *string `json:"dataFactoryName" tf:"data_factory_name"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional

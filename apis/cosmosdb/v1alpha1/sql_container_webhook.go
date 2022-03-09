@@ -94,7 +94,7 @@ func (r *SqlContainer) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range sqlcontainerForceNewList {
+	for key, _ := range sqlcontainerForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

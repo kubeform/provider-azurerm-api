@@ -82,6 +82,10 @@ spec:
                     type: string
                   notBeforeDate:
                     type: string
+                  publicKeyOpenssh:
+                    type: string
+                  publicKeyPem:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -164,6 +168,10 @@ spec:
                   name:
                     type: string
                   notBeforeDate:
+                    type: string
+                  publicKeyOpenssh:
+                    type: string
+                  publicKeyPem:
                     type: string
                   tags:
                     additionalProperties:

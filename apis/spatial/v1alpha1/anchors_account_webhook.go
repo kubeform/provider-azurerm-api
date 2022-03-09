@@ -90,7 +90,7 @@ func (r *AnchorsAccount) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range anchorsaccountForceNewList {
+	for key, _ := range anchorsaccountForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

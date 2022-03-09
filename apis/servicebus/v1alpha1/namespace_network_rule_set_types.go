@@ -69,11 +69,21 @@ type NamespaceNetworkRuleSetSpecResource struct {
 	// +optional
 	DefaultAction *string `json:"defaultAction,omitempty" tf:"default_action"`
 	// +optional
-	IpRules       []string `json:"ipRules,omitempty" tf:"ip_rules"`
-	NamespaceName *string  `json:"namespaceName" tf:"namespace_name"`
+	IpRules []string `json:"ipRules,omitempty" tf:"ip_rules"`
 	// +optional
-	NetworkRules      []NamespaceNetworkRuleSetSpecNetworkRules `json:"networkRules,omitempty" tf:"network_rules"`
-	ResourceGroupName *string                                   `json:"resourceGroupName" tf:"resource_group_name"`
+	NamespaceID *string `json:"namespaceID,omitempty" tf:"namespace_id"`
+	// +optional
+	// Deprecated
+	NamespaceName *string `json:"namespaceName,omitempty" tf:"namespace_name"`
+	// +optional
+	NetworkRules []NamespaceNetworkRuleSetSpecNetworkRules `json:"networkRules,omitempty" tf:"network_rules"`
+	// +optional
+	PublicNetworkAccessEnabled *bool `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
+	// +optional
+	// Deprecated
+	ResourceGroupName *string `json:"resourceGroupName,omitempty" tf:"resource_group_name"`
+	// +optional
+	TrustedServicesAllowed *bool `json:"trustedServicesAllowed,omitempty" tf:"trusted_services_allowed"`
 }
 
 type NamespaceNetworkRuleSetStatus struct {

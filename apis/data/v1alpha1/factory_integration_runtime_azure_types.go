@@ -61,10 +61,16 @@ type FactoryIntegrationRuntimeAzureSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	CleanupEnabled *bool `json:"cleanupEnabled,omitempty" tf:"cleanup_enabled"`
+	// +optional
 	ComputeType *string `json:"computeType,omitempty" tf:"compute_type"`
 	// +optional
-	CoreCount       *int64  `json:"coreCount,omitempty" tf:"core_count"`
-	DataFactoryName *string `json:"dataFactoryName" tf:"data_factory_name"`
+	CoreCount *int64 `json:"coreCount,omitempty" tf:"core_count"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Description       *string `json:"description,omitempty" tf:"description"`
 	Location          *string `json:"location" tf:"location"`
@@ -72,6 +78,8 @@ type FactoryIntegrationRuntimeAzureSpecResource struct {
 	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	TimeToLiveMin *int64 `json:"timeToLiveMin,omitempty" tf:"time_to_live_min"`
+	// +optional
+	VirtualNetworkEnabled *bool `json:"virtualNetworkEnabled,omitempty" tf:"virtual_network_enabled"`
 }
 
 type FactoryIntegrationRuntimeAzureStatus struct {

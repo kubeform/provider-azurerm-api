@@ -42,13 +42,15 @@ func (r *LearningWorkspace) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &LearningWorkspace{}
 
 var learningworkspaceForceNewList = map[string]bool{
-	"/application_insights_id": true,
-	"/container_registry_id":   true,
-	"/key_vault_id":            true,
-	"/location":                true,
-	"/name":                    true,
-	"/resource_group_name":     true,
-	"/storage_account_id":      true,
+	"/application_insights_id":       true,
+	"/container_registry_id":         true,
+	"/image_build_compute_name":      true,
+	"/key_vault_id":                  true,
+	"/location":                      true,
+	"/name":                          true,
+	"/public_network_access_enabled": true,
+	"/resource_group_name":           true,
+	"/storage_account_id":            true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -94,7 +96,7 @@ func (r *LearningWorkspace) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range learningworkspaceForceNewList {
+	for key, _ := range learningworkspaceForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

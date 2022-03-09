@@ -29,6 +29,7 @@ type MaintenanceV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	AssignmentDedicatedHostsGetter
 	AssignmentVirtualMachinesGetter
+	AssignmentVirtualMachineScaleSetsGetter
 	ConfigurationsGetter
 }
 
@@ -43,6 +44,10 @@ func (c *MaintenanceV1alpha1Client) AssignmentDedicatedHosts(namespace string) A
 
 func (c *MaintenanceV1alpha1Client) AssignmentVirtualMachines(namespace string) AssignmentVirtualMachineInterface {
 	return newAssignmentVirtualMachines(c, namespace)
+}
+
+func (c *MaintenanceV1alpha1Client) AssignmentVirtualMachineScaleSets(namespace string) AssignmentVirtualMachineScaleSetInterface {
+	return newAssignmentVirtualMachineScaleSets(c, namespace)
 }
 
 func (c *MaintenanceV1alpha1Client) Configurations(namespace string) ConfigurationInterface {

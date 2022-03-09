@@ -28,11 +28,27 @@ import (
 type SynapseV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	FirewallRulesGetter
+	IntegrationRuntimeAzuresGetter
+	IntegrationRuntimeSelfHostedsGetter
+	LinkedServicesGetter
 	ManagedPrivateEndpointsGetter
+	PrivateLinkHubsGetter
 	RoleAssignmentsGetter
 	SparkPoolsGetter
 	SqlPoolsGetter
+	SqlPoolExtendedAuditingPoliciesGetter
+	SqlPoolSecurityAlertPoliciesGetter
+	SqlPoolVulnerabilityAssessmentsGetter
+	SqlPoolVulnerabilityAssessmentBaselinesGetter
+	SqlPoolWorkloadClassifiersGetter
+	SqlPoolWorkloadGroupsGetter
 	WorkspacesGetter
+	WorkspaceAadAdminsGetter
+	WorkspaceExtendedAuditingPoliciesGetter
+	WorkspaceKeysGetter
+	WorkspaceSQLAadAdminsGetter
+	WorkspaceSecurityAlertPoliciesGetter
+	WorkspaceVulnerabilityAssessmentsGetter
 }
 
 // SynapseV1alpha1Client is used to interact with features provided by the synapse.azurerm.kubeform.com group.
@@ -44,8 +60,24 @@ func (c *SynapseV1alpha1Client) FirewallRules(namespace string) FirewallRuleInte
 	return newFirewallRules(c, namespace)
 }
 
+func (c *SynapseV1alpha1Client) IntegrationRuntimeAzures(namespace string) IntegrationRuntimeAzureInterface {
+	return newIntegrationRuntimeAzures(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) IntegrationRuntimeSelfHosteds(namespace string) IntegrationRuntimeSelfHostedInterface {
+	return newIntegrationRuntimeSelfHosteds(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) LinkedServices(namespace string) LinkedServiceInterface {
+	return newLinkedServices(c, namespace)
+}
+
 func (c *SynapseV1alpha1Client) ManagedPrivateEndpoints(namespace string) ManagedPrivateEndpointInterface {
 	return newManagedPrivateEndpoints(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) PrivateLinkHubs(namespace string) PrivateLinkHubInterface {
+	return newPrivateLinkHubs(c, namespace)
 }
 
 func (c *SynapseV1alpha1Client) RoleAssignments(namespace string) RoleAssignmentInterface {
@@ -60,8 +92,56 @@ func (c *SynapseV1alpha1Client) SqlPools(namespace string) SqlPoolInterface {
 	return newSqlPools(c, namespace)
 }
 
+func (c *SynapseV1alpha1Client) SqlPoolExtendedAuditingPolicies(namespace string) SqlPoolExtendedAuditingPolicyInterface {
+	return newSqlPoolExtendedAuditingPolicies(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) SqlPoolSecurityAlertPolicies(namespace string) SqlPoolSecurityAlertPolicyInterface {
+	return newSqlPoolSecurityAlertPolicies(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) SqlPoolVulnerabilityAssessments(namespace string) SqlPoolVulnerabilityAssessmentInterface {
+	return newSqlPoolVulnerabilityAssessments(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) SqlPoolVulnerabilityAssessmentBaselines(namespace string) SqlPoolVulnerabilityAssessmentBaselineInterface {
+	return newSqlPoolVulnerabilityAssessmentBaselines(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) SqlPoolWorkloadClassifiers(namespace string) SqlPoolWorkloadClassifierInterface {
+	return newSqlPoolWorkloadClassifiers(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) SqlPoolWorkloadGroups(namespace string) SqlPoolWorkloadGroupInterface {
+	return newSqlPoolWorkloadGroups(c, namespace)
+}
+
 func (c *SynapseV1alpha1Client) Workspaces(namespace string) WorkspaceInterface {
 	return newWorkspaces(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) WorkspaceAadAdmins(namespace string) WorkspaceAadAdminInterface {
+	return newWorkspaceAadAdmins(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) WorkspaceExtendedAuditingPolicies(namespace string) WorkspaceExtendedAuditingPolicyInterface {
+	return newWorkspaceExtendedAuditingPolicies(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) WorkspaceKeys(namespace string) WorkspaceKeyInterface {
+	return newWorkspaceKeys(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) WorkspaceSQLAadAdmins(namespace string) WorkspaceSQLAadAdminInterface {
+	return newWorkspaceSQLAadAdmins(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) WorkspaceSecurityAlertPolicies(namespace string) WorkspaceSecurityAlertPolicyInterface {
+	return newWorkspaceSecurityAlertPolicies(c, namespace)
+}
+
+func (c *SynapseV1alpha1Client) WorkspaceVulnerabilityAssessments(namespace string) WorkspaceVulnerabilityAssessmentInterface {
+	return newWorkspaceVulnerabilityAssessments(c, namespace)
 }
 
 // NewForConfig creates a new SynapseV1alpha1Client for the given config.

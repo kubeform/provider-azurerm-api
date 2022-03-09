@@ -29,6 +29,10 @@ type FakeConsumptionV1alpha1 struct {
 	*testing.Fake
 }
 
+func (c *FakeConsumptionV1alpha1) BudgetManagementGroups(namespace string) v1alpha1.BudgetManagementGroupInterface {
+	return &FakeBudgetManagementGroups{c, namespace}
+}
+
 func (c *FakeConsumptionV1alpha1) BudgetResourceGroups(namespace string) v1alpha1.BudgetResourceGroupInterface {
 	return &FakeBudgetResourceGroups{c, namespace}
 }

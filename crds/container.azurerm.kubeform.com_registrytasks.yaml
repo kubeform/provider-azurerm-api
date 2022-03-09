@@ -1,0 +1,596 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/name: azurerm.kubeform.com
+    app.kubernetes.io/part-of: kubeform.com
+  name: registrytasks.container.azurerm.kubeform.com
+spec:
+  group: container.azurerm.kubeform.com
+  names:
+    kind: RegistryTask
+    listKind: RegistryTaskList
+    plural: registrytasks
+    singular: registrytask
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.phase
+      name: Phase
+      type: string
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            properties:
+              backendRef:
+                description: LocalObjectReference contains enough information to let
+                  you locate the referenced object inside the same namespace.
+                properties:
+                  name:
+                    description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+                      TODO: Add other useful fields. apiVersion, kind, uid?'
+                    type: string
+                type: object
+              providerRef:
+                description: LocalObjectReference contains enough information to let
+                  you locate the referenced object inside the same namespace.
+                properties:
+                  name:
+                    description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+                      TODO: Add other useful fields. apiVersion, kind, uid?'
+                    type: string
+                type: object
+              resource:
+                properties:
+                  agentPoolName:
+                    type: string
+                  agentSetting:
+                    properties:
+                      cpu:
+                        format: int64
+                        type: integer
+                    required:
+                    - cpu
+                    type: object
+                  baseImageTrigger:
+                    properties:
+                      enabled:
+                        type: boolean
+                      name:
+                        type: string
+                      type:
+                        type: string
+                      updateTriggerPayloadType:
+                        type: string
+                    required:
+                    - name
+                    - type
+                    type: object
+                  containerRegistryID:
+                    type: string
+                  dockerStep:
+                    properties:
+                      arguments:
+                        additionalProperties:
+                          type: string
+                        type: object
+                      cacheEnabled:
+                        type: boolean
+                      contextPath:
+                        type: string
+                      dockerfilePath:
+                        type: string
+                      imageNames:
+                        items:
+                          type: string
+                        type: array
+                      pushEnabled:
+                        type: boolean
+                      target:
+                        type: string
+                    required:
+                    - contextPath
+                    - dockerfilePath
+                    type: object
+                  enabled:
+                    type: boolean
+                  encodedStep:
+                    properties:
+                      contextPath:
+                        type: string
+                      taskContent:
+                        type: string
+                      valueContent:
+                        type: string
+                      values:
+                        additionalProperties:
+                          type: string
+                        type: object
+                    required:
+                    - taskContent
+                    type: object
+                  fileStep:
+                    properties:
+                      contextPath:
+                        type: string
+                      taskFilePath:
+                        type: string
+                      valueFilePath:
+                        type: string
+                      values:
+                        additionalProperties:
+                          type: string
+                        type: object
+                    required:
+                    - taskFilePath
+                    type: object
+                  id:
+                    type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
+                  isSystemTask:
+                    type: boolean
+                  logTemplate:
+                    type: string
+                  name:
+                    type: string
+                  platform:
+                    properties:
+                      architecture:
+                        type: string
+                      os:
+                        type: string
+                      variant:
+                        type: string
+                    required:
+                    - os
+                    type: object
+                  registryCredential:
+                    properties:
+                      source:
+                        properties:
+                          loginMode:
+                            type: string
+                        required:
+                        - loginMode
+                        type: object
+                    type: object
+                  sourceTrigger:
+                    items:
+                      properties:
+                        authentication:
+                          properties:
+                            expireInSeconds:
+                              format: int64
+                              type: integer
+                            scope:
+                              type: string
+                            tokenType:
+                              type: string
+                          required:
+                          - tokenType
+                          type: object
+                        branch:
+                          type: string
+                        enabled:
+                          type: boolean
+                        events:
+                          items:
+                            type: string
+                          type: array
+                        name:
+                          type: string
+                        repositoryURL:
+                          type: string
+                        sourceType:
+                          type: string
+                      required:
+                      - events
+                      - name
+                      - repositoryURL
+                      - sourceType
+                      type: object
+                    type: array
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  timeoutInSeconds:
+                    format: int64
+                    type: integer
+                  timeouts:
+                    properties:
+                      create:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      default:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      delete:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      read:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      update:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                    type: object
+                  timerTrigger:
+                    items:
+                      properties:
+                        enabled:
+                          type: boolean
+                        name:
+                          type: string
+                        schedule:
+                          type: string
+                      required:
+                      - name
+                      - schedule
+                      type: object
+                    type: array
+                required:
+                - containerRegistryID
+                - name
+                type: object
+              secretRef:
+                description: LocalObjectReference contains enough information to let
+                  you locate the referenced object inside the same namespace.
+                properties:
+                  name:
+                    description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+                      TODO: Add other useful fields. apiVersion, kind, uid?'
+                    type: string
+                type: object
+              state:
+                properties:
+                  agentPoolName:
+                    type: string
+                  agentSetting:
+                    properties:
+                      cpu:
+                        format: int64
+                        type: integer
+                    required:
+                    - cpu
+                    type: object
+                  baseImageTrigger:
+                    properties:
+                      enabled:
+                        type: boolean
+                      name:
+                        type: string
+                      type:
+                        type: string
+                      updateTriggerPayloadType:
+                        type: string
+                    required:
+                    - name
+                    - type
+                    type: object
+                  containerRegistryID:
+                    type: string
+                  dockerStep:
+                    properties:
+                      arguments:
+                        additionalProperties:
+                          type: string
+                        type: object
+                      cacheEnabled:
+                        type: boolean
+                      contextPath:
+                        type: string
+                      dockerfilePath:
+                        type: string
+                      imageNames:
+                        items:
+                          type: string
+                        type: array
+                      pushEnabled:
+                        type: boolean
+                      target:
+                        type: string
+                    required:
+                    - contextPath
+                    - dockerfilePath
+                    type: object
+                  enabled:
+                    type: boolean
+                  encodedStep:
+                    properties:
+                      contextPath:
+                        type: string
+                      taskContent:
+                        type: string
+                      valueContent:
+                        type: string
+                      values:
+                        additionalProperties:
+                          type: string
+                        type: object
+                    required:
+                    - taskContent
+                    type: object
+                  fileStep:
+                    properties:
+                      contextPath:
+                        type: string
+                      taskFilePath:
+                        type: string
+                      valueFilePath:
+                        type: string
+                      values:
+                        additionalProperties:
+                          type: string
+                        type: object
+                    required:
+                    - taskFilePath
+                    type: object
+                  id:
+                    type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
+                  isSystemTask:
+                    type: boolean
+                  logTemplate:
+                    type: string
+                  name:
+                    type: string
+                  platform:
+                    properties:
+                      architecture:
+                        type: string
+                      os:
+                        type: string
+                      variant:
+                        type: string
+                    required:
+                    - os
+                    type: object
+                  registryCredential:
+                    properties:
+                      source:
+                        properties:
+                          loginMode:
+                            type: string
+                        required:
+                        - loginMode
+                        type: object
+                    type: object
+                  sourceTrigger:
+                    items:
+                      properties:
+                        authentication:
+                          properties:
+                            expireInSeconds:
+                              format: int64
+                              type: integer
+                            scope:
+                              type: string
+                            tokenType:
+                              type: string
+                          required:
+                          - tokenType
+                          type: object
+                        branch:
+                          type: string
+                        enabled:
+                          type: boolean
+                        events:
+                          items:
+                            type: string
+                          type: array
+                        name:
+                          type: string
+                        repositoryURL:
+                          type: string
+                        sourceType:
+                          type: string
+                      required:
+                      - events
+                      - name
+                      - repositoryURL
+                      - sourceType
+                      type: object
+                    type: array
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  timeoutInSeconds:
+                    format: int64
+                    type: integer
+                  timeouts:
+                    properties:
+                      create:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      default:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      delete:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      read:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                      update:
+                        description: A Duration represents the elapsed time between
+                          two instants as an int64 nanosecond count. The representation
+                          limits the largest representable duration to approximately
+                          290 years.
+                        format: int64
+                        type: integer
+                    type: object
+                  timerTrigger:
+                    items:
+                      properties:
+                        enabled:
+                          type: boolean
+                        name:
+                          type: string
+                        schedule:
+                          type: string
+                      required:
+                      - name
+                      - schedule
+                      type: object
+                    type: array
+                required:
+                - containerRegistryID
+                - name
+                type: object
+              terminationPolicy:
+                enum:
+                - Delete
+                - DoNotTerminate
+                type: string
+              updatePolicy:
+                enum:
+                - Destroy
+                - DoNotDestroy
+                type: string
+            required:
+            - providerRef
+            - resource
+            type: object
+          status:
+            properties:
+              conditions:
+                items:
+                  properties:
+                    lastTransitionTime:
+                      description: Last time the condition transitioned from one status
+                        to another. This should be when the underlying condition changed.  If
+                        that is not known, then using the time when the API field
+                        changed is acceptable.
+                      format: date-time
+                      type: string
+                    message:
+                      description: A human readable message indicating details about
+                        the transition. This field may be empty.
+                      type: string
+                    observedGeneration:
+                      description: If set, this represents the .metadata.generation
+                        that the condition was set based upon. For instance, if .metadata.generation
+                        is currently 12, but the .status.condition[x].observedGeneration
+                        is 9, the condition is out of date with respect to the current
+                        state of the instance.
+                      format: int64
+                      type: integer
+                    reason:
+                      description: The reason for the condition's last transition
+                        in CamelCase. The specific API may choose whether or not this
+                        field is considered a guaranteed API. This field may not be
+                        empty.
+                      type: string
+                    status:
+                      description: Status of the condition, one of True, False, Unknown.
+                      type: string
+                    type:
+                      description: Type of condition in CamelCase or in foo.example.com/CamelCase.
+                        Many .condition.type values are consistent across resources
+                        like Available, but because arbitrary conditions can be useful
+                        (see .node.status.conditions), the ability to deconflict is
+                        important.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - message
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+              observedGeneration:
+                description: Resource generation, which is updated on mutation by
+                  the API Server.
+                format: int64
+                type: integer
+              phase:
+                description: Status defines the set of statuses a resource can have.
+                type: string
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}

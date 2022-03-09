@@ -34,6 +34,14 @@ type GatewayConnectionListerExpansion interface{}
 // GatewayConnectionNamespaceLister.
 type GatewayConnectionNamespaceListerExpansion interface{}
 
+// GatewayNATRuleListerExpansion allows custom methods to be added to
+// GatewayNATRuleLister.
+type GatewayNATRuleListerExpansion interface{}
+
+// GatewayNATRuleNamespaceListerExpansion allows custom methods to be added to
+// GatewayNATRuleNamespaceLister.
+type GatewayNATRuleNamespaceListerExpansion interface{}
+
 // ServerConfigurationListerExpansion allows custom methods to be added to
 // ServerConfigurationLister.
 type ServerConfigurationListerExpansion interface{}

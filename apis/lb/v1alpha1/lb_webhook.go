@@ -42,12 +42,11 @@ func (r *Lb) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &Lb{}
 
 var lbForceNewList = map[string]bool{
-	"/frontend_ip_configuration/*/availability_zone": true,
-	"/frontend_ip_configuration/*/zones":             true,
-	"/location":                                      true,
-	"/name":                                          true,
-	"/resource_group_name":                           true,
-	"/sku":                                           true,
+	"/location":            true,
+	"/name":                true,
+	"/resource_group_name": true,
+	"/sku":                 true,
+	"/sku_tier":            true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -93,7 +92,7 @@ func (r *Lb) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range lbForceNewList {
+	for key, _ := range lbForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false
