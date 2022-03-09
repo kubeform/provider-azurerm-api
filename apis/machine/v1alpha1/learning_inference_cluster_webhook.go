@@ -44,6 +44,8 @@ var _ webhook.Validator = &LearningInferenceCluster{}
 var learninginferenceclusterForceNewList = map[string]bool{
 	"/cluster_purpose":                 true,
 	"/description":                     true,
+	"/identity/*/identity_ids":         true,
+	"/identity/*/type":                 true,
 	"/kubernetes_cluster_id":           true,
 	"/location":                        true,
 	"/machine_learning_workspace_id":   true,
@@ -99,7 +101,7 @@ func (r *LearningInferenceCluster) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range learninginferenceclusterForceNewList {
+	for key, _ := range learninginferenceclusterForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

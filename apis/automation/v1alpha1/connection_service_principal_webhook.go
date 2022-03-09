@@ -90,7 +90,7 @@ func (r *ConnectionServicePrincipal) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range connectionserviceprincipalForceNewList {
+	for key, _ := range connectionserviceprincipalForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

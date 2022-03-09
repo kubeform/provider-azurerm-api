@@ -33,8 +33,16 @@ func (c *FakeRelayV1alpha1) HybridConnections(namespace string) v1alpha1.HybridC
 	return &FakeHybridConnections{c, namespace}
 }
 
+func (c *FakeRelayV1alpha1) HybridConnectionAuthorizationRules(namespace string) v1alpha1.HybridConnectionAuthorizationRuleInterface {
+	return &FakeHybridConnectionAuthorizationRules{c, namespace}
+}
+
 func (c *FakeRelayV1alpha1) Namespaces(namespace string) v1alpha1.NamespaceInterface {
 	return &FakeNamespaces{c, namespace}
+}
+
+func (c *FakeRelayV1alpha1) NamespaceAuthorizationRules(namespace string) v1alpha1.NamespaceAuthorizationRuleInterface {
+	return &FakeNamespaceAuthorizationRules{c, namespace}
 }
 
 // RESTClient returns a RESTClient that is used to communicate

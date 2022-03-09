@@ -57,6 +57,8 @@ spec:
                 type: object
               resource:
                 properties:
+                  certificateContent:
+                    type: string
                   id:
                     type: string
                   keyVaultCertificateID:
@@ -108,13 +110,14 @@ spec:
                         type: integer
                     type: object
                 required:
-                - keyVaultCertificateID
                 - name
                 - resourceGroupName
                 - serviceName
                 type: object
               state:
                 properties:
+                  certificateContent:
+                    type: string
                   id:
                     type: string
                   keyVaultCertificateID:
@@ -166,7 +169,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - keyVaultCertificateID
                 - name
                 - resourceGroupName
                 - serviceName

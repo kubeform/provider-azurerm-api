@@ -72,6 +72,8 @@ type ServerExtendedAuditingPolicySpecResource struct {
 	// +optional
 	StorageAccountAccessKeyIsSecondary *bool `json:"storageAccountAccessKeyIsSecondary,omitempty" tf:"storage_account_access_key_is_secondary"`
 	// +optional
+	StorageAccountSubscriptionID *string `json:"-" sensitive:"true" tf:"storage_account_subscription_id"`
+	// +optional
 	StorageEndpoint *string `json:"storageEndpoint,omitempty" tf:"storage_endpoint"`
 }
 

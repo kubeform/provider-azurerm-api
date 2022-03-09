@@ -20,6 +20,10 @@ package v1alpha1
 
 type AccountExpansion interface{}
 
+type CassandraClusterExpansion interface{}
+
+type CassandraDatacenterExpansion interface{}
+
 type CassandraKeyspaceExpansion interface{}
 
 type CassandraTableExpansion interface{}

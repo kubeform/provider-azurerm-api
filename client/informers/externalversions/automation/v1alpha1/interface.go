@@ -58,6 +58,8 @@ type Interface interface {
 	VariableInts() VariableIntInformer
 	// VariableStrings returns a VariableStringInformer.
 	VariableStrings() VariableStringInformer
+	// Webhooks returns a WebhookInformer.
+	Webhooks() WebhookInformer
 }
 
 type version struct {
@@ -154,4 +156,9 @@ func (v *version) VariableInts() VariableIntInformer {
 // VariableStrings returns a VariableStringInformer.
 func (v *version) VariableStrings() VariableStringInformer {
 	return &variableStringInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// Webhooks returns a WebhookInformer.
+func (v *version) Webhooks() WebhookInformer {
+	return &webhookInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

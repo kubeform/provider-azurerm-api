@@ -90,7 +90,7 @@ func (r *AnalyticsOutputServicebusTopic) ValidateUpdate(old runtime.Object) erro
 		return err
 	}
 
-	for key := range analyticsoutputservicebustopicForceNewList {
+	for key, _ := range analyticsoutputservicebustopicForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

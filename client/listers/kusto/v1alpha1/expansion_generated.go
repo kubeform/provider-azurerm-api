@@ -97,3 +97,11 @@ type IothubDataConnectionListerExpansion interface{}
 // IothubDataConnectionNamespaceListerExpansion allows custom methods to be added to
 // IothubDataConnectionNamespaceLister.
 type IothubDataConnectionNamespaceListerExpansion interface{}
+
+// ScriptListerExpansion allows custom methods to be added to
+// ScriptLister.
+type ScriptListerExpansion interface{}
+
+// ScriptNamespaceListerExpansion allows custom methods to be added to
+// ScriptNamespaceLister.
+type ScriptNamespaceListerExpansion interface{}

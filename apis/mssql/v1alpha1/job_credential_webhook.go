@@ -89,7 +89,7 @@ func (r *JobCredential) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range jobcredentialForceNewList {
+	for key, _ := range jobcredentialForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

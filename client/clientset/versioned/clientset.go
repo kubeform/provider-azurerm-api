@@ -21,6 +21,8 @@ package versioned
 import (
 	"fmt"
 
+	aadb2cv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/aadb2c/v1alpha1"
+	activev1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/active/v1alpha1"
 	advancedv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/advanced/v1alpha1"
 	analysisv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/analysis/v1alpha1"
 	apimanagementv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/apimanagement/v1alpha1"
@@ -77,9 +79,11 @@ import (
 	lbv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/lb/v1alpha1"
 	lighthousev1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/lighthouse/v1alpha1"
 	linuxv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/linux/v1alpha1"
+	loadv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/load/v1alpha1"
 	localv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/local/v1alpha1"
 	loganalyticsv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/loganalytics/v1alpha1"
 	logicappv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/logicapp/v1alpha1"
+	logzv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/logz/v1alpha1"
 	machinev1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/machine/v1alpha1"
 	maintenancev1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/maintenance/v1alpha1"
 	managedv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/managed/v1alpha1"
@@ -136,6 +140,7 @@ import (
 	tenantv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/tenant/v1alpha1"
 	trafficmanagerv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/trafficmanager/v1alpha1"
 	userv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/user/v1alpha1"
+	videov1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/video/v1alpha1"
 	virtualv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/virtual/v1alpha1"
 	vmwarev1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/vmware/v1alpha1"
 	vpnv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/vpn/v1alpha1"
@@ -149,6 +154,8 @@ import (
 
 type Interface interface {
 	Discovery() discovery.DiscoveryInterface
+	Aadb2cV1alpha1() aadb2cv1alpha1.Aadb2cV1alpha1Interface
+	ActiveV1alpha1() activev1alpha1.ActiveV1alpha1Interface
 	AdvancedV1alpha1() advancedv1alpha1.AdvancedV1alpha1Interface
 	AnalysisV1alpha1() analysisv1alpha1.AnalysisV1alpha1Interface
 	ApimanagementV1alpha1() apimanagementv1alpha1.ApimanagementV1alpha1Interface
@@ -205,9 +212,11 @@ type Interface interface {
 	LbV1alpha1() lbv1alpha1.LbV1alpha1Interface
 	LighthouseV1alpha1() lighthousev1alpha1.LighthouseV1alpha1Interface
 	LinuxV1alpha1() linuxv1alpha1.LinuxV1alpha1Interface
+	LoadV1alpha1() loadv1alpha1.LoadV1alpha1Interface
 	LocalV1alpha1() localv1alpha1.LocalV1alpha1Interface
 	LoganalyticsV1alpha1() loganalyticsv1alpha1.LoganalyticsV1alpha1Interface
 	LogicappV1alpha1() logicappv1alpha1.LogicappV1alpha1Interface
+	LogzV1alpha1() logzv1alpha1.LogzV1alpha1Interface
 	MachineV1alpha1() machinev1alpha1.MachineV1alpha1Interface
 	MaintenanceV1alpha1() maintenancev1alpha1.MaintenanceV1alpha1Interface
 	ManagedV1alpha1() managedv1alpha1.ManagedV1alpha1Interface
@@ -264,6 +273,7 @@ type Interface interface {
 	TenantV1alpha1() tenantv1alpha1.TenantV1alpha1Interface
 	TrafficmanagerV1alpha1() trafficmanagerv1alpha1.TrafficmanagerV1alpha1Interface
 	UserV1alpha1() userv1alpha1.UserV1alpha1Interface
+	VideoV1alpha1() videov1alpha1.VideoV1alpha1Interface
 	VirtualV1alpha1() virtualv1alpha1.VirtualV1alpha1Interface
 	VmwareV1alpha1() vmwarev1alpha1.VmwareV1alpha1Interface
 	VpnV1alpha1() vpnv1alpha1.VpnV1alpha1Interface
@@ -275,6 +285,8 @@ type Interface interface {
 // version included in a Clientset.
 type Clientset struct {
 	*discovery.DiscoveryClient
+	aadb2cV1alpha1            *aadb2cv1alpha1.Aadb2cV1alpha1Client
+	activeV1alpha1            *activev1alpha1.ActiveV1alpha1Client
 	advancedV1alpha1          *advancedv1alpha1.AdvancedV1alpha1Client
 	analysisV1alpha1          *analysisv1alpha1.AnalysisV1alpha1Client
 	apimanagementV1alpha1     *apimanagementv1alpha1.ApimanagementV1alpha1Client
@@ -331,9 +343,11 @@ type Clientset struct {
 	lbV1alpha1                *lbv1alpha1.LbV1alpha1Client
 	lighthouseV1alpha1        *lighthousev1alpha1.LighthouseV1alpha1Client
 	linuxV1alpha1             *linuxv1alpha1.LinuxV1alpha1Client
+	loadV1alpha1              *loadv1alpha1.LoadV1alpha1Client
 	localV1alpha1             *localv1alpha1.LocalV1alpha1Client
 	loganalyticsV1alpha1      *loganalyticsv1alpha1.LoganalyticsV1alpha1Client
 	logicappV1alpha1          *logicappv1alpha1.LogicappV1alpha1Client
+	logzV1alpha1              *logzv1alpha1.LogzV1alpha1Client
 	machineV1alpha1           *machinev1alpha1.MachineV1alpha1Client
 	maintenanceV1alpha1       *maintenancev1alpha1.MaintenanceV1alpha1Client
 	managedV1alpha1           *managedv1alpha1.ManagedV1alpha1Client
@@ -390,11 +404,22 @@ type Clientset struct {
 	tenantV1alpha1            *tenantv1alpha1.TenantV1alpha1Client
 	trafficmanagerV1alpha1    *trafficmanagerv1alpha1.TrafficmanagerV1alpha1Client
 	userV1alpha1              *userv1alpha1.UserV1alpha1Client
+	videoV1alpha1             *videov1alpha1.VideoV1alpha1Client
 	virtualV1alpha1           *virtualv1alpha1.VirtualV1alpha1Client
 	vmwareV1alpha1            *vmwarev1alpha1.VmwareV1alpha1Client
 	vpnV1alpha1               *vpnv1alpha1.VpnV1alpha1Client
 	webV1alpha1               *webv1alpha1.WebV1alpha1Client
 	windowsV1alpha1           *windowsv1alpha1.WindowsV1alpha1Client
+}
+
+// Aadb2cV1alpha1 retrieves the Aadb2cV1alpha1Client
+func (c *Clientset) Aadb2cV1alpha1() aadb2cv1alpha1.Aadb2cV1alpha1Interface {
+	return c.aadb2cV1alpha1
+}
+
+// ActiveV1alpha1 retrieves the ActiveV1alpha1Client
+func (c *Clientset) ActiveV1alpha1() activev1alpha1.ActiveV1alpha1Interface {
+	return c.activeV1alpha1
 }
 
 // AdvancedV1alpha1 retrieves the AdvancedV1alpha1Client
@@ -677,6 +702,11 @@ func (c *Clientset) LinuxV1alpha1() linuxv1alpha1.LinuxV1alpha1Interface {
 	return c.linuxV1alpha1
 }
 
+// LoadV1alpha1 retrieves the LoadV1alpha1Client
+func (c *Clientset) LoadV1alpha1() loadv1alpha1.LoadV1alpha1Interface {
+	return c.loadV1alpha1
+}
+
 // LocalV1alpha1 retrieves the LocalV1alpha1Client
 func (c *Clientset) LocalV1alpha1() localv1alpha1.LocalV1alpha1Interface {
 	return c.localV1alpha1
@@ -690,6 +720,11 @@ func (c *Clientset) LoganalyticsV1alpha1() loganalyticsv1alpha1.LoganalyticsV1al
 // LogicappV1alpha1 retrieves the LogicappV1alpha1Client
 func (c *Clientset) LogicappV1alpha1() logicappv1alpha1.LogicappV1alpha1Interface {
 	return c.logicappV1alpha1
+}
+
+// LogzV1alpha1 retrieves the LogzV1alpha1Client
+func (c *Clientset) LogzV1alpha1() logzv1alpha1.LogzV1alpha1Interface {
+	return c.logzV1alpha1
 }
 
 // MachineV1alpha1 retrieves the MachineV1alpha1Client
@@ -972,6 +1007,11 @@ func (c *Clientset) UserV1alpha1() userv1alpha1.UserV1alpha1Interface {
 	return c.userV1alpha1
 }
 
+// VideoV1alpha1 retrieves the VideoV1alpha1Client
+func (c *Clientset) VideoV1alpha1() videov1alpha1.VideoV1alpha1Interface {
+	return c.videoV1alpha1
+}
+
 // VirtualV1alpha1 retrieves the VirtualV1alpha1Client
 func (c *Clientset) VirtualV1alpha1() virtualv1alpha1.VirtualV1alpha1Interface {
 	return c.virtualV1alpha1
@@ -1018,6 +1058,14 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 	}
 	var cs Clientset
 	var err error
+	cs.aadb2cV1alpha1, err = aadb2cv1alpha1.NewForConfig(&configShallowCopy)
+	if err != nil {
+		return nil, err
+	}
+	cs.activeV1alpha1, err = activev1alpha1.NewForConfig(&configShallowCopy)
+	if err != nil {
+		return nil, err
+	}
 	cs.advancedV1alpha1, err = advancedv1alpha1.NewForConfig(&configShallowCopy)
 	if err != nil {
 		return nil, err
@@ -1242,6 +1290,10 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 	if err != nil {
 		return nil, err
 	}
+	cs.loadV1alpha1, err = loadv1alpha1.NewForConfig(&configShallowCopy)
+	if err != nil {
+		return nil, err
+	}
 	cs.localV1alpha1, err = localv1alpha1.NewForConfig(&configShallowCopy)
 	if err != nil {
 		return nil, err
@@ -1251,6 +1303,10 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 		return nil, err
 	}
 	cs.logicappV1alpha1, err = logicappv1alpha1.NewForConfig(&configShallowCopy)
+	if err != nil {
+		return nil, err
+	}
+	cs.logzV1alpha1, err = logzv1alpha1.NewForConfig(&configShallowCopy)
 	if err != nil {
 		return nil, err
 	}
@@ -1478,6 +1534,10 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 	if err != nil {
 		return nil, err
 	}
+	cs.videoV1alpha1, err = videov1alpha1.NewForConfig(&configShallowCopy)
+	if err != nil {
+		return nil, err
+	}
 	cs.virtualV1alpha1, err = virtualv1alpha1.NewForConfig(&configShallowCopy)
 	if err != nil {
 		return nil, err
@@ -1510,6 +1570,8 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 // panics if there is an error in the config.
 func NewForConfigOrDie(c *rest.Config) *Clientset {
 	var cs Clientset
+	cs.aadb2cV1alpha1 = aadb2cv1alpha1.NewForConfigOrDie(c)
+	cs.activeV1alpha1 = activev1alpha1.NewForConfigOrDie(c)
 	cs.advancedV1alpha1 = advancedv1alpha1.NewForConfigOrDie(c)
 	cs.analysisV1alpha1 = analysisv1alpha1.NewForConfigOrDie(c)
 	cs.apimanagementV1alpha1 = apimanagementv1alpha1.NewForConfigOrDie(c)
@@ -1566,9 +1628,11 @@ func NewForConfigOrDie(c *rest.Config) *Clientset {
 	cs.lbV1alpha1 = lbv1alpha1.NewForConfigOrDie(c)
 	cs.lighthouseV1alpha1 = lighthousev1alpha1.NewForConfigOrDie(c)
 	cs.linuxV1alpha1 = linuxv1alpha1.NewForConfigOrDie(c)
+	cs.loadV1alpha1 = loadv1alpha1.NewForConfigOrDie(c)
 	cs.localV1alpha1 = localv1alpha1.NewForConfigOrDie(c)
 	cs.loganalyticsV1alpha1 = loganalyticsv1alpha1.NewForConfigOrDie(c)
 	cs.logicappV1alpha1 = logicappv1alpha1.NewForConfigOrDie(c)
+	cs.logzV1alpha1 = logzv1alpha1.NewForConfigOrDie(c)
 	cs.machineV1alpha1 = machinev1alpha1.NewForConfigOrDie(c)
 	cs.maintenanceV1alpha1 = maintenancev1alpha1.NewForConfigOrDie(c)
 	cs.managedV1alpha1 = managedv1alpha1.NewForConfigOrDie(c)
@@ -1625,6 +1689,7 @@ func NewForConfigOrDie(c *rest.Config) *Clientset {
 	cs.tenantV1alpha1 = tenantv1alpha1.NewForConfigOrDie(c)
 	cs.trafficmanagerV1alpha1 = trafficmanagerv1alpha1.NewForConfigOrDie(c)
 	cs.userV1alpha1 = userv1alpha1.NewForConfigOrDie(c)
+	cs.videoV1alpha1 = videov1alpha1.NewForConfigOrDie(c)
 	cs.virtualV1alpha1 = virtualv1alpha1.NewForConfigOrDie(c)
 	cs.vmwareV1alpha1 = vmwarev1alpha1.NewForConfigOrDie(c)
 	cs.vpnV1alpha1 = vpnv1alpha1.NewForConfigOrDie(c)
@@ -1638,6 +1703,8 @@ func NewForConfigOrDie(c *rest.Config) *Clientset {
 // New creates a new Clientset for the given RESTClient.
 func New(c rest.Interface) *Clientset {
 	var cs Clientset
+	cs.aadb2cV1alpha1 = aadb2cv1alpha1.New(c)
+	cs.activeV1alpha1 = activev1alpha1.New(c)
 	cs.advancedV1alpha1 = advancedv1alpha1.New(c)
 	cs.analysisV1alpha1 = analysisv1alpha1.New(c)
 	cs.apimanagementV1alpha1 = apimanagementv1alpha1.New(c)
@@ -1694,9 +1761,11 @@ func New(c rest.Interface) *Clientset {
 	cs.lbV1alpha1 = lbv1alpha1.New(c)
 	cs.lighthouseV1alpha1 = lighthousev1alpha1.New(c)
 	cs.linuxV1alpha1 = linuxv1alpha1.New(c)
+	cs.loadV1alpha1 = loadv1alpha1.New(c)
 	cs.localV1alpha1 = localv1alpha1.New(c)
 	cs.loganalyticsV1alpha1 = loganalyticsv1alpha1.New(c)
 	cs.logicappV1alpha1 = logicappv1alpha1.New(c)
+	cs.logzV1alpha1 = logzv1alpha1.New(c)
 	cs.machineV1alpha1 = machinev1alpha1.New(c)
 	cs.maintenanceV1alpha1 = maintenancev1alpha1.New(c)
 	cs.managedV1alpha1 = managedv1alpha1.New(c)
@@ -1753,6 +1822,7 @@ func New(c rest.Interface) *Clientset {
 	cs.tenantV1alpha1 = tenantv1alpha1.New(c)
 	cs.trafficmanagerV1alpha1 = trafficmanagerv1alpha1.New(c)
 	cs.userV1alpha1 = userv1alpha1.New(c)
+	cs.videoV1alpha1 = videov1alpha1.New(c)
 	cs.virtualV1alpha1 = virtualv1alpha1.New(c)
 	cs.vmwareV1alpha1 = vmwarev1alpha1.New(c)
 	cs.vpnV1alpha1 = vpnv1alpha1.New(c)

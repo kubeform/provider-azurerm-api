@@ -42,6 +42,7 @@ func (r *EncryptionSet) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &EncryptionSet{}
 
 var encryptionsetForceNewList = map[string]bool{
+	"/encryption_type":     true,
 	"/location":            true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *EncryptionSet) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range encryptionsetForceNewList {
+	for key, _ := range encryptionsetForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

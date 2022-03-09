@@ -67,8 +67,12 @@ type FactoryIntegrationRuntimeSelfHostedSpecResource struct {
 	// +optional
 	AuthKey1 *string `json:"authKey1,omitempty" tf:"auth_key_1"`
 	// +optional
-	AuthKey2        *string `json:"authKey2,omitempty" tf:"auth_key_2"`
-	DataFactoryName *string `json:"dataFactoryName" tf:"data_factory_name"`
+	AuthKey2 *string `json:"authKey2,omitempty" tf:"auth_key_2"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	Name        *string `json:"name" tf:"name"`

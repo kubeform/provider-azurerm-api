@@ -42,10 +42,12 @@ func (r *ServiceEnvironmentV3) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &ServiceEnvironmentV3{}
 
 var serviceenvironmentv3ForceNewList = map[string]bool{
-	"/name":                true,
-	"/resource_group_name": true,
-	"/subnet_id":           true,
-	"/tags":                true,
+	"/dedicated_host_count":         true,
+	"/internal_load_balancing_mode": true,
+	"/name":                         true,
+	"/resource_group_name":          true,
+	"/subnet_id":                    true,
+	"/zone_redundant":               true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -91,7 +93,7 @@ func (r *ServiceEnvironmentV3) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range serviceenvironmentv3ForceNewList {
+	for key, _ := range serviceenvironmentv3ForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

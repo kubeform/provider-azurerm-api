@@ -28,6 +28,14 @@ type Interface interface {
 	Accesses() AccessInformer
 	// EncryptionSets returns a EncryptionSetInformer.
 	EncryptionSets() EncryptionSetInformer
+	// Pools returns a PoolInformer.
+	Pools() PoolInformer
+	// PoolIscsiTargets returns a PoolIscsiTargetInformer.
+	PoolIscsiTargets() PoolIscsiTargetInformer
+	// PoolIscsiTargetLuns returns a PoolIscsiTargetLunInformer.
+	PoolIscsiTargetLuns() PoolIscsiTargetLunInformer
+	// PoolManagedDiskAttachments returns a PoolManagedDiskAttachmentInformer.
+	PoolManagedDiskAttachments() PoolManagedDiskAttachmentInformer
 }
 
 type version struct {
@@ -49,4 +57,24 @@ func (v *version) Accesses() AccessInformer {
 // EncryptionSets returns a EncryptionSetInformer.
 func (v *version) EncryptionSets() EncryptionSetInformer {
 	return &encryptionSetInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// Pools returns a PoolInformer.
+func (v *version) Pools() PoolInformer {
+	return &poolInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// PoolIscsiTargets returns a PoolIscsiTargetInformer.
+func (v *version) PoolIscsiTargets() PoolIscsiTargetInformer {
+	return &poolIscsiTargetInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// PoolIscsiTargetLuns returns a PoolIscsiTargetLunInformer.
+func (v *version) PoolIscsiTargetLuns() PoolIscsiTargetLunInformer {
+	return &poolIscsiTargetLunInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// PoolManagedDiskAttachments returns a PoolManagedDiskAttachmentInformer.
+func (v *version) PoolManagedDiskAttachments() PoolManagedDiskAttachmentInformer {
+	return &poolManagedDiskAttachmentInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

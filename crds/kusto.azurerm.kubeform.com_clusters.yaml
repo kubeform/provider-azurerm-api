@@ -57,15 +57,25 @@ spec:
                 type: object
               resource:
                 properties:
+                  autoStopEnabled:
+                    type: boolean
                   dataIngestionURI:
                     type: string
+                  diskEncryptionEnabled:
+                    type: boolean
                   doubleEncryptionEnabled:
                     type: boolean
+                  enableAutoStop:
+                    description: Deprecated
+                    type: boolean
                   enableDiskEncryption:
+                    description: Deprecated
                     type: boolean
                   enablePurge:
+                    description: Deprecated
                     type: boolean
                   enableStreamingIngest:
+                    description: Deprecated
                     type: boolean
                   engine:
                     type: string
@@ -106,6 +116,10 @@ spec:
                     - maximumInstances
                     - minimumInstances
                     type: object
+                  publicNetworkAccessEnabled:
+                    type: boolean
+                  purgeEnabled:
+                    type: boolean
                   resourceGroupName:
                     type: string
                   sku:
@@ -118,6 +132,8 @@ spec:
                     required:
                     - name
                     type: object
+                  streamingIngestionEnabled:
+                    type: boolean
                   tags:
                     additionalProperties:
                       type: string
@@ -191,15 +207,25 @@ spec:
                 type: object
               state:
                 properties:
+                  autoStopEnabled:
+                    type: boolean
                   dataIngestionURI:
                     type: string
+                  diskEncryptionEnabled:
+                    type: boolean
                   doubleEncryptionEnabled:
                     type: boolean
+                  enableAutoStop:
+                    description: Deprecated
+                    type: boolean
                   enableDiskEncryption:
+                    description: Deprecated
                     type: boolean
                   enablePurge:
+                    description: Deprecated
                     type: boolean
                   enableStreamingIngest:
+                    description: Deprecated
                     type: boolean
                   engine:
                     type: string
@@ -240,6 +266,10 @@ spec:
                     - maximumInstances
                     - minimumInstances
                     type: object
+                  publicNetworkAccessEnabled:
+                    type: boolean
+                  purgeEnabled:
+                    type: boolean
                   resourceGroupName:
                     type: string
                   sku:
@@ -252,6 +282,8 @@ spec:
                     required:
                     - name
                     type: object
+                  streamingIngestionEnabled:
+                    type: boolean
                   tags:
                     additionalProperties:
                       type: string

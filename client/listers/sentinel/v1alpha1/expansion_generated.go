@@ -50,6 +50,14 @@ type AlertRuleScheduledListerExpansion interface{}
 // AlertRuleScheduledNamespaceLister.
 type AlertRuleScheduledNamespaceListerExpansion interface{}
 
+// AutomationRuleListerExpansion allows custom methods to be added to
+// AutomationRuleLister.
+type AutomationRuleListerExpansion interface{}
+
+// AutomationRuleNamespaceListerExpansion allows custom methods to be added to
+// AutomationRuleNamespaceLister.
+type AutomationRuleNamespaceListerExpansion interface{}
+
 // DataConnectorAwsCloudTrailListerExpansion allows custom methods to be added to
 // DataConnectorAwsCloudTrailLister.
 type DataConnectorAwsCloudTrailListerExpansion interface{}
@@ -113,3 +121,19 @@ type DataConnectorThreatIntelligenceListerExpansion interface{}
 // DataConnectorThreatIntelligenceNamespaceListerExpansion allows custom methods to be added to
 // DataConnectorThreatIntelligenceNamespaceLister.
 type DataConnectorThreatIntelligenceNamespaceListerExpansion interface{}
+
+// WatchlistListerExpansion allows custom methods to be added to
+// WatchlistLister.
+type WatchlistListerExpansion interface{}
+
+// WatchlistNamespaceListerExpansion allows custom methods to be added to
+// WatchlistNamespaceLister.
+type WatchlistNamespaceListerExpansion interface{}
+
+// WatchlistItemListerExpansion allows custom methods to be added to
+// WatchlistItemLister.
+type WatchlistItemListerExpansion interface{}
+
+// WatchlistItemNamespaceListerExpansion allows custom methods to be added to
+// WatchlistItemNamespaceLister.
+type WatchlistItemNamespaceListerExpansion interface{}

@@ -91,7 +91,7 @@ func (r *HybridConnection) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range hybridconnectionForceNewList {
+	for key, _ := range hybridconnectionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

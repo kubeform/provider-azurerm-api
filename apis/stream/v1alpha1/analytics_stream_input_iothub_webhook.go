@@ -90,7 +90,7 @@ func (r *AnalyticsStreamInputIothub) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range analyticsstreaminputiothubForceNewList {
+	for key, _ := range analyticsstreaminputiothubForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

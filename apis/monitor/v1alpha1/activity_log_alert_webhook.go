@@ -89,7 +89,7 @@ func (r *ActivityLogAlert) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range activitylogalertForceNewList {
+	for key, _ := range activitylogalertForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

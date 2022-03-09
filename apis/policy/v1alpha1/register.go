@@ -64,6 +64,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&RemediationList{},
 		&SetDefinition{},
 		&SetDefinitionList{},
+		&VirtualMachineConfigurationAssignment{},
+		&VirtualMachineConfigurationAssignmentList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

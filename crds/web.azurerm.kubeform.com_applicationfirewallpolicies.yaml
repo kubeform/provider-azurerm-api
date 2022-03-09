@@ -146,7 +146,6 @@ spec:
                                   ruleGroupName:
                                     type: string
                                 required:
-                                - disabledRules
                                 - ruleGroupName
                                 type: object
                               type: array
@@ -323,7 +322,6 @@ spec:
                                   ruleGroupName:
                                     type: string
                                 required:
-                                - disabledRules
                                 - ruleGroupName
                                 type: object
                               type: array

@@ -43,17 +43,23 @@ var _ webhook.Validator = &LearningComputeCluster{}
 
 var learningcomputeclusterForceNewList = map[string]bool{
 	"/description":                     true,
+	"/identity/*/identity_ids":         true,
 	"/identity/*/type":                 true,
+	"/local_auth_enabled":              true,
 	"/location":                        true,
 	"/machine_learning_workspace_id":   true,
 	"/name":                            true,
 	"/scale_settings/*/max_node_count": true,
 	"/scale_settings/*/min_node_count": true,
 	"/scale_settings/*/scale_down_nodes_after_idle_duration": true,
-	"/subnet_resource_id": true,
-	"/tags":               true,
-	"/vm_priority":        true,
-	"/vm_size":            true,
+	"/ssh/*/admin_password":                                  true,
+	"/ssh/*/admin_username":                                  true,
+	"/ssh/*/key_value":                                       true,
+	"/ssh_public_access_enabled":                             true,
+	"/subnet_resource_id":                                    true,
+	"/tags":                                                  true,
+	"/vm_priority":                                           true,
+	"/vm_size":                                               true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -99,7 +105,7 @@ func (r *LearningComputeCluster) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range learningcomputeclusterForceNewList {
+	for key, _ := range learningcomputeclusterForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -72,7 +72,11 @@ type FactoryLinkedServiceCosmosdbSpecResource struct {
 	Annotations []string `json:"annotations,omitempty" tf:"annotations"`
 	// +optional
 	ConnectionString *string `json:"-" sensitive:"true" tf:"connection_string"`
-	DataFactoryName  *string `json:"dataFactoryName" tf:"data_factory_name"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Database *string `json:"database,omitempty" tf:"database"`
 	// +optional

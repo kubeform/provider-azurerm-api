@@ -44,6 +44,8 @@ type Interface interface {
 	EventhubDataConnections() EventhubDataConnectionInformer
 	// IothubDataConnections returns a IothubDataConnectionInformer.
 	IothubDataConnections() IothubDataConnectionInformer
+	// Scripts returns a ScriptInformer.
+	Scripts() ScriptInformer
 }
 
 type version struct {
@@ -105,4 +107,9 @@ func (v *version) EventhubDataConnections() EventhubDataConnectionInformer {
 // IothubDataConnections returns a IothubDataConnectionInformer.
 func (v *version) IothubDataConnections() IothubDataConnectionInformer {
 	return &iothubDataConnectionInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// Scripts returns a ScriptInformer.
+func (v *version) Scripts() ScriptInformer {
+	return &scriptInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

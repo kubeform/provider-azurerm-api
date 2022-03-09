@@ -91,7 +91,7 @@ func (r *TableEntity) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range tableentityForceNewList {
+	for key, _ := range tableentityForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

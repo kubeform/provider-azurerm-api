@@ -131,6 +131,11 @@ func (in *CacheSpecPatchSchedule) DeepCopyInto(out *CacheSpecPatchSchedule) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.MaintenanceWindow != nil {
+		in, out := &in.MaintenanceWindow, &out.MaintenanceWindow
+		*out = new(string)
+		**out = **in
+	}
 	if in.StartHourUtc != nil {
 		in, out := &in.StartHourUtc, &out.StartHourUtc
 		*out = new(int64)
@@ -315,8 +320,18 @@ func (in *CacheSpecResource) DeepCopyInto(out *CacheSpecResource) {
 		*out = new(CacheSpecRedisConfiguration)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.RedisVersion != nil {
+		in, out := &in.RedisVersion, &out.RedisVersion
+		*out = new(string)
+		**out = **in
+	}
 	if in.ReplicasPerMaster != nil {
 		in, out := &in.ReplicasPerMaster, &out.ReplicasPerMaster
+		*out = new(int64)
+		**out = **in
+	}
+	if in.ReplicasPerPrimary != nil {
+		in, out := &in.ReplicasPerPrimary, &out.ReplicasPerPrimary
 		*out = new(int64)
 		**out = **in
 	}
@@ -357,6 +372,17 @@ func (in *CacheSpecResource) DeepCopyInto(out *CacheSpecResource) {
 	}
 	if in.Tags != nil {
 		in, out := &in.Tags, &out.Tags
+		*out = new(map[string]string)
+		if **in != nil {
+			in, out := *in, *out
+			*out = make(map[string]string, len(*in))
+			for key, val := range *in {
+				(*out)[key] = val
+			}
+		}
+	}
+	if in.TenantSettings != nil {
+		in, out := &in.TenantSettings, &out.TenantSettings
 		*out = new(map[string]string)
 		if **in != nil {
 			in, out := *in, *out

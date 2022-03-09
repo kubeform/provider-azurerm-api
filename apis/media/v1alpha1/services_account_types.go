@@ -46,8 +46,7 @@ type ServicesAccountSpecIdentity struct {
 	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
 	// +optional
 	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
-	// +optional
-	Type *string `json:"type,omitempty" tf:"type"`
+	Type     *string `json:"type" tf:"type"`
 }
 
 type ServicesAccountSpecKeyDeliveryAccessControl struct {

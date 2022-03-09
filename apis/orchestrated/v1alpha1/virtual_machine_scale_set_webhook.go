@@ -42,13 +42,36 @@ func (r *VirtualMachineScaleSet) SetupWebhookWithManager(mgr ctrl.Manager) error
 var _ webhook.Validator = &VirtualMachineScaleSet{}
 
 var virtualmachinescalesetForceNewList = map[string]bool{
-	"/location":                     true,
-	"/name":                         true,
-	"/platform_fault_domain_count":  true,
-	"/proximity_placement_group_id": true,
-	"/resource_group_name":          true,
-	"/single_placement_group":       true,
-	"/zones":                        true,
+	"/data_disk/*/disk_encryption_set_id": true,
+	"/eviction_policy":                    true,
+	"/location":                           true,
+	"/name":                               true,
+	"/network_interface/*/ip_configuration/*/public_ip_address/*/ip_tag/*/tag":        true,
+	"/network_interface/*/ip_configuration/*/public_ip_address/*/ip_tag/*/type":       true,
+	"/network_interface/*/ip_configuration/*/public_ip_address/*/public_ip_prefix_id": true,
+	"/network_interface/*/name":                                              true,
+	"/os_disk/*/diff_disk_settings/*/option":                                 true,
+	"/os_disk/*/disk_encryption_set_id":                                      true,
+	"/os_disk/*/storage_account_type":                                        true,
+	"/os_profile/*/linux_configuration/*/admin_username":                     true,
+	"/os_profile/*/linux_configuration/*/computer_name_prefix":               true,
+	"/os_profile/*/linux_configuration/*/provision_vm_agent":                 true,
+	"/os_profile/*/windows_configuration/*/admin_username":                   true,
+	"/os_profile/*/windows_configuration/*/computer_name_prefix":             true,
+	"/os_profile/*/windows_configuration/*/provision_vm_agent":               true,
+	"/os_profile/*/windows_configuration/*/winrm_listener/*/certificate_url": true,
+	"/os_profile/*/windows_configuration/*/winrm_listener/*/protocol":        true,
+	"/plan/*/name":                        true,
+	"/plan/*/product":                     true,
+	"/plan/*/publisher":                   true,
+	"/platform_fault_domain_count":        true,
+	"/priority":                           true,
+	"/proximity_placement_group_id":       true,
+	"/resource_group_name":                true,
+	"/source_image_reference/*/offer":     true,
+	"/source_image_reference/*/publisher": true,
+	"/zone_balance":                       true,
+	"/zones":                              true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -94,7 +117,7 @@ func (r *VirtualMachineScaleSet) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range virtualmachinescalesetForceNewList {
+	for key, _ := range virtualmachinescalesetForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

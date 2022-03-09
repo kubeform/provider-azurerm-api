@@ -136,6 +136,11 @@ func (in *PrefixSpecResource) DeepCopyInto(out *PrefixSpecResource) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.IpVersion != nil {
+		in, out := &in.IpVersion, &out.IpVersion
+		*out = new(string)
+		**out = **in
+	}
 	if in.Location != nil {
 		in, out := &in.Location, &out.Location
 		*out = new(string)
@@ -383,6 +388,11 @@ func (in *PublicIPSpecResource) DeepCopyInto(out *PublicIPSpecResource) {
 	}
 	if in.Sku != nil {
 		in, out := &in.Sku, &out.Sku
+		*out = new(string)
+		**out = **in
+	}
+	if in.SkuTier != nil {
+		in, out := &in.SkuTier, &out.SkuTier
 		*out = new(string)
 		**out = **in
 	}

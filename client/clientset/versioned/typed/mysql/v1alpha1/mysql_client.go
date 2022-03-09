@@ -31,6 +31,10 @@ type MysqlV1alpha1Interface interface {
 	ConfigurationsGetter
 	DatabasesGetter
 	FirewallRulesGetter
+	FlexibleDatabasesGetter
+	FlexibleServersGetter
+	FlexibleServerConfigurationsGetter
+	FlexibleServerFirewallRulesGetter
 	ServersGetter
 	ServerKeysGetter
 	VirtualNetworkRulesGetter
@@ -55,6 +59,22 @@ func (c *MysqlV1alpha1Client) Databases(namespace string) DatabaseInterface {
 
 func (c *MysqlV1alpha1Client) FirewallRules(namespace string) FirewallRuleInterface {
 	return newFirewallRules(c, namespace)
+}
+
+func (c *MysqlV1alpha1Client) FlexibleDatabases(namespace string) FlexibleDatabaseInterface {
+	return newFlexibleDatabases(c, namespace)
+}
+
+func (c *MysqlV1alpha1Client) FlexibleServers(namespace string) FlexibleServerInterface {
+	return newFlexibleServers(c, namespace)
+}
+
+func (c *MysqlV1alpha1Client) FlexibleServerConfigurations(namespace string) FlexibleServerConfigurationInterface {
+	return newFlexibleServerConfigurations(c, namespace)
+}
+
+func (c *MysqlV1alpha1Client) FlexibleServerFirewallRules(namespace string) FlexibleServerFirewallRuleInterface {
+	return newFlexibleServerFirewallRules(c, namespace)
 }
 
 func (c *MysqlV1alpha1Client) Servers(namespace string) ServerInterface {

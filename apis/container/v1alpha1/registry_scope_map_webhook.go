@@ -90,7 +90,7 @@ func (r *RegistryScopeMap) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range registryscopemapForceNewList {
+	for key, _ := range registryscopemapForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

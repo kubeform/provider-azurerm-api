@@ -42,11 +42,11 @@ func (r *ServiceCertificate) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &ServiceCertificate{}
 
 var servicecertificateForceNewList = map[string]bool{
-	"/hosting_environment_profile_id": true,
-	"/key_vault_secret_id":            true,
-	"/location":                       true,
-	"/name":                           true,
-	"/resource_group_name":            true,
+	"/app_service_plan_id": true,
+	"/key_vault_secret_id": true,
+	"/location":            true,
+	"/name":                true,
+	"/resource_group_name": true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -92,7 +92,7 @@ func (r *ServiceCertificate) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range servicecertificateForceNewList {
+	for key, _ := range servicecertificateForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -81,8 +81,12 @@ spec:
                       type: object
                     type: array
                   resourceGroupName:
+                    description: Deprecated
+                    type: string
+                  storageAccountID:
                     type: string
                   storageAccountName:
+                    description: Deprecated
                     type: string
                   timeouts:
                     properties:
@@ -128,8 +132,6 @@ spec:
                     type: array
                 required:
                 - defaultAction
-                - resourceGroupName
-                - storageAccountName
                 type: object
               state:
                 properties:
@@ -157,8 +159,12 @@ spec:
                       type: object
                     type: array
                   resourceGroupName:
+                    description: Deprecated
+                    type: string
+                  storageAccountID:
                     type: string
                   storageAccountName:
+                    description: Deprecated
                     type: string
                   timeouts:
                     properties:
@@ -204,8 +210,6 @@ spec:
                     type: array
                 required:
                 - defaultAction
-                - resourceGroupName
-                - storageAccountName
                 type: object
               terminationPolicy:
                 enum:

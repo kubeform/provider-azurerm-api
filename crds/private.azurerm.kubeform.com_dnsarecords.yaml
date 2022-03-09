@@ -66,6 +66,7 @@ spec:
                   records:
                     items:
                       type: string
+                    maxItems: 20
                     type: array
                   resourceGroupName:
                     type: string
@@ -134,6 +135,7 @@ spec:
                   records:
                     items:
                       type: string
+                    maxItems: 20
                     type: array
                   resourceGroupName:
                     type: string

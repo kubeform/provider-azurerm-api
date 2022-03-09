@@ -92,7 +92,7 @@ func (r *InsightsWebTest) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range insightswebtestForceNewList {
+	for key, _ := range insightswebtestForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -33,3 +33,35 @@ type EncryptionSetListerExpansion interface{}
 // EncryptionSetNamespaceListerExpansion allows custom methods to be added to
 // EncryptionSetNamespaceLister.
 type EncryptionSetNamespaceListerExpansion interface{}
+
+// PoolListerExpansion allows custom methods to be added to
+// PoolLister.
+type PoolListerExpansion interface{}
+
+// PoolNamespaceListerExpansion allows custom methods to be added to
+// PoolNamespaceLister.
+type PoolNamespaceListerExpansion interface{}
+
+// PoolIscsiTargetListerExpansion allows custom methods to be added to
+// PoolIscsiTargetLister.
+type PoolIscsiTargetListerExpansion interface{}
+
+// PoolIscsiTargetNamespaceListerExpansion allows custom methods to be added to
+// PoolIscsiTargetNamespaceLister.
+type PoolIscsiTargetNamespaceListerExpansion interface{}
+
+// PoolIscsiTargetLunListerExpansion allows custom methods to be added to
+// PoolIscsiTargetLunLister.
+type PoolIscsiTargetLunListerExpansion interface{}
+
+// PoolIscsiTargetLunNamespaceListerExpansion allows custom methods to be added to
+// PoolIscsiTargetLunNamespaceLister.
+type PoolIscsiTargetLunNamespaceListerExpansion interface{}
+
+// PoolManagedDiskAttachmentListerExpansion allows custom methods to be added to
+// PoolManagedDiskAttachmentLister.
+type PoolManagedDiskAttachmentListerExpansion interface{}
+
+// PoolManagedDiskAttachmentNamespaceListerExpansion allows custom methods to be added to
+// PoolManagedDiskAttachmentNamespaceLister.
+type PoolManagedDiskAttachmentNamespaceListerExpansion interface{}

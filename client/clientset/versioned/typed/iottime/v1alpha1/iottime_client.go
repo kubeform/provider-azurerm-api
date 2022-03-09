@@ -28,6 +28,7 @@ import (
 type IottimeV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	SeriesInsightsAccessPoliciesGetter
+	SeriesInsightsEventSourceEventhubsGetter
 	SeriesInsightsEventSourceIothubsGetter
 	SeriesInsightsGen2EnvironmentsGetter
 	SeriesInsightsReferenceDataSetsGetter
@@ -41,6 +42,10 @@ type IottimeV1alpha1Client struct {
 
 func (c *IottimeV1alpha1Client) SeriesInsightsAccessPolicies(namespace string) SeriesInsightsAccessPolicyInterface {
 	return newSeriesInsightsAccessPolicies(c, namespace)
+}
+
+func (c *IottimeV1alpha1Client) SeriesInsightsEventSourceEventhubs(namespace string) SeriesInsightsEventSourceEventhubInterface {
+	return newSeriesInsightsEventSourceEventhubs(c, namespace)
 }
 
 func (c *IottimeV1alpha1Client) SeriesInsightsEventSourceIothubs(namespace string) SeriesInsightsEventSourceIothubInterface {

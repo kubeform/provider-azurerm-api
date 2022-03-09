@@ -28,7 +28,9 @@ import (
 type RelayV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	HybridConnectionsGetter
+	HybridConnectionAuthorizationRulesGetter
 	NamespacesGetter
+	NamespaceAuthorizationRulesGetter
 }
 
 // RelayV1alpha1Client is used to interact with features provided by the relay.azurerm.kubeform.com group.
@@ -40,8 +42,16 @@ func (c *RelayV1alpha1Client) HybridConnections(namespace string) HybridConnecti
 	return newHybridConnections(c, namespace)
 }
 
+func (c *RelayV1alpha1Client) HybridConnectionAuthorizationRules(namespace string) HybridConnectionAuthorizationRuleInterface {
+	return newHybridConnectionAuthorizationRules(c, namespace)
+}
+
 func (c *RelayV1alpha1Client) Namespaces(namespace string) NamespaceInterface {
 	return newNamespaces(c, namespace)
+}
+
+func (c *RelayV1alpha1Client) NamespaceAuthorizationRules(namespace string) NamespaceAuthorizationRuleInterface {
+	return newNamespaceAuthorizationRules(c, namespace)
 }
 
 // NewForConfig creates a new RelayV1alpha1Client for the given config.

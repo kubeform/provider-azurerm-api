@@ -43,6 +43,7 @@ var _ webhook.Validator = &WatcherFlowLog{}
 
 var watcherflowlogForceNewList = map[string]bool{
 	"/location":                  true,
+	"/name":                      true,
 	"/network_security_group_id": true,
 	"/network_watcher_name":      true,
 	"/resource_group_name":       true,
@@ -91,7 +92,7 @@ func (r *WatcherFlowLog) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range watcherflowlogForceNewList {
+	for key, _ := range watcherflowlogForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

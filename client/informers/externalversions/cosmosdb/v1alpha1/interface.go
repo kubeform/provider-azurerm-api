@@ -26,6 +26,10 @@ import (
 type Interface interface {
 	// Accounts returns a AccountInformer.
 	Accounts() AccountInformer
+	// CassandraClusters returns a CassandraClusterInformer.
+	CassandraClusters() CassandraClusterInformer
+	// CassandraDatacenters returns a CassandraDatacenterInformer.
+	CassandraDatacenters() CassandraDatacenterInformer
 	// CassandraKeyspaces returns a CassandraKeyspaceInformer.
 	CassandraKeyspaces() CassandraKeyspaceInformer
 	// CassandraTables returns a CassandraTableInformer.
@@ -68,6 +72,16 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // Accounts returns a AccountInformer.
 func (v *version) Accounts() AccountInformer {
 	return &accountInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// CassandraClusters returns a CassandraClusterInformer.
+func (v *version) CassandraClusters() CassandraClusterInformer {
+	return &cassandraClusterInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// CassandraDatacenters returns a CassandraDatacenterInformer.
+func (v *version) CassandraDatacenters() CassandraDatacenterInformer {
+	return &cassandraDatacenterInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // CassandraKeyspaces returns a CassandraKeyspaceInformer.

@@ -27,77 +27,123 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(FactorySpecGithubConfiguration{}).Type1()):                                   FactorySpecGithubConfigurationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactorySpecIdentity{}).Type1()):                                              FactorySpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactorySpecVstsConfiguration{}).Type1()):                                     FactorySpecVstsConfigurationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetDelimitedTextSpecAzureBlobFsLocation{}).Type1()):               FactoryDatasetDelimitedTextSpecAzureBlobFsLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetDelimitedTextSpecAzureBlobStorageLocation{}).Type1()):          FactoryDatasetDelimitedTextSpecAzureBlobStorageLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetDelimitedTextSpecHttpServerLocation{}).Type1()):                FactoryDatasetDelimitedTextSpecHttpServerLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetJSONSpecAzureBlobStorageLocation{}).Type1()):                   FactoryDatasetJSONSpecAzureBlobStorageLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetJSONSpecHttpServerLocation{}).Type1()):                         FactoryDatasetJSONSpecHttpServerLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetParquetSpecAzureBlobStorageLocation{}).Type1()):                FactoryDatasetParquetSpecAzureBlobStorageLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetParquetSpecHttpServerLocation{}).Type1()):                      FactoryDatasetParquetSpecHttpServerLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecCatalogInfo{}).Type1()):                FactoryIntegrationRuntimeAzureSsisSpecCatalogInfoCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecCustomSetupScript{}).Type1()):          FactoryIntegrationRuntimeAzureSsisSpecCustomSetupScriptCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecVnetIntegration{}).Type1()):            FactoryIntegrationRuntimeAzureSsisSpecVnetIntegrationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeManagedSpecCatalogInfo{}).Type1()):                  FactoryIntegrationRuntimeManagedSpecCatalogInfoCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeManagedSpecCustomSetupScript{}).Type1()):            FactoryIntegrationRuntimeManagedSpecCustomSetupScriptCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeManagedSpecVnetIntegration{}).Type1()):              FactoryIntegrationRuntimeManagedSpecVnetIntegrationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedCustomServiceSpecIntegrationRuntime{}).Type1()):                 FactoryLinkedCustomServiceSpecIntegrationRuntimeCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureDatabricksSpecInstancePool{}).Type1()):              FactoryLinkedServiceAzureDatabricksSpecInstancePoolCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureDatabricksSpecKeyVaultPassword{}).Type1()):          FactoryLinkedServiceAzureDatabricksSpecKeyVaultPasswordCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureDatabricksSpecNewClusterConfig{}).Type1()):          FactoryLinkedServiceAzureDatabricksSpecNewClusterConfigCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureFileStorageSpecKeyVaultPassword{}).Type1()):         FactoryLinkedServiceAzureFileStorageSpecKeyVaultPasswordCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultConnectionString{}).Type1()): FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultConnectionStringCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultPassword{}).Type1()):         FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultPasswordCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceOdataSpecBasicAuthentication{}).Type1()):                 FactoryLinkedServiceOdataSpecBasicAuthenticationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSnowflakeSpecKeyVaultPassword{}).Type1()):                FactoryLinkedServiceSnowflakeSpecKeyVaultPasswordCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSQLServerSpecKeyVaultConnectionString{}).Type1()):        FactoryLinkedServiceSQLServerSpecKeyVaultConnectionStringCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSQLServerSpecKeyVaultPassword{}).Type1()):                FactoryLinkedServiceSQLServerSpecKeyVaultPasswordCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSynapseSpecKeyVaultPassword{}).Type1()):                  FactoryLinkedServiceSynapseSpecKeyVaultPasswordCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ProtectionBackupPolicyPostgresqlSpecRetentionRuleCriteria{}).Type1()):        ProtectionBackupPolicyPostgresqlSpecRetentionRuleCriteriaCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ProtectionBackupVaultSpecIdentity{}).Type1()):                                ProtectionBackupVaultSpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ShareSpecSnapshotSchedule{}).Type1()):                                        ShareSpecSnapshotScheduleCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ShareAccountSpecIdentity{}).Type1()):                                         ShareAccountSpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ShareDatasetBlobStorageSpecStorageAccount{}).Type1()):                        ShareDatasetBlobStorageSpecStorageAccountCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactorySpecGithubConfiguration{}).Type1()):                                                     FactorySpecGithubConfigurationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactorySpecIdentity{}).Type1()):                                                                FactorySpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactorySpecVstsConfiguration{}).Type1()):                                                       FactorySpecVstsConfigurationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryCustomDatasetSpecLinkedService{}).Type1()):                                              FactoryCustomDatasetSpecLinkedServiceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkDataset{}).Type1()):                                                     FactoryDataFlowSpecSinkDatasetCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkLinkedService{}).Type1()):                                               FactoryDataFlowSpecSinkLinkedServiceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkSchemaLinkedService{}).Type1()):                                         FactoryDataFlowSpecSinkSchemaLinkedServiceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceDataset{}).Type1()):                                                   FactoryDataFlowSpecSourceDatasetCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceLinkedService{}).Type1()):                                             FactoryDataFlowSpecSourceLinkedServiceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceSchemaLinkedService{}).Type1()):                                       FactoryDataFlowSpecSourceSchemaLinkedServiceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecAzureBlobStorageLocation{}).Type1()):                                   FactoryDatasetBinarySpecAzureBlobStorageLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecCompression{}).Type1()):                                                FactoryDatasetBinarySpecCompressionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecHttpServerLocation{}).Type1()):                                         FactoryDatasetBinarySpecHttpServerLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecSftpServerLocation{}).Type1()):                                         FactoryDatasetBinarySpecSftpServerLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetDelimitedTextSpecAzureBlobFsLocation{}).Type1()):                                 FactoryDatasetDelimitedTextSpecAzureBlobFsLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetDelimitedTextSpecAzureBlobStorageLocation{}).Type1()):                            FactoryDatasetDelimitedTextSpecAzureBlobStorageLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetDelimitedTextSpecHttpServerLocation{}).Type1()):                                  FactoryDatasetDelimitedTextSpecHttpServerLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetJSONSpecAzureBlobStorageLocation{}).Type1()):                                     FactoryDatasetJSONSpecAzureBlobStorageLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetJSONSpecHttpServerLocation{}).Type1()):                                           FactoryDatasetJSONSpecHttpServerLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetParquetSpecAzureBlobStorageLocation{}).Type1()):                                  FactoryDatasetParquetSpecAzureBlobStorageLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetParquetSpecHttpServerLocation{}).Type1()):                                        FactoryDatasetParquetSpecHttpServerLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecCatalogInfo{}).Type1()):                                  FactoryIntegrationRuntimeAzureSsisSpecCatalogInfoCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecCustomSetupScript{}).Type1()):                            FactoryIntegrationRuntimeAzureSsisSpecCustomSetupScriptCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup{}).Type1()):                           FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword{}).Type1()): FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense{}).Type1()):   FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicenseCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecProxy{}).Type1()):                                        FactoryIntegrationRuntimeAzureSsisSpecProxyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecVnetIntegration{}).Type1()):                              FactoryIntegrationRuntimeAzureSsisSpecVnetIntegrationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeManagedSpecCatalogInfo{}).Type1()):                                    FactoryIntegrationRuntimeManagedSpecCatalogInfoCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeManagedSpecCustomSetupScript{}).Type1()):                              FactoryIntegrationRuntimeManagedSpecCustomSetupScriptCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeManagedSpecVnetIntegration{}).Type1()):                                FactoryIntegrationRuntimeManagedSpecVnetIntegrationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedCustomServiceSpecIntegrationRuntime{}).Type1()):                                   FactoryLinkedCustomServiceSpecIntegrationRuntimeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken{}).Type1()):                           FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasTokenCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureDatabricksSpecInstancePool{}).Type1()):                                FactoryLinkedServiceAzureDatabricksSpecInstancePoolCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureDatabricksSpecKeyVaultPassword{}).Type1()):                            FactoryLinkedServiceAzureDatabricksSpecKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureDatabricksSpecNewClusterConfig{}).Type1()):                            FactoryLinkedServiceAzureDatabricksSpecNewClusterConfigCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureFileStorageSpecKeyVaultPassword{}).Type1()):                           FactoryLinkedServiceAzureFileStorageSpecKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureFunctionSpecKeyVaultKey{}).Type1()):                                   FactoryLinkedServiceAzureFunctionSpecKeyVaultKeyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultConnectionString{}).Type1()):                   FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultConnectionStringCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultPassword{}).Type1()):                           FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceOdataSpecBasicAuthentication{}).Type1()):                                   FactoryLinkedServiceOdataSpecBasicAuthenticationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceOdbcSpecBasicAuthentication{}).Type1()):                                    FactoryLinkedServiceOdbcSpecBasicAuthenticationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSnowflakeSpecKeyVaultPassword{}).Type1()):                                  FactoryLinkedServiceSnowflakeSpecKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSQLServerSpecKeyVaultConnectionString{}).Type1()):                          FactoryLinkedServiceSQLServerSpecKeyVaultConnectionStringCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSQLServerSpecKeyVaultPassword{}).Type1()):                                  FactoryLinkedServiceSQLServerSpecKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSynapseSpecKeyVaultPassword{}).Type1()):                                    FactoryLinkedServiceSynapseSpecKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerScheduleSpecSchedule{}).Type1()):                                                 FactoryTriggerScheduleSpecScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerTumblingWindowSpecPipeline{}).Type1()):                                           FactoryTriggerTumblingWindowSpecPipelineCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerTumblingWindowSpecRetry{}).Type1()):                                              FactoryTriggerTumblingWindowSpecRetryCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LakeStoreSpecIdentity{}).Type1()):                                                              LakeStoreSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ProtectionBackupPolicyDiskSpecRetentionRuleCriteria{}).Type1()):                                ProtectionBackupPolicyDiskSpecRetentionRuleCriteriaCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ProtectionBackupPolicyPostgresqlSpecRetentionRuleCriteria{}).Type1()):                          ProtectionBackupPolicyPostgresqlSpecRetentionRuleCriteriaCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ProtectionBackupVaultSpecIdentity{}).Type1()):                                                  ProtectionBackupVaultSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ShareSpecSnapshotSchedule{}).Type1()):                                                          ShareSpecSnapshotScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ShareAccountSpecIdentity{}).Type1()):                                                           ShareAccountSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ShareDatasetBlobStorageSpecStorageAccount{}).Type1()):                                          ShareDatasetBlobStorageSpecStorageAccountCodec{},
 	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(FactorySpecGithubConfiguration{}).Type1()):                                   FactorySpecGithubConfigurationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactorySpecIdentity{}).Type1()):                                              FactorySpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactorySpecVstsConfiguration{}).Type1()):                                     FactorySpecVstsConfigurationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetDelimitedTextSpecAzureBlobFsLocation{}).Type1()):               FactoryDatasetDelimitedTextSpecAzureBlobFsLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetDelimitedTextSpecAzureBlobStorageLocation{}).Type1()):          FactoryDatasetDelimitedTextSpecAzureBlobStorageLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetDelimitedTextSpecHttpServerLocation{}).Type1()):                FactoryDatasetDelimitedTextSpecHttpServerLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetJSONSpecAzureBlobStorageLocation{}).Type1()):                   FactoryDatasetJSONSpecAzureBlobStorageLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetJSONSpecHttpServerLocation{}).Type1()):                         FactoryDatasetJSONSpecHttpServerLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetParquetSpecAzureBlobStorageLocation{}).Type1()):                FactoryDatasetParquetSpecAzureBlobStorageLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetParquetSpecHttpServerLocation{}).Type1()):                      FactoryDatasetParquetSpecHttpServerLocationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecCatalogInfo{}).Type1()):                FactoryIntegrationRuntimeAzureSsisSpecCatalogInfoCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecCustomSetupScript{}).Type1()):          FactoryIntegrationRuntimeAzureSsisSpecCustomSetupScriptCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecVnetIntegration{}).Type1()):            FactoryIntegrationRuntimeAzureSsisSpecVnetIntegrationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeManagedSpecCatalogInfo{}).Type1()):                  FactoryIntegrationRuntimeManagedSpecCatalogInfoCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeManagedSpecCustomSetupScript{}).Type1()):            FactoryIntegrationRuntimeManagedSpecCustomSetupScriptCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeManagedSpecVnetIntegration{}).Type1()):              FactoryIntegrationRuntimeManagedSpecVnetIntegrationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedCustomServiceSpecIntegrationRuntime{}).Type1()):                 FactoryLinkedCustomServiceSpecIntegrationRuntimeCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureDatabricksSpecInstancePool{}).Type1()):              FactoryLinkedServiceAzureDatabricksSpecInstancePoolCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureDatabricksSpecKeyVaultPassword{}).Type1()):          FactoryLinkedServiceAzureDatabricksSpecKeyVaultPasswordCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureDatabricksSpecNewClusterConfig{}).Type1()):          FactoryLinkedServiceAzureDatabricksSpecNewClusterConfigCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureFileStorageSpecKeyVaultPassword{}).Type1()):         FactoryLinkedServiceAzureFileStorageSpecKeyVaultPasswordCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultConnectionString{}).Type1()): FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultConnectionStringCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultPassword{}).Type1()):         FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultPasswordCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceOdataSpecBasicAuthentication{}).Type1()):                 FactoryLinkedServiceOdataSpecBasicAuthenticationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSnowflakeSpecKeyVaultPassword{}).Type1()):                FactoryLinkedServiceSnowflakeSpecKeyVaultPasswordCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSQLServerSpecKeyVaultConnectionString{}).Type1()):        FactoryLinkedServiceSQLServerSpecKeyVaultConnectionStringCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSQLServerSpecKeyVaultPassword{}).Type1()):                FactoryLinkedServiceSQLServerSpecKeyVaultPasswordCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSynapseSpecKeyVaultPassword{}).Type1()):                  FactoryLinkedServiceSynapseSpecKeyVaultPasswordCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ProtectionBackupPolicyPostgresqlSpecRetentionRuleCriteria{}).Type1()):        ProtectionBackupPolicyPostgresqlSpecRetentionRuleCriteriaCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ProtectionBackupVaultSpecIdentity{}).Type1()):                                ProtectionBackupVaultSpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ShareSpecSnapshotSchedule{}).Type1()):                                        ShareSpecSnapshotScheduleCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ShareAccountSpecIdentity{}).Type1()):                                         ShareAccountSpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ShareDatasetBlobStorageSpecStorageAccount{}).Type1()):                        ShareDatasetBlobStorageSpecStorageAccountCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactorySpecGithubConfiguration{}).Type1()):                                                     FactorySpecGithubConfigurationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactorySpecIdentity{}).Type1()):                                                                FactorySpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactorySpecVstsConfiguration{}).Type1()):                                                       FactorySpecVstsConfigurationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryCustomDatasetSpecLinkedService{}).Type1()):                                              FactoryCustomDatasetSpecLinkedServiceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkDataset{}).Type1()):                                                     FactoryDataFlowSpecSinkDatasetCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkLinkedService{}).Type1()):                                               FactoryDataFlowSpecSinkLinkedServiceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkSchemaLinkedService{}).Type1()):                                         FactoryDataFlowSpecSinkSchemaLinkedServiceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceDataset{}).Type1()):                                                   FactoryDataFlowSpecSourceDatasetCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceLinkedService{}).Type1()):                                             FactoryDataFlowSpecSourceLinkedServiceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceSchemaLinkedService{}).Type1()):                                       FactoryDataFlowSpecSourceSchemaLinkedServiceCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecAzureBlobStorageLocation{}).Type1()):                                   FactoryDatasetBinarySpecAzureBlobStorageLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecCompression{}).Type1()):                                                FactoryDatasetBinarySpecCompressionCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecHttpServerLocation{}).Type1()):                                         FactoryDatasetBinarySpecHttpServerLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecSftpServerLocation{}).Type1()):                                         FactoryDatasetBinarySpecSftpServerLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetDelimitedTextSpecAzureBlobFsLocation{}).Type1()):                                 FactoryDatasetDelimitedTextSpecAzureBlobFsLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetDelimitedTextSpecAzureBlobStorageLocation{}).Type1()):                            FactoryDatasetDelimitedTextSpecAzureBlobStorageLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetDelimitedTextSpecHttpServerLocation{}).Type1()):                                  FactoryDatasetDelimitedTextSpecHttpServerLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetJSONSpecAzureBlobStorageLocation{}).Type1()):                                     FactoryDatasetJSONSpecAzureBlobStorageLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetJSONSpecHttpServerLocation{}).Type1()):                                           FactoryDatasetJSONSpecHttpServerLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetParquetSpecAzureBlobStorageLocation{}).Type1()):                                  FactoryDatasetParquetSpecAzureBlobStorageLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetParquetSpecHttpServerLocation{}).Type1()):                                        FactoryDatasetParquetSpecHttpServerLocationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecCatalogInfo{}).Type1()):                                  FactoryIntegrationRuntimeAzureSsisSpecCatalogInfoCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecCustomSetupScript{}).Type1()):                            FactoryIntegrationRuntimeAzureSsisSpecCustomSetupScriptCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup{}).Type1()):                           FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword{}).Type1()): FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense{}).Type1()):   FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicenseCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecProxy{}).Type1()):                                        FactoryIntegrationRuntimeAzureSsisSpecProxyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecVnetIntegration{}).Type1()):                              FactoryIntegrationRuntimeAzureSsisSpecVnetIntegrationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeManagedSpecCatalogInfo{}).Type1()):                                    FactoryIntegrationRuntimeManagedSpecCatalogInfoCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeManagedSpecCustomSetupScript{}).Type1()):                              FactoryIntegrationRuntimeManagedSpecCustomSetupScriptCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeManagedSpecVnetIntegration{}).Type1()):                                FactoryIntegrationRuntimeManagedSpecVnetIntegrationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedCustomServiceSpecIntegrationRuntime{}).Type1()):                                   FactoryLinkedCustomServiceSpecIntegrationRuntimeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken{}).Type1()):                           FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasTokenCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureDatabricksSpecInstancePool{}).Type1()):                                FactoryLinkedServiceAzureDatabricksSpecInstancePoolCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureDatabricksSpecKeyVaultPassword{}).Type1()):                            FactoryLinkedServiceAzureDatabricksSpecKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureDatabricksSpecNewClusterConfig{}).Type1()):                            FactoryLinkedServiceAzureDatabricksSpecNewClusterConfigCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureFileStorageSpecKeyVaultPassword{}).Type1()):                           FactoryLinkedServiceAzureFileStorageSpecKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureFunctionSpecKeyVaultKey{}).Type1()):                                   FactoryLinkedServiceAzureFunctionSpecKeyVaultKeyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultConnectionString{}).Type1()):                   FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultConnectionStringCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultPassword{}).Type1()):                           FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceOdataSpecBasicAuthentication{}).Type1()):                                   FactoryLinkedServiceOdataSpecBasicAuthenticationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceOdbcSpecBasicAuthentication{}).Type1()):                                    FactoryLinkedServiceOdbcSpecBasicAuthenticationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSnowflakeSpecKeyVaultPassword{}).Type1()):                                  FactoryLinkedServiceSnowflakeSpecKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSQLServerSpecKeyVaultConnectionString{}).Type1()):                          FactoryLinkedServiceSQLServerSpecKeyVaultConnectionStringCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSQLServerSpecKeyVaultPassword{}).Type1()):                                  FactoryLinkedServiceSQLServerSpecKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceSynapseSpecKeyVaultPassword{}).Type1()):                                    FactoryLinkedServiceSynapseSpecKeyVaultPasswordCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerScheduleSpecSchedule{}).Type1()):                                                 FactoryTriggerScheduleSpecScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerTumblingWindowSpecPipeline{}).Type1()):                                           FactoryTriggerTumblingWindowSpecPipelineCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerTumblingWindowSpecRetry{}).Type1()):                                              FactoryTriggerTumblingWindowSpecRetryCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LakeStoreSpecIdentity{}).Type1()):                                                              LakeStoreSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ProtectionBackupPolicyDiskSpecRetentionRuleCriteria{}).Type1()):                                ProtectionBackupPolicyDiskSpecRetentionRuleCriteriaCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ProtectionBackupPolicyPostgresqlSpecRetentionRuleCriteria{}).Type1()):                          ProtectionBackupPolicyPostgresqlSpecRetentionRuleCriteriaCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ProtectionBackupVaultSpecIdentity{}).Type1()):                                                  ProtectionBackupVaultSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ShareSpecSnapshotSchedule{}).Type1()):                                                          ShareSpecSnapshotScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ShareAccountSpecIdentity{}).Type1()):                                                           ShareAccountSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ShareDatasetBlobStorageSpecStorageAccount{}).Type1()):                                          ShareDatasetBlobStorageSpecStorageAccountCodec{},
 	}
 }
 
@@ -347,6 +393,875 @@ func (FactorySpecVstsConfigurationCodec) Decode(ptr unsafe.Pointer, iter *jsonit
 		}
 	default:
 		iter.ReportError("decode FactorySpecVstsConfiguration", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryCustomDatasetSpecLinkedServiceCodec struct {
+}
+
+func (FactoryCustomDatasetSpecLinkedServiceCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryCustomDatasetSpecLinkedService)(ptr) == nil
+}
+
+func (FactoryCustomDatasetSpecLinkedServiceCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryCustomDatasetSpecLinkedService)(ptr)
+	var objs []FactoryCustomDatasetSpecLinkedService
+	if obj != nil {
+		objs = []FactoryCustomDatasetSpecLinkedService{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryCustomDatasetSpecLinkedService{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryCustomDatasetSpecLinkedServiceCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryCustomDatasetSpecLinkedService)(ptr) = FactoryCustomDatasetSpecLinkedService{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryCustomDatasetSpecLinkedService
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryCustomDatasetSpecLinkedService{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryCustomDatasetSpecLinkedService)(ptr) = objs[0]
+			} else {
+				*(*FactoryCustomDatasetSpecLinkedService)(ptr) = FactoryCustomDatasetSpecLinkedService{}
+			}
+		} else {
+			*(*FactoryCustomDatasetSpecLinkedService)(ptr) = FactoryCustomDatasetSpecLinkedService{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryCustomDatasetSpecLinkedService
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryCustomDatasetSpecLinkedService{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryCustomDatasetSpecLinkedService)(ptr) = obj
+		} else {
+			*(*FactoryCustomDatasetSpecLinkedService)(ptr) = FactoryCustomDatasetSpecLinkedService{}
+		}
+	default:
+		iter.ReportError("decode FactoryCustomDatasetSpecLinkedService", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryDataFlowSpecSinkDatasetCodec struct {
+}
+
+func (FactoryDataFlowSpecSinkDatasetCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryDataFlowSpecSinkDataset)(ptr) == nil
+}
+
+func (FactoryDataFlowSpecSinkDatasetCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryDataFlowSpecSinkDataset)(ptr)
+	var objs []FactoryDataFlowSpecSinkDataset
+	if obj != nil {
+		objs = []FactoryDataFlowSpecSinkDataset{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkDataset{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryDataFlowSpecSinkDatasetCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryDataFlowSpecSinkDataset)(ptr) = FactoryDataFlowSpecSinkDataset{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryDataFlowSpecSinkDataset
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkDataset{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryDataFlowSpecSinkDataset)(ptr) = objs[0]
+			} else {
+				*(*FactoryDataFlowSpecSinkDataset)(ptr) = FactoryDataFlowSpecSinkDataset{}
+			}
+		} else {
+			*(*FactoryDataFlowSpecSinkDataset)(ptr) = FactoryDataFlowSpecSinkDataset{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryDataFlowSpecSinkDataset
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkDataset{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryDataFlowSpecSinkDataset)(ptr) = obj
+		} else {
+			*(*FactoryDataFlowSpecSinkDataset)(ptr) = FactoryDataFlowSpecSinkDataset{}
+		}
+	default:
+		iter.ReportError("decode FactoryDataFlowSpecSinkDataset", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryDataFlowSpecSinkLinkedServiceCodec struct {
+}
+
+func (FactoryDataFlowSpecSinkLinkedServiceCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryDataFlowSpecSinkLinkedService)(ptr) == nil
+}
+
+func (FactoryDataFlowSpecSinkLinkedServiceCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryDataFlowSpecSinkLinkedService)(ptr)
+	var objs []FactoryDataFlowSpecSinkLinkedService
+	if obj != nil {
+		objs = []FactoryDataFlowSpecSinkLinkedService{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkLinkedService{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryDataFlowSpecSinkLinkedServiceCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryDataFlowSpecSinkLinkedService)(ptr) = FactoryDataFlowSpecSinkLinkedService{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryDataFlowSpecSinkLinkedService
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkLinkedService{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryDataFlowSpecSinkLinkedService)(ptr) = objs[0]
+			} else {
+				*(*FactoryDataFlowSpecSinkLinkedService)(ptr) = FactoryDataFlowSpecSinkLinkedService{}
+			}
+		} else {
+			*(*FactoryDataFlowSpecSinkLinkedService)(ptr) = FactoryDataFlowSpecSinkLinkedService{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryDataFlowSpecSinkLinkedService
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkLinkedService{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryDataFlowSpecSinkLinkedService)(ptr) = obj
+		} else {
+			*(*FactoryDataFlowSpecSinkLinkedService)(ptr) = FactoryDataFlowSpecSinkLinkedService{}
+		}
+	default:
+		iter.ReportError("decode FactoryDataFlowSpecSinkLinkedService", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryDataFlowSpecSinkSchemaLinkedServiceCodec struct {
+}
+
+func (FactoryDataFlowSpecSinkSchemaLinkedServiceCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryDataFlowSpecSinkSchemaLinkedService)(ptr) == nil
+}
+
+func (FactoryDataFlowSpecSinkSchemaLinkedServiceCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryDataFlowSpecSinkSchemaLinkedService)(ptr)
+	var objs []FactoryDataFlowSpecSinkSchemaLinkedService
+	if obj != nil {
+		objs = []FactoryDataFlowSpecSinkSchemaLinkedService{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkSchemaLinkedService{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryDataFlowSpecSinkSchemaLinkedServiceCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryDataFlowSpecSinkSchemaLinkedService)(ptr) = FactoryDataFlowSpecSinkSchemaLinkedService{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryDataFlowSpecSinkSchemaLinkedService
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkSchemaLinkedService{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryDataFlowSpecSinkSchemaLinkedService)(ptr) = objs[0]
+			} else {
+				*(*FactoryDataFlowSpecSinkSchemaLinkedService)(ptr) = FactoryDataFlowSpecSinkSchemaLinkedService{}
+			}
+		} else {
+			*(*FactoryDataFlowSpecSinkSchemaLinkedService)(ptr) = FactoryDataFlowSpecSinkSchemaLinkedService{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryDataFlowSpecSinkSchemaLinkedService
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSinkSchemaLinkedService{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryDataFlowSpecSinkSchemaLinkedService)(ptr) = obj
+		} else {
+			*(*FactoryDataFlowSpecSinkSchemaLinkedService)(ptr) = FactoryDataFlowSpecSinkSchemaLinkedService{}
+		}
+	default:
+		iter.ReportError("decode FactoryDataFlowSpecSinkSchemaLinkedService", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryDataFlowSpecSourceDatasetCodec struct {
+}
+
+func (FactoryDataFlowSpecSourceDatasetCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryDataFlowSpecSourceDataset)(ptr) == nil
+}
+
+func (FactoryDataFlowSpecSourceDatasetCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryDataFlowSpecSourceDataset)(ptr)
+	var objs []FactoryDataFlowSpecSourceDataset
+	if obj != nil {
+		objs = []FactoryDataFlowSpecSourceDataset{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceDataset{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryDataFlowSpecSourceDatasetCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryDataFlowSpecSourceDataset)(ptr) = FactoryDataFlowSpecSourceDataset{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryDataFlowSpecSourceDataset
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceDataset{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryDataFlowSpecSourceDataset)(ptr) = objs[0]
+			} else {
+				*(*FactoryDataFlowSpecSourceDataset)(ptr) = FactoryDataFlowSpecSourceDataset{}
+			}
+		} else {
+			*(*FactoryDataFlowSpecSourceDataset)(ptr) = FactoryDataFlowSpecSourceDataset{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryDataFlowSpecSourceDataset
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceDataset{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryDataFlowSpecSourceDataset)(ptr) = obj
+		} else {
+			*(*FactoryDataFlowSpecSourceDataset)(ptr) = FactoryDataFlowSpecSourceDataset{}
+		}
+	default:
+		iter.ReportError("decode FactoryDataFlowSpecSourceDataset", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryDataFlowSpecSourceLinkedServiceCodec struct {
+}
+
+func (FactoryDataFlowSpecSourceLinkedServiceCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryDataFlowSpecSourceLinkedService)(ptr) == nil
+}
+
+func (FactoryDataFlowSpecSourceLinkedServiceCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryDataFlowSpecSourceLinkedService)(ptr)
+	var objs []FactoryDataFlowSpecSourceLinkedService
+	if obj != nil {
+		objs = []FactoryDataFlowSpecSourceLinkedService{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceLinkedService{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryDataFlowSpecSourceLinkedServiceCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryDataFlowSpecSourceLinkedService)(ptr) = FactoryDataFlowSpecSourceLinkedService{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryDataFlowSpecSourceLinkedService
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceLinkedService{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryDataFlowSpecSourceLinkedService)(ptr) = objs[0]
+			} else {
+				*(*FactoryDataFlowSpecSourceLinkedService)(ptr) = FactoryDataFlowSpecSourceLinkedService{}
+			}
+		} else {
+			*(*FactoryDataFlowSpecSourceLinkedService)(ptr) = FactoryDataFlowSpecSourceLinkedService{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryDataFlowSpecSourceLinkedService
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceLinkedService{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryDataFlowSpecSourceLinkedService)(ptr) = obj
+		} else {
+			*(*FactoryDataFlowSpecSourceLinkedService)(ptr) = FactoryDataFlowSpecSourceLinkedService{}
+		}
+	default:
+		iter.ReportError("decode FactoryDataFlowSpecSourceLinkedService", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryDataFlowSpecSourceSchemaLinkedServiceCodec struct {
+}
+
+func (FactoryDataFlowSpecSourceSchemaLinkedServiceCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryDataFlowSpecSourceSchemaLinkedService)(ptr) == nil
+}
+
+func (FactoryDataFlowSpecSourceSchemaLinkedServiceCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryDataFlowSpecSourceSchemaLinkedService)(ptr)
+	var objs []FactoryDataFlowSpecSourceSchemaLinkedService
+	if obj != nil {
+		objs = []FactoryDataFlowSpecSourceSchemaLinkedService{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceSchemaLinkedService{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryDataFlowSpecSourceSchemaLinkedServiceCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryDataFlowSpecSourceSchemaLinkedService)(ptr) = FactoryDataFlowSpecSourceSchemaLinkedService{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryDataFlowSpecSourceSchemaLinkedService
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceSchemaLinkedService{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryDataFlowSpecSourceSchemaLinkedService)(ptr) = objs[0]
+			} else {
+				*(*FactoryDataFlowSpecSourceSchemaLinkedService)(ptr) = FactoryDataFlowSpecSourceSchemaLinkedService{}
+			}
+		} else {
+			*(*FactoryDataFlowSpecSourceSchemaLinkedService)(ptr) = FactoryDataFlowSpecSourceSchemaLinkedService{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryDataFlowSpecSourceSchemaLinkedService
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDataFlowSpecSourceSchemaLinkedService{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryDataFlowSpecSourceSchemaLinkedService)(ptr) = obj
+		} else {
+			*(*FactoryDataFlowSpecSourceSchemaLinkedService)(ptr) = FactoryDataFlowSpecSourceSchemaLinkedService{}
+		}
+	default:
+		iter.ReportError("decode FactoryDataFlowSpecSourceSchemaLinkedService", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryDatasetBinarySpecAzureBlobStorageLocationCodec struct {
+}
+
+func (FactoryDatasetBinarySpecAzureBlobStorageLocationCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryDatasetBinarySpecAzureBlobStorageLocation)(ptr) == nil
+}
+
+func (FactoryDatasetBinarySpecAzureBlobStorageLocationCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryDatasetBinarySpecAzureBlobStorageLocation)(ptr)
+	var objs []FactoryDatasetBinarySpecAzureBlobStorageLocation
+	if obj != nil {
+		objs = []FactoryDatasetBinarySpecAzureBlobStorageLocation{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecAzureBlobStorageLocation{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryDatasetBinarySpecAzureBlobStorageLocationCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryDatasetBinarySpecAzureBlobStorageLocation)(ptr) = FactoryDatasetBinarySpecAzureBlobStorageLocation{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryDatasetBinarySpecAzureBlobStorageLocation
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecAzureBlobStorageLocation{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryDatasetBinarySpecAzureBlobStorageLocation)(ptr) = objs[0]
+			} else {
+				*(*FactoryDatasetBinarySpecAzureBlobStorageLocation)(ptr) = FactoryDatasetBinarySpecAzureBlobStorageLocation{}
+			}
+		} else {
+			*(*FactoryDatasetBinarySpecAzureBlobStorageLocation)(ptr) = FactoryDatasetBinarySpecAzureBlobStorageLocation{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryDatasetBinarySpecAzureBlobStorageLocation
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecAzureBlobStorageLocation{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryDatasetBinarySpecAzureBlobStorageLocation)(ptr) = obj
+		} else {
+			*(*FactoryDatasetBinarySpecAzureBlobStorageLocation)(ptr) = FactoryDatasetBinarySpecAzureBlobStorageLocation{}
+		}
+	default:
+		iter.ReportError("decode FactoryDatasetBinarySpecAzureBlobStorageLocation", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryDatasetBinarySpecCompressionCodec struct {
+}
+
+func (FactoryDatasetBinarySpecCompressionCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryDatasetBinarySpecCompression)(ptr) == nil
+}
+
+func (FactoryDatasetBinarySpecCompressionCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryDatasetBinarySpecCompression)(ptr)
+	var objs []FactoryDatasetBinarySpecCompression
+	if obj != nil {
+		objs = []FactoryDatasetBinarySpecCompression{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecCompression{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryDatasetBinarySpecCompressionCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryDatasetBinarySpecCompression)(ptr) = FactoryDatasetBinarySpecCompression{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryDatasetBinarySpecCompression
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecCompression{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryDatasetBinarySpecCompression)(ptr) = objs[0]
+			} else {
+				*(*FactoryDatasetBinarySpecCompression)(ptr) = FactoryDatasetBinarySpecCompression{}
+			}
+		} else {
+			*(*FactoryDatasetBinarySpecCompression)(ptr) = FactoryDatasetBinarySpecCompression{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryDatasetBinarySpecCompression
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecCompression{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryDatasetBinarySpecCompression)(ptr) = obj
+		} else {
+			*(*FactoryDatasetBinarySpecCompression)(ptr) = FactoryDatasetBinarySpecCompression{}
+		}
+	default:
+		iter.ReportError("decode FactoryDatasetBinarySpecCompression", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryDatasetBinarySpecHttpServerLocationCodec struct {
+}
+
+func (FactoryDatasetBinarySpecHttpServerLocationCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryDatasetBinarySpecHttpServerLocation)(ptr) == nil
+}
+
+func (FactoryDatasetBinarySpecHttpServerLocationCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryDatasetBinarySpecHttpServerLocation)(ptr)
+	var objs []FactoryDatasetBinarySpecHttpServerLocation
+	if obj != nil {
+		objs = []FactoryDatasetBinarySpecHttpServerLocation{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecHttpServerLocation{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryDatasetBinarySpecHttpServerLocationCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryDatasetBinarySpecHttpServerLocation)(ptr) = FactoryDatasetBinarySpecHttpServerLocation{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryDatasetBinarySpecHttpServerLocation
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecHttpServerLocation{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryDatasetBinarySpecHttpServerLocation)(ptr) = objs[0]
+			} else {
+				*(*FactoryDatasetBinarySpecHttpServerLocation)(ptr) = FactoryDatasetBinarySpecHttpServerLocation{}
+			}
+		} else {
+			*(*FactoryDatasetBinarySpecHttpServerLocation)(ptr) = FactoryDatasetBinarySpecHttpServerLocation{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryDatasetBinarySpecHttpServerLocation
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecHttpServerLocation{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryDatasetBinarySpecHttpServerLocation)(ptr) = obj
+		} else {
+			*(*FactoryDatasetBinarySpecHttpServerLocation)(ptr) = FactoryDatasetBinarySpecHttpServerLocation{}
+		}
+	default:
+		iter.ReportError("decode FactoryDatasetBinarySpecHttpServerLocation", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryDatasetBinarySpecSftpServerLocationCodec struct {
+}
+
+func (FactoryDatasetBinarySpecSftpServerLocationCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryDatasetBinarySpecSftpServerLocation)(ptr) == nil
+}
+
+func (FactoryDatasetBinarySpecSftpServerLocationCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryDatasetBinarySpecSftpServerLocation)(ptr)
+	var objs []FactoryDatasetBinarySpecSftpServerLocation
+	if obj != nil {
+		objs = []FactoryDatasetBinarySpecSftpServerLocation{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecSftpServerLocation{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryDatasetBinarySpecSftpServerLocationCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryDatasetBinarySpecSftpServerLocation)(ptr) = FactoryDatasetBinarySpecSftpServerLocation{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryDatasetBinarySpecSftpServerLocation
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecSftpServerLocation{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryDatasetBinarySpecSftpServerLocation)(ptr) = objs[0]
+			} else {
+				*(*FactoryDatasetBinarySpecSftpServerLocation)(ptr) = FactoryDatasetBinarySpecSftpServerLocation{}
+			}
+		} else {
+			*(*FactoryDatasetBinarySpecSftpServerLocation)(ptr) = FactoryDatasetBinarySpecSftpServerLocation{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryDatasetBinarySpecSftpServerLocation
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryDatasetBinarySpecSftpServerLocation{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryDatasetBinarySpecSftpServerLocation)(ptr) = obj
+		} else {
+			*(*FactoryDatasetBinarySpecSftpServerLocation)(ptr) = FactoryDatasetBinarySpecSftpServerLocation{}
+		}
+	default:
+		iter.ReportError("decode FactoryDatasetBinarySpecSftpServerLocation", "unexpected JSON type")
 	}
 }
 
@@ -1062,6 +1977,322 @@ func (FactoryIntegrationRuntimeAzureSsisSpecCustomSetupScriptCodec) Decode(ptr u
 }
 
 // +k8s:deepcopy-gen=false
+type FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCodec struct {
+}
+
+func (FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup)(ptr) == nil
+}
+
+func (FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup)(ptr)
+	var objs []FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup
+	if obj != nil {
+		objs = []FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup)(ptr) = objs[0]
+			} else {
+				*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup{}
+			}
+		} else {
+			*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup)(ptr) = obj
+		} else {
+			*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup{}
+		}
+	default:
+		iter.ReportError("decode FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPasswordCodec struct {
+}
+
+func (FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPasswordCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword)(ptr) == nil
+}
+
+func (FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPasswordCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword)(ptr)
+	var objs []FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword
+	if obj != nil {
+		objs = []FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPasswordCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword)(ptr) = objs[0]
+			} else {
+				*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword{}
+			}
+		} else {
+			*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword)(ptr) = obj
+		} else {
+			*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword{}
+		}
+	default:
+		iter.ReportError("decode FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicenseCodec struct {
+}
+
+func (FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicenseCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense)(ptr) == nil
+}
+
+func (FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicenseCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense)(ptr)
+	var objs []FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense
+	if obj != nil {
+		objs = []FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicenseCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense)(ptr) = objs[0]
+			} else {
+				*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense{}
+			}
+		} else {
+			*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense)(ptr) = obj
+		} else {
+			*(*FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense{}
+		}
+	default:
+		iter.ReportError("decode FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryIntegrationRuntimeAzureSsisSpecProxyCodec struct {
+}
+
+func (FactoryIntegrationRuntimeAzureSsisSpecProxyCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryIntegrationRuntimeAzureSsisSpecProxy)(ptr) == nil
+}
+
+func (FactoryIntegrationRuntimeAzureSsisSpecProxyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryIntegrationRuntimeAzureSsisSpecProxy)(ptr)
+	var objs []FactoryIntegrationRuntimeAzureSsisSpecProxy
+	if obj != nil {
+		objs = []FactoryIntegrationRuntimeAzureSsisSpecProxy{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecProxy{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryIntegrationRuntimeAzureSsisSpecProxyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryIntegrationRuntimeAzureSsisSpecProxy)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecProxy{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryIntegrationRuntimeAzureSsisSpecProxy
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecProxy{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryIntegrationRuntimeAzureSsisSpecProxy)(ptr) = objs[0]
+			} else {
+				*(*FactoryIntegrationRuntimeAzureSsisSpecProxy)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecProxy{}
+			}
+		} else {
+			*(*FactoryIntegrationRuntimeAzureSsisSpecProxy)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecProxy{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryIntegrationRuntimeAzureSsisSpecProxy
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryIntegrationRuntimeAzureSsisSpecProxy{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryIntegrationRuntimeAzureSsisSpecProxy)(ptr) = obj
+		} else {
+			*(*FactoryIntegrationRuntimeAzureSsisSpecProxy)(ptr) = FactoryIntegrationRuntimeAzureSsisSpecProxy{}
+		}
+	default:
+		iter.ReportError("decode FactoryIntegrationRuntimeAzureSsisSpecProxy", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type FactoryIntegrationRuntimeAzureSsisSpecVnetIntegrationCodec struct {
 }
 
@@ -1457,6 +2688,85 @@ func (FactoryLinkedCustomServiceSpecIntegrationRuntimeCodec) Decode(ptr unsafe.P
 }
 
 // +k8s:deepcopy-gen=false
+type FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasTokenCodec struct {
+}
+
+func (FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasTokenCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken)(ptr) == nil
+}
+
+func (FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasTokenCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken)(ptr)
+	var objs []FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken
+	if obj != nil {
+		objs = []FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasTokenCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken)(ptr) = FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken)(ptr) = objs[0]
+			} else {
+				*(*FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken)(ptr) = FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken{}
+			}
+		} else {
+			*(*FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken)(ptr) = FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken)(ptr) = obj
+		} else {
+			*(*FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken)(ptr) = FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken{}
+		}
+	default:
+		iter.ReportError("decode FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type FactoryLinkedServiceAzureDatabricksSpecInstancePoolCodec struct {
 }
 
@@ -1773,6 +3083,85 @@ func (FactoryLinkedServiceAzureFileStorageSpecKeyVaultPasswordCodec) Decode(ptr 
 }
 
 // +k8s:deepcopy-gen=false
+type FactoryLinkedServiceAzureFunctionSpecKeyVaultKeyCodec struct {
+}
+
+func (FactoryLinkedServiceAzureFunctionSpecKeyVaultKeyCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryLinkedServiceAzureFunctionSpecKeyVaultKey)(ptr) == nil
+}
+
+func (FactoryLinkedServiceAzureFunctionSpecKeyVaultKeyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryLinkedServiceAzureFunctionSpecKeyVaultKey)(ptr)
+	var objs []FactoryLinkedServiceAzureFunctionSpecKeyVaultKey
+	if obj != nil {
+		objs = []FactoryLinkedServiceAzureFunctionSpecKeyVaultKey{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureFunctionSpecKeyVaultKey{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryLinkedServiceAzureFunctionSpecKeyVaultKeyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryLinkedServiceAzureFunctionSpecKeyVaultKey)(ptr) = FactoryLinkedServiceAzureFunctionSpecKeyVaultKey{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryLinkedServiceAzureFunctionSpecKeyVaultKey
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureFunctionSpecKeyVaultKey{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryLinkedServiceAzureFunctionSpecKeyVaultKey)(ptr) = objs[0]
+			} else {
+				*(*FactoryLinkedServiceAzureFunctionSpecKeyVaultKey)(ptr) = FactoryLinkedServiceAzureFunctionSpecKeyVaultKey{}
+			}
+		} else {
+			*(*FactoryLinkedServiceAzureFunctionSpecKeyVaultKey)(ptr) = FactoryLinkedServiceAzureFunctionSpecKeyVaultKey{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryLinkedServiceAzureFunctionSpecKeyVaultKey
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceAzureFunctionSpecKeyVaultKey{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryLinkedServiceAzureFunctionSpecKeyVaultKey)(ptr) = obj
+		} else {
+			*(*FactoryLinkedServiceAzureFunctionSpecKeyVaultKey)(ptr) = FactoryLinkedServiceAzureFunctionSpecKeyVaultKey{}
+		}
+	default:
+		iter.ReportError("decode FactoryLinkedServiceAzureFunctionSpecKeyVaultKey", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type FactoryLinkedServiceAzureSQLDatabaseSpecKeyVaultConnectionStringCodec struct {
 }
 
@@ -2006,6 +3395,85 @@ func (FactoryLinkedServiceOdataSpecBasicAuthenticationCodec) Decode(ptr unsafe.P
 		}
 	default:
 		iter.ReportError("decode FactoryLinkedServiceOdataSpecBasicAuthentication", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryLinkedServiceOdbcSpecBasicAuthenticationCodec struct {
+}
+
+func (FactoryLinkedServiceOdbcSpecBasicAuthenticationCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryLinkedServiceOdbcSpecBasicAuthentication)(ptr) == nil
+}
+
+func (FactoryLinkedServiceOdbcSpecBasicAuthenticationCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryLinkedServiceOdbcSpecBasicAuthentication)(ptr)
+	var objs []FactoryLinkedServiceOdbcSpecBasicAuthentication
+	if obj != nil {
+		objs = []FactoryLinkedServiceOdbcSpecBasicAuthentication{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceOdbcSpecBasicAuthentication{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryLinkedServiceOdbcSpecBasicAuthenticationCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryLinkedServiceOdbcSpecBasicAuthentication)(ptr) = FactoryLinkedServiceOdbcSpecBasicAuthentication{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryLinkedServiceOdbcSpecBasicAuthentication
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceOdbcSpecBasicAuthentication{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryLinkedServiceOdbcSpecBasicAuthentication)(ptr) = objs[0]
+			} else {
+				*(*FactoryLinkedServiceOdbcSpecBasicAuthentication)(ptr) = FactoryLinkedServiceOdbcSpecBasicAuthentication{}
+			}
+		} else {
+			*(*FactoryLinkedServiceOdbcSpecBasicAuthentication)(ptr) = FactoryLinkedServiceOdbcSpecBasicAuthentication{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryLinkedServiceOdbcSpecBasicAuthentication
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryLinkedServiceOdbcSpecBasicAuthentication{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryLinkedServiceOdbcSpecBasicAuthentication)(ptr) = obj
+		} else {
+			*(*FactoryLinkedServiceOdbcSpecBasicAuthentication)(ptr) = FactoryLinkedServiceOdbcSpecBasicAuthentication{}
+		}
+	default:
+		iter.ReportError("decode FactoryLinkedServiceOdbcSpecBasicAuthentication", "unexpected JSON type")
 	}
 }
 
@@ -2322,6 +3790,401 @@ func (FactoryLinkedServiceSynapseSpecKeyVaultPasswordCodec) Decode(ptr unsafe.Po
 		}
 	default:
 		iter.ReportError("decode FactoryLinkedServiceSynapseSpecKeyVaultPassword", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryTriggerScheduleSpecScheduleCodec struct {
+}
+
+func (FactoryTriggerScheduleSpecScheduleCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryTriggerScheduleSpecSchedule)(ptr) == nil
+}
+
+func (FactoryTriggerScheduleSpecScheduleCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryTriggerScheduleSpecSchedule)(ptr)
+	var objs []FactoryTriggerScheduleSpecSchedule
+	if obj != nil {
+		objs = []FactoryTriggerScheduleSpecSchedule{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerScheduleSpecSchedule{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryTriggerScheduleSpecScheduleCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryTriggerScheduleSpecSchedule)(ptr) = FactoryTriggerScheduleSpecSchedule{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryTriggerScheduleSpecSchedule
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerScheduleSpecSchedule{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryTriggerScheduleSpecSchedule)(ptr) = objs[0]
+			} else {
+				*(*FactoryTriggerScheduleSpecSchedule)(ptr) = FactoryTriggerScheduleSpecSchedule{}
+			}
+		} else {
+			*(*FactoryTriggerScheduleSpecSchedule)(ptr) = FactoryTriggerScheduleSpecSchedule{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryTriggerScheduleSpecSchedule
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerScheduleSpecSchedule{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryTriggerScheduleSpecSchedule)(ptr) = obj
+		} else {
+			*(*FactoryTriggerScheduleSpecSchedule)(ptr) = FactoryTriggerScheduleSpecSchedule{}
+		}
+	default:
+		iter.ReportError("decode FactoryTriggerScheduleSpecSchedule", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryTriggerTumblingWindowSpecPipelineCodec struct {
+}
+
+func (FactoryTriggerTumblingWindowSpecPipelineCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryTriggerTumblingWindowSpecPipeline)(ptr) == nil
+}
+
+func (FactoryTriggerTumblingWindowSpecPipelineCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryTriggerTumblingWindowSpecPipeline)(ptr)
+	var objs []FactoryTriggerTumblingWindowSpecPipeline
+	if obj != nil {
+		objs = []FactoryTriggerTumblingWindowSpecPipeline{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerTumblingWindowSpecPipeline{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryTriggerTumblingWindowSpecPipelineCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryTriggerTumblingWindowSpecPipeline)(ptr) = FactoryTriggerTumblingWindowSpecPipeline{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryTriggerTumblingWindowSpecPipeline
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerTumblingWindowSpecPipeline{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryTriggerTumblingWindowSpecPipeline)(ptr) = objs[0]
+			} else {
+				*(*FactoryTriggerTumblingWindowSpecPipeline)(ptr) = FactoryTriggerTumblingWindowSpecPipeline{}
+			}
+		} else {
+			*(*FactoryTriggerTumblingWindowSpecPipeline)(ptr) = FactoryTriggerTumblingWindowSpecPipeline{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryTriggerTumblingWindowSpecPipeline
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerTumblingWindowSpecPipeline{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryTriggerTumblingWindowSpecPipeline)(ptr) = obj
+		} else {
+			*(*FactoryTriggerTumblingWindowSpecPipeline)(ptr) = FactoryTriggerTumblingWindowSpecPipeline{}
+		}
+	default:
+		iter.ReportError("decode FactoryTriggerTumblingWindowSpecPipeline", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type FactoryTriggerTumblingWindowSpecRetryCodec struct {
+}
+
+func (FactoryTriggerTumblingWindowSpecRetryCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FactoryTriggerTumblingWindowSpecRetry)(ptr) == nil
+}
+
+func (FactoryTriggerTumblingWindowSpecRetryCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FactoryTriggerTumblingWindowSpecRetry)(ptr)
+	var objs []FactoryTriggerTumblingWindowSpecRetry
+	if obj != nil {
+		objs = []FactoryTriggerTumblingWindowSpecRetry{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerTumblingWindowSpecRetry{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FactoryTriggerTumblingWindowSpecRetryCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FactoryTriggerTumblingWindowSpecRetry)(ptr) = FactoryTriggerTumblingWindowSpecRetry{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FactoryTriggerTumblingWindowSpecRetry
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerTumblingWindowSpecRetry{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FactoryTriggerTumblingWindowSpecRetry)(ptr) = objs[0]
+			} else {
+				*(*FactoryTriggerTumblingWindowSpecRetry)(ptr) = FactoryTriggerTumblingWindowSpecRetry{}
+			}
+		} else {
+			*(*FactoryTriggerTumblingWindowSpecRetry)(ptr) = FactoryTriggerTumblingWindowSpecRetry{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FactoryTriggerTumblingWindowSpecRetry
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FactoryTriggerTumblingWindowSpecRetry{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FactoryTriggerTumblingWindowSpecRetry)(ptr) = obj
+		} else {
+			*(*FactoryTriggerTumblingWindowSpecRetry)(ptr) = FactoryTriggerTumblingWindowSpecRetry{}
+		}
+	default:
+		iter.ReportError("decode FactoryTriggerTumblingWindowSpecRetry", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type LakeStoreSpecIdentityCodec struct {
+}
+
+func (LakeStoreSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*LakeStoreSpecIdentity)(ptr) == nil
+}
+
+func (LakeStoreSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*LakeStoreSpecIdentity)(ptr)
+	var objs []LakeStoreSpecIdentity
+	if obj != nil {
+		objs = []LakeStoreSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LakeStoreSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (LakeStoreSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*LakeStoreSpecIdentity)(ptr) = LakeStoreSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []LakeStoreSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LakeStoreSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*LakeStoreSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*LakeStoreSpecIdentity)(ptr) = LakeStoreSpecIdentity{}
+			}
+		} else {
+			*(*LakeStoreSpecIdentity)(ptr) = LakeStoreSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj LakeStoreSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LakeStoreSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*LakeStoreSpecIdentity)(ptr) = obj
+		} else {
+			*(*LakeStoreSpecIdentity)(ptr) = LakeStoreSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode LakeStoreSpecIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type ProtectionBackupPolicyDiskSpecRetentionRuleCriteriaCodec struct {
+}
+
+func (ProtectionBackupPolicyDiskSpecRetentionRuleCriteriaCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*ProtectionBackupPolicyDiskSpecRetentionRuleCriteria)(ptr) == nil
+}
+
+func (ProtectionBackupPolicyDiskSpecRetentionRuleCriteriaCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*ProtectionBackupPolicyDiskSpecRetentionRuleCriteria)(ptr)
+	var objs []ProtectionBackupPolicyDiskSpecRetentionRuleCriteria
+	if obj != nil {
+		objs = []ProtectionBackupPolicyDiskSpecRetentionRuleCriteria{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ProtectionBackupPolicyDiskSpecRetentionRuleCriteria{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (ProtectionBackupPolicyDiskSpecRetentionRuleCriteriaCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*ProtectionBackupPolicyDiskSpecRetentionRuleCriteria)(ptr) = ProtectionBackupPolicyDiskSpecRetentionRuleCriteria{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []ProtectionBackupPolicyDiskSpecRetentionRuleCriteria
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ProtectionBackupPolicyDiskSpecRetentionRuleCriteria{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*ProtectionBackupPolicyDiskSpecRetentionRuleCriteria)(ptr) = objs[0]
+			} else {
+				*(*ProtectionBackupPolicyDiskSpecRetentionRuleCriteria)(ptr) = ProtectionBackupPolicyDiskSpecRetentionRuleCriteria{}
+			}
+		} else {
+			*(*ProtectionBackupPolicyDiskSpecRetentionRuleCriteria)(ptr) = ProtectionBackupPolicyDiskSpecRetentionRuleCriteria{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj ProtectionBackupPolicyDiskSpecRetentionRuleCriteria
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ProtectionBackupPolicyDiskSpecRetentionRuleCriteria{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*ProtectionBackupPolicyDiskSpecRetentionRuleCriteria)(ptr) = obj
+		} else {
+			*(*ProtectionBackupPolicyDiskSpecRetentionRuleCriteria)(ptr) = ProtectionBackupPolicyDiskSpecRetentionRuleCriteria{}
+		}
+	default:
+		iter.ReportError("decode ProtectionBackupPolicyDiskSpecRetentionRuleCriteria", "unexpected JSON type")
 	}
 }
 

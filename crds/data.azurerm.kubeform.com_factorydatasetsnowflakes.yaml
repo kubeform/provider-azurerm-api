@@ -65,7 +65,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -86,6 +89,26 @@ spec:
                   schemaColumn:
                     items:
                       properties:
+                        name:
+                          type: string
+                        precision:
+                          format: int64
+                          type: integer
+                        scale:
+                          format: int64
+                          type: integer
+                        type:
+                          type: string
+                      required:
+                      - name
+                      type: object
+                    type: array
+                  schemaName:
+                    type: string
+                  structureColumn:
+                    description: Deprecated
+                    items:
+                      properties:
                         description:
                           type: string
                         name:
@@ -96,8 +119,6 @@ spec:
                       - name
                       type: object
                     type: array
-                  schemaName:
-                    type: string
                   tableName:
                     type: string
                   timeouts:
@@ -139,7 +160,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - dataFactoryName
                 - linkedServiceName
                 - name
                 - resourceGroupName
@@ -154,7 +174,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -175,6 +198,26 @@ spec:
                   schemaColumn:
                     items:
                       properties:
+                        name:
+                          type: string
+                        precision:
+                          format: int64
+                          type: integer
+                        scale:
+                          format: int64
+                          type: integer
+                        type:
+                          type: string
+                      required:
+                      - name
+                      type: object
+                    type: array
+                  schemaName:
+                    type: string
+                  structureColumn:
+                    description: Deprecated
+                    items:
+                      properties:
                         description:
                           type: string
                         name:
@@ -185,8 +228,6 @@ spec:
                       - name
                       type: object
                     type: array
-                  schemaName:
-                    type: string
                   tableName:
                     type: string
                   timeouts:
@@ -228,7 +269,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - dataFactoryName
                 - linkedServiceName
                 - name
                 - resourceGroupName

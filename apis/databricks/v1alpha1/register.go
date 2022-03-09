@@ -58,6 +58,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
 		&Workspace{},
 		&WorkspaceList{},
+		&WorkspaceCustomerManagedKey{},
+		&WorkspaceCustomerManagedKeyList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

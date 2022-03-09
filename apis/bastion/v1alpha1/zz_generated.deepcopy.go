@@ -157,15 +157,30 @@ func (in *HostSpecResource) DeepCopyInto(out *HostSpecResource) {
 		*out = new(apiv1alpha1.ResourceTimeout)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.CopyPasteEnabled != nil {
+		in, out := &in.CopyPasteEnabled, &out.CopyPasteEnabled
+		*out = new(bool)
+		**out = **in
+	}
 	if in.DnsName != nil {
 		in, out := &in.DnsName, &out.DnsName
 		*out = new(string)
+		**out = **in
+	}
+	if in.FileCopyEnabled != nil {
+		in, out := &in.FileCopyEnabled, &out.FileCopyEnabled
+		*out = new(bool)
 		**out = **in
 	}
 	if in.IpConfiguration != nil {
 		in, out := &in.IpConfiguration, &out.IpConfiguration
 		*out = new(HostSpecIpConfiguration)
 		(*in).DeepCopyInto(*out)
+	}
+	if in.IpConnectEnabled != nil {
+		in, out := &in.IpConnectEnabled, &out.IpConnectEnabled
+		*out = new(bool)
+		**out = **in
 	}
 	if in.Location != nil {
 		in, out := &in.Location, &out.Location
@@ -182,6 +197,21 @@ func (in *HostSpecResource) DeepCopyInto(out *HostSpecResource) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.ScaleUnits != nil {
+		in, out := &in.ScaleUnits, &out.ScaleUnits
+		*out = new(int64)
+		**out = **in
+	}
+	if in.ShareableLinkEnabled != nil {
+		in, out := &in.ShareableLinkEnabled, &out.ShareableLinkEnabled
+		*out = new(bool)
+		**out = **in
+	}
+	if in.Sku != nil {
+		in, out := &in.Sku, &out.Sku
+		*out = new(string)
+		**out = **in
+	}
 	if in.Tags != nil {
 		in, out := &in.Tags, &out.Tags
 		*out = new(map[string]string)
@@ -192,6 +222,11 @@ func (in *HostSpecResource) DeepCopyInto(out *HostSpecResource) {
 				(*out)[key] = val
 			}
 		}
+	}
+	if in.TunnelingEnabled != nil {
+		in, out := &in.TunnelingEnabled, &out.TunnelingEnabled
+		*out = new(bool)
+		**out = **in
 	}
 	return
 }

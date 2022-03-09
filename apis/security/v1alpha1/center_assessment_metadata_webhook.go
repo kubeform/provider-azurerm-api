@@ -86,7 +86,7 @@ func (r *CenterAssessmentMetadata) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range centerassessmentmetadataForceNewList {
+	for key, _ := range centerassessmentmetadataForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

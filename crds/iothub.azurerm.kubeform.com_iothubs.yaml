@@ -57,9 +57,31 @@ spec:
                 type: object
               resource:
                 properties:
+                  cloudToDevice:
+                    properties:
+                      defaultTtl:
+                        type: string
+                      feedback:
+                        items:
+                          properties:
+                            lockDuration:
+                              type: string
+                            maxDeliveryCount:
+                              format: int64
+                              type: integer
+                            timeToLive:
+                              type: string
+                          type: object
+                        type: array
+                      maxDeliveryCount:
+                        format: int64
+                        type: integer
+                    type: object
                   endpoint:
                     items:
                       properties:
+                        authenticationType:
+                          type: string
                         batchFrequencyInSeconds:
                           format: int64
                           type: integer
@@ -67,7 +89,13 @@ spec:
                           type: string
                         encoding:
                           type: string
+                        endpointURI:
+                          type: string
+                        entityPath:
+                          type: string
                         fileNameFormat:
+                          type: string
+                        identityID:
                           type: string
                         maxChunkSizeInBytes:
                           format: int64
@@ -102,6 +130,8 @@ spec:
                     maxItems: 10
                     type: array
                   eventHubEventsEndpoint:
+                    type: string
+                  eventHubEventsNamespace:
                     type: string
                   eventHubEventsPath:
                     type: string
@@ -150,6 +180,21 @@ spec:
                     type: string
                   id:
                     type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   ipFilterRule:
                     items:
                       properties:
@@ -278,9 +323,31 @@ spec:
                 type: object
               state:
                 properties:
+                  cloudToDevice:
+                    properties:
+                      defaultTtl:
+                        type: string
+                      feedback:
+                        items:
+                          properties:
+                            lockDuration:
+                              type: string
+                            maxDeliveryCount:
+                              format: int64
+                              type: integer
+                            timeToLive:
+                              type: string
+                          type: object
+                        type: array
+                      maxDeliveryCount:
+                        format: int64
+                        type: integer
+                    type: object
                   endpoint:
                     items:
                       properties:
+                        authenticationType:
+                          type: string
                         batchFrequencyInSeconds:
                           format: int64
                           type: integer
@@ -288,7 +355,13 @@ spec:
                           type: string
                         encoding:
                           type: string
+                        endpointURI:
+                          type: string
+                        entityPath:
+                          type: string
                         fileNameFormat:
+                          type: string
+                        identityID:
                           type: string
                         maxChunkSizeInBytes:
                           format: int64
@@ -323,6 +396,8 @@ spec:
                     maxItems: 10
                     type: array
                   eventHubEventsEndpoint:
+                    type: string
+                  eventHubEventsNamespace:
                     type: string
                   eventHubEventsPath:
                     type: string
@@ -371,6 +446,21 @@ spec:
                     type: string
                   id:
                     type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   ipFilterRule:
                     items:
                       properties:

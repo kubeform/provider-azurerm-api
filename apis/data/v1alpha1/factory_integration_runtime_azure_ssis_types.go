@@ -47,6 +47,8 @@ type FactoryIntegrationRuntimeAzureSsisSpecCatalogInfo struct {
 	// +optional
 	AdministratorPassword *string `json:"-" sensitive:"true" tf:"administrator_password"`
 	// +optional
+	DualStandbyPairName *string `json:"dualStandbyPairName,omitempty" tf:"dual_standby_pair_name"`
+	// +optional
 	PricingTier    *string `json:"pricingTier,omitempty" tf:"pricing_tier"`
 	ServerEndpoint *string `json:"serverEndpoint" tf:"server_endpoint"`
 }
@@ -56,9 +58,75 @@ type FactoryIntegrationRuntimeAzureSsisSpecCustomSetupScript struct {
 	SasToken         *string `json:"-" sensitive:"true" tf:"sas_token"`
 }
 
+type FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword struct {
+	LinkedServiceName *string `json:"linkedServiceName" tf:"linked_service_name"`
+	// +optional
+	Parameters *map[string]string `json:"parameters,omitempty" tf:"parameters"`
+	SecretName *string            `json:"secretName" tf:"secret_name"`
+	// +optional
+	SecretVersion *string `json:"secretVersion,omitempty" tf:"secret_version"`
+}
+
+type FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKey struct {
+	// +optional
+	KeyVaultPassword *FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKeyKeyVaultPassword `json:"keyVaultPassword,omitempty" tf:"key_vault_password"`
+	// +optional
+	Password   *string `json:"-" sensitive:"true" tf:"password"`
+	TargetName *string `json:"targetName" tf:"target_name"`
+	UserName   *string `json:"userName" tf:"user_name"`
+}
+
+type FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense struct {
+	LinkedServiceName *string `json:"linkedServiceName" tf:"linked_service_name"`
+	// +optional
+	Parameters *map[string]string `json:"parameters,omitempty" tf:"parameters"`
+	SecretName *string            `json:"secretName" tf:"secret_name"`
+	// +optional
+	SecretVersion *string `json:"secretVersion,omitempty" tf:"secret_version"`
+}
+
+type FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponent struct {
+	// +optional
+	KeyVaultLicense *FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponentKeyVaultLicense `json:"keyVaultLicense,omitempty" tf:"key_vault_license"`
+	// +optional
+	License *string `json:"-" sensitive:"true" tf:"license"`
+	Name    *string `json:"name" tf:"name"`
+}
+
+type FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup struct {
+	// +optional
+	CommandKey []FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupCommandKey `json:"commandKey,omitempty" tf:"command_key"`
+	// +optional
+	Component []FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetupComponent `json:"component,omitempty" tf:"component"`
+	// +optional
+	Environment *map[string]string `json:"environment,omitempty" tf:"environment"`
+	// +optional
+	PowershellVersion *string `json:"powershellVersion,omitempty" tf:"powershell_version"`
+}
+
+type FactoryIntegrationRuntimeAzureSsisSpecPackageStore struct {
+	LinkedServiceName *string `json:"linkedServiceName" tf:"linked_service_name"`
+	Name              *string `json:"name" tf:"name"`
+}
+
+type FactoryIntegrationRuntimeAzureSsisSpecProxy struct {
+	// +optional
+	Path                             *string `json:"path,omitempty" tf:"path"`
+	SelfHostedIntegrationRuntimeName *string `json:"selfHostedIntegrationRuntimeName" tf:"self_hosted_integration_runtime_name"`
+	StagingStorageLinkedServiceName  *string `json:"stagingStorageLinkedServiceName" tf:"staging_storage_linked_service_name"`
+}
+
 type FactoryIntegrationRuntimeAzureSsisSpecVnetIntegration struct {
-	SubnetName *string `json:"subnetName" tf:"subnet_name"`
-	VnetID     *string `json:"vnetID" tf:"vnet_id"`
+	// +optional
+	// +kubebuilder:validation:MaxItems=2
+	// +kubebuilder:validation:MinItems=2
+	PublicIPS []string `json:"publicIPS,omitempty" tf:"public_ips"`
+	// +optional
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
+	// +optional
+	SubnetName *string `json:"subnetName,omitempty" tf:"subnet_name"`
+	// +optional
+	VnetID *string `json:"vnetID,omitempty" tf:"vnet_id"`
 }
 
 type FactoryIntegrationRuntimeAzureSsisSpec struct {
@@ -86,11 +154,17 @@ type FactoryIntegrationRuntimeAzureSsisSpecResource struct {
 	CatalogInfo *FactoryIntegrationRuntimeAzureSsisSpecCatalogInfo `json:"catalogInfo,omitempty" tf:"catalog_info"`
 	// +optional
 	CustomSetupScript *FactoryIntegrationRuntimeAzureSsisSpecCustomSetupScript `json:"customSetupScript,omitempty" tf:"custom_setup_script"`
-	DataFactoryName   *string                                                  `json:"dataFactoryName" tf:"data_factory_name"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional
 	Edition *string `json:"edition,omitempty" tf:"edition"`
+	// +optional
+	ExpressCustomSetup *FactoryIntegrationRuntimeAzureSsisSpecExpressCustomSetup `json:"expressCustomSetup,omitempty" tf:"express_custom_setup"`
 	// +optional
 	LicenseType *string `json:"licenseType,omitempty" tf:"license_type"`
 	Location    *string `json:"location" tf:"location"`
@@ -99,8 +173,12 @@ type FactoryIntegrationRuntimeAzureSsisSpecResource struct {
 	Name                         *string `json:"name" tf:"name"`
 	NodeSize                     *string `json:"nodeSize" tf:"node_size"`
 	// +optional
-	NumberOfNodes     *int64  `json:"numberOfNodes,omitempty" tf:"number_of_nodes"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	NumberOfNodes *int64 `json:"numberOfNodes,omitempty" tf:"number_of_nodes"`
+	// +optional
+	PackageStore []FactoryIntegrationRuntimeAzureSsisSpecPackageStore `json:"packageStore,omitempty" tf:"package_store"`
+	// +optional
+	Proxy             *FactoryIntegrationRuntimeAzureSsisSpecProxy `json:"proxy,omitempty" tf:"proxy"`
+	ResourceGroupName *string                                      `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	VnetIntegration *FactoryIntegrationRuntimeAzureSsisSpecVnetIntegration `json:"vnetIntegration,omitempty" tf:"vnet_integration"`
 }

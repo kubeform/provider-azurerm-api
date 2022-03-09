@@ -33,6 +33,10 @@ func (c *FakeStaticV1alpha1) Sites(namespace string) v1alpha1.SiteInterface {
 	return &FakeSites{c, namespace}
 }
 
+func (c *FakeStaticV1alpha1) SiteCustomDomains(namespace string) v1alpha1.SiteCustomDomainInterface {
+	return &FakeSiteCustomDomains{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeStaticV1alpha1) RESTClient() rest.Interface {

@@ -26,6 +26,8 @@ import (
 type Interface interface {
 	// Endpoints returns a EndpointInformer.
 	Endpoints() EndpointInformer
+	// EndpointCustomDomains returns a EndpointCustomDomainInformer.
+	EndpointCustomDomains() EndpointCustomDomainInformer
 	// Profiles returns a ProfileInformer.
 	Profiles() ProfileInformer
 }
@@ -44,6 +46,11 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // Endpoints returns a EndpointInformer.
 func (v *version) Endpoints() EndpointInformer {
 	return &endpointInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// EndpointCustomDomains returns a EndpointCustomDomainInformer.
+func (v *version) EndpointCustomDomains() EndpointCustomDomainInformer {
+	return &endpointCustomDomainInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Profiles returns a ProfileInformer.

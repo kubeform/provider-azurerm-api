@@ -42,6 +42,7 @@ func (r *FactoryDatasetHTTP) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &FactoryDatasetHTTP{}
 
 var factorydatasethttpForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *FactoryDatasetHTTP) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range factorydatasethttpForceNewList {
+	for key, _ := range factorydatasethttpForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

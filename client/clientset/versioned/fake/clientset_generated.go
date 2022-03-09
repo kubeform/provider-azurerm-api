@@ -20,6 +20,10 @@ package fake
 
 import (
 	clientset "kubeform.dev/provider-azurerm-api/client/clientset/versioned"
+	aadb2cv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/aadb2c/v1alpha1"
+	fakeaadb2cv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/aadb2c/v1alpha1/fake"
+	activev1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/active/v1alpha1"
+	fakeactivev1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/active/v1alpha1/fake"
 	advancedv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/advanced/v1alpha1"
 	fakeadvancedv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/advanced/v1alpha1/fake"
 	analysisv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/analysis/v1alpha1"
@@ -132,12 +136,16 @@ import (
 	fakelighthousev1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/lighthouse/v1alpha1/fake"
 	linuxv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/linux/v1alpha1"
 	fakelinuxv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/linux/v1alpha1/fake"
+	loadv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/load/v1alpha1"
+	fakeloadv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/load/v1alpha1/fake"
 	localv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/local/v1alpha1"
 	fakelocalv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/local/v1alpha1/fake"
 	loganalyticsv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/loganalytics/v1alpha1"
 	fakeloganalyticsv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/loganalytics/v1alpha1/fake"
 	logicappv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/logicapp/v1alpha1"
 	fakelogicappv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/logicapp/v1alpha1/fake"
+	logzv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/logz/v1alpha1"
+	fakelogzv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/logz/v1alpha1/fake"
 	machinev1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/machine/v1alpha1"
 	fakemachinev1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/machine/v1alpha1/fake"
 	maintenancev1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/maintenance/v1alpha1"
@@ -250,6 +258,8 @@ import (
 	faketrafficmanagerv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/trafficmanager/v1alpha1/fake"
 	userv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/user/v1alpha1"
 	fakeuserv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/user/v1alpha1/fake"
+	videov1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/video/v1alpha1"
+	fakevideov1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/video/v1alpha1/fake"
 	virtualv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/virtual/v1alpha1"
 	fakevirtualv1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/virtual/v1alpha1/fake"
 	vmwarev1alpha1 "kubeform.dev/provider-azurerm-api/client/clientset/versioned/typed/vmware/v1alpha1"
@@ -314,6 +324,16 @@ func (c *Clientset) Tracker() testing.ObjectTracker {
 }
 
 var _ clientset.Interface = &Clientset{}
+
+// Aadb2cV1alpha1 retrieves the Aadb2cV1alpha1Client
+func (c *Clientset) Aadb2cV1alpha1() aadb2cv1alpha1.Aadb2cV1alpha1Interface {
+	return &fakeaadb2cv1alpha1.FakeAadb2cV1alpha1{Fake: &c.Fake}
+}
+
+// ActiveV1alpha1 retrieves the ActiveV1alpha1Client
+func (c *Clientset) ActiveV1alpha1() activev1alpha1.ActiveV1alpha1Interface {
+	return &fakeactivev1alpha1.FakeActiveV1alpha1{Fake: &c.Fake}
+}
 
 // AdvancedV1alpha1 retrieves the AdvancedV1alpha1Client
 func (c *Clientset) AdvancedV1alpha1() advancedv1alpha1.AdvancedV1alpha1Interface {
@@ -595,6 +615,11 @@ func (c *Clientset) LinuxV1alpha1() linuxv1alpha1.LinuxV1alpha1Interface {
 	return &fakelinuxv1alpha1.FakeLinuxV1alpha1{Fake: &c.Fake}
 }
 
+// LoadV1alpha1 retrieves the LoadV1alpha1Client
+func (c *Clientset) LoadV1alpha1() loadv1alpha1.LoadV1alpha1Interface {
+	return &fakeloadv1alpha1.FakeLoadV1alpha1{Fake: &c.Fake}
+}
+
 // LocalV1alpha1 retrieves the LocalV1alpha1Client
 func (c *Clientset) LocalV1alpha1() localv1alpha1.LocalV1alpha1Interface {
 	return &fakelocalv1alpha1.FakeLocalV1alpha1{Fake: &c.Fake}
@@ -608,6 +633,11 @@ func (c *Clientset) LoganalyticsV1alpha1() loganalyticsv1alpha1.LoganalyticsV1al
 // LogicappV1alpha1 retrieves the LogicappV1alpha1Client
 func (c *Clientset) LogicappV1alpha1() logicappv1alpha1.LogicappV1alpha1Interface {
 	return &fakelogicappv1alpha1.FakeLogicappV1alpha1{Fake: &c.Fake}
+}
+
+// LogzV1alpha1 retrieves the LogzV1alpha1Client
+func (c *Clientset) LogzV1alpha1() logzv1alpha1.LogzV1alpha1Interface {
+	return &fakelogzv1alpha1.FakeLogzV1alpha1{Fake: &c.Fake}
 }
 
 // MachineV1alpha1 retrieves the MachineV1alpha1Client
@@ -888,6 +918,11 @@ func (c *Clientset) TrafficmanagerV1alpha1() trafficmanagerv1alpha1.Trafficmanag
 // UserV1alpha1 retrieves the UserV1alpha1Client
 func (c *Clientset) UserV1alpha1() userv1alpha1.UserV1alpha1Interface {
 	return &fakeuserv1alpha1.FakeUserV1alpha1{Fake: &c.Fake}
+}
+
+// VideoV1alpha1 retrieves the VideoV1alpha1Client
+func (c *Clientset) VideoV1alpha1() videov1alpha1.VideoV1alpha1Interface {
+	return &fakevideov1alpha1.FakeVideoV1alpha1{Fake: &c.Fake}
 }
 
 // VirtualV1alpha1 retrieves the VirtualV1alpha1Client

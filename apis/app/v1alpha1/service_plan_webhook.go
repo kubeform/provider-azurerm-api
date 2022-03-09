@@ -47,6 +47,7 @@ var serviceplanForceNewList = map[string]bool{
 	"/location":                   true,
 	"/name":                       true,
 	"/resource_group_name":        true,
+	"/zone_redundant":             true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -92,7 +93,7 @@ func (r *ServicePlan) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range serviceplanForceNewList {
+	for key, _ := range serviceplanForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

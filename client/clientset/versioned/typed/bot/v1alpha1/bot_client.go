@@ -27,18 +27,33 @@ import (
 
 type BotV1alpha1Interface interface {
 	RESTClient() rest.Interface
+	ChannelAlexasGetter
+	ChannelDirectLineSpeechesGetter
 	ChannelDirectlinesGetter
 	ChannelEmailsGetter
+	ChannelFacebooksGetter
+	ChannelLinesGetter
 	ChannelMsTeamsesGetter
 	ChannelSlacksGetter
+	ChannelSmsesGetter
+	ChannelWebChatsGetter
 	ChannelsRegistrationsGetter
 	ConnectionsGetter
+	ServiceAzureBotsGetter
 	WebAppsGetter
 }
 
 // BotV1alpha1Client is used to interact with features provided by the bot.azurerm.kubeform.com group.
 type BotV1alpha1Client struct {
 	restClient rest.Interface
+}
+
+func (c *BotV1alpha1Client) ChannelAlexas(namespace string) ChannelAlexaInterface {
+	return newChannelAlexas(c, namespace)
+}
+
+func (c *BotV1alpha1Client) ChannelDirectLineSpeeches(namespace string) ChannelDirectLineSpeechInterface {
+	return newChannelDirectLineSpeeches(c, namespace)
 }
 
 func (c *BotV1alpha1Client) ChannelDirectlines(namespace string) ChannelDirectlineInterface {
@@ -49,6 +64,14 @@ func (c *BotV1alpha1Client) ChannelEmails(namespace string) ChannelEmailInterfac
 	return newChannelEmails(c, namespace)
 }
 
+func (c *BotV1alpha1Client) ChannelFacebooks(namespace string) ChannelFacebookInterface {
+	return newChannelFacebooks(c, namespace)
+}
+
+func (c *BotV1alpha1Client) ChannelLines(namespace string) ChannelLineInterface {
+	return newChannelLines(c, namespace)
+}
+
 func (c *BotV1alpha1Client) ChannelMsTeamses(namespace string) ChannelMsTeamsInterface {
 	return newChannelMsTeamses(c, namespace)
 }
@@ -57,12 +80,24 @@ func (c *BotV1alpha1Client) ChannelSlacks(namespace string) ChannelSlackInterfac
 	return newChannelSlacks(c, namespace)
 }
 
+func (c *BotV1alpha1Client) ChannelSmses(namespace string) ChannelSmsInterface {
+	return newChannelSmses(c, namespace)
+}
+
+func (c *BotV1alpha1Client) ChannelWebChats(namespace string) ChannelWebChatInterface {
+	return newChannelWebChats(c, namespace)
+}
+
 func (c *BotV1alpha1Client) ChannelsRegistrations(namespace string) ChannelsRegistrationInterface {
 	return newChannelsRegistrations(c, namespace)
 }
 
 func (c *BotV1alpha1Client) Connections(namespace string) ConnectionInterface {
 	return newConnections(c, namespace)
+}
+
+func (c *BotV1alpha1Client) ServiceAzureBots(namespace string) ServiceAzureBotInterface {
+	return newServiceAzureBots(c, namespace)
 }
 
 func (c *BotV1alpha1Client) WebApps(namespace string) WebAppInterface {

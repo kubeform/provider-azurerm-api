@@ -41,6 +41,55 @@ type Workflow struct {
 	Status            WorkflowStatus `json:"status,omitempty"`
 }
 
+type WorkflowSpecAccessControlAction struct {
+	AllowedCallerIPAddressRange []string `json:"allowedCallerIPAddressRange" tf:"allowed_caller_ip_address_range"`
+}
+
+type WorkflowSpecAccessControlContent struct {
+	AllowedCallerIPAddressRange []string `json:"allowedCallerIPAddressRange" tf:"allowed_caller_ip_address_range"`
+}
+
+type WorkflowSpecAccessControlTriggerOpenAuthenticationPolicyClaim struct {
+	Name  *string `json:"name" tf:"name"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type WorkflowSpecAccessControlTriggerOpenAuthenticationPolicy struct {
+	Claim []WorkflowSpecAccessControlTriggerOpenAuthenticationPolicyClaim `json:"claim" tf:"claim"`
+	Name  *string                                                         `json:"name" tf:"name"`
+}
+
+type WorkflowSpecAccessControlTrigger struct {
+	AllowedCallerIPAddressRange []string `json:"allowedCallerIPAddressRange" tf:"allowed_caller_ip_address_range"`
+	// +optional
+	OpenAuthenticationPolicy []WorkflowSpecAccessControlTriggerOpenAuthenticationPolicy `json:"openAuthenticationPolicy,omitempty" tf:"open_authentication_policy"`
+}
+
+type WorkflowSpecAccessControlWorkflowManagement struct {
+	AllowedCallerIPAddressRange []string `json:"allowedCallerIPAddressRange" tf:"allowed_caller_ip_address_range"`
+}
+
+type WorkflowSpecAccessControl struct {
+	// +optional
+	Action *WorkflowSpecAccessControlAction `json:"action,omitempty" tf:"action"`
+	// +optional
+	Content *WorkflowSpecAccessControlContent `json:"content,omitempty" tf:"content"`
+	// +optional
+	Trigger *WorkflowSpecAccessControlTrigger `json:"trigger,omitempty" tf:"trigger"`
+	// +optional
+	WorkflowManagement *WorkflowSpecAccessControlWorkflowManagement `json:"workflowManagement,omitempty" tf:"workflow_management"`
+}
+
+type WorkflowSpecIdentity struct {
+	// +optional
+	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
+	// +optional
+	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
+}
+
 type WorkflowSpec struct {
 	State *WorkflowSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -61,11 +110,17 @@ type WorkflowSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	AccessControl *WorkflowSpecAccessControl `json:"accessControl,omitempty" tf:"access_control"`
+	// +optional
 	AccessEndpoint *string `json:"accessEndpoint,omitempty" tf:"access_endpoint"`
 	// +optional
 	ConnectorEndpointIPAddresses []string `json:"connectorEndpointIPAddresses,omitempty" tf:"connector_endpoint_ip_addresses"`
 	// +optional
 	ConnectorOutboundIPAddresses []string `json:"connectorOutboundIPAddresses,omitempty" tf:"connector_outbound_ip_addresses"`
+	// +optional
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+	// +optional
+	Identity *WorkflowSpecIdentity `json:"identity,omitempty" tf:"identity"`
 	// +optional
 	IntegrationServiceEnvironmentID *string `json:"integrationServiceEnvironmentID,omitempty" tf:"integration_service_environment_id"`
 	Location                        *string `json:"location" tf:"location"`
@@ -81,6 +136,8 @@ type WorkflowSpecResource struct {
 	WorkflowEndpointIPAddresses []string `json:"workflowEndpointIPAddresses,omitempty" tf:"workflow_endpoint_ip_addresses"`
 	// +optional
 	WorkflowOutboundIPAddresses []string `json:"workflowOutboundIPAddresses,omitempty" tf:"workflow_outbound_ip_addresses"`
+	// +optional
+	WorkflowParameters *map[string]string `json:"workflowParameters,omitempty" tf:"workflow_parameters"`
 	// +optional
 	WorkflowSchema *string `json:"workflowSchema,omitempty" tf:"workflow_schema"`
 	// +optional

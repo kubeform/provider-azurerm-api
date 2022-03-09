@@ -60,6 +60,9 @@ spec:
                   additionalLocation:
                     items:
                       properties:
+                        capacity:
+                          format: int64
+                          type: integer
                         gatewayRegionalURL:
                           type: string
                         location:
@@ -68,6 +71,8 @@ spec:
                           items:
                             type: string
                           type: array
+                        publicIPAddressID:
+                          type: string
                         publicIPAddresses:
                           items:
                             type: string
@@ -79,6 +84,10 @@ spec:
                           required:
                           - subnetID
                           type: object
+                        zones:
+                          items:
+                            type: string
+                          type: array
                       required:
                       - location
                       type: object
@@ -86,7 +95,13 @@ spec:
                   certificate:
                     items:
                       properties:
+                        expiry:
+                          type: string
                         storeName:
+                          type: string
+                        subject:
+                          type: string
+                        thumbprint:
                           type: string
                       required:
                       - storeName
@@ -108,12 +123,20 @@ spec:
                       developerPortal:
                         items:
                           properties:
+                            expiry:
+                              type: string
                             hostName:
                               type: string
                             keyVaultID:
                               type: string
                             negotiateClientCertificate:
                               type: boolean
+                            sslKeyvaultIdentityClientID:
+                              type: string
+                            subject:
+                              type: string
+                            thumbprint:
+                              type: string
                           required:
                           - hostName
                           type: object
@@ -121,12 +144,20 @@ spec:
                       management:
                         items:
                           properties:
+                            expiry:
+                              type: string
                             hostName:
                               type: string
                             keyVaultID:
                               type: string
                             negotiateClientCertificate:
                               type: boolean
+                            sslKeyvaultIdentityClientID:
+                              type: string
+                            subject:
+                              type: string
+                            thumbprint:
+                              type: string
                           required:
                           - hostName
                           type: object
@@ -134,12 +165,20 @@ spec:
                       portal:
                         items:
                           properties:
+                            expiry:
+                              type: string
                             hostName:
                               type: string
                             keyVaultID:
                               type: string
                             negotiateClientCertificate:
                               type: boolean
+                            sslKeyvaultIdentityClientID:
+                              type: string
+                            subject:
+                              type: string
+                            thumbprint:
+                              type: string
                           required:
                           - hostName
                           type: object
@@ -149,12 +188,20 @@ spec:
                           properties:
                             defaultSslBinding:
                               type: boolean
+                            expiry:
+                              type: string
                             hostName:
                               type: string
                             keyVaultID:
                               type: string
                             negotiateClientCertificate:
                               type: boolean
+                            sslKeyvaultIdentityClientID:
+                              type: string
+                            subject:
+                              type: string
+                            thumbprint:
+                              type: string
                           required:
                           - hostName
                           type: object
@@ -162,12 +209,20 @@ spec:
                       scm:
                         items:
                           properties:
+                            expiry:
+                              type: string
                             hostName:
                               type: string
                             keyVaultID:
                               type: string
                             negotiateClientCertificate:
                               type: boolean
+                            sslKeyvaultIdentityClientID:
+                              type: string
+                            subject:
+                              type: string
+                            thumbprint:
+                              type: string
                           required:
                           - hostName
                           type: object
@@ -180,7 +235,6 @@ spec:
                       identityIDS:
                         items:
                           type: string
-                        minItems: 1
                         type: array
                       principalID:
                         type: string
@@ -188,6 +242,8 @@ spec:
                         type: string
                       type:
                         type: string
+                    required:
+                    - type
                     type: object
                   location:
                     type: string
@@ -217,10 +273,14 @@ spec:
                       enableHttp2:
                         type: boolean
                     type: object
+                  publicIPAddressID:
+                    type: string
                   publicIPAddresses:
                     items:
                       type: string
                     type: array
+                  publicNetworkAccessEnabled:
+                    type: boolean
                   publisherEmail:
                     type: string
                   publisherName:
@@ -382,6 +442,9 @@ spec:
                   additionalLocation:
                     items:
                       properties:
+                        capacity:
+                          format: int64
+                          type: integer
                         gatewayRegionalURL:
                           type: string
                         location:
@@ -390,6 +453,8 @@ spec:
                           items:
                             type: string
                           type: array
+                        publicIPAddressID:
+                          type: string
                         publicIPAddresses:
                           items:
                             type: string
@@ -401,6 +466,10 @@ spec:
                           required:
                           - subnetID
                           type: object
+                        zones:
+                          items:
+                            type: string
+                          type: array
                       required:
                       - location
                       type: object
@@ -408,7 +477,13 @@ spec:
                   certificate:
                     items:
                       properties:
+                        expiry:
+                          type: string
                         storeName:
+                          type: string
+                        subject:
+                          type: string
+                        thumbprint:
                           type: string
                       required:
                       - storeName
@@ -430,12 +505,20 @@ spec:
                       developerPortal:
                         items:
                           properties:
+                            expiry:
+                              type: string
                             hostName:
                               type: string
                             keyVaultID:
                               type: string
                             negotiateClientCertificate:
                               type: boolean
+                            sslKeyvaultIdentityClientID:
+                              type: string
+                            subject:
+                              type: string
+                            thumbprint:
+                              type: string
                           required:
                           - hostName
                           type: object
@@ -443,12 +526,20 @@ spec:
                       management:
                         items:
                           properties:
+                            expiry:
+                              type: string
                             hostName:
                               type: string
                             keyVaultID:
                               type: string
                             negotiateClientCertificate:
                               type: boolean
+                            sslKeyvaultIdentityClientID:
+                              type: string
+                            subject:
+                              type: string
+                            thumbprint:
+                              type: string
                           required:
                           - hostName
                           type: object
@@ -456,12 +547,20 @@ spec:
                       portal:
                         items:
                           properties:
+                            expiry:
+                              type: string
                             hostName:
                               type: string
                             keyVaultID:
                               type: string
                             negotiateClientCertificate:
                               type: boolean
+                            sslKeyvaultIdentityClientID:
+                              type: string
+                            subject:
+                              type: string
+                            thumbprint:
+                              type: string
                           required:
                           - hostName
                           type: object
@@ -471,12 +570,20 @@ spec:
                           properties:
                             defaultSslBinding:
                               type: boolean
+                            expiry:
+                              type: string
                             hostName:
                               type: string
                             keyVaultID:
                               type: string
                             negotiateClientCertificate:
                               type: boolean
+                            sslKeyvaultIdentityClientID:
+                              type: string
+                            subject:
+                              type: string
+                            thumbprint:
+                              type: string
                           required:
                           - hostName
                           type: object
@@ -484,12 +591,20 @@ spec:
                       scm:
                         items:
                           properties:
+                            expiry:
+                              type: string
                             hostName:
                               type: string
                             keyVaultID:
                               type: string
                             negotiateClientCertificate:
                               type: boolean
+                            sslKeyvaultIdentityClientID:
+                              type: string
+                            subject:
+                              type: string
+                            thumbprint:
+                              type: string
                           required:
                           - hostName
                           type: object
@@ -502,7 +617,6 @@ spec:
                       identityIDS:
                         items:
                           type: string
-                        minItems: 1
                         type: array
                       principalID:
                         type: string
@@ -510,6 +624,8 @@ spec:
                         type: string
                       type:
                         type: string
+                    required:
+                    - type
                     type: object
                   location:
                     type: string
@@ -539,10 +655,14 @@ spec:
                       enableHttp2:
                         type: boolean
                     type: object
+                  publicIPAddressID:
+                    type: string
                   publicIPAddresses:
                     items:
                       type: string
                     type: array
+                  publicNetworkAccessEnabled:
+                    type: boolean
                   publisherEmail:
                     type: string
                   publisherName:

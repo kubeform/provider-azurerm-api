@@ -57,6 +57,10 @@ spec:
                 type: object
               resource:
                 properties:
+                  autoKeyRotationEnabled:
+                    type: boolean
+                  encryptionType:
+                    type: string
                   id:
                     type: string
                   identity:
@@ -129,6 +133,10 @@ spec:
                 type: object
               state:
                 properties:
+                  autoKeyRotationEnabled:
+                    type: boolean
+                  encryptionType:
+                    type: string
                   id:
                     type: string
                   identity:

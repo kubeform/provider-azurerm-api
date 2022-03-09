@@ -91,7 +91,7 @@ func (r *SystemTopicEventSubscription) ValidateUpdate(old runtime.Object) error 
 		return err
 	}
 
-	for key := range systemtopiceventsubscriptionForceNewList {
+	for key, _ := range systemtopiceventsubscriptionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

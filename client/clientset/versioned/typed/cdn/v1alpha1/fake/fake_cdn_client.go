@@ -33,6 +33,10 @@ func (c *FakeCdnV1alpha1) Endpoints(namespace string) v1alpha1.EndpointInterface
 	return &FakeEndpoints{c, namespace}
 }
 
+func (c *FakeCdnV1alpha1) EndpointCustomDomains(namespace string) v1alpha1.EndpointCustomDomainInterface {
+	return &FakeEndpointCustomDomains{c, namespace}
+}
+
 func (c *FakeCdnV1alpha1) Profiles(namespace string) v1alpha1.ProfileInterface {
 	return &FakeProfiles{c, namespace}
 }

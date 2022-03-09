@@ -80,13 +80,15 @@ spec:
                     description: Preferred App Group type to display
                     type: string
                   registrationInfo:
+                    description: This block is now non-functional and will be removed
+                      in version 3.0 of the Azure Provider - use the `azurerm_virtual_desktop_host_pool_registration_info`
+                      resource instead.
                     properties:
                       expirationDate:
+                        description: Deprecated
                         type: string
                       resetToken:
                         type: boolean
-                    required:
-                    - expirationDate
                     type: object
                   resourceGroupName:
                     type: string
@@ -179,13 +181,15 @@ spec:
                     description: Preferred App Group type to display
                     type: string
                   registrationInfo:
+                    description: This block is now non-functional and will be removed
+                      in version 3.0 of the Azure Provider - use the `azurerm_virtual_desktop_host_pool_registration_info`
+                      resource instead.
                     properties:
                       expirationDate:
+                        description: Deprecated
                         type: string
                       resetToken:
                         type: boolean
-                    required:
-                    - expirationDate
                     type: object
                   resourceGroupName:
                     type: string

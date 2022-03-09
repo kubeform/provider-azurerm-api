@@ -93,7 +93,9 @@ type AutoscaleSettingSpecProfileRuleMetricTriggerDimensions struct {
 type AutoscaleSettingSpecProfileRuleMetricTrigger struct {
 	// +optional
 	Dimensions []AutoscaleSettingSpecProfileRuleMetricTriggerDimensions `json:"dimensions,omitempty" tf:"dimensions"`
-	MetricName *string                                                  `json:"metricName" tf:"metric_name"`
+	// +optional
+	DivideByInstanceCount *bool   `json:"divideByInstanceCount,omitempty" tf:"divide_by_instance_count"`
+	MetricName            *string `json:"metricName" tf:"metric_name"`
 	// +optional
 	MetricNamespace  *string  `json:"metricNamespace,omitempty" tf:"metric_namespace"`
 	MetricResourceID *string  `json:"metricResourceID" tf:"metric_resource_id"`

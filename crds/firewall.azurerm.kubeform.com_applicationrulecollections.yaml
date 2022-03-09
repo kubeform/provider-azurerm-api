@@ -90,6 +90,7 @@ spec:
                               type:
                                 type: string
                             required:
+                            - port
                             - type
                             type: object
                           minItems: 1
@@ -192,6 +193,7 @@ spec:
                               type:
                                 type: string
                             required:
+                            - port
                             - type
                             type: object
                           minItems: 1

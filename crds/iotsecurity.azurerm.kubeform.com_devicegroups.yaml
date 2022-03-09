@@ -59,15 +59,34 @@ spec:
                 properties:
                   allowRule:
                     properties:
+                      connectionFromIPSNotAllowed:
+                        items:
+                          type: string
+                        type: array
                       connectionToIPNotAllowed:
+                        description: Deprecated
+                        items:
+                          type: string
+                        type: array
+                      connectionToIPSNotAllowed:
                         items:
                           type: string
                         type: array
                       localUserNotAllowed:
+                        description: Deprecated
+                        items:
+                          type: string
+                        type: array
+                      localUsersNotAllowed:
                         items:
                           type: string
                         type: array
                       processNotAllowed:
+                        description: Deprecated
+                        items:
+                          type: string
+                        type: array
+                      processesNotAllowed:
                         items:
                           type: string
                         type: array
@@ -144,15 +163,34 @@ spec:
                 properties:
                   allowRule:
                     properties:
+                      connectionFromIPSNotAllowed:
+                        items:
+                          type: string
+                        type: array
                       connectionToIPNotAllowed:
+                        description: Deprecated
+                        items:
+                          type: string
+                        type: array
+                      connectionToIPSNotAllowed:
                         items:
                           type: string
                         type: array
                       localUserNotAllowed:
+                        description: Deprecated
+                        items:
+                          type: string
+                        type: array
+                      localUsersNotAllowed:
                         items:
                           type: string
                         type: array
                       processNotAllowed:
+                        description: Deprecated
+                        items:
+                          type: string
+                        type: array
+                      processesNotAllowed:
                         items:
                           type: string
                         type: array

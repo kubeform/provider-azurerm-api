@@ -90,7 +90,7 @@ func (r *Logger) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range loggerForceNewList {
+	for key, _ := range loggerForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

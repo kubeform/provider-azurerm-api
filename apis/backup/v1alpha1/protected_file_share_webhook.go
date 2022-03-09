@@ -91,7 +91,7 @@ func (r *ProtectedFileShare) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range protectedfileshareForceNewList {
+	for key, _ := range protectedfileshareForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

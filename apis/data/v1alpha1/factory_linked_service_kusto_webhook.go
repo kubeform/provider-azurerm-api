@@ -89,7 +89,7 @@ func (r *FactoryLinkedServiceKusto) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range factorylinkedservicekustoForceNewList {
+	for key, _ := range factorylinkedservicekustoForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -312,6 +312,8 @@ spec:
                           type: object
                         type: array
                     type: object
+                  advancedFilteringOnArraysEnabled:
+                    type: boolean
                   azureFunctionEndpoint:
                     properties:
                       functionID:
@@ -325,6 +327,40 @@ spec:
                     required:
                     - functionID
                     type: object
+                  deadLetterIdentity:
+                    properties:
+                      type:
+                        type: string
+                      userAssignedIdentity:
+                        type: string
+                    required:
+                    - type
+                    type: object
+                  deliveryIdentity:
+                    properties:
+                      type:
+                        type: string
+                      userAssignedIdentity:
+                        type: string
+                    required:
+                    - type
+                    type: object
+                  deliveryProperty:
+                    items:
+                      properties:
+                        headerName:
+                          type: string
+                        secret:
+                          type: boolean
+                        sourceField:
+                          type: string
+                        type:
+                          type: string
+                      required:
+                      - headerName
+                      - type
+                      type: object
+                    type: array
                   eventDeliverySchema:
                     type: string
                   eventhubEndpoint:
@@ -387,6 +423,9 @@ spec:
                     type: object
                   storageQueueEndpoint:
                     properties:
+                      queueMessageTimeToLiveInSeconds:
+                        format: int64
+                        type: integer
                       queueName:
                         type: string
                       storageAccountID:
@@ -467,6 +506,15 @@ spec:
                 required:
                 - name
                 - scope
+                type: object
+              secretRef:
+                description: LocalObjectReference contains enough information to let
+                  you locate the referenced object inside the same namespace.
+                properties:
+                  name:
+                    description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+                      TODO: Add other useful fields. apiVersion, kind, uid?'
+                    type: string
                 type: object
               state:
                 properties:
@@ -725,6 +773,8 @@ spec:
                           type: object
                         type: array
                     type: object
+                  advancedFilteringOnArraysEnabled:
+                    type: boolean
                   azureFunctionEndpoint:
                     properties:
                       functionID:
@@ -738,6 +788,40 @@ spec:
                     required:
                     - functionID
                     type: object
+                  deadLetterIdentity:
+                    properties:
+                      type:
+                        type: string
+                      userAssignedIdentity:
+                        type: string
+                    required:
+                    - type
+                    type: object
+                  deliveryIdentity:
+                    properties:
+                      type:
+                        type: string
+                      userAssignedIdentity:
+                        type: string
+                    required:
+                    - type
+                    type: object
+                  deliveryProperty:
+                    items:
+                      properties:
+                        headerName:
+                          type: string
+                        secret:
+                          type: boolean
+                        sourceField:
+                          type: string
+                        type:
+                          type: string
+                      required:
+                      - headerName
+                      - type
+                      type: object
+                    type: array
                   eventDeliverySchema:
                     type: string
                   eventhubEndpoint:
@@ -800,6 +884,9 @@ spec:
                     type: object
                   storageQueueEndpoint:
                     properties:
+                      queueMessageTimeToLiveInSeconds:
+                        format: int64
+                        type: integer
                       queueName:
                         type: string
                       storageAccountID:

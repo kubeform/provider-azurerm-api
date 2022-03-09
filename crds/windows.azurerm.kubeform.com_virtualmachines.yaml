@@ -84,6 +84,8 @@ spec:
                     type: object
                   computerName:
                     type: string
+                  dedicatedHostGroupID:
+                    type: string
                   dedicatedHostID:
                     type: string
                   enableAutomaticUpdates:
@@ -94,6 +96,8 @@ spec:
                     type: string
                   extensionsTimeBudget:
                     type: string
+                  hotpatchingEnabled:
+                    type: boolean
                   id:
                     type: string
                   identity:
@@ -212,6 +216,8 @@ spec:
                       - keyVaultID
                       type: object
                     type: array
+                  secureBootEnabled:
+                    type: boolean
                   size:
                     type: string
                   sourceImageID:
@@ -276,10 +282,14 @@ spec:
                     type: object
                   timezone:
                     type: string
+                  userData:
+                    type: string
                   virtualMachineID:
                     type: string
                   virtualMachineScaleSetID:
                     type: string
+                  vtpmEnabled:
+                    type: boolean
                   winrmListener:
                     items:
                       properties:
@@ -340,6 +350,8 @@ spec:
                     type: object
                   computerName:
                     type: string
+                  dedicatedHostGroupID:
+                    type: string
                   dedicatedHostID:
                     type: string
                   enableAutomaticUpdates:
@@ -350,6 +362,8 @@ spec:
                     type: string
                   extensionsTimeBudget:
                     type: string
+                  hotpatchingEnabled:
+                    type: boolean
                   id:
                     type: string
                   identity:
@@ -468,6 +482,8 @@ spec:
                       - keyVaultID
                       type: object
                     type: array
+                  secureBootEnabled:
+                    type: boolean
                   size:
                     type: string
                   sourceImageID:
@@ -532,10 +548,14 @@ spec:
                     type: object
                   timezone:
                     type: string
+                  userData:
+                    type: string
                   virtualMachineID:
                     type: string
                   virtualMachineScaleSetID:
                     type: string
+                  vtpmEnabled:
+                    type: boolean
                   winrmListener:
                     items:
                       properties:

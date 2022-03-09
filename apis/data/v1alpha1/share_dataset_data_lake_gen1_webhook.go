@@ -92,7 +92,7 @@ func (r *ShareDatasetDataLakeGen1) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range sharedatasetdatalakegen1ForceNewList {
+	for key, _ := range sharedatasetdatalakegen1ForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

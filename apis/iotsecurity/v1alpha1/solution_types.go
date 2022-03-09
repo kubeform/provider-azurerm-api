@@ -41,6 +41,11 @@ type Solution struct {
 	Status            SolutionStatus `json:"status,omitempty"`
 }
 
+type SolutionSpecAdditionalWorkspace struct {
+	DataTypes   []string `json:"dataTypes" tf:"data_types"`
+	WorkspaceID *string  `json:"workspaceID" tf:"workspace_id"`
+}
+
 type SolutionSpecRecommendationsEnabled struct {
 	// +optional
 	AcrAuthentication *bool `json:"acrAuthentication,omitempty" tf:"acr_authentication"`
@@ -95,7 +100,11 @@ type SolutionSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	DisplayName *string `json:"displayName" tf:"display_name"`
+	// +optional
+	AdditionalWorkspace []SolutionSpecAdditionalWorkspace `json:"additionalWorkspace,omitempty" tf:"additional_workspace"`
+	// +optional
+	DisabledDataSources []string `json:"disabledDataSources,omitempty" tf:"disabled_data_sources"`
+	DisplayName         *string  `json:"displayName" tf:"display_name"`
 	// +optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 	// +optional

@@ -27,47 +27,55 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecExtendedAuditingPolicy{}).Type1()):                   DatabaseSpecExtendedAuditingPolicyCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecLongTermRetentionPolicy{}).Type1()):                  DatabaseSpecLongTermRetentionPolicyCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecShortTermRetentionPolicy{}).Type1()):                 DatabaseSpecShortTermRetentionPolicyCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecThreatDetectionPolicy{}).Type1()):                    DatabaseSpecThreatDetectionPolicyCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ElasticpoolSpecPerDatabaseSettings{}).Type1()):                   ElasticpoolSpecPerDatabaseSettingsCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ElasticpoolSpecSku{}).Type1()):                                   ElasticpoolSpecSkuCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecAzureadAdministrator{}).Type1()):                       ServerSpecAzureadAdministratorCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecExtendedAuditingPolicy{}).Type1()):                     ServerSpecExtendedAuditingPolicyCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecIdentity{}).Type1()):                                   ServerSpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ServerVulnerabilityAssessmentSpecRecurringScans{}).Type1()):      ServerVulnerabilityAssessmentSpecRecurringScansCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecAutoBackup{}).Type1()):                         VirtualMachineSpecAutoBackupCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecAutoBackupManualSchedule{}).Type1()):           VirtualMachineSpecAutoBackupManualScheduleCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecAutoPatching{}).Type1()):                       VirtualMachineSpecAutoPatchingCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecKeyVaultCredential{}).Type1()):                 VirtualMachineSpecKeyVaultCredentialCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfiguration{}).Type1()):               VirtualMachineSpecStorageConfigurationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfigurationDataSettings{}).Type1()):   VirtualMachineSpecStorageConfigurationDataSettingsCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfigurationLogSettings{}).Type1()):    VirtualMachineSpecStorageConfigurationLogSettingsCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfigurationTempDbSettings{}).Type1()): VirtualMachineSpecStorageConfigurationTempDbSettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecExtendedAuditingPolicy{}).Type1()):                              DatabaseSpecExtendedAuditingPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecLongTermRetentionPolicy{}).Type1()):                             DatabaseSpecLongTermRetentionPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecShortTermRetentionPolicy{}).Type1()):                            DatabaseSpecShortTermRetentionPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecThreatDetectionPolicy{}).Type1()):                               DatabaseSpecThreatDetectionPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ElasticpoolSpecPerDatabaseSettings{}).Type1()):                              ElasticpoolSpecPerDatabaseSettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ElasticpoolSpecSku{}).Type1()):                                              ElasticpoolSpecSkuCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FailoverGroupSpecReadWriteEndpointFailoverPolicy{}).Type1()):                FailoverGroupSpecReadWriteEndpointFailoverPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ManagedInstanceSpecIdentity{}).Type1()):                                     ManagedInstanceSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy{}).Type1()): ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecAzureadAdministrator{}).Type1()):                                  ServerSpecAzureadAdministratorCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecExtendedAuditingPolicy{}).Type1()):                                ServerSpecExtendedAuditingPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecFoo{}).Type1()):                                                   ServerSpecFooCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecIdentity{}).Type1()):                                              ServerSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServerVulnerabilityAssessmentSpecRecurringScans{}).Type1()):                 ServerVulnerabilityAssessmentSpecRecurringScansCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecAutoBackup{}).Type1()):                                    VirtualMachineSpecAutoBackupCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecAutoBackupManualSchedule{}).Type1()):                      VirtualMachineSpecAutoBackupManualScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecAutoPatching{}).Type1()):                                  VirtualMachineSpecAutoPatchingCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecKeyVaultCredential{}).Type1()):                            VirtualMachineSpecKeyVaultCredentialCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfiguration{}).Type1()):                          VirtualMachineSpecStorageConfigurationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfigurationDataSettings{}).Type1()):              VirtualMachineSpecStorageConfigurationDataSettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfigurationLogSettings{}).Type1()):               VirtualMachineSpecStorageConfigurationLogSettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfigurationTempDbSettings{}).Type1()):            VirtualMachineSpecStorageConfigurationTempDbSettingsCodec{},
 	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecExtendedAuditingPolicy{}).Type1()):                   DatabaseSpecExtendedAuditingPolicyCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecLongTermRetentionPolicy{}).Type1()):                  DatabaseSpecLongTermRetentionPolicyCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecShortTermRetentionPolicy{}).Type1()):                 DatabaseSpecShortTermRetentionPolicyCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecThreatDetectionPolicy{}).Type1()):                    DatabaseSpecThreatDetectionPolicyCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ElasticpoolSpecPerDatabaseSettings{}).Type1()):                   ElasticpoolSpecPerDatabaseSettingsCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ElasticpoolSpecSku{}).Type1()):                                   ElasticpoolSpecSkuCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecAzureadAdministrator{}).Type1()):                       ServerSpecAzureadAdministratorCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecExtendedAuditingPolicy{}).Type1()):                     ServerSpecExtendedAuditingPolicyCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecIdentity{}).Type1()):                                   ServerSpecIdentityCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(ServerVulnerabilityAssessmentSpecRecurringScans{}).Type1()):      ServerVulnerabilityAssessmentSpecRecurringScansCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecAutoBackup{}).Type1()):                         VirtualMachineSpecAutoBackupCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecAutoBackupManualSchedule{}).Type1()):           VirtualMachineSpecAutoBackupManualScheduleCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecAutoPatching{}).Type1()):                       VirtualMachineSpecAutoPatchingCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecKeyVaultCredential{}).Type1()):                 VirtualMachineSpecKeyVaultCredentialCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfiguration{}).Type1()):               VirtualMachineSpecStorageConfigurationCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfigurationDataSettings{}).Type1()):   VirtualMachineSpecStorageConfigurationDataSettingsCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfigurationLogSettings{}).Type1()):    VirtualMachineSpecStorageConfigurationLogSettingsCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfigurationTempDbSettings{}).Type1()): VirtualMachineSpecStorageConfigurationTempDbSettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecExtendedAuditingPolicy{}).Type1()):                              DatabaseSpecExtendedAuditingPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecLongTermRetentionPolicy{}).Type1()):                             DatabaseSpecLongTermRetentionPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecShortTermRetentionPolicy{}).Type1()):                            DatabaseSpecShortTermRetentionPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DatabaseSpecThreatDetectionPolicy{}).Type1()):                               DatabaseSpecThreatDetectionPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ElasticpoolSpecPerDatabaseSettings{}).Type1()):                              ElasticpoolSpecPerDatabaseSettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ElasticpoolSpecSku{}).Type1()):                                              ElasticpoolSpecSkuCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(FailoverGroupSpecReadWriteEndpointFailoverPolicy{}).Type1()):                FailoverGroupSpecReadWriteEndpointFailoverPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ManagedInstanceSpecIdentity{}).Type1()):                                     ManagedInstanceSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy{}).Type1()): ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecAzureadAdministrator{}).Type1()):                                  ServerSpecAzureadAdministratorCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecExtendedAuditingPolicy{}).Type1()):                                ServerSpecExtendedAuditingPolicyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecFoo{}).Type1()):                                                   ServerSpecFooCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecIdentity{}).Type1()):                                              ServerSpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ServerVulnerabilityAssessmentSpecRecurringScans{}).Type1()):                 ServerVulnerabilityAssessmentSpecRecurringScansCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecAutoBackup{}).Type1()):                                    VirtualMachineSpecAutoBackupCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecAutoBackupManualSchedule{}).Type1()):                      VirtualMachineSpecAutoBackupManualScheduleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecAutoPatching{}).Type1()):                                  VirtualMachineSpecAutoPatchingCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecKeyVaultCredential{}).Type1()):                            VirtualMachineSpecKeyVaultCredentialCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfiguration{}).Type1()):                          VirtualMachineSpecStorageConfigurationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfigurationDataSettings{}).Type1()):              VirtualMachineSpecStorageConfigurationDataSettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfigurationLogSettings{}).Type1()):               VirtualMachineSpecStorageConfigurationLogSettingsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(VirtualMachineSpecStorageConfigurationTempDbSettings{}).Type1()):            VirtualMachineSpecStorageConfigurationTempDbSettingsCodec{},
 	}
 }
 
@@ -558,6 +566,243 @@ func (ElasticpoolSpecSkuCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterato
 }
 
 // +k8s:deepcopy-gen=false
+type FailoverGroupSpecReadWriteEndpointFailoverPolicyCodec struct {
+}
+
+func (FailoverGroupSpecReadWriteEndpointFailoverPolicyCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*FailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) == nil
+}
+
+func (FailoverGroupSpecReadWriteEndpointFailoverPolicyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*FailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr)
+	var objs []FailoverGroupSpecReadWriteEndpointFailoverPolicy
+	if obj != nil {
+		objs = []FailoverGroupSpecReadWriteEndpointFailoverPolicy{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FailoverGroupSpecReadWriteEndpointFailoverPolicy{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (FailoverGroupSpecReadWriteEndpointFailoverPolicyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*FailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) = FailoverGroupSpecReadWriteEndpointFailoverPolicy{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []FailoverGroupSpecReadWriteEndpointFailoverPolicy
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FailoverGroupSpecReadWriteEndpointFailoverPolicy{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*FailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) = objs[0]
+			} else {
+				*(*FailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) = FailoverGroupSpecReadWriteEndpointFailoverPolicy{}
+			}
+		} else {
+			*(*FailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) = FailoverGroupSpecReadWriteEndpointFailoverPolicy{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj FailoverGroupSpecReadWriteEndpointFailoverPolicy
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(FailoverGroupSpecReadWriteEndpointFailoverPolicy{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*FailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) = obj
+		} else {
+			*(*FailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) = FailoverGroupSpecReadWriteEndpointFailoverPolicy{}
+		}
+	default:
+		iter.ReportError("decode FailoverGroupSpecReadWriteEndpointFailoverPolicy", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type ManagedInstanceSpecIdentityCodec struct {
+}
+
+func (ManagedInstanceSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*ManagedInstanceSpecIdentity)(ptr) == nil
+}
+
+func (ManagedInstanceSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*ManagedInstanceSpecIdentity)(ptr)
+	var objs []ManagedInstanceSpecIdentity
+	if obj != nil {
+		objs = []ManagedInstanceSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ManagedInstanceSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (ManagedInstanceSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*ManagedInstanceSpecIdentity)(ptr) = ManagedInstanceSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []ManagedInstanceSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ManagedInstanceSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*ManagedInstanceSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*ManagedInstanceSpecIdentity)(ptr) = ManagedInstanceSpecIdentity{}
+			}
+		} else {
+			*(*ManagedInstanceSpecIdentity)(ptr) = ManagedInstanceSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj ManagedInstanceSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ManagedInstanceSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*ManagedInstanceSpecIdentity)(ptr) = obj
+		} else {
+			*(*ManagedInstanceSpecIdentity)(ptr) = ManagedInstanceSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode ManagedInstanceSpecIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicyCodec struct {
+}
+
+func (ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicyCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) == nil
+}
+
+func (ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr)
+	var objs []ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy
+	if obj != nil {
+		objs = []ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) = ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) = objs[0]
+			} else {
+				*(*ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) = ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy{}
+			}
+		} else {
+			*(*ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) = ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) = obj
+		} else {
+			*(*ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy)(ptr) = ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy{}
+		}
+	default:
+		iter.ReportError("decode ManagedInstanceFailoverGroupSpecReadWriteEndpointFailoverPolicy", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type ServerSpecAzureadAdministratorCodec struct {
 }
 
@@ -712,6 +957,85 @@ func (ServerSpecExtendedAuditingPolicyCodec) Decode(ptr unsafe.Pointer, iter *js
 		}
 	default:
 		iter.ReportError("decode ServerSpecExtendedAuditingPolicy", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type ServerSpecFooCodec struct {
+}
+
+func (ServerSpecFooCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*ServerSpecFoo)(ptr) == nil
+}
+
+func (ServerSpecFooCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*ServerSpecFoo)(ptr)
+	var objs []ServerSpecFoo
+	if obj != nil {
+		objs = []ServerSpecFoo{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecFoo{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (ServerSpecFooCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*ServerSpecFoo)(ptr) = ServerSpecFoo{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []ServerSpecFoo
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecFoo{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*ServerSpecFoo)(ptr) = objs[0]
+			} else {
+				*(*ServerSpecFoo)(ptr) = ServerSpecFoo{}
+			}
+		} else {
+			*(*ServerSpecFoo)(ptr) = ServerSpecFoo{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj ServerSpecFoo
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ServerSpecFoo{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*ServerSpecFoo)(ptr) = obj
+		} else {
+			*(*ServerSpecFoo)(ptr) = ServerSpecFoo{}
+		}
+	default:
+		iter.ReportError("decode ServerSpecFoo", "unexpected JSON type")
 	}
 }
 

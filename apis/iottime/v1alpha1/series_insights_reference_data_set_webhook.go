@@ -93,7 +93,7 @@ func (r *SeriesInsightsReferenceDataSet) ValidateUpdate(old runtime.Object) erro
 		return err
 	}
 
-	for key := range seriesinsightsreferencedatasetForceNewList {
+	for key, _ := range seriesinsightsreferencedatasetForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

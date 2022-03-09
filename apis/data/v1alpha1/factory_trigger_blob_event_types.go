@@ -67,6 +67,8 @@ type FactoryTriggerBlobEventSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	Activated *bool `json:"activated,omitempty" tf:"activated"`
+	// +optional
 	AdditionalProperties *map[string]string `json:"additionalProperties,omitempty" tf:"additional_properties"`
 	// +optional
 	Annotations []string `json:"annotations,omitempty" tf:"annotations"`

@@ -30,6 +30,8 @@ type Interface interface {
 	Registries() RegistryInformer
 	// RegistryScopeMaps returns a RegistryScopeMapInformer.
 	RegistryScopeMaps() RegistryScopeMapInformer
+	// RegistryTasks returns a RegistryTaskInformer.
+	RegistryTasks() RegistryTaskInformer
 	// RegistryTokens returns a RegistryTokenInformer.
 	RegistryTokens() RegistryTokenInformer
 	// RegistryWebhooks returns a RegistryWebhookInformer.
@@ -60,6 +62,11 @@ func (v *version) Registries() RegistryInformer {
 // RegistryScopeMaps returns a RegistryScopeMapInformer.
 func (v *version) RegistryScopeMaps() RegistryScopeMapInformer {
 	return &registryScopeMapInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// RegistryTasks returns a RegistryTaskInformer.
+func (v *version) RegistryTasks() RegistryTaskInformer {
+	return &registryTaskInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // RegistryTokens returns a RegistryTokenInformer.

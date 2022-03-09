@@ -220,6 +220,10 @@ spec:
                           type: integer
                         isPrimary:
                           type: boolean
+                        isStateless:
+                          type: boolean
+                        multipleAvailabilityZones:
+                          type: boolean
                         name:
                           type: string
                         placementProperties:
@@ -273,6 +277,8 @@ spec:
                     - commonNames
                     - x509StoreName
                     type: object
+                  serviceFabricZonalUpgradeMode:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -356,6 +362,8 @@ spec:
                         type: string
                     type: object
                   vmImage:
+                    type: string
+                  vmssZonalUpgradeMode:
                     type: string
                 required:
                 - location
@@ -532,6 +540,10 @@ spec:
                           type: integer
                         isPrimary:
                           type: boolean
+                        isStateless:
+                          type: boolean
+                        multipleAvailabilityZones:
+                          type: boolean
                         name:
                           type: string
                         placementProperties:
@@ -585,6 +597,8 @@ spec:
                     - commonNames
                     - x509StoreName
                     type: object
+                  serviceFabricZonalUpgradeMode:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -668,6 +682,8 @@ spec:
                         type: string
                     type: object
                   vmImage:
+                    type: string
+                  vmssZonalUpgradeMode:
                     type: string
                 required:
                 - location

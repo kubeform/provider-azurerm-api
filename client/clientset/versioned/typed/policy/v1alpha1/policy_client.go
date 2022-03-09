@@ -31,6 +31,7 @@ type PolicyV1alpha1Interface interface {
 	DefinitionsGetter
 	RemediationsGetter
 	SetDefinitionsGetter
+	VirtualMachineConfigurationAssignmentsGetter
 }
 
 // PolicyV1alpha1Client is used to interact with features provided by the policy.azurerm.kubeform.com group.
@@ -52,6 +53,10 @@ func (c *PolicyV1alpha1Client) Remediations(namespace string) RemediationInterfa
 
 func (c *PolicyV1alpha1Client) SetDefinitions(namespace string) SetDefinitionInterface {
 	return newSetDefinitions(c, namespace)
+}
+
+func (c *PolicyV1alpha1Client) VirtualMachineConfigurationAssignments(namespace string) VirtualMachineConfigurationAssignmentInterface {
+	return newVirtualMachineConfigurationAssignments(c, namespace)
 }
 
 // NewForConfig creates a new PolicyV1alpha1Client for the given config.

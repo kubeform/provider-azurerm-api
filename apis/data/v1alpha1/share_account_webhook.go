@@ -42,6 +42,7 @@ func (r *ShareAccount) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &ShareAccount{}
 
 var shareaccountForceNewList = map[string]bool{
+	"/identity/*/type":     true,
 	"/location":            true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *ShareAccount) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range shareaccountForceNewList {
+	for key, _ := range shareaccountForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

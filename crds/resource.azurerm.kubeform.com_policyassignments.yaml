@@ -73,6 +73,8 @@ spec:
                         type: string
                       type:
                         type: string
+                    required:
+                    - type
                     type: object
                   location:
                     type: string
@@ -80,6 +82,17 @@ spec:
                     type: string
                   name:
                     type: string
+                  nonComplianceMessage:
+                    items:
+                      properties:
+                        content:
+                          type: string
+                        policyDefinitionReferenceID:
+                          type: string
+                      required:
+                      - content
+                      type: object
+                    type: array
                   notScopes:
                     items:
                       type: string
@@ -151,6 +164,8 @@ spec:
                         type: string
                       type:
                         type: string
+                    required:
+                    - type
                     type: object
                   location:
                     type: string
@@ -158,6 +173,17 @@ spec:
                     type: string
                   name:
                     type: string
+                  nonComplianceMessage:
+                    items:
+                      properties:
+                        content:
+                          type: string
+                        policyDefinitionReferenceID:
+                          type: string
+                      required:
+                      - content
+                      type: object
+                    type: array
                   notScopes:
                     items:
                       type: string

@@ -59,6 +59,8 @@ spec:
                 properties:
                   accessTier:
                     type: string
+                  cacheControl:
+                    type: string
                   contentMd5:
                     type: string
                   contentType:
@@ -138,6 +140,8 @@ spec:
               state:
                 properties:
                   accessTier:
+                    type: string
+                  cacheControl:
                     type: string
                   contentMd5:
                     type: string

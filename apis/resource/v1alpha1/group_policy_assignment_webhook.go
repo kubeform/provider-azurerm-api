@@ -92,7 +92,7 @@ func (r *GroupPolicyAssignment) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range grouppolicyassignmentForceNewList {
+	for key, _ := range grouppolicyassignmentForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

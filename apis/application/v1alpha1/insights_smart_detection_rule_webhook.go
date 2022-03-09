@@ -89,7 +89,7 @@ func (r *InsightsSmartDetectionRule) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range insightssmartdetectionruleForceNewList {
+	for key, _ := range insightssmartdetectionruleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

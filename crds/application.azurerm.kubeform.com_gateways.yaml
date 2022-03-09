@@ -87,7 +87,6 @@ spec:
                         fqdns:
                           items:
                             type: string
-                          minItems: 1
                           type: array
                         ipAddresses:
                           items:
@@ -178,8 +177,12 @@ spec:
                     type: array
                   enableHttp2:
                     type: boolean
+                  fipsEnabled:
+                    type: boolean
                   firewallPolicyID:
                     type: string
+                  forceFirewallPolicyAssociation:
+                    type: boolean
                   frontendIPConfiguration:
                     items:
                       properties:
@@ -190,6 +193,10 @@ spec:
                         privateIPAddress:
                           type: string
                         privateIPAddressAllocation:
+                          type: string
+                        privateLinkConfigurationID:
+                          type: string
+                        privateLinkConfigurationName:
                           type: string
                         publicIPAddressID:
                           type: string
@@ -275,6 +282,10 @@ spec:
                           type: string
                         sslCertificateName:
                           type: string
+                        sslProfileID:
+                          type: string
+                        sslProfileName:
+                          type: string
                       required:
                       - frontendIPConfigurationName
                       - frontendPortName
@@ -294,11 +305,54 @@ spec:
                         type: string
                     required:
                     - identityIDS
+                    - type
                     type: object
                   location:
                     type: string
                   name:
                     type: string
+                  privateEndpointConnection:
+                    items:
+                      properties:
+                        ID:
+                          type: string
+                        name:
+                          type: string
+                      type: object
+                    type: array
+                  privateLinkConfiguration:
+                    items:
+                      properties:
+                        ID:
+                          type: string
+                        ipConfiguration:
+                          items:
+                            properties:
+                              name:
+                                type: string
+                              primary:
+                                type: boolean
+                              privateIPAddress:
+                                type: string
+                              privateIPAddressAllocation:
+                                type: string
+                              subnetID:
+                                type: string
+                            required:
+                            - name
+                            - primary
+                            - privateIPAddressAllocation
+                            - subnetID
+                            type: object
+                          minItems: 1
+                          type: array
+                        name:
+                          type: string
+                      required:
+                      - ipConfiguration
+                      - name
+                      type: object
+                    type: array
                   probe:
                     items:
                       properties:
@@ -390,6 +444,9 @@ spec:
                           type: string
                         name:
                           type: string
+                        priority:
+                          format: int64
+                          type: integer
                         redirectConfigurationID:
                           type: string
                         redirectConfigurationName:
@@ -515,22 +572,54 @@ spec:
                       type: object
                     type: array
                   sslPolicy:
+                    properties:
+                      cipherSuites:
+                        items:
+                          type: string
+                        type: array
+                      disabledProtocols:
+                        items:
+                          type: string
+                        type: array
+                      minProtocolVersion:
+                        type: string
+                      policyName:
+                        type: string
+                      policyType:
+                        type: string
+                    type: object
+                  sslProfile:
                     items:
                       properties:
-                        cipherSuites:
+                        ID:
+                          type: string
+                        name:
+                          type: string
+                        sslPolicy:
+                          properties:
+                            cipherSuites:
+                              items:
+                                type: string
+                              type: array
+                            disabledProtocols:
+                              items:
+                                type: string
+                              type: array
+                            minProtocolVersion:
+                              type: string
+                            policyName:
+                              type: string
+                            policyType:
+                              type: string
+                          type: object
+                        trustedClientCertificateNames:
                           items:
                             type: string
                           type: array
-                        disabledProtocols:
-                          items:
-                            type: string
-                          type: array
-                        minProtocolVersion:
-                          type: string
-                        policyName:
-                          type: string
-                        policyType:
-                          type: string
+                        verifyClientCertIssuerDn:
+                          type: boolean
+                      required:
+                      - name
                       type: object
                     type: array
                   tags:
@@ -575,10 +664,23 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  trustedClientCertificate:
+                    items:
+                      properties:
+                        ID:
+                          type: string
+                        name:
+                          type: string
+                      required:
+                      - name
+                      type: object
+                    type: array
                   trustedRootCertificate:
                     items:
                       properties:
                         ID:
+                          type: string
+                        keyVaultSecretID:
                           type: string
                         name:
                           type: string
@@ -756,7 +858,6 @@ spec:
                         fqdns:
                           items:
                             type: string
-                          minItems: 1
                           type: array
                         ipAddresses:
                           items:
@@ -847,8 +948,12 @@ spec:
                     type: array
                   enableHttp2:
                     type: boolean
+                  fipsEnabled:
+                    type: boolean
                   firewallPolicyID:
                     type: string
+                  forceFirewallPolicyAssociation:
+                    type: boolean
                   frontendIPConfiguration:
                     items:
                       properties:
@@ -859,6 +964,10 @@ spec:
                         privateIPAddress:
                           type: string
                         privateIPAddressAllocation:
+                          type: string
+                        privateLinkConfigurationID:
+                          type: string
+                        privateLinkConfigurationName:
                           type: string
                         publicIPAddressID:
                           type: string
@@ -944,6 +1053,10 @@ spec:
                           type: string
                         sslCertificateName:
                           type: string
+                        sslProfileID:
+                          type: string
+                        sslProfileName:
+                          type: string
                       required:
                       - frontendIPConfigurationName
                       - frontendPortName
@@ -963,11 +1076,54 @@ spec:
                         type: string
                     required:
                     - identityIDS
+                    - type
                     type: object
                   location:
                     type: string
                   name:
                     type: string
+                  privateEndpointConnection:
+                    items:
+                      properties:
+                        ID:
+                          type: string
+                        name:
+                          type: string
+                      type: object
+                    type: array
+                  privateLinkConfiguration:
+                    items:
+                      properties:
+                        ID:
+                          type: string
+                        ipConfiguration:
+                          items:
+                            properties:
+                              name:
+                                type: string
+                              primary:
+                                type: boolean
+                              privateIPAddress:
+                                type: string
+                              privateIPAddressAllocation:
+                                type: string
+                              subnetID:
+                                type: string
+                            required:
+                            - name
+                            - primary
+                            - privateIPAddressAllocation
+                            - subnetID
+                            type: object
+                          minItems: 1
+                          type: array
+                        name:
+                          type: string
+                      required:
+                      - ipConfiguration
+                      - name
+                      type: object
+                    type: array
                   probe:
                     items:
                       properties:
@@ -1059,6 +1215,9 @@ spec:
                           type: string
                         name:
                           type: string
+                        priority:
+                          format: int64
+                          type: integer
                         redirectConfigurationID:
                           type: string
                         redirectConfigurationName:
@@ -1184,22 +1343,54 @@ spec:
                       type: object
                     type: array
                   sslPolicy:
+                    properties:
+                      cipherSuites:
+                        items:
+                          type: string
+                        type: array
+                      disabledProtocols:
+                        items:
+                          type: string
+                        type: array
+                      minProtocolVersion:
+                        type: string
+                      policyName:
+                        type: string
+                      policyType:
+                        type: string
+                    type: object
+                  sslProfile:
                     items:
                       properties:
-                        cipherSuites:
+                        ID:
+                          type: string
+                        name:
+                          type: string
+                        sslPolicy:
+                          properties:
+                            cipherSuites:
+                              items:
+                                type: string
+                              type: array
+                            disabledProtocols:
+                              items:
+                                type: string
+                              type: array
+                            minProtocolVersion:
+                              type: string
+                            policyName:
+                              type: string
+                            policyType:
+                              type: string
+                          type: object
+                        trustedClientCertificateNames:
                           items:
                             type: string
                           type: array
-                        disabledProtocols:
-                          items:
-                            type: string
-                          type: array
-                        minProtocolVersion:
-                          type: string
-                        policyName:
-                          type: string
-                        policyType:
-                          type: string
+                        verifyClientCertIssuerDn:
+                          type: boolean
+                      required:
+                      - name
                       type: object
                     type: array
                   tags:
@@ -1244,10 +1435,23 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  trustedClientCertificate:
+                    items:
+                      properties:
+                        ID:
+                          type: string
+                        name:
+                          type: string
+                      required:
+                      - name
+                      type: object
+                    type: array
                   trustedRootCertificate:
                     items:
                       properties:
                         ID:
+                          type: string
+                        keyVaultSecretID:
                           type: string
                         name:
                           type: string

@@ -84,15 +84,22 @@ type ServiceSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	ConnectivityLogsEnabled *bool `json:"connectivityLogsEnabled,omitempty" tf:"connectivity_logs_enabled"`
+	// +optional
 	Cors []ServiceSpecCors `json:"cors,omitempty" tf:"cors"`
 	// +optional
+	// Deprecated
 	Features []ServiceSpecFeatures `json:"features,omitempty" tf:"features"`
 	// +optional
 	Hostname *string `json:"hostname,omitempty" tf:"hostname"`
 	// +optional
 	IpAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
-	Location  *string `json:"location" tf:"location"`
-	Name      *string `json:"name" tf:"name"`
+	// +optional
+	LiveTraceEnabled *bool   `json:"liveTraceEnabled,omitempty" tf:"live_trace_enabled"`
+	Location         *string `json:"location" tf:"location"`
+	// +optional
+	MessagingLogsEnabled *bool   `json:"messagingLogsEnabled,omitempty" tf:"messaging_logs_enabled"`
+	Name                 *string `json:"name" tf:"name"`
 	// +optional
 	PrimaryAccessKey *string `json:"-" sensitive:"true" tf:"primary_access_key"`
 	// +optional
@@ -105,8 +112,10 @@ type ServiceSpecResource struct {
 	// +optional
 	SecondaryConnectionString *string `json:"-" sensitive:"true" tf:"secondary_connection_string"`
 	// +optional
-	ServerPort *int64          `json:"serverPort,omitempty" tf:"server_port"`
-	Sku        *ServiceSpecSku `json:"sku" tf:"sku"`
+	ServerPort *int64 `json:"serverPort,omitempty" tf:"server_port"`
+	// +optional
+	ServiceMode *string         `json:"serviceMode,omitempty" tf:"service_mode"`
+	Sku         *ServiceSpecSku `json:"sku" tf:"sku"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 	// +optional

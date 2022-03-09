@@ -24,6 +24,8 @@ import (
 	time "time"
 
 	versioned "kubeform.dev/provider-azurerm-api/client/clientset/versioned"
+	aadb2c "kubeform.dev/provider-azurerm-api/client/informers/externalversions/aadb2c"
+	active "kubeform.dev/provider-azurerm-api/client/informers/externalversions/active"
 	advanced "kubeform.dev/provider-azurerm-api/client/informers/externalversions/advanced"
 	analysis "kubeform.dev/provider-azurerm-api/client/informers/externalversions/analysis"
 	apimanagement "kubeform.dev/provider-azurerm-api/client/informers/externalversions/apimanagement"
@@ -81,9 +83,11 @@ import (
 	lb "kubeform.dev/provider-azurerm-api/client/informers/externalversions/lb"
 	lighthouse "kubeform.dev/provider-azurerm-api/client/informers/externalversions/lighthouse"
 	linux "kubeform.dev/provider-azurerm-api/client/informers/externalversions/linux"
+	load "kubeform.dev/provider-azurerm-api/client/informers/externalversions/load"
 	local "kubeform.dev/provider-azurerm-api/client/informers/externalversions/local"
 	loganalytics "kubeform.dev/provider-azurerm-api/client/informers/externalversions/loganalytics"
 	logicapp "kubeform.dev/provider-azurerm-api/client/informers/externalversions/logicapp"
+	logz "kubeform.dev/provider-azurerm-api/client/informers/externalversions/logz"
 	machine "kubeform.dev/provider-azurerm-api/client/informers/externalversions/machine"
 	maintenance "kubeform.dev/provider-azurerm-api/client/informers/externalversions/maintenance"
 	managed "kubeform.dev/provider-azurerm-api/client/informers/externalversions/managed"
@@ -140,6 +144,7 @@ import (
 	tenant "kubeform.dev/provider-azurerm-api/client/informers/externalversions/tenant"
 	trafficmanager "kubeform.dev/provider-azurerm-api/client/informers/externalversions/trafficmanager"
 	user "kubeform.dev/provider-azurerm-api/client/informers/externalversions/user"
+	video "kubeform.dev/provider-azurerm-api/client/informers/externalversions/video"
 	virtual "kubeform.dev/provider-azurerm-api/client/informers/externalversions/virtual"
 	vmware "kubeform.dev/provider-azurerm-api/client/informers/externalversions/vmware"
 	vpn "kubeform.dev/provider-azurerm-api/client/informers/externalversions/vpn"
@@ -292,6 +297,8 @@ type SharedInformerFactory interface {
 	ForResource(resource schema.GroupVersionResource) (GenericInformer, error)
 	WaitForCacheSync(stopCh <-chan struct{}) map[reflect.Type]bool
 
+	Aadb2c() aadb2c.Interface
+	Active() active.Interface
 	Advanced() advanced.Interface
 	Analysis() analysis.Interface
 	Apimanagement() apimanagement.Interface
@@ -348,9 +355,11 @@ type SharedInformerFactory interface {
 	Lb() lb.Interface
 	Lighthouse() lighthouse.Interface
 	Linux() linux.Interface
+	Load() load.Interface
 	Local() local.Interface
 	Loganalytics() loganalytics.Interface
 	Logicapp() logicapp.Interface
+	Logz() logz.Interface
 	Machine() machine.Interface
 	Maintenance() maintenance.Interface
 	Managed() managed.Interface
@@ -407,11 +416,20 @@ type SharedInformerFactory interface {
 	Tenant() tenant.Interface
 	Trafficmanager() trafficmanager.Interface
 	User() user.Interface
+	Video() video.Interface
 	Virtual() virtual.Interface
 	Vmware() vmware.Interface
 	Vpn() vpn.Interface
 	Web() web.Interface
 	Windows() windows.Interface
+}
+
+func (f *sharedInformerFactory) Aadb2c() aadb2c.Interface {
+	return aadb2c.New(f, f.namespace, f.tweakListOptions)
+}
+
+func (f *sharedInformerFactory) Active() active.Interface {
+	return active.New(f, f.namespace, f.tweakListOptions)
 }
 
 func (f *sharedInformerFactory) Advanced() advanced.Interface {
@@ -638,6 +656,10 @@ func (f *sharedInformerFactory) Linux() linux.Interface {
 	return linux.New(f, f.namespace, f.tweakListOptions)
 }
 
+func (f *sharedInformerFactory) Load() load.Interface {
+	return load.New(f, f.namespace, f.tweakListOptions)
+}
+
 func (f *sharedInformerFactory) Local() local.Interface {
 	return local.New(f, f.namespace, f.tweakListOptions)
 }
@@ -648,6 +670,10 @@ func (f *sharedInformerFactory) Loganalytics() loganalytics.Interface {
 
 func (f *sharedInformerFactory) Logicapp() logicapp.Interface {
 	return logicapp.New(f, f.namespace, f.tweakListOptions)
+}
+
+func (f *sharedInformerFactory) Logz() logz.Interface {
+	return logz.New(f, f.namespace, f.tweakListOptions)
 }
 
 func (f *sharedInformerFactory) Machine() machine.Interface {
@@ -872,6 +898,10 @@ func (f *sharedInformerFactory) Trafficmanager() trafficmanager.Interface {
 
 func (f *sharedInformerFactory) User() user.Interface {
 	return user.New(f, f.namespace, f.tweakListOptions)
+}
+
+func (f *sharedInformerFactory) Video() video.Interface {
+	return video.New(f, f.namespace, f.tweakListOptions)
 }
 
 func (f *sharedInformerFactory) Virtual() virtual.Interface {

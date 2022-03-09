@@ -65,6 +65,14 @@ func (c *FakeMonitorV1alpha1) MetricAlerts(namespace string) v1alpha1.MetricAler
 	return &FakeMetricAlerts{c, namespace}
 }
 
+func (c *FakeMonitorV1alpha1) PrivateLinkScopes(namespace string) v1alpha1.PrivateLinkScopeInterface {
+	return &FakePrivateLinkScopes{c, namespace}
+}
+
+func (c *FakeMonitorV1alpha1) PrivateLinkScopedServices(namespace string) v1alpha1.PrivateLinkScopedServiceInterface {
+	return &FakePrivateLinkScopedServices{c, namespace}
+}
+
 func (c *FakeMonitorV1alpha1) ScheduledQueryRulesAlerts(namespace string) v1alpha1.ScheduledQueryRulesAlertInterface {
 	return &FakeScheduledQueryRulesAlerts{c, namespace}
 }

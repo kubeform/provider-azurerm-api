@@ -36,6 +36,10 @@ type Interface interface {
 	KeyVaults() KeyVaultInformer
 	// ManagedHardwareSecurityModules returns a ManagedHardwareSecurityModuleInformer.
 	ManagedHardwareSecurityModules() ManagedHardwareSecurityModuleInformer
+	// ManagedStorageAccounts returns a ManagedStorageAccountInformer.
+	ManagedStorageAccounts() ManagedStorageAccountInformer
+	// ManagedStorageAccountSasTokenDefinitions returns a ManagedStorageAccountSasTokenDefinitionInformer.
+	ManagedStorageAccountSasTokenDefinitions() ManagedStorageAccountSasTokenDefinitionInformer
 	// Secrets returns a SecretInformer.
 	Secrets() SecretInformer
 }
@@ -79,6 +83,16 @@ func (v *version) KeyVaults() KeyVaultInformer {
 // ManagedHardwareSecurityModules returns a ManagedHardwareSecurityModuleInformer.
 func (v *version) ManagedHardwareSecurityModules() ManagedHardwareSecurityModuleInformer {
 	return &managedHardwareSecurityModuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ManagedStorageAccounts returns a ManagedStorageAccountInformer.
+func (v *version) ManagedStorageAccounts() ManagedStorageAccountInformer {
+	return &managedStorageAccountInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ManagedStorageAccountSasTokenDefinitions returns a ManagedStorageAccountSasTokenDefinitionInformer.
+func (v *version) ManagedStorageAccountSasTokenDefinitions() ManagedStorageAccountSasTokenDefinitionInformer {
+	return &managedStorageAccountSasTokenDefinitionInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Secrets returns a SecretInformer.

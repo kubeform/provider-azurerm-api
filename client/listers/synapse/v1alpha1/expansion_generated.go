@@ -26,6 +26,30 @@ type FirewallRuleListerExpansion interface{}
 // FirewallRuleNamespaceLister.
 type FirewallRuleNamespaceListerExpansion interface{}
 
+// IntegrationRuntimeAzureListerExpansion allows custom methods to be added to
+// IntegrationRuntimeAzureLister.
+type IntegrationRuntimeAzureListerExpansion interface{}
+
+// IntegrationRuntimeAzureNamespaceListerExpansion allows custom methods to be added to
+// IntegrationRuntimeAzureNamespaceLister.
+type IntegrationRuntimeAzureNamespaceListerExpansion interface{}
+
+// IntegrationRuntimeSelfHostedListerExpansion allows custom methods to be added to
+// IntegrationRuntimeSelfHostedLister.
+type IntegrationRuntimeSelfHostedListerExpansion interface{}
+
+// IntegrationRuntimeSelfHostedNamespaceListerExpansion allows custom methods to be added to
+// IntegrationRuntimeSelfHostedNamespaceLister.
+type IntegrationRuntimeSelfHostedNamespaceListerExpansion interface{}
+
+// LinkedServiceListerExpansion allows custom methods to be added to
+// LinkedServiceLister.
+type LinkedServiceListerExpansion interface{}
+
+// LinkedServiceNamespaceListerExpansion allows custom methods to be added to
+// LinkedServiceNamespaceLister.
+type LinkedServiceNamespaceListerExpansion interface{}
+
 // ManagedPrivateEndpointListerExpansion allows custom methods to be added to
 // ManagedPrivateEndpointLister.
 type ManagedPrivateEndpointListerExpansion interface{}
@@ -33,6 +57,14 @@ type ManagedPrivateEndpointListerExpansion interface{}
 // ManagedPrivateEndpointNamespaceListerExpansion allows custom methods to be added to
 // ManagedPrivateEndpointNamespaceLister.
 type ManagedPrivateEndpointNamespaceListerExpansion interface{}
+
+// PrivateLinkHubListerExpansion allows custom methods to be added to
+// PrivateLinkHubLister.
+type PrivateLinkHubListerExpansion interface{}
+
+// PrivateLinkHubNamespaceListerExpansion allows custom methods to be added to
+// PrivateLinkHubNamespaceLister.
+type PrivateLinkHubNamespaceListerExpansion interface{}
 
 // RoleAssignmentListerExpansion allows custom methods to be added to
 // RoleAssignmentLister.
@@ -58,6 +90,54 @@ type SqlPoolListerExpansion interface{}
 // SqlPoolNamespaceLister.
 type SqlPoolNamespaceListerExpansion interface{}
 
+// SqlPoolExtendedAuditingPolicyListerExpansion allows custom methods to be added to
+// SqlPoolExtendedAuditingPolicyLister.
+type SqlPoolExtendedAuditingPolicyListerExpansion interface{}
+
+// SqlPoolExtendedAuditingPolicyNamespaceListerExpansion allows custom methods to be added to
+// SqlPoolExtendedAuditingPolicyNamespaceLister.
+type SqlPoolExtendedAuditingPolicyNamespaceListerExpansion interface{}
+
+// SqlPoolSecurityAlertPolicyListerExpansion allows custom methods to be added to
+// SqlPoolSecurityAlertPolicyLister.
+type SqlPoolSecurityAlertPolicyListerExpansion interface{}
+
+// SqlPoolSecurityAlertPolicyNamespaceListerExpansion allows custom methods to be added to
+// SqlPoolSecurityAlertPolicyNamespaceLister.
+type SqlPoolSecurityAlertPolicyNamespaceListerExpansion interface{}
+
+// SqlPoolVulnerabilityAssessmentListerExpansion allows custom methods to be added to
+// SqlPoolVulnerabilityAssessmentLister.
+type SqlPoolVulnerabilityAssessmentListerExpansion interface{}
+
+// SqlPoolVulnerabilityAssessmentNamespaceListerExpansion allows custom methods to be added to
+// SqlPoolVulnerabilityAssessmentNamespaceLister.
+type SqlPoolVulnerabilityAssessmentNamespaceListerExpansion interface{}
+
+// SqlPoolVulnerabilityAssessmentBaselineListerExpansion allows custom methods to be added to
+// SqlPoolVulnerabilityAssessmentBaselineLister.
+type SqlPoolVulnerabilityAssessmentBaselineListerExpansion interface{}
+
+// SqlPoolVulnerabilityAssessmentBaselineNamespaceListerExpansion allows custom methods to be added to
+// SqlPoolVulnerabilityAssessmentBaselineNamespaceLister.
+type SqlPoolVulnerabilityAssessmentBaselineNamespaceListerExpansion interface{}
+
+// SqlPoolWorkloadClassifierListerExpansion allows custom methods to be added to
+// SqlPoolWorkloadClassifierLister.
+type SqlPoolWorkloadClassifierListerExpansion interface{}
+
+// SqlPoolWorkloadClassifierNamespaceListerExpansion allows custom methods to be added to
+// SqlPoolWorkloadClassifierNamespaceLister.
+type SqlPoolWorkloadClassifierNamespaceListerExpansion interface{}
+
+// SqlPoolWorkloadGroupListerExpansion allows custom methods to be added to
+// SqlPoolWorkloadGroupLister.
+type SqlPoolWorkloadGroupListerExpansion interface{}
+
+// SqlPoolWorkloadGroupNamespaceListerExpansion allows custom methods to be added to
+// SqlPoolWorkloadGroupNamespaceLister.
+type SqlPoolWorkloadGroupNamespaceListerExpansion interface{}
+
 // WorkspaceListerExpansion allows custom methods to be added to
 // WorkspaceLister.
 type WorkspaceListerExpansion interface{}
@@ -65,3 +145,51 @@ type WorkspaceListerExpansion interface{}
 // WorkspaceNamespaceListerExpansion allows custom methods to be added to
 // WorkspaceNamespaceLister.
 type WorkspaceNamespaceListerExpansion interface{}
+
+// WorkspaceAadAdminListerExpansion allows custom methods to be added to
+// WorkspaceAadAdminLister.
+type WorkspaceAadAdminListerExpansion interface{}
+
+// WorkspaceAadAdminNamespaceListerExpansion allows custom methods to be added to
+// WorkspaceAadAdminNamespaceLister.
+type WorkspaceAadAdminNamespaceListerExpansion interface{}
+
+// WorkspaceExtendedAuditingPolicyListerExpansion allows custom methods to be added to
+// WorkspaceExtendedAuditingPolicyLister.
+type WorkspaceExtendedAuditingPolicyListerExpansion interface{}
+
+// WorkspaceExtendedAuditingPolicyNamespaceListerExpansion allows custom methods to be added to
+// WorkspaceExtendedAuditingPolicyNamespaceLister.
+type WorkspaceExtendedAuditingPolicyNamespaceListerExpansion interface{}
+
+// WorkspaceKeyListerExpansion allows custom methods to be added to
+// WorkspaceKeyLister.
+type WorkspaceKeyListerExpansion interface{}
+
+// WorkspaceKeyNamespaceListerExpansion allows custom methods to be added to
+// WorkspaceKeyNamespaceLister.
+type WorkspaceKeyNamespaceListerExpansion interface{}
+
+// WorkspaceSQLAadAdminListerExpansion allows custom methods to be added to
+// WorkspaceSQLAadAdminLister.
+type WorkspaceSQLAadAdminListerExpansion interface{}
+
+// WorkspaceSQLAadAdminNamespaceListerExpansion allows custom methods to be added to
+// WorkspaceSQLAadAdminNamespaceLister.
+type WorkspaceSQLAadAdminNamespaceListerExpansion interface{}
+
+// WorkspaceSecurityAlertPolicyListerExpansion allows custom methods to be added to
+// WorkspaceSecurityAlertPolicyLister.
+type WorkspaceSecurityAlertPolicyListerExpansion interface{}
+
+// WorkspaceSecurityAlertPolicyNamespaceListerExpansion allows custom methods to be added to
+// WorkspaceSecurityAlertPolicyNamespaceLister.
+type WorkspaceSecurityAlertPolicyNamespaceListerExpansion interface{}
+
+// WorkspaceVulnerabilityAssessmentListerExpansion allows custom methods to be added to
+// WorkspaceVulnerabilityAssessmentLister.
+type WorkspaceVulnerabilityAssessmentListerExpansion interface{}
+
+// WorkspaceVulnerabilityAssessmentNamespaceListerExpansion allows custom methods to be added to
+// WorkspaceVulnerabilityAssessmentNamespaceLister.
+type WorkspaceVulnerabilityAssessmentNamespaceListerExpansion interface{}

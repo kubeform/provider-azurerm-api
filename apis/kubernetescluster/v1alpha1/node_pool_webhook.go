@@ -97,10 +97,13 @@ var nodepoolForceNewList = map[string]bool{
 	"/node_taints":                  true,
 	"/os_disk_size_gb":              true,
 	"/os_disk_type":                 true,
+	"/os_sku":                       true,
 	"/os_type":                      true,
+	"/pod_subnet_id":                true,
 	"/priority":                     true,
 	"/proximity_placement_group_id": true,
 	"/spot_max_price":               true,
+	"/ultra_ssd_enabled":            true,
 	"/vm_size":                      true,
 	"/vnet_subnet_id":               true,
 }
@@ -148,7 +151,7 @@ func (r *NodePool) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range nodepoolForceNewList {
+	for key, _ := range nodepoolForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

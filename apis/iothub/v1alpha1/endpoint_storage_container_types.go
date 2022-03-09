@@ -63,14 +63,25 @@ type EndpointStorageContainerSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
-	BatchFrequencyInSeconds *int64  `json:"batchFrequencyInSeconds,omitempty" tf:"batch_frequency_in_seconds"`
-	ConnectionString        *string `json:"-" sensitive:"true" tf:"connection_string"`
-	ContainerName           *string `json:"containerName" tf:"container_name"`
+	AuthenticationType *string `json:"authenticationType,omitempty" tf:"authentication_type"`
+	// +optional
+	BatchFrequencyInSeconds *int64 `json:"batchFrequencyInSeconds,omitempty" tf:"batch_frequency_in_seconds"`
+	// +optional
+	ConnectionString *string `json:"-" sensitive:"true" tf:"connection_string"`
+	ContainerName    *string `json:"containerName" tf:"container_name"`
 	// +optional
 	Encoding *string `json:"encoding,omitempty" tf:"encoding"`
 	// +optional
+	EndpointURI *string `json:"endpointURI,omitempty" tf:"endpoint_uri"`
+	// +optional
 	FileNameFormat *string `json:"fileNameFormat,omitempty" tf:"file_name_format"`
-	IothubName     *string `json:"iothubName" tf:"iothub_name"`
+	// +optional
+	IdentityID *string `json:"identityID,omitempty" tf:"identity_id"`
+	// +optional
+	IothubID *string `json:"iothubID,omitempty" tf:"iothub_id"`
+	// +optional
+	// Deprecated
+	IothubName *string `json:"iothubName,omitempty" tf:"iothub_name"`
 	// +optional
 	MaxChunkSizeInBytes *int64  `json:"maxChunkSizeInBytes,omitempty" tf:"max_chunk_size_in_bytes"`
 	Name                *string `json:"name" tf:"name"`

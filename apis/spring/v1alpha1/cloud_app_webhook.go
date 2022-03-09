@@ -90,7 +90,7 @@ func (r *CloudApp) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range cloudappForceNewList {
+	for key, _ := range cloudappForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

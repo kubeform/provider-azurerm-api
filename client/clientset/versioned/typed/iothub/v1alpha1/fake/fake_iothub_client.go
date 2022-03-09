@@ -29,6 +29,10 @@ type FakeIothubV1alpha1 struct {
 	*testing.Fake
 }
 
+func (c *FakeIothubV1alpha1) Certificates(namespace string) v1alpha1.CertificateInterface {
+	return &FakeCertificates{c, namespace}
+}
+
 func (c *FakeIothubV1alpha1) ConsumerGroups(namespace string) v1alpha1.ConsumerGroupInterface {
 	return &FakeConsumerGroups{c, namespace}
 }

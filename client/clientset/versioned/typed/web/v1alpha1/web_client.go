@@ -28,6 +28,9 @@ import (
 type WebV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	ApplicationFirewallPoliciesGetter
+	PubsubsGetter
+	PubsubHubsGetter
+	PubsubNetworkACLsGetter
 }
 
 // WebV1alpha1Client is used to interact with features provided by the web.azurerm.kubeform.com group.
@@ -37,6 +40,18 @@ type WebV1alpha1Client struct {
 
 func (c *WebV1alpha1Client) ApplicationFirewallPolicies(namespace string) ApplicationFirewallPolicyInterface {
 	return newApplicationFirewallPolicies(c, namespace)
+}
+
+func (c *WebV1alpha1Client) Pubsubs(namespace string) PubsubInterface {
+	return newPubsubs(c, namespace)
+}
+
+func (c *WebV1alpha1Client) PubsubHubs(namespace string) PubsubHubInterface {
+	return newPubsubHubs(c, namespace)
+}
+
+func (c *WebV1alpha1Client) PubsubNetworkACLs(namespace string) PubsubNetworkACLInterface {
+	return newPubsubNetworkACLs(c, namespace)
 }
 
 // NewForConfig creates a new WebV1alpha1Client for the given config.

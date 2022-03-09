@@ -143,6 +143,8 @@ spec:
                     properties:
                       securityGroupID:
                         type: string
+                      securityGroupName:
+                        type: string
                     required:
                     - securityGroupID
                     type: object
@@ -237,6 +239,31 @@ spec:
                     - workerNode
                     - zookeeperNode
                     type: object
+                  securityProfile:
+                    properties:
+                      aaddsResourceID:
+                        type: string
+                      clusterUsersGroupDNS:
+                        items:
+                          type: string
+                        type: array
+                      domainName:
+                        type: string
+                      domainUsername:
+                        type: string
+                      ldapsUrls:
+                        items:
+                          type: string
+                        type: array
+                      msiResourceID:
+                        type: string
+                    required:
+                    - aaddsResourceID
+                    - domainName
+                    - domainUsername
+                    - ldapsUrls
+                    - msiResourceID
+                    type: object
                   sshEndpoint:
                     type: string
                   storageAccount:
@@ -245,6 +272,8 @@ spec:
                         isDefault:
                           type: boolean
                         storageContainerID:
+                          type: string
+                        storageResourceID:
                           type: string
                       required:
                       - isDefault
@@ -420,6 +449,8 @@ spec:
                     properties:
                       securityGroupID:
                         type: string
+                      securityGroupName:
+                        type: string
                     required:
                     - securityGroupID
                     type: object
@@ -514,6 +545,31 @@ spec:
                     - workerNode
                     - zookeeperNode
                     type: object
+                  securityProfile:
+                    properties:
+                      aaddsResourceID:
+                        type: string
+                      clusterUsersGroupDNS:
+                        items:
+                          type: string
+                        type: array
+                      domainName:
+                        type: string
+                      domainUsername:
+                        type: string
+                      ldapsUrls:
+                        items:
+                          type: string
+                        type: array
+                      msiResourceID:
+                        type: string
+                    required:
+                    - aaddsResourceID
+                    - domainName
+                    - domainUsername
+                    - ldapsUrls
+                    - msiResourceID
+                    type: object
                   sshEndpoint:
                     type: string
                   storageAccount:
@@ -522,6 +578,8 @@ spec:
                         isDefault:
                           type: boolean
                         storageContainerID:
+                          type: string
+                        storageResourceID:
                           type: string
                       required:
                       - isDefault

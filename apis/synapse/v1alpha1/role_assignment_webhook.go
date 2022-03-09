@@ -91,7 +91,7 @@ func (r *RoleAssignment) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range roleassignmentForceNewList {
+	for key, _ := range roleassignmentForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -42,6 +42,7 @@ func (r *FactoryLinkedServiceSnowflake) SetupWebhookWithManager(mgr ctrl.Manager
 var _ webhook.Validator = &FactoryLinkedServiceSnowflake{}
 
 var factorylinkedservicesnowflakeForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *FactoryLinkedServiceSnowflake) ValidateUpdate(old runtime.Object) error
 		return err
 	}
 
-	for key := range factorylinkedservicesnowflakeForceNewList {
+	for key, _ := range factorylinkedservicesnowflakeForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -30,6 +30,7 @@ type BatchV1alpha1Interface interface {
 	AccountsGetter
 	ApplicationsGetter
 	CertificatesGetter
+	JobsGetter
 	PoolsGetter
 }
 
@@ -48,6 +49,10 @@ func (c *BatchV1alpha1Client) Applications(namespace string) ApplicationInterfac
 
 func (c *BatchV1alpha1Client) Certificates(namespace string) CertificateInterface {
 	return newCertificates(c, namespace)
+}
+
+func (c *BatchV1alpha1Client) Jobs(namespace string) JobInterface {
+	return newJobs(c, namespace)
 }
 
 func (c *BatchV1alpha1Client) Pools(namespace string) PoolInterface {

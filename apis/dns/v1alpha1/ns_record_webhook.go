@@ -90,7 +90,7 @@ func (r *NsRecord) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range nsrecordForceNewList {
+	for key, _ := range nsrecordForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -27,12 +27,14 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
+		jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecIdentity{}).Type1()):                 NamespaceSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SubscriptionRuleSpecCorrelationFilter{}).Type1()): SubscriptionRuleSpecCorrelationFilterCodec{},
 	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
+		jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecIdentity{}).Type1()):                 NamespaceSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SubscriptionRuleSpecCorrelationFilter{}).Type1()): SubscriptionRuleSpecCorrelationFilterCodec{},
 	}
 }
@@ -47,6 +49,85 @@ func getDecodersWithout(typ string) map[string]jsoniter.ValDecoder {
 	origMap := GetDecoder()
 	delete(origMap, typ)
 	return origMap
+}
+
+// +k8s:deepcopy-gen=false
+type NamespaceSpecIdentityCodec struct {
+}
+
+func (NamespaceSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*NamespaceSpecIdentity)(ptr) == nil
+}
+
+func (NamespaceSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*NamespaceSpecIdentity)(ptr)
+	var objs []NamespaceSpecIdentity
+	if obj != nil {
+		objs = []NamespaceSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (NamespaceSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*NamespaceSpecIdentity)(ptr) = NamespaceSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []NamespaceSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*NamespaceSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*NamespaceSpecIdentity)(ptr) = NamespaceSpecIdentity{}
+			}
+		} else {
+			*(*NamespaceSpecIdentity)(ptr) = NamespaceSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj NamespaceSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(NamespaceSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*NamespaceSpecIdentity)(ptr) = obj
+		} else {
+			*(*NamespaceSpecIdentity)(ptr) = NamespaceSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode NamespaceSpecIdentity", "unexpected JSON type")
+	}
 }
 
 // +k8s:deepcopy-gen=false

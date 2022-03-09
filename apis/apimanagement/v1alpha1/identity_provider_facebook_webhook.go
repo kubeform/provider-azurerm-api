@@ -89,7 +89,7 @@ func (r *IdentityProviderFacebook) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range identityproviderfacebookForceNewList {
+	for key, _ := range identityproviderfacebookForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

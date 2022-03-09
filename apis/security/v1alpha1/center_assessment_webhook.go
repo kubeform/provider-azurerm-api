@@ -89,7 +89,7 @@ func (r *CenterAssessment) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range centerassessmentForceNewList {
+	for key, _ := range centerassessmentForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -42,9 +42,10 @@ func (r *IntegrationAccount) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &IntegrationAccount{}
 
 var integrationaccountForceNewList = map[string]bool{
-	"/location":            true,
-	"/name":                true,
-	"/resource_group_name": true,
+	"/integration_service_environment_id": true,
+	"/location":                           true,
+	"/name":                               true,
+	"/resource_group_name":                true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -90,7 +91,7 @@ func (r *IntegrationAccount) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range integrationaccountForceNewList {
+	for key, _ := range integrationaccountForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

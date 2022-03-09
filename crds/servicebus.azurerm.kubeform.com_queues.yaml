@@ -82,18 +82,25 @@ spec:
                   maxDeliveryCount:
                     format: int64
                     type: integer
+                  maxMessageSizeInKilobytes:
+                    format: int64
+                    type: integer
                   maxSizeInMegabytes:
                     format: int64
                     type: integer
                   name:
                     type: string
+                  namespaceID:
+                    type: string
                   namespaceName:
+                    description: Deprecated
                     type: string
                   requiresDuplicateDetection:
                     type: boolean
                   requiresSession:
                     type: boolean
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   status:
                     type: string
@@ -137,8 +144,6 @@ spec:
                     type: object
                 required:
                 - name
-                - namespaceName
-                - resourceGroupName
                 type: object
               state:
                 properties:
@@ -167,18 +172,25 @@ spec:
                   maxDeliveryCount:
                     format: int64
                     type: integer
+                  maxMessageSizeInKilobytes:
+                    format: int64
+                    type: integer
                   maxSizeInMegabytes:
                     format: int64
                     type: integer
                   name:
                     type: string
+                  namespaceID:
+                    type: string
                   namespaceName:
+                    description: Deprecated
                     type: string
                   requiresDuplicateDetection:
                     type: boolean
                   requiresSession:
                     type: boolean
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   status:
                     type: string
@@ -222,8 +234,6 @@ spec:
                     type: object
                 required:
                 - name
-                - namespaceName
-                - resourceGroupName
                 type: object
               terminationPolicy:
                 enum:

@@ -91,7 +91,7 @@ func (r *GroupUser) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range groupuserForceNewList {
+	for key, _ := range groupuserForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

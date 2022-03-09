@@ -26,6 +26,8 @@ type AlertRuleMsSecurityIncidentExpansion interface{}
 
 type AlertRuleScheduledExpansion interface{}
 
+type AutomationRuleExpansion interface{}
+
 type DataConnectorAwsCloudTrailExpansion interface{}
 
 type DataConnectorAzureActiveDirectoryExpansion interface{}
@@ -41,3 +43,7 @@ type DataConnectorMicrosoftDefenderAdvancedThreatProtectionExpansion interface{}
 type DataConnectorOffice365Expansion interface{}
 
 type DataConnectorThreatIntelligenceExpansion interface{}
+
+type WatchlistExpansion interface{}
+
+type WatchlistItemExpansion interface{}

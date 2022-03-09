@@ -90,7 +90,7 @@ func (r *ChannelEmail) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range channelemailForceNewList {
+	for key, _ := range channelemailForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

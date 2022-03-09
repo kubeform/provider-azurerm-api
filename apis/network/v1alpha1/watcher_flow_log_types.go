@@ -76,7 +76,9 @@ type WatcherFlowLogSpecResource struct {
 
 	Enabled *bool `json:"enabled" tf:"enabled"`
 	// +optional
-	Location               *string                            `json:"location,omitempty" tf:"location"`
+	Location *string `json:"location,omitempty" tf:"location"`
+	// +optional
+	Name                   *string                            `json:"name,omitempty" tf:"name"`
 	NetworkSecurityGroupID *string                            `json:"networkSecurityGroupID" tf:"network_security_group_id"`
 	NetworkWatcherName     *string                            `json:"networkWatcherName" tf:"network_watcher_name"`
 	ResourceGroupName      *string                            `json:"resourceGroupName" tf:"resource_group_name"`

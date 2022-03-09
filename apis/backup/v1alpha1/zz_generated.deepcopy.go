@@ -1105,6 +1105,16 @@ func (in *ProtectedVmSpecResource) DeepCopyInto(out *ProtectedVmSpecResource) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.ExcludeDiskLuns != nil {
+		in, out := &in.ExcludeDiskLuns, &out.ExcludeDiskLuns
+		*out = make([]int64, len(*in))
+		copy(*out, *in)
+	}
+	if in.IncludeDiskLuns != nil {
+		in, out := &in.IncludeDiskLuns, &out.IncludeDiskLuns
+		*out = make([]int64, len(*in))
+		copy(*out, *in)
+	}
 	if in.RecoveryVaultName != nil {
 		in, out := &in.RecoveryVaultName, &out.RecoveryVaultName
 		*out = new(string)

@@ -63,13 +63,21 @@ type FactoryPipelineSpecResource struct {
 	// +optional
 	ActivitiesJSON *string `json:"activitiesJSON,omitempty" tf:"activities_json"`
 	// +optional
-	Annotations     []string `json:"annotations,omitempty" tf:"annotations"`
-	DataFactoryName *string  `json:"dataFactoryName" tf:"data_factory_name"`
+	Annotations []string `json:"annotations,omitempty" tf:"annotations"`
+	// +optional
+	Concurrency *int64 `json:"concurrency,omitempty" tf:"concurrency"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional
 	Folder *string `json:"folder,omitempty" tf:"folder"`
-	Name   *string `json:"name" tf:"name"`
+	// +optional
+	MoniterMetricsAfterDuration *string `json:"moniterMetricsAfterDuration,omitempty" tf:"moniter_metrics_after_duration"`
+	Name                        *string `json:"name" tf:"name"`
 	// +optional
 	Parameters        *map[string]string `json:"parameters,omitempty" tf:"parameters"`
 	ResourceGroupName *string            `json:"resourceGroupName" tf:"resource_group_name"`

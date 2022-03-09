@@ -123,7 +123,7 @@ spec:
                       - publicIPAddressID
                       - subnetID
                       type: object
-                    maxItems: 2
+                    maxItems: 3
                     type: array
                   location:
                     type: string
@@ -218,6 +218,11 @@ spec:
                           - name
                           - publicCertData
                           type: object
+                        type: array
+                      vpnAuthTypes:
+                        items:
+                          type: string
+                        maxItems: 3
                         type: array
                       vpnClientProtocols:
                         items:
@@ -304,7 +309,7 @@ spec:
                       - publicIPAddressID
                       - subnetID
                       type: object
-                    maxItems: 2
+                    maxItems: 3
                     type: array
                   location:
                     type: string
@@ -399,6 +404,11 @@ spec:
                           - name
                           - publicCertData
                           type: object
+                        type: array
+                      vpnAuthTypes:
+                        items:
+                          type: string
+                        maxItems: 3
                         type: array
                       vpnClientProtocols:
                         items:

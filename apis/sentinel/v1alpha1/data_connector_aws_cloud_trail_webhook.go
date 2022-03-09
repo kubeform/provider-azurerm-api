@@ -89,7 +89,7 @@ func (r *DataConnectorAwsCloudTrail) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range dataconnectorawscloudtrailForceNewList {
+	for key, _ := range dataconnectorawscloudtrailForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

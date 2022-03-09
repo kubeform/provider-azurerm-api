@@ -102,7 +102,7 @@ func (r *StreamingLocator) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range streaminglocatorForceNewList {
+	for key, _ := range streaminglocatorForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

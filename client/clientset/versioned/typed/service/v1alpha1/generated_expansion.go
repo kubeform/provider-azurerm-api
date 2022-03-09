@@ -20,6 +20,8 @@ package v1alpha1
 
 type FabricClusterExpansion interface{}
 
+type FabricManagedClusterExpansion interface{}
+
 type FabricMeshApplicationExpansion interface{}
 
 type FabricMeshLocalNetworkExpansion interface{}

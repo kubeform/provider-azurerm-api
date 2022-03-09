@@ -48,18 +48,30 @@ type WorkspaceSpecAadAdmin struct {
 }
 
 type WorkspaceSpecAzureDevopsRepo struct {
-	AccountName    *string `json:"accountName" tf:"account_name"`
-	BranchName     *string `json:"branchName" tf:"branch_name"`
+	AccountName *string `json:"accountName" tf:"account_name"`
+	BranchName  *string `json:"branchName" tf:"branch_name"`
+	// +optional
+	LastCommitID   *string `json:"lastCommitID,omitempty" tf:"last_commit_id"`
 	ProjectName    *string `json:"projectName" tf:"project_name"`
 	RepositoryName *string `json:"repositoryName" tf:"repository_name"`
 	RootFolder     *string `json:"rootFolder" tf:"root_folder"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+}
+
+type WorkspaceSpecCustomerManagedKey struct {
+	// +optional
+	KeyName          *string `json:"keyName,omitempty" tf:"key_name"`
+	KeyVersionlessID *string `json:"keyVersionlessID" tf:"key_versionless_id"`
 }
 
 type WorkspaceSpecGithubRepo struct {
 	AccountName *string `json:"accountName" tf:"account_name"`
 	BranchName  *string `json:"branchName" tf:"branch_name"`
 	// +optional
-	GitURL         *string `json:"gitURL,omitempty" tf:"git_url"`
+	GitURL *string `json:"gitURL,omitempty" tf:"git_url"`
+	// +optional
+	LastCommitID   *string `json:"lastCommitID,omitempty" tf:"last_commit_id"`
 	RepositoryName *string `json:"repositoryName" tf:"repository_name"`
 	RootFolder     *string `json:"rootFolder" tf:"root_folder"`
 }
@@ -71,6 +83,12 @@ type WorkspaceSpecIdentity struct {
 	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
 	// +optional
 	Type *string `json:"type,omitempty" tf:"type"`
+}
+
+type WorkspaceSpecSqlAadAdmin struct {
+	Login    *string `json:"login" tf:"login"`
+	ObjectID *string `json:"objectID" tf:"object_id"`
+	TenantID *string `json:"tenantID" tf:"tenant_id"`
 }
 
 type WorkspaceSpec struct {
@@ -99,24 +117,34 @@ type WorkspaceSpecResource struct {
 	// +optional
 	AzureDevopsRepo *WorkspaceSpecAzureDevopsRepo `json:"azureDevopsRepo,omitempty" tf:"azure_devops_repo"`
 	// +optional
+	ComputeSubnetID *string `json:"computeSubnetID,omitempty" tf:"compute_subnet_id"`
+	// +optional
 	ConnectivityEndpoints *map[string]string `json:"connectivityEndpoints,omitempty" tf:"connectivity_endpoints"`
 	// +optional
-	CustomerManagedKeyVersionlessID *string `json:"customerManagedKeyVersionlessID,omitempty" tf:"customer_managed_key_versionless_id"`
+	CustomerManagedKey *WorkspaceSpecCustomerManagedKey `json:"customerManagedKey,omitempty" tf:"customer_managed_key"`
 	// +optional
 	DataExfiltrationProtectionEnabled *bool `json:"dataExfiltrationProtectionEnabled,omitempty" tf:"data_exfiltration_protection_enabled"`
 	// +optional
 	GithubRepo *WorkspaceSpecGithubRepo `json:"githubRepo,omitempty" tf:"github_repo"`
 	// +optional
 	Identity []WorkspaceSpecIdentity `json:"identity,omitempty" tf:"identity"`
-	Location *string                 `json:"location" tf:"location"`
+	// +optional
+	LinkingAllowedForAadTenantIDS []string `json:"linkingAllowedForAadTenantIDS,omitempty" tf:"linking_allowed_for_aad_tenant_ids"`
+	Location                      *string  `json:"location" tf:"location"`
 	// +optional
 	ManagedResourceGroupName *string `json:"managedResourceGroupName,omitempty" tf:"managed_resource_group_name"`
 	// +optional
-	ManagedVirtualNetworkEnabled  *bool   `json:"managedVirtualNetworkEnabled,omitempty" tf:"managed_virtual_network_enabled"`
-	Name                          *string `json:"name" tf:"name"`
-	ResourceGroupName             *string `json:"resourceGroupName" tf:"resource_group_name"`
-	SqlAdministratorLogin         *string `json:"sqlAdministratorLogin" tf:"sql_administrator_login"`
-	SqlAdministratorLoginPassword *string `json:"-" sensitive:"true" tf:"sql_administrator_login_password"`
+	ManagedVirtualNetworkEnabled *bool   `json:"managedVirtualNetworkEnabled,omitempty" tf:"managed_virtual_network_enabled"`
+	Name                         *string `json:"name" tf:"name"`
+	// +optional
+	PublicNetworkAccessEnabled *bool `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
+	// +optional
+	PurviewID         *string `json:"purviewID,omitempty" tf:"purview_id"`
+	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	// +optional
+	SqlAadAdmin                   *WorkspaceSpecSqlAadAdmin `json:"sqlAadAdmin,omitempty" tf:"sql_aad_admin"`
+	SqlAdministratorLogin         *string                   `json:"sqlAdministratorLogin" tf:"sql_administrator_login"`
+	SqlAdministratorLoginPassword *string                   `json:"-" sensitive:"true" tf:"sql_administrator_login_password"`
 	// +optional
 	SqlIdentityControlEnabled       *bool   `json:"sqlIdentityControlEnabled,omitempty" tf:"sql_identity_control_enabled"`
 	StorageDataLakeGen2FilesystemID *string `json:"storageDataLakeGen2FilesystemID" tf:"storage_data_lake_gen2_filesystem_id"`

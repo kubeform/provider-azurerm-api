@@ -30,6 +30,7 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(FrontdoorSpecRoutingRuleForwardingConfiguration{}).Type1()):      FrontdoorSpecRoutingRuleForwardingConfigurationCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FrontdoorSpecRoutingRuleRedirectConfiguration{}).Type1()):        FrontdoorSpecRoutingRuleRedirectConfigurationCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(CustomHTTPSConfigurationSpecCustomHTTPSConfiguration{}).Type1()): CustomHTTPSConfigurationSpecCustomHTTPSConfigurationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RulesEngineSpecRuleAction{}).Type1()):                            RulesEngineSpecRuleActionCodec{},
 	}
 }
 
@@ -38,6 +39,7 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(FrontdoorSpecRoutingRuleForwardingConfiguration{}).Type1()):      FrontdoorSpecRoutingRuleForwardingConfigurationCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FrontdoorSpecRoutingRuleRedirectConfiguration{}).Type1()):        FrontdoorSpecRoutingRuleRedirectConfigurationCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(CustomHTTPSConfigurationSpecCustomHTTPSConfiguration{}).Type1()): CustomHTTPSConfigurationSpecCustomHTTPSConfigurationCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(RulesEngineSpecRuleAction{}).Type1()):                            RulesEngineSpecRuleActionCodec{},
 	}
 }
 
@@ -287,5 +289,84 @@ func (CustomHTTPSConfigurationSpecCustomHTTPSConfigurationCodec) Decode(ptr unsa
 		}
 	default:
 		iter.ReportError("decode CustomHTTPSConfigurationSpecCustomHTTPSConfiguration", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type RulesEngineSpecRuleActionCodec struct {
+}
+
+func (RulesEngineSpecRuleActionCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*RulesEngineSpecRuleAction)(ptr) == nil
+}
+
+func (RulesEngineSpecRuleActionCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*RulesEngineSpecRuleAction)(ptr)
+	var objs []RulesEngineSpecRuleAction
+	if obj != nil {
+		objs = []RulesEngineSpecRuleAction{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RulesEngineSpecRuleAction{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (RulesEngineSpecRuleActionCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*RulesEngineSpecRuleAction)(ptr) = RulesEngineSpecRuleAction{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []RulesEngineSpecRuleAction
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RulesEngineSpecRuleAction{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*RulesEngineSpecRuleAction)(ptr) = objs[0]
+			} else {
+				*(*RulesEngineSpecRuleAction)(ptr) = RulesEngineSpecRuleAction{}
+			}
+		} else {
+			*(*RulesEngineSpecRuleAction)(ptr) = RulesEngineSpecRuleAction{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj RulesEngineSpecRuleAction
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(RulesEngineSpecRuleAction{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*RulesEngineSpecRuleAction)(ptr) = obj
+		} else {
+			*(*RulesEngineSpecRuleAction)(ptr) = RulesEngineSpecRuleAction{}
+		}
+	default:
+		iter.ReportError("decode RulesEngineSpecRuleAction", "unexpected JSON type")
 	}
 }

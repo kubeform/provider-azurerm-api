@@ -141,6 +141,8 @@ type StormClusterSpecStorageAccount struct {
 	IsDefault          *bool   `json:"isDefault" tf:"is_default"`
 	StorageAccountKey  *string `json:"-" sensitive:"true" tf:"storage_account_key"`
 	StorageContainerID *string `json:"storageContainerID" tf:"storage_container_id"`
+	// +optional
+	StorageResourceID *string `json:"storageResourceID,omitempty" tf:"storage_resource_id"`
 }
 
 type StormClusterSpec struct {

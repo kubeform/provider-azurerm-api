@@ -90,7 +90,7 @@ func (r *FailoverGroup) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range failovergroupForceNewList {
+	for key, _ := range failovergroupForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

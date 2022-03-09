@@ -70,7 +70,9 @@ type EventhubDataConnectionSpecResource struct {
 	// +optional
 	EventSystemProperties []string `json:"eventSystemProperties,omitempty" tf:"event_system_properties"`
 	EventhubID            *string  `json:"eventhubID" tf:"eventhub_id"`
-	Location              *string  `json:"location" tf:"location"`
+	// +optional
+	IdentityID *string `json:"identityID,omitempty" tf:"identity_id"`
+	Location   *string `json:"location" tf:"location"`
 	// +optional
 	MappingRuleName   *string `json:"mappingRuleName,omitempty" tf:"mapping_rule_name"`
 	Name              *string `json:"name" tf:"name"`

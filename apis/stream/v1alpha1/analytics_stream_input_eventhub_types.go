@@ -70,15 +70,18 @@ type AnalyticsStreamInputEventhubSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	EventhubConsumerGroupName *string                                        `json:"eventhubConsumerGroupName" tf:"eventhub_consumer_group_name"`
-	EventhubName              *string                                        `json:"eventhubName" tf:"eventhub_name"`
-	Name                      *string                                        `json:"name" tf:"name"`
-	ResourceGroupName         *string                                        `json:"resourceGroupName" tf:"resource_group_name"`
-	Serialization             *AnalyticsStreamInputEventhubSpecSerialization `json:"serialization" tf:"serialization"`
-	ServicebusNamespace       *string                                        `json:"servicebusNamespace" tf:"servicebus_namespace"`
-	SharedAccessPolicyKey     *string                                        `json:"-" sensitive:"true" tf:"shared_access_policy_key"`
-	SharedAccessPolicyName    *string                                        `json:"sharedAccessPolicyName" tf:"shared_access_policy_name"`
-	StreamAnalyticsJobName    *string                                        `json:"streamAnalyticsJobName" tf:"stream_analytics_job_name"`
+	// +optional
+	EventhubConsumerGroupName *string `json:"eventhubConsumerGroupName,omitempty" tf:"eventhub_consumer_group_name"`
+	EventhubName              *string `json:"eventhubName" tf:"eventhub_name"`
+	Name                      *string `json:"name" tf:"name"`
+	// +optional
+	PartitionKey           *string                                        `json:"partitionKey,omitempty" tf:"partition_key"`
+	ResourceGroupName      *string                                        `json:"resourceGroupName" tf:"resource_group_name"`
+	Serialization          *AnalyticsStreamInputEventhubSpecSerialization `json:"serialization" tf:"serialization"`
+	ServicebusNamespace    *string                                        `json:"servicebusNamespace" tf:"servicebus_namespace"`
+	SharedAccessPolicyKey  *string                                        `json:"-" sensitive:"true" tf:"shared_access_policy_key"`
+	SharedAccessPolicyName *string                                        `json:"sharedAccessPolicyName" tf:"shared_access_policy_name"`
+	StreamAnalyticsJobName *string                                        `json:"streamAnalyticsJobName" tf:"stream_analytics_job_name"`
 }
 
 type AnalyticsStreamInputEventhubStatus struct {

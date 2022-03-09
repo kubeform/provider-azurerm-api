@@ -77,6 +77,13 @@ spec:
                     - maxNodeCount
                     - minNodeCount
                     type: object
+                  cacheSize:
+                    format: int64
+                    type: integer
+                  computeIsolationEnabled:
+                    type: boolean
+                  dynamicExecutorAllocationEnabled:
+                    type: boolean
                   id:
                     type: string
                   libraryRequirement:
@@ -98,6 +105,18 @@ spec:
                     type: string
                   nodeSizeFamily:
                     type: string
+                  sessionLevelPackagesEnabled:
+                    type: boolean
+                  sparkConfig:
+                    properties:
+                      content:
+                        type: string
+                      filename:
+                        type: string
+                    required:
+                    - content
+                    - filename
+                    type: object
                   sparkEventsFolder:
                     type: string
                   sparkLogFolder:
@@ -176,6 +195,13 @@ spec:
                     - maxNodeCount
                     - minNodeCount
                     type: object
+                  cacheSize:
+                    format: int64
+                    type: integer
+                  computeIsolationEnabled:
+                    type: boolean
+                  dynamicExecutorAllocationEnabled:
+                    type: boolean
                   id:
                     type: string
                   libraryRequirement:
@@ -197,6 +223,18 @@ spec:
                     type: string
                   nodeSizeFamily:
                     type: string
+                  sessionLevelPackagesEnabled:
+                    type: boolean
+                  sparkConfig:
+                    properties:
+                      content:
+                        type: string
+                      filename:
+                        type: string
+                    required:
+                    - content
+                    - filename
+                    type: object
                   sparkEventsFolder:
                     type: string
                   sparkLogFolder:

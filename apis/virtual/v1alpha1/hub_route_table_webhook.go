@@ -89,7 +89,7 @@ func (r *HubRouteTable) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range hubroutetableForceNewList {
+	for key, _ := range hubroutetableForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

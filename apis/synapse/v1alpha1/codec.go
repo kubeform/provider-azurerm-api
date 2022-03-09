@@ -27,25 +27,37 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecAutoPause{}).Type1()):          SparkPoolSpecAutoPauseCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecAutoScale{}).Type1()):          SparkPoolSpecAutoScaleCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecLibraryRequirement{}).Type1()): SparkPoolSpecLibraryRequirementCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(SqlPoolSpecRestore{}).Type1()):              SqlPoolSpecRestoreCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecAadAdmin{}).Type1()):           WorkspaceSpecAadAdminCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecAzureDevopsRepo{}).Type1()):    WorkspaceSpecAzureDevopsRepoCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecGithubRepo{}).Type1()):         WorkspaceSpecGithubRepoCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LinkedServiceSpecIntegrationRuntime{}).Type1()):                LinkedServiceSpecIntegrationRuntimeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecAutoPause{}).Type1()):                             SparkPoolSpecAutoPauseCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecAutoScale{}).Type1()):                             SparkPoolSpecAutoScaleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecLibraryRequirement{}).Type1()):                    SparkPoolSpecLibraryRequirementCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecSparkConfig{}).Type1()):                           SparkPoolSpecSparkConfigCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SqlPoolSpecRestore{}).Type1()):                                 SqlPoolSpecRestoreCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SqlPoolVulnerabilityAssessmentSpecRecurringScans{}).Type1()):   SqlPoolVulnerabilityAssessmentSpecRecurringScansCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecAadAdmin{}).Type1()):                              WorkspaceSpecAadAdminCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecAzureDevopsRepo{}).Type1()):                       WorkspaceSpecAzureDevopsRepoCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecCustomerManagedKey{}).Type1()):                    WorkspaceSpecCustomerManagedKeyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecGithubRepo{}).Type1()):                            WorkspaceSpecGithubRepoCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecSqlAadAdmin{}).Type1()):                           WorkspaceSpecSqlAadAdminCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceVulnerabilityAssessmentSpecRecurringScans{}).Type1()): WorkspaceVulnerabilityAssessmentSpecRecurringScansCodec{},
 	}
 }
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
-		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecAutoPause{}).Type1()):          SparkPoolSpecAutoPauseCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecAutoScale{}).Type1()):          SparkPoolSpecAutoScaleCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecLibraryRequirement{}).Type1()): SparkPoolSpecLibraryRequirementCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(SqlPoolSpecRestore{}).Type1()):              SqlPoolSpecRestoreCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecAadAdmin{}).Type1()):           WorkspaceSpecAadAdminCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecAzureDevopsRepo{}).Type1()):    WorkspaceSpecAzureDevopsRepoCodec{},
-		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecGithubRepo{}).Type1()):         WorkspaceSpecGithubRepoCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(LinkedServiceSpecIntegrationRuntime{}).Type1()):                LinkedServiceSpecIntegrationRuntimeCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecAutoPause{}).Type1()):                             SparkPoolSpecAutoPauseCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecAutoScale{}).Type1()):                             SparkPoolSpecAutoScaleCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecLibraryRequirement{}).Type1()):                    SparkPoolSpecLibraryRequirementCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecSparkConfig{}).Type1()):                           SparkPoolSpecSparkConfigCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SqlPoolSpecRestore{}).Type1()):                                 SqlPoolSpecRestoreCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SqlPoolVulnerabilityAssessmentSpecRecurringScans{}).Type1()):   SqlPoolVulnerabilityAssessmentSpecRecurringScansCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecAadAdmin{}).Type1()):                              WorkspaceSpecAadAdminCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecAzureDevopsRepo{}).Type1()):                       WorkspaceSpecAzureDevopsRepoCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecCustomerManagedKey{}).Type1()):                    WorkspaceSpecCustomerManagedKeyCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecGithubRepo{}).Type1()):                            WorkspaceSpecGithubRepoCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecSqlAadAdmin{}).Type1()):                           WorkspaceSpecSqlAadAdminCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceVulnerabilityAssessmentSpecRecurringScans{}).Type1()): WorkspaceVulnerabilityAssessmentSpecRecurringScansCodec{},
 	}
 }
 
@@ -59,6 +71,85 @@ func getDecodersWithout(typ string) map[string]jsoniter.ValDecoder {
 	origMap := GetDecoder()
 	delete(origMap, typ)
 	return origMap
+}
+
+// +k8s:deepcopy-gen=false
+type LinkedServiceSpecIntegrationRuntimeCodec struct {
+}
+
+func (LinkedServiceSpecIntegrationRuntimeCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*LinkedServiceSpecIntegrationRuntime)(ptr) == nil
+}
+
+func (LinkedServiceSpecIntegrationRuntimeCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*LinkedServiceSpecIntegrationRuntime)(ptr)
+	var objs []LinkedServiceSpecIntegrationRuntime
+	if obj != nil {
+		objs = []LinkedServiceSpecIntegrationRuntime{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LinkedServiceSpecIntegrationRuntime{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (LinkedServiceSpecIntegrationRuntimeCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*LinkedServiceSpecIntegrationRuntime)(ptr) = LinkedServiceSpecIntegrationRuntime{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []LinkedServiceSpecIntegrationRuntime
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LinkedServiceSpecIntegrationRuntime{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*LinkedServiceSpecIntegrationRuntime)(ptr) = objs[0]
+			} else {
+				*(*LinkedServiceSpecIntegrationRuntime)(ptr) = LinkedServiceSpecIntegrationRuntime{}
+			}
+		} else {
+			*(*LinkedServiceSpecIntegrationRuntime)(ptr) = LinkedServiceSpecIntegrationRuntime{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj LinkedServiceSpecIntegrationRuntime
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(LinkedServiceSpecIntegrationRuntime{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*LinkedServiceSpecIntegrationRuntime)(ptr) = obj
+		} else {
+			*(*LinkedServiceSpecIntegrationRuntime)(ptr) = LinkedServiceSpecIntegrationRuntime{}
+		}
+	default:
+		iter.ReportError("decode LinkedServiceSpecIntegrationRuntime", "unexpected JSON type")
+	}
 }
 
 // +k8s:deepcopy-gen=false
@@ -299,6 +390,85 @@ func (SparkPoolSpecLibraryRequirementCodec) Decode(ptr unsafe.Pointer, iter *jso
 }
 
 // +k8s:deepcopy-gen=false
+type SparkPoolSpecSparkConfigCodec struct {
+}
+
+func (SparkPoolSpecSparkConfigCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*SparkPoolSpecSparkConfig)(ptr) == nil
+}
+
+func (SparkPoolSpecSparkConfigCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*SparkPoolSpecSparkConfig)(ptr)
+	var objs []SparkPoolSpecSparkConfig
+	if obj != nil {
+		objs = []SparkPoolSpecSparkConfig{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecSparkConfig{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (SparkPoolSpecSparkConfigCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*SparkPoolSpecSparkConfig)(ptr) = SparkPoolSpecSparkConfig{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []SparkPoolSpecSparkConfig
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecSparkConfig{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*SparkPoolSpecSparkConfig)(ptr) = objs[0]
+			} else {
+				*(*SparkPoolSpecSparkConfig)(ptr) = SparkPoolSpecSparkConfig{}
+			}
+		} else {
+			*(*SparkPoolSpecSparkConfig)(ptr) = SparkPoolSpecSparkConfig{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj SparkPoolSpecSparkConfig
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SparkPoolSpecSparkConfig{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*SparkPoolSpecSparkConfig)(ptr) = obj
+		} else {
+			*(*SparkPoolSpecSparkConfig)(ptr) = SparkPoolSpecSparkConfig{}
+		}
+	default:
+		iter.ReportError("decode SparkPoolSpecSparkConfig", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type SqlPoolSpecRestoreCodec struct {
 }
 
@@ -374,6 +544,85 @@ func (SqlPoolSpecRestoreCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterato
 		}
 	default:
 		iter.ReportError("decode SqlPoolSpecRestore", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type SqlPoolVulnerabilityAssessmentSpecRecurringScansCodec struct {
+}
+
+func (SqlPoolVulnerabilityAssessmentSpecRecurringScansCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*SqlPoolVulnerabilityAssessmentSpecRecurringScans)(ptr) == nil
+}
+
+func (SqlPoolVulnerabilityAssessmentSpecRecurringScansCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*SqlPoolVulnerabilityAssessmentSpecRecurringScans)(ptr)
+	var objs []SqlPoolVulnerabilityAssessmentSpecRecurringScans
+	if obj != nil {
+		objs = []SqlPoolVulnerabilityAssessmentSpecRecurringScans{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SqlPoolVulnerabilityAssessmentSpecRecurringScans{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (SqlPoolVulnerabilityAssessmentSpecRecurringScansCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*SqlPoolVulnerabilityAssessmentSpecRecurringScans)(ptr) = SqlPoolVulnerabilityAssessmentSpecRecurringScans{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []SqlPoolVulnerabilityAssessmentSpecRecurringScans
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SqlPoolVulnerabilityAssessmentSpecRecurringScans{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*SqlPoolVulnerabilityAssessmentSpecRecurringScans)(ptr) = objs[0]
+			} else {
+				*(*SqlPoolVulnerabilityAssessmentSpecRecurringScans)(ptr) = SqlPoolVulnerabilityAssessmentSpecRecurringScans{}
+			}
+		} else {
+			*(*SqlPoolVulnerabilityAssessmentSpecRecurringScans)(ptr) = SqlPoolVulnerabilityAssessmentSpecRecurringScans{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj SqlPoolVulnerabilityAssessmentSpecRecurringScans
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SqlPoolVulnerabilityAssessmentSpecRecurringScans{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*SqlPoolVulnerabilityAssessmentSpecRecurringScans)(ptr) = obj
+		} else {
+			*(*SqlPoolVulnerabilityAssessmentSpecRecurringScans)(ptr) = SqlPoolVulnerabilityAssessmentSpecRecurringScans{}
+		}
+	default:
+		iter.ReportError("decode SqlPoolVulnerabilityAssessmentSpecRecurringScans", "unexpected JSON type")
 	}
 }
 
@@ -536,6 +785,85 @@ func (WorkspaceSpecAzureDevopsRepoCodec) Decode(ptr unsafe.Pointer, iter *jsonit
 }
 
 // +k8s:deepcopy-gen=false
+type WorkspaceSpecCustomerManagedKeyCodec struct {
+}
+
+func (WorkspaceSpecCustomerManagedKeyCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*WorkspaceSpecCustomerManagedKey)(ptr) == nil
+}
+
+func (WorkspaceSpecCustomerManagedKeyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*WorkspaceSpecCustomerManagedKey)(ptr)
+	var objs []WorkspaceSpecCustomerManagedKey
+	if obj != nil {
+		objs = []WorkspaceSpecCustomerManagedKey{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecCustomerManagedKey{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (WorkspaceSpecCustomerManagedKeyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*WorkspaceSpecCustomerManagedKey)(ptr) = WorkspaceSpecCustomerManagedKey{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []WorkspaceSpecCustomerManagedKey
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecCustomerManagedKey{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*WorkspaceSpecCustomerManagedKey)(ptr) = objs[0]
+			} else {
+				*(*WorkspaceSpecCustomerManagedKey)(ptr) = WorkspaceSpecCustomerManagedKey{}
+			}
+		} else {
+			*(*WorkspaceSpecCustomerManagedKey)(ptr) = WorkspaceSpecCustomerManagedKey{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj WorkspaceSpecCustomerManagedKey
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecCustomerManagedKey{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*WorkspaceSpecCustomerManagedKey)(ptr) = obj
+		} else {
+			*(*WorkspaceSpecCustomerManagedKey)(ptr) = WorkspaceSpecCustomerManagedKey{}
+		}
+	default:
+		iter.ReportError("decode WorkspaceSpecCustomerManagedKey", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type WorkspaceSpecGithubRepoCodec struct {
 }
 
@@ -611,5 +939,163 @@ func (WorkspaceSpecGithubRepoCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.It
 		}
 	default:
 		iter.ReportError("decode WorkspaceSpecGithubRepo", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type WorkspaceSpecSqlAadAdminCodec struct {
+}
+
+func (WorkspaceSpecSqlAadAdminCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*WorkspaceSpecSqlAadAdmin)(ptr) == nil
+}
+
+func (WorkspaceSpecSqlAadAdminCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*WorkspaceSpecSqlAadAdmin)(ptr)
+	var objs []WorkspaceSpecSqlAadAdmin
+	if obj != nil {
+		objs = []WorkspaceSpecSqlAadAdmin{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecSqlAadAdmin{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (WorkspaceSpecSqlAadAdminCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*WorkspaceSpecSqlAadAdmin)(ptr) = WorkspaceSpecSqlAadAdmin{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []WorkspaceSpecSqlAadAdmin
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecSqlAadAdmin{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*WorkspaceSpecSqlAadAdmin)(ptr) = objs[0]
+			} else {
+				*(*WorkspaceSpecSqlAadAdmin)(ptr) = WorkspaceSpecSqlAadAdmin{}
+			}
+		} else {
+			*(*WorkspaceSpecSqlAadAdmin)(ptr) = WorkspaceSpecSqlAadAdmin{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj WorkspaceSpecSqlAadAdmin
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceSpecSqlAadAdmin{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*WorkspaceSpecSqlAadAdmin)(ptr) = obj
+		} else {
+			*(*WorkspaceSpecSqlAadAdmin)(ptr) = WorkspaceSpecSqlAadAdmin{}
+		}
+	default:
+		iter.ReportError("decode WorkspaceSpecSqlAadAdmin", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type WorkspaceVulnerabilityAssessmentSpecRecurringScansCodec struct {
+}
+
+func (WorkspaceVulnerabilityAssessmentSpecRecurringScansCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*WorkspaceVulnerabilityAssessmentSpecRecurringScans)(ptr) == nil
+}
+
+func (WorkspaceVulnerabilityAssessmentSpecRecurringScansCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*WorkspaceVulnerabilityAssessmentSpecRecurringScans)(ptr)
+	var objs []WorkspaceVulnerabilityAssessmentSpecRecurringScans
+	if obj != nil {
+		objs = []WorkspaceVulnerabilityAssessmentSpecRecurringScans{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceVulnerabilityAssessmentSpecRecurringScans{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (WorkspaceVulnerabilityAssessmentSpecRecurringScansCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*WorkspaceVulnerabilityAssessmentSpecRecurringScans)(ptr) = WorkspaceVulnerabilityAssessmentSpecRecurringScans{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []WorkspaceVulnerabilityAssessmentSpecRecurringScans
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceVulnerabilityAssessmentSpecRecurringScans{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*WorkspaceVulnerabilityAssessmentSpecRecurringScans)(ptr) = objs[0]
+			} else {
+				*(*WorkspaceVulnerabilityAssessmentSpecRecurringScans)(ptr) = WorkspaceVulnerabilityAssessmentSpecRecurringScans{}
+			}
+		} else {
+			*(*WorkspaceVulnerabilityAssessmentSpecRecurringScans)(ptr) = WorkspaceVulnerabilityAssessmentSpecRecurringScans{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj WorkspaceVulnerabilityAssessmentSpecRecurringScans
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(WorkspaceVulnerabilityAssessmentSpecRecurringScans{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*WorkspaceVulnerabilityAssessmentSpecRecurringScans)(ptr) = obj
+		} else {
+			*(*WorkspaceVulnerabilityAssessmentSpecRecurringScans)(ptr) = WorkspaceVulnerabilityAssessmentSpecRecurringScans{}
+		}
+	default:
+		iter.ReportError("decode WorkspaceVulnerabilityAssessmentSpecRecurringScans", "unexpected JSON type")
 	}
 }

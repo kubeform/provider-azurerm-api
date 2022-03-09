@@ -41,6 +41,11 @@ type FactoryLinkedServiceAzureBlobStorage struct {
 	Status            FactoryLinkedServiceAzureBlobStorageStatus `json:"status,omitempty"`
 }
 
+type FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken struct {
+	LinkedServiceName *string `json:"linkedServiceName" tf:"linked_service_name"`
+	SecretName        *string `json:"secretName" tf:"secret_name"`
+}
+
 type FactoryLinkedServiceAzureBlobStorageSpec struct {
 	State *FactoryLinkedServiceAzureBlobStorageSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -68,12 +73,18 @@ type FactoryLinkedServiceAzureBlobStorageSpecResource struct {
 	Annotations []string `json:"annotations,omitempty" tf:"annotations"`
 	// +optional
 	ConnectionString *string `json:"-" sensitive:"true" tf:"connection_string"`
-	DataFactoryName  *string `json:"dataFactoryName" tf:"data_factory_name"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional
 	IntegrationRuntimeName *string `json:"integrationRuntimeName,omitempty" tf:"integration_runtime_name"`
-	Name                   *string `json:"name" tf:"name"`
+	// +optional
+	KeyVaultSasToken *FactoryLinkedServiceAzureBlobStorageSpecKeyVaultSasToken `json:"keyVaultSasToken,omitempty" tf:"key_vault_sas_token"`
+	Name             *string                                                   `json:"name" tf:"name"`
 	// +optional
 	Parameters        *map[string]string `json:"parameters,omitempty" tf:"parameters"`
 	ResourceGroupName *string            `json:"resourceGroupName" tf:"resource_group_name"`

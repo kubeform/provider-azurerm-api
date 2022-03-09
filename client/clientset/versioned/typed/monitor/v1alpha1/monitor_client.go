@@ -36,6 +36,8 @@ type MonitorV1alpha1Interface interface {
 	DiagnosticSettingsGetter
 	LogProfilesGetter
 	MetricAlertsGetter
+	PrivateLinkScopesGetter
+	PrivateLinkScopedServicesGetter
 	ScheduledQueryRulesAlertsGetter
 	ScheduledQueryRulesLogsGetter
 	SmartDetectorAlertRulesGetter
@@ -80,6 +82,14 @@ func (c *MonitorV1alpha1Client) LogProfiles(namespace string) LogProfileInterfac
 
 func (c *MonitorV1alpha1Client) MetricAlerts(namespace string) MetricAlertInterface {
 	return newMetricAlerts(c, namespace)
+}
+
+func (c *MonitorV1alpha1Client) PrivateLinkScopes(namespace string) PrivateLinkScopeInterface {
+	return newPrivateLinkScopes(c, namespace)
+}
+
+func (c *MonitorV1alpha1Client) PrivateLinkScopedServices(namespace string) PrivateLinkScopedServiceInterface {
+	return newPrivateLinkScopedServices(c, namespace)
 }
 
 func (c *MonitorV1alpha1Client) ScheduledQueryRulesAlerts(namespace string) ScheduledQueryRulesAlertInterface {

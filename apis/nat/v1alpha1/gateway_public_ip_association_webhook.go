@@ -89,7 +89,7 @@ func (r *GatewayPublicIPAssociation) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range gatewaypublicipassociationForceNewList {
+	for key, _ := range gatewaypublicipassociationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

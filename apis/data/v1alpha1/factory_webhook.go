@@ -90,7 +90,7 @@ func (r *Factory) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range factoryForceNewList {
+	for key, _ := range factoryForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

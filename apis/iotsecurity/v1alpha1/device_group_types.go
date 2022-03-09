@@ -43,11 +43,22 @@ type DeviceGroup struct {
 
 type DeviceGroupSpecAllowRule struct {
 	// +optional
+	ConnectionFromIPSNotAllowed []string `json:"connectionFromIPSNotAllowed,omitempty" tf:"connection_from_ips_not_allowed"`
+	// +optional
+	// Deprecated
 	ConnectionToIPNotAllowed []string `json:"connectionToIPNotAllowed,omitempty" tf:"connection_to_ip_not_allowed"`
 	// +optional
+	ConnectionToIPSNotAllowed []string `json:"connectionToIPSNotAllowed,omitempty" tf:"connection_to_ips_not_allowed"`
+	// +optional
+	// Deprecated
 	LocalUserNotAllowed []string `json:"localUserNotAllowed,omitempty" tf:"local_user_not_allowed"`
 	// +optional
+	LocalUsersNotAllowed []string `json:"localUsersNotAllowed,omitempty" tf:"local_users_not_allowed"`
+	// +optional
+	// Deprecated
 	ProcessNotAllowed []string `json:"processNotAllowed,omitempty" tf:"process_not_allowed"`
+	// +optional
+	ProcessesNotAllowed []string `json:"processesNotAllowed,omitempty" tf:"processes_not_allowed"`
 }
 
 type DeviceGroupSpecRangeRule struct {

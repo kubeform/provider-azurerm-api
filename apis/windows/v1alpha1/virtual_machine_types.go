@@ -153,6 +153,8 @@ type VirtualMachineSpecResource struct {
 	// +optional
 	CustomData *string `json:"-" sensitive:"true" tf:"custom_data"`
 	// +optional
+	DedicatedHostGroupID *string `json:"dedicatedHostGroupID,omitempty" tf:"dedicated_host_group_id"`
+	// +optional
 	DedicatedHostID *string `json:"dedicatedHostID,omitempty" tf:"dedicated_host_id"`
 	// +optional
 	EnableAutomaticUpdates *bool `json:"enableAutomaticUpdates,omitempty" tf:"enable_automatic_updates"`
@@ -162,6 +164,8 @@ type VirtualMachineSpecResource struct {
 	EvictionPolicy *string `json:"evictionPolicy,omitempty" tf:"eviction_policy"`
 	// +optional
 	ExtensionsTimeBudget *string `json:"extensionsTimeBudget,omitempty" tf:"extensions_time_budget"`
+	// +optional
+	HotpatchingEnabled *bool `json:"hotpatchingEnabled,omitempty" tf:"hotpatching_enabled"`
 	// +optional
 	Identity *VirtualMachineSpecIdentity `json:"identity,omitempty" tf:"identity"`
 	// +optional
@@ -196,7 +200,9 @@ type VirtualMachineSpecResource struct {
 	ResourceGroupName *string  `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	Secret []VirtualMachineSpecSecret `json:"secret,omitempty" tf:"secret"`
-	Size   *string                    `json:"size" tf:"size"`
+	// +optional
+	SecureBootEnabled *bool   `json:"secureBootEnabled,omitempty" tf:"secure_boot_enabled"`
+	Size              *string `json:"size" tf:"size"`
 	// +optional
 	SourceImageID *string `json:"sourceImageID,omitempty" tf:"source_image_id"`
 	// +optional
@@ -206,9 +212,13 @@ type VirtualMachineSpecResource struct {
 	// +optional
 	Timezone *string `json:"timezone,omitempty" tf:"timezone"`
 	// +optional
+	UserData *string `json:"userData,omitempty" tf:"user_data"`
+	// +optional
 	VirtualMachineID *string `json:"virtualMachineID,omitempty" tf:"virtual_machine_id"`
 	// +optional
 	VirtualMachineScaleSetID *string `json:"virtualMachineScaleSetID,omitempty" tf:"virtual_machine_scale_set_id"`
+	// +optional
+	VtpmEnabled *bool `json:"vtpmEnabled,omitempty" tf:"vtpm_enabled"`
 	// +optional
 	WinrmListener []VirtualMachineSpecWinrmListener `json:"winrmListener,omitempty" tf:"winrm_listener"`
 	// +optional

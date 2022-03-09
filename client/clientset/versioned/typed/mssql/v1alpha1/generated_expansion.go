@@ -26,11 +26,23 @@ type DatabaseVulnerabilityAssessmentRuleBaselineExpansion interface{}
 
 type ElasticpoolExpansion interface{}
 
+type FailoverGroupExpansion interface{}
+
 type FirewallRuleExpansion interface{}
 
 type JobAgentExpansion interface{}
 
 type JobCredentialExpansion interface{}
+
+type ManagedDatabaseExpansion interface{}
+
+type ManagedInstanceExpansion interface{}
+
+type ManagedInstanceActiveDirectoryAdministratorExpansion interface{}
+
+type ManagedInstanceFailoverGroupExpansion interface{}
+
+type OutboundFirewallRuleExpansion interface{}
 
 type ServerExpansion interface{}
 

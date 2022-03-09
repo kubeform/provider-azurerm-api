@@ -28,6 +28,7 @@ import (
 type DatabricksV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	WorkspacesGetter
+	WorkspaceCustomerManagedKeysGetter
 }
 
 // DatabricksV1alpha1Client is used to interact with features provided by the databricks.azurerm.kubeform.com group.
@@ -37,6 +38,10 @@ type DatabricksV1alpha1Client struct {
 
 func (c *DatabricksV1alpha1Client) Workspaces(namespace string) WorkspaceInterface {
 	return newWorkspaces(c, namespace)
+}
+
+func (c *DatabricksV1alpha1Client) WorkspaceCustomerManagedKeys(namespace string) WorkspaceCustomerManagedKeyInterface {
+	return newWorkspaceCustomerManagedKeys(c, namespace)
 }
 
 // NewForConfig creates a new DatabricksV1alpha1Client for the given config.

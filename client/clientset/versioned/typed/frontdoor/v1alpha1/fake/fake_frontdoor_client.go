@@ -41,6 +41,10 @@ func (c *FakeFrontdoorV1alpha1) Frontdoors(namespace string) v1alpha1.FrontdoorI
 	return &FakeFrontdoors{c, namespace}
 }
 
+func (c *FakeFrontdoorV1alpha1) RulesEngines(namespace string) v1alpha1.RulesEngineInterface {
+	return &FakeRulesEngines{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeFrontdoorV1alpha1) RESTClient() rest.Interface {

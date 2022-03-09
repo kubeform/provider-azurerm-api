@@ -57,6 +57,10 @@ spec:
                 type: object
               resource:
                 properties:
+                  cmkKeyVaultURL:
+                    type: string
+                  description:
+                    type: string
                   developerAppInsightsApplicationID:
                     type: string
                   developerAppInsightsKey:
@@ -65,8 +69,12 @@ spec:
                     type: string
                   endpoint:
                     type: string
+                  iconURL:
+                    type: string
                   id:
                     type: string
+                  isolatedNetworkEnabled:
+                    type: boolean
                   location:
                     type: string
                   microsoftAppID:
@@ -137,6 +145,10 @@ spec:
                 type: object
               state:
                 properties:
+                  cmkKeyVaultURL:
+                    type: string
+                  description:
+                    type: string
                   developerAppInsightsApplicationID:
                     type: string
                   developerAppInsightsKey:
@@ -145,8 +157,12 @@ spec:
                     type: string
                   endpoint:
                     type: string
+                  iconURL:
+                    type: string
                   id:
                     type: string
+                  isolatedNetworkEnabled:
+                    type: boolean
                   location:
                     type: string
                   microsoftAppID:

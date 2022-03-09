@@ -42,6 +42,7 @@ func (r *FactoryLinkedServiceDataLakeStorageGen2) SetupWebhookWithManager(mgr ct
 var _ webhook.Validator = &FactoryLinkedServiceDataLakeStorageGen2{}
 
 var factorylinkedservicedatalakestoragegen2ForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *FactoryLinkedServiceDataLakeStorageGen2) ValidateUpdate(old runtime.Obj
 		return err
 	}
 
-	for key := range factorylinkedservicedatalakestoragegen2ForceNewList {
+	for key, _ := range factorylinkedservicedatalakestoragegen2ForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -91,7 +91,7 @@ func (r *HubBGPConnection) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range hubbgpconnectionForceNewList {
+	for key, _ := range hubbgpconnectionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

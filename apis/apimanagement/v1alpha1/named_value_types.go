@@ -41,6 +41,12 @@ type NamedValue struct {
 	Status            NamedValueStatus `json:"status,omitempty"`
 }
 
+type NamedValueSpecValueFromKeyVault struct {
+	// +optional
+	IdentityClientID *string `json:"identityClientID,omitempty" tf:"identity_client_id"`
+	SecretID         *string `json:"secretID" tf:"secret_id"`
+}
+
 type NamedValueSpec struct {
 	State *NamedValueSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -69,8 +75,11 @@ type NamedValueSpecResource struct {
 	// +optional
 	Secret *bool `json:"secret,omitempty" tf:"secret"`
 	// +optional
-	Tags  []string `json:"tags,omitempty" tf:"tags"`
-	Value *string  `json:"-" sensitive:"true" tf:"value"`
+	Tags []string `json:"tags,omitempty" tf:"tags"`
+	// +optional
+	Value *string `json:"-" sensitive:"true" tf:"value"`
+	// +optional
+	ValueFromKeyVault *NamedValueSpecValueFromKeyVault `json:"valueFromKeyVault,omitempty" tf:"value_from_key_vault"`
 }
 
 type NamedValueStatus struct {

@@ -78,6 +78,8 @@ spec:
                   ipConfiguration:
                     items:
                       properties:
+                        gatewayLoadBalancerFrontendIPConfigurationID:
+                          type: string
                         name:
                           type: string
                         primary:
@@ -184,6 +186,8 @@ spec:
                   ipConfiguration:
                     items:
                       properties:
+                        gatewayLoadBalancerFrontendIPConfigurationID:
+                          type: string
                         name:
                           type: string
                         primary:

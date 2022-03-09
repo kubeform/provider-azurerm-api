@@ -89,7 +89,7 @@ func (r *Frontdoor) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range frontdoorForceNewList {
+	for key, _ := range frontdoorForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

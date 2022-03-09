@@ -57,6 +57,11 @@ spec:
                 type: object
               resource:
                 properties:
+                  batchMaxWaitTime:
+                    type: string
+                  batchMinRows:
+                    format: double
+                    type: number
                   dateFormat:
                     type: string
                   id:
@@ -148,6 +153,11 @@ spec:
                 type: object
               state:
                 properties:
+                  batchMaxWaitTime:
+                    type: string
+                  batchMinRows:
+                    format: double
+                    type: number
                   dateFormat:
                     type: string
                   id:

@@ -193,6 +193,18 @@ type SystemTopicEventSubscriptionSpecAzureFunctionEndpoint struct {
 	PreferredBatchSizeInKilobytes *int64 `json:"preferredBatchSizeInKilobytes,omitempty" tf:"preferred_batch_size_in_kilobytes"`
 }
 
+type SystemTopicEventSubscriptionSpecDeadLetterIdentity struct {
+	Type *string `json:"type" tf:"type"`
+	// +optional
+	UserAssignedIdentity *string `json:"userAssignedIdentity,omitempty" tf:"user_assigned_identity"`
+}
+
+type SystemTopicEventSubscriptionSpecDeliveryIdentity struct {
+	Type *string `json:"type" tf:"type"`
+	// +optional
+	UserAssignedIdentity *string `json:"userAssignedIdentity,omitempty" tf:"user_assigned_identity"`
+}
+
 type SystemTopicEventSubscriptionSpecRetryPolicy struct {
 	EventTimeToLive     *int64 `json:"eventTimeToLive" tf:"event_time_to_live"`
 	MaxDeliveryAttempts *int64 `json:"maxDeliveryAttempts" tf:"max_delivery_attempts"`
@@ -204,8 +216,10 @@ type SystemTopicEventSubscriptionSpecStorageBlobDeadLetterDestination struct {
 }
 
 type SystemTopicEventSubscriptionSpecStorageQueueEndpoint struct {
-	QueueName        *string `json:"queueName" tf:"queue_name"`
-	StorageAccountID *string `json:"storageAccountID" tf:"storage_account_id"`
+	// +optional
+	QueueMessageTimeToLiveInSeconds *int64  `json:"queueMessageTimeToLiveInSeconds,omitempty" tf:"queue_message_time_to_live_in_seconds"`
+	QueueName                       *string `json:"queueName" tf:"queue_name"`
+	StorageAccountID                *string `json:"storageAccountID" tf:"storage_account_id"`
 }
 
 type SystemTopicEventSubscriptionSpecSubjectFilter struct {
@@ -253,7 +267,13 @@ type SystemTopicEventSubscriptionSpecResource struct {
 	// +optional
 	AdvancedFilter *SystemTopicEventSubscriptionSpecAdvancedFilter `json:"advancedFilter,omitempty" tf:"advanced_filter"`
 	// +optional
+	AdvancedFilteringOnArraysEnabled *bool `json:"advancedFilteringOnArraysEnabled,omitempty" tf:"advanced_filtering_on_arrays_enabled"`
+	// +optional
 	AzureFunctionEndpoint *SystemTopicEventSubscriptionSpecAzureFunctionEndpoint `json:"azureFunctionEndpoint,omitempty" tf:"azure_function_endpoint"`
+	// +optional
+	DeadLetterIdentity *SystemTopicEventSubscriptionSpecDeadLetterIdentity `json:"deadLetterIdentity,omitempty" tf:"dead_letter_identity"`
+	// +optional
+	DeliveryIdentity *SystemTopicEventSubscriptionSpecDeliveryIdentity `json:"deliveryIdentity,omitempty" tf:"delivery_identity"`
 	// +optional
 	EventDeliverySchema *string `json:"eventDeliverySchema,omitempty" tf:"event_delivery_schema"`
 	// +optional

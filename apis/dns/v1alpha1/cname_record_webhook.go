@@ -89,7 +89,7 @@ func (r *CnameRecord) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range cnamerecordForceNewList {
+	for key, _ := range cnamerecordForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

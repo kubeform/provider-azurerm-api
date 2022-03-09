@@ -37,6 +37,10 @@ func (c *FakeVpnV1alpha1) GatewayConnections(namespace string) v1alpha1.GatewayC
 	return &FakeGatewayConnections{c, namespace}
 }
 
+func (c *FakeVpnV1alpha1) GatewayNATRules(namespace string) v1alpha1.GatewayNATRuleInterface {
+	return &FakeGatewayNATRules{c, namespace}
+}
+
 func (c *FakeVpnV1alpha1) ServerConfigurations(namespace string) v1alpha1.ServerConfigurationInterface {
 	return &FakeServerConfigurations{c, namespace}
 }

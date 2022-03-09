@@ -43,6 +43,7 @@ var _ webhook.Validator = &Embedded{}
 
 var embeddedForceNewList = map[string]bool{
 	"/location":            true,
+	"/mode":                true,
 	"/name":                true,
 	"/resource_group_name": true,
 }
@@ -90,7 +91,7 @@ func (r *Embedded) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range embeddedForceNewList {
+	for key, _ := range embeddedForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

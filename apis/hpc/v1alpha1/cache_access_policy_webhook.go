@@ -89,7 +89,7 @@ func (r *CacheAccessPolicy) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range cacheaccesspolicyForceNewList {
+	for key, _ := range cacheaccesspolicyForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

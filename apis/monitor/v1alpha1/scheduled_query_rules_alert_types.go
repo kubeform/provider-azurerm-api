@@ -86,7 +86,9 @@ type ScheduledQueryRulesAlertSpecResource struct {
 	// +optional
 	// +kubebuilder:validation:MaxItems=100
 	AuthorizedResourceIDS []string `json:"authorizedResourceIDS,omitempty" tf:"authorized_resource_ids"`
-	DataSourceID          *string  `json:"dataSourceID" tf:"data_source_id"`
+	// +optional
+	AutoMitigationEnabled *bool   `json:"autoMitigationEnabled,omitempty" tf:"auto_mitigation_enabled"`
+	DataSourceID          *string `json:"dataSourceID" tf:"data_source_id"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional

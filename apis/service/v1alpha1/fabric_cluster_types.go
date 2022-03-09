@@ -115,7 +115,11 @@ type FabricClusterSpecNodeType struct {
 	HttpEndpointPort *int64                                   `json:"httpEndpointPort" tf:"http_endpoint_port"`
 	InstanceCount    *int64                                   `json:"instanceCount" tf:"instance_count"`
 	IsPrimary        *bool                                    `json:"isPrimary" tf:"is_primary"`
-	Name             *string                                  `json:"name" tf:"name"`
+	// +optional
+	IsStateless *bool `json:"isStateless,omitempty" tf:"is_stateless"`
+	// +optional
+	MultipleAvailabilityZones *bool   `json:"multipleAvailabilityZones,omitempty" tf:"multiple_availability_zones"`
+	Name                      *string `json:"name" tf:"name"`
 	// +optional
 	PlacementProperties *map[string]string `json:"placementProperties,omitempty" tf:"placement_properties"`
 	// +optional
@@ -228,11 +232,15 @@ type FabricClusterSpecResource struct {
 	// +optional
 	ReverseProxyCertificateCommonNames *FabricClusterSpecReverseProxyCertificateCommonNames `json:"reverseProxyCertificateCommonNames,omitempty" tf:"reverse_proxy_certificate_common_names"`
 	// +optional
+	ServiceFabricZonalUpgradeMode *string `json:"serviceFabricZonalUpgradeMode,omitempty" tf:"service_fabric_zonal_upgrade_mode"`
+	// +optional
 	Tags        *map[string]string `json:"tags,omitempty" tf:"tags"`
 	UpgradeMode *string            `json:"upgradeMode" tf:"upgrade_mode"`
 	// +optional
 	UpgradePolicy *FabricClusterSpecUpgradePolicy `json:"upgradePolicy,omitempty" tf:"upgrade_policy"`
 	VmImage       *string                         `json:"vmImage" tf:"vm_image"`
+	// +optional
+	VmssZonalUpgradeMode *string `json:"vmssZonalUpgradeMode,omitempty" tf:"vmss_zonal_upgrade_mode"`
 }
 
 type FabricClusterStatus struct {

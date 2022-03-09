@@ -89,7 +89,7 @@ func (r *BackendAddressPoolAddress) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range backendaddresspooladdressForceNewList {
+	for key, _ := range backendaddresspooladdressForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

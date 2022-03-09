@@ -25,3 +25,11 @@ type SiteListerExpansion interface{}
 // SiteNamespaceListerExpansion allows custom methods to be added to
 // SiteNamespaceLister.
 type SiteNamespaceListerExpansion interface{}
+
+// SiteCustomDomainListerExpansion allows custom methods to be added to
+// SiteCustomDomainLister.
+type SiteCustomDomainListerExpansion interface{}
+
+// SiteCustomDomainNamespaceListerExpansion allows custom methods to be added to
+// SiteCustomDomainNamespaceLister.
+type SiteCustomDomainNamespaceListerExpansion interface{}

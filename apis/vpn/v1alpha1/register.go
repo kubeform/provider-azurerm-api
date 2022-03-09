@@ -60,6 +60,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&GatewayList{},
 		&GatewayConnection{},
 		&GatewayConnectionList{},
+		&GatewayNATRule{},
+		&GatewayNATRuleList{},
 		&ServerConfiguration{},
 		&ServerConfigurationList{},
 		&Site{},

@@ -57,8 +57,12 @@ spec:
                 type: object
               resource:
                 properties:
+                  copyPasteEnabled:
+                    type: boolean
                   dnsName:
                     type: string
+                  fileCopyEnabled:
+                    type: boolean
                   id:
                     type: string
                   ipConfiguration:
@@ -74,11 +78,20 @@ spec:
                     - publicIPAddressID
                     - subnetID
                     type: object
+                  ipConnectEnabled:
+                    type: boolean
                   location:
                     type: string
                   name:
                     type: string
                   resourceGroupName:
+                    type: string
+                  scaleUnits:
+                    format: int64
+                    type: integer
+                  shareableLinkEnabled:
+                    type: boolean
+                  sku:
                     type: string
                   tags:
                     additionalProperties:
@@ -122,6 +135,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  tunnelingEnabled:
+                    type: boolean
                 required:
                 - location
                 - name
@@ -129,8 +144,12 @@ spec:
                 type: object
               state:
                 properties:
+                  copyPasteEnabled:
+                    type: boolean
                   dnsName:
                     type: string
+                  fileCopyEnabled:
+                    type: boolean
                   id:
                     type: string
                   ipConfiguration:
@@ -146,11 +165,20 @@ spec:
                     - publicIPAddressID
                     - subnetID
                     type: object
+                  ipConnectEnabled:
+                    type: boolean
                   location:
                     type: string
                   name:
                     type: string
                   resourceGroupName:
+                    type: string
+                  scaleUnits:
+                    format: int64
+                    type: integer
+                  shareableLinkEnabled:
+                    type: boolean
+                  sku:
                     type: string
                   tags:
                     additionalProperties:
@@ -194,6 +222,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  tunnelingEnabled:
+                    type: boolean
                 required:
                 - location
                 - name

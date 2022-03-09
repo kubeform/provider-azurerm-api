@@ -182,6 +182,8 @@ spec:
                     required:
                     - type
                     type: object
+                  keyVaultReferenceIdentityID:
+                    type: string
                   location:
                     type: string
                   logs:
@@ -236,6 +238,10 @@ spec:
                     type: string
                   siteConfig:
                     properties:
+                      acrUseManagedIdentityCredentials:
+                        type: boolean
+                      acrUserManagedIdentityClientID:
+                        type: string
                       alwaysOn:
                         type: boolean
                       appCommandLine:
@@ -376,6 +382,8 @@ spec:
                         type: boolean
                       use32BitWorkerProcess:
                         type: boolean
+                      vnetRouteAllEnabled:
+                        type: boolean
                       websocketsEnabled:
                         type: boolean
                       windowsFxVersion:
@@ -386,6 +394,26 @@ spec:
                       properties:
                         username:
                           type: string
+                      type: object
+                    type: array
+                  storageAccount:
+                    items:
+                      properties:
+                        accountName:
+                          type: string
+                        mountPath:
+                          type: string
+                        name:
+                          type: string
+                        shareName:
+                          type: string
+                        type:
+                          type: string
+                      required:
+                      - accountName
+                      - name
+                      - shareName
+                      - type
                       type: object
                     type: array
                   tags:
@@ -573,6 +601,8 @@ spec:
                     required:
                     - type
                     type: object
+                  keyVaultReferenceIdentityID:
+                    type: string
                   location:
                     type: string
                   logs:
@@ -627,6 +657,10 @@ spec:
                     type: string
                   siteConfig:
                     properties:
+                      acrUseManagedIdentityCredentials:
+                        type: boolean
+                      acrUserManagedIdentityClientID:
+                        type: string
                       alwaysOn:
                         type: boolean
                       appCommandLine:
@@ -767,6 +801,8 @@ spec:
                         type: boolean
                       use32BitWorkerProcess:
                         type: boolean
+                      vnetRouteAllEnabled:
+                        type: boolean
                       websocketsEnabled:
                         type: boolean
                       windowsFxVersion:
@@ -777,6 +813,26 @@ spec:
                       properties:
                         username:
                           type: string
+                      type: object
+                    type: array
+                  storageAccount:
+                    items:
+                      properties:
+                        accountName:
+                          type: string
+                        mountPath:
+                          type: string
+                        name:
+                          type: string
+                        shareName:
+                          type: string
+                        type:
+                          type: string
+                      required:
+                      - accountName
+                      - name
+                      - shareName
+                      - type
                       type: object
                     type: array
                   tags:

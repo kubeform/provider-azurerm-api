@@ -27,7 +27,10 @@ import (
 
 type TrafficmanagerV1alpha1Interface interface {
 	RESTClient() rest.Interface
+	AzureEndpointsGetter
 	EndpointsGetter
+	ExternalEndpointsGetter
+	NestedEndpointsGetter
 	ProfilesGetter
 }
 
@@ -36,8 +39,20 @@ type TrafficmanagerV1alpha1Client struct {
 	restClient rest.Interface
 }
 
+func (c *TrafficmanagerV1alpha1Client) AzureEndpoints(namespace string) AzureEndpointInterface {
+	return newAzureEndpoints(c, namespace)
+}
+
 func (c *TrafficmanagerV1alpha1Client) Endpoints(namespace string) EndpointInterface {
 	return newEndpoints(c, namespace)
+}
+
+func (c *TrafficmanagerV1alpha1Client) ExternalEndpoints(namespace string) ExternalEndpointInterface {
+	return newExternalEndpoints(c, namespace)
+}
+
+func (c *TrafficmanagerV1alpha1Client) NestedEndpoints(namespace string) NestedEndpointInterface {
+	return newNestedEndpoints(c, namespace)
 }
 
 func (c *TrafficmanagerV1alpha1Client) Profiles(namespace string) ProfileInterface {

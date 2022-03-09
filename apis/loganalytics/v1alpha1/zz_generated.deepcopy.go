@@ -1918,6 +1918,11 @@ func (in *WorkspaceSpecResource) DeepCopyInto(out *WorkspaceSpecResource) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.ReservationCapacityInGbPerDay != nil {
+		in, out := &in.ReservationCapacityInGbPerDay, &out.ReservationCapacityInGbPerDay
+		*out = new(int64)
+		**out = **in
+	}
 	if in.ReservationCapcityInGbPerDay != nil {
 		in, out := &in.ReservationCapcityInGbPerDay, &out.ReservationCapcityInGbPerDay
 		*out = new(int64)

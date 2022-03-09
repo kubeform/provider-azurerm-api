@@ -57,6 +57,67 @@ spec:
                 type: object
               resource:
                 properties:
+                  accessControl:
+                    properties:
+                      action:
+                        properties:
+                          allowedCallerIPAddressRange:
+                            items:
+                              type: string
+                            type: array
+                        required:
+                        - allowedCallerIPAddressRange
+                        type: object
+                      content:
+                        properties:
+                          allowedCallerIPAddressRange:
+                            items:
+                              type: string
+                            type: array
+                        required:
+                        - allowedCallerIPAddressRange
+                        type: object
+                      trigger:
+                        properties:
+                          allowedCallerIPAddressRange:
+                            items:
+                              type: string
+                            type: array
+                          openAuthenticationPolicy:
+                            items:
+                              properties:
+                                claim:
+                                  items:
+                                    properties:
+                                      name:
+                                        type: string
+                                      value:
+                                        type: string
+                                    required:
+                                    - name
+                                    - value
+                                    type: object
+                                  type: array
+                                name:
+                                  type: string
+                              required:
+                              - claim
+                              - name
+                              type: object
+                            type: array
+                        required:
+                        - allowedCallerIPAddressRange
+                        type: object
+                      workflowManagement:
+                        properties:
+                          allowedCallerIPAddressRange:
+                            items:
+                              type: string
+                            type: array
+                        required:
+                        - allowedCallerIPAddressRange
+                        type: object
+                    type: object
                   accessEndpoint:
                     type: string
                   connectorEndpointIPAddresses:
@@ -67,8 +128,25 @@ spec:
                     items:
                       type: string
                     type: array
+                  enabled:
+                    type: boolean
                   id:
                     type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   integrationServiceEnvironmentID:
                     type: string
                   location:
@@ -133,6 +211,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  workflowParameters:
+                    additionalProperties:
+                      type: string
+                    type: object
                   workflowSchema:
                     type: string
                   workflowVersion:
@@ -144,6 +226,67 @@ spec:
                 type: object
               state:
                 properties:
+                  accessControl:
+                    properties:
+                      action:
+                        properties:
+                          allowedCallerIPAddressRange:
+                            items:
+                              type: string
+                            type: array
+                        required:
+                        - allowedCallerIPAddressRange
+                        type: object
+                      content:
+                        properties:
+                          allowedCallerIPAddressRange:
+                            items:
+                              type: string
+                            type: array
+                        required:
+                        - allowedCallerIPAddressRange
+                        type: object
+                      trigger:
+                        properties:
+                          allowedCallerIPAddressRange:
+                            items:
+                              type: string
+                            type: array
+                          openAuthenticationPolicy:
+                            items:
+                              properties:
+                                claim:
+                                  items:
+                                    properties:
+                                      name:
+                                        type: string
+                                      value:
+                                        type: string
+                                    required:
+                                    - name
+                                    - value
+                                    type: object
+                                  type: array
+                                name:
+                                  type: string
+                              required:
+                              - claim
+                              - name
+                              type: object
+                            type: array
+                        required:
+                        - allowedCallerIPAddressRange
+                        type: object
+                      workflowManagement:
+                        properties:
+                          allowedCallerIPAddressRange:
+                            items:
+                              type: string
+                            type: array
+                        required:
+                        - allowedCallerIPAddressRange
+                        type: object
+                    type: object
                   accessEndpoint:
                     type: string
                   connectorEndpointIPAddresses:
@@ -154,8 +297,25 @@ spec:
                     items:
                       type: string
                     type: array
+                  enabled:
+                    type: boolean
                   id:
                     type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   integrationServiceEnvironmentID:
                     type: string
                   location:
@@ -220,6 +380,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  workflowParameters:
+                    additionalProperties:
+                      type: string
+                    type: object
                   workflowSchema:
                     type: string
                   workflowVersion:

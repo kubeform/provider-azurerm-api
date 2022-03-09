@@ -50,6 +50,7 @@ var publicipForceNewList = map[string]bool{
 	"/public_ip_prefix_id": true,
 	"/resource_group_name": true,
 	"/sku":                 true,
+	"/sku_tier":            true,
 	"/zones":               true,
 }
 
@@ -96,7 +97,7 @@ func (r *PublicIP) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range publicipForceNewList {
+	for key, _ := range publicipForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

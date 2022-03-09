@@ -57,12 +57,17 @@ spec:
                 type: object
               resource:
                 properties:
+                  cleanupEnabled:
+                    type: boolean
                   computeType:
                     type: string
                   coreCount:
                     format: int64
                     type: integer
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -115,20 +120,26 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  virtualNetworkEnabled:
+                    type: boolean
                 required:
-                - dataFactoryName
                 - location
                 - name
                 - resourceGroupName
                 type: object
               state:
                 properties:
+                  cleanupEnabled:
+                    type: boolean
                   computeType:
                     type: string
                   coreCount:
                     format: int64
                     type: integer
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -181,8 +192,9 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  virtualNetworkEnabled:
+                    type: boolean
                 required:
-                - dataFactoryName
                 - location
                 - name
                 - resourceGroupName

@@ -105,6 +105,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  userAssignedIdentityID:
+                    type: string
                 required:
                 - keyName
                 - keyVaultID
@@ -160,6 +162,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  userAssignedIdentityID:
+                    type: string
                 required:
                 - keyName
                 - keyVaultID

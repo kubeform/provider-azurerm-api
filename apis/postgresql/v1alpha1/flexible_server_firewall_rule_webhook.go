@@ -89,7 +89,7 @@ func (r *FlexibleServerFirewallRule) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range flexibleserverfirewallruleForceNewList {
+	for key, _ := range flexibleserverfirewallruleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

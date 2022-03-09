@@ -90,7 +90,7 @@ func (r *NetworkRuleCollection) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range networkrulecollectionForceNewList {
+	for key, _ := range networkrulecollectionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

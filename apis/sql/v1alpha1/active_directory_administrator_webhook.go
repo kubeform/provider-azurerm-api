@@ -89,7 +89,7 @@ func (r *ActiveDirectoryAdministrator) ValidateUpdate(old runtime.Object) error 
 		return err
 	}
 
-	for key := range activedirectoryadministratorForceNewList {
+	for key, _ := range activedirectoryadministratorForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

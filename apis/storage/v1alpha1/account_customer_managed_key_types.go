@@ -65,6 +65,8 @@ type AccountCustomerManagedKeySpecResource struct {
 	// +optional
 	KeyVersion       *string `json:"keyVersion,omitempty" tf:"key_version"`
 	StorageAccountID *string `json:"storageAccountID" tf:"storage_account_id"`
+	// +optional
+	UserAssignedIdentityID *string `json:"userAssignedIdentityID,omitempty" tf:"user_assigned_identity_id"`
 }
 
 type AccountCustomerManagedKeyStatus struct {

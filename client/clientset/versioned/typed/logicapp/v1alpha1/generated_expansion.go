@@ -24,6 +24,24 @@ type ActionHTTPExpansion interface{}
 
 type IntegrationAccountExpansion interface{}
 
+type IntegrationAccountAgreementExpansion interface{}
+
+type IntegrationAccountAssemblyExpansion interface{}
+
+type IntegrationAccountBatchConfigurationExpansion interface{}
+
+type IntegrationAccountCertificateExpansion interface{}
+
+type IntegrationAccountMapExpansion interface{}
+
+type IntegrationAccountPartnerExpansion interface{}
+
+type IntegrationAccountSchemaExpansion interface{}
+
+type IntegrationAccountSessionExpansion interface{}
+
+type StandardExpansion interface{}
+
 type TriggerCustomExpansion interface{}
 
 type TriggerHTTPRequestExpansion interface{}

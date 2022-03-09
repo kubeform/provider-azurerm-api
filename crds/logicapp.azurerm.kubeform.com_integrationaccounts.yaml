@@ -59,6 +59,8 @@ spec:
                 properties:
                   id:
                     type: string
+                  integrationServiceEnvironmentID:
+                    type: string
                   location:
                     type: string
                   name:
@@ -118,6 +120,8 @@ spec:
               state:
                 properties:
                   id:
+                    type: string
+                  integrationServiceEnvironmentID:
                     type: string
                   location:
                     type: string

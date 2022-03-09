@@ -145,6 +145,22 @@ spec:
                     type: array
                   enabled:
                     type: boolean
+                  eventHubReceiver:
+                    items:
+                      properties:
+                        eventHubID:
+                          type: string
+                        name:
+                          type: string
+                        tenantID:
+                          type: string
+                        useCommonAlertSchema:
+                          type: boolean
+                      required:
+                      - eventHubID
+                      - name
+                      type: object
+                    type: array
                   id:
                     type: string
                   itsmReceiver:
@@ -383,6 +399,22 @@ spec:
                     type: array
                   enabled:
                     type: boolean
+                  eventHubReceiver:
+                    items:
+                      properties:
+                        eventHubID:
+                          type: string
+                        name:
+                          type: string
+                        tenantID:
+                          type: string
+                        useCommonAlertSchema:
+                          type: boolean
+                      required:
+                      - eventHubID
+                      - name
+                      type: object
+                    type: array
                   id:
                     type: string
                   itsmReceiver:

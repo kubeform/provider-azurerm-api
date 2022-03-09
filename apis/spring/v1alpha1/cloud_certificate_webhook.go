@@ -42,6 +42,7 @@ func (r *CloudCertificate) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &CloudCertificate{}
 
 var cloudcertificateForceNewList = map[string]bool{
+	"/certificate_content":      true,
 	"/key_vault_certificate_id": true,
 	"/name":                     true,
 	"/resource_group_name":      true,
@@ -91,7 +92,7 @@ func (r *CloudCertificate) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range cloudcertificateForceNewList {
+	for key, _ := range cloudcertificateForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

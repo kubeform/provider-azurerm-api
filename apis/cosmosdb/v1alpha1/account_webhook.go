@@ -42,15 +42,18 @@ func (r *Account) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &Account{}
 
 var accountForceNewList = map[string]bool{
-	"/analytical_storage_enabled": true,
-	"/backup/*/type":              true,
-	"/enable_free_tier":           true,
-	"/key_vault_key_id":           true,
-	"/kind":                       true,
-	"/location":                   true,
-	"/mongo_server_version":       true,
-	"/name":                       true,
-	"/resource_group_name":        true,
+	"/analytical_storage_enabled":            true,
+	"/create_mode":                           true,
+	"/enable_free_tier":                      true,
+	"/key_vault_key_id":                      true,
+	"/kind":                                  true,
+	"/location":                              true,
+	"/name":                                  true,
+	"/resource_group_name":                   true,
+	"/restore/*/database/*/collection_names": true,
+	"/restore/*/database/*/name":             true,
+	"/restore/*/restore_timestamp_in_utc":    true,
+	"/restore/*/source_cosmosdb_account_id":  true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -96,7 +99,7 @@ func (r *Account) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range accountForceNewList {
+	for key, _ := range accountForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

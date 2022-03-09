@@ -20,6 +20,10 @@ package v1alpha1
 
 type LearningComputeClusterExpansion interface{}
 
+type LearningComputeInstanceExpansion interface{}
+
 type LearningInferenceClusterExpansion interface{}
+
+type LearningSynapseSparkExpansion interface{}
 
 type LearningWorkspaceExpansion interface{}

@@ -20,6 +20,10 @@ package v1alpha1
 
 type ConfigurationExpansion interface{}
 
+type ConfigurationFeatureExpansion interface{}
+
+type ConfigurationKeyExpansion interface{}
+
 type ServiceExpansion interface{}
 
 type ServiceActiveSlotExpansion interface{}
@@ -42,7 +46,11 @@ type ServiceManagedCertificateExpansion interface{}
 
 type ServicePlanExpansion interface{}
 
+type ServicePublicCertificateExpansion interface{}
+
 type ServiceSlotExpansion interface{}
+
+type ServiceSlotCustomHostnameBindingExpansion interface{}
 
 type ServiceSlotVirtualNetworkSwiftConnectionExpansion interface{}
 

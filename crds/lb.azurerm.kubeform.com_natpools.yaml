@@ -60,6 +60,8 @@ spec:
                   backendPort:
                     format: int64
                     type: integer
+                  floatingIPEnabled:
+                    type: boolean
                   frontendIPConfigurationID:
                     type: string
                   frontendIPConfigurationName:
@@ -72,6 +74,9 @@ spec:
                     type: integer
                   id:
                     type: string
+                  idleTimeoutInMinutes:
+                    format: int64
+                    type: integer
                   loadbalancerID:
                     type: string
                   name:
@@ -80,6 +85,8 @@ spec:
                     type: string
                   resourceGroupName:
                     type: string
+                  tcpResetEnabled:
+                    type: boolean
                   timeouts:
                     properties:
                       create:
@@ -133,6 +140,8 @@ spec:
                   backendPort:
                     format: int64
                     type: integer
+                  floatingIPEnabled:
+                    type: boolean
                   frontendIPConfigurationID:
                     type: string
                   frontendIPConfigurationName:
@@ -145,6 +154,9 @@ spec:
                     type: integer
                   id:
                     type: string
+                  idleTimeoutInMinutes:
+                    format: int64
+                    type: integer
                   loadbalancerID:
                     type: string
                   name:
@@ -153,6 +165,8 @@ spec:
                     type: string
                   resourceGroupName:
                     type: string
+                  tcpResetEnabled:
+                    type: boolean
                   timeouts:
                     properties:
                       create:

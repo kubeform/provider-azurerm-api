@@ -90,7 +90,7 @@ func (r *JobAgent) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range jobagentForceNewList {
+	for key, _ := range jobagentForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

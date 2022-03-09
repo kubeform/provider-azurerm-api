@@ -24,4 +24,6 @@ type ApplicationExpansion interface{}
 
 type CertificateExpansion interface{}
 
+type JobExpansion interface{}
+
 type PoolExpansion interface{}

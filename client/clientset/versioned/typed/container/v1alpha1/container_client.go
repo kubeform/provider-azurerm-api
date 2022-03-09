@@ -30,6 +30,7 @@ type ContainerV1alpha1Interface interface {
 	GroupsGetter
 	RegistriesGetter
 	RegistryScopeMapsGetter
+	RegistryTasksGetter
 	RegistryTokensGetter
 	RegistryWebhooksGetter
 }
@@ -49,6 +50,10 @@ func (c *ContainerV1alpha1Client) Registries(namespace string) RegistryInterface
 
 func (c *ContainerV1alpha1Client) RegistryScopeMaps(namespace string) RegistryScopeMapInterface {
 	return newRegistryScopeMaps(c, namespace)
+}
+
+func (c *ContainerV1alpha1Client) RegistryTasks(namespace string) RegistryTaskInterface {
+	return newRegistryTasks(c, namespace)
 }
 
 func (c *ContainerV1alpha1Client) RegistryTokens(namespace string) RegistryTokenInterface {

@@ -63,12 +63,15 @@ type ServiceCertificateSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	AppServicePlanID *string `json:"appServicePlanID,omitempty" tf:"app_service_plan_id"`
+	// +optional
 	ExpirationDate *string `json:"expirationDate,omitempty" tf:"expiration_date"`
 	// +optional
 	FriendlyName *string `json:"friendlyName,omitempty" tf:"friendly_name"`
 	// +optional
 	HostNames []string `json:"hostNames,omitempty" tf:"host_names"`
 	// +optional
+	// Deprecated
 	HostingEnvironmentProfileID *string `json:"hostingEnvironmentProfileID,omitempty" tf:"hosting_environment_profile_id"`
 	// +optional
 	IssueDate *string `json:"issueDate,omitempty" tf:"issue_date"`

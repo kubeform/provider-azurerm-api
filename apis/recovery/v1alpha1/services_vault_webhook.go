@@ -90,7 +90,7 @@ func (r *ServicesVault) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range servicesvaultForceNewList {
+	for key, _ := range servicesvaultForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

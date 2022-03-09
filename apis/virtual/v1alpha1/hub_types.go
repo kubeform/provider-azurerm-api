@@ -66,10 +66,12 @@ type HubSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
-	AddressPrefix     *string `json:"addressPrefix,omitempty" tf:"address_prefix"`
-	Location          *string `json:"location" tf:"location"`
-	Name              *string `json:"name" tf:"name"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	AddressPrefix *string `json:"addressPrefix,omitempty" tf:"address_prefix"`
+	// +optional
+	DefaultRouteTableID *string `json:"defaultRouteTableID,omitempty" tf:"default_route_table_id"`
+	Location            *string `json:"location" tf:"location"`
+	Name                *string `json:"name" tf:"name"`
+	ResourceGroupName   *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	Route []HubSpecRoute `json:"route,omitempty" tf:"route"`
 	// +optional

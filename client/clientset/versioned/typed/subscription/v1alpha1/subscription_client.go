@@ -27,6 +27,7 @@ import (
 
 type SubscriptionV1alpha1Interface interface {
 	RESTClient() rest.Interface
+	CostManagementExportsGetter
 	PolicyAssignmentsGetter
 	SubscriptionsGetter
 	TemplateDeploymentsGetter
@@ -35,6 +36,10 @@ type SubscriptionV1alpha1Interface interface {
 // SubscriptionV1alpha1Client is used to interact with features provided by the subscription.azurerm.kubeform.com group.
 type SubscriptionV1alpha1Client struct {
 	restClient rest.Interface
+}
+
+func (c *SubscriptionV1alpha1Client) CostManagementExports(namespace string) CostManagementExportInterface {
+	return newCostManagementExports(c, namespace)
 }
 
 func (c *SubscriptionV1alpha1Client) PolicyAssignments(namespace string) PolicyAssignmentInterface {

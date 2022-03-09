@@ -80,6 +80,15 @@ type ActionGroupSpecEmailReceiver struct {
 	UseCommonAlertSchema *bool `json:"useCommonAlertSchema,omitempty" tf:"use_common_alert_schema"`
 }
 
+type ActionGroupSpecEventHubReceiver struct {
+	EventHubID *string `json:"eventHubID" tf:"event_hub_id"`
+	Name       *string `json:"name" tf:"name"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	// +optional
+	UseCommonAlertSchema *bool `json:"useCommonAlertSchema,omitempty" tf:"use_common_alert_schema"`
+}
+
 type ActionGroupSpecItsmReceiver struct {
 	ConnectionID        *string `json:"connectionID" tf:"connection_id"`
 	Name                *string `json:"name" tf:"name"`
@@ -156,6 +165,8 @@ type ActionGroupSpecResource struct {
 	EmailReceiver []ActionGroupSpecEmailReceiver `json:"emailReceiver,omitempty" tf:"email_receiver"`
 	// +optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+	// +optional
+	EventHubReceiver []ActionGroupSpecEventHubReceiver `json:"eventHubReceiver,omitempty" tf:"event_hub_receiver"`
 	// +optional
 	ItsmReceiver []ActionGroupSpecItsmReceiver `json:"itsmReceiver,omitempty" tf:"itsm_receiver"`
 	// +optional

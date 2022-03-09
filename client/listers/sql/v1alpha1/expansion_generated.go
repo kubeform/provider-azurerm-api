@@ -58,6 +58,38 @@ type FirewallRuleListerExpansion interface{}
 // FirewallRuleNamespaceLister.
 type FirewallRuleNamespaceListerExpansion interface{}
 
+// ManagedDatabaseListerExpansion allows custom methods to be added to
+// ManagedDatabaseLister.
+type ManagedDatabaseListerExpansion interface{}
+
+// ManagedDatabaseNamespaceListerExpansion allows custom methods to be added to
+// ManagedDatabaseNamespaceLister.
+type ManagedDatabaseNamespaceListerExpansion interface{}
+
+// ManagedInstanceListerExpansion allows custom methods to be added to
+// ManagedInstanceLister.
+type ManagedInstanceListerExpansion interface{}
+
+// ManagedInstanceNamespaceListerExpansion allows custom methods to be added to
+// ManagedInstanceNamespaceLister.
+type ManagedInstanceNamespaceListerExpansion interface{}
+
+// ManagedInstanceActiveDirectoryAdministratorListerExpansion allows custom methods to be added to
+// ManagedInstanceActiveDirectoryAdministratorLister.
+type ManagedInstanceActiveDirectoryAdministratorListerExpansion interface{}
+
+// ManagedInstanceActiveDirectoryAdministratorNamespaceListerExpansion allows custom methods to be added to
+// ManagedInstanceActiveDirectoryAdministratorNamespaceLister.
+type ManagedInstanceActiveDirectoryAdministratorNamespaceListerExpansion interface{}
+
+// ManagedInstanceFailoverGroupListerExpansion allows custom methods to be added to
+// ManagedInstanceFailoverGroupLister.
+type ManagedInstanceFailoverGroupListerExpansion interface{}
+
+// ManagedInstanceFailoverGroupNamespaceListerExpansion allows custom methods to be added to
+// ManagedInstanceFailoverGroupNamespaceLister.
+type ManagedInstanceFailoverGroupNamespaceListerExpansion interface{}
+
 // ServerListerExpansion allows custom methods to be added to
 // ServerLister.
 type ServerListerExpansion interface{}

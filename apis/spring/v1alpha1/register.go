@@ -74,6 +74,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&CloudJavaDeploymentList{},
 		&CloudService{},
 		&CloudServiceList{},
+		&CloudStorage{},
+		&CloudStorageList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

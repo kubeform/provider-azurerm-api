@@ -65,7 +65,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  namespaceID:
+                    type: string
                   namespaceName:
+                    description: Deprecated
                     type: string
                   networkRules:
                     items:
@@ -78,7 +81,10 @@ spec:
                       - subnetID
                       type: object
                     type: array
+                  publicNetworkAccessEnabled:
+                    type: boolean
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   timeouts:
                     properties:
@@ -118,9 +124,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
-                required:
-                - namespaceName
-                - resourceGroupName
+                  trustedServicesAllowed:
+                    type: boolean
                 type: object
               state:
                 properties:
@@ -132,7 +137,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  namespaceID:
+                    type: string
                   namespaceName:
+                    description: Deprecated
                     type: string
                   networkRules:
                     items:
@@ -145,7 +153,10 @@ spec:
                       - subnetID
                       type: object
                     type: array
+                  publicNetworkAccessEnabled:
+                    type: boolean
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   timeouts:
                     properties:
@@ -185,9 +196,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
-                required:
-                - namespaceName
-                - resourceGroupName
+                  trustedServicesAllowed:
+                    type: boolean
                 type: object
               terminationPolicy:
                 enum:

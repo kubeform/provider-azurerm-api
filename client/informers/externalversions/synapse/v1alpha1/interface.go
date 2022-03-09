@@ -26,16 +26,48 @@ import (
 type Interface interface {
 	// FirewallRules returns a FirewallRuleInformer.
 	FirewallRules() FirewallRuleInformer
+	// IntegrationRuntimeAzures returns a IntegrationRuntimeAzureInformer.
+	IntegrationRuntimeAzures() IntegrationRuntimeAzureInformer
+	// IntegrationRuntimeSelfHosteds returns a IntegrationRuntimeSelfHostedInformer.
+	IntegrationRuntimeSelfHosteds() IntegrationRuntimeSelfHostedInformer
+	// LinkedServices returns a LinkedServiceInformer.
+	LinkedServices() LinkedServiceInformer
 	// ManagedPrivateEndpoints returns a ManagedPrivateEndpointInformer.
 	ManagedPrivateEndpoints() ManagedPrivateEndpointInformer
+	// PrivateLinkHubs returns a PrivateLinkHubInformer.
+	PrivateLinkHubs() PrivateLinkHubInformer
 	// RoleAssignments returns a RoleAssignmentInformer.
 	RoleAssignments() RoleAssignmentInformer
 	// SparkPools returns a SparkPoolInformer.
 	SparkPools() SparkPoolInformer
 	// SqlPools returns a SqlPoolInformer.
 	SqlPools() SqlPoolInformer
+	// SqlPoolExtendedAuditingPolicies returns a SqlPoolExtendedAuditingPolicyInformer.
+	SqlPoolExtendedAuditingPolicies() SqlPoolExtendedAuditingPolicyInformer
+	// SqlPoolSecurityAlertPolicies returns a SqlPoolSecurityAlertPolicyInformer.
+	SqlPoolSecurityAlertPolicies() SqlPoolSecurityAlertPolicyInformer
+	// SqlPoolVulnerabilityAssessments returns a SqlPoolVulnerabilityAssessmentInformer.
+	SqlPoolVulnerabilityAssessments() SqlPoolVulnerabilityAssessmentInformer
+	// SqlPoolVulnerabilityAssessmentBaselines returns a SqlPoolVulnerabilityAssessmentBaselineInformer.
+	SqlPoolVulnerabilityAssessmentBaselines() SqlPoolVulnerabilityAssessmentBaselineInformer
+	// SqlPoolWorkloadClassifiers returns a SqlPoolWorkloadClassifierInformer.
+	SqlPoolWorkloadClassifiers() SqlPoolWorkloadClassifierInformer
+	// SqlPoolWorkloadGroups returns a SqlPoolWorkloadGroupInformer.
+	SqlPoolWorkloadGroups() SqlPoolWorkloadGroupInformer
 	// Workspaces returns a WorkspaceInformer.
 	Workspaces() WorkspaceInformer
+	// WorkspaceAadAdmins returns a WorkspaceAadAdminInformer.
+	WorkspaceAadAdmins() WorkspaceAadAdminInformer
+	// WorkspaceExtendedAuditingPolicies returns a WorkspaceExtendedAuditingPolicyInformer.
+	WorkspaceExtendedAuditingPolicies() WorkspaceExtendedAuditingPolicyInformer
+	// WorkspaceKeys returns a WorkspaceKeyInformer.
+	WorkspaceKeys() WorkspaceKeyInformer
+	// WorkspaceSQLAadAdmins returns a WorkspaceSQLAadAdminInformer.
+	WorkspaceSQLAadAdmins() WorkspaceSQLAadAdminInformer
+	// WorkspaceSecurityAlertPolicies returns a WorkspaceSecurityAlertPolicyInformer.
+	WorkspaceSecurityAlertPolicies() WorkspaceSecurityAlertPolicyInformer
+	// WorkspaceVulnerabilityAssessments returns a WorkspaceVulnerabilityAssessmentInformer.
+	WorkspaceVulnerabilityAssessments() WorkspaceVulnerabilityAssessmentInformer
 }
 
 type version struct {
@@ -54,9 +86,29 @@ func (v *version) FirewallRules() FirewallRuleInformer {
 	return &firewallRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// IntegrationRuntimeAzures returns a IntegrationRuntimeAzureInformer.
+func (v *version) IntegrationRuntimeAzures() IntegrationRuntimeAzureInformer {
+	return &integrationRuntimeAzureInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// IntegrationRuntimeSelfHosteds returns a IntegrationRuntimeSelfHostedInformer.
+func (v *version) IntegrationRuntimeSelfHosteds() IntegrationRuntimeSelfHostedInformer {
+	return &integrationRuntimeSelfHostedInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// LinkedServices returns a LinkedServiceInformer.
+func (v *version) LinkedServices() LinkedServiceInformer {
+	return &linkedServiceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // ManagedPrivateEndpoints returns a ManagedPrivateEndpointInformer.
 func (v *version) ManagedPrivateEndpoints() ManagedPrivateEndpointInformer {
 	return &managedPrivateEndpointInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// PrivateLinkHubs returns a PrivateLinkHubInformer.
+func (v *version) PrivateLinkHubs() PrivateLinkHubInformer {
+	return &privateLinkHubInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // RoleAssignments returns a RoleAssignmentInformer.
@@ -74,7 +126,67 @@ func (v *version) SqlPools() SqlPoolInformer {
 	return &sqlPoolInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// SqlPoolExtendedAuditingPolicies returns a SqlPoolExtendedAuditingPolicyInformer.
+func (v *version) SqlPoolExtendedAuditingPolicies() SqlPoolExtendedAuditingPolicyInformer {
+	return &sqlPoolExtendedAuditingPolicyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// SqlPoolSecurityAlertPolicies returns a SqlPoolSecurityAlertPolicyInformer.
+func (v *version) SqlPoolSecurityAlertPolicies() SqlPoolSecurityAlertPolicyInformer {
+	return &sqlPoolSecurityAlertPolicyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// SqlPoolVulnerabilityAssessments returns a SqlPoolVulnerabilityAssessmentInformer.
+func (v *version) SqlPoolVulnerabilityAssessments() SqlPoolVulnerabilityAssessmentInformer {
+	return &sqlPoolVulnerabilityAssessmentInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// SqlPoolVulnerabilityAssessmentBaselines returns a SqlPoolVulnerabilityAssessmentBaselineInformer.
+func (v *version) SqlPoolVulnerabilityAssessmentBaselines() SqlPoolVulnerabilityAssessmentBaselineInformer {
+	return &sqlPoolVulnerabilityAssessmentBaselineInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// SqlPoolWorkloadClassifiers returns a SqlPoolWorkloadClassifierInformer.
+func (v *version) SqlPoolWorkloadClassifiers() SqlPoolWorkloadClassifierInformer {
+	return &sqlPoolWorkloadClassifierInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// SqlPoolWorkloadGroups returns a SqlPoolWorkloadGroupInformer.
+func (v *version) SqlPoolWorkloadGroups() SqlPoolWorkloadGroupInformer {
+	return &sqlPoolWorkloadGroupInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // Workspaces returns a WorkspaceInformer.
 func (v *version) Workspaces() WorkspaceInformer {
 	return &workspaceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// WorkspaceAadAdmins returns a WorkspaceAadAdminInformer.
+func (v *version) WorkspaceAadAdmins() WorkspaceAadAdminInformer {
+	return &workspaceAadAdminInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// WorkspaceExtendedAuditingPolicies returns a WorkspaceExtendedAuditingPolicyInformer.
+func (v *version) WorkspaceExtendedAuditingPolicies() WorkspaceExtendedAuditingPolicyInformer {
+	return &workspaceExtendedAuditingPolicyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// WorkspaceKeys returns a WorkspaceKeyInformer.
+func (v *version) WorkspaceKeys() WorkspaceKeyInformer {
+	return &workspaceKeyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// WorkspaceSQLAadAdmins returns a WorkspaceSQLAadAdminInformer.
+func (v *version) WorkspaceSQLAadAdmins() WorkspaceSQLAadAdminInformer {
+	return &workspaceSQLAadAdminInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// WorkspaceSecurityAlertPolicies returns a WorkspaceSecurityAlertPolicyInformer.
+func (v *version) WorkspaceSecurityAlertPolicies() WorkspaceSecurityAlertPolicyInformer {
+	return &workspaceSecurityAlertPolicyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// WorkspaceVulnerabilityAssessments returns a WorkspaceVulnerabilityAssessmentInformer.
+func (v *version) WorkspaceVulnerabilityAssessments() WorkspaceVulnerabilityAssessmentInformer {
+	return &workspaceVulnerabilityAssessmentInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

@@ -90,7 +90,7 @@ func (r *NamespaceAuthorizationRule) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range namespaceauthorizationruleForceNewList {
+	for key, _ := range namespaceauthorizationruleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

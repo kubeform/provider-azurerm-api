@@ -89,7 +89,7 @@ func (r *RedisCache) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range rediscacheForceNewList {
+	for key, _ := range rediscacheForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

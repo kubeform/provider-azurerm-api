@@ -63,7 +63,15 @@ spec:
                     type: string
                   name:
                     type: string
+                  primaryConnectionString:
+                    type: string
+                  primaryKey:
+                    type: string
                   resourceGroupName:
+                    type: string
+                  secondaryConnectionString:
+                    type: string
+                  secondaryKey:
                     type: string
                   tags:
                     additionalProperties:
@@ -119,7 +127,15 @@ spec:
                     type: string
                   name:
                     type: string
+                  primaryConnectionString:
+                    type: string
+                  primaryKey:
+                    type: string
                   resourceGroupName:
+                    type: string
+                  secondaryConnectionString:
+                    type: string
+                  secondaryKey:
                     type: string
                   tags:
                     additionalProperties:

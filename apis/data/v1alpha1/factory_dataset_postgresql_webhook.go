@@ -42,6 +42,7 @@ func (r *FactoryDatasetPostgresql) SetupWebhookWithManager(mgr ctrl.Manager) err
 var _ webhook.Validator = &FactoryDatasetPostgresql{}
 
 var factorydatasetpostgresqlForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *FactoryDatasetPostgresql) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range factorydatasetpostgresqlForceNewList {
+	for key, _ := range factorydatasetpostgresqlForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

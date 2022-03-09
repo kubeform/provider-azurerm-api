@@ -58,6 +58,12 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
 		&ApplicationFirewallPolicy{},
 		&ApplicationFirewallPolicyList{},
+		&Pubsub{},
+		&PubsubList{},
+		&PubsubHub{},
+		&PubsubHubList{},
+		&PubsubNetworkACL{},
+		&PubsubNetworkACLList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

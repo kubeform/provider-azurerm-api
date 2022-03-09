@@ -41,7 +41,16 @@ type LearningWorkspace struct {
 	Status            LearningWorkspaceStatus `json:"status,omitempty"`
 }
 
+type LearningWorkspaceSpecEncryption struct {
+	KeyID      *string `json:"keyID" tf:"key_id"`
+	KeyVaultID *string `json:"keyVaultID" tf:"key_vault_id"`
+	// +optional
+	UserAssignedIdentityID *string `json:"userAssignedIdentityID,omitempty" tf:"user_assigned_identity_id"`
+}
+
 type LearningWorkspaceSpecIdentity struct {
+	// +optional
+	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
 	// +optional
 	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
 	// +optional
@@ -74,14 +83,24 @@ type LearningWorkspaceSpecResource struct {
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional
+	DiscoveryURL *string `json:"discoveryURL,omitempty" tf:"discovery_url"`
+	// +optional
+	Encryption *LearningWorkspaceSpecEncryption `json:"encryption,omitempty" tf:"encryption"`
+	// +optional
 	FriendlyName *string `json:"friendlyName,omitempty" tf:"friendly_name"`
 	// +optional
 	HighBusinessImpact *bool                          `json:"highBusinessImpact,omitempty" tf:"high_business_impact"`
 	Identity           *LearningWorkspaceSpecIdentity `json:"identity" tf:"identity"`
-	KeyVaultID         *string                        `json:"keyVaultID" tf:"key_vault_id"`
-	Location           *string                        `json:"location" tf:"location"`
-	Name               *string                        `json:"name" tf:"name"`
-	ResourceGroupName  *string                        `json:"resourceGroupName" tf:"resource_group_name"`
+	// +optional
+	ImageBuildComputeName *string `json:"imageBuildComputeName,omitempty" tf:"image_build_compute_name"`
+	KeyVaultID            *string `json:"keyVaultID" tf:"key_vault_id"`
+	Location              *string `json:"location" tf:"location"`
+	Name                  *string `json:"name" tf:"name"`
+	// +optional
+	PrimaryUserAssignedIdentity *string `json:"primaryUserAssignedIdentity,omitempty" tf:"primary_user_assigned_identity"`
+	// +optional
+	PublicNetworkAccessEnabled *bool   `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
+	ResourceGroupName          *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	SkuName          *string `json:"skuName,omitempty" tf:"sku_name"`
 	StorageAccountID *string `json:"storageAccountID" tf:"storage_account_id"`

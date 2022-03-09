@@ -19,6 +19,8 @@ limitations under the License.
 package scheme
 
 import (
+	aadb2cv1alpha1 "kubeform.dev/provider-azurerm-api/apis/aadb2c/v1alpha1"
+	activev1alpha1 "kubeform.dev/provider-azurerm-api/apis/active/v1alpha1"
 	advancedv1alpha1 "kubeform.dev/provider-azurerm-api/apis/advanced/v1alpha1"
 	analysisv1alpha1 "kubeform.dev/provider-azurerm-api/apis/analysis/v1alpha1"
 	apimanagementv1alpha1 "kubeform.dev/provider-azurerm-api/apis/apimanagement/v1alpha1"
@@ -75,9 +77,11 @@ import (
 	lbv1alpha1 "kubeform.dev/provider-azurerm-api/apis/lb/v1alpha1"
 	lighthousev1alpha1 "kubeform.dev/provider-azurerm-api/apis/lighthouse/v1alpha1"
 	linuxv1alpha1 "kubeform.dev/provider-azurerm-api/apis/linux/v1alpha1"
+	loadv1alpha1 "kubeform.dev/provider-azurerm-api/apis/load/v1alpha1"
 	localv1alpha1 "kubeform.dev/provider-azurerm-api/apis/local/v1alpha1"
 	loganalyticsv1alpha1 "kubeform.dev/provider-azurerm-api/apis/loganalytics/v1alpha1"
 	logicappv1alpha1 "kubeform.dev/provider-azurerm-api/apis/logicapp/v1alpha1"
+	logzv1alpha1 "kubeform.dev/provider-azurerm-api/apis/logz/v1alpha1"
 	machinev1alpha1 "kubeform.dev/provider-azurerm-api/apis/machine/v1alpha1"
 	maintenancev1alpha1 "kubeform.dev/provider-azurerm-api/apis/maintenance/v1alpha1"
 	managedv1alpha1 "kubeform.dev/provider-azurerm-api/apis/managed/v1alpha1"
@@ -134,6 +138,7 @@ import (
 	tenantv1alpha1 "kubeform.dev/provider-azurerm-api/apis/tenant/v1alpha1"
 	trafficmanagerv1alpha1 "kubeform.dev/provider-azurerm-api/apis/trafficmanager/v1alpha1"
 	userv1alpha1 "kubeform.dev/provider-azurerm-api/apis/user/v1alpha1"
+	videov1alpha1 "kubeform.dev/provider-azurerm-api/apis/video/v1alpha1"
 	virtualv1alpha1 "kubeform.dev/provider-azurerm-api/apis/virtual/v1alpha1"
 	vmwarev1alpha1 "kubeform.dev/provider-azurerm-api/apis/vmware/v1alpha1"
 	vpnv1alpha1 "kubeform.dev/provider-azurerm-api/apis/vpn/v1alpha1"
@@ -151,6 +156,8 @@ var Scheme = runtime.NewScheme()
 var Codecs = serializer.NewCodecFactory(Scheme)
 var ParameterCodec = runtime.NewParameterCodec(Scheme)
 var localSchemeBuilder = runtime.SchemeBuilder{
+	aadb2cv1alpha1.AddToScheme,
+	activev1alpha1.AddToScheme,
 	advancedv1alpha1.AddToScheme,
 	analysisv1alpha1.AddToScheme,
 	apimanagementv1alpha1.AddToScheme,
@@ -207,9 +214,11 @@ var localSchemeBuilder = runtime.SchemeBuilder{
 	lbv1alpha1.AddToScheme,
 	lighthousev1alpha1.AddToScheme,
 	linuxv1alpha1.AddToScheme,
+	loadv1alpha1.AddToScheme,
 	localv1alpha1.AddToScheme,
 	loganalyticsv1alpha1.AddToScheme,
 	logicappv1alpha1.AddToScheme,
+	logzv1alpha1.AddToScheme,
 	machinev1alpha1.AddToScheme,
 	maintenancev1alpha1.AddToScheme,
 	managedv1alpha1.AddToScheme,
@@ -266,6 +275,7 @@ var localSchemeBuilder = runtime.SchemeBuilder{
 	tenantv1alpha1.AddToScheme,
 	trafficmanagerv1alpha1.AddToScheme,
 	userv1alpha1.AddToScheme,
+	videov1alpha1.AddToScheme,
 	virtualv1alpha1.AddToScheme,
 	vmwarev1alpha1.AddToScheme,
 	vpnv1alpha1.AddToScheme,

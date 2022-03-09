@@ -57,9 +57,20 @@ spec:
                 type: object
               resource:
                 properties:
+                  authenticationType:
+                    type: string
+                  endpointURI:
+                    type: string
+                  entityPath:
+                    type: string
                   id:
                     type: string
+                  identityID:
+                    type: string
+                  iothubID:
+                    type: string
                   iothubName:
+                    description: Deprecated
                     type: string
                   name:
                     type: string
@@ -104,7 +115,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - iothubName
                 - name
                 - resourceGroupName
                 type: object
@@ -119,9 +129,20 @@ spec:
                 type: object
               state:
                 properties:
+                  authenticationType:
+                    type: string
+                  endpointURI:
+                    type: string
+                  entityPath:
+                    type: string
                   id:
                     type: string
+                  identityID:
+                    type: string
+                  iothubID:
+                    type: string
                   iothubName:
+                    description: Deprecated
                     type: string
                   name:
                     type: string
@@ -166,7 +187,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - iothubName
                 - name
                 - resourceGroupName
                 type: object

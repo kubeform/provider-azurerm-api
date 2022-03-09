@@ -90,7 +90,7 @@ func (r *SeriesInsightsEventSourceIothub) ValidateUpdate(old runtime.Object) err
 		return err
 	}
 
-	for key := range seriesinsightseventsourceiothubForceNewList {
+	for key, _ := range seriesinsightseventsourceiothubForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

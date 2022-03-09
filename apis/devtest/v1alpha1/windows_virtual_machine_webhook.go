@@ -102,7 +102,7 @@ func (r *WindowsVirtualMachine) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range windowsvirtualmachineForceNewList {
+	for key, _ := range windowsvirtualmachineForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

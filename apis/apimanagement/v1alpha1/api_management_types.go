@@ -47,21 +47,33 @@ type ApiManagementSpecAdditionalLocationVirtualNetworkConfiguration struct {
 
 type ApiManagementSpecAdditionalLocation struct {
 	// +optional
+	Capacity *int64 `json:"capacity,omitempty" tf:"capacity"`
+	// +optional
 	GatewayRegionalURL *string `json:"gatewayRegionalURL,omitempty" tf:"gateway_regional_url"`
 	Location           *string `json:"location" tf:"location"`
 	// +optional
 	PrivateIPAddresses []string `json:"privateIPAddresses,omitempty" tf:"private_ip_addresses"`
 	// +optional
+	PublicIPAddressID *string `json:"publicIPAddressID,omitempty" tf:"public_ip_address_id"`
+	// +optional
 	PublicIPAddresses []string `json:"publicIPAddresses,omitempty" tf:"public_ip_addresses"`
 	// +optional
 	VirtualNetworkConfiguration *ApiManagementSpecAdditionalLocationVirtualNetworkConfiguration `json:"virtualNetworkConfiguration,omitempty" tf:"virtual_network_configuration"`
+	// +optional
+	Zones []string `json:"zones,omitempty" tf:"zones"`
 }
 
 type ApiManagementSpecCertificate struct {
 	// +optional
 	CertificatePassword *string `json:"-" sensitive:"true" tf:"certificate_password"`
 	EncodedCertificate  *string `json:"-" sensitive:"true" tf:"encoded_certificate"`
-	StoreName           *string `json:"storeName" tf:"store_name"`
+	// +optional
+	Expiry    *string `json:"expiry,omitempty" tf:"expiry"`
+	StoreName *string `json:"storeName" tf:"store_name"`
+	// +optional
+	Subject *string `json:"subject,omitempty" tf:"subject"`
+	// +optional
+	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint"`
 }
 
 type ApiManagementSpecHostnameConfigurationDeveloperPortal struct {
@@ -69,11 +81,19 @@ type ApiManagementSpecHostnameConfigurationDeveloperPortal struct {
 	Certificate *string `json:"-" sensitive:"true" tf:"certificate"`
 	// +optional
 	CertificatePassword *string `json:"-" sensitive:"true" tf:"certificate_password"`
-	HostName            *string `json:"hostName" tf:"host_name"`
+	// +optional
+	Expiry   *string `json:"expiry,omitempty" tf:"expiry"`
+	HostName *string `json:"hostName" tf:"host_name"`
 	// +optional
 	KeyVaultID *string `json:"keyVaultID,omitempty" tf:"key_vault_id"`
 	// +optional
 	NegotiateClientCertificate *bool `json:"negotiateClientCertificate,omitempty" tf:"negotiate_client_certificate"`
+	// +optional
+	SslKeyvaultIdentityClientID *string `json:"sslKeyvaultIdentityClientID,omitempty" tf:"ssl_keyvault_identity_client_id"`
+	// +optional
+	Subject *string `json:"subject,omitempty" tf:"subject"`
+	// +optional
+	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint"`
 }
 
 type ApiManagementSpecHostnameConfigurationManagement struct {
@@ -81,11 +101,19 @@ type ApiManagementSpecHostnameConfigurationManagement struct {
 	Certificate *string `json:"-" sensitive:"true" tf:"certificate"`
 	// +optional
 	CertificatePassword *string `json:"-" sensitive:"true" tf:"certificate_password"`
-	HostName            *string `json:"hostName" tf:"host_name"`
+	// +optional
+	Expiry   *string `json:"expiry,omitempty" tf:"expiry"`
+	HostName *string `json:"hostName" tf:"host_name"`
 	// +optional
 	KeyVaultID *string `json:"keyVaultID,omitempty" tf:"key_vault_id"`
 	// +optional
 	NegotiateClientCertificate *bool `json:"negotiateClientCertificate,omitempty" tf:"negotiate_client_certificate"`
+	// +optional
+	SslKeyvaultIdentityClientID *string `json:"sslKeyvaultIdentityClientID,omitempty" tf:"ssl_keyvault_identity_client_id"`
+	// +optional
+	Subject *string `json:"subject,omitempty" tf:"subject"`
+	// +optional
+	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint"`
 }
 
 type ApiManagementSpecHostnameConfigurationPortal struct {
@@ -93,11 +121,19 @@ type ApiManagementSpecHostnameConfigurationPortal struct {
 	Certificate *string `json:"-" sensitive:"true" tf:"certificate"`
 	// +optional
 	CertificatePassword *string `json:"-" sensitive:"true" tf:"certificate_password"`
-	HostName            *string `json:"hostName" tf:"host_name"`
+	// +optional
+	Expiry   *string `json:"expiry,omitempty" tf:"expiry"`
+	HostName *string `json:"hostName" tf:"host_name"`
 	// +optional
 	KeyVaultID *string `json:"keyVaultID,omitempty" tf:"key_vault_id"`
 	// +optional
 	NegotiateClientCertificate *bool `json:"negotiateClientCertificate,omitempty" tf:"negotiate_client_certificate"`
+	// +optional
+	SslKeyvaultIdentityClientID *string `json:"sslKeyvaultIdentityClientID,omitempty" tf:"ssl_keyvault_identity_client_id"`
+	// +optional
+	Subject *string `json:"subject,omitempty" tf:"subject"`
+	// +optional
+	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint"`
 }
 
 type ApiManagementSpecHostnameConfigurationProxy struct {
@@ -106,12 +142,20 @@ type ApiManagementSpecHostnameConfigurationProxy struct {
 	// +optional
 	CertificatePassword *string `json:"-" sensitive:"true" tf:"certificate_password"`
 	// +optional
-	DefaultSslBinding *bool   `json:"defaultSslBinding,omitempty" tf:"default_ssl_binding"`
-	HostName          *string `json:"hostName" tf:"host_name"`
+	DefaultSslBinding *bool `json:"defaultSslBinding,omitempty" tf:"default_ssl_binding"`
+	// +optional
+	Expiry   *string `json:"expiry,omitempty" tf:"expiry"`
+	HostName *string `json:"hostName" tf:"host_name"`
 	// +optional
 	KeyVaultID *string `json:"keyVaultID,omitempty" tf:"key_vault_id"`
 	// +optional
 	NegotiateClientCertificate *bool `json:"negotiateClientCertificate,omitempty" tf:"negotiate_client_certificate"`
+	// +optional
+	SslKeyvaultIdentityClientID *string `json:"sslKeyvaultIdentityClientID,omitempty" tf:"ssl_keyvault_identity_client_id"`
+	// +optional
+	Subject *string `json:"subject,omitempty" tf:"subject"`
+	// +optional
+	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint"`
 }
 
 type ApiManagementSpecHostnameConfigurationScm struct {
@@ -119,11 +163,19 @@ type ApiManagementSpecHostnameConfigurationScm struct {
 	Certificate *string `json:"-" sensitive:"true" tf:"certificate"`
 	// +optional
 	CertificatePassword *string `json:"-" sensitive:"true" tf:"certificate_password"`
-	HostName            *string `json:"hostName" tf:"host_name"`
+	// +optional
+	Expiry   *string `json:"expiry,omitempty" tf:"expiry"`
+	HostName *string `json:"hostName" tf:"host_name"`
 	// +optional
 	KeyVaultID *string `json:"keyVaultID,omitempty" tf:"key_vault_id"`
 	// +optional
 	NegotiateClientCertificate *bool `json:"negotiateClientCertificate,omitempty" tf:"negotiate_client_certificate"`
+	// +optional
+	SslKeyvaultIdentityClientID *string `json:"sslKeyvaultIdentityClientID,omitempty" tf:"ssl_keyvault_identity_client_id"`
+	// +optional
+	Subject *string `json:"subject,omitempty" tf:"subject"`
+	// +optional
+	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint"`
 }
 
 type ApiManagementSpecHostnameConfiguration struct {
@@ -141,14 +193,12 @@ type ApiManagementSpecHostnameConfiguration struct {
 
 type ApiManagementSpecIdentity struct {
 	// +optional
-	// +kubebuilder:validation:MinItems=1
 	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
 	// +optional
 	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
 	// +optional
 	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
-	// +optional
-	Type *string `json:"type,omitempty" tf:"type"`
+	Type     *string `json:"type" tf:"type"`
 }
 
 type ApiManagementSpecPolicy struct {
@@ -288,10 +338,14 @@ type ApiManagementSpecResource struct {
 	// +optional
 	Protocols *ApiManagementSpecProtocols `json:"protocols,omitempty" tf:"protocols"`
 	// +optional
+	PublicIPAddressID *string `json:"publicIPAddressID,omitempty" tf:"public_ip_address_id"`
+	// +optional
 	PublicIPAddresses []string `json:"publicIPAddresses,omitempty" tf:"public_ip_addresses"`
-	PublisherEmail    *string  `json:"publisherEmail" tf:"publisher_email"`
-	PublisherName     *string  `json:"publisherName" tf:"publisher_name"`
-	ResourceGroupName *string  `json:"resourceGroupName" tf:"resource_group_name"`
+	// +optional
+	PublicNetworkAccessEnabled *bool   `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
+	PublisherEmail             *string `json:"publisherEmail" tf:"publisher_email"`
+	PublisherName              *string `json:"publisherName" tf:"publisher_name"`
+	ResourceGroupName          *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	ScmURL *string `json:"scmURL,omitempty" tf:"scm_url"`
 	// +optional

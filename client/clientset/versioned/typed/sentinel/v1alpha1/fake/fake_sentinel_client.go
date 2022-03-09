@@ -45,6 +45,10 @@ func (c *FakeSentinelV1alpha1) AlertRuleScheduleds(namespace string) v1alpha1.Al
 	return &FakeAlertRuleScheduleds{c, namespace}
 }
 
+func (c *FakeSentinelV1alpha1) AutomationRules(namespace string) v1alpha1.AutomationRuleInterface {
+	return &FakeAutomationRules{c, namespace}
+}
+
 func (c *FakeSentinelV1alpha1) DataConnectorAwsCloudTrails(namespace string) v1alpha1.DataConnectorAwsCloudTrailInterface {
 	return &FakeDataConnectorAwsCloudTrails{c, namespace}
 }
@@ -75,6 +79,14 @@ func (c *FakeSentinelV1alpha1) DataConnectorOffice365s(namespace string) v1alpha
 
 func (c *FakeSentinelV1alpha1) DataConnectorThreatIntelligences(namespace string) v1alpha1.DataConnectorThreatIntelligenceInterface {
 	return &FakeDataConnectorThreatIntelligences{c, namespace}
+}
+
+func (c *FakeSentinelV1alpha1) Watchlists(namespace string) v1alpha1.WatchlistInterface {
+	return &FakeWatchlists{c, namespace}
+}
+
+func (c *FakeSentinelV1alpha1) WatchlistItems(namespace string) v1alpha1.WatchlistItemInterface {
+	return &FakeWatchlistItems{c, namespace}
 }
 
 // RESTClient returns a RESTClient that is used to communicate

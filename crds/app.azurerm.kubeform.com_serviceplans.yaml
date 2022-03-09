@@ -136,6 +136,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  zoneRedundant:
+                    type: boolean
                 required:
                 - location
                 - name
@@ -223,6 +225,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  zoneRedundant:
+                    type: boolean
                 required:
                 - location
                 - name

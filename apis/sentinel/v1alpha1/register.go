@@ -64,6 +64,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&AlertRuleMsSecurityIncidentList{},
 		&AlertRuleScheduled{},
 		&AlertRuleScheduledList{},
+		&AutomationRule{},
+		&AutomationRuleList{},
 		&DataConnectorAwsCloudTrail{},
 		&DataConnectorAwsCloudTrailList{},
 		&DataConnectorAzureActiveDirectory{},
@@ -80,6 +82,10 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&DataConnectorOffice365List{},
 		&DataConnectorThreatIntelligence{},
 		&DataConnectorThreatIntelligenceList{},
+		&Watchlist{},
+		&WatchlistList{},
+		&WatchlistItem{},
+		&WatchlistItemList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

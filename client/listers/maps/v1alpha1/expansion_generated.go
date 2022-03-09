@@ -25,3 +25,11 @@ type AccountListerExpansion interface{}
 // AccountNamespaceListerExpansion allows custom methods to be added to
 // AccountNamespaceLister.
 type AccountNamespaceListerExpansion interface{}
+
+// CreatorListerExpansion allows custom methods to be added to
+// CreatorLister.
+type CreatorListerExpansion interface{}
+
+// CreatorNamespaceListerExpansion allows custom methods to be added to
+// CreatorNamespaceLister.
+type CreatorNamespaceListerExpansion interface{}

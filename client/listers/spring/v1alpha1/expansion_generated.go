@@ -89,3 +89,11 @@ type CloudServiceListerExpansion interface{}
 // CloudServiceNamespaceListerExpansion allows custom methods to be added to
 // CloudServiceNamespaceLister.
 type CloudServiceNamespaceListerExpansion interface{}
+
+// CloudStorageListerExpansion allows custom methods to be added to
+// CloudStorageLister.
+type CloudStorageListerExpansion interface{}
+
+// CloudStorageNamespaceListerExpansion allows custom methods to be added to
+// CloudStorageNamespaceLister.
+type CloudStorageNamespaceListerExpansion interface{}

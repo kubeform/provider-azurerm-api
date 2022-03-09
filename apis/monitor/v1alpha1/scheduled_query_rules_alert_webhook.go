@@ -90,7 +90,7 @@ func (r *ScheduledQueryRulesAlert) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range scheduledqueryrulesalertForceNewList {
+	for key, _ := range scheduledqueryrulesalertForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

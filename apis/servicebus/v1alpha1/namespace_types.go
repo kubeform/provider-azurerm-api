@@ -41,6 +41,16 @@ type Namespace struct {
 	Status            NamespaceStatus `json:"status,omitempty"`
 }
 
+type NamespaceSpecIdentity struct {
+	// +optional
+	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
+	// +optional
+	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
+}
+
 type NamespaceSpec struct {
 	State *NamespaceSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -72,10 +82,12 @@ type NamespaceSpecResource struct {
 	DefaultSecondaryConnectionString *string `json:"-" sensitive:"true" tf:"default_secondary_connection_string"`
 	// +optional
 	DefaultSecondaryKey *string `json:"-" sensitive:"true" tf:"default_secondary_key"`
-	Location            *string `json:"location" tf:"location"`
-	Name                *string `json:"name" tf:"name"`
-	ResourceGroupName   *string `json:"resourceGroupName" tf:"resource_group_name"`
-	Sku                 *string `json:"sku" tf:"sku"`
+	// +optional
+	Identity          *NamespaceSpecIdentity `json:"identity,omitempty" tf:"identity"`
+	Location          *string                `json:"location" tf:"location"`
+	Name              *string                `json:"name" tf:"name"`
+	ResourceGroupName *string                `json:"resourceGroupName" tf:"resource_group_name"`
+	Sku               *string                `json:"sku" tf:"sku"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 	// +optional

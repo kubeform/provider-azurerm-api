@@ -58,6 +58,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
 		&FabricCluster{},
 		&FabricClusterList{},
+		&FabricManagedCluster{},
+		&FabricManagedClusterList{},
 		&FabricMeshApplication{},
 		&FabricMeshApplicationList{},
 		&FabricMeshLocalNetwork{},

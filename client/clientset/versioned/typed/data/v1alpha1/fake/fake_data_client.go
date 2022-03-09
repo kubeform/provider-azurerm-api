@@ -33,8 +33,20 @@ func (c *FakeDataV1alpha1) Factories(namespace string) v1alpha1.FactoryInterface
 	return &FakeFactories{c, namespace}
 }
 
+func (c *FakeDataV1alpha1) FactoryCustomDatasets(namespace string) v1alpha1.FactoryCustomDatasetInterface {
+	return &FakeFactoryCustomDatasets{c, namespace}
+}
+
+func (c *FakeDataV1alpha1) FactoryDataFlows(namespace string) v1alpha1.FactoryDataFlowInterface {
+	return &FakeFactoryDataFlows{c, namespace}
+}
+
 func (c *FakeDataV1alpha1) FactoryDatasetAzureBlobs(namespace string) v1alpha1.FactoryDatasetAzureBlobInterface {
 	return &FakeFactoryDatasetAzureBlobs{c, namespace}
+}
+
+func (c *FakeDataV1alpha1) FactoryDatasetBinaries(namespace string) v1alpha1.FactoryDatasetBinaryInterface {
+	return &FakeFactoryDatasetBinaries{c, namespace}
 }
 
 func (c *FakeDataV1alpha1) FactoryDatasetCosmosdbSqlapis(namespace string) v1alpha1.FactoryDatasetCosmosdbSqlapiInterface {
@@ -125,6 +137,10 @@ func (c *FakeDataV1alpha1) FactoryLinkedServiceCosmosdbs(namespace string) v1alp
 	return &FakeFactoryLinkedServiceCosmosdbs{c, namespace}
 }
 
+func (c *FakeDataV1alpha1) FactoryLinkedServiceCosmosdbMongoapis(namespace string) v1alpha1.FactoryLinkedServiceCosmosdbMongoapiInterface {
+	return &FakeFactoryLinkedServiceCosmosdbMongoapis{c, namespace}
+}
+
 func (c *FakeDataV1alpha1) FactoryLinkedServiceDataLakeStorageGen2s(namespace string) v1alpha1.FactoryLinkedServiceDataLakeStorageGen2Interface {
 	return &FakeFactoryLinkedServiceDataLakeStorageGen2s{c, namespace}
 }
@@ -143,6 +159,10 @@ func (c *FakeDataV1alpha1) FactoryLinkedServiceMysqls(namespace string) v1alpha1
 
 func (c *FakeDataV1alpha1) FactoryLinkedServiceOdatas(namespace string) v1alpha1.FactoryLinkedServiceOdataInterface {
 	return &FakeFactoryLinkedServiceOdatas{c, namespace}
+}
+
+func (c *FakeDataV1alpha1) FactoryLinkedServiceOdbcs(namespace string) v1alpha1.FactoryLinkedServiceOdbcInterface {
+	return &FakeFactoryLinkedServiceOdbcs{c, namespace}
 }
 
 func (c *FakeDataV1alpha1) FactoryLinkedServicePostgresqls(namespace string) v1alpha1.FactoryLinkedServicePostgresqlInterface {
@@ -169,6 +189,10 @@ func (c *FakeDataV1alpha1) FactoryLinkedServiceWebs(namespace string) v1alpha1.F
 	return &FakeFactoryLinkedServiceWebs{c, namespace}
 }
 
+func (c *FakeDataV1alpha1) FactoryManagedPrivateEndpoints(namespace string) v1alpha1.FactoryManagedPrivateEndpointInterface {
+	return &FakeFactoryManagedPrivateEndpoints{c, namespace}
+}
+
 func (c *FakeDataV1alpha1) FactoryPipelines(namespace string) v1alpha1.FactoryPipelineInterface {
 	return &FakeFactoryPipelines{c, namespace}
 }
@@ -177,8 +201,16 @@ func (c *FakeDataV1alpha1) FactoryTriggerBlobEvents(namespace string) v1alpha1.F
 	return &FakeFactoryTriggerBlobEvents{c, namespace}
 }
 
+func (c *FakeDataV1alpha1) FactoryTriggerCustomEvents(namespace string) v1alpha1.FactoryTriggerCustomEventInterface {
+	return &FakeFactoryTriggerCustomEvents{c, namespace}
+}
+
 func (c *FakeDataV1alpha1) FactoryTriggerSchedules(namespace string) v1alpha1.FactoryTriggerScheduleInterface {
 	return &FakeFactoryTriggerSchedules{c, namespace}
+}
+
+func (c *FakeDataV1alpha1) FactoryTriggerTumblingWindows(namespace string) v1alpha1.FactoryTriggerTumblingWindowInterface {
+	return &FakeFactoryTriggerTumblingWindows{c, namespace}
 }
 
 func (c *FakeDataV1alpha1) LakeAnalyticsAccounts(namespace string) v1alpha1.LakeAnalyticsAccountInterface {
@@ -205,8 +237,24 @@ func (c *FakeDataV1alpha1) LakeStoreVirtualNetworkRules(namespace string) v1alph
 	return &FakeLakeStoreVirtualNetworkRules{c, namespace}
 }
 
+func (c *FakeDataV1alpha1) ProtectionBackupInstanceBlobStorages(namespace string) v1alpha1.ProtectionBackupInstanceBlobStorageInterface {
+	return &FakeProtectionBackupInstanceBlobStorages{c, namespace}
+}
+
+func (c *FakeDataV1alpha1) ProtectionBackupInstanceDisks(namespace string) v1alpha1.ProtectionBackupInstanceDiskInterface {
+	return &FakeProtectionBackupInstanceDisks{c, namespace}
+}
+
 func (c *FakeDataV1alpha1) ProtectionBackupInstancePostgresqls(namespace string) v1alpha1.ProtectionBackupInstancePostgresqlInterface {
 	return &FakeProtectionBackupInstancePostgresqls{c, namespace}
+}
+
+func (c *FakeDataV1alpha1) ProtectionBackupPolicyBlobStorages(namespace string) v1alpha1.ProtectionBackupPolicyBlobStorageInterface {
+	return &FakeProtectionBackupPolicyBlobStorages{c, namespace}
+}
+
+func (c *FakeDataV1alpha1) ProtectionBackupPolicyDisks(namespace string) v1alpha1.ProtectionBackupPolicyDiskInterface {
+	return &FakeProtectionBackupPolicyDisks{c, namespace}
 }
 
 func (c *FakeDataV1alpha1) ProtectionBackupPolicyPostgresqls(namespace string) v1alpha1.ProtectionBackupPolicyPostgresqlInterface {

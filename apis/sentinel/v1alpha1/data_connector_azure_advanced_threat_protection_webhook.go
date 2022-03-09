@@ -90,7 +90,7 @@ func (r *DataConnectorAzureAdvancedThreatProtection) ValidateUpdate(old runtime.
 		return err
 	}
 
-	for key := range dataconnectorazureadvancedthreatprotectionForceNewList {
+	for key, _ := range dataconnectorazureadvancedthreatprotectionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -90,7 +90,7 @@ func (r *AlertRuleMsSecurityIncident) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range alertrulemssecurityincidentForceNewList {
+	for key, _ := range alertrulemssecurityincidentForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

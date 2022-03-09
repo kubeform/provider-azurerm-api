@@ -61,8 +61,9 @@ type DnsARecordSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
-	Fqdn              *string  `json:"fqdn,omitempty" tf:"fqdn"`
-	Name              *string  `json:"name" tf:"name"`
+	Fqdn *string `json:"fqdn,omitempty" tf:"fqdn"`
+	Name *string `json:"name" tf:"name"`
+	// +kubebuilder:validation:MaxItems=20
 	Records           []string `json:"records" tf:"records"`
 	ResourceGroupName *string  `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional

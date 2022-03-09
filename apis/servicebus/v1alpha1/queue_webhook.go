@@ -44,6 +44,7 @@ var _ webhook.Validator = &Queue{}
 var queueForceNewList = map[string]bool{
 	"/enable_partitioning":          true,
 	"/name":                         true,
+	"/namespace_id":                 true,
 	"/namespace_name":               true,
 	"/requires_duplicate_detection": true,
 	"/requires_session":             true,
@@ -93,7 +94,7 @@ func (r *Queue) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range queueForceNewList {
+	for key, _ := range queueForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

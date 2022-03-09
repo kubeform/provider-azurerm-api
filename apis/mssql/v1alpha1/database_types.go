@@ -51,6 +51,8 @@ type DatabaseSpecExtendedAuditingPolicy struct {
 	// +optional
 	StorageAccountAccessKeyIsSecondary *bool `json:"storageAccountAccessKeyIsSecondary,omitempty" tf:"storage_account_access_key_is_secondary"`
 	// +optional
+	StorageAccountSubscriptionID *string `json:"-" sensitive:"true" tf:"storage_account_subscription_id"`
+	// +optional
 	StorageEndpoint *string `json:"storageEndpoint,omitempty" tf:"storage_endpoint"`
 }
 
@@ -85,6 +87,7 @@ type DatabaseSpecThreatDetectionPolicy struct {
 	// +optional
 	StorageEndpoint *string `json:"storageEndpoint,omitempty" tf:"storage_endpoint"`
 	// +optional
+	// Deprecated
 	UseServerDefault *string `json:"useServerDefault,omitempty" tf:"use_server_default"`
 }
 

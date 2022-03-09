@@ -44,6 +44,7 @@ var _ webhook.Validator = &QueueAuthorizationRule{}
 var queueauthorizationruleForceNewList = map[string]bool{
 	"/name":                true,
 	"/namespace_name":      true,
+	"/queue_id":            true,
 	"/queue_name":          true,
 	"/resource_group_name": true,
 }
@@ -91,7 +92,7 @@ func (r *QueueAuthorizationRule) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range queueauthorizationruleForceNewList {
+	for key, _ := range queueauthorizationruleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

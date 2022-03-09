@@ -65,6 +65,10 @@ func (c *FakeSpringV1alpha1) CloudServices(namespace string) v1alpha1.CloudServi
 	return &FakeCloudServices{c, namespace}
 }
 
+func (c *FakeSpringV1alpha1) CloudStorages(namespace string) v1alpha1.CloudStorageInterface {
+	return &FakeCloudStorages{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeSpringV1alpha1) RESTClient() rest.Interface {

@@ -90,7 +90,7 @@ func (r *DdosProtectionPlan) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range ddosprotectionplanForceNewList {
+	for key, _ := range ddosprotectionplanForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

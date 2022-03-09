@@ -59,6 +59,8 @@ spec:
                 properties:
                   autoUpgradeMinorVersion:
                     type: boolean
+                  automaticUpgradeEnabled:
+                    type: boolean
                   id:
                     type: string
                   name:
@@ -134,6 +136,8 @@ spec:
               state:
                 properties:
                   autoUpgradeMinorVersion:
+                    type: boolean
+                  automaticUpgradeEnabled:
                     type: boolean
                   id:
                     type: string

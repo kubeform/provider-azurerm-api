@@ -32,6 +32,14 @@ type Interface interface {
 	Databases() DatabaseInformer
 	// FirewallRules returns a FirewallRuleInformer.
 	FirewallRules() FirewallRuleInformer
+	// FlexibleDatabases returns a FlexibleDatabaseInformer.
+	FlexibleDatabases() FlexibleDatabaseInformer
+	// FlexibleServers returns a FlexibleServerInformer.
+	FlexibleServers() FlexibleServerInformer
+	// FlexibleServerConfigurations returns a FlexibleServerConfigurationInformer.
+	FlexibleServerConfigurations() FlexibleServerConfigurationInformer
+	// FlexibleServerFirewallRules returns a FlexibleServerFirewallRuleInformer.
+	FlexibleServerFirewallRules() FlexibleServerFirewallRuleInformer
 	// Servers returns a ServerInformer.
 	Servers() ServerInformer
 	// ServerKeys returns a ServerKeyInformer.
@@ -69,6 +77,26 @@ func (v *version) Databases() DatabaseInformer {
 // FirewallRules returns a FirewallRuleInformer.
 func (v *version) FirewallRules() FirewallRuleInformer {
 	return &firewallRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// FlexibleDatabases returns a FlexibleDatabaseInformer.
+func (v *version) FlexibleDatabases() FlexibleDatabaseInformer {
+	return &flexibleDatabaseInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// FlexibleServers returns a FlexibleServerInformer.
+func (v *version) FlexibleServers() FlexibleServerInformer {
+	return &flexibleServerInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// FlexibleServerConfigurations returns a FlexibleServerConfigurationInformer.
+func (v *version) FlexibleServerConfigurations() FlexibleServerConfigurationInformer {
+	return &flexibleServerConfigurationInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// FlexibleServerFirewallRules returns a FlexibleServerFirewallRuleInformer.
+func (v *version) FlexibleServerFirewallRules() FlexibleServerFirewallRuleInformer {
+	return &flexibleServerFirewallRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Servers returns a ServerInformer.

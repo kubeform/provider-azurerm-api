@@ -72,7 +72,10 @@ spec:
                     required:
                     - username
                     type: object
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -129,7 +132,6 @@ spec:
                   url:
                     type: string
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 - url
@@ -160,7 +162,10 @@ spec:
                     required:
                     - username
                     type: object
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -217,7 +222,6 @@ spec:
                   url:
                     type: string
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 - url

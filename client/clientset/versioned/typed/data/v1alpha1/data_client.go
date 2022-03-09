@@ -28,7 +28,10 @@ import (
 type DataV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	FactoriesGetter
+	FactoryCustomDatasetsGetter
+	FactoryDataFlowsGetter
 	FactoryDatasetAzureBlobsGetter
+	FactoryDatasetBinariesGetter
 	FactoryDatasetCosmosdbSqlapisGetter
 	FactoryDatasetDelimitedTextsGetter
 	FactoryDatasetHTTPsGetter
@@ -51,27 +54,36 @@ type DataV1alpha1Interface interface {
 	FactoryLinkedServiceAzureSearchesGetter
 	FactoryLinkedServiceAzureTableStoragesGetter
 	FactoryLinkedServiceCosmosdbsGetter
+	FactoryLinkedServiceCosmosdbMongoapisGetter
 	FactoryLinkedServiceDataLakeStorageGen2sGetter
 	FactoryLinkedServiceKeyVaultsGetter
 	FactoryLinkedServiceKustosGetter
 	FactoryLinkedServiceMysqlsGetter
 	FactoryLinkedServiceOdatasGetter
+	FactoryLinkedServiceOdbcsGetter
 	FactoryLinkedServicePostgresqlsGetter
 	FactoryLinkedServiceSQLServersGetter
 	FactoryLinkedServiceSftpsGetter
 	FactoryLinkedServiceSnowflakesGetter
 	FactoryLinkedServiceSynapsesGetter
 	FactoryLinkedServiceWebsGetter
+	FactoryManagedPrivateEndpointsGetter
 	FactoryPipelinesGetter
 	FactoryTriggerBlobEventsGetter
+	FactoryTriggerCustomEventsGetter
 	FactoryTriggerSchedulesGetter
+	FactoryTriggerTumblingWindowsGetter
 	LakeAnalyticsAccountsGetter
 	LakeAnalyticsFirewallRulesGetter
 	LakeStoresGetter
 	LakeStoreFilesGetter
 	LakeStoreFirewallRulesGetter
 	LakeStoreVirtualNetworkRulesGetter
+	ProtectionBackupInstanceBlobStoragesGetter
+	ProtectionBackupInstanceDisksGetter
 	ProtectionBackupInstancePostgresqlsGetter
+	ProtectionBackupPolicyBlobStoragesGetter
+	ProtectionBackupPolicyDisksGetter
 	ProtectionBackupPolicyPostgresqlsGetter
 	ProtectionBackupVaultsGetter
 	SharesGetter
@@ -92,8 +104,20 @@ func (c *DataV1alpha1Client) Factories(namespace string) FactoryInterface {
 	return newFactories(c, namespace)
 }
 
+func (c *DataV1alpha1Client) FactoryCustomDatasets(namespace string) FactoryCustomDatasetInterface {
+	return newFactoryCustomDatasets(c, namespace)
+}
+
+func (c *DataV1alpha1Client) FactoryDataFlows(namespace string) FactoryDataFlowInterface {
+	return newFactoryDataFlows(c, namespace)
+}
+
 func (c *DataV1alpha1Client) FactoryDatasetAzureBlobs(namespace string) FactoryDatasetAzureBlobInterface {
 	return newFactoryDatasetAzureBlobs(c, namespace)
+}
+
+func (c *DataV1alpha1Client) FactoryDatasetBinaries(namespace string) FactoryDatasetBinaryInterface {
+	return newFactoryDatasetBinaries(c, namespace)
 }
 
 func (c *DataV1alpha1Client) FactoryDatasetCosmosdbSqlapis(namespace string) FactoryDatasetCosmosdbSqlapiInterface {
@@ -184,6 +208,10 @@ func (c *DataV1alpha1Client) FactoryLinkedServiceCosmosdbs(namespace string) Fac
 	return newFactoryLinkedServiceCosmosdbs(c, namespace)
 }
 
+func (c *DataV1alpha1Client) FactoryLinkedServiceCosmosdbMongoapis(namespace string) FactoryLinkedServiceCosmosdbMongoapiInterface {
+	return newFactoryLinkedServiceCosmosdbMongoapis(c, namespace)
+}
+
 func (c *DataV1alpha1Client) FactoryLinkedServiceDataLakeStorageGen2s(namespace string) FactoryLinkedServiceDataLakeStorageGen2Interface {
 	return newFactoryLinkedServiceDataLakeStorageGen2s(c, namespace)
 }
@@ -202,6 +230,10 @@ func (c *DataV1alpha1Client) FactoryLinkedServiceMysqls(namespace string) Factor
 
 func (c *DataV1alpha1Client) FactoryLinkedServiceOdatas(namespace string) FactoryLinkedServiceOdataInterface {
 	return newFactoryLinkedServiceOdatas(c, namespace)
+}
+
+func (c *DataV1alpha1Client) FactoryLinkedServiceOdbcs(namespace string) FactoryLinkedServiceOdbcInterface {
+	return newFactoryLinkedServiceOdbcs(c, namespace)
 }
 
 func (c *DataV1alpha1Client) FactoryLinkedServicePostgresqls(namespace string) FactoryLinkedServicePostgresqlInterface {
@@ -228,6 +260,10 @@ func (c *DataV1alpha1Client) FactoryLinkedServiceWebs(namespace string) FactoryL
 	return newFactoryLinkedServiceWebs(c, namespace)
 }
 
+func (c *DataV1alpha1Client) FactoryManagedPrivateEndpoints(namespace string) FactoryManagedPrivateEndpointInterface {
+	return newFactoryManagedPrivateEndpoints(c, namespace)
+}
+
 func (c *DataV1alpha1Client) FactoryPipelines(namespace string) FactoryPipelineInterface {
 	return newFactoryPipelines(c, namespace)
 }
@@ -236,8 +272,16 @@ func (c *DataV1alpha1Client) FactoryTriggerBlobEvents(namespace string) FactoryT
 	return newFactoryTriggerBlobEvents(c, namespace)
 }
 
+func (c *DataV1alpha1Client) FactoryTriggerCustomEvents(namespace string) FactoryTriggerCustomEventInterface {
+	return newFactoryTriggerCustomEvents(c, namespace)
+}
+
 func (c *DataV1alpha1Client) FactoryTriggerSchedules(namespace string) FactoryTriggerScheduleInterface {
 	return newFactoryTriggerSchedules(c, namespace)
+}
+
+func (c *DataV1alpha1Client) FactoryTriggerTumblingWindows(namespace string) FactoryTriggerTumblingWindowInterface {
+	return newFactoryTriggerTumblingWindows(c, namespace)
 }
 
 func (c *DataV1alpha1Client) LakeAnalyticsAccounts(namespace string) LakeAnalyticsAccountInterface {
@@ -264,8 +308,24 @@ func (c *DataV1alpha1Client) LakeStoreVirtualNetworkRules(namespace string) Lake
 	return newLakeStoreVirtualNetworkRules(c, namespace)
 }
 
+func (c *DataV1alpha1Client) ProtectionBackupInstanceBlobStorages(namespace string) ProtectionBackupInstanceBlobStorageInterface {
+	return newProtectionBackupInstanceBlobStorages(c, namespace)
+}
+
+func (c *DataV1alpha1Client) ProtectionBackupInstanceDisks(namespace string) ProtectionBackupInstanceDiskInterface {
+	return newProtectionBackupInstanceDisks(c, namespace)
+}
+
 func (c *DataV1alpha1Client) ProtectionBackupInstancePostgresqls(namespace string) ProtectionBackupInstancePostgresqlInterface {
 	return newProtectionBackupInstancePostgresqls(c, namespace)
+}
+
+func (c *DataV1alpha1Client) ProtectionBackupPolicyBlobStorages(namespace string) ProtectionBackupPolicyBlobStorageInterface {
+	return newProtectionBackupPolicyBlobStorages(c, namespace)
+}
+
+func (c *DataV1alpha1Client) ProtectionBackupPolicyDisks(namespace string) ProtectionBackupPolicyDiskInterface {
+	return newProtectionBackupPolicyDisks(c, namespace)
 }
 
 func (c *DataV1alpha1Client) ProtectionBackupPolicyPostgresqls(namespace string) ProtectionBackupPolicyPostgresqlInterface {

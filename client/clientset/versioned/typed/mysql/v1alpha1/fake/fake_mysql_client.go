@@ -45,6 +45,22 @@ func (c *FakeMysqlV1alpha1) FirewallRules(namespace string) v1alpha1.FirewallRul
 	return &FakeFirewallRules{c, namespace}
 }
 
+func (c *FakeMysqlV1alpha1) FlexibleDatabases(namespace string) v1alpha1.FlexibleDatabaseInterface {
+	return &FakeFlexibleDatabases{c, namespace}
+}
+
+func (c *FakeMysqlV1alpha1) FlexibleServers(namespace string) v1alpha1.FlexibleServerInterface {
+	return &FakeFlexibleServers{c, namespace}
+}
+
+func (c *FakeMysqlV1alpha1) FlexibleServerConfigurations(namespace string) v1alpha1.FlexibleServerConfigurationInterface {
+	return &FakeFlexibleServerConfigurations{c, namespace}
+}
+
+func (c *FakeMysqlV1alpha1) FlexibleServerFirewallRules(namespace string) v1alpha1.FlexibleServerFirewallRuleInterface {
+	return &FakeFlexibleServerFirewallRules{c, namespace}
+}
+
 func (c *FakeMysqlV1alpha1) Servers(namespace string) v1alpha1.ServerInterface {
 	return &FakeServers{c, namespace}
 }

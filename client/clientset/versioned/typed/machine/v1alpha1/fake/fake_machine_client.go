@@ -33,8 +33,16 @@ func (c *FakeMachineV1alpha1) LearningComputeClusters(namespace string) v1alpha1
 	return &FakeLearningComputeClusters{c, namespace}
 }
 
+func (c *FakeMachineV1alpha1) LearningComputeInstances(namespace string) v1alpha1.LearningComputeInstanceInterface {
+	return &FakeLearningComputeInstances{c, namespace}
+}
+
 func (c *FakeMachineV1alpha1) LearningInferenceClusters(namespace string) v1alpha1.LearningInferenceClusterInterface {
 	return &FakeLearningInferenceClusters{c, namespace}
+}
+
+func (c *FakeMachineV1alpha1) LearningSynapseSparks(namespace string) v1alpha1.LearningSynapseSparkInterface {
+	return &FakeLearningSynapseSparks{c, namespace}
 }
 
 func (c *FakeMachineV1alpha1) LearningWorkspaces(namespace string) v1alpha1.LearningWorkspaceInterface {

@@ -34,6 +34,8 @@ type DataLakeGen2FilesystemExpansion interface{}
 
 type DataLakeGen2PathExpansion interface{}
 
+type DisksPoolExpansion interface{}
+
 type EncryptionScopeExpansion interface{}
 
 type ManagementPolicyExpansion interface{}

@@ -33,6 +33,8 @@ type KeyvaultV1alpha1Interface interface {
 	KeysGetter
 	KeyVaultsGetter
 	ManagedHardwareSecurityModulesGetter
+	ManagedStorageAccountsGetter
+	ManagedStorageAccountSasTokenDefinitionsGetter
 	SecretsGetter
 }
 
@@ -63,6 +65,14 @@ func (c *KeyvaultV1alpha1Client) KeyVaults(namespace string) KeyVaultInterface {
 
 func (c *KeyvaultV1alpha1Client) ManagedHardwareSecurityModules(namespace string) ManagedHardwareSecurityModuleInterface {
 	return newManagedHardwareSecurityModules(c, namespace)
+}
+
+func (c *KeyvaultV1alpha1Client) ManagedStorageAccounts(namespace string) ManagedStorageAccountInterface {
+	return newManagedStorageAccounts(c, namespace)
+}
+
+func (c *KeyvaultV1alpha1Client) ManagedStorageAccountSasTokenDefinitions(namespace string) ManagedStorageAccountSasTokenDefinitionInterface {
+	return newManagedStorageAccountSasTokenDefinitions(c, namespace)
 }
 
 func (c *KeyvaultV1alpha1Client) Secrets(namespace string) SecretInterface {

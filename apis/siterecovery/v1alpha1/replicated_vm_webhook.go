@@ -103,7 +103,7 @@ func (r *ReplicatedVm) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range replicatedvmForceNewList {
+	for key, _ := range replicatedvmForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

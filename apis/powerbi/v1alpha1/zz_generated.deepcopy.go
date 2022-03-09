@@ -136,6 +136,11 @@ func (in *EmbeddedSpecResource) DeepCopyInto(out *EmbeddedSpecResource) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.Mode != nil {
+		in, out := &in.Mode, &out.Mode
+		*out = new(string)
+		**out = **in
+	}
 	if in.Name != nil {
 		in, out := &in.Name, &out.Name
 		*out = new(string)

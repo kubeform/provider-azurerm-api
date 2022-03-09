@@ -63,6 +63,21 @@ spec:
                     type: string
                   id:
                     type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   location:
                     type: string
                   name:
@@ -128,6 +143,21 @@ spec:
                     type: string
                   id:
                     type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   location:
                     type: string
                   name:

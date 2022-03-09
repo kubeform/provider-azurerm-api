@@ -25,3 +25,5 @@ type DefinitionExpansion interface{}
 type RemediationExpansion interface{}
 
 type SetDefinitionExpansion interface{}
+
+type VirtualMachineConfigurationAssignmentExpansion interface{}

@@ -18,6 +18,22 @@ limitations under the License.
 
 package v1alpha1
 
+// ChannelAlexaListerExpansion allows custom methods to be added to
+// ChannelAlexaLister.
+type ChannelAlexaListerExpansion interface{}
+
+// ChannelAlexaNamespaceListerExpansion allows custom methods to be added to
+// ChannelAlexaNamespaceLister.
+type ChannelAlexaNamespaceListerExpansion interface{}
+
+// ChannelDirectLineSpeechListerExpansion allows custom methods to be added to
+// ChannelDirectLineSpeechLister.
+type ChannelDirectLineSpeechListerExpansion interface{}
+
+// ChannelDirectLineSpeechNamespaceListerExpansion allows custom methods to be added to
+// ChannelDirectLineSpeechNamespaceLister.
+type ChannelDirectLineSpeechNamespaceListerExpansion interface{}
+
 // ChannelDirectlineListerExpansion allows custom methods to be added to
 // ChannelDirectlineLister.
 type ChannelDirectlineListerExpansion interface{}
@@ -33,6 +49,22 @@ type ChannelEmailListerExpansion interface{}
 // ChannelEmailNamespaceListerExpansion allows custom methods to be added to
 // ChannelEmailNamespaceLister.
 type ChannelEmailNamespaceListerExpansion interface{}
+
+// ChannelFacebookListerExpansion allows custom methods to be added to
+// ChannelFacebookLister.
+type ChannelFacebookListerExpansion interface{}
+
+// ChannelFacebookNamespaceListerExpansion allows custom methods to be added to
+// ChannelFacebookNamespaceLister.
+type ChannelFacebookNamespaceListerExpansion interface{}
+
+// ChannelLineListerExpansion allows custom methods to be added to
+// ChannelLineLister.
+type ChannelLineListerExpansion interface{}
+
+// ChannelLineNamespaceListerExpansion allows custom methods to be added to
+// ChannelLineNamespaceLister.
+type ChannelLineNamespaceListerExpansion interface{}
 
 // ChannelMsTeamsListerExpansion allows custom methods to be added to
 // ChannelMsTeamsLister.
@@ -50,6 +82,22 @@ type ChannelSlackListerExpansion interface{}
 // ChannelSlackNamespaceLister.
 type ChannelSlackNamespaceListerExpansion interface{}
 
+// ChannelSmsListerExpansion allows custom methods to be added to
+// ChannelSmsLister.
+type ChannelSmsListerExpansion interface{}
+
+// ChannelSmsNamespaceListerExpansion allows custom methods to be added to
+// ChannelSmsNamespaceLister.
+type ChannelSmsNamespaceListerExpansion interface{}
+
+// ChannelWebChatListerExpansion allows custom methods to be added to
+// ChannelWebChatLister.
+type ChannelWebChatListerExpansion interface{}
+
+// ChannelWebChatNamespaceListerExpansion allows custom methods to be added to
+// ChannelWebChatNamespaceLister.
+type ChannelWebChatNamespaceListerExpansion interface{}
+
 // ChannelsRegistrationListerExpansion allows custom methods to be added to
 // ChannelsRegistrationLister.
 type ChannelsRegistrationListerExpansion interface{}
@@ -65,6 +113,14 @@ type ConnectionListerExpansion interface{}
 // ConnectionNamespaceListerExpansion allows custom methods to be added to
 // ConnectionNamespaceLister.
 type ConnectionNamespaceListerExpansion interface{}
+
+// ServiceAzureBotListerExpansion allows custom methods to be added to
+// ServiceAzureBotLister.
+type ServiceAzureBotListerExpansion interface{}
+
+// ServiceAzureBotNamespaceListerExpansion allows custom methods to be added to
+// ServiceAzureBotNamespaceLister.
+type ServiceAzureBotNamespaceListerExpansion interface{}
 
 // WebAppListerExpansion allows custom methods to be added to
 // WebAppLister.

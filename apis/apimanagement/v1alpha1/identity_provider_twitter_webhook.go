@@ -89,7 +89,7 @@ func (r *IdentityProviderTwitter) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range identityprovidertwitterForceNewList {
+	for key, _ := range identityprovidertwitterForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

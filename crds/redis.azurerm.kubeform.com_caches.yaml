@@ -79,6 +79,8 @@ spec:
                       properties:
                         dayOfWeek:
                           type: string
+                        maintenanceWindow:
+                          type: string
                         startHourUtc:
                           format: int64
                           type: integer
@@ -124,7 +126,12 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  redisVersion:
+                    type: string
                   replicasPerMaster:
+                    format: int64
+                    type: integer
+                  replicasPerPrimary:
                     format: int64
                     type: integer
                   resourceGroupName:
@@ -140,6 +147,10 @@ spec:
                   subnetID:
                     type: string
                   tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  tenantSettings:
                     additionalProperties:
                       type: string
                     type: object
@@ -227,6 +238,8 @@ spec:
                       properties:
                         dayOfWeek:
                           type: string
+                        maintenanceWindow:
+                          type: string
                         startHourUtc:
                           format: int64
                           type: integer
@@ -272,7 +285,12 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  redisVersion:
+                    type: string
                   replicasPerMaster:
+                    format: int64
+                    type: integer
+                  replicasPerPrimary:
                     format: int64
                     type: integer
                   resourceGroupName:
@@ -288,6 +306,10 @@ spec:
                   subnetID:
                     type: string
                   tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  tenantSettings:
                     additionalProperties:
                       type: string
                     type: object

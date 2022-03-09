@@ -64,8 +64,10 @@ type PrefixSpecResource struct {
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 	// +optional
 	IpPrefix *string `json:"ipPrefix,omitempty" tf:"ip_prefix"`
-	Location *string `json:"location" tf:"location"`
-	Name     *string `json:"name" tf:"name"`
+	// +optional
+	IpVersion *string `json:"ipVersion,omitempty" tf:"ip_version"`
+	Location  *string `json:"location" tf:"location"`
+	Name      *string `json:"name" tf:"name"`
 	// +optional
 	PrefixLength      *int64  `json:"prefixLength,omitempty" tf:"prefix_length"`
 	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`

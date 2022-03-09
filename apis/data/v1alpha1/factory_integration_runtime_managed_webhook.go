@@ -91,7 +91,7 @@ func (r *FactoryIntegrationRuntimeManaged) ValidateUpdate(old runtime.Object) er
 		return err
 	}
 
-	for key := range factoryintegrationruntimemanagedForceNewList {
+	for key, _ := range factoryintegrationruntimemanagedForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

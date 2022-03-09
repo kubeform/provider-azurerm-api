@@ -37,6 +37,10 @@ func (c *FakeMaintenanceV1alpha1) AssignmentVirtualMachines(namespace string) v1
 	return &FakeAssignmentVirtualMachines{c, namespace}
 }
 
+func (c *FakeMaintenanceV1alpha1) AssignmentVirtualMachineScaleSets(namespace string) v1alpha1.AssignmentVirtualMachineScaleSetInterface {
+	return &FakeAssignmentVirtualMachineScaleSets{c, namespace}
+}
+
 func (c *FakeMaintenanceV1alpha1) Configurations(namespace string) v1alpha1.ConfigurationInterface {
 	return &FakeConfigurations{c, namespace}
 }

@@ -42,10 +42,9 @@ func (r *Dps) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &Dps{}
 
 var dpsForceNewList = map[string]bool{
-	"/linked_hub/*/location": true,
-	"/location":              true,
-	"/name":                  true,
-	"/resource_group_name":   true,
+	"/location":            true,
+	"/name":                true,
+	"/resource_group_name": true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -91,7 +90,7 @@ func (r *Dps) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range dpsForceNewList {
+	for key, _ := range dpsForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

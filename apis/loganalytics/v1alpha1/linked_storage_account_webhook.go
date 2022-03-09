@@ -90,7 +90,7 @@ func (r *LinkedStorageAccount) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range linkedstorageaccountForceNewList {
+	for key, _ := range linkedstorageaccountForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

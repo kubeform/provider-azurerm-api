@@ -66,6 +66,8 @@ type FallbackRouteSpecResource struct {
 	EndpointNames     []string `json:"endpointNames" tf:"endpoint_names"`
 	IothubName        *string  `json:"iothubName" tf:"iothub_name"`
 	ResourceGroupName *string  `json:"resourceGroupName" tf:"resource_group_name"`
+	// +optional
+	Source *string `json:"source,omitempty" tf:"source"`
 }
 
 type FallbackRouteStatus struct {

@@ -60,7 +60,10 @@ type CloudCertificateSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	KeyVaultCertificateID *string `json:"keyVaultCertificateID" tf:"key_vault_certificate_id"`
+	// +optional
+	CertificateContent *string `json:"certificateContent,omitempty" tf:"certificate_content"`
+	// +optional
+	KeyVaultCertificateID *string `json:"keyVaultCertificateID,omitempty" tf:"key_vault_certificate_id"`
 	Name                  *string `json:"name" tf:"name"`
 	ResourceGroupName     *string `json:"resourceGroupName" tf:"resource_group_name"`
 	ServiceName           *string `json:"serviceName" tf:"service_name"`

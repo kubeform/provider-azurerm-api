@@ -18,6 +18,14 @@ limitations under the License.
 
 package v1alpha1
 
+// CostManagementExportListerExpansion allows custom methods to be added to
+// CostManagementExportLister.
+type CostManagementExportListerExpansion interface{}
+
+// CostManagementExportNamespaceListerExpansion allows custom methods to be added to
+// CostManagementExportNamespaceLister.
+type CostManagementExportNamespaceListerExpansion interface{}
+
 // PolicyAssignmentListerExpansion allows custom methods to be added to
 // PolicyAssignmentLister.
 type PolicyAssignmentListerExpansion interface{}

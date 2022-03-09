@@ -90,7 +90,7 @@ func (r *FabricMeshApplication) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range fabricmeshapplicationForceNewList {
+	for key, _ := range fabricmeshapplicationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

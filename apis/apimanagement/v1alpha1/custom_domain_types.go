@@ -46,11 +46,19 @@ type CustomDomainSpecDeveloperPortal struct {
 	Certificate *string `json:"-" sensitive:"true" tf:"certificate"`
 	// +optional
 	CertificatePassword *string `json:"-" sensitive:"true" tf:"certificate_password"`
-	HostName            *string `json:"hostName" tf:"host_name"`
+	// +optional
+	Expiry   *string `json:"expiry,omitempty" tf:"expiry"`
+	HostName *string `json:"hostName" tf:"host_name"`
 	// +optional
 	KeyVaultID *string `json:"keyVaultID,omitempty" tf:"key_vault_id"`
 	// +optional
 	NegotiateClientCertificate *bool `json:"negotiateClientCertificate,omitempty" tf:"negotiate_client_certificate"`
+	// +optional
+	SslKeyvaultIdentityClientID *string `json:"sslKeyvaultIdentityClientID,omitempty" tf:"ssl_keyvault_identity_client_id"`
+	// +optional
+	Subject *string `json:"subject,omitempty" tf:"subject"`
+	// +optional
+	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint"`
 }
 
 type CustomDomainSpecManagement struct {
@@ -58,11 +66,19 @@ type CustomDomainSpecManagement struct {
 	Certificate *string `json:"-" sensitive:"true" tf:"certificate"`
 	// +optional
 	CertificatePassword *string `json:"-" sensitive:"true" tf:"certificate_password"`
-	HostName            *string `json:"hostName" tf:"host_name"`
+	// +optional
+	Expiry   *string `json:"expiry,omitempty" tf:"expiry"`
+	HostName *string `json:"hostName" tf:"host_name"`
 	// +optional
 	KeyVaultID *string `json:"keyVaultID,omitempty" tf:"key_vault_id"`
 	// +optional
 	NegotiateClientCertificate *bool `json:"negotiateClientCertificate,omitempty" tf:"negotiate_client_certificate"`
+	// +optional
+	SslKeyvaultIdentityClientID *string `json:"sslKeyvaultIdentityClientID,omitempty" tf:"ssl_keyvault_identity_client_id"`
+	// +optional
+	Subject *string `json:"subject,omitempty" tf:"subject"`
+	// +optional
+	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint"`
 }
 
 type CustomDomainSpecPortal struct {
@@ -70,11 +86,19 @@ type CustomDomainSpecPortal struct {
 	Certificate *string `json:"-" sensitive:"true" tf:"certificate"`
 	// +optional
 	CertificatePassword *string `json:"-" sensitive:"true" tf:"certificate_password"`
-	HostName            *string `json:"hostName" tf:"host_name"`
+	// +optional
+	Expiry   *string `json:"expiry,omitempty" tf:"expiry"`
+	HostName *string `json:"hostName" tf:"host_name"`
 	// +optional
 	KeyVaultID *string `json:"keyVaultID,omitempty" tf:"key_vault_id"`
 	// +optional
 	NegotiateClientCertificate *bool `json:"negotiateClientCertificate,omitempty" tf:"negotiate_client_certificate"`
+	// +optional
+	SslKeyvaultIdentityClientID *string `json:"sslKeyvaultIdentityClientID,omitempty" tf:"ssl_keyvault_identity_client_id"`
+	// +optional
+	Subject *string `json:"subject,omitempty" tf:"subject"`
+	// +optional
+	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint"`
 }
 
 type CustomDomainSpecProxy struct {
@@ -83,12 +107,20 @@ type CustomDomainSpecProxy struct {
 	// +optional
 	CertificatePassword *string `json:"-" sensitive:"true" tf:"certificate_password"`
 	// +optional
-	DefaultSslBinding *bool   `json:"defaultSslBinding,omitempty" tf:"default_ssl_binding"`
-	HostName          *string `json:"hostName" tf:"host_name"`
+	DefaultSslBinding *bool `json:"defaultSslBinding,omitempty" tf:"default_ssl_binding"`
+	// +optional
+	Expiry   *string `json:"expiry,omitempty" tf:"expiry"`
+	HostName *string `json:"hostName" tf:"host_name"`
 	// +optional
 	KeyVaultID *string `json:"keyVaultID,omitempty" tf:"key_vault_id"`
 	// +optional
 	NegotiateClientCertificate *bool `json:"negotiateClientCertificate,omitempty" tf:"negotiate_client_certificate"`
+	// +optional
+	SslKeyvaultIdentityClientID *string `json:"sslKeyvaultIdentityClientID,omitempty" tf:"ssl_keyvault_identity_client_id"`
+	// +optional
+	Subject *string `json:"subject,omitempty" tf:"subject"`
+	// +optional
+	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint"`
 }
 
 type CustomDomainSpecScm struct {
@@ -96,11 +128,19 @@ type CustomDomainSpecScm struct {
 	Certificate *string `json:"-" sensitive:"true" tf:"certificate"`
 	// +optional
 	CertificatePassword *string `json:"-" sensitive:"true" tf:"certificate_password"`
-	HostName            *string `json:"hostName" tf:"host_name"`
+	// +optional
+	Expiry   *string `json:"expiry,omitempty" tf:"expiry"`
+	HostName *string `json:"hostName" tf:"host_name"`
 	// +optional
 	KeyVaultID *string `json:"keyVaultID,omitempty" tf:"key_vault_id"`
 	// +optional
 	NegotiateClientCertificate *bool `json:"negotiateClientCertificate,omitempty" tf:"negotiate_client_certificate"`
+	// +optional
+	SslKeyvaultIdentityClientID *string `json:"sslKeyvaultIdentityClientID,omitempty" tf:"ssl_keyvault_identity_client_id"`
+	// +optional
+	Subject *string `json:"subject,omitempty" tf:"subject"`
+	// +optional
+	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint"`
 }
 
 type CustomDomainSpec struct {
@@ -132,6 +172,7 @@ type CustomDomainSpecResource struct {
 	// +optional
 	Portal []CustomDomainSpecPortal `json:"portal,omitempty" tf:"portal"`
 	// +optional
+	// Deprecated
 	Proxy []CustomDomainSpecProxy `json:"proxy,omitempty" tf:"proxy"`
 	// +optional
 	Scm []CustomDomainSpecScm `json:"scm,omitempty" tf:"scm"`

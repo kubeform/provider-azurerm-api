@@ -57,11 +57,18 @@ spec:
                 type: object
               resource:
                 properties:
+                  activated:
+                    type: boolean
                   annotations:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
+                    type: string
+                  description:
                     type: string
                   endTime:
                     type: string
@@ -82,6 +89,42 @@ spec:
                     type: object
                   resourceGroupName:
                     type: string
+                  schedule:
+                    properties:
+                      daysOfMonth:
+                        items:
+                          format: int64
+                          type: integer
+                        type: array
+                      daysOfWeek:
+                        items:
+                          type: string
+                        maxItems: 7
+                        type: array
+                      hours:
+                        items:
+                          format: int64
+                          type: integer
+                        type: array
+                      minutes:
+                        items:
+                          format: int64
+                          type: integer
+                        type: array
+                      monthly:
+                        items:
+                          properties:
+                            week:
+                              format: int64
+                              type: integer
+                            weekday:
+                              type: string
+                          required:
+                          - weekday
+                          type: object
+                        minItems: 1
+                        type: array
+                    type: object
                   startTime:
                     type: string
                   timeouts:
@@ -123,18 +166,24 @@ spec:
                         type: integer
                     type: object
                 required:
-                - dataFactoryName
                 - name
                 - pipelineName
                 - resourceGroupName
                 type: object
               state:
                 properties:
+                  activated:
+                    type: boolean
                   annotations:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
+                    type: string
+                  description:
                     type: string
                   endTime:
                     type: string
@@ -155,6 +204,42 @@ spec:
                     type: object
                   resourceGroupName:
                     type: string
+                  schedule:
+                    properties:
+                      daysOfMonth:
+                        items:
+                          format: int64
+                          type: integer
+                        type: array
+                      daysOfWeek:
+                        items:
+                          type: string
+                        maxItems: 7
+                        type: array
+                      hours:
+                        items:
+                          format: int64
+                          type: integer
+                        type: array
+                      minutes:
+                        items:
+                          format: int64
+                          type: integer
+                        type: array
+                      monthly:
+                        items:
+                          properties:
+                            week:
+                              format: int64
+                              type: integer
+                            weekday:
+                              type: string
+                          required:
+                          - weekday
+                          type: object
+                        minItems: 1
+                        type: array
+                    type: object
                   startTime:
                     type: string
                   timeouts:
@@ -196,7 +281,6 @@ spec:
                         type: integer
                     type: object
                 required:
-                - dataFactoryName
                 - name
                 - pipelineName
                 - resourceGroupName

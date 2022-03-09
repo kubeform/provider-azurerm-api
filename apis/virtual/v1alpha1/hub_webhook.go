@@ -93,7 +93,7 @@ func (r *Hub) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range hubForceNewList {
+	for key, _ := range hubForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

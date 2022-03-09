@@ -94,7 +94,7 @@ func (r *AppSlot) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range appslotForceNewList {
+	for key, _ := range appslotForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

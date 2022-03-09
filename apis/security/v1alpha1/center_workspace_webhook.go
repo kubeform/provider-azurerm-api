@@ -86,7 +86,7 @@ func (r *CenterWorkspace) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range centerworkspaceForceNewList {
+	for key, _ := range centerworkspaceForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

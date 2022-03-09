@@ -64,6 +64,8 @@ spec:
                           type: string
                         availabilityZone:
                           type: string
+                        gatewayLoadBalancerFrontendIPConfigurationID:
+                          type: string
                         inboundNATRules:
                           items:
                             type: string
@@ -115,6 +117,8 @@ spec:
                   resourceGroupName:
                     type: string
                   sku:
+                    type: string
+                  skuTier:
                     type: string
                   tags:
                     additionalProperties:
@@ -172,6 +176,8 @@ spec:
                           type: string
                         availabilityZone:
                           type: string
+                        gatewayLoadBalancerFrontendIPConfigurationID:
+                          type: string
                         inboundNATRules:
                           items:
                             type: string
@@ -223,6 +229,8 @@ spec:
                   resourceGroupName:
                     type: string
                   sku:
+                    type: string
+                  skuTier:
                     type: string
                   tags:
                     additionalProperties:

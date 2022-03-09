@@ -42,6 +42,7 @@ func (r *NamespaceNetworkRuleSet) SetupWebhookWithManager(mgr ctrl.Manager) erro
 var _ webhook.Validator = &NamespaceNetworkRuleSet{}
 
 var namespacenetworkrulesetForceNewList = map[string]bool{
+	"/namespace_id":        true,
 	"/namespace_name":      true,
 	"/resource_group_name": true,
 }
@@ -89,7 +90,7 @@ func (r *NamespaceNetworkRuleSet) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range namespacenetworkrulesetForceNewList {
+	for key, _ := range namespacenetworkrulesetForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

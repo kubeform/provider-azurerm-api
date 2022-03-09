@@ -90,7 +90,7 @@ func (r *ShareDatasetKustoCluster) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range sharedatasetkustoclusterForceNewList {
+	for key, _ := range sharedatasetkustoclusterForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

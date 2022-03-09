@@ -69,6 +69,8 @@ spec:
                         type: string
                       type:
                         type: string
+                    required:
+                    - type
                     type: object
                   location:
                     type: string
@@ -141,6 +143,8 @@ spec:
                         type: string
                       type:
                         type: string
+                    required:
+                    - type
                     type: object
                   location:
                     type: string

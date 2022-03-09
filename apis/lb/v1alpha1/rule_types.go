@@ -61,8 +61,13 @@ type RuleSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	// Deprecated
 	BackendAddressPoolID *string `json:"backendAddressPoolID,omitempty" tf:"backend_address_pool_id"`
-	BackendPort          *int64  `json:"backendPort" tf:"backend_port"`
+	// +optional
+	// +kubebuilder:validation:MaxItems=2
+	// +kubebuilder:validation:MinItems=1
+	BackendAddressPoolIDS []string `json:"backendAddressPoolIDS,omitempty" tf:"backend_address_pool_ids"`
+	BackendPort           *int64   `json:"backendPort" tf:"backend_port"`
 	// +optional
 	DisableOutboundSnat *bool `json:"disableOutboundSnat,omitempty" tf:"disable_outbound_snat"`
 	// +optional

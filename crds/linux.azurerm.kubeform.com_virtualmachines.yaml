@@ -87,6 +87,8 @@ spec:
                     type: object
                   computerName:
                     type: string
+                  dedicatedHostGroupID:
+                    type: string
                   dedicatedHostID:
                     type: string
                   disablePasswordAuthentication:
@@ -154,6 +156,8 @@ spec:
                     - caching
                     - storageAccountType
                     type: object
+                  patchMode:
+                    type: string
                   plan:
                     properties:
                       name:
@@ -210,6 +214,8 @@ spec:
                       - keyVaultID
                       type: object
                     type: array
+                  secureBootEnabled:
+                    type: boolean
                   size:
                     type: string
                   sourceImageID:
@@ -272,10 +278,14 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  userData:
+                    type: string
                   virtualMachineID:
                     type: string
                   virtualMachineScaleSetID:
                     type: string
+                  vtpmEnabled:
+                    type: boolean
                   zone:
                     type: string
                 required:
@@ -328,6 +338,8 @@ spec:
                     type: object
                   computerName:
                     type: string
+                  dedicatedHostGroupID:
+                    type: string
                   dedicatedHostID:
                     type: string
                   disablePasswordAuthentication:
@@ -395,6 +407,8 @@ spec:
                     - caching
                     - storageAccountType
                     type: object
+                  patchMode:
+                    type: string
                   plan:
                     properties:
                       name:
@@ -451,6 +465,8 @@ spec:
                       - keyVaultID
                       type: object
                     type: array
+                  secureBootEnabled:
+                    type: boolean
                   size:
                     type: string
                   sourceImageID:
@@ -513,10 +529,14 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  userData:
+                    type: string
                   virtualMachineID:
                     type: string
                   virtualMachineScaleSetID:
                     type: string
+                  vtpmEnabled:
+                    type: boolean
                   zone:
                     type: string
                 required:

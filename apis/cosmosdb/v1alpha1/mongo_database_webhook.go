@@ -90,7 +90,7 @@ func (r *MongoDatabase) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range mongodatabaseForceNewList {
+	for key, _ := range mongodatabaseForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

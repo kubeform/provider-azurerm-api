@@ -41,6 +41,14 @@ type LakeStore struct {
 	Status            LakeStoreStatus `json:"status,omitempty"`
 }
 
+type LakeStoreSpecIdentity struct {
+	// +optional
+	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
+}
+
 type LakeStoreSpec struct {
 	State *LakeStoreSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -69,10 +77,12 @@ type LakeStoreSpecResource struct {
 	// +optional
 	FirewallAllowAzureIPS *string `json:"firewallAllowAzureIPS,omitempty" tf:"firewall_allow_azure_ips"`
 	// +optional
-	FirewallState     *string `json:"firewallState,omitempty" tf:"firewall_state"`
-	Location          *string `json:"location" tf:"location"`
-	Name              *string `json:"name" tf:"name"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	FirewallState *string `json:"firewallState,omitempty" tf:"firewall_state"`
+	// +optional
+	Identity          *LakeStoreSpecIdentity `json:"identity,omitempty" tf:"identity"`
+	Location          *string                `json:"location" tf:"location"`
+	Name              *string                `json:"name" tf:"name"`
+	ResourceGroupName *string                `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 	// +optional

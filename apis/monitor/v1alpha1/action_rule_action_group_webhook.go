@@ -89,7 +89,7 @@ func (r *ActionRuleActionGroup) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range actionruleactiongroupForceNewList {
+	for key, _ := range actionruleactiongroupForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

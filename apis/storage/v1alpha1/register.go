@@ -72,6 +72,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&DataLakeGen2FilesystemList{},
 		&DataLakeGen2Path{},
 		&DataLakeGen2PathList{},
+		&DisksPool{},
+		&DisksPoolList{},
 		&EncryptionScope{},
 		&EncryptionScopeList{},
 		&ManagementPolicy{},

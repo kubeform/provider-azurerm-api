@@ -49,6 +49,10 @@ type VolumeSpecDataProtectionReplication struct {
 	ReplicationFrequency   *string `json:"replicationFrequency" tf:"replication_frequency"`
 }
 
+type VolumeSpecDataProtectionSnapshotPolicy struct {
+	SnapshotPolicyID *string `json:"snapshotPolicyID" tf:"snapshot_policy_id"`
+}
+
 type VolumeSpecExportPolicyRule struct {
 	AllowedClients []string `json:"allowedClients" tf:"allowed_clients"`
 	// +optional
@@ -96,6 +100,8 @@ type VolumeSpecResource struct {
 	// +optional
 	DataProtectionReplication *VolumeSpecDataProtectionReplication `json:"dataProtectionReplication,omitempty" tf:"data_protection_replication"`
 	// +optional
+	DataProtectionSnapshotPolicy *VolumeSpecDataProtectionSnapshotPolicy `json:"dataProtectionSnapshotPolicy,omitempty" tf:"data_protection_snapshot_policy"`
+	// +optional
 	// +kubebuilder:validation:MaxItems=5
 	ExportPolicyRule []VolumeSpecExportPolicyRule `json:"exportPolicyRule,omitempty" tf:"export_policy_rule"`
 	Location         *string                      `json:"location" tf:"location"`
@@ -108,13 +114,17 @@ type VolumeSpecResource struct {
 	Protocols         []string `json:"protocols,omitempty" tf:"protocols"`
 	ResourceGroupName *string  `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
-	SecurityStyle    *string `json:"securityStyle,omitempty" tf:"security_style"`
-	ServiceLevel     *string `json:"serviceLevel" tf:"service_level"`
-	StorageQuotaInGb *int64  `json:"storageQuotaInGb" tf:"storage_quota_in_gb"`
-	SubnetID         *string `json:"subnetID" tf:"subnet_id"`
+	SecurityStyle *string `json:"securityStyle,omitempty" tf:"security_style"`
+	ServiceLevel  *string `json:"serviceLevel" tf:"service_level"`
 	// +optional
-	Tags       *map[string]string `json:"tags,omitempty" tf:"tags"`
-	VolumePath *string            `json:"volumePath" tf:"volume_path"`
+	SnapshotDirectoryVisible *bool   `json:"snapshotDirectoryVisible,omitempty" tf:"snapshot_directory_visible"`
+	StorageQuotaInGb         *int64  `json:"storageQuotaInGb" tf:"storage_quota_in_gb"`
+	SubnetID                 *string `json:"subnetID" tf:"subnet_id"`
+	// +optional
+	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
+	// +optional
+	ThroughputInMibps *float64 `json:"throughputInMibps,omitempty" tf:"throughput_in_mibps"`
+	VolumePath        *string  `json:"volumePath" tf:"volume_path"`
 }
 
 type VolumeStatus struct {

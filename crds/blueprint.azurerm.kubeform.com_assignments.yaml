@@ -70,12 +70,7 @@ spec:
                       identityIDS:
                         items:
                           type: string
-                        minItems: 1
                         type: array
-                      principalID:
-                        type: string
-                      tenantID:
-                        type: string
                       type:
                         type: string
                     required:
@@ -84,6 +79,11 @@ spec:
                     type: object
                   location:
                     type: string
+                  lockExcludeActions:
+                    items:
+                      type: string
+                    maxItems: 200
+                    type: array
                   lockExcludePrincipals:
                     items:
                       type: string
@@ -142,6 +142,7 @@ spec:
                   versionID:
                     type: string
                 required:
+                - identity
                 - location
                 - name
                 - targetSubscriptionID
@@ -162,12 +163,7 @@ spec:
                       identityIDS:
                         items:
                           type: string
-                        minItems: 1
                         type: array
-                      principalID:
-                        type: string
-                      tenantID:
-                        type: string
                       type:
                         type: string
                     required:
@@ -176,6 +172,11 @@ spec:
                     type: object
                   location:
                     type: string
+                  lockExcludeActions:
+                    items:
+                      type: string
+                    maxItems: 200
+                    type: array
                   lockExcludePrincipals:
                     items:
                       type: string
@@ -234,6 +235,7 @@ spec:
                   versionID:
                     type: string
                 required:
+                - identity
                 - location
                 - name
                 - targetSubscriptionID

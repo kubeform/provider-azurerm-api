@@ -91,7 +91,7 @@ func (r *DataLakeGen2Path) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range datalakegen2pathForceNewList {
+	for key, _ := range datalakegen2pathForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

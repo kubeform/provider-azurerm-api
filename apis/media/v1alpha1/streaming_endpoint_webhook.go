@@ -91,7 +91,7 @@ func (r *StreamingEndpoint) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range streamingendpointForceNewList {
+	for key, _ := range streamingendpointForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

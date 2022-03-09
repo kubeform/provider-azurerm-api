@@ -31,9 +31,15 @@ type MssqlV1alpha1Interface interface {
 	DatabaseExtendedAuditingPoliciesGetter
 	DatabaseVulnerabilityAssessmentRuleBaselinesGetter
 	ElasticpoolsGetter
+	FailoverGroupsGetter
 	FirewallRulesGetter
 	JobAgentsGetter
 	JobCredentialsGetter
+	ManagedDatabasesGetter
+	ManagedInstancesGetter
+	ManagedInstanceActiveDirectoryAdministratorsGetter
+	ManagedInstanceFailoverGroupsGetter
+	OutboundFirewallRulesGetter
 	ServersGetter
 	ServerExtendedAuditingPoliciesGetter
 	ServerSecurityAlertPoliciesGetter
@@ -64,6 +70,10 @@ func (c *MssqlV1alpha1Client) Elasticpools(namespace string) ElasticpoolInterfac
 	return newElasticpools(c, namespace)
 }
 
+func (c *MssqlV1alpha1Client) FailoverGroups(namespace string) FailoverGroupInterface {
+	return newFailoverGroups(c, namespace)
+}
+
 func (c *MssqlV1alpha1Client) FirewallRules(namespace string) FirewallRuleInterface {
 	return newFirewallRules(c, namespace)
 }
@@ -74,6 +84,26 @@ func (c *MssqlV1alpha1Client) JobAgents(namespace string) JobAgentInterface {
 
 func (c *MssqlV1alpha1Client) JobCredentials(namespace string) JobCredentialInterface {
 	return newJobCredentials(c, namespace)
+}
+
+func (c *MssqlV1alpha1Client) ManagedDatabases(namespace string) ManagedDatabaseInterface {
+	return newManagedDatabases(c, namespace)
+}
+
+func (c *MssqlV1alpha1Client) ManagedInstances(namespace string) ManagedInstanceInterface {
+	return newManagedInstances(c, namespace)
+}
+
+func (c *MssqlV1alpha1Client) ManagedInstanceActiveDirectoryAdministrators(namespace string) ManagedInstanceActiveDirectoryAdministratorInterface {
+	return newManagedInstanceActiveDirectoryAdministrators(c, namespace)
+}
+
+func (c *MssqlV1alpha1Client) ManagedInstanceFailoverGroups(namespace string) ManagedInstanceFailoverGroupInterface {
+	return newManagedInstanceFailoverGroups(c, namespace)
+}
+
+func (c *MssqlV1alpha1Client) OutboundFirewallRules(namespace string) OutboundFirewallRuleInterface {
+	return newOutboundFirewallRules(c, namespace)
 }
 
 func (c *MssqlV1alpha1Client) Servers(namespace string) ServerInterface {

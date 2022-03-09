@@ -41,30 +41,106 @@ type Diagnostic struct {
 	Status            DiagnosticStatus `json:"status,omitempty"`
 }
 
+type DiagnosticSpecBackendRequestDataMaskingHeaders struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type DiagnosticSpecBackendRequestDataMaskingQueryParams struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type DiagnosticSpecBackendRequestDataMasking struct {
+	// +optional
+	Headers []DiagnosticSpecBackendRequestDataMaskingHeaders `json:"headers,omitempty" tf:"headers"`
+	// +optional
+	QueryParams []DiagnosticSpecBackendRequestDataMaskingQueryParams `json:"queryParams,omitempty" tf:"query_params"`
+}
+
 type DiagnosticSpecBackendRequest struct {
 	// +optional
 	BodyBytes *int64 `json:"bodyBytes,omitempty" tf:"body_bytes"`
 	// +optional
+	DataMasking *DiagnosticSpecBackendRequestDataMasking `json:"dataMasking,omitempty" tf:"data_masking"`
+	// +optional
 	HeadersToLog []string `json:"headersToLog,omitempty" tf:"headers_to_log"`
+}
+
+type DiagnosticSpecBackendResponseDataMaskingHeaders struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type DiagnosticSpecBackendResponseDataMaskingQueryParams struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type DiagnosticSpecBackendResponseDataMasking struct {
+	// +optional
+	Headers []DiagnosticSpecBackendResponseDataMaskingHeaders `json:"headers,omitempty" tf:"headers"`
+	// +optional
+	QueryParams []DiagnosticSpecBackendResponseDataMaskingQueryParams `json:"queryParams,omitempty" tf:"query_params"`
 }
 
 type DiagnosticSpecBackendResponse struct {
 	// +optional
 	BodyBytes *int64 `json:"bodyBytes,omitempty" tf:"body_bytes"`
 	// +optional
+	DataMasking *DiagnosticSpecBackendResponseDataMasking `json:"dataMasking,omitempty" tf:"data_masking"`
+	// +optional
 	HeadersToLog []string `json:"headersToLog,omitempty" tf:"headers_to_log"`
+}
+
+type DiagnosticSpecFrontendRequestDataMaskingHeaders struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type DiagnosticSpecFrontendRequestDataMaskingQueryParams struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type DiagnosticSpecFrontendRequestDataMasking struct {
+	// +optional
+	Headers []DiagnosticSpecFrontendRequestDataMaskingHeaders `json:"headers,omitempty" tf:"headers"`
+	// +optional
+	QueryParams []DiagnosticSpecFrontendRequestDataMaskingQueryParams `json:"queryParams,omitempty" tf:"query_params"`
 }
 
 type DiagnosticSpecFrontendRequest struct {
 	// +optional
 	BodyBytes *int64 `json:"bodyBytes,omitempty" tf:"body_bytes"`
 	// +optional
+	DataMasking *DiagnosticSpecFrontendRequestDataMasking `json:"dataMasking,omitempty" tf:"data_masking"`
+	// +optional
 	HeadersToLog []string `json:"headersToLog,omitempty" tf:"headers_to_log"`
+}
+
+type DiagnosticSpecFrontendResponseDataMaskingHeaders struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type DiagnosticSpecFrontendResponseDataMaskingQueryParams struct {
+	Mode  *string `json:"mode" tf:"mode"`
+	Value *string `json:"value" tf:"value"`
+}
+
+type DiagnosticSpecFrontendResponseDataMasking struct {
+	// +optional
+	Headers []DiagnosticSpecFrontendResponseDataMaskingHeaders `json:"headers,omitempty" tf:"headers"`
+	// +optional
+	QueryParams []DiagnosticSpecFrontendResponseDataMaskingQueryParams `json:"queryParams,omitempty" tf:"query_params"`
 }
 
 type DiagnosticSpecFrontendResponse struct {
 	// +optional
 	BodyBytes *int64 `json:"bodyBytes,omitempty" tf:"body_bytes"`
+	// +optional
+	DataMasking *DiagnosticSpecFrontendResponseDataMasking `json:"dataMasking,omitempty" tf:"data_masking"`
 	// +optional
 	HeadersToLog []string `json:"headersToLog,omitempty" tf:"headers_to_log"`
 }
@@ -107,8 +183,10 @@ type DiagnosticSpecResource struct {
 	HttpCorrelationProtocol *string `json:"httpCorrelationProtocol,omitempty" tf:"http_correlation_protocol"`
 	Identifier              *string `json:"identifier" tf:"identifier"`
 	// +optional
-	LogClientIP       *bool   `json:"logClientIP,omitempty" tf:"log_client_ip"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	LogClientIP *bool `json:"logClientIP,omitempty" tf:"log_client_ip"`
+	// +optional
+	OperationNameFormat *string `json:"operationNameFormat,omitempty" tf:"operation_name_format"`
+	ResourceGroupName   *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	SamplingPercentage *float64 `json:"samplingPercentage,omitempty" tf:"sampling_percentage"`
 	// +optional

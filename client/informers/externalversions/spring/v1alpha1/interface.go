@@ -42,6 +42,8 @@ type Interface interface {
 	CloudJavaDeployments() CloudJavaDeploymentInformer
 	// CloudServices returns a CloudServiceInformer.
 	CloudServices() CloudServiceInformer
+	// CloudStorages returns a CloudStorageInformer.
+	CloudStorages() CloudStorageInformer
 }
 
 type version struct {
@@ -98,4 +100,9 @@ func (v *version) CloudJavaDeployments() CloudJavaDeploymentInformer {
 // CloudServices returns a CloudServiceInformer.
 func (v *version) CloudServices() CloudServiceInformer {
 	return &cloudServiceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// CloudStorages returns a CloudStorageInformer.
+func (v *version) CloudStorages() CloudStorageInformer {
+	return &cloudStorageInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

@@ -90,7 +90,7 @@ func (r *ApiPolicy) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range apipolicyForceNewList {
+	for key, _ := range apipolicyForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

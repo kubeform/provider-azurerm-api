@@ -33,6 +33,10 @@ func (c *FakeSignalrV1alpha1) Services(namespace string) v1alpha1.ServiceInterfa
 	return &FakeServices{c, namespace}
 }
 
+func (c *FakeSignalrV1alpha1) ServiceNetworkACLs(namespace string) v1alpha1.ServiceNetworkACLInterface {
+	return &FakeServiceNetworkACLs{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeSignalrV1alpha1) RESTClient() rest.Interface {

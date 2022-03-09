@@ -41,6 +41,14 @@ func (c *FakeVirtualV1alpha1) DesktopHostPools(namespace string) v1alpha1.Deskto
 	return &FakeDesktopHostPools{c, namespace}
 }
 
+func (c *FakeVirtualV1alpha1) DesktopHostPoolRegistrationInfos(namespace string) v1alpha1.DesktopHostPoolRegistrationInfoInterface {
+	return &FakeDesktopHostPoolRegistrationInfos{c, namespace}
+}
+
+func (c *FakeVirtualV1alpha1) DesktopScalingPlans(namespace string) v1alpha1.DesktopScalingPlanInterface {
+	return &FakeDesktopScalingPlans{c, namespace}
+}
+
 func (c *FakeVirtualV1alpha1) DesktopWorkspaces(namespace string) v1alpha1.DesktopWorkspaceInterface {
 	return &FakeDesktopWorkspaces{c, namespace}
 }
@@ -67,6 +75,10 @@ func (c *FakeVirtualV1alpha1) HubIPs(namespace string) v1alpha1.HubIPInterface {
 
 func (c *FakeVirtualV1alpha1) HubRouteTables(namespace string) v1alpha1.HubRouteTableInterface {
 	return &FakeHubRouteTables{c, namespace}
+}
+
+func (c *FakeVirtualV1alpha1) HubRouteTableRoutes(namespace string) v1alpha1.HubRouteTableRouteInterface {
+	return &FakeHubRouteTableRoutes{c, namespace}
 }
 
 func (c *FakeVirtualV1alpha1) HubSecurityPartnerProviders(namespace string) v1alpha1.HubSecurityPartnerProviderInterface {
@@ -99,6 +111,10 @@ func (c *FakeVirtualV1alpha1) MachineScaleSetExtensions(namespace string) v1alph
 
 func (c *FakeVirtualV1alpha1) Networks(namespace string) v1alpha1.NetworkInterface {
 	return &FakeNetworks{c, namespace}
+}
+
+func (c *FakeVirtualV1alpha1) NetworkDNSServerses(namespace string) v1alpha1.NetworkDNSServersInterface {
+	return &FakeNetworkDNSServerses{c, namespace}
 }
 
 func (c *FakeVirtualV1alpha1) NetworkGateways(namespace string) v1alpha1.NetworkGatewayInterface {

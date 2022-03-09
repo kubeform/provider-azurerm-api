@@ -61,11 +61,40 @@ spec:
                     type: string
                   endpoint:
                     type: string
+                  fqdns:
+                    items:
+                      type: string
+                    type: array
                   id:
                     type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   kind:
                     type: string
+                  localAuthEnabled:
+                    type: boolean
                   location:
+                    type: string
+                  metricsAdvisorAadClientID:
+                    type: string
+                  metricsAdvisorAadTenantID:
+                    type: string
+                  metricsAdvisorSuperUserName:
+                    type: string
+                  metricsAdvisorWebsiteName:
                     type: string
                   name:
                     type: string
@@ -77,19 +106,46 @@ spec:
                         items:
                           type: string
                         type: array
+                      virtualNetworkRules:
+                        items:
+                          properties:
+                            ignoreMissingVnetServiceEndpoint:
+                              type: boolean
+                            subnetID:
+                              type: string
+                          required:
+                          - subnetID
+                          type: object
+                        type: array
                       virtualNetworkSubnetIDS:
+                        description: Deprecated
                         items:
                           type: string
                         type: array
                     required:
                     - defaultAction
                     type: object
+                  outboundNetworkAccessRestrited:
+                    type: boolean
+                  publicNetworkAccessEnabled:
+                    type: boolean
                   qnaRuntimeEndpoint:
                     type: string
                   resourceGroupName:
                     type: string
                   skuName:
                     type: string
+                  storage:
+                    items:
+                      properties:
+                        identityClientID:
+                          type: string
+                        storageAccountID:
+                          type: string
+                      required:
+                      - storageAccountID
+                      type: object
+                    type: array
                   tags:
                     additionalProperties:
                       type: string
@@ -154,11 +210,40 @@ spec:
                     type: string
                   endpoint:
                     type: string
+                  fqdns:
+                    items:
+                      type: string
+                    type: array
                   id:
                     type: string
+                  identity:
+                    properties:
+                      identityIDS:
+                        items:
+                          type: string
+                        type: array
+                      principalID:
+                        type: string
+                      tenantID:
+                        type: string
+                      type:
+                        type: string
+                    required:
+                    - type
+                    type: object
                   kind:
                     type: string
+                  localAuthEnabled:
+                    type: boolean
                   location:
+                    type: string
+                  metricsAdvisorAadClientID:
+                    type: string
+                  metricsAdvisorAadTenantID:
+                    type: string
+                  metricsAdvisorSuperUserName:
+                    type: string
+                  metricsAdvisorWebsiteName:
                     type: string
                   name:
                     type: string
@@ -170,19 +255,46 @@ spec:
                         items:
                           type: string
                         type: array
+                      virtualNetworkRules:
+                        items:
+                          properties:
+                            ignoreMissingVnetServiceEndpoint:
+                              type: boolean
+                            subnetID:
+                              type: string
+                          required:
+                          - subnetID
+                          type: object
+                        type: array
                       virtualNetworkSubnetIDS:
+                        description: Deprecated
                         items:
                           type: string
                         type: array
                     required:
                     - defaultAction
                     type: object
+                  outboundNetworkAccessRestrited:
+                    type: boolean
+                  publicNetworkAccessEnabled:
+                    type: boolean
                   qnaRuntimeEndpoint:
                     type: string
                   resourceGroupName:
                     type: string
                   skuName:
                     type: string
+                  storage:
+                    items:
+                      properties:
+                        identityClientID:
+                          type: string
+                        storageAccountID:
+                          type: string
+                      required:
+                      - storageAccountID
+                      type: object
+                    type: array
                   tags:
                     additionalProperties:
                       type: string

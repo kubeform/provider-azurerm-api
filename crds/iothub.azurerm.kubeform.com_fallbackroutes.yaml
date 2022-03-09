@@ -71,6 +71,8 @@ spec:
                     type: string
                   resourceGroupName:
                     type: string
+                  source:
+                    type: string
                   timeouts:
                     properties:
                       create:
@@ -130,6 +132,8 @@ spec:
                   iothubName:
                     type: string
                   resourceGroupName:
+                    type: string
+                  source:
                     type: string
                   timeouts:
                     properties:

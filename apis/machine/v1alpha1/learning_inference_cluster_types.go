@@ -41,6 +41,16 @@ type LearningInferenceCluster struct {
 	Status            LearningInferenceClusterStatus `json:"status,omitempty"`
 }
 
+type LearningInferenceClusterSpecIdentity struct {
+	// +optional
+	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
+	// +optional
+	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
+}
+
 type LearningInferenceClusterSpecSsl struct {
 	// +optional
 	Cert *string `json:"cert,omitempty" tf:"cert"`
@@ -76,11 +86,13 @@ type LearningInferenceClusterSpecResource struct {
 	// +optional
 	ClusterPurpose *string `json:"clusterPurpose,omitempty" tf:"cluster_purpose"`
 	// +optional
-	Description                *string `json:"description,omitempty" tf:"description"`
-	KubernetesClusterID        *string `json:"kubernetesClusterID" tf:"kubernetes_cluster_id"`
-	Location                   *string `json:"location" tf:"location"`
-	MachineLearningWorkspaceID *string `json:"machineLearningWorkspaceID" tf:"machine_learning_workspace_id"`
-	Name                       *string `json:"name" tf:"name"`
+	Description *string `json:"description,omitempty" tf:"description"`
+	// +optional
+	Identity                   *LearningInferenceClusterSpecIdentity `json:"identity,omitempty" tf:"identity"`
+	KubernetesClusterID        *string                               `json:"kubernetesClusterID" tf:"kubernetes_cluster_id"`
+	Location                   *string                               `json:"location" tf:"location"`
+	MachineLearningWorkspaceID *string                               `json:"machineLearningWorkspaceID" tf:"machine_learning_workspace_id"`
+	Name                       *string                               `json:"name" tf:"name"`
 	// +optional
 	Ssl *LearningInferenceClusterSpecSsl `json:"ssl,omitempty" tf:"ssl"`
 	// +optional

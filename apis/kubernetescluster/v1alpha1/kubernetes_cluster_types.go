@@ -41,19 +41,51 @@ type KubernetesCluster struct {
 	Status            KubernetesClusterStatus `json:"status,omitempty"`
 }
 
+type KubernetesClusterSpecAciConnectorLinux struct {
+	SubnetName *string `json:"subnetName" tf:"subnet_name"`
+}
+
 type KubernetesClusterSpecAddonProfileAciConnectorLinux struct {
+	// Deprecated
 	Enabled *bool `json:"enabled" tf:"enabled"`
 	// +optional
+	// Deprecated
 	SubnetName *string `json:"subnetName,omitempty" tf:"subnet_name"`
 }
 
+type KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProviderSecretIdentity struct {
+	// +optional
+	ClientID *string `json:"clientID,omitempty" tf:"client_id"`
+	// +optional
+	ObjectID *string `json:"objectID,omitempty" tf:"object_id"`
+	// +optional
+	UserAssignedIdentityID *string `json:"userAssignedIdentityID,omitempty" tf:"user_assigned_identity_id"`
+}
+
+type KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider struct {
+	// Deprecated
+	Enabled *bool `json:"enabled" tf:"enabled"`
+	// +optional
+	// Deprecated
+	SecretIdentity []KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProviderSecretIdentity `json:"secretIdentity,omitempty" tf:"secret_identity"`
+	// +optional
+	// Deprecated
+	SecretRotationEnabled *bool `json:"secretRotationEnabled,omitempty" tf:"secret_rotation_enabled"`
+	// +optional
+	// Deprecated
+	SecretRotationInterval *string `json:"secretRotationInterval,omitempty" tf:"secret_rotation_interval"`
+}
+
 type KubernetesClusterSpecAddonProfileAzurePolicy struct {
+	// Deprecated
 	Enabled *bool `json:"enabled" tf:"enabled"`
 }
 
 type KubernetesClusterSpecAddonProfileHttpApplicationRouting struct {
+	// Deprecated
 	Enabled *bool `json:"enabled" tf:"enabled"`
 	// +optional
+	// Deprecated
 	HttpApplicationRoutingZoneName *string `json:"httpApplicationRoutingZoneName,omitempty" tf:"http_application_routing_zone_name"`
 }
 
@@ -68,17 +100,24 @@ type KubernetesClusterSpecAddonProfileIngressApplicationGatewayIngressApplicatio
 
 type KubernetesClusterSpecAddonProfileIngressApplicationGateway struct {
 	// +optional
+	// Deprecated
 	EffectiveGatewayID *string `json:"effectiveGatewayID,omitempty" tf:"effective_gateway_id"`
-	Enabled            *bool   `json:"enabled" tf:"enabled"`
+	// Deprecated
+	Enabled *bool `json:"enabled" tf:"enabled"`
 	// +optional
+	// Deprecated
 	GatewayID *string `json:"gatewayID,omitempty" tf:"gateway_id"`
 	// +optional
+	// Deprecated
 	GatewayName *string `json:"gatewayName,omitempty" tf:"gateway_name"`
 	// +optional
+	// Deprecated
 	IngressApplicationGatewayIdentity []KubernetesClusterSpecAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity `json:"ingressApplicationGatewayIdentity,omitempty" tf:"ingress_application_gateway_identity"`
 	// +optional
+	// Deprecated
 	SubnetCIDR *string `json:"subnetCIDR,omitempty" tf:"subnet_cidr"`
 	// +optional
+	// Deprecated
 	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 }
 
@@ -96,26 +135,46 @@ type KubernetesClusterSpecAddonProfileOmsAgentOmsAgentIdentity struct {
 }
 
 type KubernetesClusterSpecAddonProfileOmsAgent struct {
+	// Deprecated
 	Enabled *bool `json:"enabled" tf:"enabled"`
 	// +optional
+	// Deprecated
 	LogAnalyticsWorkspaceID *string `json:"logAnalyticsWorkspaceID,omitempty" tf:"log_analytics_workspace_id"`
 	// +optional
+	// Deprecated
 	OmsAgentIdentity []KubernetesClusterSpecAddonProfileOmsAgentOmsAgentIdentity `json:"omsAgentIdentity,omitempty" tf:"oms_agent_identity"`
+}
+
+type KubernetesClusterSpecAddonProfileOpenServiceMesh struct {
+	// Deprecated
+	Enabled *bool `json:"enabled" tf:"enabled"`
 }
 
 type KubernetesClusterSpecAddonProfile struct {
 	// +optional
+	// Deprecated
 	AciConnectorLinux *KubernetesClusterSpecAddonProfileAciConnectorLinux `json:"aciConnectorLinux,omitempty" tf:"aci_connector_linux"`
 	// +optional
+	// Deprecated
+	AzureKeyvaultSecretsProvider *KubernetesClusterSpecAddonProfileAzureKeyvaultSecretsProvider `json:"azureKeyvaultSecretsProvider,omitempty" tf:"azure_keyvault_secrets_provider"`
+	// +optional
+	// Deprecated
 	AzurePolicy *KubernetesClusterSpecAddonProfileAzurePolicy `json:"azurePolicy,omitempty" tf:"azure_policy"`
 	// +optional
+	// Deprecated
 	HttpApplicationRouting *KubernetesClusterSpecAddonProfileHttpApplicationRouting `json:"httpApplicationRouting,omitempty" tf:"http_application_routing"`
 	// +optional
+	// Deprecated
 	IngressApplicationGateway *KubernetesClusterSpecAddonProfileIngressApplicationGateway `json:"ingressApplicationGateway,omitempty" tf:"ingress_application_gateway"`
 	// +optional
+	// Deprecated
 	KubeDashboard *KubernetesClusterSpecAddonProfileKubeDashboard `json:"kubeDashboard,omitempty" tf:"kube_dashboard"`
 	// +optional
+	// Deprecated
 	OmsAgent *KubernetesClusterSpecAddonProfileOmsAgent `json:"omsAgent,omitempty" tf:"oms_agent"`
+	// +optional
+	// Deprecated
+	OpenServiceMesh *KubernetesClusterSpecAddonProfileOpenServiceMesh `json:"openServiceMesh,omitempty" tf:"open_service_mesh"`
 }
 
 type KubernetesClusterSpecAutoScalerProfile struct {
@@ -295,16 +354,33 @@ type KubernetesClusterSpecDefaultNodePool struct {
 	// +optional
 	OsDiskType *string `json:"osDiskType,omitempty" tf:"os_disk_type"`
 	// +optional
+	OsSku *string `json:"osSku,omitempty" tf:"os_sku"`
+	// +optional
+	PodSubnetID *string `json:"podSubnetID,omitempty" tf:"pod_subnet_id"`
+	// +optional
 	ProximityPlacementGroupID *string `json:"proximityPlacementGroupID,omitempty" tf:"proximity_placement_group_id"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 	// +optional
 	Type *string `json:"type,omitempty" tf:"type"`
 	// +optional
+	UltraSsdEnabled *bool `json:"ultraSsdEnabled,omitempty" tf:"ultra_ssd_enabled"`
+	// +optional
 	UpgradeSettings *KubernetesClusterSpecDefaultNodePoolUpgradeSettings `json:"upgradeSettings,omitempty" tf:"upgrade_settings"`
 	VmSize          *string                                              `json:"vmSize" tf:"vm_size"`
 	// +optional
 	VnetSubnetID *string `json:"vnetSubnetID,omitempty" tf:"vnet_subnet_id"`
+}
+
+type KubernetesClusterSpecHttpProxyConfig struct {
+	// +optional
+	HttpProxy *string `json:"httpProxy,omitempty" tf:"http_proxy"`
+	// +optional
+	HttpsProxy *string `json:"httpsProxy,omitempty" tf:"https_proxy"`
+	// +optional
+	NoProxy []string `json:"noProxy,omitempty" tf:"no_proxy"`
+	// +optional
+	TrustedCa *string `json:"-" sensitive:"true" tf:"trusted_ca"`
 }
 
 type KubernetesClusterSpecIdentity struct {
@@ -315,6 +391,48 @@ type KubernetesClusterSpecIdentity struct {
 	Type     *string `json:"type" tf:"type"`
 	// +optional
 	UserAssignedIdentityID *string `json:"userAssignedIdentityID,omitempty" tf:"user_assigned_identity_id"`
+}
+
+type KubernetesClusterSpecIngressApplicationGatewayIngressApplicationGatewayIdentity struct {
+	// +optional
+	ClientID *string `json:"clientID,omitempty" tf:"client_id"`
+	// +optional
+	ObjectID *string `json:"objectID,omitempty" tf:"object_id"`
+	// +optional
+	UserAssignedIdentityID *string `json:"userAssignedIdentityID,omitempty" tf:"user_assigned_identity_id"`
+}
+
+type KubernetesClusterSpecIngressApplicationGateway struct {
+	// +optional
+	EffectiveGatewayID *string `json:"effectiveGatewayID,omitempty" tf:"effective_gateway_id"`
+	// +optional
+	GatewayID *string `json:"gatewayID,omitempty" tf:"gateway_id"`
+	// +optional
+	GatewayName *string `json:"gatewayName,omitempty" tf:"gateway_name"`
+	// +optional
+	IngressApplicationGatewayIdentity []KubernetesClusterSpecIngressApplicationGatewayIngressApplicationGatewayIdentity `json:"ingressApplicationGatewayIdentity,omitempty" tf:"ingress_application_gateway_identity"`
+	// +optional
+	SubnetCIDR *string `json:"subnetCIDR,omitempty" tf:"subnet_cidr"`
+	// +optional
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
+}
+
+type KubernetesClusterSpecKeyVaultSecretsProviderSecretIdentity struct {
+	// +optional
+	ClientID *string `json:"clientID,omitempty" tf:"client_id"`
+	// +optional
+	ObjectID *string `json:"objectID,omitempty" tf:"object_id"`
+	// +optional
+	UserAssignedIdentityID *string `json:"userAssignedIdentityID,omitempty" tf:"user_assigned_identity_id"`
+}
+
+type KubernetesClusterSpecKeyVaultSecretsProvider struct {
+	// +optional
+	SecretIdentity []KubernetesClusterSpecKeyVaultSecretsProviderSecretIdentity `json:"secretIdentity,omitempty" tf:"secret_identity"`
+	// +optional
+	SecretRotationEnabled *bool `json:"secretRotationEnabled,omitempty" tf:"secret_rotation_enabled"`
+	// +optional
+	SecretRotationInterval *string `json:"secretRotationInterval,omitempty" tf:"secret_rotation_interval"`
 }
 
 type KubernetesClusterSpecKubeAdminConfig struct {
@@ -365,6 +483,24 @@ type KubernetesClusterSpecLinuxProfile struct {
 	SshKey        *KubernetesClusterSpecLinuxProfileSshKey `json:"sshKey" tf:"ssh_key"`
 }
 
+type KubernetesClusterSpecMaintenanceWindowAllowed struct {
+	Day *string `json:"day" tf:"day"`
+	// +kubebuilder:validation:MinItems=1
+	Hours []int64 `json:"hours" tf:"hours"`
+}
+
+type KubernetesClusterSpecMaintenanceWindowNotAllowed struct {
+	End   *string `json:"end" tf:"end"`
+	Start *string `json:"start" tf:"start"`
+}
+
+type KubernetesClusterSpecMaintenanceWindow struct {
+	// +optional
+	Allowed []KubernetesClusterSpecMaintenanceWindowAllowed `json:"allowed,omitempty" tf:"allowed"`
+	// +optional
+	NotAllowed []KubernetesClusterSpecMaintenanceWindowNotAllowed `json:"notAllowed,omitempty" tf:"not_allowed"`
+}
+
 type KubernetesClusterSpecNetworkProfileLoadBalancerProfile struct {
 	// +optional
 	EffectiveOutboundIPS []string `json:"effectiveOutboundIPS,omitempty" tf:"effective_outbound_ips"`
@@ -380,6 +516,15 @@ type KubernetesClusterSpecNetworkProfileLoadBalancerProfile struct {
 	OutboundPortsAllocated *int64 `json:"outboundPortsAllocated,omitempty" tf:"outbound_ports_allocated"`
 }
 
+type KubernetesClusterSpecNetworkProfileNatGatewayProfile struct {
+	// +optional
+	EffectiveOutboundIPS []string `json:"effectiveOutboundIPS,omitempty" tf:"effective_outbound_ips"`
+	// +optional
+	IdleTimeoutInMinutes *int64 `json:"idleTimeoutInMinutes,omitempty" tf:"idle_timeout_in_minutes"`
+	// +optional
+	ManagedOutboundIPCount *int64 `json:"managedOutboundIPCount,omitempty" tf:"managed_outbound_ip_count"`
+}
+
 type KubernetesClusterSpecNetworkProfile struct {
 	// +optional
 	DnsServiceIP *string `json:"dnsServiceIP,omitempty" tf:"dns_service_ip"`
@@ -389,6 +534,8 @@ type KubernetesClusterSpecNetworkProfile struct {
 	LoadBalancerProfile *KubernetesClusterSpecNetworkProfileLoadBalancerProfile `json:"loadBalancerProfile,omitempty" tf:"load_balancer_profile"`
 	// +optional
 	LoadBalancerSku *string `json:"loadBalancerSku,omitempty" tf:"load_balancer_sku"`
+	// +optional
+	NatGatewayProfile *KubernetesClusterSpecNetworkProfileNatGatewayProfile `json:"natGatewayProfile,omitempty" tf:"nat_gateway_profile"`
 	// +optional
 	NetworkMode   *string `json:"networkMode,omitempty" tf:"network_mode"`
 	NetworkPlugin *string `json:"networkPlugin" tf:"network_plugin"`
@@ -400,6 +547,21 @@ type KubernetesClusterSpecNetworkProfile struct {
 	PodCIDR *string `json:"podCIDR,omitempty" tf:"pod_cidr"`
 	// +optional
 	ServiceCIDR *string `json:"serviceCIDR,omitempty" tf:"service_cidr"`
+}
+
+type KubernetesClusterSpecOmsAgentOmsAgentIdentity struct {
+	// +optional
+	ClientID *string `json:"clientID,omitempty" tf:"client_id"`
+	// +optional
+	ObjectID *string `json:"objectID,omitempty" tf:"object_id"`
+	// +optional
+	UserAssignedIdentityID *string `json:"userAssignedIdentityID,omitempty" tf:"user_assigned_identity_id"`
+}
+
+type KubernetesClusterSpecOmsAgent struct {
+	LogAnalyticsWorkspaceID *string `json:"logAnalyticsWorkspaceID" tf:"log_analytics_workspace_id"`
+	// +optional
+	OmsAgentIdentity []KubernetesClusterSpecOmsAgentOmsAgentIdentity `json:"omsAgentIdentity,omitempty" tf:"oms_agent_identity"`
 }
 
 type KubernetesClusterSpecRoleBasedAccessControlAzureActiveDirectory struct {
@@ -460,14 +622,19 @@ type KubernetesClusterSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	AciConnectorLinux *KubernetesClusterSpecAciConnectorLinux `json:"aciConnectorLinux,omitempty" tf:"aci_connector_linux"`
+	// +optional
+	// Deprecated
 	AddonProfile *KubernetesClusterSpecAddonProfile `json:"addonProfile,omitempty" tf:"addon_profile"`
 	// +optional
 	ApiServerAuthorizedIPRanges []string `json:"apiServerAuthorizedIPRanges,omitempty" tf:"api_server_authorized_ip_ranges"`
 	// +optional
 	AutoScalerProfile *KubernetesClusterSpecAutoScalerProfile `json:"autoScalerProfile,omitempty" tf:"auto_scaler_profile"`
 	// +optional
-	AutomaticChannelUpgrade *string                               `json:"automaticChannelUpgrade,omitempty" tf:"automatic_channel_upgrade"`
-	DefaultNodePool         *KubernetesClusterSpecDefaultNodePool `json:"defaultNodePool" tf:"default_node_pool"`
+	AutomaticChannelUpgrade *string `json:"automaticChannelUpgrade,omitempty" tf:"automatic_channel_upgrade"`
+	// +optional
+	AzurePolicyEnabled *bool                                 `json:"azurePolicyEnabled,omitempty" tf:"azure_policy_enabled"`
+	DefaultNodePool    *KubernetesClusterSpecDefaultNodePool `json:"defaultNodePool" tf:"default_node_pool"`
 	// +optional
 	DiskEncryptionSetID *string `json:"diskEncryptionSetID,omitempty" tf:"disk_encryption_set_id"`
 	// +optional
@@ -479,7 +646,17 @@ type KubernetesClusterSpecResource struct {
 	// +optional
 	Fqdn *string `json:"fqdn,omitempty" tf:"fqdn"`
 	// +optional
+	HttpApplicationRoutingEnabled *bool `json:"httpApplicationRoutingEnabled,omitempty" tf:"http_application_routing_enabled"`
+	// +optional
+	HttpApplicationRoutingZoneName *string `json:"httpApplicationRoutingZoneName,omitempty" tf:"http_application_routing_zone_name"`
+	// +optional
+	HttpProxyConfig *KubernetesClusterSpecHttpProxyConfig `json:"httpProxyConfig,omitempty" tf:"http_proxy_config"`
+	// +optional
 	Identity *KubernetesClusterSpecIdentity `json:"identity,omitempty" tf:"identity"`
+	// +optional
+	IngressApplicationGateway *KubernetesClusterSpecIngressApplicationGateway `json:"ingressApplicationGateway,omitempty" tf:"ingress_application_gateway"`
+	// +optional
+	KeyVaultSecretsProvider *KubernetesClusterSpecKeyVaultSecretsProvider `json:"keyVaultSecretsProvider,omitempty" tf:"key_vault_secrets_provider"`
 	// +optional
 	KubeAdminConfig []KubernetesClusterSpecKubeAdminConfig `json:"kubeAdminConfig,omitempty" tf:"kube_admin_config"`
 	// +optional
@@ -494,22 +671,36 @@ type KubernetesClusterSpecResource struct {
 	KubernetesVersion *string `json:"kubernetesVersion,omitempty" tf:"kubernetes_version"`
 	// +optional
 	LinuxProfile *KubernetesClusterSpecLinuxProfile `json:"linuxProfile,omitempty" tf:"linux_profile"`
-	Location     *string                            `json:"location" tf:"location"`
-	Name         *string                            `json:"name" tf:"name"`
+	// +optional
+	LocalAccountDisabled *bool   `json:"localAccountDisabled,omitempty" tf:"local_account_disabled"`
+	Location             *string `json:"location" tf:"location"`
+	// +optional
+	MaintenanceWindow *KubernetesClusterSpecMaintenanceWindow `json:"maintenanceWindow,omitempty" tf:"maintenance_window"`
+	Name              *string                                 `json:"name" tf:"name"`
 	// +optional
 	NetworkProfile *KubernetesClusterSpecNetworkProfile `json:"networkProfile,omitempty" tf:"network_profile"`
 	// +optional
 	NodeResourceGroup *string `json:"nodeResourceGroup,omitempty" tf:"node_resource_group"`
 	// +optional
+	OmsAgent *KubernetesClusterSpecOmsAgent `json:"omsAgent,omitempty" tf:"oms_agent"`
+	// +optional
+	OpenServiceMeshEnabled *bool `json:"openServiceMeshEnabled,omitempty" tf:"open_service_mesh_enabled"`
+	// +optional
+	PortalFqdn *string `json:"portalFqdn,omitempty" tf:"portal_fqdn"`
+	// +optional
 	PrivateClusterEnabled *bool `json:"privateClusterEnabled,omitempty" tf:"private_cluster_enabled"`
+	// +optional
+	PrivateClusterPublicFqdnEnabled *bool `json:"privateClusterPublicFqdnEnabled,omitempty" tf:"private_cluster_public_fqdn_enabled"`
 	// +optional
 	PrivateDNSZoneID *string `json:"privateDNSZoneID,omitempty" tf:"private_dns_zone_id"`
 	// +optional
 	PrivateFqdn *string `json:"privateFqdn,omitempty" tf:"private_fqdn"`
 	// +optional
 	// Deprecated
-	PrivateLinkEnabled *bool   `json:"privateLinkEnabled,omitempty" tf:"private_link_enabled"`
-	ResourceGroupName  *string `json:"resourceGroupName" tf:"resource_group_name"`
+	PrivateLinkEnabled *bool `json:"privateLinkEnabled,omitempty" tf:"private_link_enabled"`
+	// +optional
+	PublicNetworkAccessEnabled *bool   `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
+	ResourceGroupName          *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	RoleBasedAccessControl *KubernetesClusterSpecRoleBasedAccessControl `json:"roleBasedAccessControl,omitempty" tf:"role_based_access_control"`
 	// +optional

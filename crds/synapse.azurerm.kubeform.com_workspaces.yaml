@@ -76,11 +76,15 @@ spec:
                         type: string
                       branchName:
                         type: string
+                      lastCommitID:
+                        type: string
                       projectName:
                         type: string
                       repositoryName:
                         type: string
                       rootFolder:
+                        type: string
+                      tenantID:
                         type: string
                     required:
                     - accountName
@@ -89,12 +93,21 @@ spec:
                     - repositoryName
                     - rootFolder
                     type: object
+                  computeSubnetID:
+                    type: string
                   connectivityEndpoints:
                     additionalProperties:
                       type: string
                     type: object
-                  customerManagedKeyVersionlessID:
-                    type: string
+                  customerManagedKey:
+                    properties:
+                      keyName:
+                        type: string
+                      keyVersionlessID:
+                        type: string
+                    required:
+                    - keyVersionlessID
+                    type: object
                   dataExfiltrationProtectionEnabled:
                     type: boolean
                   githubRepo:
@@ -104,6 +117,8 @@ spec:
                       branchName:
                         type: string
                       gitURL:
+                        type: string
+                      lastCommitID:
                         type: string
                       repositoryName:
                         type: string
@@ -128,6 +143,10 @@ spec:
                           type: string
                       type: object
                     type: array
+                  linkingAllowedForAadTenantIDS:
+                    items:
+                      type: string
+                    type: array
                   location:
                     type: string
                   managedResourceGroupName:
@@ -136,8 +155,25 @@ spec:
                     type: boolean
                   name:
                     type: string
+                  publicNetworkAccessEnabled:
+                    type: boolean
+                  purviewID:
+                    type: string
                   resourceGroupName:
                     type: string
+                  sqlAadAdmin:
+                    properties:
+                      login:
+                        type: string
+                      objectID:
+                        type: string
+                      tenantID:
+                        type: string
+                    required:
+                    - login
+                    - objectID
+                    - tenantID
+                    type: object
                   sqlAdministratorLogin:
                     type: string
                   sqlIdentityControlEnabled:
@@ -223,11 +259,15 @@ spec:
                         type: string
                       branchName:
                         type: string
+                      lastCommitID:
+                        type: string
                       projectName:
                         type: string
                       repositoryName:
                         type: string
                       rootFolder:
+                        type: string
+                      tenantID:
                         type: string
                     required:
                     - accountName
@@ -236,12 +276,21 @@ spec:
                     - repositoryName
                     - rootFolder
                     type: object
+                  computeSubnetID:
+                    type: string
                   connectivityEndpoints:
                     additionalProperties:
                       type: string
                     type: object
-                  customerManagedKeyVersionlessID:
-                    type: string
+                  customerManagedKey:
+                    properties:
+                      keyName:
+                        type: string
+                      keyVersionlessID:
+                        type: string
+                    required:
+                    - keyVersionlessID
+                    type: object
                   dataExfiltrationProtectionEnabled:
                     type: boolean
                   githubRepo:
@@ -251,6 +300,8 @@ spec:
                       branchName:
                         type: string
                       gitURL:
+                        type: string
+                      lastCommitID:
                         type: string
                       repositoryName:
                         type: string
@@ -275,6 +326,10 @@ spec:
                           type: string
                       type: object
                     type: array
+                  linkingAllowedForAadTenantIDS:
+                    items:
+                      type: string
+                    type: array
                   location:
                     type: string
                   managedResourceGroupName:
@@ -283,8 +338,25 @@ spec:
                     type: boolean
                   name:
                     type: string
+                  publicNetworkAccessEnabled:
+                    type: boolean
+                  purviewID:
+                    type: string
                   resourceGroupName:
                     type: string
+                  sqlAadAdmin:
+                    properties:
+                      login:
+                        type: string
+                      objectID:
+                        type: string
+                      tenantID:
+                        type: string
+                    required:
+                    - login
+                    - objectID
+                    - tenantID
+                    type: object
                   sqlAdministratorLogin:
                     type: string
                   sqlIdentityControlEnabled:

@@ -32,6 +32,8 @@ type Interface interface {
 	Remediations() RemediationInformer
 	// SetDefinitions returns a SetDefinitionInformer.
 	SetDefinitions() SetDefinitionInformer
+	// VirtualMachineConfigurationAssignments returns a VirtualMachineConfigurationAssignmentInformer.
+	VirtualMachineConfigurationAssignments() VirtualMachineConfigurationAssignmentInformer
 }
 
 type version struct {
@@ -63,4 +65,9 @@ func (v *version) Remediations() RemediationInformer {
 // SetDefinitions returns a SetDefinitionInformer.
 func (v *version) SetDefinitions() SetDefinitionInformer {
 	return &setDefinitionInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// VirtualMachineConfigurationAssignments returns a VirtualMachineConfigurationAssignmentInformer.
+func (v *version) VirtualMachineConfigurationAssignments() VirtualMachineConfigurationAssignmentInformer {
+	return &virtualMachineConfigurationAssignmentInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

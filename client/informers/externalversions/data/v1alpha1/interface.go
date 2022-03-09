@@ -26,8 +26,14 @@ import (
 type Interface interface {
 	// Factories returns a FactoryInformer.
 	Factories() FactoryInformer
+	// FactoryCustomDatasets returns a FactoryCustomDatasetInformer.
+	FactoryCustomDatasets() FactoryCustomDatasetInformer
+	// FactoryDataFlows returns a FactoryDataFlowInformer.
+	FactoryDataFlows() FactoryDataFlowInformer
 	// FactoryDatasetAzureBlobs returns a FactoryDatasetAzureBlobInformer.
 	FactoryDatasetAzureBlobs() FactoryDatasetAzureBlobInformer
+	// FactoryDatasetBinaries returns a FactoryDatasetBinaryInformer.
+	FactoryDatasetBinaries() FactoryDatasetBinaryInformer
 	// FactoryDatasetCosmosdbSqlapis returns a FactoryDatasetCosmosdbSqlapiInformer.
 	FactoryDatasetCosmosdbSqlapis() FactoryDatasetCosmosdbSqlapiInformer
 	// FactoryDatasetDelimitedTexts returns a FactoryDatasetDelimitedTextInformer.
@@ -72,6 +78,8 @@ type Interface interface {
 	FactoryLinkedServiceAzureTableStorages() FactoryLinkedServiceAzureTableStorageInformer
 	// FactoryLinkedServiceCosmosdbs returns a FactoryLinkedServiceCosmosdbInformer.
 	FactoryLinkedServiceCosmosdbs() FactoryLinkedServiceCosmosdbInformer
+	// FactoryLinkedServiceCosmosdbMongoapis returns a FactoryLinkedServiceCosmosdbMongoapiInformer.
+	FactoryLinkedServiceCosmosdbMongoapis() FactoryLinkedServiceCosmosdbMongoapiInformer
 	// FactoryLinkedServiceDataLakeStorageGen2s returns a FactoryLinkedServiceDataLakeStorageGen2Informer.
 	FactoryLinkedServiceDataLakeStorageGen2s() FactoryLinkedServiceDataLakeStorageGen2Informer
 	// FactoryLinkedServiceKeyVaults returns a FactoryLinkedServiceKeyVaultInformer.
@@ -82,6 +90,8 @@ type Interface interface {
 	FactoryLinkedServiceMysqls() FactoryLinkedServiceMysqlInformer
 	// FactoryLinkedServiceOdatas returns a FactoryLinkedServiceOdataInformer.
 	FactoryLinkedServiceOdatas() FactoryLinkedServiceOdataInformer
+	// FactoryLinkedServiceOdbcs returns a FactoryLinkedServiceOdbcInformer.
+	FactoryLinkedServiceOdbcs() FactoryLinkedServiceOdbcInformer
 	// FactoryLinkedServicePostgresqls returns a FactoryLinkedServicePostgresqlInformer.
 	FactoryLinkedServicePostgresqls() FactoryLinkedServicePostgresqlInformer
 	// FactoryLinkedServiceSQLServers returns a FactoryLinkedServiceSQLServerInformer.
@@ -94,12 +104,18 @@ type Interface interface {
 	FactoryLinkedServiceSynapses() FactoryLinkedServiceSynapseInformer
 	// FactoryLinkedServiceWebs returns a FactoryLinkedServiceWebInformer.
 	FactoryLinkedServiceWebs() FactoryLinkedServiceWebInformer
+	// FactoryManagedPrivateEndpoints returns a FactoryManagedPrivateEndpointInformer.
+	FactoryManagedPrivateEndpoints() FactoryManagedPrivateEndpointInformer
 	// FactoryPipelines returns a FactoryPipelineInformer.
 	FactoryPipelines() FactoryPipelineInformer
 	// FactoryTriggerBlobEvents returns a FactoryTriggerBlobEventInformer.
 	FactoryTriggerBlobEvents() FactoryTriggerBlobEventInformer
+	// FactoryTriggerCustomEvents returns a FactoryTriggerCustomEventInformer.
+	FactoryTriggerCustomEvents() FactoryTriggerCustomEventInformer
 	// FactoryTriggerSchedules returns a FactoryTriggerScheduleInformer.
 	FactoryTriggerSchedules() FactoryTriggerScheduleInformer
+	// FactoryTriggerTumblingWindows returns a FactoryTriggerTumblingWindowInformer.
+	FactoryTriggerTumblingWindows() FactoryTriggerTumblingWindowInformer
 	// LakeAnalyticsAccounts returns a LakeAnalyticsAccountInformer.
 	LakeAnalyticsAccounts() LakeAnalyticsAccountInformer
 	// LakeAnalyticsFirewallRules returns a LakeAnalyticsFirewallRuleInformer.
@@ -112,8 +128,16 @@ type Interface interface {
 	LakeStoreFirewallRules() LakeStoreFirewallRuleInformer
 	// LakeStoreVirtualNetworkRules returns a LakeStoreVirtualNetworkRuleInformer.
 	LakeStoreVirtualNetworkRules() LakeStoreVirtualNetworkRuleInformer
+	// ProtectionBackupInstanceBlobStorages returns a ProtectionBackupInstanceBlobStorageInformer.
+	ProtectionBackupInstanceBlobStorages() ProtectionBackupInstanceBlobStorageInformer
+	// ProtectionBackupInstanceDisks returns a ProtectionBackupInstanceDiskInformer.
+	ProtectionBackupInstanceDisks() ProtectionBackupInstanceDiskInformer
 	// ProtectionBackupInstancePostgresqls returns a ProtectionBackupInstancePostgresqlInformer.
 	ProtectionBackupInstancePostgresqls() ProtectionBackupInstancePostgresqlInformer
+	// ProtectionBackupPolicyBlobStorages returns a ProtectionBackupPolicyBlobStorageInformer.
+	ProtectionBackupPolicyBlobStorages() ProtectionBackupPolicyBlobStorageInformer
+	// ProtectionBackupPolicyDisks returns a ProtectionBackupPolicyDiskInformer.
+	ProtectionBackupPolicyDisks() ProtectionBackupPolicyDiskInformer
 	// ProtectionBackupPolicyPostgresqls returns a ProtectionBackupPolicyPostgresqlInformer.
 	ProtectionBackupPolicyPostgresqls() ProtectionBackupPolicyPostgresqlInformer
 	// ProtectionBackupVaults returns a ProtectionBackupVaultInformer.
@@ -150,9 +174,24 @@ func (v *version) Factories() FactoryInformer {
 	return &factoryInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// FactoryCustomDatasets returns a FactoryCustomDatasetInformer.
+func (v *version) FactoryCustomDatasets() FactoryCustomDatasetInformer {
+	return &factoryCustomDatasetInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// FactoryDataFlows returns a FactoryDataFlowInformer.
+func (v *version) FactoryDataFlows() FactoryDataFlowInformer {
+	return &factoryDataFlowInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // FactoryDatasetAzureBlobs returns a FactoryDatasetAzureBlobInformer.
 func (v *version) FactoryDatasetAzureBlobs() FactoryDatasetAzureBlobInformer {
 	return &factoryDatasetAzureBlobInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// FactoryDatasetBinaries returns a FactoryDatasetBinaryInformer.
+func (v *version) FactoryDatasetBinaries() FactoryDatasetBinaryInformer {
+	return &factoryDatasetBinaryInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // FactoryDatasetCosmosdbSqlapis returns a FactoryDatasetCosmosdbSqlapiInformer.
@@ -265,6 +304,11 @@ func (v *version) FactoryLinkedServiceCosmosdbs() FactoryLinkedServiceCosmosdbIn
 	return &factoryLinkedServiceCosmosdbInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// FactoryLinkedServiceCosmosdbMongoapis returns a FactoryLinkedServiceCosmosdbMongoapiInformer.
+func (v *version) FactoryLinkedServiceCosmosdbMongoapis() FactoryLinkedServiceCosmosdbMongoapiInformer {
+	return &factoryLinkedServiceCosmosdbMongoapiInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // FactoryLinkedServiceDataLakeStorageGen2s returns a FactoryLinkedServiceDataLakeStorageGen2Informer.
 func (v *version) FactoryLinkedServiceDataLakeStorageGen2s() FactoryLinkedServiceDataLakeStorageGen2Informer {
 	return &factoryLinkedServiceDataLakeStorageGen2Informer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
@@ -288,6 +332,11 @@ func (v *version) FactoryLinkedServiceMysqls() FactoryLinkedServiceMysqlInformer
 // FactoryLinkedServiceOdatas returns a FactoryLinkedServiceOdataInformer.
 func (v *version) FactoryLinkedServiceOdatas() FactoryLinkedServiceOdataInformer {
 	return &factoryLinkedServiceOdataInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// FactoryLinkedServiceOdbcs returns a FactoryLinkedServiceOdbcInformer.
+func (v *version) FactoryLinkedServiceOdbcs() FactoryLinkedServiceOdbcInformer {
+	return &factoryLinkedServiceOdbcInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // FactoryLinkedServicePostgresqls returns a FactoryLinkedServicePostgresqlInformer.
@@ -320,6 +369,11 @@ func (v *version) FactoryLinkedServiceWebs() FactoryLinkedServiceWebInformer {
 	return &factoryLinkedServiceWebInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// FactoryManagedPrivateEndpoints returns a FactoryManagedPrivateEndpointInformer.
+func (v *version) FactoryManagedPrivateEndpoints() FactoryManagedPrivateEndpointInformer {
+	return &factoryManagedPrivateEndpointInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // FactoryPipelines returns a FactoryPipelineInformer.
 func (v *version) FactoryPipelines() FactoryPipelineInformer {
 	return &factoryPipelineInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
@@ -330,9 +384,19 @@ func (v *version) FactoryTriggerBlobEvents() FactoryTriggerBlobEventInformer {
 	return &factoryTriggerBlobEventInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// FactoryTriggerCustomEvents returns a FactoryTriggerCustomEventInformer.
+func (v *version) FactoryTriggerCustomEvents() FactoryTriggerCustomEventInformer {
+	return &factoryTriggerCustomEventInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // FactoryTriggerSchedules returns a FactoryTriggerScheduleInformer.
 func (v *version) FactoryTriggerSchedules() FactoryTriggerScheduleInformer {
 	return &factoryTriggerScheduleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// FactoryTriggerTumblingWindows returns a FactoryTriggerTumblingWindowInformer.
+func (v *version) FactoryTriggerTumblingWindows() FactoryTriggerTumblingWindowInformer {
+	return &factoryTriggerTumblingWindowInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // LakeAnalyticsAccounts returns a LakeAnalyticsAccountInformer.
@@ -365,9 +429,29 @@ func (v *version) LakeStoreVirtualNetworkRules() LakeStoreVirtualNetworkRuleInfo
 	return &lakeStoreVirtualNetworkRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// ProtectionBackupInstanceBlobStorages returns a ProtectionBackupInstanceBlobStorageInformer.
+func (v *version) ProtectionBackupInstanceBlobStorages() ProtectionBackupInstanceBlobStorageInformer {
+	return &protectionBackupInstanceBlobStorageInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ProtectionBackupInstanceDisks returns a ProtectionBackupInstanceDiskInformer.
+func (v *version) ProtectionBackupInstanceDisks() ProtectionBackupInstanceDiskInformer {
+	return &protectionBackupInstanceDiskInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // ProtectionBackupInstancePostgresqls returns a ProtectionBackupInstancePostgresqlInformer.
 func (v *version) ProtectionBackupInstancePostgresqls() ProtectionBackupInstancePostgresqlInformer {
 	return &protectionBackupInstancePostgresqlInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ProtectionBackupPolicyBlobStorages returns a ProtectionBackupPolicyBlobStorageInformer.
+func (v *version) ProtectionBackupPolicyBlobStorages() ProtectionBackupPolicyBlobStorageInformer {
+	return &protectionBackupPolicyBlobStorageInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ProtectionBackupPolicyDisks returns a ProtectionBackupPolicyDiskInformer.
+func (v *version) ProtectionBackupPolicyDisks() ProtectionBackupPolicyDiskInformer {
+	return &protectionBackupPolicyDiskInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // ProtectionBackupPolicyPostgresqls returns a ProtectionBackupPolicyPostgresqlInformer.

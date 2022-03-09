@@ -41,12 +41,37 @@ type Account struct {
 	Status            AccountStatus `json:"status,omitempty"`
 }
 
+type AccountSpecIdentity struct {
+	// +optional
+	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
+	// +optional
+	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
+}
+
+type AccountSpecNetworkAclsVirtualNetworkRules struct {
+	// +optional
+	IgnoreMissingVnetServiceEndpoint *bool   `json:"ignoreMissingVnetServiceEndpoint,omitempty" tf:"ignore_missing_vnet_service_endpoint"`
+	SubnetID                         *string `json:"subnetID" tf:"subnet_id"`
+}
+
 type AccountSpecNetworkAcls struct {
 	DefaultAction *string `json:"defaultAction" tf:"default_action"`
 	// +optional
 	IpRules []string `json:"ipRules,omitempty" tf:"ip_rules"`
 	// +optional
+	VirtualNetworkRules []AccountSpecNetworkAclsVirtualNetworkRules `json:"virtualNetworkRules,omitempty" tf:"virtual_network_rules"`
+	// +optional
+	// Deprecated
 	VirtualNetworkSubnetIDS []string `json:"virtualNetworkSubnetIDS,omitempty" tf:"virtual_network_subnet_ids"`
+}
+
+type AccountSpecStorage struct {
+	// +optional
+	IdentityClientID *string `json:"identityClientID,omitempty" tf:"identity_client_id"`
+	StorageAccountID *string `json:"storageAccountID" tf:"storage_account_id"`
 }
 
 type AccountSpec struct {
@@ -74,19 +99,39 @@ type AccountSpecResource struct {
 	CustomSubdomainName *string `json:"customSubdomainName,omitempty" tf:"custom_subdomain_name"`
 	// +optional
 	Endpoint *string `json:"endpoint,omitempty" tf:"endpoint"`
-	Kind     *string `json:"kind" tf:"kind"`
-	Location *string `json:"location" tf:"location"`
-	Name     *string `json:"name" tf:"name"`
+	// +optional
+	Fqdns []string `json:"fqdns,omitempty" tf:"fqdns"`
+	// +optional
+	Identity *AccountSpecIdentity `json:"identity,omitempty" tf:"identity"`
+	Kind     *string              `json:"kind" tf:"kind"`
+	// +optional
+	LocalAuthEnabled *bool   `json:"localAuthEnabled,omitempty" tf:"local_auth_enabled"`
+	Location         *string `json:"location" tf:"location"`
+	// +optional
+	MetricsAdvisorAadClientID *string `json:"metricsAdvisorAadClientID,omitempty" tf:"metrics_advisor_aad_client_id"`
+	// +optional
+	MetricsAdvisorAadTenantID *string `json:"metricsAdvisorAadTenantID,omitempty" tf:"metrics_advisor_aad_tenant_id"`
+	// +optional
+	MetricsAdvisorSuperUserName *string `json:"metricsAdvisorSuperUserName,omitempty" tf:"metrics_advisor_super_user_name"`
+	// +optional
+	MetricsAdvisorWebsiteName *string `json:"metricsAdvisorWebsiteName,omitempty" tf:"metrics_advisor_website_name"`
+	Name                      *string `json:"name" tf:"name"`
 	// +optional
 	NetworkAcls *AccountSpecNetworkAcls `json:"networkAcls,omitempty" tf:"network_acls"`
 	// +optional
+	OutboundNetworkAccessRestrited *bool `json:"outboundNetworkAccessRestrited,omitempty" tf:"outbound_network_access_restrited"`
+	// +optional
 	PrimaryAccessKey *string `json:"-" sensitive:"true" tf:"primary_access_key"`
+	// +optional
+	PublicNetworkAccessEnabled *bool `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
 	// +optional
 	QnaRuntimeEndpoint *string `json:"qnaRuntimeEndpoint,omitempty" tf:"qna_runtime_endpoint"`
 	ResourceGroupName  *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	SecondaryAccessKey *string `json:"-" sensitive:"true" tf:"secondary_access_key"`
 	SkuName            *string `json:"skuName" tf:"sku_name"`
+	// +optional
+	Storage []AccountSpecStorage `json:"storage,omitempty" tf:"storage"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 }

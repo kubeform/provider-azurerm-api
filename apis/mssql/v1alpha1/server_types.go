@@ -42,8 +42,10 @@ type Server struct {
 }
 
 type ServerSpecAzureadAdministrator struct {
-	LoginUsername *string `json:"loginUsername" tf:"login_username"`
-	ObjectID      *string `json:"objectID" tf:"object_id"`
+	// +optional
+	AzureadAuthenticationOnly *bool   `json:"azureadAuthenticationOnly,omitempty" tf:"azuread_authentication_only"`
+	LoginUsername             *string `json:"loginUsername" tf:"login_username"`
+	ObjectID                  *string `json:"objectID" tf:"object_id"`
 	// +optional
 	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
 }
@@ -58,7 +60,19 @@ type ServerSpecExtendedAuditingPolicy struct {
 	// +optional
 	StorageAccountAccessKeyIsSecondary *bool `json:"storageAccountAccessKeyIsSecondary,omitempty" tf:"storage_account_access_key_is_secondary"`
 	// +optional
+	StorageAccountSubscriptionID *string `json:"-" sensitive:"true" tf:"storage_account_subscription_id"`
+	// +optional
 	StorageEndpoint *string `json:"storageEndpoint,omitempty" tf:"storage_endpoint"`
+}
+
+type ServerSpecFoo struct {
+	// +optional
+	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
+	// +optional
+	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
 }
 
 type ServerSpecIdentity struct {
@@ -67,6 +81,9 @@ type ServerSpecIdentity struct {
 	// +optional
 	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
 	Type     *string `json:"type" tf:"type"`
+	// +optional
+	// +kubebuilder:validation:MinItems=1
+	UserAssignedIdentityIDS []string `json:"userAssignedIdentityIDS,omitempty" tf:"user_assigned_identity_ids"`
 }
 
 type ServerSpec struct {
@@ -100,6 +117,8 @@ type ServerSpecResource struct {
 	// Deprecated
 	ExtendedAuditingPolicy *ServerSpecExtendedAuditingPolicy `json:"extendedAuditingPolicy,omitempty" tf:"extended_auditing_policy"`
 	// +optional
+	Foo *ServerSpecFoo `json:"foo,omitempty" tf:"foo"`
+	// +optional
 	FullyQualifiedDomainName *string `json:"fullyQualifiedDomainName,omitempty" tf:"fully_qualified_domain_name"`
 	// +optional
 	Identity *ServerSpecIdentity `json:"identity,omitempty" tf:"identity"`
@@ -107,6 +126,10 @@ type ServerSpecResource struct {
 	// +optional
 	MinimumTlsVersion *string `json:"minimumTlsVersion,omitempty" tf:"minimum_tls_version"`
 	Name              *string `json:"name" tf:"name"`
+	// +optional
+	OutboundNetworkRestrictionEnabled *bool `json:"outboundNetworkRestrictionEnabled,omitempty" tf:"outbound_network_restriction_enabled"`
+	// +optional
+	PrimaryUserAssignedIdentityID *string `json:"primaryUserAssignedIdentityID,omitempty" tf:"primary_user_assigned_identity_id"`
 	// +optional
 	PublicNetworkAccessEnabled *bool   `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
 	ResourceGroupName          *string `json:"resourceGroupName" tf:"resource_group_name"`

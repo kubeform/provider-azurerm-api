@@ -41,6 +41,12 @@ type FlexibleServer struct {
 	Status            FlexibleServerStatus `json:"status,omitempty"`
 }
 
+type FlexibleServerSpecHighAvailability struct {
+	Mode *string `json:"mode" tf:"mode"`
+	// +optional
+	StandbyAvailabilityZone *string `json:"standbyAvailabilityZone,omitempty" tf:"standby_availability_zone"`
+}
+
 type FlexibleServerSpecMaintenanceWindow struct {
 	// +optional
 	DayOfWeek *int64 `json:"dayOfWeek,omitempty" tf:"day_of_week"`
@@ -78,19 +84,26 @@ type FlexibleServerSpecResource struct {
 	// +optional
 	BackupRetentionDays *int64 `json:"backupRetentionDays,omitempty" tf:"backup_retention_days"`
 	// +optional
+	// Deprecated
 	CmkEnabled *string `json:"cmkEnabled,omitempty" tf:"cmk_enabled"`
 	// +optional
 	CreateMode *string `json:"createMode,omitempty" tf:"create_mode"`
 	// +optional
 	DelegatedSubnetID *string `json:"delegatedSubnetID,omitempty" tf:"delegated_subnet_id"`
 	// +optional
-	Fqdn     *string `json:"fqdn,omitempty" tf:"fqdn"`
-	Location *string `json:"location" tf:"location"`
+	Fqdn *string `json:"fqdn,omitempty" tf:"fqdn"`
+	// +optional
+	GeoRedundantBackupEnabled *bool `json:"geoRedundantBackupEnabled,omitempty" tf:"geo_redundant_backup_enabled"`
+	// +optional
+	HighAvailability *FlexibleServerSpecHighAvailability `json:"highAvailability,omitempty" tf:"high_availability"`
+	Location         *string                             `json:"location" tf:"location"`
 	// +optional
 	MaintenanceWindow *FlexibleServerSpecMaintenanceWindow `json:"maintenanceWindow,omitempty" tf:"maintenance_window"`
 	Name              *string                              `json:"name" tf:"name"`
 	// +optional
 	PointInTimeRestoreTimeInUtc *string `json:"pointInTimeRestoreTimeInUtc,omitempty" tf:"point_in_time_restore_time_in_utc"`
+	// +optional
+	PrivateDNSZoneID *string `json:"privateDNSZoneID,omitempty" tf:"private_dns_zone_id"`
 	// +optional
 	PublicNetworkAccessEnabled *bool   `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
 	ResourceGroupName          *string `json:"resourceGroupName" tf:"resource_group_name"`

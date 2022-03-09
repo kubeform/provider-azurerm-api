@@ -92,7 +92,7 @@ func (r *ServiceSlot) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range serviceslotForceNewList {
+	for key, _ := range serviceslotForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

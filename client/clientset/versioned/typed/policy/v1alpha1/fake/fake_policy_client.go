@@ -45,6 +45,10 @@ func (c *FakePolicyV1alpha1) SetDefinitions(namespace string) v1alpha1.SetDefini
 	return &FakeSetDefinitions{c, namespace}
 }
 
+func (c *FakePolicyV1alpha1) VirtualMachineConfigurationAssignments(namespace string) v1alpha1.VirtualMachineConfigurationAssignmentInterface {
+	return &FakeVirtualMachineConfigurationAssignments{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakePolicyV1alpha1) RESTClient() rest.Interface {

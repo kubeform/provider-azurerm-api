@@ -121,9 +121,14 @@ type FrontdoorSpecFrontendEndpoint struct {
 type FrontdoorSpecRoutingRuleForwardingConfiguration struct {
 	BackendPoolName *string `json:"backendPoolName" tf:"backend_pool_name"`
 	// +optional
+	CacheDuration *string `json:"cacheDuration,omitempty" tf:"cache_duration"`
+	// +optional
 	CacheEnabled *bool `json:"cacheEnabled,omitempty" tf:"cache_enabled"`
 	// +optional
 	CacheQueryParameterStripDirective *string `json:"cacheQueryParameterStripDirective,omitempty" tf:"cache_query_parameter_strip_directive"`
+	// +optional
+	// +kubebuilder:validation:MaxItems=25
+	CacheQueryParameters []string `json:"cacheQueryParameters,omitempty" tf:"cache_query_parameters"`
 	// +optional
 	CacheUseDynamicCompression *bool `json:"cacheUseDynamicCompression,omitempty" tf:"cache_use_dynamic_compression"`
 	// +optional

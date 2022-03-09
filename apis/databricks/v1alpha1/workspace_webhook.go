@@ -42,14 +42,26 @@ func (r *Workspace) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &Workspace{}
 
 var workspaceForceNewList = map[string]bool{
-	"/custom_parameters/*/no_public_ip":        true,
-	"/custom_parameters/*/private_subnet_name": true,
-	"/custom_parameters/*/public_subnet_name":  true,
-	"/custom_parameters/*/virtual_network_id":  true,
-	"/location":                    true,
-	"/managed_resource_group_name": true,
-	"/name":                        true,
-	"/resource_group_name":         true,
+	"/custom_parameters/*/machine_learning_workspace_id": true,
+	"/custom_parameters/*/nat_gateway_name":              true,
+	"/custom_parameters/*/no_public_ip":                  true,
+	"/custom_parameters/*/private_subnet_name":           true,
+	"/custom_parameters/*/public_ip_name":                true,
+	"/custom_parameters/*/public_subnet_name":            true,
+	"/custom_parameters/*/storage_account_name":          true,
+	"/custom_parameters/*/storage_account_sku_name":      true,
+	"/custom_parameters/*/virtual_network_id":            true,
+	"/custom_parameters/*/vnet_address_prefix":           true,
+	"/customer_managed_key_enabled":                      true,
+	"/infrastructure_encryption_enabled":                 true,
+	"/load_balancer_backend_address_pool_id":             true,
+	"/location":                                          true,
+	"/managed_resource_group_name":                       true,
+	"/managed_services_cmk_key_vault_key_id":             true,
+	"/name":                                              true,
+	"/network_security_group_rules_required":             true,
+	"/public_network_access_enabled":                     true,
+	"/resource_group_name":                               true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -95,7 +107,7 @@ func (r *Workspace) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range workspaceForceNewList {
+	for key, _ := range workspaceForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -41,6 +41,16 @@ type Site struct {
 	Status            SiteStatus `json:"status,omitempty"`
 }
 
+type SiteSpecIdentity struct {
+	// +optional
+	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
+	// +optional
+	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
+}
+
 type SiteSpec struct {
 	State *SiteSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -63,10 +73,12 @@ type SiteSpecResource struct {
 	// +optional
 	ApiKey *string `json:"apiKey,omitempty" tf:"api_key"`
 	// +optional
-	DefaultHostName   *string `json:"defaultHostName,omitempty" tf:"default_host_name"`
-	Location          *string `json:"location" tf:"location"`
-	Name              *string `json:"name" tf:"name"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	DefaultHostName *string `json:"defaultHostName,omitempty" tf:"default_host_name"`
+	// +optional
+	Identity          *SiteSpecIdentity `json:"identity,omitempty" tf:"identity"`
+	Location          *string           `json:"location" tf:"location"`
+	Name              *string           `json:"name" tf:"name"`
+	ResourceGroupName *string           `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	SkuSize *string `json:"skuSize,omitempty" tf:"sku_size"`
 	// +optional

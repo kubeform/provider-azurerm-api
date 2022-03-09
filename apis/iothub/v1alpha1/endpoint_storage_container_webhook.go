@@ -42,6 +42,8 @@ func (r *EndpointStorageContainer) SetupWebhookWithManager(mgr ctrl.Manager) err
 var _ webhook.Validator = &EndpointStorageContainer{}
 
 var endpointstoragecontainerForceNewList = map[string]bool{
+	"/encoding":            true,
+	"/iothub_id":           true,
 	"/iothub_name":         true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +92,7 @@ func (r *EndpointStorageContainer) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range endpointstoragecontainerForceNewList {
+	for key, _ := range endpointstoragecontainerForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

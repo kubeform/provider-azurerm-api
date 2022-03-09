@@ -84,7 +84,11 @@ type DiskSpecResource struct {
 	// +optional
 	DiskEncryptionSetID *string `json:"diskEncryptionSetID,omitempty" tf:"disk_encryption_set_id"`
 	// +optional
+	DiskIopsReadOnly *int64 `json:"diskIopsReadOnly,omitempty" tf:"disk_iops_read_only"`
+	// +optional
 	DiskIopsReadWrite *int64 `json:"diskIopsReadWrite,omitempty" tf:"disk_iops_read_write"`
+	// +optional
+	DiskMbpsReadOnly *int64 `json:"diskMbpsReadOnly,omitempty" tf:"disk_mbps_read_only"`
 	// +optional
 	DiskMbpsReadWrite *int64 `json:"diskMbpsReadWrite,omitempty" tf:"disk_mbps_read_write"`
 	// +optional
@@ -92,14 +96,26 @@ type DiskSpecResource struct {
 	// +optional
 	EncryptionSettings *DiskSpecEncryptionSettings `json:"encryptionSettings,omitempty" tf:"encryption_settings"`
 	// +optional
+	GalleryImageReferenceID *string `json:"galleryImageReferenceID,omitempty" tf:"gallery_image_reference_id"`
+	// +optional
+	HyperVGeneration *string `json:"hyperVGeneration,omitempty" tf:"hyper_v_generation"`
+	// +optional
 	ImageReferenceID *string `json:"imageReferenceID,omitempty" tf:"image_reference_id"`
 	Location         *string `json:"location" tf:"location"`
-	Name             *string `json:"name" tf:"name"`
+	// +optional
+	LogicalSectorSize *int64 `json:"logicalSectorSize,omitempty" tf:"logical_sector_size"`
+	// +optional
+	MaxShares *int64  `json:"maxShares,omitempty" tf:"max_shares"`
+	Name      *string `json:"name" tf:"name"`
 	// +optional
 	NetworkAccessPolicy *string `json:"networkAccessPolicy,omitempty" tf:"network_access_policy"`
 	// +optional
-	OsType            *string `json:"osType,omitempty" tf:"os_type"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	OnDemandBurstingEnabled *bool `json:"onDemandBurstingEnabled,omitempty" tf:"on_demand_bursting_enabled"`
+	// +optional
+	OsType *string `json:"osType,omitempty" tf:"os_type"`
+	// +optional
+	PublicNetworkAccessEnabled *bool   `json:"publicNetworkAccessEnabled,omitempty" tf:"public_network_access_enabled"`
+	ResourceGroupName          *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	SourceResourceID *string `json:"sourceResourceID,omitempty" tf:"source_resource_id"`
 	// +optional
@@ -111,6 +127,8 @@ type DiskSpecResource struct {
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 	// +optional
 	Tier *string `json:"tier,omitempty" tf:"tier"`
+	// +optional
+	TrustedLaunchEnabled *bool `json:"trustedLaunchEnabled,omitempty" tf:"trusted_launch_enabled"`
 	// +optional
 	Zones []string `json:"zones,omitempty" tf:"zones"`
 }

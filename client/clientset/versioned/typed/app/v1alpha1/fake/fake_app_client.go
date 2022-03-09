@@ -33,6 +33,14 @@ func (c *FakeAppV1alpha1) Configurations(namespace string) v1alpha1.Configuratio
 	return &FakeConfigurations{c, namespace}
 }
 
+func (c *FakeAppV1alpha1) ConfigurationFeatures(namespace string) v1alpha1.ConfigurationFeatureInterface {
+	return &FakeConfigurationFeatures{c, namespace}
+}
+
+func (c *FakeAppV1alpha1) ConfigurationKeys(namespace string) v1alpha1.ConfigurationKeyInterface {
+	return &FakeConfigurationKeys{c, namespace}
+}
+
 func (c *FakeAppV1alpha1) Services(namespace string) v1alpha1.ServiceInterface {
 	return &FakeServices{c, namespace}
 }
@@ -77,8 +85,16 @@ func (c *FakeAppV1alpha1) ServicePlans(namespace string) v1alpha1.ServicePlanInt
 	return &FakeServicePlans{c, namespace}
 }
 
+func (c *FakeAppV1alpha1) ServicePublicCertificates(namespace string) v1alpha1.ServicePublicCertificateInterface {
+	return &FakeServicePublicCertificates{c, namespace}
+}
+
 func (c *FakeAppV1alpha1) ServiceSlots(namespace string) v1alpha1.ServiceSlotInterface {
 	return &FakeServiceSlots{c, namespace}
+}
+
+func (c *FakeAppV1alpha1) ServiceSlotCustomHostnameBindings(namespace string) v1alpha1.ServiceSlotCustomHostnameBindingInterface {
+	return &FakeServiceSlotCustomHostnameBindings{c, namespace}
 }
 
 func (c *FakeAppV1alpha1) ServiceSlotVirtualNetworkSwiftConnections(namespace string) v1alpha1.ServiceSlotVirtualNetworkSwiftConnectionInterface {

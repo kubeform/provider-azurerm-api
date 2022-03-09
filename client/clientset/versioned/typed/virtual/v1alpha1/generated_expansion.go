@@ -24,6 +24,10 @@ type DesktopApplicationGroupExpansion interface{}
 
 type DesktopHostPoolExpansion interface{}
 
+type DesktopHostPoolRegistrationInfoExpansion interface{}
+
+type DesktopScalingPlanExpansion interface{}
+
 type DesktopWorkspaceExpansion interface{}
 
 type DesktopWorkspaceApplicationGroupAssociationExpansion interface{}
@@ -37,6 +41,8 @@ type HubConnectionExpansion interface{}
 type HubIPExpansion interface{}
 
 type HubRouteTableExpansion interface{}
+
+type HubRouteTableRouteExpansion interface{}
 
 type HubSecurityPartnerProviderExpansion interface{}
 
@@ -53,6 +59,8 @@ type MachineScaleSetExpansion interface{}
 type MachineScaleSetExtensionExpansion interface{}
 
 type NetworkExpansion interface{}
+
+type NetworkDNSServersExpansion interface{}
 
 type NetworkGatewayExpansion interface{}
 

@@ -35,6 +35,7 @@ type StorageV1alpha1Interface interface {
 	ContainersGetter
 	DataLakeGen2FilesystemsGetter
 	DataLakeGen2PathsGetter
+	DisksPoolsGetter
 	EncryptionScopesGetter
 	ManagementPoliciesGetter
 	ObjectReplicationsGetter
@@ -84,6 +85,10 @@ func (c *StorageV1alpha1Client) DataLakeGen2Filesystems(namespace string) DataLa
 
 func (c *StorageV1alpha1Client) DataLakeGen2Paths(namespace string) DataLakeGen2PathInterface {
 	return newDataLakeGen2Paths(c, namespace)
+}
+
+func (c *StorageV1alpha1Client) DisksPools(namespace string) DisksPoolInterface {
+	return newDisksPools(c, namespace)
 }
 
 func (c *StorageV1alpha1Client) EncryptionScopes(namespace string) EncryptionScopeInterface {

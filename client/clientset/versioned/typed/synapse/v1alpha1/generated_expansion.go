@@ -20,7 +20,15 @@ package v1alpha1
 
 type FirewallRuleExpansion interface{}
 
+type IntegrationRuntimeAzureExpansion interface{}
+
+type IntegrationRuntimeSelfHostedExpansion interface{}
+
+type LinkedServiceExpansion interface{}
+
 type ManagedPrivateEndpointExpansion interface{}
+
+type PrivateLinkHubExpansion interface{}
 
 type RoleAssignmentExpansion interface{}
 
@@ -28,4 +36,28 @@ type SparkPoolExpansion interface{}
 
 type SqlPoolExpansion interface{}
 
+type SqlPoolExtendedAuditingPolicyExpansion interface{}
+
+type SqlPoolSecurityAlertPolicyExpansion interface{}
+
+type SqlPoolVulnerabilityAssessmentExpansion interface{}
+
+type SqlPoolVulnerabilityAssessmentBaselineExpansion interface{}
+
+type SqlPoolWorkloadClassifierExpansion interface{}
+
+type SqlPoolWorkloadGroupExpansion interface{}
+
 type WorkspaceExpansion interface{}
+
+type WorkspaceAadAdminExpansion interface{}
+
+type WorkspaceExtendedAuditingPolicyExpansion interface{}
+
+type WorkspaceKeyExpansion interface{}
+
+type WorkspaceSQLAadAdminExpansion interface{}
+
+type WorkspaceSecurityAlertPolicyExpansion interface{}
+
+type WorkspaceVulnerabilityAssessmentExpansion interface{}

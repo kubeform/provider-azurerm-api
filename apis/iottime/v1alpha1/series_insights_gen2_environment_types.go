@@ -42,7 +42,7 @@ type SeriesInsightsGen2Environment struct {
 }
 
 type SeriesInsightsGen2EnvironmentSpecStorage struct {
-	Key  *string `json:"key" tf:"key"`
+	Key  *string `json:"-" sensitive:"true" tf:"key"`
 	Name *string `json:"name" tf:"name"`
 }
 
@@ -56,6 +56,8 @@ type SeriesInsightsGen2EnvironmentSpec struct {
 	TerminationPolicy base.TerminationPolicy `json:"terminationPolicy,omitempty" tf:"-"`
 
 	ProviderRef core.LocalObjectReference `json:"providerRef" tf:"-"`
+
+	SecretRef *core.LocalObjectReference `json:"secretRef,omitempty" tf:"-"`
 
 	BackendRef *core.LocalObjectReference `json:"backendRef,omitempty" tf:"-"`
 }

@@ -26,6 +26,10 @@ import (
 type Interface interface {
 	// Configurations returns a ConfigurationInformer.
 	Configurations() ConfigurationInformer
+	// ConfigurationFeatures returns a ConfigurationFeatureInformer.
+	ConfigurationFeatures() ConfigurationFeatureInformer
+	// ConfigurationKeys returns a ConfigurationKeyInformer.
+	ConfigurationKeys() ConfigurationKeyInformer
 	// Services returns a ServiceInformer.
 	Services() ServiceInformer
 	// ServiceActiveSlots returns a ServiceActiveSlotInformer.
@@ -48,8 +52,12 @@ type Interface interface {
 	ServiceManagedCertificates() ServiceManagedCertificateInformer
 	// ServicePlans returns a ServicePlanInformer.
 	ServicePlans() ServicePlanInformer
+	// ServicePublicCertificates returns a ServicePublicCertificateInformer.
+	ServicePublicCertificates() ServicePublicCertificateInformer
 	// ServiceSlots returns a ServiceSlotInformer.
 	ServiceSlots() ServiceSlotInformer
+	// ServiceSlotCustomHostnameBindings returns a ServiceSlotCustomHostnameBindingInformer.
+	ServiceSlotCustomHostnameBindings() ServiceSlotCustomHostnameBindingInformer
 	// ServiceSlotVirtualNetworkSwiftConnections returns a ServiceSlotVirtualNetworkSwiftConnectionInformer.
 	ServiceSlotVirtualNetworkSwiftConnections() ServiceSlotVirtualNetworkSwiftConnectionInformer
 	// ServiceSourceControlTokens returns a ServiceSourceControlTokenInformer.
@@ -72,6 +80,16 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // Configurations returns a ConfigurationInformer.
 func (v *version) Configurations() ConfigurationInformer {
 	return &configurationInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ConfigurationFeatures returns a ConfigurationFeatureInformer.
+func (v *version) ConfigurationFeatures() ConfigurationFeatureInformer {
+	return &configurationFeatureInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ConfigurationKeys returns a ConfigurationKeyInformer.
+func (v *version) ConfigurationKeys() ConfigurationKeyInformer {
+	return &configurationKeyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Services returns a ServiceInformer.
@@ -129,9 +147,19 @@ func (v *version) ServicePlans() ServicePlanInformer {
 	return &servicePlanInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// ServicePublicCertificates returns a ServicePublicCertificateInformer.
+func (v *version) ServicePublicCertificates() ServicePublicCertificateInformer {
+	return &servicePublicCertificateInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // ServiceSlots returns a ServiceSlotInformer.
 func (v *version) ServiceSlots() ServiceSlotInformer {
 	return &serviceSlotInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ServiceSlotCustomHostnameBindings returns a ServiceSlotCustomHostnameBindingInformer.
+func (v *version) ServiceSlotCustomHostnameBindings() ServiceSlotCustomHostnameBindingInformer {
+	return &serviceSlotCustomHostnameBindingInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // ServiceSlotVirtualNetworkSwiftConnections returns a ServiceSlotVirtualNetworkSwiftConnectionInformer.

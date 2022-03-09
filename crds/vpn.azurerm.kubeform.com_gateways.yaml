@@ -117,6 +117,8 @@ spec:
                     type: string
                   resourceGroupName:
                     type: string
+                  routingPreference:
+                    type: string
                   scaleUnit:
                     format: int64
                     type: integer
@@ -231,6 +233,8 @@ spec:
                   name:
                     type: string
                   resourceGroupName:
+                    type: string
+                  routingPreference:
                     type: string
                   scaleUnit:
                     format: int64

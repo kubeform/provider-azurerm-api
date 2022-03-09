@@ -42,6 +42,7 @@ func (r *EndpointServicebusTopic) SetupWebhookWithManager(mgr ctrl.Manager) erro
 var _ webhook.Validator = &EndpointServicebusTopic{}
 
 var endpointservicebustopicForceNewList = map[string]bool{
+	"/iothub_id":           true,
 	"/iothub_name":         true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *EndpointServicebusTopic) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range endpointservicebustopicForceNewList {
+	for key, _ := range endpointservicebustopicForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

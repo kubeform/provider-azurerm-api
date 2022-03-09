@@ -90,7 +90,7 @@ func (r *DataConnectorAzureActiveDirectory) ValidateUpdate(old runtime.Object) e
 		return err
 	}
 
-	for key := range dataconnectorazureactivedirectoryForceNewList {
+	for key, _ := range dataconnectorazureactivedirectoryForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

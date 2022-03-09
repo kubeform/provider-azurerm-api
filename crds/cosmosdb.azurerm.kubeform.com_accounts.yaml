@@ -59,6 +59,13 @@ spec:
                 properties:
                   accessKeyMetadataWritesEnabled:
                     type: boolean
+                  analyticalStorage:
+                    properties:
+                      schemaType:
+                        type: string
+                    required:
+                    - schemaType
+                    type: object
                   analyticalStorageEnabled:
                     type: boolean
                   backup:
@@ -69,6 +76,8 @@ spec:
                       retentionInHours:
                         format: int64
                         type: integer
+                      storageRedundancy:
+                        type: string
                       type:
                         type: string
                     required:
@@ -83,6 +92,14 @@ spec:
                       - name
                       type: object
                     type: array
+                  capacity:
+                    properties:
+                      totalThroughputLimit:
+                        format: int64
+                        type: integer
+                    required:
+                    - totalThroughputLimit
+                    type: object
                   consistencyPolicy:
                     properties:
                       consistencyLevel:
@@ -128,6 +145,10 @@ spec:
                     - exposedHeaders
                     - maxAgeInSeconds
                     type: object
+                  createMode:
+                    type: string
+                  defaultIdentityType:
+                    type: string
                   enableAutomaticFailover:
                     type: boolean
                   enableFreeTier:
@@ -177,6 +198,8 @@ spec:
                     type: string
                   kind:
                     type: string
+                  localAuthenticationDisabled:
+                    type: boolean
                   location:
                     type: string
                   mongoServerVersion:
@@ -199,6 +222,29 @@ spec:
                     type: array
                   resourceGroupName:
                     type: string
+                  restore:
+                    properties:
+                      database:
+                        items:
+                          properties:
+                            collectionNames:
+                              items:
+                                type: string
+                              type: array
+                            name:
+                              type: string
+                          required:
+                          - name
+                          type: object
+                        type: array
+                      restoreTimestampInUtc:
+                        type: string
+                      sourceCosmosdbAccountID:
+                        type: string
+                    required:
+                    - restoreTimestampInUtc
+                    - sourceCosmosdbAccountID
+                    type: object
                   tags:
                     additionalProperties:
                       type: string
@@ -257,6 +303,7 @@ spec:
                       type: string
                     type: array
                 required:
+                - consistencyPolicy
                 - geoLocation
                 - location
                 - name
@@ -276,6 +323,13 @@ spec:
                 properties:
                   accessKeyMetadataWritesEnabled:
                     type: boolean
+                  analyticalStorage:
+                    properties:
+                      schemaType:
+                        type: string
+                    required:
+                    - schemaType
+                    type: object
                   analyticalStorageEnabled:
                     type: boolean
                   backup:
@@ -286,6 +340,8 @@ spec:
                       retentionInHours:
                         format: int64
                         type: integer
+                      storageRedundancy:
+                        type: string
                       type:
                         type: string
                     required:
@@ -300,6 +356,14 @@ spec:
                       - name
                       type: object
                     type: array
+                  capacity:
+                    properties:
+                      totalThroughputLimit:
+                        format: int64
+                        type: integer
+                    required:
+                    - totalThroughputLimit
+                    type: object
                   consistencyPolicy:
                     properties:
                       consistencyLevel:
@@ -345,6 +409,10 @@ spec:
                     - exposedHeaders
                     - maxAgeInSeconds
                     type: object
+                  createMode:
+                    type: string
+                  defaultIdentityType:
+                    type: string
                   enableAutomaticFailover:
                     type: boolean
                   enableFreeTier:
@@ -394,6 +462,8 @@ spec:
                     type: string
                   kind:
                     type: string
+                  localAuthenticationDisabled:
+                    type: boolean
                   location:
                     type: string
                   mongoServerVersion:
@@ -416,6 +486,29 @@ spec:
                     type: array
                   resourceGroupName:
                     type: string
+                  restore:
+                    properties:
+                      database:
+                        items:
+                          properties:
+                            collectionNames:
+                              items:
+                                type: string
+                              type: array
+                            name:
+                              type: string
+                          required:
+                          - name
+                          type: object
+                        type: array
+                      restoreTimestampInUtc:
+                        type: string
+                      sourceCosmosdbAccountID:
+                        type: string
+                    required:
+                    - restoreTimestampInUtc
+                    - sourceCosmosdbAccountID
+                    type: object
                   tags:
                     additionalProperties:
                       type: string
@@ -474,6 +567,7 @@ spec:
                       type: string
                     type: array
                 required:
+                - consistencyPolicy
                 - geoLocation
                 - location
                 - name

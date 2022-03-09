@@ -147,6 +147,8 @@ type VirtualMachineSpecResource struct {
 	// +optional
 	CustomData *string `json:"-" sensitive:"true" tf:"custom_data"`
 	// +optional
+	DedicatedHostGroupID *string `json:"dedicatedHostGroupID,omitempty" tf:"dedicated_host_group_id"`
+	// +optional
 	DedicatedHostID *string `json:"dedicatedHostID,omitempty" tf:"dedicated_host_id"`
 	// +optional
 	DisablePasswordAuthentication *bool `json:"disablePasswordAuthentication,omitempty" tf:"disable_password_authentication"`
@@ -168,6 +170,8 @@ type VirtualMachineSpecResource struct {
 	NetworkInterfaceIDS []string                  `json:"networkInterfaceIDS" tf:"network_interface_ids"`
 	OsDisk              *VirtualMachineSpecOsDisk `json:"osDisk" tf:"os_disk"`
 	// +optional
+	PatchMode *string `json:"patchMode,omitempty" tf:"patch_mode"`
+	// +optional
 	Plan *VirtualMachineSpecPlan `json:"plan,omitempty" tf:"plan"`
 	// +optional
 	PlatformFaultDomain *int64 `json:"platformFaultDomain,omitempty" tf:"platform_fault_domain"`
@@ -188,7 +192,9 @@ type VirtualMachineSpecResource struct {
 	ResourceGroupName *string  `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	Secret []VirtualMachineSpecSecret `json:"secret,omitempty" tf:"secret"`
-	Size   *string                    `json:"size" tf:"size"`
+	// +optional
+	SecureBootEnabled *bool   `json:"secureBootEnabled,omitempty" tf:"secure_boot_enabled"`
+	Size              *string `json:"size" tf:"size"`
 	// +optional
 	SourceImageID *string `json:"sourceImageID,omitempty" tf:"source_image_id"`
 	// +optional
@@ -196,9 +202,13 @@ type VirtualMachineSpecResource struct {
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 	// +optional
+	UserData *string `json:"userData,omitempty" tf:"user_data"`
+	// +optional
 	VirtualMachineID *string `json:"virtualMachineID,omitempty" tf:"virtual_machine_id"`
 	// +optional
 	VirtualMachineScaleSetID *string `json:"virtualMachineScaleSetID,omitempty" tf:"virtual_machine_scale_set_id"`
+	// +optional
+	VtpmEnabled *bool `json:"vtpmEnabled,omitempty" tf:"vtpm_enabled"`
 	// +optional
 	Zone *string `json:"zone,omitempty" tf:"zone"`
 }

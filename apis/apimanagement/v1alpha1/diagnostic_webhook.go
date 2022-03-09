@@ -90,7 +90,7 @@ func (r *Diagnostic) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range diagnosticForceNewList {
+	for key, _ := range diagnosticForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

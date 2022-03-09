@@ -27,10 +27,13 @@ import (
 
 func GetEncoder() map[string]jsoniter.ValEncoder {
 	return map[string]jsoniter.ValEncoder{
+		jsoniter.MustGetKind(reflect2.TypeOf(DomainSpecIdentity{}).Type1()):                                               DomainSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DomainSpecInputMappingDefaultValues{}).Type1()):                              DomainSpecInputMappingDefaultValuesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DomainSpecInputMappingFields{}).Type1()):                                     DomainSpecInputMappingFieldsCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecAdvancedFilter{}).Type1()):                              EventSubscriptionSpecAdvancedFilterCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecAzureFunctionEndpoint{}).Type1()):                       EventSubscriptionSpecAzureFunctionEndpointCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecDeadLetterIdentity{}).Type1()):                          EventSubscriptionSpecDeadLetterIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecDeliveryIdentity{}).Type1()):                            EventSubscriptionSpecDeliveryIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecEventhubEndpoint{}).Type1()):                            EventSubscriptionSpecEventhubEndpointCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecHybridConnectionEndpoint{}).Type1()):                    EventSubscriptionSpecHybridConnectionEndpointCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecRetryPolicy{}).Type1()):                                 EventSubscriptionSpecRetryPolicyCodec{},
@@ -38,13 +41,17 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecStorageQueueEndpoint{}).Type1()):                        EventSubscriptionSpecStorageQueueEndpointCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecSubjectFilter{}).Type1()):                               EventSubscriptionSpecSubjectFilterCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecWebhookEndpoint{}).Type1()):                             EventSubscriptionSpecWebhookEndpointCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicSpecIdentity{}).Type1()):                                          SystemTopicSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecAdvancedFilter{}).Type1()):                   SystemTopicEventSubscriptionSpecAdvancedFilterCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecAzureFunctionEndpoint{}).Type1()):            SystemTopicEventSubscriptionSpecAzureFunctionEndpointCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecDeadLetterIdentity{}).Type1()):               SystemTopicEventSubscriptionSpecDeadLetterIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecDeliveryIdentity{}).Type1()):                 SystemTopicEventSubscriptionSpecDeliveryIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecRetryPolicy{}).Type1()):                      SystemTopicEventSubscriptionSpecRetryPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecStorageBlobDeadLetterDestination{}).Type1()): SystemTopicEventSubscriptionSpecStorageBlobDeadLetterDestinationCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecStorageQueueEndpoint{}).Type1()):             SystemTopicEventSubscriptionSpecStorageQueueEndpointCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecSubjectFilter{}).Type1()):                    SystemTopicEventSubscriptionSpecSubjectFilterCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecWebhookEndpoint{}).Type1()):                  SystemTopicEventSubscriptionSpecWebhookEndpointCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(TopicSpecIdentity{}).Type1()):                                                TopicSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(TopicSpecInputMappingDefaultValues{}).Type1()):                               TopicSpecInputMappingDefaultValuesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(TopicSpecInputMappingFields{}).Type1()):                                      TopicSpecInputMappingFieldsCodec{},
 	}
@@ -52,10 +59,13 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 
 func GetDecoder() map[string]jsoniter.ValDecoder {
 	return map[string]jsoniter.ValDecoder{
+		jsoniter.MustGetKind(reflect2.TypeOf(DomainSpecIdentity{}).Type1()):                                               DomainSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DomainSpecInputMappingDefaultValues{}).Type1()):                              DomainSpecInputMappingDefaultValuesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DomainSpecInputMappingFields{}).Type1()):                                     DomainSpecInputMappingFieldsCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecAdvancedFilter{}).Type1()):                              EventSubscriptionSpecAdvancedFilterCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecAzureFunctionEndpoint{}).Type1()):                       EventSubscriptionSpecAzureFunctionEndpointCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecDeadLetterIdentity{}).Type1()):                          EventSubscriptionSpecDeadLetterIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecDeliveryIdentity{}).Type1()):                            EventSubscriptionSpecDeliveryIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecEventhubEndpoint{}).Type1()):                            EventSubscriptionSpecEventhubEndpointCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecHybridConnectionEndpoint{}).Type1()):                    EventSubscriptionSpecHybridConnectionEndpointCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecRetryPolicy{}).Type1()):                                 EventSubscriptionSpecRetryPolicyCodec{},
@@ -63,13 +73,17 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecStorageQueueEndpoint{}).Type1()):                        EventSubscriptionSpecStorageQueueEndpointCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecSubjectFilter{}).Type1()):                               EventSubscriptionSpecSubjectFilterCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecWebhookEndpoint{}).Type1()):                             EventSubscriptionSpecWebhookEndpointCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicSpecIdentity{}).Type1()):                                          SystemTopicSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecAdvancedFilter{}).Type1()):                   SystemTopicEventSubscriptionSpecAdvancedFilterCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecAzureFunctionEndpoint{}).Type1()):            SystemTopicEventSubscriptionSpecAzureFunctionEndpointCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecDeadLetterIdentity{}).Type1()):               SystemTopicEventSubscriptionSpecDeadLetterIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecDeliveryIdentity{}).Type1()):                 SystemTopicEventSubscriptionSpecDeliveryIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecRetryPolicy{}).Type1()):                      SystemTopicEventSubscriptionSpecRetryPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecStorageBlobDeadLetterDestination{}).Type1()): SystemTopicEventSubscriptionSpecStorageBlobDeadLetterDestinationCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecStorageQueueEndpoint{}).Type1()):             SystemTopicEventSubscriptionSpecStorageQueueEndpointCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecSubjectFilter{}).Type1()):                    SystemTopicEventSubscriptionSpecSubjectFilterCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecWebhookEndpoint{}).Type1()):                  SystemTopicEventSubscriptionSpecWebhookEndpointCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(TopicSpecIdentity{}).Type1()):                                                TopicSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(TopicSpecInputMappingDefaultValues{}).Type1()):                               TopicSpecInputMappingDefaultValuesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(TopicSpecInputMappingFields{}).Type1()):                                      TopicSpecInputMappingFieldsCodec{},
 	}
@@ -85,6 +99,85 @@ func getDecodersWithout(typ string) map[string]jsoniter.ValDecoder {
 	origMap := GetDecoder()
 	delete(origMap, typ)
 	return origMap
+}
+
+// +k8s:deepcopy-gen=false
+type DomainSpecIdentityCodec struct {
+}
+
+func (DomainSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*DomainSpecIdentity)(ptr) == nil
+}
+
+func (DomainSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*DomainSpecIdentity)(ptr)
+	var objs []DomainSpecIdentity
+	if obj != nil {
+		objs = []DomainSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DomainSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (DomainSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*DomainSpecIdentity)(ptr) = DomainSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []DomainSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DomainSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*DomainSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*DomainSpecIdentity)(ptr) = DomainSpecIdentity{}
+			}
+		} else {
+			*(*DomainSpecIdentity)(ptr) = DomainSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj DomainSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DomainSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*DomainSpecIdentity)(ptr) = obj
+		} else {
+			*(*DomainSpecIdentity)(ptr) = DomainSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode DomainSpecIdentity", "unexpected JSON type")
+	}
 }
 
 // +k8s:deepcopy-gen=false
@@ -400,6 +493,164 @@ func (EventSubscriptionSpecAzureFunctionEndpointCodec) Decode(ptr unsafe.Pointer
 		}
 	default:
 		iter.ReportError("decode EventSubscriptionSpecAzureFunctionEndpoint", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type EventSubscriptionSpecDeadLetterIdentityCodec struct {
+}
+
+func (EventSubscriptionSpecDeadLetterIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*EventSubscriptionSpecDeadLetterIdentity)(ptr) == nil
+}
+
+func (EventSubscriptionSpecDeadLetterIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*EventSubscriptionSpecDeadLetterIdentity)(ptr)
+	var objs []EventSubscriptionSpecDeadLetterIdentity
+	if obj != nil {
+		objs = []EventSubscriptionSpecDeadLetterIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecDeadLetterIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (EventSubscriptionSpecDeadLetterIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*EventSubscriptionSpecDeadLetterIdentity)(ptr) = EventSubscriptionSpecDeadLetterIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []EventSubscriptionSpecDeadLetterIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecDeadLetterIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*EventSubscriptionSpecDeadLetterIdentity)(ptr) = objs[0]
+			} else {
+				*(*EventSubscriptionSpecDeadLetterIdentity)(ptr) = EventSubscriptionSpecDeadLetterIdentity{}
+			}
+		} else {
+			*(*EventSubscriptionSpecDeadLetterIdentity)(ptr) = EventSubscriptionSpecDeadLetterIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj EventSubscriptionSpecDeadLetterIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecDeadLetterIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*EventSubscriptionSpecDeadLetterIdentity)(ptr) = obj
+		} else {
+			*(*EventSubscriptionSpecDeadLetterIdentity)(ptr) = EventSubscriptionSpecDeadLetterIdentity{}
+		}
+	default:
+		iter.ReportError("decode EventSubscriptionSpecDeadLetterIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type EventSubscriptionSpecDeliveryIdentityCodec struct {
+}
+
+func (EventSubscriptionSpecDeliveryIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*EventSubscriptionSpecDeliveryIdentity)(ptr) == nil
+}
+
+func (EventSubscriptionSpecDeliveryIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*EventSubscriptionSpecDeliveryIdentity)(ptr)
+	var objs []EventSubscriptionSpecDeliveryIdentity
+	if obj != nil {
+		objs = []EventSubscriptionSpecDeliveryIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecDeliveryIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (EventSubscriptionSpecDeliveryIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*EventSubscriptionSpecDeliveryIdentity)(ptr) = EventSubscriptionSpecDeliveryIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []EventSubscriptionSpecDeliveryIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecDeliveryIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*EventSubscriptionSpecDeliveryIdentity)(ptr) = objs[0]
+			} else {
+				*(*EventSubscriptionSpecDeliveryIdentity)(ptr) = EventSubscriptionSpecDeliveryIdentity{}
+			}
+		} else {
+			*(*EventSubscriptionSpecDeliveryIdentity)(ptr) = EventSubscriptionSpecDeliveryIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj EventSubscriptionSpecDeliveryIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(EventSubscriptionSpecDeliveryIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*EventSubscriptionSpecDeliveryIdentity)(ptr) = obj
+		} else {
+			*(*EventSubscriptionSpecDeliveryIdentity)(ptr) = EventSubscriptionSpecDeliveryIdentity{}
+		}
+	default:
+		iter.ReportError("decode EventSubscriptionSpecDeliveryIdentity", "unexpected JSON type")
 	}
 }
 
@@ -957,6 +1208,85 @@ func (EventSubscriptionSpecWebhookEndpointCodec) Decode(ptr unsafe.Pointer, iter
 }
 
 // +k8s:deepcopy-gen=false
+type SystemTopicSpecIdentityCodec struct {
+}
+
+func (SystemTopicSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*SystemTopicSpecIdentity)(ptr) == nil
+}
+
+func (SystemTopicSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*SystemTopicSpecIdentity)(ptr)
+	var objs []SystemTopicSpecIdentity
+	if obj != nil {
+		objs = []SystemTopicSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (SystemTopicSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*SystemTopicSpecIdentity)(ptr) = SystemTopicSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []SystemTopicSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*SystemTopicSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*SystemTopicSpecIdentity)(ptr) = SystemTopicSpecIdentity{}
+			}
+		} else {
+			*(*SystemTopicSpecIdentity)(ptr) = SystemTopicSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj SystemTopicSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*SystemTopicSpecIdentity)(ptr) = obj
+		} else {
+			*(*SystemTopicSpecIdentity)(ptr) = SystemTopicSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode SystemTopicSpecIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type SystemTopicEventSubscriptionSpecAdvancedFilterCodec struct {
 }
 
@@ -1111,6 +1441,164 @@ func (SystemTopicEventSubscriptionSpecAzureFunctionEndpointCodec) Decode(ptr uns
 		}
 	default:
 		iter.ReportError("decode SystemTopicEventSubscriptionSpecAzureFunctionEndpoint", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type SystemTopicEventSubscriptionSpecDeadLetterIdentityCodec struct {
+}
+
+func (SystemTopicEventSubscriptionSpecDeadLetterIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*SystemTopicEventSubscriptionSpecDeadLetterIdentity)(ptr) == nil
+}
+
+func (SystemTopicEventSubscriptionSpecDeadLetterIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*SystemTopicEventSubscriptionSpecDeadLetterIdentity)(ptr)
+	var objs []SystemTopicEventSubscriptionSpecDeadLetterIdentity
+	if obj != nil {
+		objs = []SystemTopicEventSubscriptionSpecDeadLetterIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecDeadLetterIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (SystemTopicEventSubscriptionSpecDeadLetterIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*SystemTopicEventSubscriptionSpecDeadLetterIdentity)(ptr) = SystemTopicEventSubscriptionSpecDeadLetterIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []SystemTopicEventSubscriptionSpecDeadLetterIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecDeadLetterIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*SystemTopicEventSubscriptionSpecDeadLetterIdentity)(ptr) = objs[0]
+			} else {
+				*(*SystemTopicEventSubscriptionSpecDeadLetterIdentity)(ptr) = SystemTopicEventSubscriptionSpecDeadLetterIdentity{}
+			}
+		} else {
+			*(*SystemTopicEventSubscriptionSpecDeadLetterIdentity)(ptr) = SystemTopicEventSubscriptionSpecDeadLetterIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj SystemTopicEventSubscriptionSpecDeadLetterIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecDeadLetterIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*SystemTopicEventSubscriptionSpecDeadLetterIdentity)(ptr) = obj
+		} else {
+			*(*SystemTopicEventSubscriptionSpecDeadLetterIdentity)(ptr) = SystemTopicEventSubscriptionSpecDeadLetterIdentity{}
+		}
+	default:
+		iter.ReportError("decode SystemTopicEventSubscriptionSpecDeadLetterIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type SystemTopicEventSubscriptionSpecDeliveryIdentityCodec struct {
+}
+
+func (SystemTopicEventSubscriptionSpecDeliveryIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*SystemTopicEventSubscriptionSpecDeliveryIdentity)(ptr) == nil
+}
+
+func (SystemTopicEventSubscriptionSpecDeliveryIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*SystemTopicEventSubscriptionSpecDeliveryIdentity)(ptr)
+	var objs []SystemTopicEventSubscriptionSpecDeliveryIdentity
+	if obj != nil {
+		objs = []SystemTopicEventSubscriptionSpecDeliveryIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecDeliveryIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (SystemTopicEventSubscriptionSpecDeliveryIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*SystemTopicEventSubscriptionSpecDeliveryIdentity)(ptr) = SystemTopicEventSubscriptionSpecDeliveryIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []SystemTopicEventSubscriptionSpecDeliveryIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecDeliveryIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*SystemTopicEventSubscriptionSpecDeliveryIdentity)(ptr) = objs[0]
+			} else {
+				*(*SystemTopicEventSubscriptionSpecDeliveryIdentity)(ptr) = SystemTopicEventSubscriptionSpecDeliveryIdentity{}
+			}
+		} else {
+			*(*SystemTopicEventSubscriptionSpecDeliveryIdentity)(ptr) = SystemTopicEventSubscriptionSpecDeliveryIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj SystemTopicEventSubscriptionSpecDeliveryIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(SystemTopicEventSubscriptionSpecDeliveryIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*SystemTopicEventSubscriptionSpecDeliveryIdentity)(ptr) = obj
+		} else {
+			*(*SystemTopicEventSubscriptionSpecDeliveryIdentity)(ptr) = SystemTopicEventSubscriptionSpecDeliveryIdentity{}
+		}
+	default:
+		iter.ReportError("decode SystemTopicEventSubscriptionSpecDeliveryIdentity", "unexpected JSON type")
 	}
 }
 
@@ -1506,6 +1994,85 @@ func (SystemTopicEventSubscriptionSpecWebhookEndpointCodec) Decode(ptr unsafe.Po
 		}
 	default:
 		iter.ReportError("decode SystemTopicEventSubscriptionSpecWebhookEndpoint", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type TopicSpecIdentityCodec struct {
+}
+
+func (TopicSpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*TopicSpecIdentity)(ptr) == nil
+}
+
+func (TopicSpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*TopicSpecIdentity)(ptr)
+	var objs []TopicSpecIdentity
+	if obj != nil {
+		objs = []TopicSpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(TopicSpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (TopicSpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*TopicSpecIdentity)(ptr) = TopicSpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []TopicSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(TopicSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*TopicSpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*TopicSpecIdentity)(ptr) = TopicSpecIdentity{}
+			}
+		} else {
+			*(*TopicSpecIdentity)(ptr) = TopicSpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj TopicSpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(TopicSpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*TopicSpecIdentity)(ptr) = obj
+		} else {
+			*(*TopicSpecIdentity)(ptr) = TopicSpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode TopicSpecIdentity", "unexpected JSON type")
 	}
 }
 

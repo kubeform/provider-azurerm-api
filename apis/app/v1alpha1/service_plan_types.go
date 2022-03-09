@@ -87,6 +87,8 @@ type ServicePlanSpecResource struct {
 	Sku               *ServicePlanSpecSku `json:"sku" tf:"sku"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
+	// +optional
+	ZoneRedundant *bool `json:"zoneRedundant,omitempty" tf:"zone_redundant"`
 }
 
 type ServicePlanStatus struct {

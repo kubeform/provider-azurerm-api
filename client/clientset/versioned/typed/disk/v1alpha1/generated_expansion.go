@@ -21,3 +21,11 @@ package v1alpha1
 type AccessExpansion interface{}
 
 type EncryptionSetExpansion interface{}
+
+type PoolExpansion interface{}
+
+type PoolIscsiTargetExpansion interface{}
+
+type PoolIscsiTargetLunExpansion interface{}
+
+type PoolManagedDiskAttachmentExpansion interface{}

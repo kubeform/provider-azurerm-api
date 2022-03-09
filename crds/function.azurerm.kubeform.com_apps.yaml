@@ -143,6 +143,7 @@ spec:
                     - enabled
                     type: object
                   clientAffinityEnabled:
+                    description: Deprecated
                     type: boolean
                   clientCertMode:
                     type: string
@@ -189,6 +190,8 @@ spec:
                     required:
                     - type
                     type: object
+                  keyVaultReferenceIdentityID:
+                    type: string
                   kind:
                     type: string
                   location:
@@ -207,6 +210,9 @@ spec:
                     properties:
                       alwaysOn:
                         type: boolean
+                      appScaleLimit:
+                        format: int64
+                        type: integer
                       autoSwapSlotName:
                         type: string
                       cors:
@@ -220,6 +226,11 @@ spec:
                         required:
                         - allowedOrigins
                         type: object
+                      dotnetFrameworkVersion:
+                        type: string
+                      elasticInstanceMinimum:
+                        format: int64
+                        type: integer
                       ftpsState:
                         type: string
                       healthCheckPath:
@@ -275,6 +286,8 @@ spec:
                       preWarmedInstanceCount:
                         format: int64
                         type: integer
+                      runtimeScaleMonitoringEnabled:
+                        type: boolean
                       scmIPRestriction:
                         items:
                           properties:
@@ -320,6 +333,8 @@ spec:
                       scmUseMainIPRestriction:
                         type: boolean
                       use32BitWorkerProcess:
+                        type: boolean
+                      vnetRouteAllEnabled:
                         type: boolean
                       websocketsEnabled:
                         type: boolean
@@ -493,6 +508,7 @@ spec:
                     - enabled
                     type: object
                   clientAffinityEnabled:
+                    description: Deprecated
                     type: boolean
                   clientCertMode:
                     type: string
@@ -539,6 +555,8 @@ spec:
                     required:
                     - type
                     type: object
+                  keyVaultReferenceIdentityID:
+                    type: string
                   kind:
                     type: string
                   location:
@@ -557,6 +575,9 @@ spec:
                     properties:
                       alwaysOn:
                         type: boolean
+                      appScaleLimit:
+                        format: int64
+                        type: integer
                       autoSwapSlotName:
                         type: string
                       cors:
@@ -570,6 +591,11 @@ spec:
                         required:
                         - allowedOrigins
                         type: object
+                      dotnetFrameworkVersion:
+                        type: string
+                      elasticInstanceMinimum:
+                        format: int64
+                        type: integer
                       ftpsState:
                         type: string
                       healthCheckPath:
@@ -625,6 +651,8 @@ spec:
                       preWarmedInstanceCount:
                         format: int64
                         type: integer
+                      runtimeScaleMonitoringEnabled:
+                        type: boolean
                       scmIPRestriction:
                         items:
                           properties:
@@ -670,6 +698,8 @@ spec:
                       scmUseMainIPRestriction:
                         type: boolean
                       use32BitWorkerProcess:
+                        type: boolean
+                      vnetRouteAllEnabled:
                         type: boolean
                       websocketsEnabled:
                         type: boolean

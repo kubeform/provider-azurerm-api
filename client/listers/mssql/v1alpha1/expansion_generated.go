@@ -50,6 +50,14 @@ type ElasticpoolListerExpansion interface{}
 // ElasticpoolNamespaceLister.
 type ElasticpoolNamespaceListerExpansion interface{}
 
+// FailoverGroupListerExpansion allows custom methods to be added to
+// FailoverGroupLister.
+type FailoverGroupListerExpansion interface{}
+
+// FailoverGroupNamespaceListerExpansion allows custom methods to be added to
+// FailoverGroupNamespaceLister.
+type FailoverGroupNamespaceListerExpansion interface{}
+
 // FirewallRuleListerExpansion allows custom methods to be added to
 // FirewallRuleLister.
 type FirewallRuleListerExpansion interface{}
@@ -73,6 +81,46 @@ type JobCredentialListerExpansion interface{}
 // JobCredentialNamespaceListerExpansion allows custom methods to be added to
 // JobCredentialNamespaceLister.
 type JobCredentialNamespaceListerExpansion interface{}
+
+// ManagedDatabaseListerExpansion allows custom methods to be added to
+// ManagedDatabaseLister.
+type ManagedDatabaseListerExpansion interface{}
+
+// ManagedDatabaseNamespaceListerExpansion allows custom methods to be added to
+// ManagedDatabaseNamespaceLister.
+type ManagedDatabaseNamespaceListerExpansion interface{}
+
+// ManagedInstanceListerExpansion allows custom methods to be added to
+// ManagedInstanceLister.
+type ManagedInstanceListerExpansion interface{}
+
+// ManagedInstanceNamespaceListerExpansion allows custom methods to be added to
+// ManagedInstanceNamespaceLister.
+type ManagedInstanceNamespaceListerExpansion interface{}
+
+// ManagedInstanceActiveDirectoryAdministratorListerExpansion allows custom methods to be added to
+// ManagedInstanceActiveDirectoryAdministratorLister.
+type ManagedInstanceActiveDirectoryAdministratorListerExpansion interface{}
+
+// ManagedInstanceActiveDirectoryAdministratorNamespaceListerExpansion allows custom methods to be added to
+// ManagedInstanceActiveDirectoryAdministratorNamespaceLister.
+type ManagedInstanceActiveDirectoryAdministratorNamespaceListerExpansion interface{}
+
+// ManagedInstanceFailoverGroupListerExpansion allows custom methods to be added to
+// ManagedInstanceFailoverGroupLister.
+type ManagedInstanceFailoverGroupListerExpansion interface{}
+
+// ManagedInstanceFailoverGroupNamespaceListerExpansion allows custom methods to be added to
+// ManagedInstanceFailoverGroupNamespaceLister.
+type ManagedInstanceFailoverGroupNamespaceListerExpansion interface{}
+
+// OutboundFirewallRuleListerExpansion allows custom methods to be added to
+// OutboundFirewallRuleLister.
+type OutboundFirewallRuleListerExpansion interface{}
+
+// OutboundFirewallRuleNamespaceListerExpansion allows custom methods to be added to
+// OutboundFirewallRuleNamespaceLister.
+type OutboundFirewallRuleNamespaceListerExpansion interface{}
 
 // ServerListerExpansion allows custom methods to be added to
 // ServerLister.

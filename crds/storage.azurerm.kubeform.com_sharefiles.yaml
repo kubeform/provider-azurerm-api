@@ -61,6 +61,9 @@ spec:
                     type: string
                   contentEncoding:
                     type: string
+                  contentLength:
+                    format: int64
+                    type: integer
                   contentMd5:
                     type: string
                   contentType:
@@ -127,6 +130,9 @@ spec:
                     type: string
                   contentEncoding:
                     type: string
+                  contentLength:
+                    format: int64
+                    type: integer
                   contentMd5:
                     type: string
                   contentType:

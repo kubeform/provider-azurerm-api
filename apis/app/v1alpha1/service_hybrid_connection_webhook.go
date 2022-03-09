@@ -90,7 +90,7 @@ func (r *ServiceHybridConnection) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range servicehybridconnectionForceNewList {
+	for key, _ := range servicehybridconnectionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

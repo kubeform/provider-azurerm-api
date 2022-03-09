@@ -42,6 +42,7 @@ func (r *FactoryLinkedServiceAzureTableStorage) SetupWebhookWithManager(mgr ctrl
 var _ webhook.Validator = &FactoryLinkedServiceAzureTableStorage{}
 
 var factorylinkedserviceazuretablestorageForceNewList = map[string]bool{
+	"/data_factory_id":     true,
 	"/data_factory_name":   true,
 	"/name":                true,
 	"/resource_group_name": true,
@@ -90,7 +91,7 @@ func (r *FactoryLinkedServiceAzureTableStorage) ValidateUpdate(old runtime.Objec
 		return err
 	}
 
-	for key := range factorylinkedserviceazuretablestorageForceNewList {
+	for key, _ := range factorylinkedserviceazuretablestorageForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

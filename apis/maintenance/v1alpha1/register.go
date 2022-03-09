@@ -60,6 +60,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&AssignmentDedicatedHostList{},
 		&AssignmentVirtualMachine{},
 		&AssignmentVirtualMachineList{},
+		&AssignmentVirtualMachineScaleSet{},
+		&AssignmentVirtualMachineScaleSetList{},
 		&Configuration{},
 		&ConfigurationList{},
 	)

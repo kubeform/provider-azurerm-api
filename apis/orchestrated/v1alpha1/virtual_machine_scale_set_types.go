@@ -41,6 +41,229 @@ type VirtualMachineScaleSet struct {
 	Status            VirtualMachineScaleSetStatus `json:"status,omitempty"`
 }
 
+type VirtualMachineScaleSetSpecAutomaticInstanceRepair struct {
+	Enabled *bool `json:"enabled" tf:"enabled"`
+	// +optional
+	GracePeriod *string `json:"gracePeriod,omitempty" tf:"grace_period"`
+}
+
+type VirtualMachineScaleSetSpecBootDiagnostics struct {
+	// +optional
+	StorageAccountURI *string `json:"storageAccountURI,omitempty" tf:"storage_account_uri"`
+}
+
+type VirtualMachineScaleSetSpecDataDisk struct {
+	Caching *string `json:"caching" tf:"caching"`
+	// +optional
+	CreateOption *string `json:"createOption,omitempty" tf:"create_option"`
+	// +optional
+	DiskEncryptionSetID *string `json:"diskEncryptionSetID,omitempty" tf:"disk_encryption_set_id"`
+	// +optional
+	// Deprecated
+	DiskIopsReadWrite *int64 `json:"diskIopsReadWrite,omitempty" tf:"disk_iops_read_write"`
+	// +optional
+	// Deprecated
+	DiskMbpsReadWrite  *int64  `json:"diskMbpsReadWrite,omitempty" tf:"disk_mbps_read_write"`
+	DiskSizeGb         *int64  `json:"diskSizeGb" tf:"disk_size_gb"`
+	Lun                *int64  `json:"lun" tf:"lun"`
+	StorageAccountType *string `json:"storageAccountType" tf:"storage_account_type"`
+	// +optional
+	UltraSsdDiskIopsReadWrite *int64 `json:"ultraSsdDiskIopsReadWrite,omitempty" tf:"ultra_ssd_disk_iops_read_write"`
+	// +optional
+	UltraSsdDiskMbpsReadWrite *int64 `json:"ultraSsdDiskMbpsReadWrite,omitempty" tf:"ultra_ssd_disk_mbps_read_write"`
+	// +optional
+	WriteAcceleratorEnabled *bool `json:"writeAcceleratorEnabled,omitempty" tf:"write_accelerator_enabled"`
+}
+
+type VirtualMachineScaleSetSpecExtension struct {
+	// +optional
+	AutoUpgradeMinorVersionEnabled *bool `json:"autoUpgradeMinorVersionEnabled,omitempty" tf:"auto_upgrade_minor_version_enabled"`
+	// +optional
+	ExtensionsToProvisionAfterVmCreation []string `json:"extensionsToProvisionAfterVmCreation,omitempty" tf:"extensions_to_provision_after_vm_creation"`
+	// +optional
+	ForceExtensionExecutionOnChange *string `json:"forceExtensionExecutionOnChange,omitempty" tf:"force_extension_execution_on_change"`
+	Name                            *string `json:"name" tf:"name"`
+	// +optional
+	ProtectedSettings *string `json:"-" sensitive:"true" tf:"protected_settings"`
+	Publisher         *string `json:"publisher" tf:"publisher"`
+	// +optional
+	Settings           *string `json:"settings,omitempty" tf:"settings"`
+	Type               *string `json:"type" tf:"type"`
+	TypeHandlerVersion *string `json:"typeHandlerVersion" tf:"type_handler_version"`
+}
+
+type VirtualMachineScaleSetSpecIdentity struct {
+	IdentityIDS []string `json:"identityIDS" tf:"identity_ids"`
+	Type        *string  `json:"type" tf:"type"`
+}
+
+type VirtualMachineScaleSetSpecNetworkInterfaceIpConfigurationPublicIPAddressIpTag struct {
+	Tag  *string `json:"tag" tf:"tag"`
+	Type *string `json:"type" tf:"type"`
+}
+
+type VirtualMachineScaleSetSpecNetworkInterfaceIpConfigurationPublicIPAddress struct {
+	// +optional
+	DomainNameLabel *string `json:"domainNameLabel,omitempty" tf:"domain_name_label"`
+	// +optional
+	IdleTimeoutInMinutes *int64 `json:"idleTimeoutInMinutes,omitempty" tf:"idle_timeout_in_minutes"`
+	// +optional
+	IpTag []VirtualMachineScaleSetSpecNetworkInterfaceIpConfigurationPublicIPAddressIpTag `json:"ipTag,omitempty" tf:"ip_tag"`
+	Name  *string                                                                         `json:"name" tf:"name"`
+	// +optional
+	PublicIPPrefixID *string `json:"publicIPPrefixID,omitempty" tf:"public_ip_prefix_id"`
+}
+
+type VirtualMachineScaleSetSpecNetworkInterfaceIpConfiguration struct {
+	// +optional
+	ApplicationGatewayBackendAddressPoolIDS []string `json:"applicationGatewayBackendAddressPoolIDS,omitempty" tf:"application_gateway_backend_address_pool_ids"`
+	// +optional
+	// +kubebuilder:validation:MaxItems=20
+	ApplicationSecurityGroupIDS []string `json:"applicationSecurityGroupIDS,omitempty" tf:"application_security_group_ids"`
+	// +optional
+	LoadBalancerBackendAddressPoolIDS []string `json:"loadBalancerBackendAddressPoolIDS,omitempty" tf:"load_balancer_backend_address_pool_ids"`
+	Name                              *string  `json:"name" tf:"name"`
+	// +optional
+	Primary *bool `json:"primary,omitempty" tf:"primary"`
+	// +optional
+	PublicIPAddress []VirtualMachineScaleSetSpecNetworkInterfaceIpConfigurationPublicIPAddress `json:"publicIPAddress,omitempty" tf:"public_ip_address"`
+	// +optional
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
+	// +optional
+	Version *string `json:"version,omitempty" tf:"version"`
+}
+
+type VirtualMachineScaleSetSpecNetworkInterface struct {
+	// +optional
+	DnsServers []string `json:"dnsServers,omitempty" tf:"dns_servers"`
+	// +optional
+	EnableAcceleratedNetworking *bool `json:"enableAcceleratedNetworking,omitempty" tf:"enable_accelerated_networking"`
+	// +optional
+	EnableIPForwarding *bool                                                       `json:"enableIPForwarding,omitempty" tf:"enable_ip_forwarding"`
+	IpConfiguration    []VirtualMachineScaleSetSpecNetworkInterfaceIpConfiguration `json:"ipConfiguration" tf:"ip_configuration"`
+	Name               *string                                                     `json:"name" tf:"name"`
+	// +optional
+	NetworkSecurityGroupID *string `json:"networkSecurityGroupID,omitempty" tf:"network_security_group_id"`
+	// +optional
+	Primary *bool `json:"primary,omitempty" tf:"primary"`
+}
+
+type VirtualMachineScaleSetSpecOsDiskDiffDiskSettings struct {
+	Option *string `json:"option" tf:"option"`
+}
+
+type VirtualMachineScaleSetSpecOsDisk struct {
+	Caching *string `json:"caching" tf:"caching"`
+	// +optional
+	DiffDiskSettings *VirtualMachineScaleSetSpecOsDiskDiffDiskSettings `json:"diffDiskSettings,omitempty" tf:"diff_disk_settings"`
+	// +optional
+	DiskEncryptionSetID *string `json:"diskEncryptionSetID,omitempty" tf:"disk_encryption_set_id"`
+	// +optional
+	DiskSizeGb         *int64  `json:"diskSizeGb,omitempty" tf:"disk_size_gb"`
+	StorageAccountType *string `json:"storageAccountType" tf:"storage_account_type"`
+	// +optional
+	WriteAcceleratorEnabled *bool `json:"writeAcceleratorEnabled,omitempty" tf:"write_accelerator_enabled"`
+}
+
+type VirtualMachineScaleSetSpecOsProfileLinuxConfigurationAdminSSHKey struct {
+	PublicKey *string `json:"publicKey" tf:"public_key"`
+	Username  *string `json:"username" tf:"username"`
+}
+
+type VirtualMachineScaleSetSpecOsProfileLinuxConfigurationSecretCertificate struct {
+	Url *string `json:"url" tf:"url"`
+}
+
+type VirtualMachineScaleSetSpecOsProfileLinuxConfigurationSecret struct {
+	// +kubebuilder:validation:MinItems=1
+	Certificate []VirtualMachineScaleSetSpecOsProfileLinuxConfigurationSecretCertificate `json:"certificate" tf:"certificate"`
+	KeyVaultID  *string                                                                  `json:"keyVaultID" tf:"key_vault_id"`
+}
+
+type VirtualMachineScaleSetSpecOsProfileLinuxConfiguration struct {
+	// +optional
+	AdminPassword *string `json:"-" sensitive:"true" tf:"admin_password"`
+	// +optional
+	AdminSSHKey   []VirtualMachineScaleSetSpecOsProfileLinuxConfigurationAdminSSHKey `json:"adminSSHKey,omitempty" tf:"admin_ssh_key"`
+	AdminUsername *string                                                            `json:"adminUsername" tf:"admin_username"`
+	// +optional
+	ComputerNamePrefix *string `json:"computerNamePrefix,omitempty" tf:"computer_name_prefix"`
+	// +optional
+	DisablePasswordAuthentication *bool `json:"disablePasswordAuthentication,omitempty" tf:"disable_password_authentication"`
+	// +optional
+	PatchMode *string `json:"patchMode,omitempty" tf:"patch_mode"`
+	// +optional
+	ProvisionVmAgent *bool `json:"provisionVmAgent,omitempty" tf:"provision_vm_agent"`
+	// +optional
+	Secret []VirtualMachineScaleSetSpecOsProfileLinuxConfigurationSecret `json:"secret,omitempty" tf:"secret"`
+}
+
+type VirtualMachineScaleSetSpecOsProfileWindowsConfigurationSecretCertificate struct {
+	Store *string `json:"store" tf:"store"`
+	Url   *string `json:"url" tf:"url"`
+}
+
+type VirtualMachineScaleSetSpecOsProfileWindowsConfigurationSecret struct {
+	// +kubebuilder:validation:MinItems=1
+	Certificate []VirtualMachineScaleSetSpecOsProfileWindowsConfigurationSecretCertificate `json:"certificate" tf:"certificate"`
+	KeyVaultID  *string                                                                    `json:"keyVaultID" tf:"key_vault_id"`
+}
+
+type VirtualMachineScaleSetSpecOsProfileWindowsConfigurationWinrmListener struct {
+	// +optional
+	CertificateURL *string `json:"certificateURL,omitempty" tf:"certificate_url"`
+	Protocol       *string `json:"protocol" tf:"protocol"`
+}
+
+type VirtualMachineScaleSetSpecOsProfileWindowsConfiguration struct {
+	AdminPassword *string `json:"-" sensitive:"true" tf:"admin_password"`
+	AdminUsername *string `json:"adminUsername" tf:"admin_username"`
+	// +optional
+	ComputerNamePrefix *string `json:"computerNamePrefix,omitempty" tf:"computer_name_prefix"`
+	// +optional
+	EnableAutomaticUpdates *bool `json:"enableAutomaticUpdates,omitempty" tf:"enable_automatic_updates"`
+	// +optional
+	HotpatchingEnabled *bool `json:"hotpatchingEnabled,omitempty" tf:"hotpatching_enabled"`
+	// +optional
+	PatchMode *string `json:"patchMode,omitempty" tf:"patch_mode"`
+	// +optional
+	ProvisionVmAgent *bool `json:"provisionVmAgent,omitempty" tf:"provision_vm_agent"`
+	// +optional
+	Secret []VirtualMachineScaleSetSpecOsProfileWindowsConfigurationSecret `json:"secret,omitempty" tf:"secret"`
+	// +optional
+	Timezone *string `json:"timezone,omitempty" tf:"timezone"`
+	// +optional
+	WinrmListener []VirtualMachineScaleSetSpecOsProfileWindowsConfigurationWinrmListener `json:"winrmListener,omitempty" tf:"winrm_listener"`
+}
+
+type VirtualMachineScaleSetSpecOsProfile struct {
+	// +optional
+	CustomData *string `json:"-" sensitive:"true" tf:"custom_data"`
+	// +optional
+	LinuxConfiguration *VirtualMachineScaleSetSpecOsProfileLinuxConfiguration `json:"linuxConfiguration,omitempty" tf:"linux_configuration"`
+	// +optional
+	WindowsConfiguration *VirtualMachineScaleSetSpecOsProfileWindowsConfiguration `json:"windowsConfiguration,omitempty" tf:"windows_configuration"`
+}
+
+type VirtualMachineScaleSetSpecPlan struct {
+	Name      *string `json:"name" tf:"name"`
+	Product   *string `json:"product" tf:"product"`
+	Publisher *string `json:"publisher" tf:"publisher"`
+}
+
+type VirtualMachineScaleSetSpecSourceImageReference struct {
+	Offer     *string `json:"offer" tf:"offer"`
+	Publisher *string `json:"publisher" tf:"publisher"`
+	Sku       *string `json:"sku" tf:"sku"`
+	Version   *string `json:"version" tf:"version"`
+}
+
+type VirtualMachineScaleSetSpecTerminationNotification struct {
+	Enabled *bool `json:"enabled" tf:"enabled"`
+	// +optional
+	Timeout *string `json:"timeout,omitempty" tf:"timeout"`
+}
+
 type VirtualMachineScaleSetSpec struct {
 	State *VirtualMachineScaleSetSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -52,6 +275,8 @@ type VirtualMachineScaleSetSpec struct {
 
 	ProviderRef core.LocalObjectReference `json:"providerRef" tf:"-"`
 
+	SecretRef *core.LocalObjectReference `json:"secretRef,omitempty" tf:"-"`
+
 	BackendRef *core.LocalObjectReference `json:"backendRef,omitempty" tf:"-"`
 }
 
@@ -60,18 +285,58 @@ type VirtualMachineScaleSetSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	Location                 *string `json:"location" tf:"location"`
-	Name                     *string `json:"name" tf:"name"`
-	PlatformFaultDomainCount *int64  `json:"platformFaultDomainCount" tf:"platform_fault_domain_count"`
+	// +optional
+	AutomaticInstanceRepair *VirtualMachineScaleSetSpecAutomaticInstanceRepair `json:"automaticInstanceRepair,omitempty" tf:"automatic_instance_repair"`
+	// +optional
+	BootDiagnostics *VirtualMachineScaleSetSpecBootDiagnostics `json:"bootDiagnostics,omitempty" tf:"boot_diagnostics"`
+	// +optional
+	DataDisk []VirtualMachineScaleSetSpecDataDisk `json:"dataDisk,omitempty" tf:"data_disk"`
+	// +optional
+	EncryptionAtHostEnabled *bool `json:"encryptionAtHostEnabled,omitempty" tf:"encryption_at_host_enabled"`
+	// +optional
+	EvictionPolicy *string `json:"evictionPolicy,omitempty" tf:"eviction_policy"`
+	// +optional
+	Extension []VirtualMachineScaleSetSpecExtension `json:"extension,omitempty" tf:"extension"`
+	// +optional
+	ExtensionsTimeBudget *string `json:"extensionsTimeBudget,omitempty" tf:"extensions_time_budget"`
+	// +optional
+	Identity *VirtualMachineScaleSetSpecIdentity `json:"identity,omitempty" tf:"identity"`
+	// +optional
+	Instances *int64 `json:"instances,omitempty" tf:"instances"`
+	// +optional
+	LicenseType *string `json:"licenseType,omitempty" tf:"license_type"`
+	Location    *string `json:"location" tf:"location"`
+	// +optional
+	MaxBidPrice *float64 `json:"maxBidPrice,omitempty" tf:"max_bid_price"`
+	Name        *string  `json:"name" tf:"name"`
+	// +optional
+	NetworkInterface []VirtualMachineScaleSetSpecNetworkInterface `json:"networkInterface,omitempty" tf:"network_interface"`
+	// +optional
+	OsDisk *VirtualMachineScaleSetSpecOsDisk `json:"osDisk,omitempty" tf:"os_disk"`
+	// +optional
+	OsProfile *VirtualMachineScaleSetSpecOsProfile `json:"osProfile,omitempty" tf:"os_profile"`
+	// +optional
+	Plan                     *VirtualMachineScaleSetSpecPlan `json:"plan,omitempty" tf:"plan"`
+	PlatformFaultDomainCount *int64                          `json:"platformFaultDomainCount" tf:"platform_fault_domain_count"`
+	// +optional
+	Priority *string `json:"priority,omitempty" tf:"priority"`
 	// +optional
 	ProximityPlacementGroupID *string `json:"proximityPlacementGroupID,omitempty" tf:"proximity_placement_group_id"`
 	ResourceGroupName         *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
-	SinglePlacementGroup *bool `json:"singlePlacementGroup,omitempty" tf:"single_placement_group"`
+	SkuName *string `json:"skuName,omitempty" tf:"sku_name"`
+	// +optional
+	SourceImageID *string `json:"sourceImageID,omitempty" tf:"source_image_id"`
+	// +optional
+	SourceImageReference *VirtualMachineScaleSetSpecSourceImageReference `json:"sourceImageReference,omitempty" tf:"source_image_reference"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 	// +optional
+	TerminationNotification *VirtualMachineScaleSetSpecTerminationNotification `json:"terminationNotification,omitempty" tf:"termination_notification"`
+	// +optional
 	UniqueID *string `json:"uniqueID,omitempty" tf:"unique_id"`
+	// +optional
+	ZoneBalance *bool `json:"zoneBalance,omitempty" tf:"zone_balance"`
 	// +optional
 	Zones []string `json:"zones,omitempty" tf:"zones"`
 }

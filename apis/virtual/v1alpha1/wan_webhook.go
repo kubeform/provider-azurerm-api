@@ -90,7 +90,7 @@ func (r *Wan) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range wanForceNewList {
+	for key, _ := range wanForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -24,6 +24,8 @@ import (
 
 // Interface provides access to all the informers in this group version.
 type Interface interface {
+	// BudgetManagementGroups returns a BudgetManagementGroupInformer.
+	BudgetManagementGroups() BudgetManagementGroupInformer
 	// BudgetResourceGroups returns a BudgetResourceGroupInformer.
 	BudgetResourceGroups() BudgetResourceGroupInformer
 	// BudgetSubscriptions returns a BudgetSubscriptionInformer.
@@ -39,6 +41,11 @@ type version struct {
 // New returns a new Interface.
 func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakListOptions internalinterfaces.TweakListOptionsFunc) Interface {
 	return &version{factory: f, namespace: namespace, tweakListOptions: tweakListOptions}
+}
+
+// BudgetManagementGroups returns a BudgetManagementGroupInformer.
+func (v *version) BudgetManagementGroups() BudgetManagementGroupInformer {
+	return &budgetManagementGroupInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // BudgetResourceGroups returns a BudgetResourceGroupInformer.

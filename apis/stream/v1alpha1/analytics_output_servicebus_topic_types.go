@@ -72,7 +72,9 @@ type AnalyticsOutputServicebusTopicSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	Name                   *string                                          `json:"name" tf:"name"`
+	Name *string `json:"name" tf:"name"`
+	// +optional
+	PropertyColumns        []string                                         `json:"propertyColumns,omitempty" tf:"property_columns"`
 	ResourceGroupName      *string                                          `json:"resourceGroupName" tf:"resource_group_name"`
 	Serialization          *AnalyticsOutputServicebusTopicSpecSerialization `json:"serialization" tf:"serialization"`
 	ServicebusNamespace    *string                                          `json:"servicebusNamespace" tf:"servicebus_namespace"`

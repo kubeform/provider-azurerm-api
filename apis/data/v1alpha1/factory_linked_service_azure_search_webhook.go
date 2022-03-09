@@ -89,7 +89,7 @@ func (r *FactoryLinkedServiceAzureSearch) ValidateUpdate(old runtime.Object) err
 		return err
 	}
 
-	for key := range factorylinkedserviceazuresearchForceNewList {
+	for key, _ := range factorylinkedserviceazuresearchForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -90,6 +90,8 @@ spec:
                     type: string
                   sku:
                     type: string
+                  skuTier:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -177,6 +179,8 @@ spec:
                   reverseFqdn:
                     type: string
                   sku:
+                    type: string
+                  skuTier:
                     type: string
                   tags:
                     additionalProperties:

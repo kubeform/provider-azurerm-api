@@ -180,6 +180,8 @@ spec:
                           type: boolean
                         storageContainerID:
                           type: string
+                        storageResourceID:
+                          type: string
                       required:
                       - isDefault
                       - storageContainerID
@@ -374,6 +376,8 @@ spec:
                         isDefault:
                           type: boolean
                         storageContainerID:
+                          type: string
+                        storageResourceID:
                           type: string
                       required:
                       - isDefault

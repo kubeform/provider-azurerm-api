@@ -26,6 +26,14 @@ type GroupListerExpansion interface{}
 // GroupNamespaceLister.
 type GroupNamespaceListerExpansion interface{}
 
+// GroupCostManagementExportListerExpansion allows custom methods to be added to
+// GroupCostManagementExportLister.
+type GroupCostManagementExportListerExpansion interface{}
+
+// GroupCostManagementExportNamespaceListerExpansion allows custom methods to be added to
+// GroupCostManagementExportNamespaceLister.
+type GroupCostManagementExportNamespaceListerExpansion interface{}
+
 // GroupPolicyAssignmentListerExpansion allows custom methods to be added to
 // GroupPolicyAssignmentLister.
 type GroupPolicyAssignmentListerExpansion interface{}

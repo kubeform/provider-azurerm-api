@@ -57,6 +57,8 @@ spec:
                 type: object
               resource:
                 properties:
+                  allowNewPrivateEndpointConnections:
+                    type: boolean
                   clusterSetting:
                     items:
                       properties:
@@ -69,8 +71,45 @@ spec:
                       - value
                       type: object
                     type: array
+                  dedicatedHostCount:
+                    format: int64
+                    type: integer
+                  dnsSuffix:
+                    type: string
+                  externalInboundIPAddresses:
+                    items:
+                      type: string
+                    type: array
                   id:
                     type: string
+                  inboundNetworkDependencies:
+                    items:
+                      properties:
+                        description:
+                          type: string
+                        ipAddresses:
+                          items:
+                            type: string
+                          type: array
+                        ports:
+                          items:
+                            type: string
+                          type: array
+                      type: object
+                    type: array
+                  internalInboundIPAddresses:
+                    items:
+                      type: string
+                    type: array
+                  internalLoadBalancingMode:
+                    type: string
+                  ipSslAddressCount:
+                    format: int64
+                    type: integer
+                  linuxOutboundIPAddresses:
+                    items:
+                      type: string
+                    type: array
                   location:
                     type: string
                   name:
@@ -123,6 +162,12 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  windowsOutboundIPAddresses:
+                    items:
+                      type: string
+                    type: array
+                  zoneRedundant:
+                    type: boolean
                 required:
                 - name
                 - resourceGroupName
@@ -130,6 +175,8 @@ spec:
                 type: object
               state:
                 properties:
+                  allowNewPrivateEndpointConnections:
+                    type: boolean
                   clusterSetting:
                     items:
                       properties:
@@ -142,8 +189,45 @@ spec:
                       - value
                       type: object
                     type: array
+                  dedicatedHostCount:
+                    format: int64
+                    type: integer
+                  dnsSuffix:
+                    type: string
+                  externalInboundIPAddresses:
+                    items:
+                      type: string
+                    type: array
                   id:
                     type: string
+                  inboundNetworkDependencies:
+                    items:
+                      properties:
+                        description:
+                          type: string
+                        ipAddresses:
+                          items:
+                            type: string
+                          type: array
+                        ports:
+                          items:
+                            type: string
+                          type: array
+                      type: object
+                    type: array
+                  internalInboundIPAddresses:
+                    items:
+                      type: string
+                    type: array
+                  internalLoadBalancingMode:
+                    type: string
+                  ipSslAddressCount:
+                    format: int64
+                    type: integer
+                  linuxOutboundIPAddresses:
+                    items:
+                      type: string
+                    type: array
                   location:
                     type: string
                   name:
@@ -196,6 +280,12 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  windowsOutboundIPAddresses:
+                    items:
+                      type: string
+                    type: array
+                  zoneRedundant:
+                    type: boolean
                 required:
                 - name
                 - resourceGroupName

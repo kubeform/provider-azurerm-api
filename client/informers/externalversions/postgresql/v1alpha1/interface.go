@@ -34,6 +34,10 @@ type Interface interface {
 	FirewallRules() FirewallRuleInformer
 	// FlexibleServers returns a FlexibleServerInformer.
 	FlexibleServers() FlexibleServerInformer
+	// FlexibleServerConfigurations returns a FlexibleServerConfigurationInformer.
+	FlexibleServerConfigurations() FlexibleServerConfigurationInformer
+	// FlexibleServerDatabases returns a FlexibleServerDatabaseInformer.
+	FlexibleServerDatabases() FlexibleServerDatabaseInformer
 	// FlexibleServerFirewallRules returns a FlexibleServerFirewallRuleInformer.
 	FlexibleServerFirewallRules() FlexibleServerFirewallRuleInformer
 	// Servers returns a ServerInformer.
@@ -78,6 +82,16 @@ func (v *version) FirewallRules() FirewallRuleInformer {
 // FlexibleServers returns a FlexibleServerInformer.
 func (v *version) FlexibleServers() FlexibleServerInformer {
 	return &flexibleServerInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// FlexibleServerConfigurations returns a FlexibleServerConfigurationInformer.
+func (v *version) FlexibleServerConfigurations() FlexibleServerConfigurationInformer {
+	return &flexibleServerConfigurationInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// FlexibleServerDatabases returns a FlexibleServerDatabaseInformer.
+func (v *version) FlexibleServerDatabases() FlexibleServerDatabaseInformer {
+	return &flexibleServerDatabaseInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // FlexibleServerFirewallRules returns a FlexibleServerFirewallRuleInformer.

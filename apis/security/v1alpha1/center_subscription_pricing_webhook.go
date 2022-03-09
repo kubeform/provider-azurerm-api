@@ -86,7 +86,7 @@ func (r *CenterSubscriptionPricing) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range centersubscriptionpricingForceNewList {
+	for key, _ := range centersubscriptionpricingForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

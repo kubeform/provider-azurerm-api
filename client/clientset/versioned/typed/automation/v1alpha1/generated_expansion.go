@@ -51,3 +51,5 @@ type VariableDatetimeExpansion interface{}
 type VariableIntExpansion interface{}
 
 type VariableStringExpansion interface{}
+
+type WebhookExpansion interface{}

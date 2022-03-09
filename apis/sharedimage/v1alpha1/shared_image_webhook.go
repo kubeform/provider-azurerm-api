@@ -52,6 +52,7 @@ var sharedimageForceNewList = map[string]bool{
 	"/purchase_plan/*/publisher": true,
 	"/resource_group_name":       true,
 	"/specialized":               true,
+	"/trusted_launch_enabled":    true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -97,7 +98,7 @@ func (r *SharedImage) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range sharedimageForceNewList {
+	for key, _ := range sharedimageForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

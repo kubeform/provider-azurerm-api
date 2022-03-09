@@ -41,6 +41,11 @@ type FactoryLinkedServiceAzureFunction struct {
 	Status            FactoryLinkedServiceAzureFunctionStatus `json:"status,omitempty"`
 }
 
+type FactoryLinkedServiceAzureFunctionSpecKeyVaultKey struct {
+	LinkedServiceName *string `json:"linkedServiceName" tf:"linked_service_name"`
+	SecretName        *string `json:"secretName" tf:"secret_name"`
+}
+
 type FactoryLinkedServiceAzureFunctionSpec struct {
 	State *FactoryLinkedServiceAzureFunctionSpecResource `json:"state,omitempty" tf:"-"`
 
@@ -65,14 +70,21 @@ type FactoryLinkedServiceAzureFunctionSpecResource struct {
 	// +optional
 	AdditionalProperties *map[string]string `json:"additionalProperties,omitempty" tf:"additional_properties"`
 	// +optional
-	Annotations     []string `json:"annotations,omitempty" tf:"annotations"`
-	DataFactoryName *string  `json:"dataFactoryName" tf:"data_factory_name"`
+	Annotations []string `json:"annotations,omitempty" tf:"annotations"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional
 	IntegrationRuntimeName *string `json:"integrationRuntimeName,omitempty" tf:"integration_runtime_name"`
-	Key                    *string `json:"-" sensitive:"true" tf:"key"`
-	Name                   *string `json:"name" tf:"name"`
+	// +optional
+	Key *string `json:"-" sensitive:"true" tf:"key"`
+	// +optional
+	KeyVaultKey *FactoryLinkedServiceAzureFunctionSpecKeyVaultKey `json:"keyVaultKey,omitempty" tf:"key_vault_key"`
+	Name        *string                                           `json:"name" tf:"name"`
 	// +optional
 	Parameters        *map[string]string `json:"parameters,omitempty" tf:"parameters"`
 	ResourceGroupName *string            `json:"resourceGroupName" tf:"resource_group_name"`

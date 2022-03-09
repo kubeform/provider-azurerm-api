@@ -89,7 +89,7 @@ func (r *InterfaceApplicationSecurityGroupAssociation) ValidateUpdate(old runtim
 		return err
 	}
 
-	for key := range interfaceapplicationsecuritygroupassociationForceNewList {
+	for key, _ := range interfaceapplicationsecuritygroupassociationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

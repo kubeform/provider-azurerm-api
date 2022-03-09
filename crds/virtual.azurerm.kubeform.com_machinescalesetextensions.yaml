@@ -59,6 +59,8 @@ spec:
                 properties:
                   autoUpgradeMinorVersion:
                     type: boolean
+                  automaticUpgradeEnabled:
+                    type: boolean
                   forceUpdateTag:
                     type: string
                   id:
@@ -136,6 +138,8 @@ spec:
               state:
                 properties:
                   autoUpgradeMinorVersion:
+                    type: boolean
+                  automaticUpgradeEnabled:
                     type: boolean
                   forceUpdateTag:
                     type: string

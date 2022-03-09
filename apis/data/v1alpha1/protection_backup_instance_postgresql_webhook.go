@@ -91,7 +91,7 @@ func (r *ProtectionBackupInstancePostgresql) ValidateUpdate(old runtime.Object) 
 		return err
 	}
 
-	for key := range protectionbackupinstancepostgresqlForceNewList {
+	for key, _ := range protectionbackupinstancepostgresqlForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

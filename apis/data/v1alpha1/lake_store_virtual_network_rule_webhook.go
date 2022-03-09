@@ -90,7 +90,7 @@ func (r *LakeStoreVirtualNetworkRule) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range lakestorevirtualnetworkruleForceNewList {
+	for key, _ := range lakestorevirtualnetworkruleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

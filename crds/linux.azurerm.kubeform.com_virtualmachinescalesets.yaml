@@ -112,9 +112,11 @@ spec:
                         diskEncryptionSetID:
                           type: string
                         diskIopsReadWrite:
+                          description: Deprecated
                           format: int64
                           type: integer
                         diskMbpsReadWrite:
+                          description: Deprecated
                           format: int64
                           type: integer
                         diskSizeGb:
@@ -125,6 +127,12 @@ spec:
                           type: integer
                         storageAccountType:
                           type: string
+                        ultraSsdDiskIopsReadWrite:
+                          format: int64
+                          type: integer
+                        ultraSsdDiskMbpsReadWrite:
+                          format: int64
+                          type: integer
                         writeAcceleratorEnabled:
                           type: boolean
                       required:
@@ -146,6 +154,8 @@ spec:
                     items:
                       properties:
                         autoUpgradeMinorVersion:
+                          type: boolean
+                        automaticUpgradeEnabled:
                           type: boolean
                         forceUpdateTag:
                           type: string
@@ -183,6 +193,8 @@ spec:
                           type: string
                         type: array
                       principalID:
+                        type: string
+                      tenantID:
                         type: string
                       type:
                         type: string
@@ -372,6 +384,8 @@ spec:
                       - keyVaultID
                       type: object
                     type: array
+                  secureBootEnabled:
+                    type: boolean
                   singlePlacementGroup:
                     type: boolean
                   sku:
@@ -449,6 +463,10 @@ spec:
                     type: string
                   upgradeMode:
                     type: string
+                  userData:
+                    type: string
+                  vtpmEnabled:
+                    type: boolean
                   zoneBalance:
                     type: boolean
                   zones:
@@ -531,9 +549,11 @@ spec:
                         diskEncryptionSetID:
                           type: string
                         diskIopsReadWrite:
+                          description: Deprecated
                           format: int64
                           type: integer
                         diskMbpsReadWrite:
+                          description: Deprecated
                           format: int64
                           type: integer
                         diskSizeGb:
@@ -544,6 +564,12 @@ spec:
                           type: integer
                         storageAccountType:
                           type: string
+                        ultraSsdDiskIopsReadWrite:
+                          format: int64
+                          type: integer
+                        ultraSsdDiskMbpsReadWrite:
+                          format: int64
+                          type: integer
                         writeAcceleratorEnabled:
                           type: boolean
                       required:
@@ -565,6 +591,8 @@ spec:
                     items:
                       properties:
                         autoUpgradeMinorVersion:
+                          type: boolean
+                        automaticUpgradeEnabled:
                           type: boolean
                         forceUpdateTag:
                           type: string
@@ -602,6 +630,8 @@ spec:
                           type: string
                         type: array
                       principalID:
+                        type: string
+                      tenantID:
                         type: string
                       type:
                         type: string
@@ -791,6 +821,8 @@ spec:
                       - keyVaultID
                       type: object
                     type: array
+                  secureBootEnabled:
+                    type: boolean
                   singlePlacementGroup:
                     type: boolean
                   sku:
@@ -868,6 +900,10 @@ spec:
                     type: string
                   upgradeMode:
                     type: string
+                  userData:
+                    type: string
+                  vtpmEnabled:
+                    type: boolean
                   zoneBalance:
                     type: boolean
                   zones:

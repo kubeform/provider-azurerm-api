@@ -202,6 +202,8 @@ spec:
                           type: object
                         tcpConfiguration:
                           properties:
+                            destinationPortBehavior:
+                              type: string
                             port:
                               format: int64
                               type: integer
@@ -437,6 +439,8 @@ spec:
                           type: object
                         tcpConfiguration:
                           properties:
+                            destinationPortBehavior:
+                              type: string
                             port:
                               format: int64
                               type: integer

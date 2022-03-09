@@ -35,3 +35,5 @@ type CloudCustomDomainExpansion interface{}
 type CloudJavaDeploymentExpansion interface{}
 
 type CloudServiceExpansion interface{}
+
+type CloudStorageExpansion interface{}

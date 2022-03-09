@@ -28,6 +28,7 @@ import (
 type StaticV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	SitesGetter
+	SiteCustomDomainsGetter
 }
 
 // StaticV1alpha1Client is used to interact with features provided by the static.azurerm.kubeform.com group.
@@ -37,6 +38,10 @@ type StaticV1alpha1Client struct {
 
 func (c *StaticV1alpha1Client) Sites(namespace string) SiteInterface {
 	return newSites(c, namespace)
+}
+
+func (c *StaticV1alpha1Client) SiteCustomDomains(namespace string) SiteCustomDomainInterface {
+	return newSiteCustomDomains(c, namespace)
 }
 
 // NewForConfig creates a new StaticV1alpha1Client for the given config.

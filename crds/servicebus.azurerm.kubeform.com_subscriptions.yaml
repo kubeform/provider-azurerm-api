@@ -81,10 +81,12 @@ spec:
                   name:
                     type: string
                   namespaceName:
+                    description: Deprecated
                     type: string
                   requiresSession:
                     type: boolean
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   status:
                     type: string
@@ -126,14 +128,14 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  topicID:
+                    type: string
                   topicName:
+                    description: Deprecated
                     type: string
                 required:
                 - maxDeliveryCount
                 - name
-                - namespaceName
-                - resourceGroupName
-                - topicName
                 type: object
               state:
                 properties:
@@ -161,10 +163,12 @@ spec:
                   name:
                     type: string
                   namespaceName:
+                    description: Deprecated
                     type: string
                   requiresSession:
                     type: boolean
                   resourceGroupName:
+                    description: Deprecated
                     type: string
                   status:
                     type: string
@@ -206,14 +210,14 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  topicID:
+                    type: string
                   topicName:
+                    description: Deprecated
                     type: string
                 required:
                 - maxDeliveryCount
                 - name
-                - namespaceName
-                - resourceGroupName
-                - topicName
                 type: object
               terminationPolicy:
                 enum:

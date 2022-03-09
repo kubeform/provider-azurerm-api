@@ -66,19 +66,30 @@ spec:
                   remoteVPNSiteID:
                     type: string
                   routing:
-                    items:
-                      properties:
-                        associatedRouteTable:
+                    properties:
+                      associatedRouteTable:
+                        type: string
+                      propagatedRouteTable:
+                        properties:
+                          labels:
+                            items:
+                              type: string
+                            type: array
+                          routeTableIDS:
+                            items:
+                              type: string
+                            type: array
+                        required:
+                        - routeTableIDS
+                        type: object
+                      propagatedRouteTables:
+                        description: Deprecated
+                        items:
                           type: string
-                        propagatedRouteTables:
-                          items:
-                            type: string
-                          type: array
-                      required:
-                      - associatedRouteTable
-                      - propagatedRouteTables
-                      type: object
-                    type: array
+                        type: array
+                    required:
+                    - associatedRouteTable
+                    type: object
                   timeouts:
                     properties:
                       create:
@@ -117,6 +128,22 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  trafficSelectorPolicy:
+                    items:
+                      properties:
+                        localAddressRanges:
+                          items:
+                            type: string
+                          type: array
+                        remoteAddressRanges:
+                          items:
+                            type: string
+                          type: array
+                      required:
+                      - localAddressRanges
+                      - remoteAddressRanges
+                      type: object
+                    type: array
                   vpnGatewayID:
                     type: string
                   vpnLink:
@@ -127,6 +154,16 @@ spec:
                           type: integer
                         bgpEnabled:
                           type: boolean
+                        connectionMode:
+                          type: string
+                        egressNATRuleIDS:
+                          items:
+                            type: string
+                          type: array
+                        ingressNATRuleIDS:
+                          items:
+                            type: string
+                          type: array
                         ipsecPolicy:
                           items:
                             properties:
@@ -200,19 +237,30 @@ spec:
                   remoteVPNSiteID:
                     type: string
                   routing:
-                    items:
-                      properties:
-                        associatedRouteTable:
+                    properties:
+                      associatedRouteTable:
+                        type: string
+                      propagatedRouteTable:
+                        properties:
+                          labels:
+                            items:
+                              type: string
+                            type: array
+                          routeTableIDS:
+                            items:
+                              type: string
+                            type: array
+                        required:
+                        - routeTableIDS
+                        type: object
+                      propagatedRouteTables:
+                        description: Deprecated
+                        items:
                           type: string
-                        propagatedRouteTables:
-                          items:
-                            type: string
-                          type: array
-                      required:
-                      - associatedRouteTable
-                      - propagatedRouteTables
-                      type: object
-                    type: array
+                        type: array
+                    required:
+                    - associatedRouteTable
+                    type: object
                   timeouts:
                     properties:
                       create:
@@ -251,6 +299,22 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  trafficSelectorPolicy:
+                    items:
+                      properties:
+                        localAddressRanges:
+                          items:
+                            type: string
+                          type: array
+                        remoteAddressRanges:
+                          items:
+                            type: string
+                          type: array
+                      required:
+                      - localAddressRanges
+                      - remoteAddressRanges
+                      type: object
+                    type: array
                   vpnGatewayID:
                     type: string
                   vpnLink:
@@ -261,6 +325,16 @@ spec:
                           type: integer
                         bgpEnabled:
                           type: boolean
+                        connectionMode:
+                          type: string
+                        egressNATRuleIDS:
+                          items:
+                            type: string
+                          type: array
+                        ingressNATRuleIDS:
+                          items:
+                            type: string
+                          type: array
                         ipsecPolicy:
                           items:
                             properties:

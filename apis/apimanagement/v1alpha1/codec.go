@@ -44,9 +44,13 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiSpecOpenidAuthentication{}).Type1()):                                    ApiSpecOpenidAuthenticationCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiSpecSubscriptionKeyParameterNames{}).Type1()):                           ApiSpecSubscriptionKeyParameterNamesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendRequest{}).Type1()):                                ApiDiagnosticSpecBackendRequestCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendRequestDataMasking{}).Type1()):                     ApiDiagnosticSpecBackendRequestDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendResponse{}).Type1()):                               ApiDiagnosticSpecBackendResponseCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendResponseDataMasking{}).Type1()):                    ApiDiagnosticSpecBackendResponseDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendRequest{}).Type1()):                               ApiDiagnosticSpecFrontendRequestCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendRequestDataMasking{}).Type1()):                    ApiDiagnosticSpecFrontendRequestDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendResponse{}).Type1()):                              ApiDiagnosticSpecFrontendResponseCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendResponseDataMasking{}).Type1()):                   ApiDiagnosticSpecFrontendResponseDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiOperationSpecRequest{}).Type1()):                                        ApiOperationSpecRequestCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(BackendSpecCredentials{}).Type1()):                                         BackendSpecCredentialsCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(BackendSpecCredentialsAuthorization{}).Type1()):                            BackendSpecCredentialsAuthorizationCodec{},
@@ -54,11 +58,17 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(BackendSpecServiceFabricCluster{}).Type1()):                                BackendSpecServiceFabricClusterCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(BackendSpecTls{}).Type1()):                                                 BackendSpecTlsCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendRequest{}).Type1()):                                   DiagnosticSpecBackendRequestCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendRequestDataMasking{}).Type1()):                        DiagnosticSpecBackendRequestDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendResponse{}).Type1()):                                  DiagnosticSpecBackendResponseCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendResponseDataMasking{}).Type1()):                       DiagnosticSpecBackendResponseDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendRequest{}).Type1()):                                  DiagnosticSpecFrontendRequestCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendRequestDataMasking{}).Type1()):                       DiagnosticSpecFrontendRequestDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendResponse{}).Type1()):                                 DiagnosticSpecFrontendResponseCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendResponseDataMasking{}).Type1()):                      DiagnosticSpecFrontendResponseDataMaskingCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecLocationData{}).Type1()):                                        GatewaySpecLocationDataCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(LoggerSpecApplicationInsights{}).Type1()):                                  LoggerSpecApplicationInsightsCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(LoggerSpecEventhub{}).Type1()):                                             LoggerSpecEventhubCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(NamedValueSpecValueFromKeyVault{}).Type1()):                                NamedValueSpecValueFromKeyVaultCodec{},
 	}
 }
 
@@ -81,9 +91,13 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiSpecOpenidAuthentication{}).Type1()):                                    ApiSpecOpenidAuthenticationCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiSpecSubscriptionKeyParameterNames{}).Type1()):                           ApiSpecSubscriptionKeyParameterNamesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendRequest{}).Type1()):                                ApiDiagnosticSpecBackendRequestCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendRequestDataMasking{}).Type1()):                     ApiDiagnosticSpecBackendRequestDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendResponse{}).Type1()):                               ApiDiagnosticSpecBackendResponseCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendResponseDataMasking{}).Type1()):                    ApiDiagnosticSpecBackendResponseDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendRequest{}).Type1()):                               ApiDiagnosticSpecFrontendRequestCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendRequestDataMasking{}).Type1()):                    ApiDiagnosticSpecFrontendRequestDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendResponse{}).Type1()):                              ApiDiagnosticSpecFrontendResponseCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendResponseDataMasking{}).Type1()):                   ApiDiagnosticSpecFrontendResponseDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(ApiOperationSpecRequest{}).Type1()):                                        ApiOperationSpecRequestCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(BackendSpecCredentials{}).Type1()):                                         BackendSpecCredentialsCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(BackendSpecCredentialsAuthorization{}).Type1()):                            BackendSpecCredentialsAuthorizationCodec{},
@@ -91,11 +105,17 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(BackendSpecServiceFabricCluster{}).Type1()):                                BackendSpecServiceFabricClusterCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(BackendSpecTls{}).Type1()):                                                 BackendSpecTlsCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendRequest{}).Type1()):                                   DiagnosticSpecBackendRequestCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendRequestDataMasking{}).Type1()):                        DiagnosticSpecBackendRequestDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendResponse{}).Type1()):                                  DiagnosticSpecBackendResponseCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendResponseDataMasking{}).Type1()):                       DiagnosticSpecBackendResponseDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendRequest{}).Type1()):                                  DiagnosticSpecFrontendRequestCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendRequestDataMasking{}).Type1()):                       DiagnosticSpecFrontendRequestDataMaskingCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendResponse{}).Type1()):                                 DiagnosticSpecFrontendResponseCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendResponseDataMasking{}).Type1()):                      DiagnosticSpecFrontendResponseDataMaskingCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecLocationData{}).Type1()):                                        GatewaySpecLocationDataCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(LoggerSpecApplicationInsights{}).Type1()):                                  LoggerSpecApplicationInsightsCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(LoggerSpecEventhub{}).Type1()):                                             LoggerSpecEventhubCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(NamedValueSpecValueFromKeyVault{}).Type1()):                                NamedValueSpecValueFromKeyVaultCodec{},
 	}
 }
 
@@ -1455,6 +1475,85 @@ func (ApiDiagnosticSpecBackendRequestCodec) Decode(ptr unsafe.Pointer, iter *jso
 }
 
 // +k8s:deepcopy-gen=false
+type ApiDiagnosticSpecBackendRequestDataMaskingCodec struct {
+}
+
+func (ApiDiagnosticSpecBackendRequestDataMaskingCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*ApiDiagnosticSpecBackendRequestDataMasking)(ptr) == nil
+}
+
+func (ApiDiagnosticSpecBackendRequestDataMaskingCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*ApiDiagnosticSpecBackendRequestDataMasking)(ptr)
+	var objs []ApiDiagnosticSpecBackendRequestDataMasking
+	if obj != nil {
+		objs = []ApiDiagnosticSpecBackendRequestDataMasking{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendRequestDataMasking{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (ApiDiagnosticSpecBackendRequestDataMaskingCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*ApiDiagnosticSpecBackendRequestDataMasking)(ptr) = ApiDiagnosticSpecBackendRequestDataMasking{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []ApiDiagnosticSpecBackendRequestDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendRequestDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*ApiDiagnosticSpecBackendRequestDataMasking)(ptr) = objs[0]
+			} else {
+				*(*ApiDiagnosticSpecBackendRequestDataMasking)(ptr) = ApiDiagnosticSpecBackendRequestDataMasking{}
+			}
+		} else {
+			*(*ApiDiagnosticSpecBackendRequestDataMasking)(ptr) = ApiDiagnosticSpecBackendRequestDataMasking{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj ApiDiagnosticSpecBackendRequestDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendRequestDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*ApiDiagnosticSpecBackendRequestDataMasking)(ptr) = obj
+		} else {
+			*(*ApiDiagnosticSpecBackendRequestDataMasking)(ptr) = ApiDiagnosticSpecBackendRequestDataMasking{}
+		}
+	default:
+		iter.ReportError("decode ApiDiagnosticSpecBackendRequestDataMasking", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type ApiDiagnosticSpecBackendResponseCodec struct {
 }
 
@@ -1530,6 +1629,85 @@ func (ApiDiagnosticSpecBackendResponseCodec) Decode(ptr unsafe.Pointer, iter *js
 		}
 	default:
 		iter.ReportError("decode ApiDiagnosticSpecBackendResponse", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type ApiDiagnosticSpecBackendResponseDataMaskingCodec struct {
+}
+
+func (ApiDiagnosticSpecBackendResponseDataMaskingCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*ApiDiagnosticSpecBackendResponseDataMasking)(ptr) == nil
+}
+
+func (ApiDiagnosticSpecBackendResponseDataMaskingCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*ApiDiagnosticSpecBackendResponseDataMasking)(ptr)
+	var objs []ApiDiagnosticSpecBackendResponseDataMasking
+	if obj != nil {
+		objs = []ApiDiagnosticSpecBackendResponseDataMasking{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendResponseDataMasking{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (ApiDiagnosticSpecBackendResponseDataMaskingCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*ApiDiagnosticSpecBackendResponseDataMasking)(ptr) = ApiDiagnosticSpecBackendResponseDataMasking{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []ApiDiagnosticSpecBackendResponseDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendResponseDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*ApiDiagnosticSpecBackendResponseDataMasking)(ptr) = objs[0]
+			} else {
+				*(*ApiDiagnosticSpecBackendResponseDataMasking)(ptr) = ApiDiagnosticSpecBackendResponseDataMasking{}
+			}
+		} else {
+			*(*ApiDiagnosticSpecBackendResponseDataMasking)(ptr) = ApiDiagnosticSpecBackendResponseDataMasking{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj ApiDiagnosticSpecBackendResponseDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecBackendResponseDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*ApiDiagnosticSpecBackendResponseDataMasking)(ptr) = obj
+		} else {
+			*(*ApiDiagnosticSpecBackendResponseDataMasking)(ptr) = ApiDiagnosticSpecBackendResponseDataMasking{}
+		}
+	default:
+		iter.ReportError("decode ApiDiagnosticSpecBackendResponseDataMasking", "unexpected JSON type")
 	}
 }
 
@@ -1613,6 +1791,85 @@ func (ApiDiagnosticSpecFrontendRequestCodec) Decode(ptr unsafe.Pointer, iter *js
 }
 
 // +k8s:deepcopy-gen=false
+type ApiDiagnosticSpecFrontendRequestDataMaskingCodec struct {
+}
+
+func (ApiDiagnosticSpecFrontendRequestDataMaskingCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*ApiDiagnosticSpecFrontendRequestDataMasking)(ptr) == nil
+}
+
+func (ApiDiagnosticSpecFrontendRequestDataMaskingCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*ApiDiagnosticSpecFrontendRequestDataMasking)(ptr)
+	var objs []ApiDiagnosticSpecFrontendRequestDataMasking
+	if obj != nil {
+		objs = []ApiDiagnosticSpecFrontendRequestDataMasking{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendRequestDataMasking{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (ApiDiagnosticSpecFrontendRequestDataMaskingCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*ApiDiagnosticSpecFrontendRequestDataMasking)(ptr) = ApiDiagnosticSpecFrontendRequestDataMasking{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []ApiDiagnosticSpecFrontendRequestDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendRequestDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*ApiDiagnosticSpecFrontendRequestDataMasking)(ptr) = objs[0]
+			} else {
+				*(*ApiDiagnosticSpecFrontendRequestDataMasking)(ptr) = ApiDiagnosticSpecFrontendRequestDataMasking{}
+			}
+		} else {
+			*(*ApiDiagnosticSpecFrontendRequestDataMasking)(ptr) = ApiDiagnosticSpecFrontendRequestDataMasking{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj ApiDiagnosticSpecFrontendRequestDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendRequestDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*ApiDiagnosticSpecFrontendRequestDataMasking)(ptr) = obj
+		} else {
+			*(*ApiDiagnosticSpecFrontendRequestDataMasking)(ptr) = ApiDiagnosticSpecFrontendRequestDataMasking{}
+		}
+	default:
+		iter.ReportError("decode ApiDiagnosticSpecFrontendRequestDataMasking", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type ApiDiagnosticSpecFrontendResponseCodec struct {
 }
 
@@ -1688,6 +1945,85 @@ func (ApiDiagnosticSpecFrontendResponseCodec) Decode(ptr unsafe.Pointer, iter *j
 		}
 	default:
 		iter.ReportError("decode ApiDiagnosticSpecFrontendResponse", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type ApiDiagnosticSpecFrontendResponseDataMaskingCodec struct {
+}
+
+func (ApiDiagnosticSpecFrontendResponseDataMaskingCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*ApiDiagnosticSpecFrontendResponseDataMasking)(ptr) == nil
+}
+
+func (ApiDiagnosticSpecFrontendResponseDataMaskingCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*ApiDiagnosticSpecFrontendResponseDataMasking)(ptr)
+	var objs []ApiDiagnosticSpecFrontendResponseDataMasking
+	if obj != nil {
+		objs = []ApiDiagnosticSpecFrontendResponseDataMasking{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendResponseDataMasking{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (ApiDiagnosticSpecFrontendResponseDataMaskingCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*ApiDiagnosticSpecFrontendResponseDataMasking)(ptr) = ApiDiagnosticSpecFrontendResponseDataMasking{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []ApiDiagnosticSpecFrontendResponseDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendResponseDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*ApiDiagnosticSpecFrontendResponseDataMasking)(ptr) = objs[0]
+			} else {
+				*(*ApiDiagnosticSpecFrontendResponseDataMasking)(ptr) = ApiDiagnosticSpecFrontendResponseDataMasking{}
+			}
+		} else {
+			*(*ApiDiagnosticSpecFrontendResponseDataMasking)(ptr) = ApiDiagnosticSpecFrontendResponseDataMasking{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj ApiDiagnosticSpecFrontendResponseDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(ApiDiagnosticSpecFrontendResponseDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*ApiDiagnosticSpecFrontendResponseDataMasking)(ptr) = obj
+		} else {
+			*(*ApiDiagnosticSpecFrontendResponseDataMasking)(ptr) = ApiDiagnosticSpecFrontendResponseDataMasking{}
+		}
+	default:
+		iter.ReportError("decode ApiDiagnosticSpecFrontendResponseDataMasking", "unexpected JSON type")
 	}
 }
 
@@ -2245,6 +2581,85 @@ func (DiagnosticSpecBackendRequestCodec) Decode(ptr unsafe.Pointer, iter *jsonit
 }
 
 // +k8s:deepcopy-gen=false
+type DiagnosticSpecBackendRequestDataMaskingCodec struct {
+}
+
+func (DiagnosticSpecBackendRequestDataMaskingCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*DiagnosticSpecBackendRequestDataMasking)(ptr) == nil
+}
+
+func (DiagnosticSpecBackendRequestDataMaskingCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*DiagnosticSpecBackendRequestDataMasking)(ptr)
+	var objs []DiagnosticSpecBackendRequestDataMasking
+	if obj != nil {
+		objs = []DiagnosticSpecBackendRequestDataMasking{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendRequestDataMasking{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (DiagnosticSpecBackendRequestDataMaskingCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*DiagnosticSpecBackendRequestDataMasking)(ptr) = DiagnosticSpecBackendRequestDataMasking{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []DiagnosticSpecBackendRequestDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendRequestDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*DiagnosticSpecBackendRequestDataMasking)(ptr) = objs[0]
+			} else {
+				*(*DiagnosticSpecBackendRequestDataMasking)(ptr) = DiagnosticSpecBackendRequestDataMasking{}
+			}
+		} else {
+			*(*DiagnosticSpecBackendRequestDataMasking)(ptr) = DiagnosticSpecBackendRequestDataMasking{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj DiagnosticSpecBackendRequestDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendRequestDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*DiagnosticSpecBackendRequestDataMasking)(ptr) = obj
+		} else {
+			*(*DiagnosticSpecBackendRequestDataMasking)(ptr) = DiagnosticSpecBackendRequestDataMasking{}
+		}
+	default:
+		iter.ReportError("decode DiagnosticSpecBackendRequestDataMasking", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type DiagnosticSpecBackendResponseCodec struct {
 }
 
@@ -2320,6 +2735,85 @@ func (DiagnosticSpecBackendResponseCodec) Decode(ptr unsafe.Pointer, iter *jsoni
 		}
 	default:
 		iter.ReportError("decode DiagnosticSpecBackendResponse", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type DiagnosticSpecBackendResponseDataMaskingCodec struct {
+}
+
+func (DiagnosticSpecBackendResponseDataMaskingCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*DiagnosticSpecBackendResponseDataMasking)(ptr) == nil
+}
+
+func (DiagnosticSpecBackendResponseDataMaskingCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*DiagnosticSpecBackendResponseDataMasking)(ptr)
+	var objs []DiagnosticSpecBackendResponseDataMasking
+	if obj != nil {
+		objs = []DiagnosticSpecBackendResponseDataMasking{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendResponseDataMasking{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (DiagnosticSpecBackendResponseDataMaskingCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*DiagnosticSpecBackendResponseDataMasking)(ptr) = DiagnosticSpecBackendResponseDataMasking{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []DiagnosticSpecBackendResponseDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendResponseDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*DiagnosticSpecBackendResponseDataMasking)(ptr) = objs[0]
+			} else {
+				*(*DiagnosticSpecBackendResponseDataMasking)(ptr) = DiagnosticSpecBackendResponseDataMasking{}
+			}
+		} else {
+			*(*DiagnosticSpecBackendResponseDataMasking)(ptr) = DiagnosticSpecBackendResponseDataMasking{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj DiagnosticSpecBackendResponseDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecBackendResponseDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*DiagnosticSpecBackendResponseDataMasking)(ptr) = obj
+		} else {
+			*(*DiagnosticSpecBackendResponseDataMasking)(ptr) = DiagnosticSpecBackendResponseDataMasking{}
+		}
+	default:
+		iter.ReportError("decode DiagnosticSpecBackendResponseDataMasking", "unexpected JSON type")
 	}
 }
 
@@ -2403,6 +2897,85 @@ func (DiagnosticSpecFrontendRequestCodec) Decode(ptr unsafe.Pointer, iter *jsoni
 }
 
 // +k8s:deepcopy-gen=false
+type DiagnosticSpecFrontendRequestDataMaskingCodec struct {
+}
+
+func (DiagnosticSpecFrontendRequestDataMaskingCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*DiagnosticSpecFrontendRequestDataMasking)(ptr) == nil
+}
+
+func (DiagnosticSpecFrontendRequestDataMaskingCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*DiagnosticSpecFrontendRequestDataMasking)(ptr)
+	var objs []DiagnosticSpecFrontendRequestDataMasking
+	if obj != nil {
+		objs = []DiagnosticSpecFrontendRequestDataMasking{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendRequestDataMasking{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (DiagnosticSpecFrontendRequestDataMaskingCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*DiagnosticSpecFrontendRequestDataMasking)(ptr) = DiagnosticSpecFrontendRequestDataMasking{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []DiagnosticSpecFrontendRequestDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendRequestDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*DiagnosticSpecFrontendRequestDataMasking)(ptr) = objs[0]
+			} else {
+				*(*DiagnosticSpecFrontendRequestDataMasking)(ptr) = DiagnosticSpecFrontendRequestDataMasking{}
+			}
+		} else {
+			*(*DiagnosticSpecFrontendRequestDataMasking)(ptr) = DiagnosticSpecFrontendRequestDataMasking{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj DiagnosticSpecFrontendRequestDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendRequestDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*DiagnosticSpecFrontendRequestDataMasking)(ptr) = obj
+		} else {
+			*(*DiagnosticSpecFrontendRequestDataMasking)(ptr) = DiagnosticSpecFrontendRequestDataMasking{}
+		}
+	default:
+		iter.ReportError("decode DiagnosticSpecFrontendRequestDataMasking", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type DiagnosticSpecFrontendResponseCodec struct {
 }
 
@@ -2478,6 +3051,164 @@ func (DiagnosticSpecFrontendResponseCodec) Decode(ptr unsafe.Pointer, iter *json
 		}
 	default:
 		iter.ReportError("decode DiagnosticSpecFrontendResponse", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type DiagnosticSpecFrontendResponseDataMaskingCodec struct {
+}
+
+func (DiagnosticSpecFrontendResponseDataMaskingCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*DiagnosticSpecFrontendResponseDataMasking)(ptr) == nil
+}
+
+func (DiagnosticSpecFrontendResponseDataMaskingCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*DiagnosticSpecFrontendResponseDataMasking)(ptr)
+	var objs []DiagnosticSpecFrontendResponseDataMasking
+	if obj != nil {
+		objs = []DiagnosticSpecFrontendResponseDataMasking{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendResponseDataMasking{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (DiagnosticSpecFrontendResponseDataMaskingCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*DiagnosticSpecFrontendResponseDataMasking)(ptr) = DiagnosticSpecFrontendResponseDataMasking{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []DiagnosticSpecFrontendResponseDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendResponseDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*DiagnosticSpecFrontendResponseDataMasking)(ptr) = objs[0]
+			} else {
+				*(*DiagnosticSpecFrontendResponseDataMasking)(ptr) = DiagnosticSpecFrontendResponseDataMasking{}
+			}
+		} else {
+			*(*DiagnosticSpecFrontendResponseDataMasking)(ptr) = DiagnosticSpecFrontendResponseDataMasking{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj DiagnosticSpecFrontendResponseDataMasking
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(DiagnosticSpecFrontendResponseDataMasking{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*DiagnosticSpecFrontendResponseDataMasking)(ptr) = obj
+		} else {
+			*(*DiagnosticSpecFrontendResponseDataMasking)(ptr) = DiagnosticSpecFrontendResponseDataMasking{}
+		}
+	default:
+		iter.ReportError("decode DiagnosticSpecFrontendResponseDataMasking", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type GatewaySpecLocationDataCodec struct {
+}
+
+func (GatewaySpecLocationDataCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*GatewaySpecLocationData)(ptr) == nil
+}
+
+func (GatewaySpecLocationDataCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*GatewaySpecLocationData)(ptr)
+	var objs []GatewaySpecLocationData
+	if obj != nil {
+		objs = []GatewaySpecLocationData{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecLocationData{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (GatewaySpecLocationDataCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*GatewaySpecLocationData)(ptr) = GatewaySpecLocationData{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []GatewaySpecLocationData
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecLocationData{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*GatewaySpecLocationData)(ptr) = objs[0]
+			} else {
+				*(*GatewaySpecLocationData)(ptr) = GatewaySpecLocationData{}
+			}
+		} else {
+			*(*GatewaySpecLocationData)(ptr) = GatewaySpecLocationData{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj GatewaySpecLocationData
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(GatewaySpecLocationData{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*GatewaySpecLocationData)(ptr) = obj
+		} else {
+			*(*GatewaySpecLocationData)(ptr) = GatewaySpecLocationData{}
+		}
+	default:
+		iter.ReportError("decode GatewaySpecLocationData", "unexpected JSON type")
 	}
 }
 
@@ -2636,5 +3367,84 @@ func (LoggerSpecEventhubCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterato
 		}
 	default:
 		iter.ReportError("decode LoggerSpecEventhub", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type NamedValueSpecValueFromKeyVaultCodec struct {
+}
+
+func (NamedValueSpecValueFromKeyVaultCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*NamedValueSpecValueFromKeyVault)(ptr) == nil
+}
+
+func (NamedValueSpecValueFromKeyVaultCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*NamedValueSpecValueFromKeyVault)(ptr)
+	var objs []NamedValueSpecValueFromKeyVault
+	if obj != nil {
+		objs = []NamedValueSpecValueFromKeyVault{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(NamedValueSpecValueFromKeyVault{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (NamedValueSpecValueFromKeyVaultCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*NamedValueSpecValueFromKeyVault)(ptr) = NamedValueSpecValueFromKeyVault{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []NamedValueSpecValueFromKeyVault
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(NamedValueSpecValueFromKeyVault{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*NamedValueSpecValueFromKeyVault)(ptr) = objs[0]
+			} else {
+				*(*NamedValueSpecValueFromKeyVault)(ptr) = NamedValueSpecValueFromKeyVault{}
+			}
+		} else {
+			*(*NamedValueSpecValueFromKeyVault)(ptr) = NamedValueSpecValueFromKeyVault{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj NamedValueSpecValueFromKeyVault
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(NamedValueSpecValueFromKeyVault{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*NamedValueSpecValueFromKeyVault)(ptr) = obj
+		} else {
+			*(*NamedValueSpecValueFromKeyVault)(ptr) = NamedValueSpecValueFromKeyVault{}
+		}
+	default:
+		iter.ReportError("decode NamedValueSpecValueFromKeyVault", "unexpected JSON type")
 	}
 }

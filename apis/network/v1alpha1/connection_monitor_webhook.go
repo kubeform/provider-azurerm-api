@@ -90,7 +90,7 @@ func (r *ConnectionMonitor) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range connectionmonitorForceNewList {
+	for key, _ := range connectionmonitorForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

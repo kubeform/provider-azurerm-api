@@ -90,7 +90,7 @@ func (r *Enrichment) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range enrichmentForceNewList {
+	for key, _ := range enrichmentForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

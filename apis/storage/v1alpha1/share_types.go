@@ -77,6 +77,8 @@ type ShareSpecResource struct {
 	// +optional
 	Acl []ShareSpecAcl `json:"acl,omitempty" tf:"acl"`
 	// +optional
+	EnabledProtocol *string `json:"enabledProtocol,omitempty" tf:"enabled_protocol"`
+	// +optional
 	Metadata *map[string]string `json:"metadata,omitempty" tf:"metadata"`
 	Name     *string            `json:"name" tf:"name"`
 	// +optional

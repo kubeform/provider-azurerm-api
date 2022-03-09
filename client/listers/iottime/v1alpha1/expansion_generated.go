@@ -26,6 +26,14 @@ type SeriesInsightsAccessPolicyListerExpansion interface{}
 // SeriesInsightsAccessPolicyNamespaceLister.
 type SeriesInsightsAccessPolicyNamespaceListerExpansion interface{}
 
+// SeriesInsightsEventSourceEventhubListerExpansion allows custom methods to be added to
+// SeriesInsightsEventSourceEventhubLister.
+type SeriesInsightsEventSourceEventhubListerExpansion interface{}
+
+// SeriesInsightsEventSourceEventhubNamespaceListerExpansion allows custom methods to be added to
+// SeriesInsightsEventSourceEventhubNamespaceLister.
+type SeriesInsightsEventSourceEventhubNamespaceListerExpansion interface{}
+
 // SeriesInsightsEventSourceIothubListerExpansion allows custom methods to be added to
 // SeriesInsightsEventSourceIothubLister.
 type SeriesInsightsEventSourceIothubListerExpansion interface{}

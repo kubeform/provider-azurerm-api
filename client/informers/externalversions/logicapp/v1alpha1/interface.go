@@ -30,6 +30,24 @@ type Interface interface {
 	ActionHTTPs() ActionHTTPInformer
 	// IntegrationAccounts returns a IntegrationAccountInformer.
 	IntegrationAccounts() IntegrationAccountInformer
+	// IntegrationAccountAgreements returns a IntegrationAccountAgreementInformer.
+	IntegrationAccountAgreements() IntegrationAccountAgreementInformer
+	// IntegrationAccountAssemblies returns a IntegrationAccountAssemblyInformer.
+	IntegrationAccountAssemblies() IntegrationAccountAssemblyInformer
+	// IntegrationAccountBatchConfigurations returns a IntegrationAccountBatchConfigurationInformer.
+	IntegrationAccountBatchConfigurations() IntegrationAccountBatchConfigurationInformer
+	// IntegrationAccountCertificates returns a IntegrationAccountCertificateInformer.
+	IntegrationAccountCertificates() IntegrationAccountCertificateInformer
+	// IntegrationAccountMaps returns a IntegrationAccountMapInformer.
+	IntegrationAccountMaps() IntegrationAccountMapInformer
+	// IntegrationAccountPartners returns a IntegrationAccountPartnerInformer.
+	IntegrationAccountPartners() IntegrationAccountPartnerInformer
+	// IntegrationAccountSchemas returns a IntegrationAccountSchemaInformer.
+	IntegrationAccountSchemas() IntegrationAccountSchemaInformer
+	// IntegrationAccountSessions returns a IntegrationAccountSessionInformer.
+	IntegrationAccountSessions() IntegrationAccountSessionInformer
+	// Standards returns a StandardInformer.
+	Standards() StandardInformer
 	// TriggerCustoms returns a TriggerCustomInformer.
 	TriggerCustoms() TriggerCustomInformer
 	// TriggerHTTPRequests returns a TriggerHTTPRequestInformer.
@@ -64,6 +82,51 @@ func (v *version) ActionHTTPs() ActionHTTPInformer {
 // IntegrationAccounts returns a IntegrationAccountInformer.
 func (v *version) IntegrationAccounts() IntegrationAccountInformer {
 	return &integrationAccountInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// IntegrationAccountAgreements returns a IntegrationAccountAgreementInformer.
+func (v *version) IntegrationAccountAgreements() IntegrationAccountAgreementInformer {
+	return &integrationAccountAgreementInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// IntegrationAccountAssemblies returns a IntegrationAccountAssemblyInformer.
+func (v *version) IntegrationAccountAssemblies() IntegrationAccountAssemblyInformer {
+	return &integrationAccountAssemblyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// IntegrationAccountBatchConfigurations returns a IntegrationAccountBatchConfigurationInformer.
+func (v *version) IntegrationAccountBatchConfigurations() IntegrationAccountBatchConfigurationInformer {
+	return &integrationAccountBatchConfigurationInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// IntegrationAccountCertificates returns a IntegrationAccountCertificateInformer.
+func (v *version) IntegrationAccountCertificates() IntegrationAccountCertificateInformer {
+	return &integrationAccountCertificateInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// IntegrationAccountMaps returns a IntegrationAccountMapInformer.
+func (v *version) IntegrationAccountMaps() IntegrationAccountMapInformer {
+	return &integrationAccountMapInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// IntegrationAccountPartners returns a IntegrationAccountPartnerInformer.
+func (v *version) IntegrationAccountPartners() IntegrationAccountPartnerInformer {
+	return &integrationAccountPartnerInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// IntegrationAccountSchemas returns a IntegrationAccountSchemaInformer.
+func (v *version) IntegrationAccountSchemas() IntegrationAccountSchemaInformer {
+	return &integrationAccountSchemaInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// IntegrationAccountSessions returns a IntegrationAccountSessionInformer.
+func (v *version) IntegrationAccountSessions() IntegrationAccountSessionInformer {
+	return &integrationAccountSessionInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// Standards returns a StandardInformer.
+func (v *version) Standards() StandardInformer {
+	return &standardInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // TriggerCustoms returns a TriggerCustomInformer.

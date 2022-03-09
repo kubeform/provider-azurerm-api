@@ -25,3 +25,11 @@ type ServiceListerExpansion interface{}
 // ServiceNamespaceListerExpansion allows custom methods to be added to
 // ServiceNamespaceLister.
 type ServiceNamespaceListerExpansion interface{}
+
+// ServiceNetworkACLListerExpansion allows custom methods to be added to
+// ServiceNetworkACLLister.
+type ServiceNetworkACLListerExpansion interface{}
+
+// ServiceNetworkACLNamespaceListerExpansion allows custom methods to be added to
+// ServiceNetworkACLNamespaceLister.
+type ServiceNetworkACLNamespaceListerExpansion interface{}

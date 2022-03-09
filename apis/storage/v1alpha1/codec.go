@@ -33,6 +33,7 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecBlobPropertiesContainerDeleteRetentionPolicy{}).Type1()): AccountSpecBlobPropertiesContainerDeleteRetentionPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecBlobPropertiesDeleteRetentionPolicy{}).Type1()):          AccountSpecBlobPropertiesDeleteRetentionPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecCustomDomain{}).Type1()):                                 AccountSpecCustomDomainCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecCustomerManagedKey{}).Type1()):                           AccountSpecCustomerManagedKeyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecIdentity{}).Type1()):                                     AccountSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecNetworkRules{}).Type1()):                                 AccountSpecNetworkRulesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecQueueProperties{}).Type1()):                              AccountSpecQueuePropertiesCodec{},
@@ -61,6 +62,7 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecBlobPropertiesContainerDeleteRetentionPolicy{}).Type1()): AccountSpecBlobPropertiesContainerDeleteRetentionPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecBlobPropertiesDeleteRetentionPolicy{}).Type1()):          AccountSpecBlobPropertiesDeleteRetentionPolicyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecCustomDomain{}).Type1()):                                 AccountSpecCustomDomainCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecCustomerManagedKey{}).Type1()):                           AccountSpecCustomerManagedKeyCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecIdentity{}).Type1()):                                     AccountSpecIdentityCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecNetworkRules{}).Type1()):                                 AccountSpecNetworkRulesCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecQueueProperties{}).Type1()):                              AccountSpecQueuePropertiesCodec{},
@@ -564,6 +566,85 @@ func (AccountSpecCustomDomainCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.It
 		}
 	default:
 		iter.ReportError("decode AccountSpecCustomDomain", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type AccountSpecCustomerManagedKeyCodec struct {
+}
+
+func (AccountSpecCustomerManagedKeyCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*AccountSpecCustomerManagedKey)(ptr) == nil
+}
+
+func (AccountSpecCustomerManagedKeyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*AccountSpecCustomerManagedKey)(ptr)
+	var objs []AccountSpecCustomerManagedKey
+	if obj != nil {
+		objs = []AccountSpecCustomerManagedKey{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecCustomerManagedKey{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (AccountSpecCustomerManagedKeyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*AccountSpecCustomerManagedKey)(ptr) = AccountSpecCustomerManagedKey{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []AccountSpecCustomerManagedKey
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecCustomerManagedKey{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*AccountSpecCustomerManagedKey)(ptr) = objs[0]
+			} else {
+				*(*AccountSpecCustomerManagedKey)(ptr) = AccountSpecCustomerManagedKey{}
+			}
+		} else {
+			*(*AccountSpecCustomerManagedKey)(ptr) = AccountSpecCustomerManagedKey{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj AccountSpecCustomerManagedKey
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(AccountSpecCustomerManagedKey{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*AccountSpecCustomerManagedKey)(ptr) = obj
+		} else {
+			*(*AccountSpecCustomerManagedKey)(ptr) = AccountSpecCustomerManagedKey{}
+		}
+	default:
+		iter.ReportError("decode AccountSpecCustomerManagedKey", "unexpected JSON type")
 	}
 }
 

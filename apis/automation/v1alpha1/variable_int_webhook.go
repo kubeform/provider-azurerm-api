@@ -90,7 +90,7 @@ func (r *VariableInt) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range variableintForceNewList {
+	for key, _ := range variableintForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

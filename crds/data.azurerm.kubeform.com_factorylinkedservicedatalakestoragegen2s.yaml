@@ -65,7 +65,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -132,7 +135,6 @@ spec:
                   useManagedIdentity:
                     type: boolean
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 - url
@@ -147,7 +149,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -214,7 +219,6 @@ spec:
                   useManagedIdentity:
                     type: boolean
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 - url

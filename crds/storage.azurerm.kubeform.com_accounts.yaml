@@ -165,6 +165,16 @@ spec:
                     required:
                     - name
                     type: object
+                  customerManagedKey:
+                    properties:
+                      keyVaultKeyID:
+                        type: string
+                      userAssignedIdentityID:
+                        type: string
+                    required:
+                    - keyVaultKeyID
+                    - userAssignedIdentityID
+                    type: object
                   enableHTTPSTrafficOnly:
                     type: boolean
                   id:
@@ -174,7 +184,6 @@ spec:
                       identityIDS:
                         items:
                           type: string
-                        minItems: 1
                         type: array
                       principalID:
                         type: string
@@ -185,6 +194,8 @@ spec:
                     required:
                     - type
                     type: object
+                  infrastructureEncryptionEnabled:
+                    type: boolean
                   isHnsEnabled:
                     type: boolean
                   largeFileShareEnabled:
@@ -252,6 +263,8 @@ spec:
                   primaryWebEndpoint:
                     type: string
                   primaryWebHost:
+                    type: string
+                  queueEncryptionKeyType:
                     type: string
                   queueProperties:
                     properties:
@@ -444,6 +457,8 @@ spec:
                             type: array
                         type: object
                     type: object
+                  sharedAccessKeyEnabled:
+                    type: boolean
                   staticWebsite:
                     properties:
                       error404Document:
@@ -451,6 +466,8 @@ spec:
                       indexDocument:
                         type: string
                     type: object
+                  tableEncryptionKeyType:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -619,6 +636,16 @@ spec:
                     required:
                     - name
                     type: object
+                  customerManagedKey:
+                    properties:
+                      keyVaultKeyID:
+                        type: string
+                      userAssignedIdentityID:
+                        type: string
+                    required:
+                    - keyVaultKeyID
+                    - userAssignedIdentityID
+                    type: object
                   enableHTTPSTrafficOnly:
                     type: boolean
                   id:
@@ -628,7 +655,6 @@ spec:
                       identityIDS:
                         items:
                           type: string
-                        minItems: 1
                         type: array
                       principalID:
                         type: string
@@ -639,6 +665,8 @@ spec:
                     required:
                     - type
                     type: object
+                  infrastructureEncryptionEnabled:
+                    type: boolean
                   isHnsEnabled:
                     type: boolean
                   largeFileShareEnabled:
@@ -706,6 +734,8 @@ spec:
                   primaryWebEndpoint:
                     type: string
                   primaryWebHost:
+                    type: string
+                  queueEncryptionKeyType:
                     type: string
                   queueProperties:
                     properties:
@@ -898,6 +928,8 @@ spec:
                             type: array
                         type: object
                     type: object
+                  sharedAccessKeyEnabled:
+                    type: boolean
                   staticWebsite:
                     properties:
                       error404Document:
@@ -905,6 +937,8 @@ spec:
                       indexDocument:
                         type: string
                     type: object
+                  tableEncryptionKeyType:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string

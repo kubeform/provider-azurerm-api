@@ -77,6 +77,33 @@ spec:
                     type: string
                   resourceGroupName:
                     type: string
+                  sharing:
+                    properties:
+                      externalTablesToExclude:
+                        items:
+                          type: string
+                        type: array
+                      externalTablesToInclude:
+                        items:
+                          type: string
+                        type: array
+                      materializedViewsToExclude:
+                        items:
+                          type: string
+                        type: array
+                      materializedViewsToInclude:
+                        items:
+                          type: string
+                        type: array
+                      tablesToExclude:
+                        items:
+                          type: string
+                        type: array
+                      tablesToInclude:
+                        items:
+                          type: string
+                        type: array
+                    type: object
                   timeouts:
                     properties:
                       create:
@@ -145,6 +172,33 @@ spec:
                     type: string
                   resourceGroupName:
                     type: string
+                  sharing:
+                    properties:
+                      externalTablesToExclude:
+                        items:
+                          type: string
+                        type: array
+                      externalTablesToInclude:
+                        items:
+                          type: string
+                        type: array
+                      materializedViewsToExclude:
+                        items:
+                          type: string
+                        type: array
+                      materializedViewsToInclude:
+                        items:
+                          type: string
+                        type: array
+                      tablesToExclude:
+                        items:
+                          type: string
+                        type: array
+                      tablesToInclude:
+                        items:
+                          type: string
+                        type: array
+                    type: object
                   timeouts:
                     properties:
                       create:

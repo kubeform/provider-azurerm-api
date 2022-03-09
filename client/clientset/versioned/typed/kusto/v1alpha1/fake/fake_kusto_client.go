@@ -69,6 +69,10 @@ func (c *FakeKustoV1alpha1) IothubDataConnections(namespace string) v1alpha1.Iot
 	return &FakeIothubDataConnections{c, namespace}
 }
 
+func (c *FakeKustoV1alpha1) Scripts(namespace string) v1alpha1.ScriptInterface {
+	return &FakeScripts{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeKustoV1alpha1) RESTClient() rest.Interface {

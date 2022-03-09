@@ -90,7 +90,7 @@ func (r *LakeAnalyticsFirewallRule) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range lakeanalyticsfirewallruleForceNewList {
+	for key, _ := range lakeanalyticsfirewallruleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

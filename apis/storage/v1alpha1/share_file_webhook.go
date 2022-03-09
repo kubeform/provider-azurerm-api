@@ -42,6 +42,7 @@ func (r *ShareFile) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &ShareFile{}
 
 var sharefileForceNewList = map[string]bool{
+	"/content_md5":      true,
 	"/name":             true,
 	"/path":             true,
 	"/source":           true,
@@ -91,7 +92,7 @@ func (r *ShareFile) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range sharefileForceNewList {
+	for key, _ := range sharefileForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

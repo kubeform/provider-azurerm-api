@@ -96,7 +96,7 @@ func (r *CloudService) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range cloudserviceForceNewList {
+	for key, _ := range cloudserviceForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

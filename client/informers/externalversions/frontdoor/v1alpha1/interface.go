@@ -30,6 +30,8 @@ type Interface interface {
 	FirewallPolicies() FirewallPolicyInformer
 	// Frontdoors returns a FrontdoorInformer.
 	Frontdoors() FrontdoorInformer
+	// RulesEngines returns a RulesEngineInformer.
+	RulesEngines() RulesEngineInformer
 }
 
 type version struct {
@@ -56,4 +58,9 @@ func (v *version) FirewallPolicies() FirewallPolicyInformer {
 // Frontdoors returns a FrontdoorInformer.
 func (v *version) Frontdoors() FrontdoorInformer {
 	return &frontdoorInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// RulesEngines returns a RulesEngineInformer.
+func (v *version) RulesEngines() RulesEngineInformer {
+	return &rulesEngineInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

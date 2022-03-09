@@ -94,7 +94,7 @@ func (r *SqlPool) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range sqlpoolForceNewList {
+	for key, _ := range sqlpoolForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

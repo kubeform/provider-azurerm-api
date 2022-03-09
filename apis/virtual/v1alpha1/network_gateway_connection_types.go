@@ -83,6 +83,8 @@ type NetworkGatewayConnectionSpecResource struct {
 	// +optional
 	AuthorizationKey *string `json:"-" sensitive:"true" tf:"authorization_key"`
 	// +optional
+	ConnectionMode *string `json:"connectionMode,omitempty" tf:"connection_mode"`
+	// +optional
 	ConnectionProtocol *string `json:"connectionProtocol,omitempty" tf:"connection_protocol"`
 	// +optional
 	DpdTimeoutSeconds *int64 `json:"dpdTimeoutSeconds,omitempty" tf:"dpd_timeout_seconds"`

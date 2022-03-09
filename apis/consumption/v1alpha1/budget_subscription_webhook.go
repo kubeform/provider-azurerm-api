@@ -42,10 +42,11 @@ func (r *BudgetSubscription) SetupWebhookWithManager(mgr ctrl.Manager) error {
 var _ webhook.Validator = &BudgetSubscription{}
 
 var budgetsubscriptionForceNewList = map[string]bool{
-	"/name":                     true,
-	"/subscription_id":          true,
-	"/time_grain":               true,
-	"/time_period/*/start_date": true,
+	"/name":                          true,
+	"/notification/*/threshold_type": true,
+	"/subscription_id":               true,
+	"/time_grain":                    true,
+	"/time_period/*/start_date":      true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -91,7 +92,7 @@ func (r *BudgetSubscription) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range budgetsubscriptionForceNewList {
+	for key, _ := range budgetsubscriptionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -239,11 +239,17 @@ spec:
                     type: integer
                   osDiskType:
                     type: string
+                  osSku:
+                    type: string
                   osType:
+                    type: string
+                  podSubnetID:
                     type: string
                   priority:
                     type: string
                   proximityPlacementGroupID:
+                    type: string
+                  scaleDownMode:
                     type: string
                   spotMaxPrice:
                     format: double
@@ -290,6 +296,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  ultraSsdEnabled:
+                    type: boolean
                   upgradeSettings:
                     properties:
                       maxSurge:
@@ -300,6 +308,8 @@ spec:
                   vmSize:
                     type: string
                   vnetSubnetID:
+                    type: string
+                  workloadRuntime:
                     type: string
                 required:
                 - kubernetesClusterID
@@ -490,11 +500,17 @@ spec:
                     type: integer
                   osDiskType:
                     type: string
+                  osSku:
+                    type: string
                   osType:
+                    type: string
+                  podSubnetID:
                     type: string
                   priority:
                     type: string
                   proximityPlacementGroupID:
+                    type: string
+                  scaleDownMode:
                     type: string
                   spotMaxPrice:
                     format: double
@@ -541,6 +557,8 @@ spec:
                         format: int64
                         type: integer
                     type: object
+                  ultraSsdEnabled:
+                    type: boolean
                   upgradeSettings:
                     properties:
                       maxSurge:
@@ -551,6 +569,8 @@ spec:
                   vmSize:
                     type: string
                   vnetSubnetID:
+                    type: string
+                  workloadRuntime:
                     type: string
                 required:
                 - kubernetesClusterID

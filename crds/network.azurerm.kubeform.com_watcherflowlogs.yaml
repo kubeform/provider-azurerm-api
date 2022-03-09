@@ -63,6 +63,8 @@ spec:
                     type: string
                   location:
                     type: string
+                  name:
+                    type: string
                   networkSecurityGroupID:
                     type: string
                   networkWatcherName:
@@ -161,6 +163,8 @@ spec:
                   id:
                     type: string
                   location:
+                    type: string
+                  name:
                     type: string
                   networkSecurityGroupID:
                     type: string

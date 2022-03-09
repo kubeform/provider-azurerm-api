@@ -74,16 +74,26 @@ type InsightsSpecResource struct {
 	// +optional
 	DisableIPMasking *bool `json:"disableIPMasking,omitempty" tf:"disable_ip_masking"`
 	// +optional
+	ForceCustomerStorageForProfiler *bool `json:"forceCustomerStorageForProfiler,omitempty" tf:"force_customer_storage_for_profiler"`
+	// +optional
 	InstrumentationKey *string `json:"-" sensitive:"true" tf:"instrumentation_key"`
-	Location           *string `json:"location" tf:"location"`
-	Name               *string `json:"name" tf:"name"`
-	ResourceGroupName  *string `json:"resourceGroupName" tf:"resource_group_name"`
+	// +optional
+	InternetIngestionEnabled *bool `json:"internetIngestionEnabled,omitempty" tf:"internet_ingestion_enabled"`
+	// +optional
+	InternetQueryEnabled *bool `json:"internetQueryEnabled,omitempty" tf:"internet_query_enabled"`
+	// +optional
+	LocalAuthenticationDisabled *bool   `json:"localAuthenticationDisabled,omitempty" tf:"local_authentication_disabled"`
+	Location                    *string `json:"location" tf:"location"`
+	Name                        *string `json:"name" tf:"name"`
+	ResourceGroupName           *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	RetentionInDays *int64 `json:"retentionInDays,omitempty" tf:"retention_in_days"`
 	// +optional
 	SamplingPercentage *float64 `json:"samplingPercentage,omitempty" tf:"sampling_percentage"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
+	// +optional
+	WorkspaceID *string `json:"workspaceID,omitempty" tf:"workspace_id"`
 }
 
 type InsightsStatus struct {

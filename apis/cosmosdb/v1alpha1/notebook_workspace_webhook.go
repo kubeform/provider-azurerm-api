@@ -90,7 +90,7 @@ func (r *NotebookWorkspace) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range notebookworkspaceForceNewList {
+	for key, _ := range notebookworkspaceForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

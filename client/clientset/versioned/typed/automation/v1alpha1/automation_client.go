@@ -44,6 +44,7 @@ type AutomationV1alpha1Interface interface {
 	VariableDatetimesGetter
 	VariableIntsGetter
 	VariableStringsGetter
+	WebhooksGetter
 }
 
 // AutomationV1alpha1Client is used to interact with features provided by the automation.azurerm.kubeform.com group.
@@ -117,6 +118,10 @@ func (c *AutomationV1alpha1Client) VariableInts(namespace string) VariableIntInt
 
 func (c *AutomationV1alpha1Client) VariableStrings(namespace string) VariableStringInterface {
 	return newVariableStrings(c, namespace)
+}
+
+func (c *AutomationV1alpha1Client) Webhooks(namespace string) WebhookInterface {
+	return newWebhooks(c, namespace)
 }
 
 // NewForConfig creates a new AutomationV1alpha1Client for the given config.

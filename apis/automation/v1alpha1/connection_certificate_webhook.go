@@ -90,7 +90,7 @@ func (r *ConnectionCertificate) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range connectioncertificateForceNewList {
+	for key, _ := range connectioncertificateForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

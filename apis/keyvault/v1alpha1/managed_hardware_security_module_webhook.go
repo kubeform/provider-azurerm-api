@@ -96,7 +96,7 @@ func (r *ManagedHardwareSecurityModule) ValidateUpdate(old runtime.Object) error
 		return err
 	}
 
-	for key := range managedhardwaresecuritymoduleForceNewList {
+	for key, _ := range managedhardwaresecuritymoduleForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

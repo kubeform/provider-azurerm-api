@@ -71,8 +71,9 @@ var mlservicesclusterForceNewList = map[string]bool{
 	"/rstudio":                                     true,
 	"/storage_account/*/is_default":                true,
 	"/storage_account/*/storage_container_id":      true,
-	"/tier":            true,
-	"/tls_min_version": true,
+	"/storage_account/*/storage_resource_id":       true,
+	"/tier":                                        true,
+	"/tls_min_version":                             true,
 }
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
@@ -118,7 +119,7 @@ func (r *MlServicesCluster) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range mlservicesclusterForceNewList {
+	for key, _ := range mlservicesclusterForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

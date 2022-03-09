@@ -38,8 +38,12 @@ type Interface interface {
 	ApiOperationTags() ApiOperationTagInformer
 	// ApiPolicies returns a ApiPolicyInformer.
 	ApiPolicies() ApiPolicyInformer
+	// ApiReleases returns a ApiReleaseInformer.
+	ApiReleases() ApiReleaseInformer
 	// ApiSchemas returns a ApiSchemaInformer.
 	ApiSchemas() ApiSchemaInformer
+	// ApiTags returns a ApiTagInformer.
+	ApiTags() ApiTagInformer
 	// ApiVersionSets returns a ApiVersionSetInformer.
 	ApiVersionSets() ApiVersionSetInformer
 	// AuthorizationServers returns a AuthorizationServerInformer.
@@ -54,6 +58,10 @@ type Interface interface {
 	Diagnostics() DiagnosticInformer
 	// EmailTemplates returns a EmailTemplateInformer.
 	EmailTemplates() EmailTemplateInformer
+	// Gateways returns a GatewayInformer.
+	Gateways() GatewayInformer
+	// GatewayAPIs returns a GatewayAPIInformer.
+	GatewayAPIs() GatewayAPIInformer
 	// Groups returns a GroupInformer.
 	Groups() GroupInformer
 	// GroupUsers returns a GroupUserInformer.
@@ -74,6 +82,10 @@ type Interface interface {
 	Loggers() LoggerInformer
 	// NamedValues returns a NamedValueInformer.
 	NamedValues() NamedValueInformer
+	// NotificationRecipientEmails returns a NotificationRecipientEmailInformer.
+	NotificationRecipientEmails() NotificationRecipientEmailInformer
+	// NotificationRecipientUsers returns a NotificationRecipientUserInformer.
+	NotificationRecipientUsers() NotificationRecipientUserInformer
 	// OpenidConnectProviders returns a OpenidConnectProviderInformer.
 	OpenidConnectProviders() OpenidConnectProviderInformer
 	// Policies returns a PolicyInformer.
@@ -92,6 +104,8 @@ type Interface interface {
 	RedisCaches() RedisCacheInformer
 	// Subscriptions returns a SubscriptionInformer.
 	Subscriptions() SubscriptionInformer
+	// Tags returns a TagInformer.
+	Tags() TagInformer
 	// Users returns a UserInformer.
 	Users() UserInformer
 }
@@ -142,9 +156,19 @@ func (v *version) ApiPolicies() ApiPolicyInformer {
 	return &apiPolicyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// ApiReleases returns a ApiReleaseInformer.
+func (v *version) ApiReleases() ApiReleaseInformer {
+	return &apiReleaseInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // ApiSchemas returns a ApiSchemaInformer.
 func (v *version) ApiSchemas() ApiSchemaInformer {
 	return &apiSchemaInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ApiTags returns a ApiTagInformer.
+func (v *version) ApiTags() ApiTagInformer {
+	return &apiTagInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // ApiVersionSets returns a ApiVersionSetInformer.
@@ -180,6 +204,16 @@ func (v *version) Diagnostics() DiagnosticInformer {
 // EmailTemplates returns a EmailTemplateInformer.
 func (v *version) EmailTemplates() EmailTemplateInformer {
 	return &emailTemplateInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// Gateways returns a GatewayInformer.
+func (v *version) Gateways() GatewayInformer {
+	return &gatewayInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// GatewayAPIs returns a GatewayAPIInformer.
+func (v *version) GatewayAPIs() GatewayAPIInformer {
+	return &gatewayAPIInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Groups returns a GroupInformer.
@@ -232,6 +266,16 @@ func (v *version) NamedValues() NamedValueInformer {
 	return &namedValueInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// NotificationRecipientEmails returns a NotificationRecipientEmailInformer.
+func (v *version) NotificationRecipientEmails() NotificationRecipientEmailInformer {
+	return &notificationRecipientEmailInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// NotificationRecipientUsers returns a NotificationRecipientUserInformer.
+func (v *version) NotificationRecipientUsers() NotificationRecipientUserInformer {
+	return &notificationRecipientUserInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // OpenidConnectProviders returns a OpenidConnectProviderInformer.
 func (v *version) OpenidConnectProviders() OpenidConnectProviderInformer {
 	return &openidConnectProviderInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
@@ -275,6 +319,11 @@ func (v *version) RedisCaches() RedisCacheInformer {
 // Subscriptions returns a SubscriptionInformer.
 func (v *version) Subscriptions() SubscriptionInformer {
 	return &subscriptionInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// Tags returns a TagInformer.
+func (v *version) Tags() TagInformer {
+	return &tagInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Users returns a UserInformer.

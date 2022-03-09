@@ -86,7 +86,7 @@ func (r *CenterAutoProvisioning) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range centerautoprovisioningForceNewList {
+	for key, _ := range centerautoprovisioningForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

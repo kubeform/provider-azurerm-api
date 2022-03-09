@@ -89,7 +89,7 @@ func (r *SqlTrigger) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range sqltriggerForceNewList {
+	for key, _ := range sqltriggerForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

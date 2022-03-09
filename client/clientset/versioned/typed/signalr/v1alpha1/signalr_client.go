@@ -28,6 +28,7 @@ import (
 type SignalrV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	ServicesGetter
+	ServiceNetworkACLsGetter
 }
 
 // SignalrV1alpha1Client is used to interact with features provided by the signalr.azurerm.kubeform.com group.
@@ -37,6 +38,10 @@ type SignalrV1alpha1Client struct {
 
 func (c *SignalrV1alpha1Client) Services(namespace string) ServiceInterface {
 	return newServices(c, namespace)
+}
+
+func (c *SignalrV1alpha1Client) ServiceNetworkACLs(namespace string) ServiceNetworkACLInterface {
+	return newServiceNetworkACLs(c, namespace)
 }
 
 // NewForConfig creates a new SignalrV1alpha1Client for the given config.

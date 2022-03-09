@@ -65,6 +65,8 @@ type ShareFileSpecResource struct {
 	// +optional
 	ContentEncoding *string `json:"contentEncoding,omitempty" tf:"content_encoding"`
 	// +optional
+	ContentLength *int64 `json:"contentLength,omitempty" tf:"content_length"`
+	// +optional
 	ContentMd5 *string `json:"contentMd5,omitempty" tf:"content_md5"`
 	// +optional
 	ContentType *string `json:"contentType,omitempty" tf:"content_type"`

@@ -97,6 +97,10 @@ func (c *FakeAutomationV1alpha1) VariableStrings(namespace string) v1alpha1.Vari
 	return &FakeVariableStrings{c, namespace}
 }
 
+func (c *FakeAutomationV1alpha1) Webhooks(namespace string) v1alpha1.WebhookInterface {
+	return &FakeWebhooks{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeAutomationV1alpha1) RESTClient() rest.Interface {

@@ -26,6 +26,14 @@ type HybridConnectionListerExpansion interface{}
 // HybridConnectionNamespaceLister.
 type HybridConnectionNamespaceListerExpansion interface{}
 
+// HybridConnectionAuthorizationRuleListerExpansion allows custom methods to be added to
+// HybridConnectionAuthorizationRuleLister.
+type HybridConnectionAuthorizationRuleListerExpansion interface{}
+
+// HybridConnectionAuthorizationRuleNamespaceListerExpansion allows custom methods to be added to
+// HybridConnectionAuthorizationRuleNamespaceLister.
+type HybridConnectionAuthorizationRuleNamespaceListerExpansion interface{}
+
 // NamespaceListerExpansion allows custom methods to be added to
 // NamespaceLister.
 type NamespaceListerExpansion interface{}
@@ -33,3 +41,11 @@ type NamespaceListerExpansion interface{}
 // NamespaceNamespaceListerExpansion allows custom methods to be added to
 // NamespaceNamespaceLister.
 type NamespaceNamespaceListerExpansion interface{}
+
+// NamespaceAuthorizationRuleListerExpansion allows custom methods to be added to
+// NamespaceAuthorizationRuleLister.
+type NamespaceAuthorizationRuleListerExpansion interface{}
+
+// NamespaceAuthorizationRuleNamespaceListerExpansion allows custom methods to be added to
+// NamespaceAuthorizationRuleNamespaceLister.
+type NamespaceAuthorizationRuleNamespaceListerExpansion interface{}

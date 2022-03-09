@@ -61,6 +61,10 @@ func (c *FakeStorageV1alpha1) DataLakeGen2Paths(namespace string) v1alpha1.DataL
 	return &FakeDataLakeGen2Paths{c, namespace}
 }
 
+func (c *FakeStorageV1alpha1) DisksPools(namespace string) v1alpha1.DisksPoolInterface {
+	return &FakeDisksPools{c, namespace}
+}
+
 func (c *FakeStorageV1alpha1) EncryptionScopes(namespace string) v1alpha1.EncryptionScopeInterface {
 	return &FakeEncryptionScopes{c, namespace}
 }

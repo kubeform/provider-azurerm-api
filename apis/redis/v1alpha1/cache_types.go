@@ -44,6 +44,8 @@ type Cache struct {
 type CacheSpecPatchSchedule struct {
 	DayOfWeek *string `json:"dayOfWeek" tf:"day_of_week"`
 	// +optional
+	MaintenanceWindow *string `json:"maintenanceWindow,omitempty" tf:"maintenance_window"`
+	// +optional
 	StartHourUtc *int64 `json:"startHourUtc,omitempty" tf:"start_hour_utc"`
 }
 
@@ -124,8 +126,12 @@ type CacheSpecResource struct {
 	// +optional
 	RedisConfiguration *CacheSpecRedisConfiguration `json:"redisConfiguration,omitempty" tf:"redis_configuration"`
 	// +optional
-	ReplicasPerMaster *int64  `json:"replicasPerMaster,omitempty" tf:"replicas_per_master"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
+	RedisVersion *string `json:"redisVersion,omitempty" tf:"redis_version"`
+	// +optional
+	ReplicasPerMaster *int64 `json:"replicasPerMaster,omitempty" tf:"replicas_per_master"`
+	// +optional
+	ReplicasPerPrimary *int64  `json:"replicasPerPrimary,omitempty" tf:"replicas_per_primary"`
+	ResourceGroupName  *string `json:"resourceGroupName" tf:"resource_group_name"`
 	// +optional
 	SecondaryAccessKey *string `json:"-" sensitive:"true" tf:"secondary_access_key"`
 	// +optional
@@ -139,6 +145,8 @@ type CacheSpecResource struct {
 	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
+	// +optional
+	TenantSettings *map[string]string `json:"tenantSettings,omitempty" tf:"tenant_settings"`
 	// +optional
 	// +kubebuilder:validation:MinItems=1
 	Zones []string `json:"zones,omitempty" tf:"zones"`

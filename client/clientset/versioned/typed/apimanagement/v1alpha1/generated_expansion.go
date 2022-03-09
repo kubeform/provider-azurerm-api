@@ -32,7 +32,11 @@ type ApiOperationTagExpansion interface{}
 
 type ApiPolicyExpansion interface{}
 
+type ApiReleaseExpansion interface{}
+
 type ApiSchemaExpansion interface{}
+
+type ApiTagExpansion interface{}
 
 type ApiVersionSetExpansion interface{}
 
@@ -47,6 +51,10 @@ type CustomDomainExpansion interface{}
 type DiagnosticExpansion interface{}
 
 type EmailTemplateExpansion interface{}
+
+type GatewayExpansion interface{}
+
+type GatewayAPIExpansion interface{}
 
 type GroupExpansion interface{}
 
@@ -68,6 +76,10 @@ type LoggerExpansion interface{}
 
 type NamedValueExpansion interface{}
 
+type NotificationRecipientEmailExpansion interface{}
+
+type NotificationRecipientUserExpansion interface{}
+
 type OpenidConnectProviderExpansion interface{}
 
 type PolicyExpansion interface{}
@@ -85,5 +97,7 @@ type PropertyExpansion interface{}
 type RedisCacheExpansion interface{}
 
 type SubscriptionExpansion interface{}
+
+type TagExpansion interface{}
 
 type UserExpansion interface{}

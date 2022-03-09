@@ -57,6 +57,8 @@ spec:
                 type: object
               resource:
                 properties:
+                  defaultDesktopDisplayName:
+                    type: string
                   description:
                     type: string
                   friendlyName:
@@ -124,6 +126,8 @@ spec:
                 type: object
               state:
                 properties:
+                  defaultDesktopDisplayName:
+                    type: string
                   description:
                     type: string
                   friendlyName:

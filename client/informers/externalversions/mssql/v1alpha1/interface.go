@@ -32,12 +32,24 @@ type Interface interface {
 	DatabaseVulnerabilityAssessmentRuleBaselines() DatabaseVulnerabilityAssessmentRuleBaselineInformer
 	// Elasticpools returns a ElasticpoolInformer.
 	Elasticpools() ElasticpoolInformer
+	// FailoverGroups returns a FailoverGroupInformer.
+	FailoverGroups() FailoverGroupInformer
 	// FirewallRules returns a FirewallRuleInformer.
 	FirewallRules() FirewallRuleInformer
 	// JobAgents returns a JobAgentInformer.
 	JobAgents() JobAgentInformer
 	// JobCredentials returns a JobCredentialInformer.
 	JobCredentials() JobCredentialInformer
+	// ManagedDatabases returns a ManagedDatabaseInformer.
+	ManagedDatabases() ManagedDatabaseInformer
+	// ManagedInstances returns a ManagedInstanceInformer.
+	ManagedInstances() ManagedInstanceInformer
+	// ManagedInstanceActiveDirectoryAdministrators returns a ManagedInstanceActiveDirectoryAdministratorInformer.
+	ManagedInstanceActiveDirectoryAdministrators() ManagedInstanceActiveDirectoryAdministratorInformer
+	// ManagedInstanceFailoverGroups returns a ManagedInstanceFailoverGroupInformer.
+	ManagedInstanceFailoverGroups() ManagedInstanceFailoverGroupInformer
+	// OutboundFirewallRules returns a OutboundFirewallRuleInformer.
+	OutboundFirewallRules() OutboundFirewallRuleInformer
 	// Servers returns a ServerInformer.
 	Servers() ServerInformer
 	// ServerExtendedAuditingPolicies returns a ServerExtendedAuditingPolicyInformer.
@@ -85,6 +97,11 @@ func (v *version) Elasticpools() ElasticpoolInformer {
 	return &elasticpoolInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
+// FailoverGroups returns a FailoverGroupInformer.
+func (v *version) FailoverGroups() FailoverGroupInformer {
+	return &failoverGroupInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
 // FirewallRules returns a FirewallRuleInformer.
 func (v *version) FirewallRules() FirewallRuleInformer {
 	return &firewallRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
@@ -98,6 +115,31 @@ func (v *version) JobAgents() JobAgentInformer {
 // JobCredentials returns a JobCredentialInformer.
 func (v *version) JobCredentials() JobCredentialInformer {
 	return &jobCredentialInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ManagedDatabases returns a ManagedDatabaseInformer.
+func (v *version) ManagedDatabases() ManagedDatabaseInformer {
+	return &managedDatabaseInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ManagedInstances returns a ManagedInstanceInformer.
+func (v *version) ManagedInstances() ManagedInstanceInformer {
+	return &managedInstanceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ManagedInstanceActiveDirectoryAdministrators returns a ManagedInstanceActiveDirectoryAdministratorInformer.
+func (v *version) ManagedInstanceActiveDirectoryAdministrators() ManagedInstanceActiveDirectoryAdministratorInformer {
+	return &managedInstanceActiveDirectoryAdministratorInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ManagedInstanceFailoverGroups returns a ManagedInstanceFailoverGroupInformer.
+func (v *version) ManagedInstanceFailoverGroups() ManagedInstanceFailoverGroupInformer {
+	return &managedInstanceFailoverGroupInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// OutboundFirewallRules returns a OutboundFirewallRuleInformer.
+func (v *version) OutboundFirewallRules() OutboundFirewallRuleInformer {
+	return &outboundFirewallRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Servers returns a ServerInformer.

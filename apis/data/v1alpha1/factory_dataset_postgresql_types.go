@@ -71,8 +71,12 @@ type FactoryDatasetPostgresqlSpecResource struct {
 	// +optional
 	AdditionalProperties *map[string]string `json:"additionalProperties,omitempty" tf:"additional_properties"`
 	// +optional
-	Annotations     []string `json:"annotations,omitempty" tf:"annotations"`
-	DataFactoryName *string  `json:"dataFactoryName" tf:"data_factory_name"`
+	Annotations []string `json:"annotations,omitempty" tf:"annotations"`
+	// +optional
+	DataFactoryID *string `json:"dataFactoryID,omitempty" tf:"data_factory_id"`
+	// +optional
+	// Deprecated
+	DataFactoryName *string `json:"dataFactoryName,omitempty" tf:"data_factory_name"`
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// +optional

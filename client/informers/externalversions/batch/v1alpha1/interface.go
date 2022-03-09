@@ -30,6 +30,8 @@ type Interface interface {
 	Applications() ApplicationInformer
 	// Certificates returns a CertificateInformer.
 	Certificates() CertificateInformer
+	// Jobs returns a JobInformer.
+	Jobs() JobInformer
 	// Pools returns a PoolInformer.
 	Pools() PoolInformer
 }
@@ -58,6 +60,11 @@ func (v *version) Applications() ApplicationInformer {
 // Certificates returns a CertificateInformer.
 func (v *version) Certificates() CertificateInformer {
 	return &certificateInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// Jobs returns a JobInformer.
+func (v *version) Jobs() JobInformer {
+	return &jobInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Pools returns a PoolInformer.

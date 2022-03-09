@@ -57,8 +57,16 @@ func (c *FakeApimanagementV1alpha1) ApiPolicies(namespace string) v1alpha1.ApiPo
 	return &FakeApiPolicies{c, namespace}
 }
 
+func (c *FakeApimanagementV1alpha1) ApiReleases(namespace string) v1alpha1.ApiReleaseInterface {
+	return &FakeApiReleases{c, namespace}
+}
+
 func (c *FakeApimanagementV1alpha1) ApiSchemas(namespace string) v1alpha1.ApiSchemaInterface {
 	return &FakeApiSchemas{c, namespace}
+}
+
+func (c *FakeApimanagementV1alpha1) ApiTags(namespace string) v1alpha1.ApiTagInterface {
+	return &FakeApiTags{c, namespace}
 }
 
 func (c *FakeApimanagementV1alpha1) ApiVersionSets(namespace string) v1alpha1.ApiVersionSetInterface {
@@ -87,6 +95,14 @@ func (c *FakeApimanagementV1alpha1) Diagnostics(namespace string) v1alpha1.Diagn
 
 func (c *FakeApimanagementV1alpha1) EmailTemplates(namespace string) v1alpha1.EmailTemplateInterface {
 	return &FakeEmailTemplates{c, namespace}
+}
+
+func (c *FakeApimanagementV1alpha1) Gateways(namespace string) v1alpha1.GatewayInterface {
+	return &FakeGateways{c, namespace}
+}
+
+func (c *FakeApimanagementV1alpha1) GatewayAPIs(namespace string) v1alpha1.GatewayAPIInterface {
+	return &FakeGatewayAPIs{c, namespace}
 }
 
 func (c *FakeApimanagementV1alpha1) Groups(namespace string) v1alpha1.GroupInterface {
@@ -129,6 +145,14 @@ func (c *FakeApimanagementV1alpha1) NamedValues(namespace string) v1alpha1.Named
 	return &FakeNamedValues{c, namespace}
 }
 
+func (c *FakeApimanagementV1alpha1) NotificationRecipientEmails(namespace string) v1alpha1.NotificationRecipientEmailInterface {
+	return &FakeNotificationRecipientEmails{c, namespace}
+}
+
+func (c *FakeApimanagementV1alpha1) NotificationRecipientUsers(namespace string) v1alpha1.NotificationRecipientUserInterface {
+	return &FakeNotificationRecipientUsers{c, namespace}
+}
+
 func (c *FakeApimanagementV1alpha1) OpenidConnectProviders(namespace string) v1alpha1.OpenidConnectProviderInterface {
 	return &FakeOpenidConnectProviders{c, namespace}
 }
@@ -163,6 +187,10 @@ func (c *FakeApimanagementV1alpha1) RedisCaches(namespace string) v1alpha1.Redis
 
 func (c *FakeApimanagementV1alpha1) Subscriptions(namespace string) v1alpha1.SubscriptionInterface {
 	return &FakeSubscriptions{c, namespace}
+}
+
+func (c *FakeApimanagementV1alpha1) Tags(namespace string) v1alpha1.TagInterface {
+	return &FakeTags{c, namespace}
 }
 
 func (c *FakeApimanagementV1alpha1) Users(namespace string) v1alpha1.UserInterface {

@@ -90,7 +90,7 @@ func (r *NatRuleCollection) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range natrulecollectionForceNewList {
+	for key, _ := range natrulecollectionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -153,3 +153,11 @@ type VariableStringListerExpansion interface{}
 // VariableStringNamespaceListerExpansion allows custom methods to be added to
 // VariableStringNamespaceLister.
 type VariableStringNamespaceListerExpansion interface{}
+
+// WebhookListerExpansion allows custom methods to be added to
+// WebhookLister.
+type WebhookListerExpansion interface{}
+
+// WebhookNamespaceListerExpansion allows custom methods to be added to
+// WebhookNamespaceLister.
+type WebhookNamespaceListerExpansion interface{}

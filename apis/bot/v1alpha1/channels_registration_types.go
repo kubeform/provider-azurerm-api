@@ -63,6 +63,10 @@ type ChannelsRegistrationSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +optional
+	CmkKeyVaultURL *string `json:"cmkKeyVaultURL,omitempty" tf:"cmk_key_vault_url"`
+	// +optional
+	Description *string `json:"description,omitempty" tf:"description"`
+	// +optional
 	DeveloperAppInsightsAPIKey *string `json:"-" sensitive:"true" tf:"developer_app_insights_api_key"`
 	// +optional
 	DeveloperAppInsightsApplicationID *string `json:"developerAppInsightsApplicationID,omitempty" tf:"developer_app_insights_application_id"`
@@ -71,12 +75,16 @@ type ChannelsRegistrationSpecResource struct {
 	// +optional
 	DisplayName *string `json:"displayName,omitempty" tf:"display_name"`
 	// +optional
-	Endpoint          *string `json:"endpoint,omitempty" tf:"endpoint"`
-	Location          *string `json:"location" tf:"location"`
-	MicrosoftAppID    *string `json:"microsoftAppID" tf:"microsoft_app_id"`
-	Name              *string `json:"name" tf:"name"`
-	ResourceGroupName *string `json:"resourceGroupName" tf:"resource_group_name"`
-	Sku               *string `json:"sku" tf:"sku"`
+	Endpoint *string `json:"endpoint,omitempty" tf:"endpoint"`
+	// +optional
+	IconURL *string `json:"iconURL,omitempty" tf:"icon_url"`
+	// +optional
+	IsolatedNetworkEnabled *bool   `json:"isolatedNetworkEnabled,omitempty" tf:"isolated_network_enabled"`
+	Location               *string `json:"location" tf:"location"`
+	MicrosoftAppID         *string `json:"microsoftAppID" tf:"microsoft_app_id"`
+	Name                   *string `json:"name" tf:"name"`
+	ResourceGroupName      *string `json:"resourceGroupName" tf:"resource_group_name"`
+	Sku                    *string `json:"sku" tf:"sku"`
 	// +optional
 	Tags *map[string]string `json:"tags,omitempty" tf:"tags"`
 }

@@ -90,7 +90,7 @@ func (r *CloudAppMysqlAssociation) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range cloudappmysqlassociationForceNewList {
+	for key, _ := range cloudappmysqlassociationForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

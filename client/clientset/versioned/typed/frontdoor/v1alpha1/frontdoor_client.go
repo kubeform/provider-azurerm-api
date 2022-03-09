@@ -30,6 +30,7 @@ type FrontdoorV1alpha1Interface interface {
 	CustomHTTPSConfigurationsGetter
 	FirewallPoliciesGetter
 	FrontdoorsGetter
+	RulesEnginesGetter
 }
 
 // FrontdoorV1alpha1Client is used to interact with features provided by the frontdoor.azurerm.kubeform.com group.
@@ -47,6 +48,10 @@ func (c *FrontdoorV1alpha1Client) FirewallPolicies(namespace string) FirewallPol
 
 func (c *FrontdoorV1alpha1Client) Frontdoors(namespace string) FrontdoorInterface {
 	return newFrontdoors(c, namespace)
+}
+
+func (c *FrontdoorV1alpha1Client) RulesEngines(namespace string) RulesEngineInterface {
+	return newRulesEngines(c, namespace)
 }
 
 // NewForConfig creates a new FrontdoorV1alpha1Client for the given config.

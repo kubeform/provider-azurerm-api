@@ -62,6 +62,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&FirewallPolicyList{},
 		&Frontdoor{},
 		&FrontdoorList{},
+		&RulesEngine{},
+		&RulesEngineList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

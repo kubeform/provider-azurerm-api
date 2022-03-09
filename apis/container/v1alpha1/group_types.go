@@ -125,7 +125,7 @@ type GroupSpecContainerVolume struct {
 	// +optional
 	ReadOnly *bool `json:"readOnly,omitempty" tf:"read_only"`
 	// +optional
-	Secret map[string]string `json:"-" sensitive:"true" tf:"secret"`
+	Secret *map[string]string `json:"-" sensitive:"true" tf:"secret"`
 	// +optional
 	ShareName *string `json:"shareName,omitempty" tf:"share_name"`
 	// +optional
@@ -152,7 +152,7 @@ type GroupSpecContainer struct {
 	// +optional
 	ReadinessProbe *GroupSpecContainerReadinessProbe `json:"readinessProbe,omitempty" tf:"readiness_probe"`
 	// +optional
-	SecureEnvironmentVariables map[string]string `json:"-" sensitive:"true" tf:"secure_environment_variables"`
+	SecureEnvironmentVariables *map[string]string `json:"-" sensitive:"true" tf:"secure_environment_variables"`
 	// +optional
 	Volume []GroupSpecContainerVolume `json:"volume,omitempty" tf:"volume"`
 }
@@ -171,9 +171,11 @@ type GroupSpecDiagnostics struct {
 }
 
 type GroupSpecDnsConfig struct {
-	Nameservers   []string `json:"nameservers" tf:"nameservers"`
-	Options       []string `json:"options" tf:"options"`
-	SearchDomains []string `json:"searchDomains" tf:"search_domains"`
+	Nameservers []string `json:"nameservers" tf:"nameservers"`
+	// +optional
+	Options []string `json:"options,omitempty" tf:"options"`
+	// +optional
+	SearchDomains []string `json:"searchDomains,omitempty" tf:"search_domains"`
 }
 
 type GroupSpecExposedPort struct {
@@ -185,11 +187,12 @@ type GroupSpecExposedPort struct {
 
 type GroupSpecIdentity struct {
 	// +optional
-	// +kubebuilder:validation:MinItems=1
 	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
 	// +optional
 	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
-	Type        *string `json:"type" tf:"type"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
 }
 
 type GroupSpecImageRegistryCredential struct {

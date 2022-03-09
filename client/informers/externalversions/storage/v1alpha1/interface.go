@@ -40,6 +40,8 @@ type Interface interface {
 	DataLakeGen2Filesystems() DataLakeGen2FilesystemInformer
 	// DataLakeGen2Paths returns a DataLakeGen2PathInformer.
 	DataLakeGen2Paths() DataLakeGen2PathInformer
+	// DisksPools returns a DisksPoolInformer.
+	DisksPools() DisksPoolInformer
 	// EncryptionScopes returns a EncryptionScopeInformer.
 	EncryptionScopes() EncryptionScopeInformer
 	// ManagementPolicies returns a ManagementPolicyInformer.
@@ -115,6 +117,11 @@ func (v *version) DataLakeGen2Filesystems() DataLakeGen2FilesystemInformer {
 // DataLakeGen2Paths returns a DataLakeGen2PathInformer.
 func (v *version) DataLakeGen2Paths() DataLakeGen2PathInformer {
 	return &dataLakeGen2PathInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// DisksPools returns a DisksPoolInformer.
+func (v *version) DisksPools() DisksPoolInformer {
+	return &disksPoolInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // EncryptionScopes returns a EncryptionScopeInformer.

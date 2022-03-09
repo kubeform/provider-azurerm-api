@@ -90,7 +90,7 @@ func (r *SharedAccessPolicy) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range sharedaccesspolicyForceNewList {
+	for key, _ := range sharedaccesspolicyForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

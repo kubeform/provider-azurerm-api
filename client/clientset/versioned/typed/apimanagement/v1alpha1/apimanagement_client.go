@@ -34,7 +34,9 @@ type ApimanagementV1alpha1Interface interface {
 	ApiOperationPoliciesGetter
 	ApiOperationTagsGetter
 	ApiPoliciesGetter
+	ApiReleasesGetter
 	ApiSchemasGetter
+	ApiTagsGetter
 	ApiVersionSetsGetter
 	AuthorizationServersGetter
 	BackendsGetter
@@ -42,6 +44,8 @@ type ApimanagementV1alpha1Interface interface {
 	CustomDomainsGetter
 	DiagnosticsGetter
 	EmailTemplatesGetter
+	GatewaysGetter
+	GatewayAPIsGetter
 	GroupsGetter
 	GroupUsersGetter
 	IdentityProviderAadsGetter
@@ -52,6 +56,8 @@ type ApimanagementV1alpha1Interface interface {
 	IdentityProviderTwittersGetter
 	LoggersGetter
 	NamedValuesGetter
+	NotificationRecipientEmailsGetter
+	NotificationRecipientUsersGetter
 	OpenidConnectProvidersGetter
 	PoliciesGetter
 	ProductsGetter
@@ -61,6 +67,7 @@ type ApimanagementV1alpha1Interface interface {
 	PropertiesGetter
 	RedisCachesGetter
 	SubscriptionsGetter
+	TagsGetter
 	UsersGetter
 }
 
@@ -97,8 +104,16 @@ func (c *ApimanagementV1alpha1Client) ApiPolicies(namespace string) ApiPolicyInt
 	return newApiPolicies(c, namespace)
 }
 
+func (c *ApimanagementV1alpha1Client) ApiReleases(namespace string) ApiReleaseInterface {
+	return newApiReleases(c, namespace)
+}
+
 func (c *ApimanagementV1alpha1Client) ApiSchemas(namespace string) ApiSchemaInterface {
 	return newApiSchemas(c, namespace)
+}
+
+func (c *ApimanagementV1alpha1Client) ApiTags(namespace string) ApiTagInterface {
+	return newApiTags(c, namespace)
 }
 
 func (c *ApimanagementV1alpha1Client) ApiVersionSets(namespace string) ApiVersionSetInterface {
@@ -127,6 +142,14 @@ func (c *ApimanagementV1alpha1Client) Diagnostics(namespace string) DiagnosticIn
 
 func (c *ApimanagementV1alpha1Client) EmailTemplates(namespace string) EmailTemplateInterface {
 	return newEmailTemplates(c, namespace)
+}
+
+func (c *ApimanagementV1alpha1Client) Gateways(namespace string) GatewayInterface {
+	return newGateways(c, namespace)
+}
+
+func (c *ApimanagementV1alpha1Client) GatewayAPIs(namespace string) GatewayAPIInterface {
+	return newGatewayAPIs(c, namespace)
 }
 
 func (c *ApimanagementV1alpha1Client) Groups(namespace string) GroupInterface {
@@ -169,6 +192,14 @@ func (c *ApimanagementV1alpha1Client) NamedValues(namespace string) NamedValueIn
 	return newNamedValues(c, namespace)
 }
 
+func (c *ApimanagementV1alpha1Client) NotificationRecipientEmails(namespace string) NotificationRecipientEmailInterface {
+	return newNotificationRecipientEmails(c, namespace)
+}
+
+func (c *ApimanagementV1alpha1Client) NotificationRecipientUsers(namespace string) NotificationRecipientUserInterface {
+	return newNotificationRecipientUsers(c, namespace)
+}
+
 func (c *ApimanagementV1alpha1Client) OpenidConnectProviders(namespace string) OpenidConnectProviderInterface {
 	return newOpenidConnectProviders(c, namespace)
 }
@@ -203,6 +234,10 @@ func (c *ApimanagementV1alpha1Client) RedisCaches(namespace string) RedisCacheIn
 
 func (c *ApimanagementV1alpha1Client) Subscriptions(namespace string) SubscriptionInterface {
 	return newSubscriptions(c, namespace)
+}
+
+func (c *ApimanagementV1alpha1Client) Tags(namespace string) TagInterface {
+	return newTags(c, namespace)
 }
 
 func (c *ApimanagementV1alpha1Client) Users(namespace string) UserInterface {

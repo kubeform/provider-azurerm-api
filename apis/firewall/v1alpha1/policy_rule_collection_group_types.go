@@ -48,15 +48,26 @@ type PolicyRuleCollectionGroupSpecApplicationRuleCollectionRuleProtocols struct 
 
 type PolicyRuleCollectionGroupSpecApplicationRuleCollectionRule struct {
 	// +optional
+	Description *string `json:"description,omitempty" tf:"description"`
+	// +optional
+	DestinationAddresses []string `json:"destinationAddresses,omitempty" tf:"destination_addresses"`
+	// +optional
 	DestinationFqdnTags []string `json:"destinationFqdnTags,omitempty" tf:"destination_fqdn_tags"`
 	// +optional
-	DestinationFqdns []string                                                              `json:"destinationFqdns,omitempty" tf:"destination_fqdns"`
-	Name             *string                                                               `json:"name" tf:"name"`
-	Protocols        []PolicyRuleCollectionGroupSpecApplicationRuleCollectionRuleProtocols `json:"protocols" tf:"protocols"`
+	DestinationFqdns []string `json:"destinationFqdns,omitempty" tf:"destination_fqdns"`
+	// +optional
+	DestinationUrls []string `json:"destinationUrls,omitempty" tf:"destination_urls"`
+	Name            *string  `json:"name" tf:"name"`
+	// +optional
+	Protocols []PolicyRuleCollectionGroupSpecApplicationRuleCollectionRuleProtocols `json:"protocols,omitempty" tf:"protocols"`
 	// +optional
 	SourceAddresses []string `json:"sourceAddresses,omitempty" tf:"source_addresses"`
 	// +optional
 	SourceIPGroups []string `json:"sourceIPGroups,omitempty" tf:"source_ip_groups"`
+	// +optional
+	TerminateTls *bool `json:"terminateTls,omitempty" tf:"terminate_tls"`
+	// +optional
+	WebCategories []string `json:"webCategories,omitempty" tf:"web_categories"`
 }
 
 type PolicyRuleCollectionGroupSpecApplicationRuleCollection struct {
@@ -77,9 +88,12 @@ type PolicyRuleCollectionGroupSpecNatRuleCollectionRule struct {
 	// +optional
 	SourceAddresses []string `json:"sourceAddresses,omitempty" tf:"source_addresses"`
 	// +optional
-	SourceIPGroups    []string `json:"sourceIPGroups,omitempty" tf:"source_ip_groups"`
-	TranslatedAddress *string  `json:"translatedAddress" tf:"translated_address"`
-	TranslatedPort    *int64   `json:"translatedPort" tf:"translated_port"`
+	SourceIPGroups []string `json:"sourceIPGroups,omitempty" tf:"source_ip_groups"`
+	// +optional
+	TranslatedAddress *string `json:"translatedAddress,omitempty" tf:"translated_address"`
+	// +optional
+	TranslatedFqdn *string `json:"translatedFqdn,omitempty" tf:"translated_fqdn"`
+	TranslatedPort *int64  `json:"translatedPort" tf:"translated_port"`
 }
 
 type PolicyRuleCollectionGroupSpecNatRuleCollection struct {

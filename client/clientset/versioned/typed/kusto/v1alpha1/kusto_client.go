@@ -37,6 +37,7 @@ type KustoV1alpha1Interface interface {
 	EventgridDataConnectionsGetter
 	EventhubDataConnectionsGetter
 	IothubDataConnectionsGetter
+	ScriptsGetter
 }
 
 // KustoV1alpha1Client is used to interact with features provided by the kusto.azurerm.kubeform.com group.
@@ -82,6 +83,10 @@ func (c *KustoV1alpha1Client) EventhubDataConnections(namespace string) Eventhub
 
 func (c *KustoV1alpha1Client) IothubDataConnections(namespace string) IothubDataConnectionInterface {
 	return newIothubDataConnections(c, namespace)
+}
+
+func (c *KustoV1alpha1Client) Scripts(namespace string) ScriptInterface {
+	return newScripts(c, namespace)
 }
 
 // NewForConfig creates a new KustoV1alpha1Client for the given config.

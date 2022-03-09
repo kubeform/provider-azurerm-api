@@ -95,7 +95,7 @@ func (r *EventgridDataConnection) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range eventgriddataconnectionForceNewList {
+	for key, _ := range eventgriddataconnectionForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

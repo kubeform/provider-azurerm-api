@@ -18,13 +18,19 @@ limitations under the License.
 
 package v1alpha1
 
+type AnalyticsClusterExpansion interface{}
+
 type AnalyticsFunctionJavascriptUdfExpansion interface{}
 
 type AnalyticsJobExpansion interface{}
 
+type AnalyticsManagedPrivateEndpointExpansion interface{}
+
 type AnalyticsOutputBlobExpansion interface{}
 
 type AnalyticsOutputEventhubExpansion interface{}
+
+type AnalyticsOutputFunctionExpansion interface{}
 
 type AnalyticsOutputMssqlExpansion interface{}
 
@@ -32,7 +38,13 @@ type AnalyticsOutputServicebusQueueExpansion interface{}
 
 type AnalyticsOutputServicebusTopicExpansion interface{}
 
+type AnalyticsOutputSynapseExpansion interface{}
+
+type AnalyticsOutputTableExpansion interface{}
+
 type AnalyticsReferenceInputBlobExpansion interface{}
+
+type AnalyticsReferenceInputMssqlExpansion interface{}
 
 type AnalyticsStreamInputBlobExpansion interface{}
 

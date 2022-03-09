@@ -30,7 +30,11 @@ func GetEncoder() map[string]jsoniter.ValEncoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(FirewallSpecManagementIPConfiguration{}).Type1()): FirewallSpecManagementIPConfigurationCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FirewallSpecVirtualHub{}).Type1()):                FirewallSpecVirtualHubCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecDns{}).Type1()):                         PolicySpecDnsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecIdentity{}).Type1()):                    PolicySpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecInsights{}).Type1()):                    PolicySpecInsightsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecIntrusionDetection{}).Type1()):          PolicySpecIntrusionDetectionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecThreatIntelligenceAllowlist{}).Type1()): PolicySpecThreatIntelligenceAllowlistCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecTlsCertificate{}).Type1()):              PolicySpecTlsCertificateCodec{},
 	}
 }
 
@@ -39,7 +43,11 @@ func GetDecoder() map[string]jsoniter.ValDecoder {
 		jsoniter.MustGetKind(reflect2.TypeOf(FirewallSpecManagementIPConfiguration{}).Type1()): FirewallSpecManagementIPConfigurationCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(FirewallSpecVirtualHub{}).Type1()):                FirewallSpecVirtualHubCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecDns{}).Type1()):                         PolicySpecDnsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecIdentity{}).Type1()):                    PolicySpecIdentityCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecInsights{}).Type1()):                    PolicySpecInsightsCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecIntrusionDetection{}).Type1()):          PolicySpecIntrusionDetectionCodec{},
 		jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecThreatIntelligenceAllowlist{}).Type1()): PolicySpecThreatIntelligenceAllowlistCodec{},
+		jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecTlsCertificate{}).Type1()):              PolicySpecTlsCertificateCodec{},
 	}
 }
 
@@ -293,6 +301,243 @@ func (PolicySpecDnsCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 }
 
 // +k8s:deepcopy-gen=false
+type PolicySpecIdentityCodec struct {
+}
+
+func (PolicySpecIdentityCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*PolicySpecIdentity)(ptr) == nil
+}
+
+func (PolicySpecIdentityCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*PolicySpecIdentity)(ptr)
+	var objs []PolicySpecIdentity
+	if obj != nil {
+		objs = []PolicySpecIdentity{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecIdentity{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (PolicySpecIdentityCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*PolicySpecIdentity)(ptr) = PolicySpecIdentity{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []PolicySpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*PolicySpecIdentity)(ptr) = objs[0]
+			} else {
+				*(*PolicySpecIdentity)(ptr) = PolicySpecIdentity{}
+			}
+		} else {
+			*(*PolicySpecIdentity)(ptr) = PolicySpecIdentity{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj PolicySpecIdentity
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecIdentity{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*PolicySpecIdentity)(ptr) = obj
+		} else {
+			*(*PolicySpecIdentity)(ptr) = PolicySpecIdentity{}
+		}
+	default:
+		iter.ReportError("decode PolicySpecIdentity", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type PolicySpecInsightsCodec struct {
+}
+
+func (PolicySpecInsightsCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*PolicySpecInsights)(ptr) == nil
+}
+
+func (PolicySpecInsightsCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*PolicySpecInsights)(ptr)
+	var objs []PolicySpecInsights
+	if obj != nil {
+		objs = []PolicySpecInsights{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecInsights{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (PolicySpecInsightsCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*PolicySpecInsights)(ptr) = PolicySpecInsights{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []PolicySpecInsights
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecInsights{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*PolicySpecInsights)(ptr) = objs[0]
+			} else {
+				*(*PolicySpecInsights)(ptr) = PolicySpecInsights{}
+			}
+		} else {
+			*(*PolicySpecInsights)(ptr) = PolicySpecInsights{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj PolicySpecInsights
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecInsights{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*PolicySpecInsights)(ptr) = obj
+		} else {
+			*(*PolicySpecInsights)(ptr) = PolicySpecInsights{}
+		}
+	default:
+		iter.ReportError("decode PolicySpecInsights", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type PolicySpecIntrusionDetectionCodec struct {
+}
+
+func (PolicySpecIntrusionDetectionCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*PolicySpecIntrusionDetection)(ptr) == nil
+}
+
+func (PolicySpecIntrusionDetectionCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*PolicySpecIntrusionDetection)(ptr)
+	var objs []PolicySpecIntrusionDetection
+	if obj != nil {
+		objs = []PolicySpecIntrusionDetection{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecIntrusionDetection{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (PolicySpecIntrusionDetectionCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*PolicySpecIntrusionDetection)(ptr) = PolicySpecIntrusionDetection{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []PolicySpecIntrusionDetection
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecIntrusionDetection{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*PolicySpecIntrusionDetection)(ptr) = objs[0]
+			} else {
+				*(*PolicySpecIntrusionDetection)(ptr) = PolicySpecIntrusionDetection{}
+			}
+		} else {
+			*(*PolicySpecIntrusionDetection)(ptr) = PolicySpecIntrusionDetection{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj PolicySpecIntrusionDetection
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecIntrusionDetection{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*PolicySpecIntrusionDetection)(ptr) = obj
+		} else {
+			*(*PolicySpecIntrusionDetection)(ptr) = PolicySpecIntrusionDetection{}
+		}
+	default:
+		iter.ReportError("decode PolicySpecIntrusionDetection", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
 type PolicySpecThreatIntelligenceAllowlistCodec struct {
 }
 
@@ -368,5 +613,84 @@ func (PolicySpecThreatIntelligenceAllowlistCodec) Decode(ptr unsafe.Pointer, ite
 		}
 	default:
 		iter.ReportError("decode PolicySpecThreatIntelligenceAllowlist", "unexpected JSON type")
+	}
+}
+
+// +k8s:deepcopy-gen=false
+type PolicySpecTlsCertificateCodec struct {
+}
+
+func (PolicySpecTlsCertificateCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	return (*PolicySpecTlsCertificate)(ptr) == nil
+}
+
+func (PolicySpecTlsCertificateCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	obj := (*PolicySpecTlsCertificate)(ptr)
+	var objs []PolicySpecTlsCertificate
+	if obj != nil {
+		objs = []PolicySpecTlsCertificate{*obj}
+	}
+
+	jsonit := jsoniter.Config{
+		EscapeHTML:             true,
+		SortMapKeys:            true,
+		ValidateJsonRawMessage: true,
+		TagKey:                 "tf",
+		TypeEncoders:           getEncodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecTlsCertificate{}).Type1())),
+	}.Froze()
+
+	byt, _ := jsonit.Marshal(objs)
+
+	stream.Write(byt)
+}
+
+func (PolicySpecTlsCertificateCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	switch iter.WhatIsNext() {
+	case jsoniter.NilValue:
+		iter.Skip()
+		*(*PolicySpecTlsCertificate)(ptr) = PolicySpecTlsCertificate{}
+		return
+	case jsoniter.ArrayValue:
+		objsByte := iter.SkipAndReturnBytes()
+		if len(objsByte) > 0 {
+			var objs []PolicySpecTlsCertificate
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecTlsCertificate{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objsByte, &objs)
+
+			if len(objs) > 0 {
+				*(*PolicySpecTlsCertificate)(ptr) = objs[0]
+			} else {
+				*(*PolicySpecTlsCertificate)(ptr) = PolicySpecTlsCertificate{}
+			}
+		} else {
+			*(*PolicySpecTlsCertificate)(ptr) = PolicySpecTlsCertificate{}
+		}
+	case jsoniter.ObjectValue:
+		objByte := iter.SkipAndReturnBytes()
+		if len(objByte) > 0 {
+			var obj PolicySpecTlsCertificate
+
+			jsonit := jsoniter.Config{
+				EscapeHTML:             true,
+				SortMapKeys:            true,
+				ValidateJsonRawMessage: true,
+				TagKey:                 "tf",
+				TypeDecoders:           getDecodersWithout(jsoniter.MustGetKind(reflect2.TypeOf(PolicySpecTlsCertificate{}).Type1())),
+			}.Froze()
+			jsonit.Unmarshal(objByte, &obj)
+
+			*(*PolicySpecTlsCertificate)(ptr) = obj
+		} else {
+			*(*PolicySpecTlsCertificate)(ptr) = PolicySpecTlsCertificate{}
+		}
+	default:
+		iter.ReportError("decode PolicySpecTlsCertificate", "unexpected JSON type")
 	}
 }

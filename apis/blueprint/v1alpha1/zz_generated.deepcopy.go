@@ -126,16 +126,6 @@ func (in *AssignmentSpecIdentity) DeepCopyInto(out *AssignmentSpecIdentity) {
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
-	if in.PrincipalID != nil {
-		in, out := &in.PrincipalID, &out.PrincipalID
-		*out = new(string)
-		**out = **in
-	}
-	if in.TenantID != nil {
-		in, out := &in.TenantID, &out.TenantID
-		*out = new(string)
-		**out = **in
-	}
 	if in.Type != nil {
 		in, out := &in.Type, &out.Type
 		*out = new(string)
@@ -186,6 +176,11 @@ func (in *AssignmentSpecResource) DeepCopyInto(out *AssignmentSpecResource) {
 		in, out := &in.Location, &out.Location
 		*out = new(string)
 		**out = **in
+	}
+	if in.LockExcludeActions != nil {
+		in, out := &in.LockExcludeActions, &out.LockExcludeActions
+		*out = make([]string, len(*in))
+		copy(*out, *in)
 	}
 	if in.LockExcludePrincipals != nil {
 		in, out := &in.LockExcludePrincipals, &out.LockExcludePrincipals

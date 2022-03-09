@@ -47,6 +47,15 @@ type ActivityLogAlertSpecAction struct {
 	WebhookProperties *map[string]string `json:"webhookProperties,omitempty" tf:"webhook_properties"`
 }
 
+type ActivityLogAlertSpecCriteriaResourceHealth struct {
+	// +optional
+	Current []string `json:"current,omitempty" tf:"current"`
+	// +optional
+	Previous []string `json:"previous,omitempty" tf:"previous"`
+	// +optional
+	Reason []string `json:"reason,omitempty" tf:"reason"`
+}
+
 type ActivityLogAlertSpecCriteriaServiceHealth struct {
 	// +optional
 	Events []string `json:"events,omitempty" tf:"events"`
@@ -72,6 +81,8 @@ type ActivityLogAlertSpecCriteria struct {
 	RecommendationType *string `json:"recommendationType,omitempty" tf:"recommendation_type"`
 	// +optional
 	ResourceGroup *string `json:"resourceGroup,omitempty" tf:"resource_group"`
+	// +optional
+	ResourceHealth []ActivityLogAlertSpecCriteriaResourceHealth `json:"resourceHealth,omitempty" tf:"resource_health"`
 	// +optional
 	ResourceID *string `json:"resourceID,omitempty" tf:"resource_id"`
 	// +optional

@@ -24,6 +24,8 @@ type RegistryExpansion interface{}
 
 type RegistryScopeMapExpansion interface{}
 
+type RegistryTaskExpansion interface{}
+
 type RegistryTokenExpansion interface{}
 
 type RegistryWebhookExpansion interface{}

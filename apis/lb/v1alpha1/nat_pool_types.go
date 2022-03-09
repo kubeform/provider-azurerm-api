@@ -62,14 +62,20 @@ type NatPoolSpecResource struct {
 
 	BackendPort *int64 `json:"backendPort" tf:"backend_port"`
 	// +optional
+	FloatingIPEnabled *bool `json:"floatingIPEnabled,omitempty" tf:"floating_ip_enabled"`
+	// +optional
 	FrontendIPConfigurationID   *string `json:"frontendIPConfigurationID,omitempty" tf:"frontend_ip_configuration_id"`
 	FrontendIPConfigurationName *string `json:"frontendIPConfigurationName" tf:"frontend_ip_configuration_name"`
 	FrontendPortEnd             *int64  `json:"frontendPortEnd" tf:"frontend_port_end"`
 	FrontendPortStart           *int64  `json:"frontendPortStart" tf:"frontend_port_start"`
-	LoadbalancerID              *string `json:"loadbalancerID" tf:"loadbalancer_id"`
-	Name                        *string `json:"name" tf:"name"`
-	Protocol                    *string `json:"protocol" tf:"protocol"`
-	ResourceGroupName           *string `json:"resourceGroupName" tf:"resource_group_name"`
+	// +optional
+	IdleTimeoutInMinutes *int64  `json:"idleTimeoutInMinutes,omitempty" tf:"idle_timeout_in_minutes"`
+	LoadbalancerID       *string `json:"loadbalancerID" tf:"loadbalancer_id"`
+	Name                 *string `json:"name" tf:"name"`
+	Protocol             *string `json:"protocol" tf:"protocol"`
+	ResourceGroupName    *string `json:"resourceGroupName" tf:"resource_group_name"`
+	// +optional
+	TcpResetEnabled *bool `json:"tcpResetEnabled,omitempty" tf:"tcp_reset_enabled"`
 }
 
 type NatPoolStatus struct {

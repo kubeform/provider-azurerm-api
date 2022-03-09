@@ -30,4 +30,8 @@ type KeyVaultExpansion interface{}
 
 type ManagedHardwareSecurityModuleExpansion interface{}
 
+type ManagedStorageAccountExpansion interface{}
+
+type ManagedStorageAccountSasTokenDefinitionExpansion interface{}
+
 type SecretExpansion interface{}

@@ -28,6 +28,10 @@ type FirewallRuleExpansion interface{}
 
 type FlexibleServerExpansion interface{}
 
+type FlexibleServerConfigurationExpansion interface{}
+
+type FlexibleServerDatabaseExpansion interface{}
+
 type FlexibleServerFirewallRuleExpansion interface{}
 
 type ServerExpansion interface{}

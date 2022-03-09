@@ -42,6 +42,14 @@ type RegistryScopeMapListerExpansion interface{}
 // RegistryScopeMapNamespaceLister.
 type RegistryScopeMapNamespaceListerExpansion interface{}
 
+// RegistryTaskListerExpansion allows custom methods to be added to
+// RegistryTaskLister.
+type RegistryTaskListerExpansion interface{}
+
+// RegistryTaskNamespaceListerExpansion allows custom methods to be added to
+// RegistryTaskNamespaceLister.
+type RegistryTaskNamespaceListerExpansion interface{}
+
 // RegistryTokenListerExpansion allows custom methods to be added to
 // RegistryTokenLister.
 type RegistryTokenListerExpansion interface{}

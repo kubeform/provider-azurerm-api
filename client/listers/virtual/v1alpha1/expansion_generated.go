@@ -42,6 +42,22 @@ type DesktopHostPoolListerExpansion interface{}
 // DesktopHostPoolNamespaceLister.
 type DesktopHostPoolNamespaceListerExpansion interface{}
 
+// DesktopHostPoolRegistrationInfoListerExpansion allows custom methods to be added to
+// DesktopHostPoolRegistrationInfoLister.
+type DesktopHostPoolRegistrationInfoListerExpansion interface{}
+
+// DesktopHostPoolRegistrationInfoNamespaceListerExpansion allows custom methods to be added to
+// DesktopHostPoolRegistrationInfoNamespaceLister.
+type DesktopHostPoolRegistrationInfoNamespaceListerExpansion interface{}
+
+// DesktopScalingPlanListerExpansion allows custom methods to be added to
+// DesktopScalingPlanLister.
+type DesktopScalingPlanListerExpansion interface{}
+
+// DesktopScalingPlanNamespaceListerExpansion allows custom methods to be added to
+// DesktopScalingPlanNamespaceLister.
+type DesktopScalingPlanNamespaceListerExpansion interface{}
+
 // DesktopWorkspaceListerExpansion allows custom methods to be added to
 // DesktopWorkspaceLister.
 type DesktopWorkspaceListerExpansion interface{}
@@ -97,6 +113,14 @@ type HubRouteTableListerExpansion interface{}
 // HubRouteTableNamespaceListerExpansion allows custom methods to be added to
 // HubRouteTableNamespaceLister.
 type HubRouteTableNamespaceListerExpansion interface{}
+
+// HubRouteTableRouteListerExpansion allows custom methods to be added to
+// HubRouteTableRouteLister.
+type HubRouteTableRouteListerExpansion interface{}
+
+// HubRouteTableRouteNamespaceListerExpansion allows custom methods to be added to
+// HubRouteTableRouteNamespaceLister.
+type HubRouteTableRouteNamespaceListerExpansion interface{}
 
 // HubSecurityPartnerProviderListerExpansion allows custom methods to be added to
 // HubSecurityPartnerProviderLister.
@@ -161,6 +185,14 @@ type NetworkListerExpansion interface{}
 // NetworkNamespaceListerExpansion allows custom methods to be added to
 // NetworkNamespaceLister.
 type NetworkNamespaceListerExpansion interface{}
+
+// NetworkDNSServersListerExpansion allows custom methods to be added to
+// NetworkDNSServersLister.
+type NetworkDNSServersListerExpansion interface{}
+
+// NetworkDNSServersNamespaceListerExpansion allows custom methods to be added to
+// NetworkDNSServersNamespaceLister.
+type NetworkDNSServersNamespaceListerExpansion interface{}
 
 // NetworkGatewayListerExpansion allows custom methods to be added to
 // NetworkGatewayLister.

@@ -91,7 +91,7 @@ func (r *InsightsAnalyticsItem) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range insightsanalyticsitemForceNewList {
+	for key, _ := range insightsanalyticsitemForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

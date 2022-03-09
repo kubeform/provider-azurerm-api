@@ -18,6 +18,14 @@ limitations under the License.
 
 package v1alpha1
 
+// BudgetManagementGroupListerExpansion allows custom methods to be added to
+// BudgetManagementGroupLister.
+type BudgetManagementGroupListerExpansion interface{}
+
+// BudgetManagementGroupNamespaceListerExpansion allows custom methods to be added to
+// BudgetManagementGroupNamespaceLister.
+type BudgetManagementGroupNamespaceListerExpansion interface{}
+
 // BudgetResourceGroupListerExpansion allows custom methods to be added to
 // BudgetResourceGroupLister.
 type BudgetResourceGroupListerExpansion interface{}

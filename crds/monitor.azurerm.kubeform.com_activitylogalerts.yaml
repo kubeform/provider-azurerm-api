@@ -88,6 +88,23 @@ spec:
                         type: string
                       resourceGroup:
                         type: string
+                      resourceHealth:
+                        items:
+                          properties:
+                            current:
+                              items:
+                                type: string
+                              type: array
+                            previous:
+                              items:
+                                type: string
+                              type: array
+                            reason:
+                              items:
+                                type: string
+                              type: array
+                          type: object
+                        type: array
                       resourceID:
                         type: string
                       resourceProvider:
@@ -214,6 +231,23 @@ spec:
                         type: string
                       resourceGroup:
                         type: string
+                      resourceHealth:
+                        items:
+                          properties:
+                            current:
+                              items:
+                                type: string
+                              type: array
+                            previous:
+                              items:
+                                type: string
+                              type: array
+                            reason:
+                              items:
+                                type: string
+                              type: array
+                          type: object
+                        type: array
                       resourceID:
                         type: string
                       resourceProvider:

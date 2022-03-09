@@ -65,7 +65,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -136,7 +139,6 @@ spec:
                   userID:
                     type: string
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 type: object
@@ -159,7 +161,10 @@ spec:
                     items:
                       type: string
                     type: array
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
@@ -230,7 +235,6 @@ spec:
                   userID:
                     type: string
                 required:
-                - dataFactoryName
                 - name
                 - resourceGroupName
                 type: object

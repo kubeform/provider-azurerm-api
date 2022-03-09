@@ -61,6 +61,8 @@ spec:
                     properties:
                       administratorLogin:
                         type: string
+                      dualStandbyPairName:
+                        type: string
                       pricingTier:
                         type: string
                       serverEndpoint:
@@ -75,12 +77,77 @@ spec:
                     required:
                     - blobContainerURI
                     type: object
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
                   edition:
                     type: string
+                  expressCustomSetup:
+                    properties:
+                      commandKey:
+                        items:
+                          properties:
+                            keyVaultPassword:
+                              properties:
+                                linkedServiceName:
+                                  type: string
+                                parameters:
+                                  additionalProperties:
+                                    type: string
+                                  type: object
+                                secretName:
+                                  type: string
+                                secretVersion:
+                                  type: string
+                              required:
+                              - linkedServiceName
+                              - secretName
+                              type: object
+                            targetName:
+                              type: string
+                            userName:
+                              type: string
+                          required:
+                          - targetName
+                          - userName
+                          type: object
+                        type: array
+                      component:
+                        items:
+                          properties:
+                            keyVaultLicense:
+                              properties:
+                                linkedServiceName:
+                                  type: string
+                                parameters:
+                                  additionalProperties:
+                                    type: string
+                                  type: object
+                                secretName:
+                                  type: string
+                                secretVersion:
+                                  type: string
+                              required:
+                              - linkedServiceName
+                              - secretName
+                              type: object
+                            name:
+                              type: string
+                          required:
+                          - name
+                          type: object
+                        type: array
+                      environment:
+                        additionalProperties:
+                          type: string
+                        type: object
+                      powershellVersion:
+                        type: string
+                    type: object
                   id:
                     type: string
                   licenseType:
@@ -97,6 +164,30 @@ spec:
                   numberOfNodes:
                     format: int64
                     type: integer
+                  packageStore:
+                    items:
+                      properties:
+                        linkedServiceName:
+                          type: string
+                        name:
+                          type: string
+                      required:
+                      - linkedServiceName
+                      - name
+                      type: object
+                    type: array
+                  proxy:
+                    properties:
+                      path:
+                        type: string
+                      selfHostedIntegrationRuntimeName:
+                        type: string
+                      stagingStorageLinkedServiceName:
+                        type: string
+                    required:
+                    - selfHostedIntegrationRuntimeName
+                    - stagingStorageLinkedServiceName
+                    type: object
                   resourceGroupName:
                     type: string
                   timeouts:
@@ -139,16 +230,20 @@ spec:
                     type: object
                   vnetIntegration:
                     properties:
+                      publicIPS:
+                        items:
+                          type: string
+                        maxItems: 2
+                        minItems: 2
+                        type: array
+                      subnetID:
+                        type: string
                       subnetName:
                         type: string
                       vnetID:
                         type: string
-                    required:
-                    - subnetName
-                    - vnetID
                     type: object
                 required:
-                - dataFactoryName
                 - location
                 - name
                 - nodeSize
@@ -169,6 +264,8 @@ spec:
                     properties:
                       administratorLogin:
                         type: string
+                      dualStandbyPairName:
+                        type: string
                       pricingTier:
                         type: string
                       serverEndpoint:
@@ -183,12 +280,77 @@ spec:
                     required:
                     - blobContainerURI
                     type: object
+                  dataFactoryID:
+                    type: string
                   dataFactoryName:
+                    description: Deprecated
                     type: string
                   description:
                     type: string
                   edition:
                     type: string
+                  expressCustomSetup:
+                    properties:
+                      commandKey:
+                        items:
+                          properties:
+                            keyVaultPassword:
+                              properties:
+                                linkedServiceName:
+                                  type: string
+                                parameters:
+                                  additionalProperties:
+                                    type: string
+                                  type: object
+                                secretName:
+                                  type: string
+                                secretVersion:
+                                  type: string
+                              required:
+                              - linkedServiceName
+                              - secretName
+                              type: object
+                            targetName:
+                              type: string
+                            userName:
+                              type: string
+                          required:
+                          - targetName
+                          - userName
+                          type: object
+                        type: array
+                      component:
+                        items:
+                          properties:
+                            keyVaultLicense:
+                              properties:
+                                linkedServiceName:
+                                  type: string
+                                parameters:
+                                  additionalProperties:
+                                    type: string
+                                  type: object
+                                secretName:
+                                  type: string
+                                secretVersion:
+                                  type: string
+                              required:
+                              - linkedServiceName
+                              - secretName
+                              type: object
+                            name:
+                              type: string
+                          required:
+                          - name
+                          type: object
+                        type: array
+                      environment:
+                        additionalProperties:
+                          type: string
+                        type: object
+                      powershellVersion:
+                        type: string
+                    type: object
                   id:
                     type: string
                   licenseType:
@@ -205,6 +367,30 @@ spec:
                   numberOfNodes:
                     format: int64
                     type: integer
+                  packageStore:
+                    items:
+                      properties:
+                        linkedServiceName:
+                          type: string
+                        name:
+                          type: string
+                      required:
+                      - linkedServiceName
+                      - name
+                      type: object
+                    type: array
+                  proxy:
+                    properties:
+                      path:
+                        type: string
+                      selfHostedIntegrationRuntimeName:
+                        type: string
+                      stagingStorageLinkedServiceName:
+                        type: string
+                    required:
+                    - selfHostedIntegrationRuntimeName
+                    - stagingStorageLinkedServiceName
+                    type: object
                   resourceGroupName:
                     type: string
                   timeouts:
@@ -247,16 +433,20 @@ spec:
                     type: object
                   vnetIntegration:
                     properties:
+                      publicIPS:
+                        items:
+                          type: string
+                        maxItems: 2
+                        minItems: 2
+                        type: array
+                      subnetID:
+                        type: string
                       subnetName:
                         type: string
                       vnetID:
                         type: string
-                    required:
-                    - subnetName
-                    - vnetID
                     type: object
                 required:
-                - dataFactoryName
                 - location
                 - name
                 - nodeSize

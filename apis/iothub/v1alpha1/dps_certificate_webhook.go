@@ -90,7 +90,7 @@ func (r *DpsCertificate) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range dpscertificateForceNewList {
+	for key, _ := range dpscertificateForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

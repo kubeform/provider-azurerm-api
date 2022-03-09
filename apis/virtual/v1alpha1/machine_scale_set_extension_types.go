@@ -65,6 +65,8 @@ type MachineScaleSetExtensionSpecResource struct {
 	// +optional
 	AutoUpgradeMinorVersion *bool `json:"autoUpgradeMinorVersion,omitempty" tf:"auto_upgrade_minor_version"`
 	// +optional
+	AutomaticUpgradeEnabled *bool `json:"automaticUpgradeEnabled,omitempty" tf:"automatic_upgrade_enabled"`
+	// +optional
 	ForceUpdateTag *string `json:"forceUpdateTag,omitempty" tf:"force_update_tag"`
 	Name           *string `json:"name" tf:"name"`
 	// +optional

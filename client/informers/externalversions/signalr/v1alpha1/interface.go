@@ -26,6 +26,8 @@ import (
 type Interface interface {
 	// Services returns a ServiceInformer.
 	Services() ServiceInformer
+	// ServiceNetworkACLs returns a ServiceNetworkACLInformer.
+	ServiceNetworkACLs() ServiceNetworkACLInformer
 }
 
 type version struct {
@@ -42,4 +44,9 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // Services returns a ServiceInformer.
 func (v *version) Services() ServiceInformer {
 	return &serviceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ServiceNetworkACLs returns a ServiceNetworkACLInformer.
+func (v *version) ServiceNetworkACLs() ServiceNetworkACLInformer {
+	return &serviceNetworkACLInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

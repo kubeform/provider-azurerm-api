@@ -74,12 +74,18 @@ type VirtualMachineScaleSetSpecDataDisk struct {
 	// +optional
 	DiskEncryptionSetID *string `json:"diskEncryptionSetID,omitempty" tf:"disk_encryption_set_id"`
 	// +optional
+	// Deprecated
 	DiskIopsReadWrite *int64 `json:"diskIopsReadWrite,omitempty" tf:"disk_iops_read_write"`
 	// +optional
+	// Deprecated
 	DiskMbpsReadWrite  *int64  `json:"diskMbpsReadWrite,omitempty" tf:"disk_mbps_read_write"`
 	DiskSizeGb         *int64  `json:"diskSizeGb" tf:"disk_size_gb"`
 	Lun                *int64  `json:"lun" tf:"lun"`
 	StorageAccountType *string `json:"storageAccountType" tf:"storage_account_type"`
+	// +optional
+	UltraSsdDiskIopsReadWrite *int64 `json:"ultraSsdDiskIopsReadWrite,omitempty" tf:"ultra_ssd_disk_iops_read_write"`
+	// +optional
+	UltraSsdDiskMbpsReadWrite *int64 `json:"ultraSsdDiskMbpsReadWrite,omitempty" tf:"ultra_ssd_disk_mbps_read_write"`
 	// +optional
 	WriteAcceleratorEnabled *bool `json:"writeAcceleratorEnabled,omitempty" tf:"write_accelerator_enabled"`
 }
@@ -87,6 +93,8 @@ type VirtualMachineScaleSetSpecDataDisk struct {
 type VirtualMachineScaleSetSpecExtension struct {
 	// +optional
 	AutoUpgradeMinorVersion *bool `json:"autoUpgradeMinorVersion,omitempty" tf:"auto_upgrade_minor_version"`
+	// +optional
+	AutomaticUpgradeEnabled *bool `json:"automaticUpgradeEnabled,omitempty" tf:"automatic_upgrade_enabled"`
 	// +optional
 	ForceUpdateTag *string `json:"forceUpdateTag,omitempty" tf:"force_update_tag"`
 	Name           *string `json:"name" tf:"name"`
@@ -106,7 +114,9 @@ type VirtualMachineScaleSetSpecIdentity struct {
 	IdentityIDS []string `json:"identityIDS,omitempty" tf:"identity_ids"`
 	// +optional
 	PrincipalID *string `json:"principalID,omitempty" tf:"principal_id"`
-	Type        *string `json:"type" tf:"type"`
+	// +optional
+	TenantID *string `json:"tenantID,omitempty" tf:"tenant_id"`
+	Type     *string `json:"type" tf:"type"`
 }
 
 type VirtualMachineScaleSetSpecNetworkInterfaceIpConfigurationPublicIPAddressIpTag struct {
@@ -298,6 +308,8 @@ type VirtualMachineScaleSetSpecResource struct {
 	// +optional
 	Secret []VirtualMachineScaleSetSpecSecret `json:"secret,omitempty" tf:"secret"`
 	// +optional
+	SecureBootEnabled *bool `json:"secureBootEnabled,omitempty" tf:"secure_boot_enabled"`
+	// +optional
 	SinglePlacementGroup *bool   `json:"singlePlacementGroup,omitempty" tf:"single_placement_group"`
 	Sku                  *string `json:"sku" tf:"sku"`
 	// +optional
@@ -312,6 +324,10 @@ type VirtualMachineScaleSetSpecResource struct {
 	UniqueID *string `json:"uniqueID,omitempty" tf:"unique_id"`
 	// +optional
 	UpgradeMode *string `json:"upgradeMode,omitempty" tf:"upgrade_mode"`
+	// +optional
+	UserData *string `json:"userData,omitempty" tf:"user_data"`
+	// +optional
+	VtpmEnabled *bool `json:"vtpmEnabled,omitempty" tf:"vtpm_enabled"`
 	// +optional
 	ZoneBalance *bool `json:"zoneBalance,omitempty" tf:"zone_balance"`
 	// +optional

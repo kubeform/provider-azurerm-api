@@ -33,6 +33,10 @@ func (c *FakeServiceV1alpha1) FabricClusters(namespace string) v1alpha1.FabricCl
 	return &FakeFabricClusters{c, namespace}
 }
 
+func (c *FakeServiceV1alpha1) FabricManagedClusters(namespace string) v1alpha1.FabricManagedClusterInterface {
+	return &FakeFabricManagedClusters{c, namespace}
+}
+
 func (c *FakeServiceV1alpha1) FabricMeshApplications(namespace string) v1alpha1.FabricMeshApplicationInterface {
 	return &FakeFabricMeshApplications{c, namespace}
 }
